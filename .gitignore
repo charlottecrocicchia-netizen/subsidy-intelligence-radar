@@ -5,12 +5,15 @@ __pycache__/
 
 # Data generated/downloaded
 data/raw/
-data/processed/
-data/external/
+
+# Ignore everything in processed/external by default
+data/processed/*
+data/external/*
+
+# BUT keep the two deliverables for Streamlit Cloud
+!data/processed/subsidy_base.parquet
+!data/external/events.csv
 
 # Local snapshots/logs
 _project_snapshot.txt
 *.log
-# Keep the two deliverables for Streamlit Cloud
-!data/processed/subsidy_base.parquet
-!data/external/events.csv
