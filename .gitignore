@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+
+# Data generated/downloaded
+data/raw/
+data/processed/
+data/external/
+
+# Local snapshots/logs
+_project_snapshot.txt
+*.log
