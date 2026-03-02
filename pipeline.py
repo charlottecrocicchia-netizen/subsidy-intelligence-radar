@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Mar  2 13:03:46 2026
+pipeline.py — Update raw sources + rebuild processed dataset.
 
-@author: charlottecrocicchia
+Two modes:
+- LOCAL (recommended): download CORDIS zips + ADEME csv, then rebuild data/processed/subsidy_base.{csv,parquet}
+- STREAMLIT CLOUD: never downloads big sources (avoids "Oh no"). Only checks that processed parquet exists.
+
+Author: Charlotte Crocicchia (rewritten & hardened)
 """
 
-# pipeline.py
 from __future__ import annotations
 
 import io
 import json
+import os
 import time
 import zipfile
 from dataclasses import dataclass
@@ -25,9 +29,11 @@ PROC_DIR = BASE_DIR / "data" / "processed"
 
 STATE_PATH = PROC_DIR / "_state.json"
 LOCK_PATH = PROC_DIR / "_build.lock"
-OUT_CSV = PROC_DIR / "subsidy_base.csv"
 
-HEADERS = {"User-Agent": "SubsidyRadar/1.0 (+TotalEnergies-mission)"}
+OUT_CSV = PROC_DIR / "subsidy_base.csv"
+OUT_PARQUET = PROC_DIR / "subsidy_base.parquet"
+
+HEADERS = {"User-Agent": "SubsidyRadar/1.0 (+mission)"}
 
 # CORDIS (official bulk zips)
 CORDIS_URLS = {
@@ -39,9 +45,29 @@ CORDIS_URLS = {
 ADEME_DATASET_API = "https://www.data.gouv.fr/api/1/datasets/640afdff7a07961cdc232d19/"
 
 
-# ----------------------------
+# ============================
+# Environment detection
+# ============================
+def is_streamlit_cloud() -> bool:
+    """
+    Streamlit Community Cloud containers typically expose these env vars.
+    We keep detection conservative.
+    """
+    # common: running Streamlit headless in cloud
+    if os.getenv("STREAMLIT_SERVER_HEADLESS") == "true":
+        return True
+    # some deployments set STREAMLIT_RUNTIME or similar
+    if os.getenv("STREAMLIT_RUNTIME"):
+        return True
+    # fallback: user can force via env
+    if os.getenv("SUBSIDY_RADAR_CLOUD") == "1":
+        return True
+    return False
+
+
+# ============================
 # Lock + state
-# ----------------------------
+# ============================
 def _read_state() -> Dict:
     if STATE_PATH.exists():
         try:
@@ -62,7 +88,7 @@ def _acquire_lock(timeout_sec: int = 600) -> None:
     while LOCK_PATH.exists():
         if time.time() - t0 > timeout_sec:
             raise RuntimeError("Build lock timeout (another process may be stuck).")
-        time.sleep(0.2)
+        time.sleep(0.25)
     LOCK_PATH.write_text(str(time.time()), encoding="utf-8")
 
 
@@ -73,9 +99,9 @@ def _release_lock() -> None:
         pass
 
 
-# ----------------------------
+# ============================
 # Stamps (cheap “did it change?”)
-# ----------------------------
+# ============================
 def _http_stamp(url: str) -> str:
     """
     Returns a string stamp from HEAD (ETag / Last-Modified / Content-Length).
@@ -111,7 +137,8 @@ def _pick_best_csv_resource(resources: list) -> Optional[dict]:
             csvs.append(r)
     if not csvs:
         return None
-    # Most recent non-doc preferred
+
+    # prefer latest non-doc
     def key(r: dict) -> Tuple[int, str]:
         title = str(r.get("title", "")).lower()
         is_doc = int(("swagger" in title) or ("documentation" in title) or ("api" in title))
@@ -135,12 +162,12 @@ def _ademe_url_and_stamp() -> Tuple[Optional[str], str]:
         return None, ""
 
 
-# ----------------------------
+# ============================
 # Download helpers
-# ----------------------------
+# ============================
 def _download_and_extract_zip(url: str, out_dir: Path) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
-    r = requests.get(url, timeout=300, headers=HEADERS)
+    r = requests.get(url, timeout=600, headers=HEADERS)
     r.raise_for_status()
     z = zipfile.ZipFile(io.BytesIO(r.content))
     z.extractall(out_dir)
@@ -148,7 +175,7 @@ def _download_and_extract_zip(url: str, out_dir: Path) -> None:
 
 def _download_stream(url: str, out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    with requests.get(url, stream=True, timeout=300, headers=HEADERS, allow_redirects=True) as r:
+    with requests.get(url, stream=True, timeout=600, headers=HEADERS, allow_redirects=True) as r:
         r.raise_for_status()
         with open(out_path, "wb") as f:
             for chunk in r.iter_content(chunk_size=1024 * 1024):
@@ -156,9 +183,9 @@ def _download_stream(url: str, out_path: Path) -> None:
                     f.write(chunk)
 
 
-# ----------------------------
+# ============================
 # Public API
-# ----------------------------
+# ============================
 @dataclass
 class UpdateResult:
     rebuilt: bool
@@ -167,11 +194,27 @@ class UpdateResult:
 
 def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateResult:
     """
-    Checks remote stamps; downloads raw + rebuilds processed CSV only if needed.
-    Safe for Streamlit (lock + state).
+    LOCAL:
+      checks remote stamps; downloads raw + rebuilds processed dataset if needed.
+    STREAMLIT CLOUD:
+      never downloads big sources; only checks parquet exists (and rebuilds from local raw if present).
+
+    The "Refresh" button in app should call this with force=True on LOCAL machines.
+    On Cloud, do NOT call it to download; use build_events.py only.
     """
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     PROC_DIR.mkdir(parents=True, exist_ok=True)
+
+    cloud = is_streamlit_cloud()
+
+    # Cloud mode: no downloads
+    if cloud:
+        if OUT_PARQUET.exists():
+            return UpdateResult(rebuilt=False, reason="cloud_mode:parquet_present")
+        return UpdateResult(
+            rebuilt=False,
+            reason="cloud_mode:missing_parquet (generate locally then commit/push data/processed/subsidy_base.parquet)",
+        )
 
     state = _read_state()
 
@@ -179,10 +222,12 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
     cordis_stamps = {k: _http_stamp(url) for k, url in CORDIS_URLS.items()}
     ademe_url, ademe_stamp = _ademe_url_and_stamp()
 
-    need = force or (not OUT_CSV.exists())
+    need = force or (not OUT_PARQUET.exists()) or (not OUT_CSV.exists())
     reasons = []
     if force:
         reasons.append("forced")
+    if not OUT_PARQUET.exists():
+        reasons.append("missing_processed_parquet")
     if not OUT_CSV.exists():
         reasons.append("missing_processed_csv")
 
@@ -208,7 +253,7 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
                 print(f"[pipeline] Download CORDIS {name}")
             _download_and_extract_zip(url, RAW_DIR / "cordis" / name)
 
-        # ADEME (optional)
+        # ADEME optional
         if ademe_url:
             if verbose:
                 print("[pipeline] Download ADEME CSV")
@@ -234,10 +279,10 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
         _release_lock()
 
 
-def main():
-    # Clicking "Refresh" should actively update (download + rebuild)
+def main() -> None:
+    # On your Mac: use force=True to actually update and rebuild everything.
     res = ensure_data_updated(force=True, verbose=True)
-    print(f"[OK] rebuilt={res.rebuilt} reason={res.reason} out={OUT_CSV}")
+    print(f"[OK] rebuilt={res.rebuilt} reason={res.reason} out={OUT_PARQUET}")
 
 
 if __name__ == "__main__":

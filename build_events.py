@@ -1,56 +1,69 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Mar  2 16:46:05 2026
+build_events.py — Build data/external/events.csv from:
+- EC Newsroom RSS feeds
+- EUR-Lex / Cellar SPARQL endpoint
 
-@author: charlottecrocicchia
+Robust version for Streamlit Cloud:
+- timeouts + user-agent
+- per-source error isolation
+- atomic write
 """
 
 from __future__ import annotations
 
-import re
 import csv
+import re
+import tempfile
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterable, List, Dict, Optional, Tuple
+from typing import List, Optional, Tuple
 
-import requests
 import feedparser
+import requests
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 
 # =========================
-# Paths (mêmes que ton app)
+# Paths
 # =========================
-BASE_DIR = Path(__file__).resolve().parent   # <-- Script/
+BASE_DIR = Path(__file__).resolve().parent
 EVENTS_PATH = BASE_DIR / "data" / "external" / "events.csv"
 EVENTS_PATH.parent.mkdir(parents=True, exist_ok=True)
 
+# lock-free atomic write
+_TMP_DIR = Path(tempfile.gettempdir())
+
 
 # =========================
-# Config: RSS sources
+# Network config (cloud-proof)
 # =========================
-# Note: certains flux "newsroom" ont un endpoint /feed?... (visible sur les pages "Rss Feed for ...").
-# Exemple vu pour Horizon2020 Energy topic: page topic/615 -> feed?lang=en&orderby=item_date&topic_id=615 :contentReference[oaicite:3]{index=3}
+DEFAULT_TIMEOUT = 25  # seconds
+HEADERS = {
+    "User-Agent": "SubsidyIntelligenceRadar/1.0 (Streamlit; contact: internal)",
+    "Accept": "application/rss+xml,application/xml,text/xml,*/*",
+}
+
+
+# =========================
+# RSS sources
+# =========================
 RSS_FEEDS: List[Tuple[str, str]] = [
-    # (source_name, feed_url)
     ("EC Newsroom — Horizon2020 Energy", "https://ec.europa.eu/newsroom/horizon2020/feed?lang=en&orderby=item_date&topic_id=615"),
     ("EC Newsroom — Horizon2020 Environment", "https://ec.europa.eu/newsroom/horizon2020/feed?lang=en&orderby=item_date&topic_id=613"),
-    # Ajoute d’autres “Newsroom” si tu veux (DG CLIMA, DG ENER, etc. selon pages qui exposent un RSS)
 ]
 
-
 # =========================
-# Config: EUR-Lex / Cellar SPARQL
+# EUR-Lex / Cellar SPARQL
 # =========================
-CELLAR_SPARQL_ENDPOINT = "https://publications.europa.eu/webapi/rdf/sparql"  # :contentReference[oaicite:4]{index=4}
+CELLAR_SPARQL_ENDPOINT = "https://publications.europa.eu/webapi/rdf/sparql"
 
-# Mots-clés -> tags
 TAG_RULES: List[Tuple[str, str]] = [
     (r"\bhydrogen\b|\bh2\b|\belectroly", "H2"),
     (r"\bccus\b|\bccs\b|\bcarbon capture\b|\bco2\b|\bstorage\b", "CCUS"),
-    (r"\bbatter(y|ies)\b|\bstorage\b|\blithium\b|\bcell\b", "BAT"),
+    (r"\bbatter(y|ies)\b|\blithium\b|\bcell\b", "BAT"),
     (r"\bsmr\b|\bnuclear\b|\beuratom\b", "NUC"),
     (r"\bsolar\b|\bpv\b|\bcsp\b", "SOL"),
     (r"\bwind\b|\boffshore\b|\bonshore\b", "WND"),
@@ -70,11 +83,10 @@ def infer_tag(text: str) -> str:
     for pattern, tag in TAG_RULES:
         if re.search(pattern, t, flags=re.IGNORECASE):
             return tag
-    return "REG"  # fallback “transversal”
+    return "REG"
 
 
 def theme_from_tag(tag: str) -> str:
-    # Tu peux ajuster ces libellés (l’app matche par theme ou par tag)
     mapping = {
         "H2": "Hydrogen (H2)",
         "CCUS": "CCUS",
@@ -101,7 +113,7 @@ class Event:
     tag: str
     title: str
     source: str
-    impact_direction: str  # "+", "-", "0"
+    impact_direction: str
     notes: str
 
     @property
@@ -109,76 +121,81 @@ class Event:
         return self.date.strftime("%Y-%m-%d")
 
 
-def _safe_dt_from_struct(entry: dict) -> Optional[datetime]:
-    # feedparser uses struct_time sometimes
-    for key in ["published_parsed", "updated_parsed"]:
-        if key in entry and entry[key]:
+def _safe_dt_from_feed_entry(entry: dict) -> Optional[datetime]:
+    # feedparser: struct_time
+    for key in ("published_parsed", "updated_parsed"):
+        if entry.get(key):
             stt = entry[key]
             return datetime(*stt[:6], tzinfo=timezone.utc).astimezone(timezone.utc).replace(tzinfo=None)
-    # fallback: try raw strings
-    for key in ["published", "updated"]:
-        if key in entry and entry[key]:
+
+    # fallback: raw string
+    for key in ("published", "updated"):
+        if entry.get(key):
+            s = str(entry[key]).strip()
             try:
-                return datetime.fromisoformat(entry[key].replace("Z", "+00:00")).replace(tzinfo=None)
+                return datetime.fromisoformat(s.replace("Z", "+00:00")).replace(tzinfo=None)
             except Exception:
                 pass
     return None
 
 
-def fetch_rss_events(limit_per_feed: int = 50) -> List[Event]:
+def _feedparser_parse(url: str) -> feedparser.FeedParserDict:
+    """
+    feedparser can fetch itself, but to control timeout/headers we fetch with requests first.
+    """
+    r = requests.get(url, headers=HEADERS, timeout=DEFAULT_TIMEOUT)
+    r.raise_for_status()
+    return feedparser.parse(r.content)
+
+
+def fetch_rss_events(limit_per_feed: int = 80) -> List[Event]:
     out: List[Event] = []
     for source_name, url in RSS_FEEDS:
-        d = feedparser.parse(url)
-        for e in d.entries[:limit_per_feed]:
-            dt = _safe_dt_from_struct(e)
+        try:
+            d = _feedparser_parse(url)
+        except Exception as e:
+            print(f"[WARN] RSS failed: {source_name} — {e}")
+            continue
+
+        for entry in (d.entries or [])[:limit_per_feed]:
+            dt = _safe_dt_from_feed_entry(entry)
             if not dt:
                 continue
-            title = (e.get("title") or "").strip()
-            link = (e.get("link") or "").strip()
-            summary = (e.get("summary") or "").strip()
+            title = (entry.get("title") or "").strip() or "(no title)"
+            link = (entry.get("link") or "").strip()
+            summary = (entry.get("summary") or "").strip()
             blob = f"{title}\n{summary}"
             tag = infer_tag(blob)
             theme = theme_from_tag(tag)
             notes = (summary[:800] + ("…" if len(summary) > 800 else "")).strip()
             if link:
                 notes = f"{notes}\nLink: {link}".strip()
+
             out.append(Event(
                 date=dt,
                 theme=theme,
                 tag=tag,
-                title=title or "(no title)",
+                title=title,
                 source=source_name,
                 impact_direction="+",
-                notes=notes
+                notes=notes,
             ))
     return out
 
 
-def fetch_eurlex_sparql_events(
-    keywords: List[str],
-    days_back: int = 365,
-    limit: int = 200
-) -> List[Event]:
-    """
-    Pull recent legal acts metadata from Cellar SPARQL endpoint.
-    We keep it lightweight: title + date + celex where possible.
-    """
-    # Simple keyword filter (title/label contains)
-    # Note: SPARQL over Cellar is powerful; this is intentionally conservative & robust.
+def fetch_eurlex_sparql_events(keywords: List[str], days_back: int = 540, limit: int = 250) -> List[Event]:
     kw_filters = " || ".join([f'CONTAINS(LCASE(STR(?title)), "{k.lower()}")' for k in keywords])
     if not kw_filters:
         kw_filters = "true"
 
-    # Date lower bound
-    since = (datetime.utcnow().date()).toordinal() - days_back
-    since_dt = datetime.fromordinal(since).strftime("%Y-%m-%d")
+    since_dt = (datetime.utcnow().date().toordinal() - int(days_back))
+    since_dt = datetime.fromordinal(since_dt).strftime("%Y-%m-%d")
 
     query = f"""
 PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
 PREFIX dct: <http://purl.org/dc/terms/>
 SELECT DISTINCT ?work ?title ?date ?celex WHERE {{
   ?work a cdm:work .
-  OPTIONAL {{ ?work cdm:work_has_resource-type ?rt . }}
   OPTIONAL {{ ?work cdm:work_date_document ?date . }}
   OPTIONAL {{ ?work cdm:resource_legal_id_celex ?celex . }}
   OPTIONAL {{ ?work dct:title ?title . FILTER (lang(?title) = "en") }}
@@ -194,7 +211,13 @@ LIMIT {int(limit)}
     sparql = SPARQLWrapper(CELLAR_SPARQL_ENDPOINT)
     sparql.setQuery(query)
     sparql.setReturnFormat(JSON)
-    res = sparql.query().convert()
+    sparql.setTimeout(DEFAULT_TIMEOUT)  # important on cloud
+
+    try:
+        res = sparql.query().convert()
+    except Exception as e:
+        print(f"[WARN] SPARQL failed — {e}")
+        return []
 
     events: List[Event] = []
     for b in res.get("results", {}).get("bindings", []):
@@ -207,10 +230,12 @@ LIMIT {int(limit)}
             dt = datetime.fromisoformat(date_s)
         except Exception:
             continue
+
         blob = f"{title} {celex}"
         tag = infer_tag(blob)
         theme = theme_from_tag(tag)
         notes = f"CELEX: {celex}" if celex else ""
+
         events.append(Event(
             date=dt,
             theme=theme,
@@ -218,14 +243,14 @@ LIMIT {int(limit)}
             title=title,
             source="EUR-Lex (Cellar SPARQL)",
             impact_direction="+",
-            notes=notes
+            notes=notes,
         ))
     return events
 
 
 def dedupe(events: List[Event]) -> List[Event]:
     seen = set()
-    out = []
+    out: List[Event] = []
     for e in sorted(events, key=lambda x: (x.date, x.source, x.title)):
         key = (e.date_str, e.tag, e.title.lower())
         if key in seen:
@@ -235,31 +260,35 @@ def dedupe(events: List[Event]) -> List[Event]:
     return out
 
 
-def write_events_csv(events: List[Event], path: Path) -> None:
+def atomic_write_events_csv(events: List[Event], path: Path) -> None:
     rows = dedupe(events)
-    with path.open("w", newline="", encoding="utf-8") as f:
+    tmp = _TMP_DIR / f"events_{path.name}.tmp"
+    with tmp.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["date", "theme", "tag", "title", "source", "impact_direction", "notes"])
         for e in rows:
             w.writerow([e.date_str, e.theme, e.tag, e.title, e.source, e.impact_direction, e.notes])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp.replace(path)
 
 
-def main():
-    # 1) RSS events
+def main() -> None:
     rss_events = fetch_rss_events(limit_per_feed=80)
 
-    # 2) EUR-Lex / Cellar SPARQL events (keywords = tech + policy)
     keywords = [
         "hydrogen", "battery", "batteries", "carbon", "ccs", "ccus",
         "net-zero", "industry act", "renewable", "electricity", "ai act",
-        "gas", "security of supply"
+        "gas", "security of supply",
     ]
     eurlex_events = fetch_eurlex_sparql_events(keywords=keywords, days_back=540, limit=250)
 
     all_events = rss_events + eurlex_events
-    write_events_csv(all_events, EVENTS_PATH)
+    atomic_write_events_csv(all_events, EVENTS_PATH)
 
-    print(f"[OK] Wrote {len(dedupe(all_events))} events to: {EVENTS_PATH}")
+    print(f"[OK] RSS events: {len(rss_events)}")
+    print(f"[OK] SPARQL events: {len(eurlex_events)}")
+    print(f"[OK] Total (deduped): {len(dedupe(all_events))}")
+    print(f"[OK] Wrote: {EVENTS_PATH}")
 
 
 if __name__ == "__main__":
