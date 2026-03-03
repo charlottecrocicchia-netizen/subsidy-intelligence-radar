@@ -9,8 +9,12 @@ import tempfile
 import numpy as np
 import pandas as pd
 import streamlit as st
+
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
+
+pio.templates.default = "plotly_dark"
 
 import duckdb
 from filelock import FileLock, Timeout
