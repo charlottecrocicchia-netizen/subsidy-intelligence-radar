@@ -97,6 +97,18 @@ The base dataset includes additional fields:
 ## Streamlit Community Cloud
 Push this repo to GitHub (keep `data/` ignored via `.gitignore`). Then deploy with main file `app.py`.
 
+Important:
+- A Streamlit Cloud app can recompute files at runtime, but those file writes are not guaranteed to persist forever across restarts/redeploys.
+- Durable automation is handled by GitHub Actions (`.github/workflows/refresh-data.yml`), which updates tracked data in the repo.
+
+### Enable full automation (recommended)
+1. Push this branch to GitHub.
+2. In GitHub, open **Actions** and verify workflow **Refresh Data** appears.
+3. Run it once with **Run workflow**.
+4. Optionally add repository secrets for connectors:
+`CINEA_API_TOKEN`, `QLIK_API_TOKEN`, `EU_FUNDING_API_TOKEN`, `KAILA_API_TOKEN`.
+5. Keep Streamlit linked to the same branch (or `main`) to pick up automated commits.
+
 ## GitHub push (recommended)
 Yes, you should push to GitHub for versioning + deployment.
 

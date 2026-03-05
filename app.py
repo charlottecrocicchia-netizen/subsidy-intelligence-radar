@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import re
+import os
 
 import numpy as np
 import pandas as pd
@@ -275,6 +276,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "logs": "Logs",
         "macro_filters": "Filtres Macro (indépendants)",
         "macro_use_global": "Utiliser les filtres globaux (sidebar)",
+        "cloud_persistence_note": "Mode Streamlit Cloud : les mises à jour de fichiers via ce bouton ne sont pas durables. Utiliser le workflow GitHub « Refresh Data » pour une persistance automatique.",
         "missing_stage_col": "La colonne `value_chain_stage` n’est pas encore disponible. Lance un rafraîchissement des données.",
     },
     "EN": {
@@ -392,6 +394,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "logs": "Logs",
         "macro_filters": "Macro filters (independent)",
         "macro_use_global": "Use global filters (sidebar)",
+        "cloud_persistence_note": "Streamlit Cloud mode: file updates from this button are not durable. Use the GitHub workflow \"Refresh Data\" for persistent automation.",
         "missing_stage_col": "Column `value_chain_stage` is not available yet. Run a data refresh.",
     },
 }
@@ -453,6 +456,16 @@ def _fmt_mtime(p: Path) -> str:
         return datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M")
     except Exception:
         return "—"
+
+
+def is_streamlit_cloud_runtime() -> bool:
+    if os.getenv("STREAMLIT_SERVER_HEADLESS") == "true":
+        return True
+    if os.getenv("STREAMLIT_RUNTIME"):
+        return True
+    if os.getenv("SUBSIDY_RADAR_CLOUD") == "1":
+        return True
+    return False
 
 
 def reset_filters() -> None:
@@ -836,6 +849,7 @@ def refresh_with_lock() -> Tuple[bool, Dict[str, str]]:
 with st.sidebar:
     lang = st.radio("Language", ["FR", "EN"], index=0, horizontal=True, label_visibility="collapsed", key="ui_lang")
     st.caption(t(lang, "language"))
+    cloud_runtime = is_streamlit_cloud_runtime()
 
     st.caption(f"{t(lang,'last_update')} — {t(lang,'last_update_data')}: {_fmt_mtime(PARQUET_PATH)}")
     st.caption(f"{t(lang,'last_update')} — {t(lang,'last_update_events')}: {_fmt_mtime(EVENTS_PATH)}")
@@ -857,6 +871,9 @@ with st.sidebar:
             st.session_state["last_rebuild_ok"] = ok
             st.session_state["last_rebuild_logs"] = logs
             st.rerun()
+
+    if cloud_runtime:
+        st.caption(t(lang, "cloud_persistence_note"))
 
     if "last_rebuild_logs" in st.session_state:
         st.divider()

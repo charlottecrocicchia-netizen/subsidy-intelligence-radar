@@ -1,0 +1,69 @@
+name: Refresh Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily at 05:15 UTC
+    - cron: "15 5 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Rebuild core dataset (incremental)
+        env:
+          SUBSIDY_FORCE_REBUILD: "0"
+          # Optional connector tokens (set these in repository secrets)
+          CINEA_API_TOKEN: ${{ secrets.CINEA_API_TOKEN }}
+          QLIK_API_TOKEN: ${{ secrets.QLIK_API_TOKEN }}
+          EU_FUNDING_API_TOKEN: ${{ secrets.EU_FUNDING_API_TOKEN }}
+          KAILA_API_TOKEN: ${{ secrets.KAILA_API_TOKEN }}
+        run: |
+          python pipeline.py
+
+      - name: Rebuild macro events
+        run: |
+          python build_events.py
+
+      - name: Check tracked artifact size
+        run: |
+          if [ -f data/processed/subsidy_base.parquet ]; then
+            BYTES=$(stat -c%s data/processed/subsidy_base.parquet)
+            echo "subsidy_base.parquet bytes=$BYTES"
+            if [ "$BYTES" -ge 104857600 ]; then
+              echo "Parquet is >= 100 MiB GitHub hard limit. Please reduce dataset size."
+              exit 1
+            fi
+          fi
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/processed/subsidy_base.parquet data/external/events.csv
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(data): automated refresh"
+          git push
