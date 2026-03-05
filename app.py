@@ -331,6 +331,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "build_sha": "Version code",
         "mapping_coverage": "Couverture mapping",
         "include_unspecified": "Inclure « Unspecified »",
+        "kpi_scope": "Périmètre actif",
         "ticket_shape_title": "Tickets projet par année (moyen vs médian)",
         "ticket_shape_caption": "Barres = budget annuel total. Courbe = ticket médian par projet.",
         "ticket_shape_median": "Ticket médian",
@@ -347,6 +348,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_detail_detailed": "Détaillé",
         "macro_event_labels": "Afficher libellé court des événements sur le graphe",
         "vc_stage_filter": "Étapes de chaîne à afficher",
+        "vc_stage_mode": "Affichage des étapes",
+        "vc_stage_mode_all": "Toutes les étapes",
+        "vc_stage_mode_custom": "Sélection personnalisée",
         "vc_stage_focus": "Étape à explorer",
         "vc_actor_focus": "Acteur sur cette étape",
         "vc_projects_focus": "Projets liés (étape + acteur)",
@@ -493,6 +497,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "build_sha": "Code version",
         "mapping_coverage": "Mapping coverage",
         "include_unspecified": "Include \"Unspecified\"",
+        "kpi_scope": "Active scope",
         "ticket_shape_title": "Project tickets by year (average vs median)",
         "ticket_shape_caption": "Bars = total annual budget. Line = median project ticket.",
         "ticket_shape_median": "Median ticket",
@@ -509,6 +514,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_detail_detailed": "Detailed",
         "macro_event_labels": "Show short event labels on chart",
         "vc_stage_filter": "Value-chain stages to display",
+        "vc_stage_mode": "Stage display",
+        "vc_stage_mode_all": "All stages",
+        "vc_stage_mode_custom": "Custom selection",
         "vc_stage_focus": "Stage to explore",
         "vc_actor_focus": "Actor on this stage",
         "vc_projects_focus": "Related projects (stage + actor)",
@@ -794,8 +802,33 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
     base = rel()
     cols = set(base_schema_columns())
     pic_expr = "b.pic" if "pic" in cols else "regexp_extract(b.actor_id, '([0-9]{8,10})$', 1)"
-    stage_expr = "b.value_chain_stage" if "value_chain_stage" in cols else "'Research & concept'"
     status_expr = "b.project_status" if "project_status" in cols else "'Unknown'"
+    stage_blob_expr = (
+        "lower(coalesce(b.title,'') || ' ' || coalesce(b.objective,'') || ' ' || "
+        "coalesce(b.abstract,'') || ' ' || coalesce(b.theme,'') || ' ' || coalesce(b.section,''))"
+    )
+    stage_fallback_expr = (
+        "CASE "
+        f"WHEN regexp_matches({stage_blob_expr}, '(critical raw material|raw material|lithium|nickel|cobalt|mining|refining|feedstock|biomass|recycling|supply chain|precursor)') THEN 'Resources & feedstock' "
+        f"WHEN regexp_matches({stage_blob_expr}, '(electrolyser|electrolyzer|fuel cell|reactor|stack|module|battery|turbine|membrane|electrode|catalyst|converter|inverter|component|subsystem)') THEN 'Components & core technology' "
+        f"WHEN regexp_matches({stage_blob_expr}, '(grid|microgrid|pipeline|network|charging|charging station|storage system|integration|interoperability|hub|terminal|facility|plant|district heating|infrastructure|platform)') THEN 'Systems & infrastructure' "
+        f"WHEN regexp_matches({stage_blob_expr}, '(pilot|demonstration|demo|deployment|operation|operations|industrialisation|industrialization|scale-up|scale up|roll-out|roll out|commissioning|field trial|validation|first-of-a-kind|foak|maintenance|trl 6|trl 7|trl 8)') THEN 'Deployment & operations' "
+        f"WHEN regexp_matches({stage_blob_expr}, '(market uptake|market adoption|end-user|end user|customer|offtake|commercialisation|commercialization|procurement|go-to-market|go to market|mobility|aviation|shipping|manufacturing|trl 9)') THEN 'End-use & market' "
+        "WHEN lower(coalesce(b.theme,'')) IN ('e-mobility', 'transport & aviation') THEN 'End-use & market' "
+        "WHEN lower(coalesce(b.theme,'')) IN ('ai & digital', 'advanced materials', 'health & biotech') THEN 'Components & core technology' "
+        "WHEN lower(coalesce(b.theme,'')) IN ('hydrogen (h2)', 'solar (pv/csp)', 'wind', 'bioenergy & saf', 'ccus', 'nuclear & smr', 'batteries & storage') THEN 'Systems & infrastructure' "
+        "ELSE 'Research & concept' END"
+    )
+    if "value_chain_stage" in cols:
+        stage_expr = (
+            "CASE "
+            "WHEN b.value_chain_stage IS NULL OR TRIM(b.value_chain_stage) = '' "
+            "  OR lower(TRIM(b.value_chain_stage)) IN ('unknown','unspecified') "
+            f"THEN {stage_fallback_expr} "
+            "ELSE b.value_chain_stage END"
+        )
+    else:
+        stage_expr = stage_fallback_expr
 
     actor_expr = (
         f"COALESCE(NULLIF(TRIM(ga.group_id), ''), NULLIF(TRIM(gp.group_id), ''), "
@@ -1322,6 +1355,11 @@ k4.metric(t(lang, "avg_ticket"), fmt_money(avg_ticket, lang))
 k5.metric(t(lang, "median_ticket"), fmt_money(median_ticket, lang))
 k6.metric(t(lang, "top10_share"), fmt_pct(top10_share, 1))
 st.caption(f"{t(lang, 'hhi')}: {hhi:.3f}")
+st.caption(
+    f"{t(lang, 'kpi_scope')}: "
+    f"{'grouping=ON' if st.session_state.get('f_use_actor_groups', False) else 'grouping=OFF'} · "
+    f"{'exclude_funders=ON' if st.session_state.get('f_exclude_funders', False) else 'exclude_funders=OFF'}"
+)
 st.divider()
 
 
@@ -2098,7 +2136,7 @@ with tab_macro:
     else:
         with st.expander(t(lang, "macro_filters"), expanded=False):
             macro_use_global = st.checkbox(t(lang, "macro_use_global"), value=False, key="macro_use_global")
-            macro_onetech = st.checkbox(t(lang, "onetech_only"), value=True, key="macro_onetech_only")
+            macro_onetech = st.checkbox(t(lang, "onetech_only"), value=False, key="macro_onetech_only")
             macro_years = st.slider(
                 t(lang, "period"),
                 meta["miny"],
@@ -2209,8 +2247,12 @@ with tab_macro:
                 if show_overlay and not ev_sel.empty:
                     ev_plot = ev_sel.sort_values("year", ascending=True).copy()
                     shown_years: set[int] = set()
+                    yr_min = int(agg["year"].min())
+                    yr_max = int(agg["year"].max())
                     for _, r in ev_plot.iterrows():
                         yr = int(r["year"])
+                        if yr < yr_min or yr > yr_max:
+                            continue
                         fig.add_vline(x=yr, line_width=1, line_dash="dot", opacity=0.40, line_color="rgba(255,255,255,0.55)")
                         if show_event_labels and yr not in shown_years:
                             title_short = str(r.get("title", "")).strip()
@@ -2542,11 +2584,21 @@ with tab_network:
                 else:
                     all_stages = vc["value_chain_stage"].astype(str).unique().tolist()
                     stage_options = [s for s in VALUE_CHAIN_ORDER if s in all_stages] + sorted([s for s in all_stages if s not in VALUE_CHAIN_ORDER])
-                    picked_stages = st.multiselect(
-                        t(lang, "vc_stage_filter"),
-                        stage_options,
-                        default=stage_options,
+                    stage_mode = st.radio(
+                        t(lang, "vc_stage_mode"),
+                        [t(lang, "vc_stage_mode_all"), t(lang, "vc_stage_mode_custom")],
+                        index=0,
+                        horizontal=True,
+                        key="vc_stage_mode",
                     )
+                    if stage_mode == t(lang, "vc_stage_mode_all"):
+                        picked_stages = list(stage_options)
+                    else:
+                        picked_stages = st.multiselect(
+                            t(lang, "vc_stage_filter"),
+                            stage_options,
+                            default=stage_options,
+                        )
                     if not picked_stages:
                         st.info(t(lang, "no_data"))
                         st.divider()
