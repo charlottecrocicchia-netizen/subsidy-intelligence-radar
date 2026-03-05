@@ -330,11 +330,19 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_coverage": "Couverture mapping",
         "include_unspecified": "Inclure « Unspecified »",
         "ticket_shape_title": "Tickets projet par année (moyen vs médian)",
-        "ticket_shape_caption": "Chaque point = une année. Courbe médiane (robuste) + courbe moyenne (sensible aux gros projets).",
-        "ticket_shape_median": "Médiane annuelle",
-        "ticket_shape_avg": "Moyenne annuelle",
+        "ticket_shape_caption": "Barres = budget annuel total. Courbe = ticket médian par projet.",
+        "ticket_shape_median": "Ticket médian",
+        "ticket_shape_total": "Budget annuel",
+        "concentration_title": "Concentration des acteurs (lecture Pareto)",
+        "concentration_caption": "Lecture simple: barres = budget par acteur, courbe = part cumulée.",
+        "concentration_budget": "Budget acteur",
+        "concentration_cum": "Part cumulée (%)",
         "bm_treemap_help": "Lecture treemap: taille case = budget, hiérarchie = thème > pays > acteur, pourcentage affiché = part dans le parent.",
         "bm_treemap_settings_help": "Réduit les niveaux pour simplifier la lecture (moins de thèmes/pays/acteurs).",
+        "bm_treemap_detail": "Niveau de détail",
+        "bm_detail_simple": "Simple",
+        "bm_detail_standard": "Standard",
+        "bm_detail_detailed": "Détaillé",
         "macro_event_labels": "Afficher libellé court des événements sur le graphe",
         "vc_stage_filter": "Étapes de chaîne à afficher",
         "vc_stage_focus": "Étape à explorer",
@@ -346,6 +354,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_highlight_stage": "Étape à mettre en avant dans le Sankey",
         "vc_all_stages": "Toutes les étapes",
         "vc_isolate_stage": "Isoler uniquement l'étape sélectionnée",
+        "vc_highlight_actor": "Acteur à mettre en avant",
+        "vc_all_actors": "Tous les acteurs",
+        "vc_isolate_actor": "Isoler uniquement l'acteur sélectionné",
         "vc_isolation_help": "Mise en avant visuelle: couleur forte sur l'étape ciblée, le reste est atténué.",
     },
     "EN": {
@@ -477,11 +488,19 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_coverage": "Mapping coverage",
         "include_unspecified": "Include \"Unspecified\"",
         "ticket_shape_title": "Project tickets by year (average vs median)",
-        "ticket_shape_caption": "Each point = one year. Median line (robust) + average line (sensitive to large projects).",
-        "ticket_shape_median": "Yearly median",
-        "ticket_shape_avg": "Yearly average",
+        "ticket_shape_caption": "Bars = total annual budget. Line = median project ticket.",
+        "ticket_shape_median": "Median ticket",
+        "ticket_shape_total": "Annual budget",
+        "concentration_title": "Actor concentration (Pareto view)",
+        "concentration_caption": "Simple reading: bars = budget by actor, line = cumulative share.",
+        "concentration_budget": "Actor budget",
+        "concentration_cum": "Cumulative share (%)",
         "bm_treemap_help": "Treemap reading: tile size = budget, hierarchy = theme > country > actor, displayed percentage = share in parent.",
         "bm_treemap_settings_help": "Reduce levels to simplify reading (fewer themes/countries/actors).",
+        "bm_treemap_detail": "Detail level",
+        "bm_detail_simple": "Simple",
+        "bm_detail_standard": "Standard",
+        "bm_detail_detailed": "Detailed",
         "macro_event_labels": "Show short event labels on chart",
         "vc_stage_filter": "Value-chain stages to display",
         "vc_stage_focus": "Stage to explore",
@@ -493,6 +512,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_highlight_stage": "Stage to highlight in Sankey",
         "vc_all_stages": "All stages",
         "vc_isolate_stage": "Show only selected stage",
+        "vc_highlight_actor": "Actor to highlight",
+        "vc_all_actors": "All actors",
+        "vc_isolate_actor": "Show only selected actor",
         "vc_isolation_help": "Visual focus: strong color on selected stage, other links are faded.",
     },
 }
@@ -1104,11 +1126,11 @@ def _ensure_filter_state() -> None:
     st.session_state.setdefault("f_exclude_funders", True)
 
     # One-time migration: switch old "all countries by default" sessions to Europe default.
-    if not st.session_state.get("_country_default_migrated_v3", False):
+    if not st.session_state.get("_country_default_migrated_v4", False):
         st.session_state["f_countries"] = default_countries
         st.session_state["f_use_actor_groups"] = False
         st.session_state["f_exclude_funders"] = True
-        st.session_state["_country_default_migrated_v3"] = True
+        st.session_state["_country_default_migrated_v4"] = True
 
 
 _ensure_filter_state()
@@ -1336,18 +1358,35 @@ with tab_overview:
         yearly_ticket = (
             tb.groupby("year", as_index=False)
             .agg(
+                total_budget=("proj_budget", "sum"),
                 median_budget=("proj_budget", "median"),
-                mean_budget=("proj_budget", "mean"),
                 n_projects=("projectID", "nunique"),
             )
             .sort_values("year")
         )
         fig_ticket = go.Figure()
         fig_ticket.add_trace(
+            go.Bar(
+                x=yearly_ticket["year"],
+                y=yearly_ticket["total_budget"],
+                name=t(lang, "ticket_shape_total"),
+                marker=dict(color="rgba(90,150,255,0.60)", line=dict(color="rgba(255,255,255,0.18)", width=1.0)),
+                customdata=np.stack(
+                    [
+                        yearly_ticket["total_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                        yearly_ticket["n_projects"].astype(int).values,
+                    ],
+                    axis=-1,
+                ),
+                hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+            )
+        )
+        fig_ticket.add_trace(
             go.Scatter(
                 x=yearly_ticket["year"],
                 y=yearly_ticket["median_budget"],
                 mode="lines+markers",
+                yaxis="y2",
                 name=t(lang, "ticket_shape_median"),
                 line=dict(color="rgba(110,200,120,0.95)", width=2.6),
                 marker=dict(size=7, color="rgba(110,200,120,0.95)"),
@@ -1358,50 +1397,79 @@ with tab_overview:
                     ],
                     axis=-1,
                 ),
-                hovertemplate="<b>%{x}</b><br>Médiane/Median: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
-            )
-        )
-        fig_ticket.add_trace(
-            go.Scatter(
-                x=yearly_ticket["year"],
-                y=yearly_ticket["mean_budget"],
-                mode="lines+markers",
-                name=t(lang, "ticket_shape_avg"),
-                line=dict(color="rgba(255,180,80,0.95)", width=2.2, dash="dash"),
-                marker=dict(size=6, color="rgba(255,180,80,0.95)"),
-                customdata=np.stack(
-                    [
-                        yearly_ticket["mean_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                        yearly_ticket["n_projects"].astype(int).values,
-                    ],
-                    axis=-1,
-                ),
-                hovertemplate="<b>%{x}</b><br>Moyenne/Mean: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+                hovertemplate="<b>%{x}</b><br>Median ticket: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
             )
         )
         fig_ticket.update_layout(
             height=420,
             xaxis_title="Year",
-            yaxis_title="Budget (€)",
+            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="rgba(255,255,255,0.08)"),
+            yaxis2=dict(
+                title=t(lang, "ticket_shape_median") + " (€)",
+                overlaying="y",
+                side="right",
+                showgrid=False,
+            ),
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
             margin=dict(l=20, r=20, t=20, b=10),
         )
         st.plotly_chart(fig_ticket, use_container_width=True)
         st.caption(t(lang, "ticket_shape_caption"))
 
     st.divider()
-    st.markdown("### " + ("Courbe de Lorenz" if lang == "FR" else "Lorenz curve"))
-    ab = actor_b.copy()
-    if ab.empty or float(ab["b"].sum()) <= 0 or len(ab) < 2:
+    st.markdown("### " + t(lang, "concentration_title"))
+    conc = fetch_df(f"""
+    SELECT
+      COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
+      actor_id,
+      SUM(amount_eur) AS b
+    FROM {R}
+    WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+    GROUP BY actor_label, actor_id
+    ORDER BY b DESC
+    LIMIT 25
+    """)
+    if conc.empty or float(conc["b"].sum()) <= 0:
         st.info(t(lang, "no_data"))
     else:
-        ab = ab.sort_values("b")
-        cum = ab["b"].cumsum() / float(ab["b"].sum())
-        x = np.arange(1, len(ab) + 1) / len(ab)
-        lor = pd.DataFrame({"actors_share": x, "budget_share": cum.values})
-        fig_l = px.line(lor, x="actors_share", y="budget_share", height=420)
-        fig_l.add_trace(go.Scatter(x=[0, 1], y=[0, 1], mode="lines", name="Equality", line=dict(dash="dash")))
-        fig_l.update_layout(xaxis_title="Actors (cumulative share)", yaxis_title="Budget (cumulative share)")
-        st.plotly_chart(fig_l, use_container_width=True)
+        conc = conc.copy()
+        conc["actor_label"] = conc["actor_label"].astype(str).str.slice(0, 32)
+        conc["cum_share"] = conc["b"].astype(float).cumsum() / float(conc["b"].astype(float).sum()) * 100.0
+        conc["budget_str"] = conc["b"].astype(float).apply(lambda x: fmt_money(float(x), lang))
+
+        fig_p = go.Figure()
+        fig_p.add_trace(
+            go.Bar(
+                x=conc["actor_label"],
+                y=conc["b"],
+                name=t(lang, "concentration_budget"),
+                marker=dict(color="rgba(120,180,255,0.72)", line=dict(color="rgba(255,255,255,0.18)", width=0.8)),
+                customdata=np.stack([conc["budget_str"]], axis=-1),
+                hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<extra></extra>",
+            )
+        )
+        fig_p.add_trace(
+            go.Scatter(
+                x=conc["actor_label"],
+                y=conc["cum_share"],
+                yaxis="y2",
+                mode="lines+markers",
+                name=t(lang, "concentration_cum"),
+                line=dict(color="rgba(255,205,90,0.95)", width=2.4),
+                marker=dict(size=6, color="rgba(255,205,90,0.95)"),
+                hovertemplate="<b>%{x}</b><br>Cumulative: %{y:.1f}%<extra></extra>",
+            )
+        )
+        fig_p.update_layout(
+            height=460,
+            xaxis=dict(title="", tickangle=-35),
+            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="rgba(255,255,255,0.08)"),
+            yaxis2=dict(title=t(lang, "concentration_cum"), overlaying="y", side="right", range=[0, 100]),
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
+            margin=dict(l=20, r=20, t=20, b=80),
+        )
+        st.plotly_chart(fig_p, use_container_width=True)
+        st.caption(t(lang, "concentration_caption"))
 
 
 # ============================================================
@@ -1667,11 +1735,28 @@ with tab_comp:
     elif bm_view == t(lang, "bm_treemap"):
         st.subheader(t(lang, "bm_treemap"))
 
+        detail_mode = st.radio(
+            t(lang, "bm_treemap_detail"),
+            [t(lang, "bm_detail_simple"), t(lang, "bm_detail_standard"), t(lang, "bm_detail_detailed")],
+            index=1,
+            horizontal=True,
+            key="tm_detail_mode",
+        )
+        if detail_mode == t(lang, "bm_detail_simple"):
+            tm_top_themes, tm_top_countries, tm_top_actors = 6, 5, 6
+        elif detail_mode == t(lang, "bm_detail_detailed"):
+            tm_top_themes, tm_top_countries, tm_top_actors = 14, 10, 12
+        else:
+            tm_top_themes, tm_top_countries, tm_top_actors = 10, 8, 8
+        tm_group_others = True
+
         with st.expander("Paramètres treemap" if lang == "FR" else "Treemap settings", expanded=False):
-            tm_top_themes = st.slider("Nombre de thématiques affichées" if lang == "FR" else "Number of themes displayed", 3, 20, 10)
-            tm_top_countries = st.slider("Nombre de pays par thématique" if lang == "FR" else "Number of countries per theme", 2, 20, 8)
-            tm_top_actors = st.slider("Nombre d'acteurs par pays" if lang == "FR" else "Number of actors per country", 2, 25, 8)
-            tm_group_others = st.checkbox("Grouper le reste en « Autres »" if lang == "FR" else "Group the rest as Others", value=True)
+            use_advanced_tm = st.checkbox("Mode avancé" if lang == "FR" else "Advanced mode", value=False)
+            if use_advanced_tm:
+                tm_top_themes = st.slider("Nombre de thématiques affichées" if lang == "FR" else "Number of themes displayed", 3, 20, tm_top_themes)
+                tm_top_countries = st.slider("Nombre de pays par thématique" if lang == "FR" else "Number of countries per theme", 2, 20, tm_top_countries)
+                tm_top_actors = st.slider("Nombre d'acteurs par pays" if lang == "FR" else "Number of actors per country", 2, 25, tm_top_actors)
+                tm_group_others = st.checkbox("Grouper le reste en « Autres »" if lang == "FR" else "Group the rest as Others", value=tm_group_others)
             st.caption(t(lang, "bm_treemap_settings_help"))
         st.caption(t(lang, "bm_treemap_help"))
 
@@ -1736,7 +1821,9 @@ with tab_comp:
                     customdata=np.stack([agg["budget_str"]], axis=-1),
                     hovertemplate="<b>%{label}</b><br>Budget: %{customdata[0]}<br>%{percentEntry:.1%} of parent<extra></extra>",
                     texttemplate="%{label}<br>%{percentEntry:.0%}",
-                    textfont=dict(color="rgba(255,255,255,0.95)", size=14),
+                    textfont=dict(color="rgba(255,255,255,0.98)", size=14),
+                    insidetextfont=dict(color="rgba(255,255,255,0.98)", size=14),
+                    outsidetextfont=dict(color="rgba(255,255,255,0.98)", size=13),
                 )
                 fig_tree.update_layout(
                     margin=dict(l=0, r=0, t=0, b=0),
@@ -1883,11 +1970,32 @@ with tab_compare:
     min_year = meta["miny"]
     max_year = meta["maxy"]
 
+    default_a = (max(min_year, 2014), min(max_year, 2020))
+    if default_a[0] > default_a[1]:
+        default_a = (min_year, min(max_year, min_year + 3))
+    default_b = (max(min_year, 2021), max_year)
+    if default_b[0] > default_b[1]:
+        default_b = (max(min_year, max_year - 3), max_year)
+
+    def _clip_period(period: Tuple[int, int]) -> Tuple[int, int]:
+        y0, y1 = int(period[0]), int(period[1])
+        y0 = max(min_year, min(y0, max_year))
+        y1 = max(y0, min(y1, max_year))
+        return (y0, y1)
+
+    if not st.session_state.get("_compare_defaults_v1", False):
+        st.session_state["cmp_period_a"] = default_a
+        st.session_state["cmp_period_b"] = default_b
+        st.session_state["_compare_defaults_v1"] = True
+    else:
+        st.session_state["cmp_period_a"] = _clip_period(st.session_state.get("cmp_period_a", default_a))
+        st.session_state["cmp_period_b"] = _clip_period(st.session_state.get("cmp_period_b", default_b))
+
     a1, a2 = st.columns(2)
     with a1:
-        period_a = st.slider(t(lang, "period_a"), min_year, max_year, (max(min_year, max_year - 8), max_year - 5))
+        period_a = st.slider(t(lang, "period_a"), min_year, max_year, value=st.session_state["cmp_period_a"], key="cmp_period_a")
     with a2:
-        period_b = st.slider(t(lang, "period_b"), min_year, max_year, (max_year - 3, max_year))
+        period_b = st.slider(t(lang, "period_b"), min_year, max_year, value=st.session_state["cmp_period_b"], key="cmp_period_b")
 
     dim_choice = st.radio(t(lang, "dimension"), [t(lang, "dim_theme"), t(lang, "dim_section")], index=0, horizontal=True, key="cmp_dim")
     dim_col = "section" if dim_choice == t(lang, "dim_section") else "theme"
@@ -1949,7 +2057,7 @@ with tab_macro:
     if ev.empty:
         st.warning("events.csv est introuvable ou vide." if lang == "FR" else "events.csv is missing or empty.")
     else:
-        with st.expander(t(lang, "macro_filters"), expanded=True):
+        with st.expander(t(lang, "macro_filters"), expanded=False):
             macro_use_global = st.checkbox(t(lang, "macro_use_global"), value=False, key="macro_use_global")
             macro_onetech = st.checkbox(t(lang, "onetech_only"), value=True, key="macro_onetech_only")
             macro_years = st.slider(
@@ -2238,6 +2346,13 @@ with tab_actor:
         LIMIT 15
         """)
         if len(mix_c) <= 1:
+            if len(mix_c) == 1:
+                c_name = str(mix_c["country_name"].iloc[0])
+                c_budget = float(mix_c["budget_eur"].iloc[0] or 0.0)
+                st.metric(
+                    ("Budget principal" if lang == "FR" else "Main budget") + f" — {c_name}",
+                    fmt_money(c_budget, lang),
+                )
             figc = px.bar(
                 mix_c.iloc[::-1],
                 x="budget_eur",
@@ -2431,6 +2546,39 @@ with tab_network:
                                 + sorted([s for s in vc_view["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
                             )
                             actor_order = rank_actors["actor_label"].astype(str).tolist()
+                            actor_all_label = t(lang, "vc_all_actors")
+                            a1h, a2h = st.columns([2, 1])
+                            with a1h:
+                                actor_highlight = st.selectbox(
+                                    t(lang, "vc_highlight_actor"),
+                                    [actor_all_label] + actor_order,
+                                    index=0,
+                                    key="vc_highlight_actor_select",
+                                )
+                            with a2h:
+                                vc_isolate_actor = st.checkbox(
+                                    t(lang, "vc_isolate_actor"),
+                                    value=False,
+                                    key="vc_isolate_actor",
+                                )
+                            if (actor_highlight != actor_all_label) and vc_isolate_actor:
+                                vc_view = vc_view[vc_view["actor_label"].astype(str) == str(actor_highlight)].copy()
+                                if vc_view.empty:
+                                    st.info(t(lang, "no_data"))
+                                    st.divider()
+                                    vc_view = vc.copy()
+                                rank_actors = (
+                                    vc_view.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
+                                    .sum()
+                                    .sort_values("budget_eur", ascending=False)
+                                    .head(int(vc_top_actors))
+                                )
+                                vc_view = vc_view.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
+                                stage_order = (
+                                    [s for s in VALUE_CHAIN_ORDER if s in vc_view["value_chain_stage"].astype(str).unique().tolist()]
+                                    + sorted([s for s in vc_view["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
+                                )
+                                actor_order = rank_actors["actor_label"].astype(str).tolist()
                             node_labels = stage_order + actor_order
                             node_idx = {k: i for i, k in enumerate(node_labels)}
 
@@ -2444,32 +2592,46 @@ with tab_network:
                             value = links["budget_eur"].astype(float).tolist()
 
                             connected_actors: set[str] = set()
-                            if stage_highlight != stage_all_label:
+                            stage_focus_on = stage_highlight != stage_all_label
+                            actor_focus_on = actor_highlight != actor_all_label
+                            if stage_focus_on:
                                 connected_actors = set(
                                     links[links["value_chain_stage"].astype(str) == str(stage_highlight)]["actor_label"].astype(str).tolist()
                                 )
                             link_colors: List[str] = []
-                            for stg in links["value_chain_stage"].astype(str).tolist():
-                                if stage_highlight == stage_all_label:
+                            for stg, act in zip(
+                                links["value_chain_stage"].astype(str).tolist(),
+                                links["actor_label"].astype(str).tolist(),
+                            ):
+                                if not stage_focus_on and not actor_focus_on:
                                     link_colors.append(STAGE_COLORS.get(stg, "rgba(170,170,170,0.55)"))
-                                elif stg == str(stage_highlight):
-                                    link_colors.append("rgba(255,210,80,0.92)")
                                 else:
-                                    link_colors.append("rgba(170,170,170,0.14)")
+                                    is_stage = stage_focus_on and (stg == str(stage_highlight))
+                                    is_actor = actor_focus_on and (act == str(actor_highlight))
+                                    if is_stage and is_actor:
+                                        link_colors.append("rgba(255,210,80,0.98)")
+                                    elif is_stage:
+                                        link_colors.append("rgba(255,210,80,0.90)")
+                                    elif is_actor:
+                                        link_colors.append("rgba(120,220,255,0.90)")
+                                    else:
+                                        link_colors.append("rgba(170,170,170,0.14)")
 
                             node_colors: List[str] = []
                             for label in node_labels:
                                 if label in stage_order:
-                                    if stage_highlight == stage_all_label:
+                                    if not stage_focus_on and not actor_focus_on:
                                         node_colors.append(STAGE_COLORS.get(label, "rgba(170,170,170,0.65)"))
-                                    elif label == str(stage_highlight):
+                                    elif stage_focus_on and (label == str(stage_highlight)):
                                         node_colors.append("rgba(255,210,80,0.98)")
                                     else:
                                         node_colors.append("rgba(170,170,170,0.28)")
                                 else:
-                                    if stage_highlight == stage_all_label:
+                                    if not stage_focus_on and not actor_focus_on:
                                         node_colors.append("rgba(120,180,255,0.78)")
-                                    elif str(label) in connected_actors:
+                                    elif actor_focus_on and (str(label) == str(actor_highlight)):
+                                        node_colors.append("rgba(120,220,255,0.96)")
+                                    elif stage_focus_on and (str(label) in connected_actors):
                                         node_colors.append("rgba(120,180,255,0.90)")
                                     else:
                                         node_colors.append("rgba(120,180,255,0.22)")
@@ -2895,12 +3057,12 @@ with tab_guide:
 
     if lang == "FR":
         st.markdown("Guide pour lire les vues correctement, sans sur-interpréter. Tout dépend du **périmètre filtré** (sidebar).")
-        with st.expander("1) Vue d’ensemble : KPIs, allocation, distribution, Lorenz", expanded=True):
+        with st.expander("1) Vue d’ensemble : KPIs, allocation, tickets, concentration", expanded=True):
             st.markdown(
                 """
 - KPIs = ordres de grandeur (budget, projets, acteurs, tickets).
-- Tickets annuels (médiane vs moyenne) = lecture simple du niveau typique et de l'effet des gros projets.
-- Lorenz + HHI = concentration / dépendance à quelques acteurs.
+- Budget annuel + ticket médian = lecture simple des tendances.
+- Pareto + HHI = concentration / dépendance à quelques acteurs.
                 """
             )
         with st.expander("2) Géographie : carte + top pays", expanded=False):
@@ -2959,12 +3121,12 @@ with tab_guide:
             )
     else:
         st.markdown("Guide to interpret the views correctly without over-claiming. Everything depends on the **filtered scope** (sidebar).")
-        with st.expander("1) Overview: KPIs, allocation, distribution, Lorenz", expanded=True):
+        with st.expander("1) Overview: KPIs, allocation, tickets, concentration", expanded=True):
             st.markdown(
                 """
 - KPIs = orders of magnitude.
-- Yearly tickets (median vs average) = simple reading of typical level and large-project effect.
-- Lorenz + HHI = concentration / dependency risk.
+- Annual budget + median ticket = simple trend reading.
+- Pareto + HHI = concentration / dependency risk.
                 """
             )
         with st.expander("2) Geography: map + top countries", expanded=False):
