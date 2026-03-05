@@ -127,6 +127,15 @@ VALUE_CHAIN_ORDER = [
     "Research & concept",
     "Unspecified",
 ]
+STAGE_COLORS = {
+    "Resources & feedstock": "rgba(54, 162, 235, 0.75)",
+    "Components & core technology": "rgba(255, 159, 64, 0.75)",
+    "Systems & infrastructure": "rgba(153, 102, 255, 0.75)",
+    "Deployment & operations": "rgba(75, 192, 192, 0.75)",
+    "End-use & market": "rgba(255, 99, 132, 0.75)",
+    "Research & concept": "rgba(201, 203, 207, 0.75)",
+    "Unspecified": "rgba(140, 140, 140, 0.55)",
+}
 
 
 # ============================================================
@@ -320,9 +329,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "build_sha": "Version code",
         "mapping_coverage": "Couverture mapping",
         "include_unspecified": "Inclure « Unspecified »",
-        "ticket_shape_title": "Structure des tickets par année (boîtes, échelle log)",
-        "ticket_shape_caption": "Lecture plus robuste que l'histogramme pour comparer dispersion et médiane des budgets projet.",
+        "ticket_shape_title": "Tickets projet par année (moyen vs médian)",
+        "ticket_shape_caption": "Chaque point = une année. Courbe médiane (robuste) + courbe moyenne (sensible aux gros projets).",
         "ticket_shape_median": "Médiane annuelle",
+        "ticket_shape_avg": "Moyenne annuelle",
+        "bm_treemap_help": "Lecture treemap: taille case = budget, hiérarchie = thème > pays > acteur, pourcentage affiché = part dans le parent.",
+        "bm_treemap_settings_help": "Réduit les niveaux pour simplifier la lecture (moins de thèmes/pays/acteurs).",
+        "macro_event_labels": "Afficher libellé court des événements sur le graphe",
         "vc_stage_filter": "Étapes de chaîne à afficher",
         "vc_stage_focus": "Étape à explorer",
         "vc_actor_focus": "Acteur sur cette étape",
@@ -330,6 +343,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_top_actors_stage": "Top acteurs (étape)",
         "vc_single_stage_warn": "La sélection ne contient qu'une étape de chaîne de valeur. Lance un refresh pour recalculer la classification si besoin.",
         "vc_flow_help": "Choisis des thématiques puis des étapes pour voir quels acteurs opèrent à chaque maillon.",
+        "vc_highlight_stage": "Étape à mettre en avant dans le Sankey",
+        "vc_all_stages": "Toutes les étapes",
+        "vc_isolate_stage": "Isoler uniquement l'étape sélectionnée",
+        "vc_isolation_help": "Mise en avant visuelle: couleur forte sur l'étape ciblée, le reste est atténué.",
     },
     "EN": {
         "language": "Language",
@@ -459,9 +476,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "build_sha": "Code version",
         "mapping_coverage": "Mapping coverage",
         "include_unspecified": "Include \"Unspecified\"",
-        "ticket_shape_title": "Ticket structure by year (boxplots, log scale)",
-        "ticket_shape_caption": "More robust than a plain histogram to compare spread and median project budgets.",
+        "ticket_shape_title": "Project tickets by year (average vs median)",
+        "ticket_shape_caption": "Each point = one year. Median line (robust) + average line (sensitive to large projects).",
         "ticket_shape_median": "Yearly median",
+        "ticket_shape_avg": "Yearly average",
+        "bm_treemap_help": "Treemap reading: tile size = budget, hierarchy = theme > country > actor, displayed percentage = share in parent.",
+        "bm_treemap_settings_help": "Reduce levels to simplify reading (fewer themes/countries/actors).",
+        "macro_event_labels": "Show short event labels on chart",
         "vc_stage_filter": "Value-chain stages to display",
         "vc_stage_focus": "Stage to explore",
         "vc_actor_focus": "Actor on this stage",
@@ -469,6 +490,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_top_actors_stage": "Top actors (stage)",
         "vc_single_stage_warn": "This selection contains a single value-chain stage. Run refresh to recompute stage classification if needed.",
         "vc_flow_help": "Pick themes then stages to see which actors operate on each link of the chain.",
+        "vc_highlight_stage": "Stage to highlight in Sankey",
+        "vc_all_stages": "All stages",
+        "vc_isolate_stage": "Show only selected stage",
+        "vc_isolation_help": "Visual focus: strong color on selected stage, other links are faded.",
     },
 }
 
@@ -1076,14 +1101,14 @@ def _ensure_filter_state() -> None:
     st.session_state.setdefault("f_entity_raw", meta["entities"])
     st.session_state.setdefault("f_countries", default_countries)
     st.session_state.setdefault("f_use_actor_groups", False)
-    st.session_state.setdefault("f_exclude_funders", False)
+    st.session_state.setdefault("f_exclude_funders", True)
 
     # One-time migration: switch old "all countries by default" sessions to Europe default.
-    if not st.session_state.get("_country_default_migrated_v2", False):
+    if not st.session_state.get("_country_default_migrated_v3", False):
         st.session_state["f_countries"] = default_countries
         st.session_state["f_use_actor_groups"] = False
-        st.session_state["f_exclude_funders"] = False
-        st.session_state["_country_default_migrated_v2"] = True
+        st.session_state["f_exclude_funders"] = True
+        st.session_state["_country_default_migrated_v3"] = True
 
 
 _ensure_filter_state()
@@ -1308,30 +1333,59 @@ with tab_overview:
         st.info(t(lang, "no_data"))
     else:
         tb["year"] = tb["year"].astype(int)
-        tb = tb.sort_values(["year", "proj_budget"])
-
-        med = tb.groupby("year", as_index=False)["proj_budget"].median().rename(columns={"proj_budget": "median_budget"})
-        fig_box = px.box(
-            tb,
-            x="year",
-            y="proj_budget",
-            points=False,
-            height=440,
-            labels={"year": "Year", "proj_budget": "Project budget (€)"},
+        yearly_ticket = (
+            tb.groupby("year", as_index=False)
+            .agg(
+                median_budget=("proj_budget", "median"),
+                mean_budget=("proj_budget", "mean"),
+                n_projects=("projectID", "nunique"),
+            )
+            .sort_values("year")
         )
-        fig_box.add_trace(
+        fig_ticket = go.Figure()
+        fig_ticket.add_trace(
             go.Scatter(
-                x=med["year"],
-                y=med["median_budget"],
+                x=yearly_ticket["year"],
+                y=yearly_ticket["median_budget"],
                 mode="lines+markers",
                 name=t(lang, "ticket_shape_median"),
-                line=dict(color="rgba(255,180,80,0.95)", width=2.2),
-                marker=dict(size=6, color="rgba(255,180,80,0.95)"),
+                line=dict(color="rgba(110,200,120,0.95)", width=2.6),
+                marker=dict(size=7, color="rgba(110,200,120,0.95)"),
+                customdata=np.stack(
+                    [
+                        yearly_ticket["median_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                        yearly_ticket["n_projects"].astype(int).values,
+                    ],
+                    axis=-1,
+                ),
+                hovertemplate="<b>%{x}</b><br>Médiane/Median: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
             )
         )
-        fig_box.update_yaxes(type="log")
-        fig_box.update_layout(yaxis_title="Budget (€) - log", xaxis_title="Year")
-        st.plotly_chart(fig_box, use_container_width=True)
+        fig_ticket.add_trace(
+            go.Scatter(
+                x=yearly_ticket["year"],
+                y=yearly_ticket["mean_budget"],
+                mode="lines+markers",
+                name=t(lang, "ticket_shape_avg"),
+                line=dict(color="rgba(255,180,80,0.95)", width=2.2, dash="dash"),
+                marker=dict(size=6, color="rgba(255,180,80,0.95)"),
+                customdata=np.stack(
+                    [
+                        yearly_ticket["mean_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                        yearly_ticket["n_projects"].astype(int).values,
+                    ],
+                    axis=-1,
+                ),
+                hovertemplate="<b>%{x}</b><br>Moyenne/Mean: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+            )
+        )
+        fig_ticket.update_layout(
+            height=420,
+            xaxis_title="Year",
+            yaxis_title="Budget (€)",
+            margin=dict(l=20, r=20, t=20, b=10),
+        )
+        st.plotly_chart(fig_ticket, use_container_width=True)
         st.caption(t(lang, "ticket_shape_caption"))
 
     st.divider()
@@ -1614,10 +1668,12 @@ with tab_comp:
         st.subheader(t(lang, "bm_treemap"))
 
         with st.expander("Paramètres treemap" if lang == "FR" else "Treemap settings", expanded=False):
-            tm_top_themes = st.slider("# thématiques" if lang == "FR" else "# themes", 3, 20, 10)
-            tm_top_countries = st.slider("# pays / thématique" if lang == "FR" else "# countries per theme", 2, 20, 8)
-            tm_top_actors = st.slider("# acteurs / pays" if lang == "FR" else "# actors per country", 2, 25, 8)
+            tm_top_themes = st.slider("Nombre de thématiques affichées" if lang == "FR" else "Number of themes displayed", 3, 20, 10)
+            tm_top_countries = st.slider("Nombre de pays par thématique" if lang == "FR" else "Number of countries per theme", 2, 20, 8)
+            tm_top_actors = st.slider("Nombre d'acteurs par pays" if lang == "FR" else "Number of actors per country", 2, 25, 8)
             tm_group_others = st.checkbox("Grouper le reste en « Autres »" if lang == "FR" else "Group the rest as Others", value=True)
+            st.caption(t(lang, "bm_treemap_settings_help"))
+        st.caption(t(lang, "bm_treemap_help"))
 
         # Build treemap base by SQL (theme, country, actor)
         base = fetch_df(f"""
@@ -1680,10 +1736,11 @@ with tab_comp:
                     customdata=np.stack([agg["budget_str"]], axis=-1),
                     hovertemplate="<b>%{label}</b><br>Budget: %{customdata[0]}<br>%{percentEntry:.1%} of parent<extra></extra>",
                     texttemplate="%{label}<br>%{percentEntry:.0%}",
+                    textfont=dict(color="rgba(255,255,255,0.95)", size=14),
                 )
                 fig_tree.update_layout(
                     margin=dict(l=0, r=0, t=0, b=0),
-                    uniformtext=dict(minsize=12, mode="hide"),
+                    uniformtext=dict(minsize=13, mode="hide"),
                     coloraxis_showscale=False,
                 )
                 st.plotly_chart(fig_tree, use_container_width=True)
@@ -1911,6 +1968,7 @@ with tab_macro:
                 key="macro_match_mode",
             )
             show_overlay = st.checkbox(t(lang, "macro_overlay"), value=True, key="macro_overlay")
+            show_event_labels = st.checkbox(t(lang, "macro_event_labels"), value=True, key="macro_event_labels")
             window = st.slider(t(lang, "macro_window"), 0, 3, 1, 1, key="macro_window")
 
         macro_parts = [f"year BETWEEN {int(macro_years[0])} AND {int(macro_years[1])}"]
@@ -2002,8 +2060,26 @@ with tab_macro:
                     hovertemplate="<b>%{x}</b><br>Value: %{customdata[2]}<br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
                 )
                 if show_overlay and not ev_sel.empty:
-                    for _, r in ev_sel.iterrows():
-                        fig.add_vline(x=int(r["year"]), line_width=1, line_dash="dot", opacity=0.35)
+                    ev_plot = ev_sel.sort_values("year", ascending=True).copy()
+                    shown_years: set[int] = set()
+                    for _, r in ev_plot.iterrows():
+                        yr = int(r["year"])
+                        fig.add_vline(x=yr, line_width=1, line_dash="dot", opacity=0.40, line_color="rgba(255,255,255,0.55)")
+                        if show_event_labels and yr not in shown_years:
+                            title_short = str(r.get("title", "")).strip()
+                            if len(title_short) > 22:
+                                title_short = title_short[:22].rstrip() + "…"
+                            fig.add_annotation(
+                                x=yr,
+                                y=1.03,
+                                yref="paper",
+                                text=title_short,
+                                showarrow=False,
+                                textangle=-30,
+                                font=dict(size=10, color="rgba(240,245,255,0.90)"),
+                                xanchor="left",
+                            )
+                            shown_years.add(yr)
 
                 st.plotly_chart(fig, use_container_width=True)
 
@@ -2128,8 +2204,28 @@ with tab_actor:
         LIMIT 15
         """)
         mix_t["theme_display"] = mix_t["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
-        figt = px.bar(mix_t.iloc[::-1], x="budget_eur", y="theme_display", orientation="h", height=420,
-                      color="budget_eur", color_continuous_scale=R2G, labels={"budget_eur": "Budget (€)", "theme_display": ""})
+        if len(mix_t) <= 1:
+            figt = px.bar(
+                mix_t.iloc[::-1],
+                x="budget_eur",
+                y="theme_display",
+                orientation="h",
+                height=420,
+                color_discrete_sequence=["rgba(120,180,255,0.95)"],
+                labels={"budget_eur": "Budget (€)", "theme_display": ""},
+            )
+        else:
+            figt = px.bar(
+                mix_t.iloc[::-1],
+                x="budget_eur",
+                y="theme_display",
+                orientation="h",
+                height=420,
+                color="budget_eur",
+                color_continuous_scale=R2G,
+                labels={"budget_eur": "Budget (€)", "theme_display": ""},
+            )
+            figt.update_layout(coloraxis_showscale=False)
         st.plotly_chart(figt, use_container_width=True)
 
         st.markdown(f"#### {t(lang, 'actor_mix_country')}")
@@ -2141,8 +2237,28 @@ with tab_actor:
         ORDER BY budget_eur DESC
         LIMIT 15
         """)
-        figc = px.bar(mix_c.iloc[::-1], x="budget_eur", y="country_name", orientation="h", height=420,
-                      color="budget_eur", color_continuous_scale=R2G, labels={"budget_eur": "Budget (€)", "country_name": ""})
+        if len(mix_c) <= 1:
+            figc = px.bar(
+                mix_c.iloc[::-1],
+                x="budget_eur",
+                y="country_name",
+                orientation="h",
+                height=420,
+                color_discrete_sequence=["rgba(120,180,255,0.95)"],
+                labels={"budget_eur": "Budget (€)", "country_name": ""},
+            )
+        else:
+            figc = px.bar(
+                mix_c.iloc[::-1],
+                x="budget_eur",
+                y="country_name",
+                orientation="h",
+                height=420,
+                color="budget_eur",
+                color_continuous_scale=R2G,
+                labels={"budget_eur": "Budget (€)", "country_name": ""},
+            )
+            figc.update_layout(coloraxis_showscale=False)
         st.plotly_chart(figc, use_container_width=True)
 
         st.divider()
@@ -2271,35 +2387,92 @@ with tab_network:
                             st.info(t(lang, "no_data"))
                             st.divider()
                         else:
-                            present_stages = vc["value_chain_stage"].astype(str).nunique()
-                            only_research = present_stages == 1 and vc["value_chain_stage"].astype(str).iloc[0] == "Research & concept"
+                            stage_all_label = t(lang, "vc_all_stages")
+                            h1, h2 = st.columns([2, 1])
+                            with h1:
+                                stage_highlight = st.selectbox(
+                                    t(lang, "vc_highlight_stage"),
+                                    [stage_all_label] + [str(x) for x in picked_stages],
+                                    index=0,
+                                    key="vc_highlight_stage_select",
+                                )
+                            with h2:
+                                vc_isolate_stage = st.checkbox(
+                                    t(lang, "vc_isolate_stage"),
+                                    value=False,
+                                    key="vc_isolate_stage",
+                                )
+                            st.caption(t(lang, "vc_isolation_help"))
+
+                            vc_view = vc.copy()
+                            if (stage_highlight != stage_all_label) and vc_isolate_stage:
+                                vc_view = vc_view[vc_view["value_chain_stage"].astype(str) == str(stage_highlight)].copy()
+
+                            if vc_view.empty:
+                                st.info(t(lang, "no_data"))
+                                st.divider()
+                                vc_view = vc.copy()
+
+                            present_stages = vc_view["value_chain_stage"].astype(str).nunique()
+                            only_research = present_stages == 1 and vc_view["value_chain_stage"].astype(str).iloc[0] == "Research & concept"
                             if only_research:
                                 st.warning(t(lang, "vc_single_stage_warn"))
 
                             rank_actors = (
-                                vc.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
+                                vc_view.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
                                 .sum()
                                 .sort_values("budget_eur", ascending=False)
                                 .head(int(vc_top_actors))
                             )
-                            vc = vc.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
+                            vc_view = vc_view.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
 
                             stage_order = (
-                                [s for s in VALUE_CHAIN_ORDER if s in vc["value_chain_stage"].astype(str).unique().tolist()]
-                                + sorted([s for s in vc["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
+                                [s for s in VALUE_CHAIN_ORDER if s in vc_view["value_chain_stage"].astype(str).unique().tolist()]
+                                + sorted([s for s in vc_view["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
                             )
                             actor_order = rank_actors["actor_label"].astype(str).tolist()
                             node_labels = stage_order + actor_order
                             node_idx = {k: i for i, k in enumerate(node_labels)}
 
                             links = (
-                                vc.groupby(["value_chain_stage", "actor_label"], as_index=False)["budget_eur"]
+                                vc_view.groupby(["value_chain_stage", "actor_label"], as_index=False)["budget_eur"]
                                 .sum()
                                 .sort_values("budget_eur", ascending=False)
                             )
                             source = [node_idx[str(s)] for s in links["value_chain_stage"].astype(str)]
                             target = [node_idx[str(a)] for a in links["actor_label"].astype(str)]
                             value = links["budget_eur"].astype(float).tolist()
+
+                            connected_actors: set[str] = set()
+                            if stage_highlight != stage_all_label:
+                                connected_actors = set(
+                                    links[links["value_chain_stage"].astype(str) == str(stage_highlight)]["actor_label"].astype(str).tolist()
+                                )
+                            link_colors: List[str] = []
+                            for stg in links["value_chain_stage"].astype(str).tolist():
+                                if stage_highlight == stage_all_label:
+                                    link_colors.append(STAGE_COLORS.get(stg, "rgba(170,170,170,0.55)"))
+                                elif stg == str(stage_highlight):
+                                    link_colors.append("rgba(255,210,80,0.92)")
+                                else:
+                                    link_colors.append("rgba(170,170,170,0.14)")
+
+                            node_colors: List[str] = []
+                            for label in node_labels:
+                                if label in stage_order:
+                                    if stage_highlight == stage_all_label:
+                                        node_colors.append(STAGE_COLORS.get(label, "rgba(170,170,170,0.65)"))
+                                    elif label == str(stage_highlight):
+                                        node_colors.append("rgba(255,210,80,0.98)")
+                                    else:
+                                        node_colors.append("rgba(170,170,170,0.28)")
+                                else:
+                                    if stage_highlight == stage_all_label:
+                                        node_colors.append("rgba(120,180,255,0.78)")
+                                    elif str(label) in connected_actors:
+                                        node_colors.append("rgba(120,180,255,0.90)")
+                                    else:
+                                        node_colors.append("rgba(120,180,255,0.22)")
 
                             fig_sankey = go.Figure(
                                 data=[
@@ -2309,8 +2482,9 @@ with tab_network:
                                             thickness=14,
                                             line=dict(color="rgba(255,255,255,0.22)", width=0.5),
                                             label=node_labels,
+                                            color=node_colors,
                                         ),
-                                        link=dict(source=source, target=target, value=value),
+                                        link=dict(source=source, target=target, value=value, color=link_colors),
                                     )
                                 ]
                             )
@@ -2318,7 +2492,7 @@ with tab_network:
                             st.plotly_chart(fig_sankey, use_container_width=True)
 
                             stage_tbl = (
-                                vc.groupby("value_chain_stage", as_index=False)["budget_eur"]
+                                vc_view.groupby("value_chain_stage", as_index=False)["budget_eur"]
                                 .sum()
                                 .sort_values("budget_eur", ascending=False)
                             )
@@ -2333,7 +2507,7 @@ with tab_network:
                                 index=0,
                                 key="vc_stage_focus_select",
                             )
-                            stage_only = vc[vc["value_chain_stage"].astype(str) == str(stage_focus)].copy()
+                            stage_only = vc_view[vc_view["value_chain_stage"].astype(str) == str(stage_focus)].copy()
                             if stage_only.empty:
                                 st.info(t(lang, "no_data"))
                             else:
@@ -2725,7 +2899,7 @@ with tab_guide:
             st.markdown(
                 """
 - KPIs = ordres de grandeur (budget, projets, acteurs, tickets).
-- Boîtes par année (échelle log) = comparaison de dispersion + médiane des tickets.
+- Tickets annuels (médiane vs moyenne) = lecture simple du niveau typique et de l'effet des gros projets.
 - Lorenz + HHI = concentration / dépendance à quelques acteurs.
                 """
             )
@@ -2789,7 +2963,7 @@ with tab_guide:
             st.markdown(
                 """
 - KPIs = orders of magnitude.
-- Yearly boxplots (log scale) = spread + median ticket comparison.
+- Yearly tickets (median vs average) = simple reading of typical level and large-project effect.
 - Lorenz + HHI = concentration / dependency risk.
                 """
             )
