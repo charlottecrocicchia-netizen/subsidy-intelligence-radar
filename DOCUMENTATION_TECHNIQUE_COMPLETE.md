@@ -92,6 +92,21 @@ Avantages:
 - pas de dependance forte au reseau pendant la navigation,
 - meilleure reproductibilite (meme donnee pour tous les utilisateurs jusqu'au prochain refresh).
 
+## 4.4 Mapping explicite API -> script -> artefact
+
+| Source/API | Script appele | Quand | Artefact produit |
+|---|---|---|---|
+| CORDIS bulk CSV ZIP | `pipeline.py` -> `process_build.py` | Refresh manuel UI / GitHub Action | `data/processed/subsidy_base.{csv,parquet}` |
+| ADEME data.gouv API | `pipeline.py` -> `process_build.py` | Refresh manuel UI / GitHub Action | inclus dans `subsidy_base` |
+| EC Newsroom RSS | `build_events.py` | Refresh manuel UI / GitHub Action | `data/external/events.csv` |
+| EUR-Lex SPARQL | `build_events.py` | Refresh manuel UI / GitHub Action | `data/external/events.csv` |
+| CINEA / Qlik / EU Funding / MCP (optionnel) | `pipeline.py` -> `incremental_connectors.py` | Refresh si `connectors_manifest.csv` present + `enabled=true` | `data/external/connectors/*` |
+
+Conclusion operationnelle:
+- L'app Streamlit n'appelle pas ces APIs pendant la navigation.
+- Les APIs sont appelees uniquement dans les jobs de refresh.
+- L'app lit ensuite des fichiers locaux preprocesses (parquet/csv).
+
 ## 5) Donnees et schemas
 
 ## 5.1 Dataset principal: `data/processed/subsidy_base.parquet` (+ CSV)
@@ -307,50 +322,78 @@ Caracteristiques:
 Note Cloud:
 - un message explicite indique que la persistance durable passe par GitHub Action.
 
-## 7.4 Onglets UI
+## 7.4 Onglets UI (mode d'emploi equipe)
 
-1. Overview:
-- KPI, allocation entite, structure des tickets par annee (boxplots log), Lorenz.
+Regle de base:
+- Tous les onglets utilisent les filtres globaux sidebar, sauf Macro quand `Use global filters` est desactive.
+- Les montants sont des agregats sur les lignes filtrees, pas des montants projet "bruts non filtres".
 
-2. Geography:
-- carte choropleth + top pays,
-- metrique selectionnable: `Budget total` ou `Budget / million hab.`,
-- mode par defaut: `Budget / million hab.`.
+### 1) Vue d'ensemble / Overview
+- Role: synthese immediate (KPI, concentration, structure des tickets).
+- A lire: budget total, nombre projets/acteurs, ticket moyen/median, concentration.
+- Usage type: verifier le perimetre filtre avant analyse detaillee.
 
-3. Benchmark:
-- scatter log/log, treemap top+others, rankings.
+### 2) Geographie / Geography
+- Role: distribution territoriale.
+- Carte + top pays.
+- Metrique: `Budget total` ou `Budget / million inhabitants (€)`.
+- Valeur par defaut recommandee: normalisee population.
 
-4. Trends:
-- evolution theme/section en absolu ou part annuelle.
+### 3) Benchmark acteurs / Actor benchmark
+- Role: comparaison relative des acteurs.
+- Vues: scatter, treemap (Top + Others), rankings.
+- Notes: en mode "grouping", plusieurs entites legales peuvent etre consolidees sous un meme groupe.
 
-5. Compare:
-- delta de parts entre deux periodes.
+### 4) Tendances / Trends
+- Role: trajectoire temporelle des themes/sections.
+- Vues absolu vs part (%).
+- Usage: identifier acceleration, ralentissement, glissements thematiques.
 
-6. Macro & news:
-- filtres macro dedies,
-- option `Use global filters`,
-- matching par theme ou tag,
-- overlays evenements + fenetre temporelle.
+### 5) Comparaison / Compare
+- Role: comparer deux periodes A/B.
+- Sortie: deltas de part et de budget.
+- Usage: lecture pre/post (policy shift, nouvelle programmation, etc.).
 
-7. Actor profile:
-- trend acteur, mix theme, mix geo, partenaires.
+### 6) Macro & actualites / Macro & news
+- Role: contextualisation temporelle (hypotheses, pas causalite automatique).
+- Source: `data/external/events.csv` (RSS + SPARQL + eventuels connecteurs enrichissant ce fichier en amont).
+- Fonctionnement:
+  - matching par `theme` ou par `tag`,
+  - compteur d'evenements associes affiche dans l'UI,
+  - message "low coverage" si peu d'evenements.
+- Point important:
+  - le budget affiche dans cet onglet est le budget de la thématique selectionnee (et filtres macro), pas le budget global total.
+  - les lignes d'evenements sur le graphe sont affichees sur les annees presentes dans la serie budget.
+- Interprétation:
+  - si `tag=AI` retourne peu d'evenements, cela reflète la couverture actuelle du `events.csv` (pas un bug de calcul budget).
 
-8. Value chain & network:
-- Sankey budget par `value_chain_stage` -> acteurs.
-- filtres thematiques + filtres d'etapes de chaine.
-- focus etape -> top acteurs -> table projets (drilldown).
-- graphe etoile de collaboration autour d'un acteur focal.
+### 7) Fiche acteur / Actor profile
+- Role: zoom sur un acteur (tendance, themes, geographie, partenaires).
+- Usage: analyser le profil, la specialisation et l'intensite de collaboration d'un acteur.
 
-9. Data:
-- pagination DuckDB (anti MessageSizeError),
-- export page,
-- export complet filtre (prepare + download).
+### 8) Chaine & reseau / Value chain & network
+- Role: articulation `value_chain_stage -> acteurs` + reseau de collaboration.
+- Vues:
+  - Sankey (budget agrege),
+  - focus etape -> top acteurs -> table projets associes,
+  - graphe de co-participation autour d'un acteur focal.
+- Point robustesse:
+  - fallback SQL present pour eviter un crash UI si une requete detaillee echoue.
 
-10. Quality:
-- controles de completion et qualite de champs.
+### 9) Donnees / Data
+- Role: audit de lignes.
+- Pagination server-side DuckDB (evite `MessageSizeError` Streamlit).
+- Export page + export complet filtre.
 
-11. Help / Guide:
-- documentation d'usage et d'interpretation.
+### 10) Qualite / Quality
+- Role: controles de completude/coherence (annees, montants, champs critiques).
+- Usage: verifier la fiabilite avant presentation metier.
+
+### 11) Aide / Help
+- Role: consignes de lecture fonctionnelle et limites d'interpretation.
+
+### 12) Guide
+- Role: mode d'emploi detaille (workflow utilisateur, bonnes pratiques d'analyse).
 
 ## 8) Automatisation durable GitHub -> Streamlit
 

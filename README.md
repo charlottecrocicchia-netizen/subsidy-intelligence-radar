@@ -2,6 +2,8 @@
 
 Documentation technique complete:
 - `DOCUMENTATION_TECHNIQUE_COMPLETE.md`
+- Email equipe pret a envoyer:
+  - `EMAIL_EQUIPE_SUBSIDY_RADAR.md`
 
 ## Run now (end-to-end)
 ```bash
