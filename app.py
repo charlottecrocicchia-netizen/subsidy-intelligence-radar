@@ -7,6 +7,7 @@ import sys
 import tempfile
 import re
 import os
+import time
 
 import numpy as np
 import pandas as pd
@@ -44,6 +45,7 @@ PYTHON_BIN = sys.executable
 
 # Global lock (works on Streamlit Cloud)
 LOCK_PATH = Path(tempfile.gettempdir()) / "subsidy_radar_refresh.lock"
+REFRESH_LOCK_STALE_SEC = int(os.environ.get("SUBSIDY_REFRESH_LOCK_STALE_SEC", "7200"))  # 2h
 
 
 # ============================================================
@@ -1014,21 +1016,51 @@ def rebuild_all() -> Tuple[bool, Dict[str, str]]:
     return True, logs
 
 
+def _lock_age_seconds(path: Path) -> Optional[float]:
+    try:
+        return max(0.0, time.time() - float(path.stat().st_mtime))
+    except Exception:
+        return None
+
+
 def refresh_with_lock() -> Tuple[bool, Dict[str, str]]:
     lock = FileLock(str(LOCK_PATH))
-    try:
-        lock.acquire(timeout=0)
-    except Timeout:
-        return False, {"lock": "Refresh already running. Try again in 1–2 minutes."}
+    acquired = False
 
     try:
+        try:
+            lock.acquire(timeout=2)
+            acquired = True
+        except Timeout:
+            age = _lock_age_seconds(LOCK_PATH)
+            # Defensive stale-lock recovery for interrupted cloud sessions.
+            if age is not None and age > float(REFRESH_LOCK_STALE_SEC):
+                try:
+                    LOCK_PATH.unlink(missing_ok=True)
+                except Exception:
+                    pass
+                lock = FileLock(str(LOCK_PATH))
+                lock.acquire(timeout=2)
+                acquired = True
+            else:
+                age_msg = f" Lock age ~{age/60:.0f} min." if age is not None else ""
+                return False, {"lock": f"Refresh already running.{age_msg} Try again in 1–2 minutes."}
+
         ok, logs = rebuild_all()
         # Important: clear caches
         st.cache_data.clear()
         st.cache_resource.clear()
         return ok, logs
+    except Timeout:
+        age = _lock_age_seconds(LOCK_PATH)
+        age_msg = f" Lock age ~{age/60:.0f} min." if age is not None else ""
+        return False, {"lock": f"Refresh lock busy.{age_msg} Try again in 1–2 minutes."}
     finally:
-        lock.release()
+        if acquired:
+            try:
+                lock.release()
+            except Exception:
+                pass
 
 
 # ============================================================
