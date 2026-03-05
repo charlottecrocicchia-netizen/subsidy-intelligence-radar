@@ -66,6 +66,9 @@ VALUE_CHAIN_RULES: Dict[str, List[str]] = {
     "End-use & market": [
         "mobility", "aviation", "shipping", "manufacturing", "consumer", "commercialisation", "market uptake",
     ],
+    "Research & concept": [
+        "research", "r&d", "feasibility", "proof of concept", "concept", "prototype", "laboratory", "pre-commercial",
+    ],
 }
 
 NEGATION_TOKENS = ["not", "no", "without", "excluding", "exclude", "except", "non", "sans", "hors", "ne pas"]
@@ -128,9 +131,9 @@ def infer_theme(*parts: str) -> str:
 def infer_value_chain_stage(*parts: str) -> str:
     txt = _clean_text(*parts)
     if not txt:
-        return "Unspecified"
+        return "Research & concept"
 
-    best_stage = "Unspecified"
+    best_stage = "Research & concept"
     best_score = 0
     for stage, keys in VALUE_CHAIN_RULES.items():
         score = sum(1 for k in keys if _keyword_positive_hit(txt, k))
