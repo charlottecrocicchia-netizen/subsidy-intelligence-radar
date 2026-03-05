@@ -32,6 +32,7 @@ PARQUET_PATH = DATA_DIR / "processed" / "subsidy_base.parquet"
 CSV_PATH = DATA_DIR / "processed" / "subsidy_base.csv"  # optionnel (export)
 EVENTS_PATH = DATA_DIR / "external" / "events.csv"
 ACTOR_GROUPS_PATH = DATA_DIR / "external" / "actor_groups.csv"
+ACTOR_GROUPS_TEMPLATE_PATH = DATA_DIR / "external" / "actor_groups.template.csv"
 REQUIREMENTS_PATH = BASE_DIR / "requirements.txt"
 
 # Offline scripts (ONLY on refresh click)
@@ -201,7 +202,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_grouping": "Regrouper entités juridiques (PIC/groupe)",
         "exclude_funders": "Exclure financeurs / agences",
         "actor_groups_ready": "Mapping groupes chargé",
-        "actor_groups_missing": "Mapping groupes absent (`data/external/actor_groups.csv`).",
+        "actor_groups_source": "Source mapping",
+        "mapping_low_coverage": "Couverture faible: complète `actor_groups.csv` pour un regroupement fiable.",
+        "exclude_funders_heuristic": "Exclusion basée aussi sur heuristique nom d'organisation (EIT/CINEA/etc.).",
+        "actor_groups_missing": "Mapping groupes absent (`actor_groups.csv` / template).",
         "kpis": "📊 Indicateurs clés",
         "budget_total": "Budget total",
         "n_projects": "Nombre de projets",
@@ -326,7 +330,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_grouping": "Group legal entities (PIC/group)",
         "exclude_funders": "Exclude funders / agencies",
         "actor_groups_ready": "Group mapping loaded",
-        "actor_groups_missing": "Group mapping missing (`data/external/actor_groups.csv`).",
+        "actor_groups_source": "Mapping source",
+        "mapping_low_coverage": "Low coverage: complete `actor_groups.csv` for reliable grouping.",
+        "exclude_funders_heuristic": "Exclusion also uses org-name heuristics (EIT/CINEA/etc.).",
+        "actor_groups_missing": "Group mapping missing (`actor_groups.csv` / template).",
         "kpis": "📊 Key indicators",
         "budget_total": "Total budget",
         "n_projects": "Projects",
@@ -564,18 +571,21 @@ def _norm_col_name(x: str) -> str:
 
 
 @st.cache_data(show_spinner=False)
-def load_actor_group_tables() -> Tuple[pd.DataFrame, pd.DataFrame]:
+def load_actor_group_tables() -> Tuple[pd.DataFrame, pd.DataFrame, str]:
     """
     Optional CSV mapping to group legal entities under one parent (PIC/group).
     Expected columns (flexible names): actor_id OR pic, plus group_id/group_name and optional is_funder.
     """
-    if not ACTOR_GROUPS_PATH.exists():
-        return _empty_actor_map_actor(), _empty_actor_map_pic()
+    mapping_path = ACTOR_GROUPS_PATH if ACTOR_GROUPS_PATH.exists() else (
+        ACTOR_GROUPS_TEMPLATE_PATH if ACTOR_GROUPS_TEMPLATE_PATH.exists() else None
+    )
+    if mapping_path is None:
+        return _empty_actor_map_actor(), _empty_actor_map_pic(), ""
 
     try:
-        raw = pd.read_csv(ACTOR_GROUPS_PATH, dtype=str).fillna("")
+        raw = pd.read_csv(mapping_path, dtype=str).fillna("")
     except Exception:
-        return _empty_actor_map_actor(), _empty_actor_map_pic()
+        return _empty_actor_map_actor(), _empty_actor_map_pic(), ""
 
     raw.columns = [_norm_col_name(c) for c in raw.columns]
 
@@ -597,7 +607,7 @@ def load_actor_group_tables() -> Tuple[pd.DataFrame, pd.DataFrame]:
 
     data = data[(data["actor_id"].astype(str).str.len() > 0) | (data["pic"].astype(str).str.len() > 0)].copy()
     if data.empty:
-        return _empty_actor_map_actor(), _empty_actor_map_pic()
+        return _empty_actor_map_actor(), _empty_actor_map_pic(), mapping_path.name
 
     data["group_id"] = np.where(
         data["group_id"].astype(str).str.len() > 0,
@@ -625,7 +635,7 @@ def load_actor_group_tables() -> Tuple[pd.DataFrame, pd.DataFrame]:
         .reset_index(drop=True)
     )
 
-    return by_actor, by_pic
+    return by_actor, by_pic, mapping_path.name
 
 
 # ============================================================
@@ -649,7 +659,7 @@ def base_schema_columns() -> List[str]:
 
 
 def register_actor_group_tables() -> Dict[str, int]:
-    by_actor, by_pic = load_actor_group_tables()
+    by_actor, by_pic, source_name = load_actor_group_tables()
 
     con = get_con()
     con.register("actor_groups_by_actor", by_actor if not by_actor.empty else _empty_actor_map_actor())
@@ -659,6 +669,7 @@ def register_actor_group_tables() -> Dict[str, int]:
         "available": bool((not by_actor.empty) or (not by_pic.empty)),
         "rows_actor": int(len(by_actor)),
         "rows_pic": int(len(by_pic)),
+        "source": source_name,
     }
 
 
@@ -690,7 +701,7 @@ def actor_group_match_stats() -> Dict[str, int]:
     }
 
 
-def rel_analytics(use_actor_groups: bool, exclude_funders: bool, actor_map_available: bool) -> str:
+def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
     base = rel()
     cols = set(base_schema_columns())
     pic_expr = "b.pic" if "pic" in cols else "regexp_extract(b.actor_id, '([0-9]{8,10})$', 1)"
@@ -1035,11 +1046,11 @@ def _ensure_filter_state() -> None:
     st.session_state.setdefault("f_exclude_funders", False)
 
     # One-time migration: switch old "all countries by default" sessions to Europe default.
-    if not st.session_state.get("_country_default_migrated", False):
+    if not st.session_state.get("_country_default_migrated_v2", False):
         st.session_state["f_countries"] = default_countries
         st.session_state["f_use_actor_groups"] = False
         st.session_state["f_exclude_funders"] = False
-        st.session_state["_country_default_migrated"] = True
+        st.session_state["_country_default_migrated_v2"] = True
 
 
 _ensure_filter_state()
@@ -1097,15 +1108,20 @@ with st.sidebar:
             f"{t(lang, 'actor_groups_ready')}: "
             f"{actor_map_info.get('rows_actor', 0)} actor_id / {actor_map_info.get('rows_pic', 0)} PIC"
         )
+        if actor_map_info.get("source"):
+            st.caption(f"{t(lang, 'actor_groups_source')}: `{actor_map_info.get('source')}`")
         st.caption(f"{t(lang, 'mapping_coverage')}: {cov['matched_actors']}/{cov['total_actors']} ({coverage_pct:.1f}%)")
+        if coverage_pct < 1.0:
+            st.caption(t(lang, "mapping_low_coverage"))
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
-        st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
     else:
         st.caption(t(lang, "actor_groups_missing"))
         st.checkbox(t(lang, "actor_grouping"), value=False, disabled=True)
-        st.checkbox(t(lang, "exclude_funders"), value=False, disabled=True)
         st.session_state["f_use_actor_groups"] = False
-        st.session_state["f_exclude_funders"] = False
+
+    st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
+    if not actor_map_info.get("available", False):
+        st.caption(t(lang, "exclude_funders_heuristic"))
 
     st.caption(f"{t(lang, 'build_sha')}: {current_git_sha()}")
 
@@ -1127,7 +1143,6 @@ W = where_clause(
 R = rel_analytics(
     use_actor_groups=bool(st.session_state.get("f_use_actor_groups", False)),
     exclude_funders=bool(st.session_state.get("f_exclude_funders", False)),
-    actor_map_available=bool(actor_map_info.get("available", False)),
 )
 
 
