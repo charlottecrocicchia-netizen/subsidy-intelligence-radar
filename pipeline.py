@@ -183,6 +183,25 @@ def _download_stream(url: str, out_path: Path) -> None:
                     f.write(chunk)
 
 
+def _parquet_columns(path: Path) -> list:
+    if not path.exists():
+        return []
+    try:
+        import duckdb
+
+        con = duckdb.connect(database=":memory:")
+        p = path.as_posix().replace("'", "''")
+        df = con.execute(f"SELECT * FROM read_parquet('{p}') LIMIT 0").fetchdf()
+        return [str(c) for c in df.columns]
+    except Exception:
+        try:
+            import pyarrow.parquet as pq
+
+            return [str(c) for c in pq.ParquetFile(path).schema.names]
+        except Exception:
+            return []
+
+
 # ============================
 # Public API
 # ============================
@@ -199,8 +218,8 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
     STREAMLIT CLOUD:
       never downloads big sources; only checks parquet exists (and rebuilds from local raw if present).
 
-    The "Refresh" button in app should call this with force=True on LOCAL machines.
-    On Cloud, do NOT call it to download; use build_events.py only.
+    The "Refresh" button in app can call this incrementally (force=False by default).
+    Set force=True only for a full rebuild.
     """
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     PROC_DIR.mkdir(parents=True, exist_ok=True)
@@ -222,7 +241,7 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
     cordis_stamps = {k: _http_stamp(url) for k, url in CORDIS_URLS.items()}
     ademe_url, ademe_stamp = _ademe_url_and_stamp()
 
-    need = force or (not OUT_PARQUET.exists()) or (not OUT_CSV.exists())
+    need_core = force or (not OUT_PARQUET.exists()) or (not OUT_CSV.exists())
     reasons = []
     if force:
         reasons.append("forced")
@@ -230,58 +249,92 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
         reasons.append("missing_processed_parquet")
     if not OUT_CSV.exists():
         reasons.append("missing_processed_csv")
+    if OUT_PARQUET.exists():
+        cols = set(_parquet_columns(OUT_PARQUET))
+        required = {"pic", "value_chain_stage", "project_status"}
+        if not required.issubset(cols):
+            need_core = True
+            reasons.append("missing_schema_cols")
 
     # Compare stored stamps
     prev = state.get("stamps", {})
-    if not need:
+    if not need_core:
         for k, s in cordis_stamps.items():
             if s and prev.get(f"cordis_{k}") != s:
-                need = True
+                need_core = True
                 reasons.append(f"cordis_changed:{k}")
         if ademe_stamp and prev.get("ademe_stamp") != ademe_stamp:
-            need = True
+            need_core = True
             reasons.append("ademe_changed")
 
-    if not need:
+    connectors_manifest = BASE_DIR / "data" / "external" / "connectors_manifest.csv"
+    need_connectors = connectors_manifest.exists()
+
+    if not need_core and not need_connectors:
         return UpdateResult(rebuilt=False, reason="up_to_date")
 
     _acquire_lock()
     try:
-        # Download raw
-        for name, url in CORDIS_URLS.items():
+        ran_connectors = False
+        connectors_updated = False
+        # Optional external connectors (API/MCP), incremental via data/external/connectors_manifest.csv
+        if need_connectors:
+            try:
+                from incremental_connectors import run_incremental_connectors
+
+                state, connector_results = run_incremental_connectors(BASE_DIR, state=state, force=force, verbose=verbose)
+                ran_connectors = len(connector_results) > 0
+                connectors_updated = any((r.ok and r.ran) for r in connector_results)
+                if connectors_updated:
+                    reasons.append("external_connectors_updated")
+            except Exception as e:
+                if verbose:
+                    print(f"[pipeline][WARN] connectors step failed: {e}")
+
+        if need_core:
+            # Download raw
+            for name, url in CORDIS_URLS.items():
+                if verbose:
+                    print(f"[pipeline] Download CORDIS {name}")
+                _download_and_extract_zip(url, RAW_DIR / "cordis" / name)
+
+            # ADEME optional
+            if ademe_url:
+                if verbose:
+                    print("[pipeline] Download ADEME CSV")
+                _download_stream(ademe_url, RAW_DIR / "france" / "ademe" / "ademe_aides_full.csv")
+
+            # Build processed
             if verbose:
-                print(f"[pipeline] Download CORDIS {name}")
-            _download_and_extract_zip(url, RAW_DIR / "cordis" / name)
+                print("[pipeline] Build processed dataset")
+            from process_build import build_processed_dataset
 
-        # ADEME optional
-        if ademe_url:
-            if verbose:
-                print("[pipeline] Download ADEME CSV")
-            _download_stream(ademe_url, RAW_DIR / "france" / "ademe" / "ademe_aides_full.csv")
+            build_processed_dataset(raw_dir=RAW_DIR, out_csv=OUT_CSV)
 
-        # Build processed
-        if verbose:
-            print("[pipeline] Build processed dataset")
-        from process_build import build_processed_dataset
+            # Update core data state only when rebuild happened
+            state["stamps"] = {
+                **{f"cordis_{k}": v for k, v in cordis_stamps.items()},
+                "ademe_stamp": ademe_stamp,
+            }
+            state["last_build_ts"] = time.time()
 
-        build_processed_dataset(raw_dir=RAW_DIR, out_csv=OUT_CSV)
+        if ran_connectors and not need_core:
+            state["last_connectors_ts"] = time.time()
 
-        # Update state
-        state["stamps"] = {
-            **{f"cordis_{k}": v for k, v in cordis_stamps.items()},
-            "ademe_stamp": ademe_stamp,
-        }
-        state["last_build_ts"] = time.time()
         _write_state(state)
 
-        return UpdateResult(rebuilt=True, reason=";".join(reasons) if reasons else "rebuild")
+        rebuilt_any = bool(need_core or connectors_updated)
+        if not rebuilt_any and need_connectors and not need_core:
+            return UpdateResult(rebuilt=False, reason="connectors_checked_no_update")
+        return UpdateResult(rebuilt=rebuilt_any, reason=";".join(reasons) if reasons else ("rebuild" if need_core else "connectors_updated"))
     finally:
         _release_lock()
 
 
 def main() -> None:
-    # On your Mac: use force=True to actually update and rebuild everything.
-    res = ensure_data_updated(force=True, verbose=True)
+    # Incremental by default. Set SUBSIDY_FORCE_REBUILD=1 for a full forced refresh.
+    force = os.getenv("SUBSIDY_FORCE_REBUILD", "0") == "1"
+    res = ensure_data_updated(force=force, verbose=True)
     print(f"[OK] rebuilt={res.rebuilt} reason={res.reason} out={OUT_PARQUET}")
 
 

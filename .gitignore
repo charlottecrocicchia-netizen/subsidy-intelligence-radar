@@ -13,6 +13,8 @@ data/external/*
 # BUT keep the two deliverables for Streamlit Cloud
 !data/processed/subsidy_base.parquet
 !data/external/events.csv
+!data/external/actor_groups.template.csv
+!data/external/connectors_manifest.template.csv
 
 # Local snapshots/logs
 _project_snapshot.txt

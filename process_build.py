@@ -14,11 +14,14 @@ Author: Charlotte Crocicchia (rewritten & hardened)
 from __future__ import annotations
 
 import re
+from datetime import date
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import numpy as np
 import pandas as pd
+
+BASE_DIR = Path(__file__).resolve().parent
 
 
 # ============================================================
@@ -47,16 +50,94 @@ GENERIC: Dict[str, List[str]] = {
     "Security & Resilience": ["security", "cyber", "defence", "defense", "crisis", "resilience"],
 }
 
+VALUE_CHAIN_RULES: Dict[str, List[str]] = {
+    "Resources & feedstock": [
+        "critical raw material", "raw material", "lithium", "nickel", "cobalt", "mining", "feedstock", "biomass",
+    ],
+    "Components & core technology": [
+        "electrolyser", "electrolyzer", "fuel cell", "reactor", "cell", "module", "stack", "turbine", "battery",
+    ],
+    "Systems & infrastructure": [
+        "grid", "pipeline", "network", "charging", "storage system", "integration", "interoperability", "hub",
+    ],
+    "Deployment & operations": [
+        "pilot", "demonstration", "demo", "deployment", "operation", "industrialisation", "scale-up", "roll-out",
+    ],
+    "End-use & market": [
+        "mobility", "aviation", "shipping", "manufacturing", "consumer", "commercialisation", "market uptake",
+    ],
+}
+
+NEGATION_TOKENS = ["not", "no", "without", "excluding", "exclude", "except", "non", "sans", "hors", "ne pas"]
+NEG_RE = re.compile(r"\b(" + "|".join([re.escape(x) for x in NEGATION_TOKENS]) + r")\b", flags=re.IGNORECASE)
+
+
+def _clean_text(*parts: str) -> str:
+    txt = " ".join([(p or "") for p in parts]).lower()
+    txt = re.sub(r"[\r\n\t]+", " ", txt)
+    txt = re.sub(r"\s+", " ", txt).strip()
+    return txt
+
+
+def _keyword_positive_hit(txt: str, keyword: str) -> bool:
+    kw = str(keyword).strip().lower()
+    if not kw:
+        return False
+
+    start = 0
+    while True:
+        idx = txt.find(kw, start)
+        if idx < 0:
+            return False
+        left = txt[max(0, idx - 70):idx]
+        right = txt[idx + len(kw): idx + len(kw) + 30]
+
+        neg_left = NEG_RE.search(left) is not None
+        explicit_excl = re.search(r"\b(not in scope|out of scope|excluded from scope)\b", left + right) is not None
+        # Keep positive occurrences unless they are clearly in an exclusion context.
+        if not neg_left and not explicit_excl:
+            return True
+        start = idx + len(kw)
+
 
 def infer_theme(*parts: str) -> str:
-    txt = " ".join([(p or "") for p in parts]).lower()
+    txt = _clean_text(*parts)
+    if not txt:
+        return "Other"
+
+    best_theme = "Other"
+    best_score = 0
+
     for theme, keys in ONETECH.items():
-        if any(k in txt for k in keys):
-            return theme
+        score = sum(1 for k in keys if _keyword_positive_hit(txt, k))
+        if score > best_score:
+            best_theme = theme
+            best_score = score
+
     for theme, keys in GENERIC.items():
-        if any(k in txt for k in keys):
-            return theme
+        score = sum(1 for k in keys if _keyword_positive_hit(txt, k))
+        if score > best_score:
+            best_theme = theme
+            best_score = score
+
+    if best_score > 0:
+        return best_theme
     return "Other"
+
+
+def infer_value_chain_stage(*parts: str) -> str:
+    txt = _clean_text(*parts)
+    if not txt:
+        return "Unspecified"
+
+    best_stage = "Unspecified"
+    best_score = 0
+    for stage, keys in VALUE_CHAIN_RULES.items():
+        score = sum(1 for k in keys if _keyword_positive_hit(txt, k))
+        if score > best_score:
+            best_stage = stage
+            best_score = score
+    return best_stage
 
 
 # ============================================================
@@ -162,7 +243,7 @@ def _atomic_write_parquet(df: pd.DataFrame, out_parquet: Path) -> None:
     out_parquet.parent.mkdir(parents=True, exist_ok=True)
     tmp = out_parquet.with_suffix(out_parquet.suffix + ".tmp")
     # requires pyarrow installed (Streamlit Cloud usually has it / you can add to requirements)
-    df.to_parquet(tmp, index=False)
+    df.to_parquet(tmp, index=False, compression="zstd")
     tmp.replace(out_parquet)
 
 
@@ -209,6 +290,7 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
         "CORDIS:" + org["country_alpha2"].astype(str) + ":" + org["_org_id"].astype(str),
         "CORDIS:" + org["country_alpha2"].astype(str) + ":" + org["org_name_norm"].astype(str),
     )
+    org["_pic_guess"] = org["_org_id"].astype(str).str.replace(r"\D+", "", regex=True).str.extract(r"([0-9]{8,10})", expand=False).fillna("")
 
     # project fields
     keep_proj = [c for c in [
@@ -230,6 +312,12 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
 
     # year
     df["year"] = pd.to_datetime(df.get("startDate"), errors="coerce").dt.year
+    end_dt = pd.to_datetime(df.get("endDate"), errors="coerce")
+    df["project_status"] = np.where(
+        end_dt.isna(),
+        "Unknown",
+        np.where(end_dt >= pd.Timestamp(date.today()), "Open", "Closed"),
+    )
 
     # country name/alpha3
     df["country_name"] = df["country_alpha2"].apply(country_name)
@@ -257,6 +345,9 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
     obj_s = df.get("objective", pd.Series([""] * len(df))).fillna("").astype(str)
     abs_s = df.get("abstract", pd.Series([""] * len(df))).fillna("").astype(str)
     df["theme"] = [infer_theme(t, a, o, ab) for t, a, o, ab in zip(title_s, acr_s, obj_s, abs_s)]
+    df["value_chain_stage"] = [infer_value_chain_stage(t, a, o, ab) for t, a, o, ab in zip(title_s, acr_s, obj_s, abs_s)]
+    pic_from_actor = df["actor_id"].astype(str).str.extract(r"([0-9]{8,10})$", expand=False).fillna("")
+    df["pic"] = np.where(df["_pic_guess"].astype(str).str.len() > 0, df["_pic_guess"].astype(str), pic_from_actor)
 
     out = pd.DataFrame({
         "source": "CORDIS",
@@ -269,6 +360,7 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
         "objective": df.get("objective", "").astype("string").fillna("").astype(str),
         "abstract": df.get("abstract", "").astype("string").fillna("").astype(str),
         "actor_id": df["actor_id"].astype(str),
+        "pic": df["pic"].astype(str),
         "org_name": df["org_name"].astype(str),
         "entity_type": df["entity_type"].astype(str),
         "country_alpha2": df["country_alpha2"].astype(str),
@@ -276,6 +368,8 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
         "country_name": df["country_name"].astype(str),
         "amount_eur": df["ecContribution"],
         "theme": df["theme"].astype(str),
+        "value_chain_stage": df["value_chain_stage"].astype(str),
+        "project_status": df["project_status"].astype(str),
     })
 
     return out
@@ -308,14 +402,19 @@ def load_ademe(folder: Path) -> pd.DataFrame:
     org = pick_series("beneficiaire", "Bénéficiaire", "beneficiaires", "nom", "Nom", "raison_sociale", "Raison sociale")
     title = pick_series("objet", "Objet", "description", "Description", "intitule", "Intitulé")
     amount = pick_series("montant", "Montant", "montant_eur", "montant (€)", "montant_accorde", "Montant accordé")
-    date = pick_series("date", "Date", "date_versement", "dateConvention", "date_signature", "Date signature")
+    date_col = pick_series("date", "Date", "date_versement", "dateConvention", "date_signature", "Date signature")
 
     section = pick_series("dispositif", "Dispositif", "nature", "Nature", "programme", "Programme").fillna("ADEME")
 
     org_s = org.astype("string").fillna("").astype(str).str.strip()
     title_s = title.astype("string").fillna("").astype(str).str.strip()
     amount_num = pd.to_numeric(amount.astype(str).str.replace(",", ".", regex=False), errors="coerce")
-    year = pd.to_datetime(date, errors="coerce").dt.year
+    year = pd.to_datetime(date_col, errors="coerce").dt.year
+    project_status = np.where(
+        year.isna(),
+        "Unknown",
+        np.where(year >= int(date.today().year), "Open", "Closed"),
+    )
 
     # actor_id: prefer SIRET/SIREN if present
     siret_col = pick_col(df, "siret", "SIRET")
@@ -362,6 +461,7 @@ def load_ademe(folder: Path) -> pd.DataFrame:
         "objective": "",
         "abstract": "",
         "actor_id": pd.Series(actor_id).astype("string").fillna("").astype(str),
+        "pic": "",
         "org_name": org_s,
         "entity_type": "Unknown",
         "country_alpha2": "FR",
@@ -369,6 +469,8 @@ def load_ademe(folder: Path) -> pd.DataFrame:
         "country_name": "France",
         "amount_eur": amount_num,
         "theme": [infer_theme(str(t)) for t in title_s.fillna("").astype(str)],
+        "value_chain_stage": [infer_value_chain_stage(str(t)) for t in title_s.fillna("").astype(str)],
+        "project_status": pd.Series(project_status).astype("string").fillna("Unknown").astype(str),
     })
 
     df_out = df_out[mask_ok].copy()
@@ -382,9 +484,9 @@ def _SCHEMA_COLS() -> List[str]:
     return [
         "source", "program", "section", "year",
         "projectID", "acronym", "title", "objective", "abstract",
-        "actor_id", "org_name", "entity_type",
+        "actor_id", "pic", "org_name", "entity_type",
         "country_alpha2", "country_alpha3", "country_name",
-        "amount_eur", "theme",
+        "amount_eur", "theme", "value_chain_stage", "project_status",
     ]
 
 
@@ -399,7 +501,8 @@ def _enforce_schema(out: pd.DataFrame) -> pd.DataFrame:
 
     # trim strings
     for c in ["source", "program", "section", "projectID", "acronym", "title", "objective", "abstract",
-              "actor_id", "org_name", "entity_type", "country_alpha2", "country_alpha3", "country_name", "theme"]:
+              "actor_id", "pic", "org_name", "entity_type", "country_alpha2", "country_alpha3", "country_name",
+              "theme", "value_chain_stage", "project_status"]:
         out[c] = out[c].astype("string").fillna("").astype(str).str.strip()
 
     # keep only valid rows
@@ -419,6 +522,150 @@ def _enforce_schema(out: pd.DataFrame) -> pd.DataFrame:
     out = out.sort_values(["source", "program", "year", "projectID", "actor_id"]).reset_index(drop=True)
 
     return out[_SCHEMA_COLS()].copy()
+
+
+def _norm_col_name(x: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", str(x).strip().lower()).strip("_")
+
+
+def _load_actor_group_map(path: Path) -> pd.DataFrame:
+    cols = ["actor_id", "pic", "group_id", "group_name", "is_funder"]
+    if not path.exists():
+        return pd.DataFrame(columns=cols)
+
+    try:
+        raw = pd.read_csv(path, dtype=str).fillna("")
+    except Exception:
+        return pd.DataFrame(columns=cols)
+
+    raw.columns = [_norm_col_name(c) for c in raw.columns]
+
+    aliases = {
+        "actor_id": {"actor_id", "actorid", "participant_actor_id", "participant_id", "entity_actor_id"},
+        "pic": {"pic", "participant_pic", "organisation_pic", "organization_pic"},
+        "group_id": {"group_id", "group", "group_key", "parent_group_id", "company_group_id", "tic"},
+        "group_name": {"group_name", "group_label", "parent_group", "company_group", "enterprise_group", "group_display"},
+        "is_funder": {"is_funder", "funder", "is_financer", "financeur", "is_funding_body", "funding_body"},
+    }
+
+    out = pd.DataFrame(index=raw.index)
+    for col, names in aliases.items():
+        found = next((c for c in raw.columns if c in names), None)
+        out[col] = raw[found].astype("string").fillna("").astype(str).str.strip() if found else ""
+
+    out["pic"] = out["pic"].astype(str).str.replace(r"\D+", "", regex=True)
+    out["is_funder"] = out["is_funder"].astype(str).str.strip().str.lower().isin({"1", "true", "yes", "y", "oui", "vrai", "t"})
+    out = out[(out["actor_id"].astype(str).str.len() > 0) | (out["pic"].astype(str).str.len() > 0)].copy()
+    if out.empty:
+        return pd.DataFrame(columns=cols)
+
+    out["group_id"] = np.where(
+        out["group_id"].astype(str).str.len() > 0,
+        out["group_id"].astype(str),
+        np.where(
+            out["group_name"].astype(str).str.len() > 0,
+            out["group_name"].astype(str),
+            np.where(out["pic"].astype(str).str.len() > 0, "PIC:" + out["pic"].astype(str), out["actor_id"].astype(str)),
+        ),
+    )
+    out["group_name"] = np.where(out["group_name"].astype(str).str.len() > 0, out["group_name"].astype(str), out["group_id"].astype(str))
+
+    return out[cols].drop_duplicates().reset_index(drop=True)
+
+
+def _join_unique(series: pd.Series, sep: str = " | ", top: int = 20) -> str:
+    vals = [str(x).strip() for x in series.dropna().astype(str).tolist() if str(x).strip()]
+    if not vals:
+        return ""
+    uniq = sorted(set(vals))
+    if len(uniq) > top:
+        uniq = uniq[:top] + ["..."]
+    return sep.join(uniq)
+
+
+def build_master_actor_tables(base_df: pd.DataFrame, out_dir: Path, actor_group_map_path: Path) -> None:
+    """
+    Builds durable master tables used for actor/group/PIC analyses and network views.
+    """
+    out_dir.mkdir(parents=True, exist_ok=True)
+    m = base_df.copy()
+    m["pic"] = m["pic"].astype("string").fillna("").astype(str).str.replace(r"\D+", "", regex=True).str.extract(r"([0-9]{8,10})", expand=False).fillna("")
+
+    map_df = _load_actor_group_map(actor_group_map_path)
+    by_actor = map_df[map_df["actor_id"].astype(str).str.len() > 0][["actor_id", "group_id", "group_name", "is_funder"]].drop_duplicates("actor_id")
+    by_pic = map_df[map_df["pic"].astype(str).str.len() > 0][["pic", "group_id", "group_name", "is_funder"]].drop_duplicates("pic")
+
+    m = m.merge(by_actor, on="actor_id", how="left", suffixes=("", "_actor"))
+    m = m.merge(by_pic, on="pic", how="left", suffixes=("", "_pic"))
+    m["group_id"] = np.where(
+        m["group_id"].astype("string").fillna("").astype(str).str.len() > 0,
+        m["group_id"].astype(str),
+        np.where(
+            m["group_id_pic"].astype("string").fillna("").astype(str).str.len() > 0,
+            m["group_id_pic"].astype(str),
+            m["actor_id"].astype(str),
+        ),
+    )
+    m["group_name"] = np.where(
+        m["group_name"].astype("string").fillna("").astype(str).str.len() > 0,
+        m["group_name"].astype(str),
+        np.where(
+            m["group_name_pic"].astype("string").fillna("").astype(str).str.len() > 0,
+            m["group_name_pic"].astype(str),
+            m["org_name"].astype(str),
+        ),
+    )
+    m["is_funder"] = (
+        m["is_funder"].astype("boolean").fillna(False).astype(bool)
+        | m["is_funder_pic"].astype("boolean").fillna(False).astype(bool)
+    )
+
+    actor_master = (
+        m.groupby(["actor_id", "pic", "org_name", "entity_type", "country_name", "group_id", "group_name", "is_funder"], as_index=False)
+        .agg(
+            n_projects=("projectID", "nunique"),
+            budget_eur=("amount_eur", "sum"),
+            first_year=("year", "min"),
+            last_year=("year", "max"),
+            sources=("source", _join_unique),
+            programs=("program", _join_unique),
+        )
+        .sort_values(["budget_eur", "n_projects"], ascending=False)
+    )
+
+    group_master = (
+        m.groupby(["group_id", "group_name", "is_funder"], as_index=False)
+        .agg(
+            n_actor_ids=("actor_id", "nunique"),
+            n_projects=("projectID", "nunique"),
+            budget_eur=("amount_eur", "sum"),
+            first_year=("year", "min"),
+            last_year=("year", "max"),
+            countries=("country_name", _join_unique),
+            entity_types=("entity_type", _join_unique),
+        )
+        .sort_values(["budget_eur", "n_projects"], ascending=False)
+    )
+
+    project_actor_links = (
+        m[
+            [
+                "projectID", "year", "theme", "value_chain_stage", "project_status",
+                "actor_id", "pic", "group_id", "group_name", "is_funder",
+                "org_name", "entity_type", "country_name", "amount_eur",
+            ]
+        ]
+        .copy()
+        .sort_values(["year", "projectID", "group_id", "actor_id"])
+        .reset_index(drop=True)
+    )
+
+    _atomic_write_csv(actor_master, out_dir / "actor_master.csv")
+    _atomic_write_parquet(actor_master, out_dir / "actor_master.parquet")
+    _atomic_write_csv(group_master, out_dir / "group_master.csv")
+    _atomic_write_parquet(group_master, out_dir / "group_master.parquet")
+    _atomic_write_csv(project_actor_links, out_dir / "project_actor_links.csv")
+    _atomic_write_parquet(project_actor_links, out_dir / "project_actor_links.parquet")
 
 
 # ============================================================
@@ -456,8 +703,13 @@ def build_processed_dataset(raw_dir: Path, out_csv: Path) -> None:
     out_parquet = out_csv.with_suffix(".parquet")
     _atomic_write_parquet(out, out_parquet)
 
+    data_dir = out_csv.parent.parent
+    actor_group_map_path = data_dir / "external" / "actor_groups.csv"
+    build_master_actor_tables(out, out_csv.parent, actor_group_map_path)
+
     print(f"[OK] Wrote CSV: {out_csv}")
     print(f"[OK] Wrote Parquet: {out_parquet}")
+    print(f"[OK] Wrote actor/group master tables in: {out_csv.parent}")
     print(f"[OK] Rows: {len(out):,}".replace(",", " "))
 
 
