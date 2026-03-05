@@ -52,24 +52,36 @@ GENERIC: Dict[str, List[str]] = {
 
 VALUE_CHAIN_RULES: Dict[str, List[str]] = {
     "Resources & feedstock": [
-        "critical raw material", "raw material", "lithium", "nickel", "cobalt", "mining", "feedstock", "biomass",
+        "critical raw material", "raw material", "lithium", "nickel", "cobalt", "graphite", "mining", "refining",
+        "feedstock", "biomass", "supply chain", "recycling", "recycled content", "precursor", "cathode material",
+        "anode material", "resource efficiency", "sourcing",
     ],
     "Components & core technology": [
         "electrolyser", "electrolyzer", "fuel cell", "reactor", "cell", "module", "stack", "turbine", "battery",
+        "membrane", "electrode", "catalyst", "compressor", "inverter", "converter", "sensor", "power electronics",
+        "hardware", "component", "subsystem",
     ],
     "Systems & infrastructure": [
-        "grid", "pipeline", "network", "charging", "storage system", "integration", "interoperability", "hub",
+        "grid", "microgrid", "pipeline", "network", "charging", "charging station", "storage system", "integration",
+        "interoperability", "hub", "terminal", "facility", "plant", "district heating", "balance of plant", "bop",
+        "infrastructure", "platform",
     ],
     "Deployment & operations": [
-        "pilot", "demonstration", "demo", "deployment", "operation", "industrialisation", "scale-up", "roll-out",
+        "pilot", "demonstration", "demo", "deployment", "operation", "operations", "industrialisation", "industrialization",
+        "scale-up", "scale up", "roll-out", "roll out", "retrofit", "commissioning", "field trial", "validation",
+        "first-of-a-kind", "foak", "maintenance", "site implementation", "trl 6", "trl 7", "trl 8",
     ],
     "End-use & market": [
-        "mobility", "aviation", "shipping", "manufacturing", "consumer", "commercialisation", "market uptake",
+        "mobility", "aviation", "shipping", "manufacturing", "consumer", "commercialisation", "commercialization",
+        "market uptake", "market adoption", "end-user", "customer", "offtake", "business model", "procurement",
+        "bankable", "replication", "go-to-market", "go to market", "trl 9",
     ],
     "Research & concept": [
-        "research", "r&d", "feasibility", "proof of concept", "concept", "prototype", "laboratory", "pre-commercial",
+        "research", "r&d", "feasibility", "proof of concept", "proof-of-concept", "concept", "laboratory",
+        "fundamental", "early-stage", "early stage", "methodology", "simulation", "modeling", "trl 1", "trl 2", "trl 3", "trl 4",
     ],
 }
+VALUE_CHAIN_PRIORITY = list(VALUE_CHAIN_RULES.keys())
 
 NEGATION_TOKENS = ["not", "no", "without", "excluding", "exclude", "except", "non", "sans", "hors", "ne pas"]
 NEG_RE = re.compile(r"\b(" + "|".join([re.escape(x) for x in NEGATION_TOKENS]) + r")\b", flags=re.IGNORECASE)
@@ -133,14 +145,19 @@ def infer_value_chain_stage(*parts: str) -> str:
     if not txt:
         return "Research & concept"
 
-    best_stage = "Research & concept"
-    best_score = 0
+    scores: Dict[str, int] = {}
     for stage, keys in VALUE_CHAIN_RULES.items():
-        score = sum(1 for k in keys if _keyword_positive_hit(txt, k))
-        if score > best_score:
-            best_stage = stage
-            best_score = score
-    return best_stage
+        scores[stage] = sum(1 for k in keys if _keyword_positive_hit(txt, k))
+
+    non_research = {k: v for k, v in scores.items() if k != "Research & concept" and v > 0}
+    if non_research:
+        # Prefer the most concrete downstream stage if present, even if research terms also appear.
+        best_non_research = sorted(non_research.items(), key=lambda x: (-x[1], VALUE_CHAIN_PRIORITY.index(x[0])))[0][0]
+        return best_non_research
+
+    if scores.get("Research & concept", 0) > 0:
+        return "Research & concept"
+    return "Research & concept"
 
 
 # ============================================================

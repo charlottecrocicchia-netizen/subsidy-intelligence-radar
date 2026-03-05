@@ -310,7 +310,7 @@ Note Cloud:
 ## 7.4 Onglets UI
 
 1. Overview:
-- KPI, allocation entite, distribution log ticket, Lorenz.
+- KPI, allocation entite, structure des tickets par annee (boxplots log), Lorenz.
 
 2. Geography:
 - carte choropleth + top pays,
@@ -337,6 +337,8 @@ Note Cloud:
 
 8. Value chain & network:
 - Sankey budget par `value_chain_stage` -> acteurs.
+- filtres thematiques + filtres d'etapes de chaine.
+- focus etape -> top acteurs -> table projets (drilldown).
 - graphe etoile de collaboration autour d'un acteur focal.
 
 9. Data:

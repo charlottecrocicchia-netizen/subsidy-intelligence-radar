@@ -118,6 +118,16 @@ POPULATION_BY_ALPHA3 = {
     "BRA": 216000000, "ZAF": 62000000, "KOR": 51800000, "ISR": 10000000, "TUR": 85700000, "UKR": 37000000,
 }
 
+VALUE_CHAIN_ORDER = [
+    "Resources & feedstock",
+    "Components & core technology",
+    "Systems & infrastructure",
+    "Deployment & operations",
+    "End-use & market",
+    "Research & concept",
+    "Unspecified",
+]
+
 
 # ============================================================
 # Taxonomy + translations (inchangé)
@@ -310,6 +320,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "build_sha": "Version code",
         "mapping_coverage": "Couverture mapping",
         "include_unspecified": "Inclure « Unspecified »",
+        "ticket_shape_title": "Structure des tickets par année (boîtes, échelle log)",
+        "ticket_shape_caption": "Lecture plus robuste que l'histogramme pour comparer dispersion et médiane des budgets projet.",
+        "ticket_shape_median": "Médiane annuelle",
+        "vc_stage_filter": "Étapes de chaîne à afficher",
+        "vc_stage_focus": "Étape à explorer",
+        "vc_actor_focus": "Acteur sur cette étape",
+        "vc_projects_focus": "Projets liés (étape + acteur)",
+        "vc_top_actors_stage": "Top acteurs (étape)",
+        "vc_single_stage_warn": "La sélection ne contient qu'une étape de chaîne de valeur. Lance un refresh pour recalculer la classification si besoin.",
+        "vc_flow_help": "Choisis des thématiques puis des étapes pour voir quels acteurs opèrent à chaque maillon.",
     },
     "EN": {
         "language": "Language",
@@ -439,6 +459,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "build_sha": "Code version",
         "mapping_coverage": "Mapping coverage",
         "include_unspecified": "Include \"Unspecified\"",
+        "ticket_shape_title": "Ticket structure by year (boxplots, log scale)",
+        "ticket_shape_caption": "More robust than a plain histogram to compare spread and median project budgets.",
+        "ticket_shape_median": "Yearly median",
+        "vc_stage_filter": "Value-chain stages to display",
+        "vc_stage_focus": "Stage to explore",
+        "vc_actor_focus": "Actor on this stage",
+        "vc_projects_focus": "Related projects (stage + actor)",
+        "vc_top_actors_stage": "Top actors (stage)",
+        "vc_single_stage_warn": "This selection contains a single value-chain stage. Run refresh to recompute stage classification if needed.",
+        "vc_flow_help": "Pick themes then stages to see which actors operate on each link of the chain.",
     },
 }
 
@@ -711,7 +741,8 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
     status_expr = "b.project_status" if "project_status" in cols else "'Unknown'"
 
     actor_expr = (
-        f"COALESCE(NULLIF(TRIM(ga.group_id), ''), NULLIF(TRIM(gp.group_id), ''), NULLIF(TRIM({pic_expr}), ''), b.actor_id)"
+        f"COALESCE(NULLIF(TRIM(ga.group_id), ''), NULLIF(TRIM(gp.group_id), ''), "
+        f"CASE WHEN {pic_expr} IS NULL OR TRIM({pic_expr}) = '' THEN NULL ELSE CONCAT('PIC:', TRIM({pic_expr})) END, b.actor_id)"
         if use_actor_groups
         else "b.actor_id"
     )
@@ -1265,21 +1296,43 @@ with tab_overview:
         st.plotly_chart(fig_alloc, use_container_width=True)
 
     st.divider()
-    st.markdown("### " + ("Distribution des tickets (échelle log)" if lang == "FR" else "Ticket distribution (log scale)"))
+    st.markdown("### " + t(lang, "ticket_shape_title"))
     tb = fetch_df(f"""
-    SELECT projectID, SUM(amount_eur) AS proj_budget
+    SELECT year, projectID, SUM(amount_eur) AS proj_budget
     FROM {R}
     WHERE {W}
-    GROUP BY projectID
+    GROUP BY year, projectID
     HAVING SUM(amount_eur) > 0
     """)
     if tb.empty:
         st.info(t(lang, "no_data"))
     else:
-        logv = np.log10(tb["proj_budget"].astype(float).to_numpy())
-        fig_hist = px.histogram(x=logv, nbins=60, height=420, labels={"x": "log10(Budget €)"})
-        fig_hist.update_layout(showlegend=False, xaxis_title="log10(Budget €)", yaxis_title="Count")
-        st.plotly_chart(fig_hist, use_container_width=True)
+        tb["year"] = tb["year"].astype(int)
+        tb = tb.sort_values(["year", "proj_budget"])
+
+        med = tb.groupby("year", as_index=False)["proj_budget"].median().rename(columns={"proj_budget": "median_budget"})
+        fig_box = px.box(
+            tb,
+            x="year",
+            y="proj_budget",
+            points=False,
+            height=440,
+            labels={"year": "Year", "proj_budget": "Project budget (€)"},
+        )
+        fig_box.add_trace(
+            go.Scatter(
+                x=med["year"],
+                y=med["median_budget"],
+                mode="lines+markers",
+                name=t(lang, "ticket_shape_median"),
+                line=dict(color="rgba(255,180,80,0.95)", width=2.2),
+                marker=dict(size=6, color="rgba(255,180,80,0.95)"),
+            )
+        )
+        fig_box.update_yaxes(type="log")
+        fig_box.update_layout(yaxis_title="Budget (€) - log", xaxis_title="Year")
+        st.plotly_chart(fig_box, use_container_width=True)
+        st.caption(t(lang, "ticket_shape_caption"))
 
     st.divider()
     st.markdown("### " + ("Courbe de Lorenz" if lang == "FR" else "Lorenz curve"))
@@ -2139,6 +2192,7 @@ with tab_network:
             "Link thickness = aggregated budget."
         )
     )
+    st.caption(t(lang, "vc_flow_help"))
 
     # ---------- Value chain ----------
     st.markdown("#### " + ("Chaîne de valeur (budget -> acteurs)" if lang == "FR" else "Value chain (budget -> actors)"))
@@ -2201,58 +2255,151 @@ with tab_network:
                 if vc.empty:
                     st.info(t(lang, "no_data"))
                 else:
-                    rank_actors = (
-                        vc.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
-                        .sum()
-                        .sort_values("budget_eur", ascending=False)
-                        .head(int(vc_top_actors))
+                    all_stages = vc["value_chain_stage"].astype(str).unique().tolist()
+                    stage_options = [s for s in VALUE_CHAIN_ORDER if s in all_stages] + sorted([s for s in all_stages if s not in VALUE_CHAIN_ORDER])
+                    picked_stages = st.multiselect(
+                        t(lang, "vc_stage_filter"),
+                        stage_options,
+                        default=stage_options,
                     )
-                    vc = vc.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
+                    if not picked_stages:
+                        st.info(t(lang, "no_data"))
+                        st.divider()
+                    else:
+                        vc = vc[vc["value_chain_stage"].astype(str).isin([str(x) for x in picked_stages])].copy()
+                        if vc.empty:
+                            st.info(t(lang, "no_data"))
+                            st.divider()
+                        else:
+                            present_stages = vc["value_chain_stage"].astype(str).nunique()
+                            only_research = present_stages == 1 and vc["value_chain_stage"].astype(str).iloc[0] == "Research & concept"
+                            if only_research:
+                                st.warning(t(lang, "vc_single_stage_warn"))
 
-                    stage_order = (
-                        vc.groupby("value_chain_stage", as_index=False)["budget_eur"]
-                        .sum()
-                        .sort_values("budget_eur", ascending=False)["value_chain_stage"]
-                        .astype(str)
-                        .tolist()
-                    )
-                    actor_order = rank_actors["actor_label"].astype(str).tolist()
-                    node_labels = stage_order + actor_order
-                    node_idx = {k: i for i, k in enumerate(node_labels)}
-
-                    links = (
-                        vc.groupby(["value_chain_stage", "actor_label"], as_index=False)["budget_eur"]
-                        .sum()
-                        .sort_values("budget_eur", ascending=False)
-                    )
-                    source = [node_idx[str(s)] for s in links["value_chain_stage"].astype(str)]
-                    target = [node_idx[str(a)] for a in links["actor_label"].astype(str)]
-                    value = links["budget_eur"].astype(float).tolist()
-
-                    fig_sankey = go.Figure(
-                        data=[
-                            go.Sankey(
-                                node=dict(
-                                    pad=14,
-                                    thickness=14,
-                                    line=dict(color="rgba(255,255,255,0.22)", width=0.5),
-                                    label=node_labels,
-                                ),
-                                link=dict(source=source, target=target, value=value),
+                            rank_actors = (
+                                vc.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
+                                .sum()
+                                .sort_values("budget_eur", ascending=False)
+                                .head(int(vc_top_actors))
                             )
-                        ]
-                    )
-                    fig_sankey.update_layout(height=620, margin=dict(l=10, r=10, t=20, b=10))
-                    st.plotly_chart(fig_sankey, use_container_width=True)
+                            vc = vc.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
 
-                    stage_tbl = (
-                        vc.groupby("value_chain_stage", as_index=False)["budget_eur"]
-                        .sum()
-                        .sort_values("budget_eur", ascending=False)
-                    )
-                    stage_tbl["budget"] = stage_tbl["budget_eur"].map(lambda x: fmt_money(float(x), lang))
-                    stage_tbl = stage_tbl.rename(columns={"value_chain_stage": ("Étape chaîne de valeur" if lang == "FR" else "Value-chain stage")})
-                    st.dataframe(stage_tbl[[("Étape chaîne de valeur" if lang == "FR" else "Value-chain stage"), "budget"]], use_container_width=True, height=260)
+                            stage_order = (
+                                [s for s in VALUE_CHAIN_ORDER if s in vc["value_chain_stage"].astype(str).unique().tolist()]
+                                + sorted([s for s in vc["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
+                            )
+                            actor_order = rank_actors["actor_label"].astype(str).tolist()
+                            node_labels = stage_order + actor_order
+                            node_idx = {k: i for i, k in enumerate(node_labels)}
+
+                            links = (
+                                vc.groupby(["value_chain_stage", "actor_label"], as_index=False)["budget_eur"]
+                                .sum()
+                                .sort_values("budget_eur", ascending=False)
+                            )
+                            source = [node_idx[str(s)] for s in links["value_chain_stage"].astype(str)]
+                            target = [node_idx[str(a)] for a in links["actor_label"].astype(str)]
+                            value = links["budget_eur"].astype(float).tolist()
+
+                            fig_sankey = go.Figure(
+                                data=[
+                                    go.Sankey(
+                                        node=dict(
+                                            pad=14,
+                                            thickness=14,
+                                            line=dict(color="rgba(255,255,255,0.22)", width=0.5),
+                                            label=node_labels,
+                                        ),
+                                        link=dict(source=source, target=target, value=value),
+                                    )
+                                ]
+                            )
+                            fig_sankey.update_layout(height=620, margin=dict(l=10, r=10, t=20, b=10))
+                            st.plotly_chart(fig_sankey, use_container_width=True)
+
+                            stage_tbl = (
+                                vc.groupby("value_chain_stage", as_index=False)["budget_eur"]
+                                .sum()
+                                .sort_values("budget_eur", ascending=False)
+                            )
+                            stage_tbl["budget"] = stage_tbl["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+                            stage_tbl = stage_tbl.rename(columns={"value_chain_stage": ("Étape chaîne de valeur" if lang == "FR" else "Value-chain stage")})
+                            st.dataframe(stage_tbl[[("Étape chaîne de valeur" if lang == "FR" else "Value-chain stage"), "budget"]], use_container_width=True, height=260)
+
+                            st.markdown("##### " + t(lang, "vc_projects_focus"))
+                            stage_focus = st.selectbox(
+                                t(lang, "vc_stage_focus"),
+                                stage_order,
+                                index=0,
+                                key="vc_stage_focus_select",
+                            )
+                            stage_only = vc[vc["value_chain_stage"].astype(str) == str(stage_focus)].copy()
+                            if stage_only.empty:
+                                st.info(t(lang, "no_data"))
+                            else:
+                                stage_rank = (
+                                    stage_only.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
+                                    .sum()
+                                    .sort_values("budget_eur", ascending=False)
+                                )
+                                top_stage_n = st.slider(
+                                    t(lang, "vc_top_actors_stage"),
+                                    5,
+                                    40,
+                                    15,
+                                    1,
+                                    key="vc_top_stage_slider",
+                                )
+                                stage_rank = stage_rank.head(int(top_stage_n)).copy()
+                                stage_rank["actor_display"] = stage_rank["actor_label"].astype(str) + " — " + stage_rank["budget_eur"].map(
+                                    lambda x: fmt_money(float(x), lang)
+                                )
+
+                                fig_stage = px.bar(
+                                    stage_rank.iloc[::-1],
+                                    x="budget_eur",
+                                    y="actor_label",
+                                    orientation="h",
+                                    height=460,
+                                    color="budget_eur",
+                                    color_continuous_scale=R2G,
+                                    labels={"budget_eur": "Budget (€)", "actor_label": ""},
+                                )
+                                fig_stage.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
+                                st.plotly_chart(fig_stage, use_container_width=True)
+
+                                actor_focus_display = st.selectbox(
+                                    t(lang, "vc_actor_focus"),
+                                    stage_rank["actor_display"].astype(str).tolist(),
+                                    index=0,
+                                    key="vc_actor_focus_select",
+                                )
+                                actor_focus_id = str(stage_rank[stage_rank["actor_display"] == actor_focus_display]["actor_id"].iloc[0]).replace("'", "''")
+                                stage_sql = str(stage_focus).replace("'", "''")
+                                proj_focus = fetch_df(f"""
+                                SELECT
+                                  projectID,
+                                  MIN(year) AS year,
+                                  MIN(title) AS title,
+                                  SUM(amount_eur) AS budget_eur
+                                FROM {R}
+                                WHERE {W}
+                                  AND theme IN {in_list(picked_themes)}
+                                  AND value_chain_stage = '{stage_sql}'
+                                  AND actor_id = '{actor_focus_id}'
+                                GROUP BY projectID
+                                ORDER BY budget_eur DESC
+                                LIMIT 120
+                                """)
+                                if proj_focus.empty:
+                                    st.info(t(lang, "no_data"))
+                                else:
+                                    proj_focus["budget"] = proj_focus["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+                                    st.dataframe(
+                                        proj_focus[["year", "projectID", "title", "budget"]],
+                                        use_container_width=True,
+                                        height=320,
+                                    )
         else:
             st.info("Sélectionne au moins une thématique." if lang == "FR" else "Select at least one theme.")
 
@@ -2578,7 +2725,7 @@ with tab_guide:
             st.markdown(
                 """
 - KPIs = ordres de grandeur (budget, projets, acteurs, tickets).
-- Histogramme log = lecture robuste du long-tail.
+- Boîtes par année (échelle log) = comparaison de dispersion + médiane des tickets.
 - Lorenz + HHI = concentration / dépendance à quelques acteurs.
                 """
             )
@@ -2631,6 +2778,7 @@ with tab_guide:
             st.markdown(
                 """
 - Sankey = budget par étape de chaîne de valeur puis acteurs.
+- Sélection des étapes + focus étape/acteur = lecture ciblée des entreprises par maillon.
 - Graphe étoile = collaborations autour d’un acteur focal.
 - Utiliser le mode regroupé (PIC/groupe) pour une lecture “groupe industriel”.
                 """
@@ -2641,7 +2789,7 @@ with tab_guide:
             st.markdown(
                 """
 - KPIs = orders of magnitude.
-- Log histogram = robust long-tail reading.
+- Yearly boxplots (log scale) = spread + median ticket comparison.
 - Lorenz + HHI = concentration / dependency risk.
                 """
             )
@@ -2690,6 +2838,7 @@ with tab_guide:
             st.markdown(
                 """
 - Sankey = budget by value-chain stage and actors.
+- Stage selection + stage/actor focus = targeted reading of companies by chain link.
 - Star graph = collaborations around one focal actor.
 - Use grouped mode (PIC/group) for industrial-group level reading.
                 """

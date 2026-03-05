@@ -120,6 +120,7 @@ Important:
 `Mapping groups loaded` + `Mapping coverage` must appear if mapping file is detected.
 4. `Exclude funders / agencies` remains available even without mapping file (heuristic mode).
 5. Country filter default should be Europe-first (you can then add non-European countries).
+6. In `Value chain & network`, use `Themes` + `Value-chain stages to display` + `Stage to explore` for actor/project drilldown.
 
 ## Troubleshooting
 
