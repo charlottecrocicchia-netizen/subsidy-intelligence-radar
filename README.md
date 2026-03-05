@@ -1,5 +1,8 @@
 # Subsidy Intelligence Radar — quick start (local + Streamlit Cloud)
 
+Documentation technique complete:
+- `DOCUMENTATION_TECHNIQUE_COMPLETE.md`
+
 ## Run now (end-to-end)
 ```bash
 cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
