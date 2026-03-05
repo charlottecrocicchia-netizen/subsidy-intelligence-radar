@@ -372,6 +372,15 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
         "actor_countries": "Pays couverts",
         "actor_main_country": "Pays principal",
+        "diag_snapshot": "Diagnostic snapshot",
+        "diag_snapshot_hint": "Ces valeurs sont globales (hors filtres sidebar).",
+        "diag_rows": "Lignes dataset",
+        "diag_budget": "Budget dataset",
+        "diag_projects": "Projets dataset",
+        "diag_actors": "Acteurs dataset",
+        "diag_years": "Plage années dataset",
+        "diag_events": "Événements macro",
+        "diag_events_ai": "Événements macro tag AI",
     },
     "EN": {
         "language": "Language",
@@ -542,6 +551,15 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_geo_single_country": "Actor concentrated in a single country in the current scope.",
         "actor_countries": "Countries covered",
         "actor_main_country": "Main country",
+        "diag_snapshot": "Snapshot diagnostics",
+        "diag_snapshot_hint": "These values are global (independent from sidebar filters).",
+        "diag_rows": "Dataset rows",
+        "diag_budget": "Dataset budget",
+        "diag_projects": "Dataset projects",
+        "diag_actors": "Dataset actors",
+        "diag_years": "Dataset year range",
+        "diag_events": "Macro events",
+        "diag_events_ai": "Macro events tagged AI",
     },
 }
 
@@ -898,6 +916,43 @@ def list_str(sql: str) -> List[str]:
     if df.empty:
         return []
     return [str(x) for x in df.iloc[:, 0].tolist() if str(x).strip()]
+
+
+@st.cache_data(show_spinner=False)
+def base_snapshot_stats() -> Dict[str, float]:
+    b = rel()
+    q = fetch_df(f"""
+    SELECT
+      COUNT(*) AS n_rows,
+      SUM(amount_eur) AS total_budget,
+      COUNT(DISTINCT projectID) AS n_projects,
+      COUNT(DISTINCT actor_id) FILTER (WHERE actor_id IS NOT NULL AND TRIM(actor_id) <> '') AS n_actors,
+      MIN(year) AS min_year,
+      MAX(year) AS max_year
+    FROM {b}
+    """)
+    if q.empty:
+        return {"n_rows": 0, "total_budget": 0.0, "n_projects": 0, "n_actors": 0, "min_year": 0, "max_year": 0}
+    r = q.iloc[0]
+    return {
+        "n_rows": int(r.get("n_rows") or 0),
+        "total_budget": float(r.get("total_budget") or 0.0),
+        "n_projects": int(r.get("n_projects") or 0),
+        "n_actors": int(r.get("n_actors") or 0),
+        "min_year": int(r.get("min_year") or 0),
+        "max_year": int(r.get("max_year") or 0),
+    }
+
+
+@st.cache_data(show_spinner=False)
+def events_snapshot_stats() -> Dict[str, int]:
+    ev = load_events()
+    if ev.empty:
+        return {"n_events": 0, "n_ai": 0}
+    return {
+        "n_events": int(len(ev)),
+        "n_ai": int((ev["tag"].astype(str) == "AI").sum()),
+    }
 
 
 def in_list(values: List[str]) -> str:
@@ -1287,6 +1342,17 @@ with st.sidebar:
         st.caption(t(lang, "exclude_funders_heuristic"))
 
     st.caption(f"{t(lang, 'build_sha')}: {current_git_sha()}")
+    with st.expander(t(lang, "diag_snapshot"), expanded=False):
+        st.caption(t(lang, "diag_snapshot_hint"))
+        ds = base_snapshot_stats()
+        es = events_snapshot_stats()
+        st.caption(f"{t(lang, 'diag_rows')}: {ds['n_rows']:,}")
+        st.caption(f"{t(lang, 'diag_budget')}: {fmt_money(float(ds['total_budget']), lang)}")
+        st.caption(f"{t(lang, 'diag_projects')}: {ds['n_projects']:,}")
+        st.caption(f"{t(lang, 'diag_actors')}: {ds['n_actors']:,}")
+        st.caption(f"{t(lang, 'diag_years')}: {ds['min_year']}–{ds['max_year']}")
+        st.caption(f"{t(lang, 'diag_events')}: {es['n_events']:,}")
+        st.caption(f"{t(lang, 'diag_events_ai')}: {es['n_ai']:,}")
 
 
 # ============================================================
