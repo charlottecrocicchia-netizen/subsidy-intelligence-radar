@@ -44,8 +44,8 @@ python -m pip install -r requirements.txt
 ```
 with the same Python interpreter used to launch Streamlit.
 
-## Optional actor grouping (PIC / group)
-You can optionally add `data/external/actor_groups.csv` to merge legal entities under one parent group.
+## Actor grouping (PIC / group)
+`data/external/actor_groups.csv` is now versioned so Streamlit Cloud can use the same mapping as local runs.
 
 Expected columns:
 - `actor_id` (preferred join key)
@@ -56,16 +56,17 @@ Expected columns:
 
 A template is provided in:
 - `data/external/actor_groups.template.csv`
-- Keep your real `data/external/actor_groups.csv` local (this file is git-ignored).
+- App fallback: if `actor_groups.csv` is missing, the app reads `actor_groups.template.csv`.
+- The sidebar shows mapping coverage (`matched_actors / total_actors`) to verify whether mapping rows actually match your dataset IDs.
 
 ## Optional incremental connectors (API / MCP)
-You can optionally add `data/external/connectors_manifest.csv` (from template) to pull external data incrementally:
+`data/external/connectors_manifest.csv` is versioned and can be used by local refresh and GitHub Actions refresh:
 - CINEA / Qlik / EU Funding APIs (`kind=api_json` or `api_csv`)
 - MCP command connectors (`kind=mcp`)
 
 Template:
 - `data/external/connectors_manifest.template.csv`
-- Keep your real `data/external/connectors_manifest.csv` local (this file is git-ignored).
+- Use environment variables for credentials (`${...}`), never plain tokens in git.
 
 On each pipeline refresh:
 - connectors are checked incrementally
@@ -98,7 +99,7 @@ The base dataset includes additional fields:
 - `project_status` (`Open` / `Closed` / `Unknown`)
 
 ## Streamlit Community Cloud
-Push this repo to GitHub (keep `data/` ignored via `.gitignore`). Then deploy with main file `app.py`.
+Push this repo to GitHub, then deploy with main file `app.py`.
 
 Important:
 - A Streamlit Cloud app can recompute files at runtime, but those file writes are not guaranteed to persist forever across restarts/redeploys.
@@ -112,6 +113,32 @@ Important:
 `CINEA_API_TOKEN`, `QLIK_API_TOKEN`, `EU_FUNDING_API_TOKEN`, `KAILA_API_TOKEN`.
 5. Keep Streamlit linked to the same branch (or `main`) to pick up automated commits.
 
+### Deployment checks (important)
+1. In app sidebar, compare `Version code` (git SHA) with latest GitHub commit.
+2. In `Geography`, default map metric should be `Budget / million inhabitants (€)`.
+3. In sidebar mapping block:
+`Mapping groups loaded` + `Mapping coverage` must appear if mapping file is detected.
+4. `Exclude funders / agencies` remains available even without mapping file (heuristic mode).
+5. Country filter default should be Europe-first (you can then add non-European countries).
+
+## Troubleshooting
+
+### `Failed to push` + `Could not resolve host: github.com`
+This is a local network/DNS issue, not a repository/code issue.
+- Reconnect internet / VPN.
+- Retry push when DNS is back.
+
+### URL Streamlit not updated after push
+- Confirm commit exists on `origin/main`.
+- Confirm Streamlit app points to the same repository and branch.
+- Force a Streamlit redeploy.
+- Verify sidebar `Version code`.
+
+### Grouping toggle has no visible effect
+- Check mapping coverage in sidebar.
+- If coverage is near `0%`, your `actor_id`/`pic` values in `actor_groups.csv` do not match current dataset identifiers.
+- Update mapping file, then click `Refresh`.
+
 ## GitHub push (recommended)
 Yes, you should push to GitHub for versioning + deployment.
 
@@ -123,5 +150,5 @@ git push origin <your-branch>
 
 Notes:
 - `data/raw/` stays ignored.
-- `data/processed/subsidy_base.parquet` and `data/external/events.csv` are tracked for Cloud startup.
+- `data/processed/subsidy_base.parquet`, `data/external/events.csv`, `data/external/actor_groups.csv`, `data/external/connectors_manifest.csv` are tracked for cloud runs.
 - If the parquet becomes too large for GitHub limits, use Git LFS or a smaller processed export.

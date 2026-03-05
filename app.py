@@ -204,6 +204,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_groups_ready": "Mapping groupes chargé",
         "actor_groups_source": "Source mapping",
         "mapping_low_coverage": "Couverture faible: complète `actor_groups.csv` pour un regroupement fiable.",
+        "mapping_pic_fallback": "Fallback actif: regroupement automatique par PIC quand le mapping n'est pas renseigné.",
         "exclude_funders_heuristic": "Exclusion basée aussi sur heuristique nom d'organisation (EIT/CINEA/etc.).",
         "actor_groups_missing": "Mapping groupes absent (`actor_groups.csv` / template).",
         "kpis": "📊 Indicateurs clés",
@@ -332,6 +333,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_groups_ready": "Group mapping loaded",
         "actor_groups_source": "Mapping source",
         "mapping_low_coverage": "Low coverage: complete `actor_groups.csv` for reliable grouping.",
+        "mapping_pic_fallback": "Fallback active: automatic grouping by PIC when mapping is not provided.",
         "exclude_funders_heuristic": "Exclusion also uses org-name heuristics (EIT/CINEA/etc.).",
         "actor_groups_missing": "Group mapping missing (`actor_groups.csv` / template).",
         "kpis": "📊 Key indicators",
@@ -709,7 +711,7 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
     status_expr = "b.project_status" if "project_status" in cols else "'Unknown'"
 
     actor_expr = (
-        "COALESCE(NULLIF(TRIM(ga.group_id), ''), NULLIF(TRIM(gp.group_id), ''), b.actor_id)"
+        f"COALESCE(NULLIF(TRIM(ga.group_id), ''), NULLIF(TRIM(gp.group_id), ''), NULLIF(TRIM({pic_expr}), ''), b.actor_id)"
         if use_actor_groups
         else "b.actor_id"
     )
@@ -1113,11 +1115,12 @@ with st.sidebar:
         st.caption(f"{t(lang, 'mapping_coverage')}: {cov['matched_actors']}/{cov['total_actors']} ({coverage_pct:.1f}%)")
         if coverage_pct < 1.0:
             st.caption(t(lang, "mapping_low_coverage"))
+            st.caption(t(lang, "mapping_pic_fallback"))
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
     else:
         st.caption(t(lang, "actor_groups_missing"))
-        st.checkbox(t(lang, "actor_grouping"), value=False, disabled=True)
-        st.session_state["f_use_actor_groups"] = False
+        st.caption(t(lang, "mapping_pic_fallback"))
+        st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
 
     st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
     if not actor_map_info.get("available", False):

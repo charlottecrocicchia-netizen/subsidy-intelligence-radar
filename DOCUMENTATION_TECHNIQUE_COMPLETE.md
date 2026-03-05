@@ -78,6 +78,20 @@ Via `data/external/connectors_manifest.csv`:
 
 Le manifest actuel est un template de depart, pas des endpoints de production.
 
+## 4.3 Comment les APIs sont utilisees dans ce projet
+
+Ce projet n'interroge pas les APIs en continu a chaque affichage de page.
+
+Mode retenu:
+1. le pipeline appelle les APIs/connecteurs au moment du refresh,
+2. les reponses sont sauvegardees en fichiers locaux (`data/external/connectors/*`),
+3. l'app Streamlit lit surtout des artefacts preprocesses (parquet/csv).
+
+Avantages:
+- app plus stable et plus rapide,
+- pas de dependance forte au reseau pendant la navigation,
+- meilleure reproductibilite (meme donnee pour tous les utilisateurs jusqu'au prochain refresh).
+
 ## 5) Donnees et schemas
 
 ## 5.1 Dataset principal: `data/processed/subsidy_base.parquet` (+ CSV)
@@ -144,8 +158,17 @@ Schema attendu (flexible via alias de colonnes):
 - group_name
 - is_funder (true/false)
 
-Fichier versionnable en template:
+Fichiers versionnes:
+- `data/external/actor_groups.csv` (fichier actif)
 - `data/external/actor_groups.template.csv`
+
+Priorite de lecture dans `app.py`:
+1. `actor_groups.csv`
+2. fallback `actor_groups.template.csv`
+
+La sidebar affiche la couverture de mapping:
+- `matched_actors / total_actors`
+- utile pour detecter un CSV present mais non aligné avec les IDs reels du dataset.
 
 ## 5.5 Manifest connecteurs: `data/external/connectors_manifest.csv`
 
@@ -169,6 +192,9 @@ Support des variables d'environnement dans les champs string:
 
 Template:
 - `data/external/connectors_manifest.template.csv`
+
+Fichier actif versionne:
+- `data/external/connectors_manifest.csv`
 
 ## 6) Flux de build et refresh
 
@@ -263,6 +289,7 @@ Caracteristiques:
 - DuckDB query sur `read_parquet(...)` (pas de full load pandas du gros dataset).
 - `where_clause(...)` construit filtres globaux.
 - `rel_analytics(...)` ajoute couche d'agragation groupe/funder + compat schema.
+- en mode grouping: fallback automatique par `PIC` si mapping groupe absent/incomplet.
 
 ## 7.3 Sidebar
 
@@ -272,7 +299,10 @@ Caracteristiques:
 - bouton refresh (lance pipeline/build_events),
 - logs de refresh,
 - filtres metier (source/program/annees/section/theme/entity/country),
-- toggles actor grouping / exclude funders si mapping disponible.
+- pays par defaut: perimetre Europe (puis extension manuelle possible),
+- mapping: toggles `actor grouping` + `exclude funders`,
+- `exclude funders` reste actif meme sans mapping CSV (heuristique nom d'organisation),
+- affichage `Version code` (git SHA court) pour verifier la version deploiée.
 
 Note Cloud:
 - un message explicite indique que la persistance durable passe par GitHub Action.
@@ -283,7 +313,9 @@ Note Cloud:
 - KPI, allocation entite, distribution log ticket, Lorenz.
 
 2. Geography:
-- carte choropleth + top pays.
+- carte choropleth + top pays,
+- metrique selectionnable: `Budget total` ou `Budget / million hab.`,
+- mode par defaut: `Budget / million hab.`.
 
 3. Benchmark:
 - scatter log/log, treemap top+others, rankings.
@@ -344,7 +376,7 @@ Automatique:
 - refresh durable via GitHub Action si activee.
 
 Manuel (configuration initiale):
-- renseigner endpoints/token reels dans connecteurs locaux,
+- renseigner endpoints reels dans `connectors_manifest.csv`,
 - activer `enabled=true` pour les connecteurs voulus,
 - definir secrets GitHub si utilisation en Action,
 - maintenir mapping `actor_groups.csv` selon gouvernance metier.
@@ -402,6 +434,27 @@ Si onglet vide:
 - verifier filtres globaux,
 - verifier presence colonnes schema attendues,
 - faire un refresh complet pour regenerer parquet.
+
+Si push GitHub KO avec `Could not resolve host: github.com`:
+- ce n'est pas un bug applicatif,
+- c'est une panne reseau/DNS locale,
+- relancer le push une fois la connectivite retablie.
+
+Si URL Streamlit ne change pas apres push:
+1. verifier que le commit est bien sur `origin/main`,
+2. verifier que l'app Streamlit pointe sur la bonne branche,
+3. verifier la valeur `Version code` (SHA) en sidebar,
+4. forcer un redeploiement Streamlit.
+
+Si regroupement entreprise inactif:
+1. verifier `Mapping coverage`,
+2. si couverture ~0%, corriger `actor_id` / `pic` dans `actor_groups.csv`,
+3. relancer `Refresh`.
+
+Si carte geo non normalisee population:
+1. onglet `Geography`,
+2. controle `Map metric`,
+3. choisir `Budget / million inhabitants (€)`.
 
 ## 12) Mapping "quel code fait quoi"
 
