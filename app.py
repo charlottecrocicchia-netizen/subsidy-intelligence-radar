@@ -358,6 +358,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_all_actors": "Tous les acteurs",
         "vc_isolate_actor": "Isoler uniquement l'acteur sélectionné",
         "vc_isolation_help": "Mise en avant visuelle: couleur forte sur l'étape ciblée, le reste est atténué.",
+        "macro_same_year_events": "Événements de la même année",
+        "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
+        "actor_countries": "Pays couverts",
+        "actor_main_country": "Pays principal",
     },
     "EN": {
         "language": "Language",
@@ -516,6 +520,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_all_actors": "All actors",
         "vc_isolate_actor": "Show only selected actor",
         "vc_isolation_help": "Visual focus: strong color on selected stage, other links are faded.",
+        "macro_same_year_events": "Events in the same year",
+        "actor_geo_single_country": "Actor concentrated in a single country in the current scope.",
+        "actor_countries": "Countries covered",
+        "actor_main_country": "Main country",
     },
 }
 
@@ -1126,11 +1134,15 @@ def _ensure_filter_state() -> None:
     st.session_state.setdefault("f_exclude_funders", True)
 
     # One-time migration: switch old "all countries by default" sessions to Europe default.
-    if not st.session_state.get("_country_default_migrated_v4", False):
+    if not st.session_state.get("_country_default_migrated_v5", False):
         st.session_state["f_countries"] = default_countries
         st.session_state["f_use_actor_groups"] = False
         st.session_state["f_exclude_funders"] = True
-        st.session_state["_country_default_migrated_v4"] = True
+        st.session_state["_country_default_migrated_v5"] = True
+
+    # Section filter is intentionally disabled in sidebar UX (too technical for most users).
+    st.session_state["f_use_section"] = False
+    st.session_state["f_sections"] = []
 
 
 _ensure_filter_state()
@@ -1152,13 +1164,6 @@ with st.sidebar:
     st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
     st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
     st.session_state["f_years"] = st.slider(t(lang, "period"), meta["miny"], meta["maxy"], st.session_state["f_years"])
-
-    st.session_state["f_use_section"] = st.checkbox(t(lang, "use_section"), value=st.session_state["f_use_section"])
-    if st.session_state["f_use_section"]:
-        sec_default = [x for x in st.session_state["f_sections"] if x in meta["sections"]]
-        st.session_state["f_sections"] = st.multiselect(t(lang, "section"), meta["sections"], default=sec_default)
-    else:
-        st.session_state["f_sections"] = []
 
     # Themes and entities are stored in raw values, labels are translated on display.
     themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
@@ -1214,8 +1219,8 @@ W = where_clause(
     sources=st.session_state["f_sources"],
     programmes=st.session_state["f_programmes"],
     years=st.session_state["f_years"],
-    use_section=st.session_state["f_use_section"],
-    sections=st.session_state["f_sections"],
+    use_section=False,
+    sections=[],
     onetech_only=st.session_state["f_onetech_only"],
     themes=st.session_state["f_themes_raw"],
     entities=st.session_state["f_entity_raw"],
@@ -1824,11 +1829,13 @@ with tab_comp:
                     textfont=dict(color="rgba(255,255,255,0.98)", size=14),
                     insidetextfont=dict(color="rgba(255,255,255,0.98)", size=14),
                     outsidetextfont=dict(color="rgba(255,255,255,0.98)", size=13),
+                    pathbar=dict(textfont=dict(color="rgba(255,255,255,0.98)", size=13)),
                 )
                 fig_tree.update_layout(
                     margin=dict(l=0, r=0, t=0, b=0),
                     uniformtext=dict(minsize=13, mode="hide"),
                     coloraxis_showscale=False,
+                    font=dict(color="rgba(255,255,255,0.98)"),
                 )
                 st.plotly_chart(fig_tree, use_container_width=True)
 
@@ -1970,10 +1977,10 @@ with tab_compare:
     min_year = meta["miny"]
     max_year = meta["maxy"]
 
-    default_a = (max(min_year, 2014), min(max_year, 2020))
+    default_a = (max(min_year, 2014), min(max_year, 2021))
     if default_a[0] > default_a[1]:
         default_a = (min_year, min(max_year, min_year + 3))
-    default_b = (max(min_year, 2021), max_year)
+    default_b = (max(min_year, 2021), min(max_year, 2027))
     if default_b[0] > default_b[1]:
         default_b = (max(min_year, max_year - 3), max_year)
 
@@ -1983,10 +1990,10 @@ with tab_compare:
         y1 = max(y0, min(y1, max_year))
         return (y0, y1)
 
-    if not st.session_state.get("_compare_defaults_v1", False):
+    if not st.session_state.get("_compare_defaults_v2", False):
         st.session_state["cmp_period_a"] = default_a
         st.session_state["cmp_period_b"] = default_b
-        st.session_state["_compare_defaults_v1"] = True
+        st.session_state["_compare_defaults_v2"] = True
     else:
         st.session_state["cmp_period_a"] = _clip_period(st.session_state.get("cmp_period_a", default_a))
         st.session_state["cmp_period_b"] = _clip_period(st.session_state.get("cmp_period_b", default_b))
@@ -2219,6 +2226,22 @@ with tab_macro:
                         if e.get("notes", ""):
                             st.write(e.get("notes"))
 
+                    st.markdown("#### " + t(lang, "macro_same_year_events"))
+                    same_year_events = ev_sel[ev_sel["year"].astype(int) == int(ey)].copy()
+                    if same_year_events.empty:
+                        st.caption(t(lang, "no_data"))
+                    else:
+                        same_year_events = same_year_events.sort_values(["date", "title"]).copy()
+                        same_year_events["title_short"] = same_year_events["title"].astype(str).str.slice(0, 120)
+                        cols = ["date", "tag", "title_short", "source"]
+                        if "impact_direction" in same_year_events.columns:
+                            cols.append("impact_direction")
+                        st.dataframe(
+                            same_year_events[cols].rename(columns={"title_short": "title"}),
+                            use_container_width=True,
+                            height=220,
+                        )
+
                     st.markdown("#### " + t(lang, "macro_signal"))
                     inside = agg[(agg["year"] >= y0) & (agg["year"] <= y1)]
                     outside = agg[(agg["year"] < y0) | (agg["year"] > y1)]
@@ -2345,24 +2368,23 @@ with tab_actor:
         ORDER BY budget_eur DESC
         LIMIT 15
         """)
-        if len(mix_c) <= 1:
-            if len(mix_c) == 1:
-                c_name = str(mix_c["country_name"].iloc[0])
-                c_budget = float(mix_c["budget_eur"].iloc[0] or 0.0)
-                st.metric(
-                    ("Budget principal" if lang == "FR" else "Main budget") + f" — {c_name}",
-                    fmt_money(c_budget, lang),
-                )
-            figc = px.bar(
-                mix_c.iloc[::-1],
-                x="budget_eur",
-                y="country_name",
-                orientation="h",
-                height=420,
-                color_discrete_sequence=["rgba(120,180,255,0.95)"],
-                labels={"budget_eur": "Budget (€)", "country_name": ""},
-            )
+        if mix_c.empty:
+            st.info(t(lang, "no_data"))
+        elif len(mix_c) <= 1:
+            c_name = str(mix_c["country_name"].iloc[0])
+            c_budget = float(mix_c["budget_eur"].iloc[0] or 0.0)
+            c1g, c2g, c3g = st.columns(3)
+            c1g.metric(t(lang, "budget_total"), fmt_money(c_budget, lang))
+            c2g.metric(t(lang, "actor_countries"), "1")
+            c3g.metric(t(lang, "actor_main_country"), c_name)
+            st.caption(t(lang, "actor_geo_single_country"))
         else:
+            c_main = str(mix_c.iloc[0]["country_name"])
+            c_total = float(mix_c["budget_eur"].sum())
+            c1g, c2g, c3g = st.columns(3)
+            c1g.metric(t(lang, "budget_total"), fmt_money(c_total, lang))
+            c2g.metric(t(lang, "actor_countries"), f"{len(mix_c)}")
+            c3g.metric(t(lang, "actor_main_country"), c_main)
             figc = px.bar(
                 mix_c.iloc[::-1],
                 x="budget_eur",
@@ -2374,7 +2396,7 @@ with tab_actor:
                 labels={"budget_eur": "Budget (€)", "country_name": ""},
             )
             figc.update_layout(coloraxis_showscale=False)
-        st.plotly_chart(figc, use_container_width=True)
+            st.plotly_chart(figc, use_container_width=True)
 
         st.divider()
         st.markdown(f"#### {t(lang, 'actor_partners')}")
