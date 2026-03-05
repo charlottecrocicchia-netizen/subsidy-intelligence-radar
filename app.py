@@ -367,6 +367,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_all_actors": "Tous les acteurs",
         "vc_isolate_actor": "Isoler uniquement l'acteur sélectionné",
         "vc_isolation_help": "Mise en avant visuelle: couleur forte sur l'étape ciblée, le reste est atténué.",
+        "vc_query_error": "Impossible de calculer la chaîne de valeur avec cette combinaison de filtres. Essaie 'Reset filters' ou réduis les filtres.",
         "macro_same_year_events": "Événements de la même année",
         "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
         "actor_countries": "Pays couverts",
@@ -536,6 +537,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_all_actors": "All actors",
         "vc_isolate_actor": "Show only selected actor",
         "vc_isolation_help": "Visual focus: strong color on selected stage, other links are faded.",
+        "vc_query_error": "Unable to compute value-chain view with this filter combination. Try 'Reset filters' or reduce filters.",
         "macro_same_year_events": "Events in the same year",
         "actor_geo_single_country": "Actor concentrated in a single country in the current scope.",
         "actor_countries": "Countries covered",
@@ -899,7 +901,11 @@ def list_str(sql: str) -> List[str]:
 
 
 def in_list(values: List[str]) -> str:
-    esc = [str(v).replace("'", "''") for v in values if v is not None and str(v).strip()]
+    def _clean(v: str) -> str:
+        s = str(v).replace("\x00", "").replace("\r", " ").replace("\n", " ")
+        return "".join(ch for ch in s if (ord(ch) >= 32) or (ch == "\t"))
+
+    esc = [_clean(str(v)).replace("'", "''") for v in values if v is not None and _clean(str(v)).strip()]
     if not esc:
         return "(NULL)"
     return "(" + ",".join([f"'{v}'" for v in esc]) + ")"
@@ -2537,13 +2543,17 @@ with tab_network:
 
     # ---------- Value chain ----------
     st.markdown("#### " + ("Chaîne de valeur (budget -> acteurs)" if lang == "FR" else "Value chain (budget -> actors)"))
-    vc_dim = fetch_df(f"""
-    SELECT theme, value_chain_stage, SUM(amount_eur) AS budget_eur
-    FROM {R}
-    WHERE {W}
-    GROUP BY theme, value_chain_stage
-    ORDER BY budget_eur DESC
-    """)
+    try:
+        vc_dim = fetch_df(f"""
+        SELECT theme, value_chain_stage, SUM(amount_eur) AS budget_eur
+        FROM {R}
+        WHERE {W}
+        GROUP BY theme, value_chain_stage
+        ORDER BY budget_eur DESC
+        """)
+    except Exception:
+        st.error(t(lang, "vc_query_error"))
+        vc_dim = pd.DataFrame(columns=["theme", "value_chain_stage", "budget_eur"])
 
     if vc_dim.empty:
         st.info(t(lang, "missing_stage_col") if "value_chain_stage" not in set(base_schema_columns()) else t(lang, "no_data"))
