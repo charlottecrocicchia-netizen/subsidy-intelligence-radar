@@ -14,10 +14,13 @@ Robust version for Streamlit Cloud:
 from __future__ import annotations
 
 import csv
+import errno
+import os
 import re
+import shutil
 import tempfile
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import List, Optional, Tuple
 
@@ -32,10 +35,6 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 BASE_DIR = Path(__file__).resolve().parent
 EVENTS_PATH = BASE_DIR / "data" / "external" / "events.csv"
 EVENTS_PATH.parent.mkdir(parents=True, exist_ok=True)
-
-# lock-free atomic write
-_TMP_DIR = Path(tempfile.gettempdir())
-
 
 # =========================
 # Network config (cloud-proof)
@@ -188,8 +187,7 @@ def fetch_eurlex_sparql_events(keywords: List[str], days_back: int = 540, limit:
     if not kw_filters:
         kw_filters = "true"
 
-    since_dt = (datetime.utcnow().date().toordinal() - int(days_back))
-    since_dt = datetime.fromordinal(since_dt).strftime("%Y-%m-%d")
+    since_dt = (datetime.now(timezone.utc).date() - timedelta(days=int(days_back))).strftime("%Y-%m-%d")
 
     query = f"""
 PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
@@ -262,14 +260,26 @@ def dedupe(events: List[Event]) -> List[Event]:
 
 def atomic_write_events_csv(events: List[Event], path: Path) -> None:
     rows = dedupe(events)
-    tmp = _TMP_DIR / f"events_{path.name}.tmp"
-    with tmp.open("w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["date", "theme", "tag", "title", "source", "impact_direction", "notes"])
-        for e in rows:
-            w.writerow([e.date_str, e.theme, e.tag, e.title, e.source, e.impact_direction, e.notes])
     path.parent.mkdir(parents=True, exist_ok=True)
-    tmp.replace(path)
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent))
+    tmp = Path(tmp_name)
+    try:
+        with os.fdopen(fd, "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(["date", "theme", "tag", "title", "source", "impact_direction", "notes"])
+            for e in rows:
+                w.writerow([e.date_str, e.theme, e.tag, e.title, e.source, e.impact_direction, e.notes])
+        try:
+            tmp.replace(path)
+        except OSError as e:
+            if e.errno == errno.EXDEV:
+                # Defensive fallback if runtime still reports cross-device rename.
+                shutil.move(str(tmp), str(path))
+            else:
+                raise
+    finally:
+        if tmp.exists():
+            tmp.unlink(missing_ok=True)
 
 
 def main() -> None:
