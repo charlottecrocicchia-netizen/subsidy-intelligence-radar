@@ -347,6 +347,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_detail_standard": "Standard",
         "bm_detail_detailed": "Détaillé",
         "macro_event_labels": "Afficher libellé court des événements sur le graphe",
+        "macro_scope_caption": "Les valeurs ci-dessous portent sur la thématique sélectionnée (et les filtres macro), pas sur le budget global total.",
+        "macro_event_count": "Événements associés",
+        "macro_low_coverage": "Peu d'événements détectés pour ce tag/thème dans `events.csv`.",
         "vc_stage_filter": "Étapes de chaîne à afficher",
         "vc_stage_mode": "Affichage des étapes",
         "vc_stage_mode_all": "Toutes les étapes",
@@ -513,6 +516,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_detail_standard": "Standard",
         "bm_detail_detailed": "Detailed",
         "macro_event_labels": "Show short event labels on chart",
+        "macro_scope_caption": "Values below apply to the selected theme (and macro filters), not to the global total budget.",
+        "macro_event_count": "Matched events",
+        "macro_low_coverage": "Few events detected for this tag/theme in `events.csv`.",
         "vc_stage_filter": "Value-chain stages to display",
         "vc_stage_mode": "Stage display",
         "vc_stage_mode_all": "All stages",
@@ -2190,6 +2196,11 @@ with tab_macro:
                         format_func=lambda x: theme_raw_to_display(str(x), lang),
                     )
                     ev_sel = ev[ev["tag"].astype(str) == str(chosen_tag)].copy()
+                    th_disp = theme_raw_to_display(str(chosen_theme_raw), lang)
+                    ev_sel = ev_sel[
+                        (ev_sel["theme"].astype(str) == str(chosen_theme_raw))
+                        | (ev_sel["theme"].astype(str) == th_disp)
+                    ].copy()
         else:
             if not themes_raw_macro:
                 st.info(t(lang, "no_data"))
@@ -2207,6 +2218,10 @@ with tab_macro:
                 ].copy()
 
         if chosen_theme_raw:
+            st.caption(t(lang, "macro_scope_caption"))
+            st.caption(f"{t(lang, 'macro_event_count')}: {len(ev_sel)}")
+            if len(ev_sel) < 3:
+                st.info(t(lang, "macro_low_coverage"))
             agg = fetch_df(f"""
             SELECT year, SUM(amount_eur) AS budget_total, COUNT(DISTINCT projectID) AS n_projects
             FROM {R}
@@ -2247,11 +2262,10 @@ with tab_macro:
                 if show_overlay and not ev_sel.empty:
                     ev_plot = ev_sel.sort_values("year", ascending=True).copy()
                     shown_years: set[int] = set()
-                    yr_min = int(agg["year"].min())
-                    yr_max = int(agg["year"].max())
+                    valid_years = set(agg["year"].astype(int).tolist())
                     for _, r in ev_plot.iterrows():
                         yr = int(r["year"])
-                        if yr < yr_min or yr > yr_max:
+                        if yr not in valid_years:
                             continue
                         fig.add_vline(x=yr, line_width=1, line_dash="dot", opacity=0.40, line_color="rgba(255,255,255,0.55)")
                         if show_event_labels and yr not in shown_years:
@@ -2818,21 +2832,38 @@ with tab_network:
                                 )
                                 actor_focus_id = str(stage_rank[stage_rank["actor_display"] == actor_focus_display]["actor_id"].iloc[0]).replace("'", "''")
                                 stage_sql = str(stage_focus).replace("'", "''")
-                                proj_focus = fetch_df(f"""
-                                SELECT
-                                  projectID,
-                                  MIN(year) AS year,
-                                  MIN(title) AS title,
-                                  SUM(amount_eur) AS budget_eur
-                                FROM {R}
-                                WHERE {W}
-                                  AND theme IN {in_list(picked_themes)}
-                                  AND value_chain_stage = '{stage_sql}'
-                                  AND actor_id = '{actor_focus_id}'
-                                GROUP BY projectID
-                                ORDER BY budget_eur DESC
-                                LIMIT 120
-                                """)
+                                try:
+                                    proj_focus = fetch_df(f"""
+                                    SELECT
+                                      projectID,
+                                      MIN(year) AS year,
+                                      MIN(title) AS title,
+                                      SUM(amount_eur) AS budget_eur
+                                    FROM {R}
+                                    WHERE {W}
+                                      AND theme IN {in_list(picked_themes)}
+                                      AND value_chain_stage = '{stage_sql}'
+                                      AND actor_id = '{actor_focus_id}'
+                                    GROUP BY projectID
+                                    ORDER BY budget_eur DESC
+                                    LIMIT 120
+                                    """)
+                                except Exception:
+                                    # Fallback: drop explicit theme IN to tolerate rare parser/catalog edge cases.
+                                    proj_focus = fetch_df(f"""
+                                    SELECT
+                                      projectID,
+                                      MIN(year) AS year,
+                                      MIN(title) AS title,
+                                      SUM(amount_eur) AS budget_eur
+                                    FROM {R}
+                                    WHERE {W}
+                                      AND value_chain_stage = '{stage_sql}'
+                                      AND actor_id = '{actor_focus_id}'
+                                    GROUP BY projectID
+                                    ORDER BY budget_eur DESC
+                                    LIMIT 120
+                                    """)
                                 if proj_focus.empty:
                                     st.info(t(lang, "no_data"))
                                 else:
