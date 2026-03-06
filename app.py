@@ -228,6 +228,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_pic_fallback": "Fallback actif: regroupement automatique par PIC quand le mapping n'est pas renseigné.",
         "exclude_funders_heuristic": "Exclusion basée aussi sur heuristique nom d'organisation (EIT/CINEA/etc.).",
         "actor_groups_missing": "Mapping groupes absent (`actor_groups.csv` / template).",
+        "mapping_summary": "Résumé mapping groupes",
+        "mapping_loaded_count": "Lignes mapping",
+        "mapping_match_rate": "Taux de correspondance",
+        "mapping_mode_explicit": "Mode regroupement: mapping explicite + fallback PIC",
+        "mapping_mode_fallback": "Mode regroupement: fallback PIC (mapping partiel)",
+        "mapping_mode_pic_only": "Mode regroupement: fallback PIC uniquement",
+        "refresh_cloud_cta": "Ouvrir GitHub Actions « Refresh Data »",
         "kpis": "📊 Indicateurs clés",
         "budget_total": "Budget total",
         "n_projects": "Nombre de projets",
@@ -408,6 +415,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_pic_fallback": "Fallback active: automatic grouping by PIC when mapping is not provided.",
         "exclude_funders_heuristic": "Exclusion also uses org-name heuristics (EIT/CINEA/etc.).",
         "actor_groups_missing": "Group mapping missing (`actor_groups.csv` / template).",
+        "mapping_summary": "Group mapping summary",
+        "mapping_loaded_count": "Mapping rows",
+        "mapping_match_rate": "Match rate",
+        "mapping_mode_explicit": "Grouping mode: explicit mapping + PIC fallback",
+        "mapping_mode_fallback": "Grouping mode: PIC fallback (partial mapping)",
+        "mapping_mode_pic_only": "Grouping mode: PIC fallback only",
+        "refresh_cloud_cta": "Open GitHub Actions \"Refresh Data\"",
         "kpis": "📊 Key indicators",
         "budget_total": "Total budget",
         "n_projects": "Projects",
@@ -661,6 +675,33 @@ def current_git_sha() -> str:
         return (res.stdout or "").strip() or "—"
     except Exception:
         return "—"
+
+
+@st.cache_data(show_spinner=False)
+def github_actions_refresh_url() -> str:
+    try:
+        res = subprocess.run(
+            ["git", "config", "--get", "remote.origin.url"],
+            cwd=str(BASE_DIR),
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=2,
+        )
+        raw = (res.stdout or "").strip()
+        if not raw:
+            return ""
+        if raw.startswith("git@github.com:"):
+            base = "https://github.com/" + raw[len("git@github.com:"):]
+        else:
+            base = raw
+        if base.endswith(".git"):
+            base = base[:-4]
+        if not base.startswith("https://github.com/"):
+            return ""
+        return base.rstrip("/") + "/actions/workflows/refresh-data.yml"
+    except Exception:
+        return ""
 
 
 def reset_filters() -> None:
@@ -1213,6 +1254,9 @@ with st.sidebar:
 
     if cloud_runtime:
         st.caption(t(lang, "cloud_persistence_note"))
+        act_url = github_actions_refresh_url()
+        if act_url:
+            st.caption(f"[{t(lang, 'refresh_cloud_cta')}]({act_url})")
 
     if "last_rebuild_logs" in st.session_state:
         st.divider()
@@ -1339,23 +1383,23 @@ with st.sidebar:
     st.session_state["f_countries"] = st.multiselect(t(lang, "countries"), meta["countries"], default=ctry_default or ctry_fallback)
 
     st.divider()
+    st.caption(f"**{t(lang, 'mapping_summary')}**")
     if actor_map_info.get("available", False):
         cov = actor_group_match_stats()
         coverage_pct = (100.0 * cov["matched_actors"] / cov["total_actors"]) if cov["total_actors"] > 0 else 0.0
-        st.caption(
-            f"{t(lang, 'actor_groups_ready')}: "
-            f"{actor_map_info.get('rows_actor', 0)} actor_id / {actor_map_info.get('rows_pic', 0)} PIC"
-        )
+        st.caption(f"{t(lang, 'mapping_loaded_count')}: {int(actor_map_info.get('rows_actor', 0)) + int(actor_map_info.get('rows_pic', 0))}")
+        st.caption(f"{t(lang, 'mapping_match_rate')}: {cov['matched_actors']}/{cov['total_actors']} ({coverage_pct:.1f}%)")
         if actor_map_info.get("source"):
             st.caption(f"{t(lang, 'actor_groups_source')}: `{actor_map_info.get('source')}`")
-        st.caption(f"{t(lang, 'mapping_coverage')}: {cov['matched_actors']}/{cov['total_actors']} ({coverage_pct:.1f}%)")
         if coverage_pct < 1.0:
-            st.caption(t(lang, "mapping_low_coverage"))
-            st.caption(t(lang, "mapping_pic_fallback"))
+            st.warning(t(lang, "mapping_low_coverage"))
+            st.caption(t(lang, "mapping_mode_fallback"))
+        else:
+            st.caption(t(lang, "mapping_mode_explicit"))
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
     else:
-        st.caption(t(lang, "actor_groups_missing"))
-        st.caption(t(lang, "mapping_pic_fallback"))
+        st.info(t(lang, "actor_groups_missing"))
+        st.caption(t(lang, "mapping_mode_pic_only"))
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
 
     st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
