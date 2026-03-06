@@ -113,6 +113,39 @@ def _write_bytes(path: Path, payload: bytes) -> None:
     tmp.replace(path)
 
 
+def _split_request_payload(params: Dict[str, Any], method: str) -> Tuple[Dict[str, Any], Any]:
+    """
+    Supports manifest payload patterns:
+    - GET: params as flat dict
+    - POST: optional {"url_params": {...}, "body": {...|string}}
+      fallback: if no explicit body, remaining keys are used as JSON body.
+    """
+    p = params if isinstance(params, dict) else {}
+    if method != "POST":
+        return p, None
+
+    url_params = p.get("url_params", {})
+    if not isinstance(url_params, dict):
+        url_params = {}
+
+    if "body" in p:
+        body = p.get("body")
+    else:
+        body = {k: v for k, v in p.items() if k != "url_params"}
+
+    if isinstance(body, str):
+        btxt = body.strip()
+        if btxt:
+            try:
+                body = json.loads(btxt)
+            except Exception:
+                body = btxt
+        else:
+            body = {}
+
+    return url_params, body
+
+
 def _run_api_connector(row: pd.Series, prev: Dict[str, Any], force: bool) -> ConnectorResult:
     cid = str(row.get("connector_id", "")).strip() or "unnamed"
     kind = str(row.get("kind", "api_json")).strip().lower()
@@ -133,10 +166,14 @@ def _run_api_connector(row: pd.Series, prev: Dict[str, Any], force: bool) -> Con
         return ConnectorResult(cid, ran=False, ok=True, reason="up_to_date", output_file=output_file, stamp=prev_stamp)
 
     try:
+        req_params, req_body = _split_request_payload(params, method)
         if method == "POST":
-            r = requests.post(url, headers=headers, json=params, timeout=DEFAULT_TIMEOUT)
+            if isinstance(req_body, str):
+                r = requests.post(url, headers=headers, params=req_params, data=req_body, timeout=DEFAULT_TIMEOUT)
+            else:
+                r = requests.post(url, headers=headers, params=req_params, json=req_body, timeout=DEFAULT_TIMEOUT)
         else:
-            r = requests.get(url, headers=headers, params=params, timeout=DEFAULT_TIMEOUT)
+            r = requests.get(url, headers=headers, params=req_params, timeout=DEFAULT_TIMEOUT)
         r.raise_for_status()
 
         payload = r.content

@@ -1,6 +1,6 @@
 connector_id,enabled,enabled_if_env,required_env,kind,url,method,headers_json,params_json,output_file,mcp_command,interval_hours
-cinea_api,false,true,CINEA_API_TOKEN,api_json,https://example.cinea.eu/api/projects,GET,"{\"Authorization\":\"Bearer ${CINEA_API_TOKEN}\"}",{},"data/external/connectors/cinea_projects.json","",12
-qlik_api,false,true,QLIK_API_TOKEN,api_json,https://example.qlik.eu/api/v1/projects,GET,"{\"Authorization\":\"Bearer ${QLIK_API_TOKEN}\"}",{},"data/external/connectors/qlik_projects.json","",12
-eu_funding_portal,false,true,EU_FUNDING_API_TOKEN,api_json,https://example.europa.eu/funding/api/projects,GET,"{\"Authorization\":\"Bearer ${EU_FUNDING_API_TOKEN}\"}",{},"data/external/connectors/eu_funding_projects.json","",12
-anr_api,false,true,ANR_API_TOKEN,api_json,https://example.anr.fr/api/projects,GET,"{\"Authorization\":\"Bearer ${ANR_API_TOKEN}\"}",{},"data/external/connectors/anr_projects.json","",12
-kaila_mcp,false,true,KAILA_API_TOKEN,mcp,"",GET,"{}",{},"data/external/connectors/kaila_projects.json","kaila query --scope eu --token ${KAILA_API_TOKEN} --format json",6
+cinea_api,true,false,,api_json,https://data.europa.eu/api/hub/search/search,GET,"{}","{""page"":0,""limit"":10,""q"":""cinea""}","data/external/connectors/cinea_projects.json","",12
+qlik_api,false,true,"QLIK_TENANT,QLIK_REGION,QLIK_API_TOKEN",api_json,https://${QLIK_TENANT}.${QLIK_REGION}.qlikcloud.com/api/v1/users,GET,"{""Authorization"":""Bearer ${QLIK_API_TOKEN}""}","{""limit"":20,""fields"":""id,name,email""}","data/external/connectors/qlik_projects.json","",12
+eu_funding_portal,true,false,,api_json,https://api.tech.ec.europa.eu/search-api/prod/rest/search,POST,"{}","{""url_params"":{""apiKey"":""SEDIA"",""text"":""*"",""pageNumber"":1,""pageSize"":20},""body"":{}}","data/external/connectors/eu_funding_projects.json","",12
+anr_api,true,false,,api_json,https://data.anr.fr/api/explore/v2.1/catalog/datasets/aapg-projets/records,GET,"{}","{""limit"":20,""offset"":0,""q"":""climat""}","data/external/connectors/anr_projects.json","",12
+kaila_mcp,false,false,,mcp,"",GET,"{}","{}","data/external/connectors/kaila_projects.json","",6
