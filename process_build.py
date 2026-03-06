@@ -13,6 +13,7 @@ Author: Charlotte Crocicchia (rewritten & hardened)
 
 from __future__ import annotations
 
+import json
 import re
 from datetime import date
 from pathlib import Path
@@ -525,6 +526,164 @@ def load_ademe(folder: Path) -> pd.DataFrame:
 
 
 # ============================================================
+# External connectors loader (optional, via connectors_manifest.csv)
+# ============================================================
+def _read_connector_payload(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        if path.suffix.lower() == ".csv":
+            return pd.read_csv(path, low_memory=False)
+        if path.suffix.lower() in {".json", ".jsonl"}:
+            txt = path.read_text(encoding="utf-8", errors="ignore").strip()
+            if not txt:
+                return pd.DataFrame()
+            if path.suffix.lower() == ".jsonl":
+                rows = [json.loads(line) for line in txt.splitlines() if line.strip()]
+                return pd.json_normalize(rows) if rows else pd.DataFrame()
+            js = json.loads(txt)
+            if isinstance(js, list):
+                return pd.json_normalize(js)
+            if isinstance(js, dict):
+                for k in ("items", "results", "data", "projects", "rows", "value"):
+                    if isinstance(js.get(k), list):
+                        return pd.json_normalize(js[k])
+                return pd.json_normalize([js])
+        return pd.DataFrame()
+    except Exception:
+        return pd.DataFrame()
+
+
+def _connector_frame_to_schema(df: pd.DataFrame, connector_id: str) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame(columns=_SCHEMA_COLS())
+
+    def pick_series(*cols: str) -> pd.Series:
+        c = pick_col(df, *cols)
+        if c:
+            return df[c]
+        return pd.Series([np.nan] * len(df))
+
+    source = pick_series("source", "origin", "provider", "data_source").astype("string").fillna("").astype(str).str.strip()
+    source = np.where(pd.Series(source).astype(str).str.len() > 0, source, str(connector_id).upper())
+    program = pick_series("program", "programme", "framework", "call_programme", "programme_name").astype("string").fillna("").astype(str).str.strip()
+    program = np.where(pd.Series(program).astype(str).str.len() > 0, program, str(connector_id))
+    section = pick_series("section", "topic", "call", "type", "category").astype("string").fillna("").astype(str).str.strip()
+    section = np.where(pd.Series(section).astype(str).str.len() > 0, section, "External connector")
+
+    date_s = pick_series("date", "start_date", "publication_date", "updated_at", "created_at")
+    year = pd.to_numeric(pick_series("year", "annee", "call_year"), errors="coerce")
+    if year.isna().all():
+        year = pd.to_datetime(date_s, errors="coerce").dt.year
+
+    title = pick_series("title", "name", "project_title", "projectName", "objet", "intitule").astype("string").fillna("").astype(str).str.strip()
+    objective = pick_series("objective", "project_objective", "description", "summary").astype("string").fillna("").astype(str).str.strip()
+    abstract = pick_series("abstract", "project_abstract", "notes", "content").astype("string").fillna("").astype(str).str.strip()
+
+    org_name = pick_series("org_name", "organization", "organisation", "beneficiary", "nomBeneficiaire", "participant_name").astype("string").fillna("").astype(str).str.strip()
+    actor_id = pick_series("actor_id", "participant_id", "beneficiary_id", "organization_id", "org_id", "idBeneficiaire", "siret", "siren", "pic").astype("string").fillna("").astype(str).str.strip()
+    org_norm = org_name.apply(norm_name)
+    actor_id = np.where(
+        pd.Series(actor_id).astype(str).str.len() > 0,
+        pd.Series(actor_id).astype(str),
+        str(connector_id).upper() + ":" + org_norm.astype(str),
+    )
+
+    pic = pick_series("pic", "organisation_pic", "organization_pic", "participant_pic").astype("string").fillna("").astype(str)
+    pic = pic.str.replace(r"\D+", "", regex=True)
+
+    country_name = pick_series("country_name", "country", "pays").astype("string").fillna("").astype(str).str.strip()
+    country_alpha2 = pick_series("country_alpha2", "iso2", "country_code2").astype("string").fillna("").astype(str).str.strip().str.upper()
+    country_alpha3 = pick_series("country_alpha3", "iso3", "country_code3").astype("string").fillna("").astype(str).str.strip().str.upper()
+    country_alpha2 = np.where(pd.Series(country_alpha2).astype(str).str.len() > 0, country_alpha2, "UN")
+    country_alpha3 = np.where(pd.Series(country_alpha3).astype(str).str.len() > 0, country_alpha3, "UNK")
+    country_name = np.where(pd.Series(country_name).astype(str).str.len() > 0, country_name, "Unknown")
+
+    amount = pick_series("amount_eur", "budget_eur", "amount", "grant_amount", "funding", "montant")
+    amount_num = pd.to_numeric(amount.astype(str).str.replace(",", ".", regex=False), errors="coerce").fillna(0.0)
+
+    project_id_src = pick_series("projectID", "project_id", "id", "reference", "projectRef", "proposal_id").astype("string").fillna("").astype(str).str.strip()
+    pid_fallback = (
+        str(connector_id).upper()
+        + ":"
+        + pd.Series(np.arange(len(df)), dtype="int64").astype(str)
+    )
+    project_id = np.where(project_id_src.str.len() > 0, project_id_src, pid_fallback)
+
+    theme_src = pick_series("theme", "domain", "sector", "topic").astype("string").fillna("").astype(str).str.strip()
+    stage_src = pick_series("value_chain_stage", "stage", "chain_stage").astype("string").fillna("").astype(str).str.strip()
+    status_src = pick_series("project_status", "status").astype("string").fillna("").astype(str).str.strip()
+
+    text_for_inference = (
+        title.fillna("").astype(str)
+        + " "
+        + objective.fillna("").astype(str)
+        + " "
+        + abstract.fillna("").astype(str)
+    )
+    theme = np.where(pd.Series(theme_src).astype(str).str.len() > 0, theme_src, [infer_theme(str(x)) for x in text_for_inference])
+    value_chain_stage = np.where(pd.Series(stage_src).astype(str).str.len() > 0, stage_src, [infer_value_chain_stage(str(x)) for x in text_for_inference])
+    project_status = np.where(pd.Series(status_src).astype(str).str.len() > 0, status_src, "Unknown")
+
+    out = pd.DataFrame({
+        "source": pd.Series(source).astype("string").fillna("").astype(str),
+        "program": pd.Series(program).astype("string").fillna("").astype(str),
+        "section": pd.Series(section).astype("string").fillna("").astype(str),
+        "year": year,
+        "projectID": pd.Series(project_id).astype("string").fillna("").astype(str),
+        "acronym": "",
+        "title": title,
+        "objective": objective,
+        "abstract": abstract,
+        "actor_id": pd.Series(actor_id).astype("string").fillna("").astype(str),
+        "pic": pd.Series(pic).astype("string").fillna("").astype(str),
+        "org_name": org_name,
+        "entity_type": pick_series("entity_type", "organization_type", "organisation_type").astype("string").fillna("Unknown").astype(str),
+        "country_alpha2": pd.Series(country_alpha2).astype("string").fillna("UN").astype(str),
+        "country_alpha3": pd.Series(country_alpha3).astype("string").fillna("UNK").astype(str),
+        "country_name": pd.Series(country_name).astype("string").fillna("Unknown").astype(str),
+        "amount_eur": amount_num,
+        "theme": pd.Series(theme).astype("string").fillna("").astype(str),
+        "value_chain_stage": pd.Series(value_chain_stage).astype("string").fillna("").astype(str),
+        "project_status": pd.Series(project_status).astype("string").fillna("Unknown").astype(str),
+    })
+    return out
+
+
+def load_external_connectors(data_dir: Path) -> pd.DataFrame:
+    manifest = data_dir / "external" / "connectors_manifest.csv"
+    if not manifest.exists():
+        return pd.DataFrame(columns=_SCHEMA_COLS())
+    try:
+        m = pd.read_csv(manifest, dtype=str).fillna("")
+    except Exception:
+        return pd.DataFrame(columns=_SCHEMA_COLS())
+    if m.empty:
+        return pd.DataFrame(columns=_SCHEMA_COLS())
+
+    out_frames: List[pd.DataFrame] = []
+    for _, row in m.iterrows():
+        enabled = str(row.get("enabled", "false")).strip().lower() in {"1", "true", "yes", "y", "oui"}
+        if not enabled:
+            continue
+        connector_id = str(row.get("connector_id", "")).strip() or f"connector_{_}"
+        out_file = str(row.get("output_file", "")).strip()
+        if not out_file:
+            continue
+        p = Path(out_file)
+        if not p.is_absolute():
+            p = (BASE_DIR / out_file).resolve()
+        raw_df = _read_connector_payload(p)
+        if raw_df.empty:
+            continue
+        out_frames.append(_connector_frame_to_schema(raw_df, connector_id))
+
+    if not out_frames:
+        return pd.DataFrame(columns=_SCHEMA_COLS())
+    return pd.concat(out_frames, ignore_index=True)
+
+
+# ============================================================
 # Schema + cleaning
 # ============================================================
 def _SCHEMA_COLS() -> List[str]:
@@ -739,6 +898,8 @@ def build_processed_dataset(raw_dir: Path, out_csv: Path) -> None:
 
     # ADEME optional
     dfs.append(load_ademe(ademe_root))
+    # Optional connector outputs (API/MCP), if enabled and available.
+    dfs.append(load_external_connectors(raw_dir.parent))
 
     out = pd.concat(dfs, ignore_index=True) if dfs else pd.DataFrame(columns=_SCHEMA_COLS())
     out = _enforce_schema(out)
