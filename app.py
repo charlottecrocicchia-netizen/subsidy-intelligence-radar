@@ -3082,6 +3082,7 @@ with tab_network:
                 else:
                     all_stages = vc["value_chain_stage"].astype(str).unique().tolist()
                     stage_options = [s for s in VALUE_CHAIN_ORDER if s in all_stages] + sorted([s for s in all_stages if s not in VALUE_CHAIN_ORDER])
+                    pending_click = st.session_state.pop("vc_pending_click", None)
                     stage_mode = st.radio(
                         t(lang, "vc_stage_mode"),
                         [t(lang, "vc_stage_mode_all"), t(lang, "vc_stage_mode_custom")],
@@ -3107,6 +3108,14 @@ with tab_network:
                             st.divider()
                         else:
                             stage_all_label = t(lang, "vc_all_stages")
+                            if (
+                                isinstance(pending_click, dict)
+                                and pending_click.get("kind") == "stage"
+                                and str(pending_click.get("value", "")) in [str(x) for x in picked_stages]
+                            ):
+                                st.session_state["vc_highlight_stage_select"] = str(pending_click.get("value"))
+                                st.session_state["vc_isolate_stage"] = True
+                                st.session_state["vc_isolate_actor"] = False
                             h1, h2 = st.columns([2, 1])
                             with h1:
                                 stage_highlight = st.selectbox(
@@ -3151,6 +3160,14 @@ with tab_network:
                             )
                             actor_order = rank_actors["actor_label"].astype(str).tolist()
                             actor_all_label = t(lang, "vc_all_actors")
+                            if (
+                                isinstance(pending_click, dict)
+                                and pending_click.get("kind") == "actor"
+                                and str(pending_click.get("value", "")) in [str(x) for x in actor_order]
+                            ):
+                                st.session_state["vc_highlight_actor_select"] = str(pending_click.get("value"))
+                                st.session_state["vc_isolate_actor"] = True
+                                st.session_state["vc_isolate_stage"] = False
                             a1h, a2h = st.columns([2, 1])
                             with a1h:
                                 actor_highlight = st.selectbox(
@@ -3273,14 +3290,10 @@ with tab_network:
                                         if isinstance(idx, int) and 0 <= int(idx) < len(node_labels):
                                             label_clicked = str(node_labels[int(idx)])
                                     if label_clicked in stage_order:
-                                        st.session_state["vc_highlight_stage_select"] = label_clicked
-                                        st.session_state["vc_isolate_stage"] = True
-                                        st.session_state["vc_isolate_actor"] = False
+                                        st.session_state["vc_pending_click"] = {"kind": "stage", "value": label_clicked}
                                         st.rerun()
                                     elif label_clicked in actor_order:
-                                        st.session_state["vc_highlight_actor_select"] = label_clicked
-                                        st.session_state["vc_isolate_actor"] = True
-                                        st.session_state["vc_isolate_stage"] = False
+                                        st.session_state["vc_pending_click"] = {"kind": "actor", "value": label_clicked}
                                         st.rerun()
                             else:
                                 st.plotly_chart(fig_sankey, use_container_width=True)
