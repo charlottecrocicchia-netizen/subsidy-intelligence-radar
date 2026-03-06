@@ -234,6 +234,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_mode_explicit": "Mode regroupement: mapping explicite + fallback PIC",
         "mapping_mode_fallback": "Mode regroupement: fallback PIC (mapping partiel)",
         "mapping_mode_pic_only": "Mode regroupement: fallback PIC uniquement",
+        "mapping_keys_matched": "Clés mapping reconnues",
+        "mapping_keys_issue": "Le mapping ne correspond pas aux IDs/PIC présents dans la base.",
+        "mapping_keys_partial": "Une partie des clés mapping ne correspond pas à la base.",
+        "mapping_global_impact": "Acteurs impactés (périmètre actuel)",
+        "mapping_status_ready": "Mapping groupes actif.",
+        "mapping_status_partial": "Mapping groupes partiel (fallback PIC utilisé).",
+        "mapping_status_missing_short": "Mapping groupes absent (fallback PIC).",
+        "mapping_diag_toggle": "Diagnostic mapping (optionnel)",
         "refresh_cloud_cta": "Ouvrir GitHub Actions « Refresh Data »",
         "kpis": "📊 Indicateurs clés",
         "budget_total": "Budget total",
@@ -421,6 +429,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_mode_explicit": "Grouping mode: explicit mapping + PIC fallback",
         "mapping_mode_fallback": "Grouping mode: PIC fallback (partial mapping)",
         "mapping_mode_pic_only": "Grouping mode: PIC fallback only",
+        "mapping_keys_matched": "Matched mapping keys",
+        "mapping_keys_issue": "Mapping keys do not match IDs/PIC present in the dataset.",
+        "mapping_keys_partial": "Some mapping keys do not match the dataset.",
+        "mapping_global_impact": "Impacted actors (current scope)",
+        "mapping_status_ready": "Group mapping active.",
+        "mapping_status_partial": "Partial group mapping (PIC fallback in use).",
+        "mapping_status_missing_short": "No group mapping (PIC fallback).",
+        "mapping_diag_toggle": "Mapping diagnostics (optional)",
         "refresh_cloud_cta": "Open GitHub Actions \"Refresh Data\"",
         "kpis": "📊 Key indicators",
         "budget_total": "Total budget",
@@ -871,6 +887,46 @@ def actor_group_match_stats() -> Dict[str, int]:
     return {
         "total_actors": int(df["total_actors"].iloc[0] or 0),
         "matched_actors": int(df["matched_actors"].iloc[0] or 0),
+    }
+
+
+@st.cache_data(show_spinner=False)
+def actor_group_key_match_stats() -> Dict[str, int]:
+    base = rel()
+    df = fetch_df(f"""
+    WITH b AS (
+      SELECT DISTINCT
+        actor_id,
+        regexp_extract(actor_id, '([0-9]{{8,10}})$', 1) AS actor_pic
+      FROM {base}
+      WHERE actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+    ),
+    a AS (
+      SELECT
+        COUNT(*) AS total_keys,
+        COUNT(*) FILTER (WHERE b.actor_id IS NOT NULL) AS matched_keys
+      FROM actor_groups_by_actor ga
+      LEFT JOIN b ON ga.actor_id = b.actor_id
+      WHERE ga.actor_id IS NOT NULL AND TRIM(ga.actor_id) <> ''
+    ),
+    p AS (
+      SELECT
+        COUNT(*) AS total_keys,
+        COUNT(*) FILTER (WHERE b.actor_pic IS NOT NULL AND TRIM(b.actor_pic) <> '') AS matched_keys
+      FROM actor_groups_by_pic gp
+      LEFT JOIN b ON gp.pic = b.actor_pic
+      WHERE gp.pic IS NOT NULL AND TRIM(gp.pic) <> ''
+    )
+    SELECT
+      COALESCE(a.total_keys, 0) + COALESCE(p.total_keys, 0) AS total_keys,
+      COALESCE(a.matched_keys, 0) + COALESCE(p.matched_keys, 0) AS matched_keys
+    FROM a, p
+    """)
+    if df.empty:
+        return {"total_keys": 0, "matched_keys": 0}
+    return {
+        "total_keys": int(df["total_keys"].iloc[0] or 0),
+        "matched_keys": int(df["matched_keys"].iloc[0] or 0),
     }
 
 
@@ -1383,28 +1439,48 @@ with st.sidebar:
     st.session_state["f_countries"] = st.multiselect(t(lang, "countries"), meta["countries"], default=ctry_default or ctry_fallback)
 
     st.divider()
-    st.caption(f"**{t(lang, 'mapping_summary')}**")
+    st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+    mapping_cov = {"total_actors": 0, "matched_actors": 0}
+    mapping_keys = {"total_keys": 0, "matched_keys": 0}
+    mapping_key_pct = 0.0
     if actor_map_info.get("available", False):
-        cov = actor_group_match_stats()
-        coverage_pct = (100.0 * cov["matched_actors"] / cov["total_actors"]) if cov["total_actors"] > 0 else 0.0
-        st.caption(f"{t(lang, 'mapping_loaded_count')}: {int(actor_map_info.get('rows_actor', 0)) + int(actor_map_info.get('rows_pic', 0))}")
-        st.caption(f"{t(lang, 'mapping_match_rate')}: {cov['matched_actors']}/{cov['total_actors']} ({coverage_pct:.1f}%)")
-        if actor_map_info.get("source"):
-            st.caption(f"{t(lang, 'actor_groups_source')}: `{actor_map_info.get('source')}`")
-        if coverage_pct < 1.0:
-            st.warning(t(lang, "mapping_low_coverage"))
-            st.caption(t(lang, "mapping_mode_fallback"))
+        mapping_cov = actor_group_match_stats()
+        mapping_keys = actor_group_key_match_stats()
+        if mapping_keys["total_keys"] > 0:
+            mapping_key_pct = 100.0 * mapping_keys["matched_keys"] / mapping_keys["total_keys"]
+        if mapping_keys["total_keys"] > 0 and mapping_key_pct >= 80.0:
+            st.caption(t(lang, "mapping_status_ready"))
         else:
-            st.caption(t(lang, "mapping_mode_explicit"))
-        st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+            st.caption(t(lang, "mapping_status_partial"))
     else:
-        st.info(t(lang, "actor_groups_missing"))
-        st.caption(t(lang, "mapping_mode_pic_only"))
-        st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+        st.caption(t(lang, "mapping_status_missing_short"))
 
     st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
     if not actor_map_info.get("available", False):
         st.caption(t(lang, "exclude_funders_heuristic"))
+
+    with st.expander(t(lang, "mapping_diag_toggle"), expanded=False):
+        st.caption(f"**{t(lang, 'mapping_summary')}**")
+        if actor_map_info.get("available", False):
+            st.caption(f"{t(lang, 'mapping_loaded_count')}: {int(actor_map_info.get('rows_actor', 0)) + int(actor_map_info.get('rows_pic', 0))}")
+            st.caption(
+                f"{t(lang, 'mapping_keys_matched')}: "
+                f"{mapping_keys['matched_keys']}/{mapping_keys['total_keys']} ({mapping_key_pct:.1f}%)"
+            )
+            st.caption(f"{t(lang, 'mapping_global_impact')}: {mapping_cov['matched_actors']:,}")
+            if actor_map_info.get("source"):
+                st.caption(f"{t(lang, 'actor_groups_source')}: `{actor_map_info.get('source')}`")
+            if mapping_keys["total_keys"] > 0 and mapping_keys["matched_keys"] == 0:
+                st.warning(t(lang, "mapping_keys_issue"))
+                st.caption(t(lang, "mapping_mode_fallback"))
+            elif mapping_key_pct < 80.0:
+                st.warning(t(lang, "mapping_keys_partial"))
+                st.caption(t(lang, "mapping_mode_fallback"))
+            else:
+                st.caption(t(lang, "mapping_mode_explicit"))
+        else:
+            st.info(t(lang, "actor_groups_missing"))
+            st.caption(t(lang, "mapping_mode_pic_only"))
 
     st.caption(f"{t(lang, 'build_sha')}: {current_git_sha()}")
     with st.expander(t(lang, "diag_snapshot"), expanded=False):
