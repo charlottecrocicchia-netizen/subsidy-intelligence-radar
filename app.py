@@ -627,6 +627,13 @@ def is_streamlit_cloud_runtime() -> bool:
         return True
     if os.getenv("STREAMLIT_RUNTIME"):
         return True
+    if os.getenv("STREAMLIT_SHARING_MODE"):
+        return True
+    if os.getenv("IS_STREAMLIT_CLOUD") == "1":
+        return True
+    base = str(BASE_DIR).replace("\\", "/").lower()
+    if base.startswith("/mount/src/") or ("/mount/src/" in base):
+        return True
     if os.getenv("SUBSIDY_RADAR_CLOUD") == "1":
         return True
     return False

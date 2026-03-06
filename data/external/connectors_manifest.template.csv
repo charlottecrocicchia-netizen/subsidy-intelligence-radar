@@ -2,4 +2,5 @@ connector_id,enabled,kind,url,method,headers_json,params_json,output_file,mcp_co
 cinea_api,false,api_json,https://example.cinea.eu/api/projects,GET,"{\"Authorization\":\"Bearer ${CINEA_API_TOKEN}\"}",{},"data/external/connectors/cinea_projects.json","",12
 qlik_api,false,api_json,https://example.qlik.eu/api/v1/projects,GET,"{\"Authorization\":\"Bearer ${QLIK_API_TOKEN}\"}",{},"data/external/connectors/qlik_projects.json","",12
 eu_funding_portal,false,api_json,https://example.europa.eu/funding/api/projects,GET,"{\"Authorization\":\"Bearer ${EU_FUNDING_API_TOKEN}\"}",{},"data/external/connectors/eu_funding_projects.json","",12
+anr_api,false,api_json,https://example.anr.fr/api/projects,GET,"{\"Authorization\":\"Bearer ${ANR_API_TOKEN}\"}",{},"data/external/connectors/anr_projects.json","",12
 kaila_mcp,false,mcp,"",GET,"{}",{},"data/external/connectors/kaila_projects.json","kaila query --scope eu --token ${KAILA_API_TOKEN} --format json",6

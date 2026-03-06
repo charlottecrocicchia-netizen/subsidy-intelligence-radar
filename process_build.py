@@ -226,6 +226,7 @@ def classify_entity(activity: Any) -> str:
 # ============================================================
 _WS = re.compile(r"\s+")
 _NONALNUM = re.compile(r"[^A-Z0-9]+")
+_COL_TOKEN = re.compile(r"[^a-z0-9]+")
 
 
 def norm_name(x: Any) -> str:
@@ -239,9 +240,14 @@ def norm_name(x: Any) -> str:
 
 
 def pick_col(df: pd.DataFrame, *candidates: str) -> Optional[str]:
+    cols_exact = set(df.columns)
+    cols_norm = {_COL_TOKEN.sub("", str(c).strip().lower()): c for c in df.columns}
     for c in candidates:
-        if c in df.columns:
+        if c in cols_exact:
             return c
+        key = _COL_TOKEN.sub("", str(c).strip().lower())
+        if key in cols_norm:
+            return cols_norm[key]
     return None
 
 
@@ -413,18 +419,24 @@ def load_ademe(folder: Path) -> pd.DataFrame:
     df = pd.read_csv(f, sep=sep, low_memory=False)
 
     def pick_series(*cols: str) -> pd.Series:
-        for c in cols:
-            if c in df.columns:
-                return df[c]
+        c = pick_col(df, *cols)
+        if c:
+            return df[c]
         return pd.Series([np.nan] * len(df))
 
     # name / title / amount / date
-    org = pick_series("beneficiaire", "Bénéficiaire", "beneficiaires", "nom", "Nom", "raison_sociale", "Raison sociale")
+    org = pick_series(
+        "beneficiaire", "Bénéficiaire", "beneficiaires", "nom", "Nom", "raison_sociale", "Raison sociale",
+        "nomBeneficiaire", "nom_beneficiaire",
+    )
     title = pick_series("objet", "Objet", "description", "Description", "intitule", "Intitulé")
     amount = pick_series("montant", "Montant", "montant_eur", "montant (€)", "montant_accorde", "Montant accordé")
     date_col = pick_series("date", "Date", "date_versement", "dateConvention", "date_signature", "Date signature")
 
-    section = pick_series("dispositif", "Dispositif", "nature", "Nature", "programme", "Programme").fillna("ADEME")
+    section = pick_series(
+        "dispositif", "Dispositif", "nature", "Nature", "programme", "Programme",
+        "dispositifAide", "dispositif_aide",
+    ).fillna("ADEME")
 
     org_s = org.astype("string").fillna("").astype(str).str.strip()
     title_s = title.astype("string").fillna("").astype(str).str.strip()
@@ -437,7 +449,7 @@ def load_ademe(folder: Path) -> pd.DataFrame:
     )
 
     # actor_id: prefer SIRET/SIREN if present
-    siret_col = pick_col(df, "siret", "SIRET")
+    siret_col = pick_col(df, "siret", "SIRET", "idBeneficiaire", "id_beneficiaire")
     siren_col = pick_col(df, "siren", "SIREN")
     commune_col = pick_col(df, "commune", "Commune", "ville", "Ville")
     dept_col = pick_col(df, "departement", "Département", "dept", "DEP")
@@ -470,12 +482,27 @@ def load_ademe(folder: Path) -> pd.DataFrame:
     # DROP rows where beneficiary empty
     mask_ok = org_s.str.len() > 0
 
+    project_id_src = pick_series(
+        "id", "ID", "reference", "Référence", "numero_dossier", "Numéro dossier",
+        "referenceDecision", "reference_decision", "idRAE", "id_rae",
+    ).astype("string").fillna("").astype(str).str.strip()
+    date_token = pd.to_datetime(date_col, errors="coerce").dt.strftime("%Y%m%d").fillna("00000000")
+    proj_fallback = (
+        "ADEME:"
+        + org_norm.astype(str).str.slice(0, 80).str.replace(" ", "_", regex=False)
+        + ":"
+        + date_token.astype(str)
+        + ":"
+        + pd.Series(np.arange(len(df)), dtype="int64").astype(str)
+    )
+    project_id = np.where(project_id_src.str.len() > 0, project_id_src, proj_fallback)
+
     df_out = pd.DataFrame({
-        "source": "FR",
+        "source": "ADEME",
         "program": "ADEME (France)",
         "section": section.astype("string").fillna("ADEME").astype(str),
         "year": year,
-        "projectID": pick_series("id", "ID", "reference", "Référence", "numero_dossier", "Numéro dossier").astype("string").fillna("").astype(str),
+        "projectID": pd.Series(project_id).astype("string").fillna("").astype(str),
         "acronym": "",
         "title": title_s,
         "objective": "",

@@ -79,6 +79,7 @@ Environment-variable placeholders are supported in the manifest:
 - `${CINEA_API_TOKEN}`
 - `${QLIK_API_TOKEN}`
 - `${EU_FUNDING_API_TOKEN}`
+- `${ANR_API_TOKEN}`
 - `${KAILA_API_TOKEN}`
 
 Example:
@@ -86,6 +87,7 @@ Example:
 export CINEA_API_TOKEN="xxx"
 export QLIK_API_TOKEN="xxx"
 export EU_FUNDING_API_TOKEN="xxx"
+export ANR_API_TOKEN="xxx"
 export KAILA_API_TOKEN="xxx"
 ```
 

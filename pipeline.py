@@ -59,6 +59,14 @@ def is_streamlit_cloud() -> bool:
     # some deployments set STREAMLIT_RUNTIME or similar
     if os.getenv("STREAMLIT_RUNTIME"):
         return True
+    if os.getenv("STREAMLIT_SHARING_MODE"):
+        return True
+    if os.getenv("IS_STREAMLIT_CLOUD") == "1":
+        return True
+    # Strong fallback for Streamlit Community Cloud mounts.
+    base = str(BASE_DIR).replace("\\", "/").lower()
+    if base.startswith("/mount/src/") or ("/mount/src/" in base):
+        return True
     # fallback: user can force via env
     if os.getenv("SUBSIDY_RADAR_CLOUD") == "1":
         return True

@@ -74,6 +74,7 @@ Via `data/external/connectors_manifest.csv`:
 - CINEA API (placeholder),
 - Qlik API (placeholder),
 - EU Funding portal API (placeholder),
+- ANR API (placeholder),
 - MCP/Kaila via commande CLI (placeholder).
 
 Le manifest actuel est un template de depart, pas des endpoints de production.
@@ -203,6 +204,7 @@ Support des variables d'environnement dans les champs string:
 - `${CINEA_API_TOKEN}`
 - `${QLIK_API_TOKEN}`
 - `${EU_FUNDING_API_TOKEN}`
+- `${ANR_API_TOKEN}`
 - `${KAILA_API_TOKEN}`
 
 Template:
