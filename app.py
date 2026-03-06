@@ -23,12 +23,11 @@ pio.templates.default = "plotly_dark"
 import duckdb
 from filelock import FileLock, Timeout
 
-try:
-    from streamlit_plotly_events import plotly_events
-    HAS_PLOTLY_EVENTS = True
-except Exception:
-    plotly_events = None
-    HAS_PLOTLY_EVENTS = False
+# Interactive Sankey clicks can trigger rerun loops on Streamlit Cloud.
+# Keep click mode disabled for stability; isolation is controlled via selectors.
+ENABLE_SANKEY_CLICK = False
+plotly_events = None
+HAS_PLOTLY_EVENTS = False
 
 
 # ============================================================
@@ -403,7 +402,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_isolation_help": "Mise en avant visuelle: couleur forte sur l'étape ciblée, le reste est atténué.",
         "vc_query_error": "Impossible de calculer la chaîne de valeur avec cette combinaison de filtres. Essaie 'Reset filters' ou réduis les filtres.",
         "vc_click_hint": "Astuce: clique un nœud du Sankey pour isoler automatiquement l'étape ou l'acteur.",
-        "vc_click_unavailable": "Interaction au clic désactivée (dépendance `streamlit-plotly-events` non installée).",
+        "vc_click_unavailable": "Interaction au clic désactivée pour stabilité (mode sans clic).",
         "macro_same_year_events": "Événements de la même année",
         "net_focus_partner": "Partenaire à mettre en avant",
         "net_all_partners": "Tous les partenaires",
@@ -617,7 +616,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_isolation_help": "Visual focus: strong color on selected stage, other links are faded.",
         "vc_query_error": "Unable to compute value-chain view with this filter combination. Try 'Reset filters' or reduce filters.",
         "vc_click_hint": "Tip: click a Sankey node to automatically isolate the stage or actor.",
-        "vc_click_unavailable": "Click interaction disabled (`streamlit-plotly-events` dependency is not installed).",
+        "vc_click_unavailable": "Click interaction disabled for stability (non-click mode).",
         "macro_same_year_events": "Events in the same year",
         "net_focus_partner": "Partner to highlight",
         "net_all_partners": "All partners",
@@ -1062,8 +1061,27 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
     """
 
 
-def fetch_df(sql: str) -> pd.DataFrame:
+def _path_mtime_ns(path: Path) -> int:
+    try:
+        return int(path.stat().st_mtime_ns)
+    except Exception:
+        return 0
+
+
+@st.cache_data(show_spinner=False, ttl=1800, max_entries=800)
+def _fetch_df_cached(sql: str, data_token: Tuple[int, int, int, int]) -> pd.DataFrame:
+    _ = data_token  # cache invalidation token
     return get_con().execute(sql).fetchdf()
+
+
+def fetch_df(sql: str) -> pd.DataFrame:
+    token = (
+        _path_mtime_ns(PARQUET_PATH),
+        _path_mtime_ns(EVENTS_PATH),
+        _path_mtime_ns(ACTOR_GROUPS_PATH),
+        _path_mtime_ns(CONNECTORS_MANIFEST_PATH),
+    )
+    return _fetch_df_cached(sql, token)
 
 
 def list_str(sql: str) -> List[str]:
