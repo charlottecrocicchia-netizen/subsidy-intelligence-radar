@@ -1,0 +1,11 @@
+{
+  "last_build_ts": 1772793713.30745,
+  "last_build_utc": "2026-03-06T10:41:59.354321+00:00",
+  "min_refresh_hours": 24.0,
+  "days_back": 540,
+  "existing_events": 140,
+  "rss_events": 160,
+  "sparql_events": 0,
+  "total_deduped": 140,
+  "mode": "append_only"
+}

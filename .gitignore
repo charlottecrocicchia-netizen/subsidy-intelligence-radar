@@ -12,11 +12,16 @@ data/external/*
 
 # BUT keep the two deliverables for Streamlit Cloud
 !data/processed/subsidy_base.parquet
+!data/processed/_state.json
 !data/external/events.csv
+!data/external/events_meta.json
 !data/external/actor_groups.csv
 !data/external/connectors_manifest.csv
 !data/external/actor_groups.template.csv
 !data/external/connectors_manifest.template.csv
+!data/external/connectors/
+!data/external/connectors/*.json
+!data/external/connectors/.gitkeep
 
 # Local snapshots/logs
 _project_snapshot.txt

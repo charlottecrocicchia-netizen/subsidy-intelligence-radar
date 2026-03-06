@@ -41,6 +41,7 @@ In the app, click **Refresh** to (re)build:
 - `build_events.py` (build `data/external/events.csv`)
 
 `events.csv` now stores a dedicated `url` column (source link) in addition to notes.
+`build_events.py` also writes `data/external/events_meta.json` and enforces a minimum refresh interval (`SUBSIDY_EVENTS_MIN_REFRESH_HOURS`, default `24`).
 
 If `build_events.py` fails with `No module named feedparser`, run:
 ```bash
@@ -76,6 +77,7 @@ On each pipeline refresh:
 - connectors are checked incrementally
 - each connector keeps its own stamp in `data/processed/_state.json`
 - failures are isolated (one connector can fail without stopping others)
+- connectors can auto-enable when required env vars are available (`enabled_if_env=true`)
 
 Environment-variable placeholders are supported in the manifest:
 - `${CINEA_API_TOKEN}`
@@ -117,7 +119,7 @@ Important:
 2. In GitHub, open **Actions** and verify workflow **Refresh Data** appears.
 3. Run it once with **Run workflow**.
 4. Optionally add repository secrets for connectors:
-`CINEA_API_TOKEN`, `QLIK_API_TOKEN`, `EU_FUNDING_API_TOKEN`, `KAILA_API_TOKEN`.
+`CINEA_API_TOKEN`, `QLIK_API_TOKEN`, `EU_FUNDING_API_TOKEN`, `ANR_API_TOKEN`, `KAILA_API_TOKEN`.
 5. Keep Streamlit linked to the same branch (or `main`) to pick up automated commits.
 
 ### Deployment checks (important)
@@ -129,6 +131,7 @@ Important:
 5. Country filter default should be Europe-first (you can then add non-European countries).
 6. In `Value chain & network`, use `Themes` + `Value-chain stages to display` + `Stage to explore` for actor/project drilldown.
 7. In `Macro & news`, tag mode supports `All themes (tag)` for robust event exploration when strict tag-theme mapping is unavailable.
+8. If `streamlit-plotly-events` is installed, Sankey node clicks auto-isolate stage/actor.
 
 ## Troubleshooting
 
@@ -159,5 +162,5 @@ git push origin <your-branch>
 
 Notes:
 - `data/raw/` stays ignored.
-- `data/processed/subsidy_base.parquet`, `data/external/events.csv`, `data/external/actor_groups.csv`, `data/external/connectors_manifest.csv` are tracked for cloud runs.
+- `data/processed/subsidy_base.parquet`, `data/processed/_state.json`, `data/external/events.csv`, `data/external/events_meta.json`, `data/external/actor_groups.csv`, `data/external/connectors_manifest.csv`, `data/external/connectors/*.json` are tracked for cloud runs.
 - If the parquet becomes too large for GitHub limits, use Git LFS or a smaller processed export.

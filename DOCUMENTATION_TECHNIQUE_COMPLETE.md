@@ -160,10 +160,12 @@ Colonnes standard:
 - tag
 - title
 - source
+- url
 - impact_direction
 - notes
 
 Le chargement ajoute `year` et `event_id` cote app.
+Un fichier meta est aussi maintenu: `data/external/events_meta.json` (last build, cadence mini, mode).
 
 ## 5.4 Mapping groupes acteurs: `data/external/actor_groups.csv`
 
@@ -191,6 +193,8 @@ La sidebar affiche la couverture de mapping:
 Colonnes:
 - connector_id
 - enabled
+- enabled_if_env
+- required_env
 - kind (`api_json` / `api_csv` / `mcp`)
 - url
 - method
@@ -268,6 +272,8 @@ Responsabilites:
 - collecte textes legaux EUR-Lex via SPARQL,
 - tagging thematique (`TAG_RULES`),
 - deduplication,
+- mode append-only (conserve l'historique local),
+- cadence mini configurable (`SUBSIDY_EVENTS_MIN_REFRESH_HOURS`, defaut 24h),
 - ecriture atomique `events.csv`.
 
 Robustesse:
@@ -279,7 +285,7 @@ Robustesse:
 
 Responsabilites:
 - lire le manifest,
-- pour chaque connecteur `enabled=true`:
+- pour chaque connecteur actif (soit `enabled=true`, soit `enabled_if_env=true` + env presentes):
   - API: compare stamp distant + fetch + sauvegarde,
   - MCP: execute commande a intervalle configure,
 - stocker etat/stamps par connecteur dans `_state.json`.
@@ -424,7 +430,7 @@ Automatique:
 
 Manuel (configuration initiale):
 - renseigner endpoints reels dans `connectors_manifest.csv`,
-- activer `enabled=true` pour les connecteurs voulus,
+- soit activer `enabled=true`, soit laisser `enabled_if_env=true` et injecter les variables d'environnement requises,
 - definir secrets GitHub si utilisation en Action,
 - maintenir mapping `actor_groups.csv` selon gouvernance metier.
 

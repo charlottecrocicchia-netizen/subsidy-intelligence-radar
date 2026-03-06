@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import csv
 import errno
+import json
 import os
 import re
 import shutil
@@ -34,6 +35,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 # =========================
 BASE_DIR = Path(__file__).resolve().parent
 EVENTS_PATH = BASE_DIR / "data" / "external" / "events.csv"
+EVENTS_META_PATH = BASE_DIR / "data" / "external" / "events_meta.json"
 EVENTS_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 # =========================
@@ -324,7 +326,42 @@ def atomic_write_events_csv(events: List[Event], path: Path) -> None:
             tmp.unlink(missing_ok=True)
 
 
+def load_events_meta(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def write_events_meta(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.replace(path)
+
+
 def main() -> None:
+    force_refresh = str(os.getenv("SUBSIDY_EVENTS_FORCE", "0")).strip() == "1"
+    try:
+        min_refresh_h = max(0.0, float(str(os.getenv("SUBSIDY_EVENTS_MIN_REFRESH_HOURS", "24")).strip()))
+    except Exception:
+        min_refresh_h = 24.0
+    try:
+        days_back = max(1, int(str(os.getenv("SUBSIDY_EVENTS_DAYS_BACK", "540")).strip()))
+    except Exception:
+        days_back = 540
+
+    meta = load_events_meta(EVENTS_META_PATH)
+    last_build_ts = float(meta.get("last_build_ts", 0.0) or 0.0)
+    now_ts = datetime.now(timezone.utc).timestamp()
+    age_h = ((now_ts - last_build_ts) / 3600.0) if last_build_ts > 0 else 999999.0
+    if (not force_refresh) and EVENTS_PATH.exists() and (age_h < min_refresh_h):
+        print(f"[SKIP] events refresh skipped (age={age_h:.1f}h < min_refresh={min_refresh_h:.1f}h).")
+        print(f"[OK] Keeping existing events file: {EVENTS_PATH}")
+        return
+
     existing_events = load_existing_events(EVENTS_PATH)
     rss_events = fetch_rss_events(limit_per_feed=80)
 
@@ -333,16 +370,33 @@ def main() -> None:
         "net-zero", "industry act", "renewable", "electricity", "ai act",
         "gas", "security of supply",
     ]
-    eurlex_events = fetch_eurlex_sparql_events(keywords=keywords, days_back=540, limit=250)
+    eurlex_events = fetch_eurlex_sparql_events(keywords=keywords, days_back=days_back, limit=250)
 
     all_events = existing_events + rss_events + eurlex_events
-    atomic_write_events_csv(all_events, EVENTS_PATH)
+    deduped = dedupe(all_events)
+    atomic_write_events_csv(deduped, EVENTS_PATH)
+
+    write_events_meta(
+        EVENTS_META_PATH,
+        {
+            "last_build_ts": now_ts,
+            "last_build_utc": datetime.now(timezone.utc).isoformat(),
+            "min_refresh_hours": min_refresh_h,
+            "days_back": days_back,
+            "existing_events": len(existing_events),
+            "rss_events": len(rss_events),
+            "sparql_events": len(eurlex_events),
+            "total_deduped": len(deduped),
+            "mode": "append_only",
+        },
+    )
 
     print(f"[OK] Existing events kept: {len(existing_events)}")
     print(f"[OK] RSS events: {len(rss_events)}")
     print(f"[OK] SPARQL events: {len(eurlex_events)}")
-    print(f"[OK] Total (deduped): {len(dedupe(all_events))}")
+    print(f"[OK] Total (deduped): {len(deduped)}")
     print(f"[OK] Wrote: {EVENTS_PATH}")
+    print(f"[OK] Wrote meta: {EVENTS_META_PATH}")
 
 
 if __name__ == "__main__":

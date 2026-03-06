@@ -8,6 +8,7 @@ import tempfile
 import re
 import os
 import time
+import json
 
 import numpy as np
 import pandas as pd
@@ -22,6 +23,13 @@ pio.templates.default = "plotly_dark"
 import duckdb
 from filelock import FileLock, Timeout
 
+try:
+    from streamlit_plotly_events import plotly_events
+    HAS_PLOTLY_EVENTS = True
+except Exception:
+    plotly_events = None
+    HAS_PLOTLY_EVENTS = False
+
 
 # ============================================================
 # Paths (reproductible)
@@ -32,8 +40,11 @@ DATA_DIR = BASE_DIR / "data"
 PARQUET_PATH = DATA_DIR / "processed" / "subsidy_base.parquet"
 CSV_PATH = DATA_DIR / "processed" / "subsidy_base.csv"  # optionnel (export)
 EVENTS_PATH = DATA_DIR / "external" / "events.csv"
+EVENTS_META_PATH = DATA_DIR / "external" / "events_meta.json"
 ACTOR_GROUPS_PATH = DATA_DIR / "external" / "actor_groups.csv"
 ACTOR_GROUPS_TEMPLATE_PATH = DATA_DIR / "external" / "actor_groups.template.csv"
+CONNECTORS_MANIFEST_PATH = DATA_DIR / "external" / "connectors_manifest.csv"
+PIPELINE_STATE_PATH = DATA_DIR / "processed" / "_state.json"
 REQUIREMENTS_PATH = BASE_DIR / "requirements.txt"
 
 # Offline scripts (ONLY on refresh click)
@@ -244,6 +255,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_diag_toggle": "Diagnostic mapping (optionnel)",
         "refresh_cloud_cta": "Ouvrir GitHub Actions « Refresh Data »",
         "kpis": "📊 Indicateurs clés",
+        "insights_title": "Insights automatiques (périmètre courant)",
         "budget_total": "Budget total",
         "n_projects": "Nombre de projets",
         "n_actors": "Acteurs uniques",
@@ -390,6 +402,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_isolate_actor": "Isoler uniquement l'acteur sélectionné",
         "vc_isolation_help": "Mise en avant visuelle: couleur forte sur l'étape ciblée, le reste est atténué.",
         "vc_query_error": "Impossible de calculer la chaîne de valeur avec cette combinaison de filtres. Essaie 'Reset filters' ou réduis les filtres.",
+        "vc_click_hint": "Astuce: clique un nœud du Sankey pour isoler automatiquement l'étape ou l'acteur.",
+        "vc_click_unavailable": "Interaction au clic désactivée (dépendance `streamlit-plotly-events` non installée).",
         "macro_same_year_events": "Événements de la même année",
         "net_focus_partner": "Partenaire à mettre en avant",
         "net_all_partners": "Tous les partenaires",
@@ -407,6 +421,11 @@ I18N: Dict[str, Dict[str, str]] = {
         "diag_years": "Plage années dataset",
         "diag_events": "Événements macro",
         "diag_events_ai": "Événements macro tag AI",
+        "diag_connectors": "Connecteurs configurés",
+        "diag_connectors_ready": "Connecteurs prêts (env + URL)",
+        "diag_connectors_last": "Dernier statut connecteurs",
+        "diag_events_policy": "Politique refresh events",
+        "diag_events_policy_value": "minimum {hours:.0f}h entre rebuilds",
         "actor_query_fallback": "Certaines étiquettes acteur ne sont pas lisibles dans la source actuelle. Affichage de secours basé sur actor_id.",
     },
     "EN": {
@@ -450,6 +469,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_diag_toggle": "Mapping diagnostics (optional)",
         "refresh_cloud_cta": "Open GitHub Actions \"Refresh Data\"",
         "kpis": "📊 Key indicators",
+        "insights_title": "Automatic insights (current scope)",
         "budget_total": "Total budget",
         "n_projects": "Projects",
         "n_actors": "Unique actors",
@@ -596,6 +616,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_isolate_actor": "Show only selected actor",
         "vc_isolation_help": "Visual focus: strong color on selected stage, other links are faded.",
         "vc_query_error": "Unable to compute value-chain view with this filter combination. Try 'Reset filters' or reduce filters.",
+        "vc_click_hint": "Tip: click a Sankey node to automatically isolate the stage or actor.",
+        "vc_click_unavailable": "Click interaction disabled (`streamlit-plotly-events` dependency is not installed).",
         "macro_same_year_events": "Events in the same year",
         "net_focus_partner": "Partner to highlight",
         "net_all_partners": "All partners",
@@ -613,6 +635,11 @@ I18N: Dict[str, Dict[str, str]] = {
         "diag_years": "Dataset year range",
         "diag_events": "Macro events",
         "diag_events_ai": "Macro events tagged AI",
+        "diag_connectors": "Configured connectors",
+        "diag_connectors_ready": "Ready connectors (env + URL)",
+        "diag_connectors_last": "Last connector status",
+        "diag_events_policy": "Events refresh policy",
+        "diag_events_policy_value": "minimum {hours:.0f}h between rebuilds",
         "actor_query_fallback": "Some actor labels are not readable in the current source. Fallback display uses actor_id.",
     },
 }
@@ -1083,6 +1110,84 @@ def events_snapshot_stats() -> Dict[str, int]:
     }
 
 
+def _to_bool_text(x: object) -> bool:
+    return str(x).strip().lower() in {"1", "true", "yes", "y", "oui"}
+
+
+def _extract_env_refs(text: object) -> List[str]:
+    return sorted(set(re.findall(r"\$\{([A-Za-z_][A-Za-z0-9_]*)\}", str(text or ""))))
+
+
+@st.cache_data(show_spinner=False)
+def connectors_snapshot_stats() -> Dict[str, object]:
+    out: Dict[str, object] = {
+        "manifest_total": 0,
+        "manifest_ready": 0,
+        "state_count": 0,
+        "last_status": "—",
+    }
+    if CONNECTORS_MANIFEST_PATH.exists():
+        try:
+            m = pd.read_csv(CONNECTORS_MANIFEST_PATH, dtype=str).fillna("")
+            out["manifest_total"] = int(len(m))
+            ready = 0
+            for _, row in m.iterrows():
+                kind = str(row.get("kind", "")).strip().lower()
+                url = str(row.get("url", "")).strip()
+                req = [x.strip() for x in str(row.get("required_env", "")).split(",") if x.strip()]
+                req += _extract_env_refs(row.get("headers_json", ""))
+                req += _extract_env_refs(row.get("params_json", ""))
+                req += _extract_env_refs(row.get("mcp_command", ""))
+                req += _extract_env_refs(url)
+                req = sorted(set(req))
+                missing = [x for x in req if not str(os.getenv(x, "")).strip()]
+                url_ready = (kind == "mcp") or (bool(url) and ("example." not in url.lower()) and ("localhost" not in url.lower()))
+                if (len(missing) == 0) and url_ready:
+                    ready += 1
+            out["manifest_ready"] = int(ready)
+        except Exception:
+            pass
+
+    if PIPELINE_STATE_PATH.exists():
+        try:
+            js = json.loads(PIPELINE_STATE_PATH.read_text(encoding="utf-8"))
+            ext = js.get("external_connectors", {}) if isinstance(js, dict) else {}
+            if isinstance(ext, dict):
+                out["state_count"] = int(len(ext))
+                if ext:
+                    items = sorted(
+                        ext.items(),
+                        key=lambda kv: float((kv[1] or {}).get("last_run_ts", 0.0) or 0.0),
+                        reverse=True,
+                    )
+                    cid, data = items[0]
+                    reason = str((data or {}).get("last_reason", "unknown"))
+                    ok = bool((data or {}).get("last_ok", False))
+                    out["last_status"] = f"{cid}: {'OK' if ok else 'FAIL'} ({reason})"
+        except Exception:
+            pass
+
+    return out
+
+
+@st.cache_data(show_spinner=False)
+def events_meta_snapshot() -> Dict[str, object]:
+    default_h = 24.0
+    try:
+        default_h = max(0.0, float(str(os.getenv("SUBSIDY_EVENTS_MIN_REFRESH_HOURS", "24")).strip()))
+    except Exception:
+        default_h = 24.0
+    out: Dict[str, object] = {"min_refresh_hours": default_h, "last_build_utc": "—"}
+    if EVENTS_META_PATH.exists():
+        try:
+            js = json.loads(EVENTS_META_PATH.read_text(encoding="utf-8"))
+            out["min_refresh_hours"] = float(js.get("min_refresh_hours", default_h) or default_h)
+            out["last_build_utc"] = str(js.get("last_build_utc", "—") or "—")
+        except Exception:
+            pass
+    return out
+
+
 def in_list(values: List[str]) -> str:
     def _clean(v: str) -> str:
         s = str(v).replace("\x00", "").replace("\r", " ").replace("\n", " ")
@@ -1512,6 +1617,8 @@ with st.sidebar:
         st.caption(t(lang, "diag_snapshot_hint"))
         ds = base_snapshot_stats()
         es = events_snapshot_stats()
+        cs = connectors_snapshot_stats()
+        em = events_meta_snapshot()
         st.caption(f"{t(lang, 'diag_rows')}: {ds['n_rows']:,}")
         st.caption(f"{t(lang, 'diag_budget')}: {fmt_money(float(ds['total_budget']), lang)}")
         st.caption(f"{t(lang, 'diag_projects')}: {ds['n_projects']:,}")
@@ -1519,6 +1626,11 @@ with st.sidebar:
         st.caption(f"{t(lang, 'diag_years')}: {ds['min_year']}–{ds['max_year']}")
         st.caption(f"{t(lang, 'diag_events')}: {es['n_events']:,}")
         st.caption(f"{t(lang, 'diag_events_ai')}: {es['n_ai']:,}")
+        st.caption(f"{t(lang, 'diag_connectors')}: {int(cs.get('manifest_total', 0))}")
+        st.caption(f"{t(lang, 'diag_connectors_ready')}: {int(cs.get('manifest_ready', 0))}")
+        st.caption(f"{t(lang, 'diag_connectors_last')}: {cs.get('last_status', '—')}")
+        st.caption(f"{t(lang, 'diag_events_policy')}: {t(lang, 'diag_events_policy_value').format(hours=float(em.get('min_refresh_hours', 24.0)))}")
+        st.caption(f"{t(lang, 'last_update')} — {t(lang, 'last_update_events')}: {str(em.get('last_build_utc', '—'))}")
 
 
 # ============================================================
@@ -1790,6 +1902,85 @@ with tab_overview:
         )
         st.plotly_chart(fig_p, use_container_width=True)
         st.caption(t(lang, "concentration_caption"))
+
+    st.divider()
+    st.markdown("### " + t(lang, "insights_title"))
+    insights: List[str] = []
+    try:
+        top_theme = fetch_df(f"""
+        SELECT theme, SUM(amount_eur) AS b
+        FROM {R}
+        WHERE {W}
+        GROUP BY theme
+        ORDER BY b DESC
+        LIMIT 1
+        """)
+        if not top_theme.empty:
+            th = theme_raw_to_display(str(top_theme["theme"].iloc[0]), lang)
+            insights.append(
+                (
+                    f"Thème leader: **{th}** ({fmt_money(float(top_theme['b'].iloc[0]), lang)})."
+                    if lang == "FR"
+                    else f"Leading theme: **{th}** ({fmt_money(float(top_theme['b'].iloc[0]), lang)})."
+                )
+            )
+    except Exception:
+        pass
+    try:
+        top_actor = fetch_df(f"""
+        SELECT COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label, SUM(amount_eur) AS b
+        FROM {R}
+        WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+        GROUP BY actor_label
+        ORDER BY b DESC
+        LIMIT 1
+        """)
+        if not top_actor.empty:
+            insights.append(
+                (
+                    f"Acteur principal: **{str(top_actor['actor_label'].iloc[0])[:64]}** ({fmt_money(float(top_actor['b'].iloc[0]), lang)})."
+                    if lang == "FR"
+                    else f"Top actor: **{str(top_actor['actor_label'].iloc[0])[:64]}** ({fmt_money(float(top_actor['b'].iloc[0]), lang)})."
+                )
+            )
+    except Exception:
+        pass
+    try:
+        yoy = fetch_df(f"""
+        WITH y AS (
+          SELECT year, SUM(amount_eur) AS b
+          FROM {R}
+          WHERE {W}
+          GROUP BY year
+        ),
+        z AS (
+          SELECT year, b, LAG(b) OVER (ORDER BY year) AS prev_b
+          FROM y
+        )
+        SELECT year, b, prev_b
+        FROM z
+        WHERE prev_b IS NOT NULL
+        ORDER BY year DESC
+        LIMIT 1
+        """)
+        if not yoy.empty:
+            curr = float(yoy["b"].iloc[0] or 0.0)
+            prev = float(yoy["prev_b"].iloc[0] or 0.0)
+            delta = ((curr / prev) - 1.0) * 100.0 if prev > 0 else 0.0
+            insights.append(
+                (
+                    f"Variation annuelle la plus récente: **{delta:+.1f}%**."
+                    if lang == "FR"
+                    else f"Most recent annual change: **{delta:+.1f}%**."
+                )
+            )
+    except Exception:
+        pass
+    if insights:
+        for row in insights:
+            st.markdown(f"- {row}")
+    else:
+        st.caption(t(lang, "no_data"))
 
 
 # ============================================================
@@ -3064,7 +3255,36 @@ with tab_network:
                                 ]
                             )
                             fig_sankey.update_layout(height=620, margin=dict(l=10, r=10, t=20, b=10))
-                            st.plotly_chart(fig_sankey, use_container_width=True)
+                            if HAS_PLOTLY_EVENTS and plotly_events is not None:
+                                clicked = plotly_events(
+                                    fig_sankey,
+                                    click_event=True,
+                                    hover_event=False,
+                                    select_event=False,
+                                    override_height=620,
+                                    key="vc_sankey_clicks",
+                                )
+                                st.caption(t(lang, "vc_click_hint"))
+                                if clicked:
+                                    ev0 = clicked[0] if isinstance(clicked, list) and clicked else {}
+                                    label_clicked = str((ev0 or {}).get("label", "")).strip()
+                                    if not label_clicked:
+                                        idx = (ev0 or {}).get("pointIndex", (ev0 or {}).get("pointNumber"))
+                                        if isinstance(idx, int) and 0 <= int(idx) < len(node_labels):
+                                            label_clicked = str(node_labels[int(idx)])
+                                    if label_clicked in stage_order:
+                                        st.session_state["vc_highlight_stage_select"] = label_clicked
+                                        st.session_state["vc_isolate_stage"] = True
+                                        st.session_state["vc_isolate_actor"] = False
+                                        st.rerun()
+                                    elif label_clicked in actor_order:
+                                        st.session_state["vc_highlight_actor_select"] = label_clicked
+                                        st.session_state["vc_isolate_actor"] = True
+                                        st.session_state["vc_isolate_stage"] = False
+                                        st.rerun()
+                            else:
+                                st.plotly_chart(fig_sankey, use_container_width=True)
+                                st.caption(t(lang, "vc_click_unavailable"))
 
                             stage_tbl = (
                                 vc_view.groupby("value_chain_stage", as_index=False)["budget_eur"]
@@ -3595,6 +3815,7 @@ with tab_guide:
                 """
 - Sankey = budget par étape de chaîne de valeur puis acteurs.
 - Sélection des étapes + focus étape/acteur = lecture ciblée des entreprises par maillon.
+- Clic sur un nœud Sankey (si activé) = isolation automatique de l'étape/acteur.
 - Graphe étoile = collaborations autour d’un acteur focal.
 - Utiliser le mode regroupé (PIC/groupe) pour une lecture “groupe industriel”.
                 """
@@ -3655,6 +3876,7 @@ with tab_guide:
                 """
 - Sankey = budget by value-chain stage and actors.
 - Stage selection + stage/actor focus = targeted reading of companies by chain link.
+- Click on a Sankey node (when enabled) automatically isolates stage/actor.
 - Star graph = collaborations around one focal actor.
 - Use grouped mode (PIC/group) for industrial-group level reading.
                 """

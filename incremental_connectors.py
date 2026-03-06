@@ -14,6 +14,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import shlex
 import subprocess
 import time
@@ -26,6 +27,7 @@ import requests
 
 DEFAULT_TIMEOUT = 90
 DEFAULT_HEADERS = {"User-Agent": "SubsidyRadar/1.0 (+external-connectors)"}
+ENV_REF_RE = re.compile(r"\$\{([A-Za-z_][A-Za-z0-9_]*)\}")
 
 
 @dataclass
@@ -40,6 +42,31 @@ class ConnectorResult:
 
 def _to_bool(x: Any) -> bool:
     return str(x).strip().lower() in {"1", "true", "yes", "y", "oui"}
+
+
+def _is_placeholder_url(url: str) -> bool:
+    u = str(url or "").strip().lower()
+    return ("example." in u) or ("localhost" in u)
+
+
+def _extract_env_refs(*texts: Any) -> List[str]:
+    refs: List[str] = []
+    for t in texts:
+        s = str(t or "")
+        refs.extend(ENV_REF_RE.findall(s))
+    return sorted(set([x for x in refs if str(x).strip()]))
+
+
+def _required_env_from_row(row: pd.Series) -> List[str]:
+    raw_required = str(row.get("required_env", "")).strip()
+    listed = [x.strip() for x in raw_required.split(",") if x.strip()]
+    inferred = _extract_env_refs(
+        row.get("url", ""),
+        row.get("headers_json", ""),
+        row.get("params_json", ""),
+        row.get("mcp_command", ""),
+    )
+    return sorted(set(listed + inferred))
 
 
 def _json_or_empty(s: Any) -> Dict[str, Any]:
@@ -186,12 +213,50 @@ def run_incremental_connectors(base_dir: Path, state: Dict[str, Any], force: boo
     results: List[ConnectorResult] = []
 
     for _, row in df.iterrows():
-        if not _to_bool(row.get("enabled", "true")):
-            continue
-
         cid = str(row.get("connector_id", "")).strip() or f"row_{_}"
         prev = ext_state.get(cid, {}) if isinstance(ext_state, dict) else {}
         kind = str(row.get("kind", "api_json")).strip().lower()
+        url = str(row.get("url", "")).strip()
+
+        enabled_explicit = _to_bool(row.get("enabled", "false"))
+        enabled_if_env = _to_bool(row.get("enabled_if_env", "true"))
+        required_env = _required_env_from_row(row)
+        missing_env = [v for v in required_env if not str(os.getenv(v, "")).strip()]
+        auto_enabled = enabled_if_env and len(missing_env) == 0
+        effective_enabled = bool(enabled_explicit or auto_enabled)
+
+        if kind != "mcp" and _is_placeholder_url(url):
+            effective_enabled = False
+            skip_reason = "placeholder_url"
+        elif not effective_enabled:
+            skip_reason = ("missing_env:" + ",".join(missing_env)) if missing_env else "disabled"
+        else:
+            skip_reason = ""
+
+        if not effective_enabled:
+            res = ConnectorResult(
+                connector_id=cid,
+                ran=False,
+                ok=True,
+                reason=skip_reason,
+                output_file=str(row.get("output_file", "")).strip(),
+                stamp=str(prev.get("stamp", "")),
+            )
+            results.append(res)
+            ext_state[cid] = {
+                "stamp": str(prev.get("stamp", "")),
+                "last_run_ts": float(prev.get("last_run_ts", 0.0) or 0.0),
+                "last_reason": res.reason,
+                "last_ok": bool(res.ok),
+                "output_file": res.output_file,
+                "required_env": ",".join(required_env),
+                "missing_env": ",".join(missing_env),
+                "enabled_explicit": bool(enabled_explicit),
+                "enabled_if_env": bool(enabled_if_env),
+            }
+            if verbose:
+                print(f"[connector] {cid}: ran=False ok=True reason={res.reason}")
+            continue
 
         # Resolve relative output path against repo root.
         out_file = str(row.get("output_file", "")).strip()
@@ -211,6 +276,10 @@ def run_incremental_connectors(base_dir: Path, state: Dict[str, Any], force: boo
             "last_reason": res.reason,
             "last_ok": bool(res.ok),
             "output_file": res.output_file,
+            "required_env": ",".join(required_env),
+            "missing_env": ",".join(missing_env),
+            "enabled_explicit": bool(enabled_explicit),
+            "enabled_if_env": bool(enabled_if_env),
         }
         if verbose:
             print(f"[connector] {cid}: ran={res.ran} ok={res.ok} reason={res.reason}")

@@ -43,6 +43,10 @@ jobs:
           python pipeline.py
 
       - name: Rebuild macro events
+        env:
+          # Keep event refresh cadence stable for reproducibility.
+          SUBSIDY_EVENTS_MIN_REFRESH_HOURS: "24"
+          SUBSIDY_EVENTS_FORCE: "0"
         run: |
           python build_events.py
 
@@ -61,7 +65,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/processed/subsidy_base.parquet data/external/events.csv
+          git add -A data/processed/subsidy_base.parquet data/processed/_state.json data/external/events.csv
+          git add -A data/external/events_meta.json data/external/connectors/ || true
           if git diff --staged --quiet; then
             echo "No data changes to commit."
             exit 0
