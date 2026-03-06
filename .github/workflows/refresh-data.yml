@@ -37,6 +37,7 @@ jobs:
           CINEA_API_TOKEN: ${{ secrets.CINEA_API_TOKEN }}
           QLIK_API_TOKEN: ${{ secrets.QLIK_API_TOKEN }}
           EU_FUNDING_API_TOKEN: ${{ secrets.EU_FUNDING_API_TOKEN }}
+          ANR_API_TOKEN: ${{ secrets.ANR_API_TOKEN }}
           KAILA_API_TOKEN: ${{ secrets.KAILA_API_TOKEN }}
         run: |
           python pipeline.py

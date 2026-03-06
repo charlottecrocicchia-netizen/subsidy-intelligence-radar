@@ -327,6 +327,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_filters": "Filtres Macro (indépendants)",
         "macro_use_global": "Utiliser les filtres globaux (sidebar)",
         "cloud_persistence_note": "Mode Streamlit Cloud : les mises à jour de fichiers via ce bouton ne sont pas durables. Utiliser le workflow GitHub « Refresh Data » pour une persistance automatique.",
+        "refresh_cloud_skip": "Mode Streamlit Cloud : ce bouton ne lance pas de refresh durable. Lance le workflow GitHub « Refresh Data » (Actions) pour mettre à jour les données en ligne.",
         "missing_stage_col": "La colonne `value_chain_stage` n’est pas encore disponible. Lance un rafraîchissement des données.",
         "build_sha": "Version code",
         "mapping_coverage": "Couverture mapping",
@@ -506,6 +507,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_filters": "Macro filters (independent)",
         "macro_use_global": "Use global filters (sidebar)",
         "cloud_persistence_note": "Streamlit Cloud mode: file updates from this button are not durable. Use the GitHub workflow \"Refresh Data\" for persistent automation.",
+        "refresh_cloud_skip": "Streamlit Cloud mode: this button does not run a durable refresh. Run the GitHub \"Refresh Data\" workflow (Actions) to update online data.",
         "missing_stage_col": "Column `value_chain_stage` is not available yet. Run a data refresh.",
         "build_sha": "Code version",
         "mapping_coverage": "Mapping coverage",
@@ -1193,10 +1195,20 @@ with st.sidebar:
 
     with c2:
         if st.button(t(lang, "refresh"), width="stretch", help=t(lang, "refresh_hint")):
-            with st.spinner("Mise à jour en cours (CORDIS + events)..." if lang == "FR" else "Updating (CORDIS + events)..."):
-                ok, logs = refresh_with_lock()
-            st.session_state["last_rebuild_ok"] = ok
-            st.session_state["last_rebuild_logs"] = logs
+            if cloud_runtime:
+                # On Streamlit Community Cloud, runtime writes are ephemeral.
+                # Keep UX explicit to avoid false expectations of durable refresh.
+                st.cache_data.clear()
+                st.cache_resource.clear()
+                st.session_state["last_rebuild_ok"] = False
+                st.session_state["last_rebuild_cloud_skip"] = True
+                st.session_state["last_rebuild_logs"] = {"cloud": t(lang, "refresh_cloud_skip")}
+            else:
+                with st.spinner("Mise à jour en cours (CORDIS + events)..." if lang == "FR" else "Updating (CORDIS + events)..."):
+                    ok, logs = refresh_with_lock()
+                st.session_state["last_rebuild_ok"] = ok
+                st.session_state["last_rebuild_cloud_skip"] = False
+                st.session_state["last_rebuild_logs"] = logs
             st.rerun()
 
     if cloud_runtime:
@@ -1204,7 +1216,9 @@ with st.sidebar:
 
     if "last_rebuild_logs" in st.session_state:
         st.divider()
-        if st.session_state.get("last_rebuild_ok"):
+        if st.session_state.get("last_rebuild_cloud_skip"):
+            st.info(t(lang, "refresh_cloud_skip"))
+        elif st.session_state.get("last_rebuild_ok"):
             st.success(t(lang, "rebuild_ok"))
         else:
             st.warning(t(lang, "rebuild_fail"))
