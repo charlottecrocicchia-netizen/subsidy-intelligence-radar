@@ -327,6 +327,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_match_theme": "Par thématique (theme)",
         "macro_match_tag": "Par tag (tag → thématiques)",
         "macro_pick_theme": "Thématique",
+        "macro_theme_scope": "Portée thématique",
+        "macro_all_themes": "Toutes les thématiques (tag)",
+        "macro_theme_not_mapped": "Ce tag n'a pas de mapping thématique strict: affichage multi-thèmes.",
         "macro_pick_tag": "Tag",
         "macro_metric": "Indicateur",
         "macro_overlay": "Afficher les événements sur le graphe",
@@ -343,15 +346,17 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_use_global": "Utiliser les filtres globaux (sidebar)",
         "cloud_persistence_note": "Mode Streamlit Cloud : les mises à jour de fichiers via ce bouton ne sont pas durables. Utiliser le workflow GitHub « Refresh Data » pour une persistance automatique.",
         "refresh_cloud_skip": "Mode Streamlit Cloud : ce bouton ne lance pas de refresh durable. Lance le workflow GitHub « Refresh Data » (Actions) pour mettre à jour les données en ligne.",
+        "refresh_cloud_disabled": "En mode Streamlit Cloud, utilise GitHub Actions pour un rafraîchissement persistant.",
         "missing_stage_col": "La colonne `value_chain_stage` n’est pas encore disponible. Lance un rafraîchissement des données.",
         "build_sha": "Version code",
         "mapping_coverage": "Couverture mapping",
         "include_unspecified": "Inclure « Unspecified »",
         "kpi_scope": "Périmètre actif",
-        "ticket_shape_title": "Tickets projet par année (moyen vs médian)",
-        "ticket_shape_caption": "Barres = budget annuel total. Courbe = ticket médian par projet.",
+        "ticket_shape_title": "Budgets et ticket médian par année",
+        "ticket_shape_caption": "Graphique 1 = budget annuel total. Graphique 2 = ticket médian par projet.",
         "ticket_shape_median": "Ticket médian",
         "ticket_shape_total": "Budget annuel",
+        "ticket_shape_projects": "Projets / an",
         "concentration_title": "Concentration des acteurs (lecture Pareto)",
         "concentration_caption": "Lecture simple: barres = budget par acteur, courbe = part cumulée.",
         "concentration_budget": "Budget acteur",
@@ -366,6 +371,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_scope_caption": "Les valeurs ci-dessous portent sur la thématique sélectionnée (et les filtres macro), pas sur le budget global total.",
         "macro_event_count": "Événements associés",
         "macro_low_coverage": "Peu d'événements détectés pour ce tag/thème dans `events.csv`.",
+        "macro_source_link": "Lien source",
         "vc_stage_filter": "Étapes de chaîne à afficher",
         "vc_stage_mode": "Affichage des étapes",
         "vc_stage_mode_all": "Toutes les étapes",
@@ -385,6 +391,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_isolation_help": "Mise en avant visuelle: couleur forte sur l'étape ciblée, le reste est atténué.",
         "vc_query_error": "Impossible de calculer la chaîne de valeur avec cette combinaison de filtres. Essaie 'Reset filters' ou réduis les filtres.",
         "macro_same_year_events": "Événements de la même année",
+        "net_focus_partner": "Partenaire à mettre en avant",
+        "net_all_partners": "Tous les partenaires",
+        "net_isolate_partner": "Isoler le partenaire sélectionné",
+        "net_focus_help": "La mise en avant partenaire facilite la lecture des collaborations clés.",
         "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
         "actor_countries": "Pays couverts",
         "actor_main_country": "Pays principal",
@@ -522,6 +532,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_match_theme": "By theme (theme)",
         "macro_match_tag": "By tag (tag → themes)",
         "macro_pick_theme": "Theme",
+        "macro_theme_scope": "Theme scope",
+        "macro_all_themes": "All themes (tag)",
+        "macro_theme_not_mapped": "This tag has no strict theme mapping: multi-theme display is used.",
         "macro_pick_tag": "Tag",
         "macro_metric": "Metric",
         "macro_overlay": "Show events on chart",
@@ -538,15 +551,17 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_use_global": "Use global filters (sidebar)",
         "cloud_persistence_note": "Streamlit Cloud mode: file updates from this button are not durable. Use the GitHub workflow \"Refresh Data\" for persistent automation.",
         "refresh_cloud_skip": "Streamlit Cloud mode: this button does not run a durable refresh. Run the GitHub \"Refresh Data\" workflow (Actions) to update online data.",
+        "refresh_cloud_disabled": "In Streamlit Cloud mode, use GitHub Actions for persistent refresh.",
         "missing_stage_col": "Column `value_chain_stage` is not available yet. Run a data refresh.",
         "build_sha": "Code version",
         "mapping_coverage": "Mapping coverage",
         "include_unspecified": "Include \"Unspecified\"",
         "kpi_scope": "Active scope",
-        "ticket_shape_title": "Project tickets by year (average vs median)",
-        "ticket_shape_caption": "Bars = total annual budget. Line = median project ticket.",
+        "ticket_shape_title": "Budgets and median ticket by year",
+        "ticket_shape_caption": "Chart 1 = total annual budget. Chart 2 = median project ticket.",
         "ticket_shape_median": "Median ticket",
         "ticket_shape_total": "Annual budget",
+        "ticket_shape_projects": "Projects / year",
         "concentration_title": "Actor concentration (Pareto view)",
         "concentration_caption": "Simple reading: bars = budget by actor, line = cumulative share.",
         "concentration_budget": "Actor budget",
@@ -561,6 +576,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_scope_caption": "Values below apply to the selected theme (and macro filters), not to the global total budget.",
         "macro_event_count": "Matched events",
         "macro_low_coverage": "Few events detected for this tag/theme in `events.csv`.",
+        "macro_source_link": "Source link",
         "vc_stage_filter": "Value-chain stages to display",
         "vc_stage_mode": "Stage display",
         "vc_stage_mode_all": "All stages",
@@ -580,6 +596,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_isolation_help": "Visual focus: strong color on selected stage, other links are faded.",
         "vc_query_error": "Unable to compute value-chain view with this filter combination. Try 'Reset filters' or reduce filters.",
         "macro_same_year_events": "Events in the same year",
+        "net_focus_partner": "Partner to highlight",
+        "net_all_partners": "All partners",
+        "net_isolate_partner": "Isolate selected partner",
+        "net_focus_help": "Partner highlight helps read key collaborations.",
         "actor_geo_single_country": "Actor concentrated in a single country in the current scope.",
         "actor_countries": "Countries covered",
         "actor_main_country": "Main country",
@@ -1123,7 +1143,7 @@ def where_clause(
 # ============================================================
 @st.cache_data(show_spinner=False)
 def load_events() -> pd.DataFrame:
-    cols = ["date", "theme", "tag", "title", "source", "impact_direction", "notes"]
+    cols = ["date", "theme", "tag", "title", "source", "url", "impact_direction", "notes"]
     if not EVENTS_PATH.exists():
         return pd.DataFrame(columns=cols)
 
@@ -1135,8 +1155,13 @@ def load_events() -> pd.DataFrame:
 
     ev["date"] = pd.to_datetime(ev["date"], errors="coerce")
     ev = ev.dropna(subset=["date"]).copy()
-    for c in ["theme", "tag", "title", "source", "impact_direction", "notes"]:
+    for c in ["theme", "tag", "title", "source", "url", "impact_direction", "notes"]:
         ev[c] = ev[c].astype("string").fillna("").str.strip()
+
+    # Backward compatibility: old files stored links only in notes.
+    if "url" in ev.columns:
+        link_from_notes = ev["notes"].astype(str).str.extract(r"(https?://\S+)", expand=False).fillna("")
+        ev["url"] = np.where(ev["url"].astype(str).str.len() > 0, ev["url"].astype(str), link_from_notes.astype(str))
 
     ev["year"] = ev["date"].dt.year.astype(int)
     ev["event_id"] = (
@@ -1291,25 +1316,23 @@ with st.sidebar:
             st.rerun()
 
     with c2:
-        if st.button(t(lang, "refresh"), width="stretch", help=t(lang, "refresh_hint")):
-            if cloud_runtime:
-                # On Streamlit Community Cloud, runtime writes are ephemeral.
-                # Keep UX explicit to avoid false expectations of durable refresh.
-                st.cache_data.clear()
-                st.cache_resource.clear()
-                st.session_state["last_rebuild_ok"] = False
-                st.session_state["last_rebuild_cloud_skip"] = True
-                st.session_state["last_rebuild_logs"] = {"cloud": t(lang, "refresh_cloud_skip")}
-            else:
-                with st.spinner("Mise à jour en cours (CORDIS + events)..." if lang == "FR" else "Updating (CORDIS + events)..."):
-                    ok, logs = refresh_with_lock()
-                st.session_state["last_rebuild_ok"] = ok
-                st.session_state["last_rebuild_cloud_skip"] = False
-                st.session_state["last_rebuild_logs"] = logs
+        refresh_clicked = st.button(
+            t(lang, "refresh"),
+            width="stretch",
+            help=t(lang, "refresh_hint"),
+            disabled=cloud_runtime,
+        )
+        if refresh_clicked:
+            with st.spinner("Mise à jour en cours (CORDIS + events)..." if lang == "FR" else "Updating (CORDIS + events)..."):
+                ok, logs = refresh_with_lock()
+            st.session_state["last_rebuild_ok"] = ok
+            st.session_state["last_rebuild_cloud_skip"] = False
+            st.session_state["last_rebuild_logs"] = logs
             st.rerun()
 
     if cloud_runtime:
         st.caption(t(lang, "cloud_persistence_note"))
+        st.caption(t(lang, "refresh_cloud_disabled"))
         act_url = github_actions_refresh_url()
         if act_url:
             st.caption(f"[{t(lang, 'refresh_cloud_cta')}]({act_url})")
@@ -1658,56 +1681,57 @@ with tab_overview:
             )
             .sort_values("year")
         )
-        fig_ticket = go.Figure()
-        fig_ticket.add_trace(
-            go.Bar(
-                x=yearly_ticket["year"],
-                y=yearly_ticket["total_budget"],
-                name=t(lang, "ticket_shape_total"),
-                marker=dict(color="rgba(90,150,255,0.60)", line=dict(color="rgba(255,255,255,0.18)", width=1.0)),
-                customdata=np.stack(
-                    [
-                        yearly_ticket["total_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                        yearly_ticket["n_projects"].astype(int).values,
-                    ],
-                    axis=-1,
-                ),
-                hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
-            )
+        fig_budget = px.bar(
+            yearly_ticket,
+            x="year",
+            y="total_budget",
+            color="total_budget",
+            color_continuous_scale=R2G,
+            height=320,
+            labels={"year": "Year", "total_budget": "Budget (€)"},
         )
-        fig_ticket.add_trace(
-            go.Scatter(
-                x=yearly_ticket["year"],
-                y=yearly_ticket["median_budget"],
-                mode="lines+markers",
-                yaxis="y2",
-                name=t(lang, "ticket_shape_median"),
-                line=dict(color="rgba(110,200,120,0.95)", width=2.6),
-                marker=dict(size=7, color="rgba(110,200,120,0.95)"),
-                customdata=np.stack(
-                    [
-                        yearly_ticket["median_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                        yearly_ticket["n_projects"].astype(int).values,
-                    ],
-                    axis=-1,
-                ),
-                hovertemplate="<b>%{x}</b><br>Median ticket: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
-            )
-        )
-        fig_ticket.update_layout(
-            height=420,
-            xaxis_title="Year",
-            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="rgba(255,255,255,0.08)"),
-            yaxis2=dict(
-                title=t(lang, "ticket_shape_median") + " (€)",
-                overlaying="y",
-                side="right",
-                showgrid=False,
+        fig_budget.update_traces(
+            customdata=np.stack(
+                [
+                    yearly_ticket["total_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                    yearly_ticket["n_projects"].astype(int).values,
+                ],
+                axis=-1,
             ),
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
-            margin=dict(l=20, r=20, t=20, b=10),
+            hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
         )
-        st.plotly_chart(fig_ticket, use_container_width=True)
+        fig_budget.update_layout(
+            showlegend=False,
+            coloraxis_showscale=False,
+            margin=dict(l=20, r=20, t=10, b=10),
+        )
+        st.plotly_chart(fig_budget, use_container_width=True)
+
+        fig_median = px.bar(
+            yearly_ticket,
+            x="year",
+            y="median_budget",
+            color="median_budget",
+            color_continuous_scale=R2G,
+            height=280,
+            labels={"year": "Year", "median_budget": t(lang, "ticket_shape_median") + " (€)"},
+        )
+        fig_median.update_traces(
+            customdata=np.stack(
+                [
+                    yearly_ticket["median_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                    yearly_ticket["n_projects"].astype(int).values,
+                ],
+                axis=-1,
+            ),
+            hovertemplate="<b>%{x}</b><br>Median ticket: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+        )
+        fig_median.update_layout(
+            showlegend=False,
+            coloraxis_showscale=False,
+            margin=dict(l=20, r=20, t=10, b=10),
+        )
+        st.plotly_chart(fig_median, use_container_width=True)
         st.caption(t(lang, "ticket_shape_caption"))
 
     st.divider()
@@ -2384,6 +2408,8 @@ with tab_macro:
 
         themes_raw_macro = list_str(f"SELECT DISTINCT theme FROM {R} WHERE {macro_W} ORDER BY theme")
         chosen_theme_raw: Optional[str] = None
+        theme_scope_all = False
+        theme_filter_sql = ""
         ev_sel = pd.DataFrame(columns=ev.columns)
 
         if match_mode == t(lang, "macro_match_tag"):
@@ -2392,28 +2418,51 @@ with tab_macro:
                 st.info(t(lang, "macro_no_events"))
             else:
                 chosen_tag = st.selectbox(t(lang, "macro_pick_tag"), tags, index=0)
+                ev_tag = ev[ev["tag"].astype(str) == str(chosen_tag)].copy()
                 candidate_themes = TAG_TO_THEMES.get(str(chosen_tag), set())
-                themes_candidates = themes_raw_macro
+                event_themes = sorted([x for x in ev_tag["theme"].astype(str).unique().tolist() if x.strip()])
                 if candidate_themes:
                     themes_candidates = [
-                        raw for raw in themes_raw_macro
+                        raw
+                        for raw in themes_raw_macro
                         if (raw in candidate_themes) or (theme_raw_to_display(raw, lang) in candidate_themes)
                     ]
-                if not themes_candidates:
+                else:
+                    themes_candidates = [
+                        raw
+                        for raw in themes_raw_macro
+                        if (raw in event_themes) or (theme_raw_to_display(raw, lang) in event_themes)
+                    ]
+                if not themes_candidates and not themes_raw_macro:
                     st.info(t(lang, "no_data"))
                 else:
-                    chosen_theme_raw = st.selectbox(
-                        t(lang, "macro_pick_theme"),
-                        themes_candidates,
+                    all_themes_label = t(lang, "macro_all_themes")
+                    scope_options = [all_themes_label] + themes_candidates if themes_candidates else [all_themes_label]
+                    chosen_scope = st.selectbox(
+                        t(lang, "macro_theme_scope"),
+                        scope_options,
                         index=0,
-                        format_func=lambda x: theme_raw_to_display(str(x), lang),
+                        format_func=lambda x: str(x) if str(x) == all_themes_label else theme_raw_to_display(str(x), lang),
                     )
-                    ev_sel = ev[ev["tag"].astype(str) == str(chosen_tag)].copy()
-                    th_disp = theme_raw_to_display(str(chosen_theme_raw), lang)
-                    ev_sel = ev_sel[
-                        (ev_sel["theme"].astype(str) == str(chosen_theme_raw))
-                        | (ev_sel["theme"].astype(str) == th_disp)
-                    ].copy()
+                    theme_scope_all = chosen_scope == all_themes_label
+                    if theme_scope_all:
+                        ev_sel = ev_tag.copy()
+                        if themes_candidates:
+                            theme_filter_sql = f" AND theme IN {in_list(themes_candidates)}"
+                        elif themes_raw_macro:
+                            theme_filter_sql = f" AND theme IN {in_list(themes_raw_macro)}"
+                        else:
+                            theme_filter_sql = " AND 1=0"
+                    else:
+                        chosen_theme_raw = str(chosen_scope)
+                        th_disp = theme_raw_to_display(str(chosen_theme_raw), lang)
+                        ev_sel = ev_tag[
+                            (ev_tag["theme"].astype(str) == str(chosen_theme_raw))
+                            | (ev_tag["theme"].astype(str) == th_disp)
+                        ].copy()
+                        theme_filter_sql = f" AND theme IN {in_list([str(chosen_theme_raw)])}"
+                    if not candidate_themes:
+                        st.caption(t(lang, "macro_theme_not_mapped"))
         else:
             if not themes_raw_macro:
                 st.info(t(lang, "no_data"))
@@ -2429,8 +2478,9 @@ with tab_macro:
                     (ev["theme"].astype(str) == str(chosen_theme_raw))
                     | (ev["theme"].astype(str) == th_disp)
                 ].copy()
+                theme_filter_sql = f" AND theme IN {in_list([str(chosen_theme_raw)])}"
 
-        if chosen_theme_raw:
+        if chosen_theme_raw or theme_scope_all:
             st.caption(t(lang, "macro_scope_caption"))
             st.caption(f"{t(lang, 'macro_event_count')}: {len(ev_sel)}")
             if len(ev_sel) < 3:
@@ -2438,7 +2488,7 @@ with tab_macro:
             agg = fetch_df(f"""
             SELECT year, SUM(amount_eur) AS budget_total, COUNT(DISTINCT projectID) AS n_projects
             FROM {R}
-            WHERE {macro_W} AND theme = '{chosen_theme_raw.replace("'", "''")}'
+            WHERE {macro_W}{theme_filter_sql}
             GROUP BY year
             ORDER BY year
             """)
@@ -2522,6 +2572,8 @@ with tab_macro:
                             st.write(f"**Tag**: {e.get('tag')}")
                         if e.get("source", ""):
                             st.write(f"**Source**: {e.get('source')}")
+                        if e.get("url", ""):
+                            st.markdown(f"**{t(lang, 'macro_source_link')}**: [{e.get('url')}]({e.get('url')})")
                         if e.get("impact_direction", ""):
                             st.write(f"**Impact**: {e.get('impact_direction')}")
                         if e.get("notes", ""):
@@ -2535,6 +2587,8 @@ with tab_macro:
                         same_year_events = same_year_events.sort_values(["date", "title"]).copy()
                         same_year_events["title_short"] = same_year_events["title"].astype(str).str.slice(0, 120)
                         cols = ["date", "tag", "title_short", "source"]
+                        if "url" in same_year_events.columns:
+                            cols.append("url")
                         if "impact_direction" in same_year_events.columns:
                             cols.append("impact_direction")
                         st.dataframe(
@@ -2556,7 +2610,7 @@ with tab_macro:
                     proj = fetch_df(f"""
                     SELECT projectID, title, MIN(year) AS year, SUM(amount_eur) AS budget_eur
                     FROM {R}
-                    WHERE {macro_W} AND theme = '{chosen_theme_raw.replace("'", "''")}' AND year BETWEEN {int(y0)} AND {int(y1)}
+                    WHERE {macro_W}{theme_filter_sql} AND year BETWEEN {int(y0)} AND {int(y1)}
                     GROUP BY projectID, title
                     ORDER BY budget_eur DESC
                     LIMIT 25
@@ -2607,12 +2661,13 @@ with tab_actor:
             format_func=lambda aid: display_map.get(str(aid), str(aid)),
             key="actor_profile_picker",
         )
+        picked_sql_list = in_list([str(picked_id)])
 
         st.markdown(f"#### {t(lang, 'actor_trend')}")
         byy = fetch_df(f"""
         SELECT year, SUM(amount_eur) AS budget_eur, COUNT(DISTINCT projectID) AS n_projects
         FROM {R}
-        WHERE {W} AND actor_id = '{str(picked_id).replace("'", "''")}'
+        WHERE {W} AND actor_id IN {picked_sql_list}
         GROUP BY year
         ORDER BY year
         """)
@@ -2630,7 +2685,7 @@ with tab_actor:
         mix_t = fetch_df(f"""
         SELECT theme, SUM(amount_eur) AS budget_eur
         FROM {R}
-        WHERE {W} AND actor_id = '{str(picked_id).replace("'", "''")}'
+        WHERE {W} AND actor_id IN {picked_sql_list}
         GROUP BY theme
         ORDER BY budget_eur DESC
         LIMIT 15
@@ -2664,7 +2719,7 @@ with tab_actor:
         mix_c = fetch_df(f"""
         SELECT country_name, SUM(amount_eur) AS budget_eur
         FROM {R}
-        WHERE {W} AND actor_id = '{str(picked_id).replace("'", "''")}'
+        WHERE {W} AND actor_id IN {picked_sql_list}
         GROUP BY country_name
         ORDER BY budget_eur DESC
         LIMIT 15
@@ -2705,7 +2760,7 @@ with tab_actor:
         WITH my_projects AS (
           SELECT DISTINCT projectID
           FROM {R}
-          WHERE {W} AND actor_id = '{str(picked_id).replace("'", "''")}'
+          WHERE {W} AND actor_id IN {picked_sql_list}
         )
         SELECT
           COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS org_name2,
@@ -2715,7 +2770,7 @@ with tab_actor:
           SUM(r.amount_eur) AS budget_eur
         FROM {R} r
         JOIN my_projects p ON r.projectID = p.projectID
-        WHERE {W} AND r.actor_id IS NOT NULL AND TRIM(r.actor_id) <> '' AND r.actor_id <> '{str(picked_id).replace("'", "''")}'
+        WHERE {W} AND r.actor_id IS NOT NULL AND TRIM(r.actor_id) <> '' AND r.actor_id NOT IN {picked_sql_list}
         GROUP BY org_name2, country_name2, actor_id
         ORDER BY n_projects DESC, budget_eur DESC
         LIMIT 25
@@ -3047,8 +3102,9 @@ with tab_network:
                                     index=0,
                                     key="vc_actor_focus_select",
                                 )
-                                actor_focus_id = str(stage_rank[stage_rank["actor_display"] == actor_focus_display]["actor_id"].iloc[0]).replace("'", "''")
-                                stage_sql = str(stage_focus).replace("'", "''")
+                                actor_focus_id_raw = str(stage_rank[stage_rank["actor_display"] == actor_focus_display]["actor_id"].iloc[0])
+                                stage_sql_list = in_list([str(stage_focus)])
+                                actor_sql_list = in_list([actor_focus_id_raw])
                                 try:
                                     proj_focus = fetch_df(f"""
                                     SELECT
@@ -3059,8 +3115,8 @@ with tab_network:
                                     FROM {R}
                                     WHERE {W}
                                       AND theme IN {in_list(picked_themes)}
-                                      AND value_chain_stage = '{stage_sql}'
-                                      AND actor_id = '{actor_focus_id}'
+                                      AND value_chain_stage IN {stage_sql_list}
+                                      AND actor_id IN {actor_sql_list}
                                     GROUP BY projectID
                                     ORDER BY budget_eur DESC
                                     LIMIT 120
@@ -3075,8 +3131,8 @@ with tab_network:
                                       SUM(amount_eur) AS budget_eur
                                     FROM {R}
                                     WHERE {W}
-                                      AND value_chain_stage = '{stage_sql}'
-                                      AND actor_id = '{actor_focus_id}'
+                                      AND value_chain_stage IN {stage_sql_list}
+                                      AND actor_id IN {actor_sql_list}
                                     GROUP BY projectID
                                     ORDER BY budget_eur DESC
                                     LIMIT 120
@@ -3137,7 +3193,8 @@ with tab_network:
             )
 
         focal_row = actor_rank[actor_rank["actor_display"].astype(str) == focal_display].iloc[0]
-        focal_id = str(focal_row["actor_id"]).replace("'", "''")
+        focal_id_raw = str(focal_row["actor_id"])
+        focal_sql_list = in_list([focal_id_raw])
         focal_label = str(focal_row["actor_label"])
 
         partners = fetch_df(f"""
@@ -3152,7 +3209,7 @@ with tab_network:
           GROUP BY projectID, actor_id, actor_label
         ),
         focus_projects AS (
-          SELECT DISTINCT projectID FROM part WHERE actor_id = '{focal_id}'
+          SELECT DISTINCT projectID FROM part WHERE actor_id IN {focal_sql_list}
         )
         SELECT
           p.actor_id,
@@ -3161,7 +3218,7 @@ with tab_network:
           SUM(p.actor_budget) AS partner_budget
         FROM part p
         JOIN focus_projects f ON p.projectID = f.projectID
-        WHERE p.actor_id <> '{focal_id}'
+        WHERE p.actor_id NOT IN {focal_sql_list}
         GROUP BY p.actor_id, p.actor_label
         ORDER BY shared_projects DESC, partner_budget DESC
         LIMIT {int(net_top)}
@@ -3170,25 +3227,73 @@ with tab_network:
         if partners.empty:
             st.info("Aucun partenaire dans le périmètre." if lang == "FR" else "No partners in scope.")
         else:
-            n = len(partners)
+            dup_p = partners["actor_label"].astype(str).duplicated(keep=False)
+            partners["partner_display"] = np.where(
+                dup_p,
+                partners["actor_label"].astype(str) + " [" + partners["actor_id"].astype(str).str.slice(0, 18) + "]",
+                partners["actor_label"].astype(str),
+            )
+            partner_all_label = t(lang, "net_all_partners")
+            focus_display = st.selectbox(
+                t(lang, "net_focus_partner"),
+                [partner_all_label] + partners["partner_display"].astype(str).tolist(),
+                index=0,
+                key="net_focus_partner",
+            )
+            isolate_partner = st.checkbox(
+                t(lang, "net_isolate_partner"),
+                value=False,
+                key="net_isolate_partner",
+            )
+            st.caption(t(lang, "net_focus_help"))
+
+            focus_partner_id: Optional[str] = None
+            if focus_display != partner_all_label:
+                focus_partner_id = str(
+                    partners.loc[partners["partner_display"].astype(str) == str(focus_display), "actor_id"].iloc[0]
+                )
+
+            partners_view = partners.copy()
+            if focus_partner_id and isolate_partner:
+                partners_view = partners_view[partners_view["actor_id"].astype(str) == str(focus_partner_id)].copy()
+                if partners_view.empty:
+                    partners_view = partners.copy()
+
+            n = len(partners_view)
             angles = np.linspace(0, 2 * np.pi, n, endpoint=False)
             rx, ry = np.cos(angles), np.sin(angles)
 
             fig_net = go.Figure()
-            for i, (_, r) in enumerate(partners.iterrows()):
-                w = 1.0 + 3.5 * (float(r["shared_projects"]) / float(max(1, partners["shared_projects"].max())))
+            max_shared = float(max(1, partners_view["shared_projects"].max()))
+            for i, (_, r) in enumerate(partners_view.iterrows()):
+                w = 1.0 + 3.5 * (float(r["shared_projects"]) / max_shared)
+                is_focus = bool(focus_partner_id) and (str(r["actor_id"]) == str(focus_partner_id))
+                line_color = (
+                    "rgba(255,215,120,0.95)"
+                    if is_focus
+                    else ("rgba(120,180,255,0.45)" if not focus_partner_id else "rgba(120,180,255,0.18)")
+                )
                 fig_net.add_trace(
                     go.Scatter(
                         x=[0.0, float(rx[i])],
                         y=[0.0, float(ry[i])],
                         mode="lines",
-                        line=dict(width=w, color="rgba(120,180,255,0.45)"),
+                        line=dict(width=w, color=line_color),
                         hoverinfo="skip",
                         showlegend=False,
                     )
                 )
 
-            partner_size = 14 + 22 * (partners["shared_projects"].astype(float) / float(max(1, partners["shared_projects"].max())))
+            partner_size = 14 + 22 * (partners_view["shared_projects"].astype(float) / max_shared)
+            partner_colors = []
+            for aid in partners_view["actor_id"].astype(str).tolist():
+                is_focus = bool(focus_partner_id) and (aid == str(focus_partner_id))
+                if is_focus:
+                    partner_colors.append("rgba(255,215,120,0.98)")
+                elif focus_partner_id:
+                    partner_colors.append("rgba(120,180,255,0.30)")
+                else:
+                    partner_colors.append("rgba(120,180,255,0.9)")
             fig_net.add_trace(
                 go.Scatter(
                     x=[0.0],
@@ -3206,13 +3311,13 @@ with tab_network:
                     x=rx,
                     y=ry,
                     mode="markers+text",
-                    marker=dict(size=partner_size, color="rgba(120,180,255,0.9)", line=dict(width=0.8, color="rgba(255,255,255,0.35)")),
-                    text=[str(x)[:34] for x in partners["actor_label"].astype(str).tolist()],
+                    marker=dict(size=partner_size, color=partner_colors, line=dict(width=0.8, color="rgba(255,255,255,0.35)")),
+                    text=[str(x)[:34] for x in partners_view["actor_label"].astype(str).tolist()],
                     textposition="top center",
                     customdata=np.stack(
                         [
-                            partners["shared_projects"].astype(int).values,
-                            partners["partner_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                            partners_view["shared_projects"].astype(int).values,
+                            partners_view["partner_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
                         ],
                         axis=-1,
                     ),
@@ -3228,7 +3333,7 @@ with tab_network:
             )
             st.plotly_chart(fig_net, use_container_width=True)
 
-            ptab = partners.copy()
+            ptab = partners_view.copy()
             ptab["budget"] = ptab["partner_budget"].apply(lambda x: fmt_money(float(x), lang))
             ptab = ptab.rename(
                 columns={

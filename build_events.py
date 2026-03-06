@@ -112,6 +112,7 @@ class Event:
     tag: str
     title: str
     source: str
+    url: str
     impact_direction: str
     notes: str
 
@@ -167,8 +168,6 @@ def fetch_rss_events(limit_per_feed: int = 80) -> List[Event]:
             tag = infer_tag(blob)
             theme = theme_from_tag(tag)
             notes = (summary[:800] + ("…" if len(summary) > 800 else "")).strip()
-            if link:
-                notes = f"{notes}\nLink: {link}".strip()
 
             out.append(Event(
                 date=dt,
@@ -176,6 +175,7 @@ def fetch_rss_events(limit_per_feed: int = 80) -> List[Event]:
                 tag=tag,
                 title=title,
                 source=source_name,
+                url=link,
                 impact_direction="+",
                 notes=notes,
             ))
@@ -240,22 +240,64 @@ LIMIT {int(limit)}
             tag=tag,
             title=title,
             source="EUR-Lex (Cellar SPARQL)",
+            url=(f"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:{celex}" if celex else ""),
             impact_direction="+",
             notes=notes,
         ))
     return events
 
 
-def dedupe(events: List[Event]) -> List[Event]:
-    seen = set()
+def load_existing_events(path: Path) -> List[Event]:
+    if not path.exists():
+        return []
     out: List[Event] = []
-    for e in sorted(events, key=lambda x: (x.date, x.source, x.title)):
-        key = (e.date_str, e.tag, e.title.lower())
-        if key in seen:
-            continue
-        seen.add(key)
-        out.append(e)
+    try:
+        with path.open("r", encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                ds = str(row.get("date", "")).strip()
+                if not ds:
+                    continue
+                try:
+                    dt = datetime.fromisoformat(ds)
+                except Exception:
+                    continue
+                out.append(
+                    Event(
+                        date=dt,
+                        theme=str(row.get("theme", "")).strip(),
+                        tag=str(row.get("tag", "")).strip(),
+                        title=str(row.get("title", "")).strip(),
+                        source=str(row.get("source", "")).strip(),
+                        url=str(row.get("url", "")).strip(),
+                        impact_direction=str(row.get("impact_direction", "")).strip(),
+                        notes=str(row.get("notes", "")).strip(),
+                    )
+                )
+    except Exception:
+        return []
     return out
+
+
+def _event_score(e: Event) -> int:
+    score = 0
+    if str(e.url or "").strip():
+        score += 3
+    if str(e.notes or "").strip():
+        score += 1
+    if str(e.source or "").strip():
+        score += 1
+    return score
+
+
+def dedupe(events: List[Event]) -> List[Event]:
+    best: dict = {}
+    for e in events:
+        key = (e.date_str, str(e.tag).strip().upper(), str(e.title).strip().lower())
+        prev = best.get(key)
+        if prev is None or _event_score(e) > _event_score(prev):
+            best[key] = e
+    return sorted(best.values(), key=lambda x: (x.date, x.source, x.title))
 
 
 def atomic_write_events_csv(events: List[Event], path: Path) -> None:
@@ -266,9 +308,9 @@ def atomic_write_events_csv(events: List[Event], path: Path) -> None:
     try:
         with os.fdopen(fd, "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
-            w.writerow(["date", "theme", "tag", "title", "source", "impact_direction", "notes"])
+            w.writerow(["date", "theme", "tag", "title", "source", "url", "impact_direction", "notes"])
             for e in rows:
-                w.writerow([e.date_str, e.theme, e.tag, e.title, e.source, e.impact_direction, e.notes])
+                w.writerow([e.date_str, e.theme, e.tag, e.title, e.source, e.url, e.impact_direction, e.notes])
         try:
             tmp.replace(path)
         except OSError as e:
@@ -283,6 +325,7 @@ def atomic_write_events_csv(events: List[Event], path: Path) -> None:
 
 
 def main() -> None:
+    existing_events = load_existing_events(EVENTS_PATH)
     rss_events = fetch_rss_events(limit_per_feed=80)
 
     keywords = [
@@ -292,9 +335,10 @@ def main() -> None:
     ]
     eurlex_events = fetch_eurlex_sparql_events(keywords=keywords, days_back=540, limit=250)
 
-    all_events = rss_events + eurlex_events
+    all_events = existing_events + rss_events + eurlex_events
     atomic_write_events_csv(all_events, EVENTS_PATH)
 
+    print(f"[OK] Existing events kept: {len(existing_events)}")
     print(f"[OK] RSS events: {len(rss_events)}")
     print(f"[OK] SPARQL events: {len(eurlex_events)}")
     print(f"[OK] Total (deduped): {len(dedupe(all_events))}")

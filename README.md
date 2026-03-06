@@ -40,6 +40,8 @@ In the app, click **Refresh** to (re)build:
 - `pipeline.py` (download + build `data/processed/subsidy_base.csv`)
 - `build_events.py` (build `data/external/events.csv`)
 
+`events.csv` now stores a dedicated `url` column (source link) in addition to notes.
+
 If `build_events.py` fails with `No module named feedparser`, run:
 ```bash
 python -m pip install -r requirements.txt
@@ -108,6 +110,7 @@ Push this repo to GitHub, then deploy with main file `app.py`.
 Important:
 - A Streamlit Cloud app can recompute files at runtime, but those file writes are not guaranteed to persist forever across restarts/redeploys.
 - Durable automation is handled by GitHub Actions (`.github/workflows/refresh-data.yml`), which updates tracked data in the repo.
+- In Cloud mode, the in-app **Refresh** button is intentionally disabled to avoid non-persistent updates. Use the GitHub Actions workflow link shown in the sidebar.
 
 ### Enable full automation (recommended)
 1. Push this branch to GitHub.
@@ -125,6 +128,7 @@ Important:
 4. `Exclude funders / agencies` remains available even without mapping file (heuristic mode).
 5. Country filter default should be Europe-first (you can then add non-European countries).
 6. In `Value chain & network`, use `Themes` + `Value-chain stages to display` + `Stage to explore` for actor/project drilldown.
+7. In `Macro & news`, tag mode supports `All themes (tag)` for robust event exploration when strict tag-theme mapping is unavailable.
 
 ## Troubleshooting
 
