@@ -407,6 +407,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "diag_years": "Plage années dataset",
         "diag_events": "Événements macro",
         "diag_events_ai": "Événements macro tag AI",
+        "actor_query_fallback": "Certaines étiquettes acteur ne sont pas lisibles dans la source actuelle. Affichage de secours basé sur actor_id.",
     },
     "EN": {
         "language": "Language",
@@ -612,6 +613,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "diag_years": "Dataset year range",
         "diag_events": "Macro events",
         "diag_events_ai": "Macro events tagged AI",
+        "actor_query_fallback": "Some actor labels are not readable in the current source. Fallback display uses actor_id.",
     },
 }
 
@@ -2628,17 +2630,36 @@ with tab_macro:
 with tab_actor:
     st.markdown(f"### {t(lang, 'actor_profile')}")
 
-    actors = fetch_df(f"""
-    SELECT actor_id,
-           MIN(COALESCE(NULLIF(TRIM(org_name), ''), actor_id)) AS org_name2,
-           MIN(COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown')) AS country_name2,
-           SUM(amount_eur) AS budget_eur
-    FROM {R}
-    WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
-    GROUP BY actor_id
-    ORDER BY budget_eur DESC
-    LIMIT 5000
-    """)
+    try:
+        actors = fetch_df(f"""
+        SELECT actor_id,
+               MIN(COALESCE(NULLIF(TRIM(org_name), ''), actor_id)) AS org_name2,
+               MIN(COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown')) AS country_name2,
+               SUM(amount_eur) AS budget_eur
+        FROM {R}
+        WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+        GROUP BY actor_id
+        ORDER BY budget_eur DESC
+        LIMIT 5000
+        """)
+    except Exception:
+        # Defensive fallback: keep actor profile usable even with malformed source labels.
+        try:
+            actors = fetch_df(f"""
+            SELECT actor_id,
+                   actor_id AS org_name2,
+                   'Unknown' AS country_name2,
+                   SUM(amount_eur) AS budget_eur
+            FROM {R}
+            WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+            GROUP BY actor_id
+            ORDER BY budget_eur DESC
+            LIMIT 5000
+            """)
+            st.warning(t(lang, "actor_query_fallback"))
+        except Exception:
+            actors = pd.DataFrame(columns=["actor_id", "org_name2", "country_name2", "budget_eur"])
+            st.error(t(lang, "no_data"))
     if actors.empty:
         st.info(t(lang, "no_data"))
     else:
