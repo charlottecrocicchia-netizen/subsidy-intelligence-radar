@@ -1,0 +1,958 @@
+{
+  "total_count": 15651,
+  "results": [
+    {
+      "code_projet_anr": "ANR-20-CE11-0024",
+      "edition": 2020,
+      "acronyme_programme": "AAPG2020",
+      "acronyme_appel_a_projet": "CE11",
+      "acronyme_projet": "VIRAGE",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 518771.08,
+      "lien": "https://anr.fr/Projet-ANR-20-CE11-0024",
+      "link": "https://anr.fr/Project-ANR-20-CE11-0024",
+      "intitule_complet_du_comite": "CE11 : 2018 - 2026 - Caractérisation des structures et relations structure-fonction des macro-molécules biologiques*",
+      "code_aap_comites": "CE11",
+      "anr_scientific_committee": "CE11 : 2018 - 2026 - Characterization of structures and structure-function relationships of biological macro-molecules*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "13",
+        "34",
+        "75"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "76",
+        "93"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Occitanie",
+        "Provence-Alpes-Côte d'Azur",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "13",
+        "34",
+        "75"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "76",
+        "93"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Occitanie",
+        "Provence-Alpes-Côte d'Azur",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 518,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE11 Caractérisation des structures et relations structure-fonctions des macromolécules biologiques"
+    },
+    {
+      "code_projet_anr": "ANR-20-CE38-0010",
+      "edition": 2020,
+      "acronyme_programme": "AAPG2020",
+      "acronyme_appel_a_projet": "CE38",
+      "acronyme_projet": "xCALE",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "NuMa",
+      "aide_allouee_projet": 483394.48,
+      "lien": "https://anr.fr/Projet-ANR-20-CE38-0010",
+      "link": "https://anr.fr/Project-ANR-20-CE38-0010",
+      "intitule_complet_du_comite": "CE38 : 2015 - 2026 - Interfaces : sciences du numérique - sciences humaines et sociales*",
+      "code_aap_comites": "CE38",
+      "anr_scientific_committee": "CE38 : 2015 - 2026 - Interfaces: digital sciences - human and social sciences*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "35",
+        "44",
+        "44",
+        "75"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "52",
+        "52",
+        "53"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Bretagne",
+        "Pays de la Loire",
+        "Pays de la Loire",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "35",
+        "44",
+        "44",
+        "75"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "52",
+        "52",
+        "53"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Bretagne",
+        "Pays de la Loire",
+        "Pays de la Loire",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 483,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE38 Révolution numérique : rapports au savoir et à la culture"
+    },
+    {
+      "code_projet_anr": "ANR-20-CE92-0013",
+      "edition": 2020,
+      "acronyme_programme": "AAPG2020",
+      "acronyme_appel_a_projet": "ANR-DFG",
+      "acronyme_projet": "DDRphosphoclus",
+      "instrument_financement": "PRCI - Projets de recherche collaborative - International",
+      "financing_instrument": "PRCI - Collaborative Research Project - International",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 230018.4,
+      "lien": "https://anr.fr/Projet-ANR-20-CE92-0013",
+      "link": "https://anr.fr/Project-ANR-20-CE92-0013",
+      "intitule_complet_du_comite": "CE44 : 2018 - 2026 - Biochimie et chimie du vivant*",
+      "code_aap_comites": "CE44",
+      "anr_scientific_committee": "CE44 : 2018 - 2026 - Biochemistry and life chemistry",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "91"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "91"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 230,
+      "sigle_instrument": "PRCI",
+      "comite_d_evaluation": "CE44 Biochimie du Vivant"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE24-0013",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE24",
+      "acronyme_projet": "BIRD",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "NuMa",
+      "aide_allouee_projet": 650632.64,
+      "lien": "https://anr.fr/Projet-ANR-21-CE24-0013",
+      "link": "https://anr.fr/Project-ANR-21-CE24-0013",
+      "intitule_complet_du_comite": "CE24 : 2015 - 2026 - Micro et nanotechnologies pour l’électronique, la photonique, et le numérique*",
+      "code_aap_comites": "CE24",
+      "anr_scientific_committee": "CE24: 2015–2026 – Micro- and nanotechnologies for electronics, photonics, and digital technology*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "59",
+        "91",
+        "94"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "11",
+        "32"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Hauts-de-France",
+        "Île-de-France",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "59",
+        "91",
+        "93"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "11",
+        "32"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Hauts-de-France",
+        "Île-de-France",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 650,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE24 Micro et nanotechnologies pour le traitement de l’information et la communication"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE26-0018",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE26",
+      "acronyme_projet": "HYBRID",
+      "instrument_financement": "JCJC - Jeunes chercheurs - jeunes chercheuses",
+      "financing_instrument": "JCJC-Young Researchers Programme",
+      "departement_anr": "SHS",
+      "aide_allouee_projet": 224844.74,
+      "lien": "https://anr.fr/Projet-ANR-21-CE26-0018",
+      "link": "https://anr.fr/Project-ANR-21-CE26-0018",
+      "intitule_complet_du_comite": "CE26 : 2021 - Innovation, travail",
+      "code_aap_comites": "CE26",
+      "anr_scientific_committee": "CE26 : 2021 - Innovation, work*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "91"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "91"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 224,
+      "sigle_instrument": "JCJC",
+      "comite_d_evaluation": "CE26 Innovation, travail"
+    },
+    {
+      "code_projet_anr": "ANR-20-CE08-0017",
+      "edition": 2020,
+      "acronyme_programme": "AAPG2020",
+      "acronyme_appel_a_projet": "CE08",
+      "acronyme_projet": "ADVENTURE",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "SPICE",
+      "aide_allouee_projet": 540617.4,
+      "lien": "https://anr.fr/Projet-ANR-20-CE08-0017",
+      "link": "https://anr.fr/Project-ANR-20-CE08-0017",
+      "intitule_complet_du_comite": "CE08 : 2015 - 2026 - Matériaux métalliques et inorganiques*",
+      "code_aap_comites": "CE08",
+      "anr_scientific_committee": "CE08 : 2015 - 2026 - Metallic and inorganic materials*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "35",
+        "59",
+        "69",
+        "92"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "32",
+        "53",
+        "84"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Auvergne-Rhône-Alpes",
+        "Bretagne",
+        "Hauts-de-France",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "44",
+        "59",
+        "69",
+        "92"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "32",
+        "52",
+        "84"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Auvergne-Rhône-Alpes",
+        "Hauts-de-France",
+        "Pays de la Loire",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 540,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE08 Matériaux métalliques et inorganiques et procédés associés"
+    },
+    {
+      "code_projet_anr": "ANR-19-CE11-0019",
+      "edition": 2019,
+      "acronyme_programme": "AAPG2019",
+      "acronyme_appel_a_projet": "CE11",
+      "acronyme_projet": "ProteasoRegMS",
+      "instrument_financement": "JCJC - Jeunes chercheurs - jeunes chercheuses",
+      "financing_instrument": "JCJC-Young Researchers Programme",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 247860.0,
+      "lien": "https://anr.fr/Projet-ANR-19-CE11-0019",
+      "link": "https://anr.fr/Project-ANR-19-CE11-0019",
+      "intitule_complet_du_comite": "CE11 : 2018 - 2026 - Caractérisation des structures et relations structure-fonction des macro-molécules biologiques*",
+      "code_aap_comites": "CE11",
+      "anr_scientific_committee": "CE11 : 2018 - 2026 - Characterization of structures and structure-function relationships of biological macro-molecules*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "31"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "76"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Occitanie"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "31"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "76"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Occitanie"
+      ],
+      "aide_allouee_projet_keuros": 247,
+      "sigle_instrument": "JCJC",
+      "comite_d_evaluation": "CE11 Caractérisation des structures et relations structure-fonction des macromolécules biologiques"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE37-0022",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE37",
+      "acronyme_projet": "HippoXia",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 364650.39,
+      "lien": "https://anr.fr/Projet-ANR-21-CE37-0022",
+      "link": "https://anr.fr/Project-ANR-21-CE37-0022",
+      "intitule_complet_du_comite": "CE37 : 2015 - 2026 - Neurosciences intégratives et cognitives*",
+      "code_aap_comites": "CE37",
+      "anr_scientific_committee": "CE37 : 2015 - 2026 - Integrative and cognitive neuroscience*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "76",
+        "91"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "28"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Normandie",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "76",
+        "91"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "28"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Normandie",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 364,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE37 Neurosciences intégratives et cognitives"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE19-0045",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE19",
+      "acronyme_projet": "MedWave",
+      "instrument_financement": "PRCI - Projets de recherche collaborative - International",
+      "financing_instrument": "PRCI - Collaborative Research Project - International",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 280383.04,
+      "lien": "https://anr.fr/Projet-ANR-21-CE19-0045",
+      "link": "https://anr.fr/Project-ANR-21-CE19-0045",
+      "intitule_complet_du_comite": "CE19 : 2015 - 2026 - Technologies pour la santé*",
+      "code_aap_comites": "CE19",
+      "anr_scientific_committee": "CE19 : 2015 - 2026 - Health technologies*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "35"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "53"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Bretagne"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "35"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "53"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Bretagne"
+      ],
+      "aide_allouee_projet_keuros": 280,
+      "sigle_instrument": "PRCI",
+      "comite_d_evaluation": "CE19 Technologies pour la santé"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE18-0030",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE18",
+      "acronyme_projet": "RAPRACLID",
+      "instrument_financement": "PRCE - Projets de recherche collaborative - Entreprises/Public",
+      "financing_instrument": "PRCE - Collaborative research projects between public entities and private companies",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 605078.99,
+      "lien": "https://anr.fr/Projet-ANR-21-CE18-0030",
+      "link": "https://anr.fr/Project-ANR-21-CE18-0030",
+      "intitule_complet_du_comite": "CE18 : 2015 - 2026 - Innovation biomédicale*",
+      "code_aap_comites": "CE18",
+      "anr_scientific_committee": "CE18 : 2015 - 2026 - Biomedical innovation*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "29",
+        "33",
+        "75"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "53",
+        "75"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Bretagne",
+        "Nouvelle-Aquitaine",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "29",
+        "87",
+        "91"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "53",
+        "75"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Bretagne",
+        "Nouvelle-Aquitaine",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 605,
+      "sigle_instrument": "PRCE",
+      "comite_d_evaluation": "CE18 Innovation biomédicale"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE39-0001",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE39",
+      "acronyme_projet": "asesyc",
+      "instrument_financement": "JCJC - Jeunes chercheurs - jeunes chercheuses",
+      "financing_instrument": "JCJC-Young Researchers Programme",
+      "departement_anr": "SPICE",
+      "aide_allouee_projet": 151111.52,
+      "lien": "https://anr.fr/Projet-ANR-21-CE39-0001",
+      "link": "https://anr.fr/Project-ANR-21-CE39-0001",
+      "intitule_complet_du_comite": "CE39 : 2015 - 2026 - Sécurité globale, résilience et gestion de crise, cybersécurité*",
+      "code_aap_comites": "CE39",
+      "anr_scientific_committee": "CE39 : 2015 - 2026 - Global security, resilience and crisis management, cybersecurity*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "94"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "75"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 151,
+      "sigle_instrument": "JCJC",
+      "comite_d_evaluation": "CE39 Sécurité Globale, Cybersécurité"
+    },
+    {
+      "code_projet_anr": "ANR-19-CE10-0004",
+      "edition": 2019,
+      "acronyme_programme": "AAPG2019",
+      "acronyme_appel_a_projet": "CE10",
+      "acronyme_projet": "MiniSoRo",
+      "instrument_financement": "JCJC - Jeunes chercheurs - jeunes chercheuses",
+      "financing_instrument": "JCJC-Young Researchers Programme",
+      "departement_anr": "SPICE",
+      "aide_allouee_projet": 288100.4,
+      "lien": "https://anr.fr/Projet-ANR-19-CE10-0004",
+      "link": "https://anr.fr/Project-ANR-19-CE10-0004",
+      "intitule_complet_du_comite": "CE10 : 2015 - 2026 - Transformation des systèmes productifs de biens et de services : enjeux humains, organisationnels et technologiques*",
+      "code_aap_comites": "CE10",
+      "anr_scientific_committee": "CE10: 2015–2026 – Transformation of goods and services production systems: human, organisational and technological challenges*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "25"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "27"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Bourgogne-Franche-Comté"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "25"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "27"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Bourgogne-Franche-Comté"
+      ],
+      "aide_allouee_projet_keuros": 288,
+      "sigle_instrument": "JCJC",
+      "comite_d_evaluation": "CE10 Usine du futur : Homme, organisation, technologies"
+    },
+    {
+      "code_projet_anr": "ANR-18-CE27-0003",
+      "edition": 2018,
+      "acronyme_programme": "AAPG2018",
+      "acronyme_appel_a_projet": "CE27",
+      "acronyme_projet": "ANG-G",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "SHS",
+      "aide_allouee_projet": 358000.0,
+      "lien": "https://anr.fr/Projet-ANR-18-CE27-0003",
+      "link": "https://anr.fr/Project-ANR-18-CE27-0003",
+      "intitule_complet_du_comite": "CE27 : 2015 - 2021 - Culture, création, patrimoine*",
+      "code_aap_comites": "CE27",
+      "anr_scientific_committee": "CE27 : 2015-2021 - Culture, création, patrimoine",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "92"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "67",
+        "75",
+        "92",
+        "92",
+        "92",
+        "92"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "11",
+        "11",
+        "11",
+        "11",
+        "44"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Grand Est",
+        "Île-de-France",
+        "Île-de-France",
+        "Île-de-France",
+        "Île-de-France",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 358,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE27 Culture, créations, patrimoine"
+    },
+    {
+      "code_projet_anr": "ANR-18-CE17-0016",
+      "edition": 2018,
+      "acronyme_programme": "AAPG2018",
+      "acronyme_appel_a_projet": "CE17",
+      "acronyme_projet": "OBOE",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 716116.14,
+      "lien": "https://anr.fr/Projet-ANR-18-CE17-0016",
+      "link": "https://anr.fr/Project-ANR-18-CE17-0016",
+      "intitule_complet_du_comite": "CE17 : 2015 - 2026 - Recherche translationnelle en santé*",
+      "code_aap_comites": "CE17",
+      "anr_scientific_committee": "CE17 : 2015 - 2026 - Translational health research*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "33",
+        "38",
+        "38",
+        "94"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "75",
+        "84",
+        "84"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes",
+        "Nouvelle-Aquitaine",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "33",
+        "38",
+        "38",
+        "75"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "75",
+        "84",
+        "84"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes",
+        "Nouvelle-Aquitaine",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 716,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE17 Recherche translationnelle en santé"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE01-0017",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE01",
+      "acronyme_projet": "CASPA",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "EERB",
+      "aide_allouee_projet": 558764.64,
+      "lien": "https://anr.fr/Projet-ANR-21-CE01-0017",
+      "link": "https://anr.fr/Project-ANR-21-CE01-0017",
+      "intitule_complet_du_comite": "CE01 : 2014 - 2026 - Terre solide et enveloppes fluides*",
+      "code_aap_comites": "CE01",
+      "anr_scientific_committee": "CE01 : 2014 - 2026 - Solid earth and fluid envelopes*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "13",
+        "31",
+        "38",
+        "45",
+        "75",
+        "91"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "11",
+        "24",
+        "76",
+        "84",
+        "93"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Auvergne-Rhône-Alpes",
+        "Centre-Val de Loire",
+        "Occitanie",
+        "Provence-Alpes-Côte d'Azur",
+        "Île-de-France",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "13",
+        "31",
+        "38",
+        "45",
+        "75",
+        "91"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "11",
+        "24",
+        "76",
+        "84",
+        "93"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Auvergne-Rhône-Alpes",
+        "Centre-Val de Loire",
+        "Occitanie",
+        "Provence-Alpes-Côte d'Azur",
+        "Île-de-France",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 558,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE01 Terre fluide et solide"
+    },
+    {
+      "code_projet_anr": "ANR-19-CE15-0008",
+      "edition": 2019,
+      "acronyme_programme": "AAPG2019",
+      "acronyme_appel_a_projet": "CE15",
+      "acronyme_projet": "TRANSMIT",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 497901.92,
+      "lien": "https://anr.fr/Projet-ANR-19-CE15-0008",
+      "link": "https://anr.fr/Project-ANR-19-CE15-0008",
+      "intitule_complet_du_comite": "CE15 : 2015 - 2026 - Immunologie, Infectiologie et Inflammation*",
+      "code_aap_comites": "CE15",
+      "anr_scientific_committee": "CE15 : 2015 - 2026 - Immunology, Infectiology and Inflammation*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "31",
+        "31"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "76",
+        "76"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Occitanie",
+        "Occitanie"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "31",
+        "31"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "76",
+        "76"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Occitanie",
+        "Occitanie"
+      ],
+      "aide_allouee_projet_keuros": 497,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE15 Immunologie, Infectiologie et Inflammation"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE28-0031",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE28",
+      "acronyme_projet": "DANS-APP",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "SHS",
+      "aide_allouee_projet": 375082.21,
+      "lien": "https://anr.fr/Projet-ANR-21-CE28-0031",
+      "link": "https://anr.fr/Project-ANR-21-CE28-0031",
+      "intitule_complet_du_comite": "CE28 : 2015 - 2026 - Cognition, comportements, langage*",
+      "code_aap_comites": "CE28",
+      "anr_scientific_committee": "CE28 : 2015 - 2026 - Cognition, behavior, language",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "31",
+        "31",
+        "31",
+        "38"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "76",
+        "76",
+        "76",
+        "84"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Auvergne-Rhône-Alpes",
+        "Occitanie",
+        "Occitanie",
+        "Occitanie"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "31",
+        "31",
+        "31",
+        "38"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "76",
+        "76",
+        "76",
+        "84"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Auvergne-Rhône-Alpes",
+        "Occitanie",
+        "Occitanie",
+        "Occitanie"
+      ],
+      "aide_allouee_projet_keuros": 375,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE28 Cognition, éducation, formation"
+    },
+    {
+      "code_projet_anr": "ANR-18-CE10-0009",
+      "edition": 2018,
+      "acronyme_programme": "AAPG2018",
+      "acronyme_appel_a_projet": "CE10",
+      "acronyme_projet": "COLLABORATION-4_0",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "SPICE",
+      "aide_allouee_projet": 407160.0,
+      "lien": "https://anr.fr/Projet-ANR-18-CE10-0009",
+      "link": "https://anr.fr/Project-ANR-18-CE10-0009",
+      "intitule_complet_du_comite": "CE10 : 2015 - 2026 - Transformation des systèmes productifs de biens et de services : enjeux humains, organisationnels et technologiques*",
+      "code_aap_comites": "CE10",
+      "anr_scientific_committee": "CE10: 2015–2026 – Transformation of goods and services production systems: human, organisational and technological challenges*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "38",
+        "38",
+        "63"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "84",
+        "84",
+        "84"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "38",
+        "38",
+        "63"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "84",
+        "84",
+        "84"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes"
+      ],
+      "aide_allouee_projet_keuros": 407,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE10 Usine du futur : Homme, organisation, technologies"
+    },
+    {
+      "code_projet_anr": "ANR-18-CE19-0008",
+      "edition": 2018,
+      "acronyme_programme": "AAPG2018",
+      "acronyme_appel_a_projet": "CE19",
+      "acronyme_projet": "DIGS",
+      "instrument_financement": "PRCE - Projets de recherche collaborative - Entreprises/Public",
+      "financing_instrument": "PRCE - Collaborative research projects between public entities and private companies",
+      "departement_anr": "BS",
+      "aide_allouee_projet": 460949.88,
+      "lien": "https://anr.fr/Projet-ANR-18-CE19-0008",
+      "link": "https://anr.fr/Project-ANR-18-CE19-0008",
+      "intitule_complet_du_comite": "CE19 : 2015 - 2026 - Technologies pour la santé*",
+      "code_aap_comites": "CE19",
+      "anr_scientific_committee": "CE19 : 2015 - 2026 - Health technologies*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "35",
+        "38",
+        "38",
+        "75"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "11",
+        "53",
+        "84",
+        "84"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes",
+        "Bretagne",
+        "Île-de-France"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "35",
+        "38",
+        "38",
+        "75"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "11",
+        "53",
+        "84",
+        "84"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Auvergne-Rhône-Alpes",
+        "Auvergne-Rhône-Alpes",
+        "Bretagne",
+        "Île-de-France"
+      ],
+      "aide_allouee_projet_keuros": 460,
+      "sigle_instrument": "PRCE",
+      "comite_d_evaluation": "CE19 Technologies pour la santé"
+    },
+    {
+      "code_projet_anr": "ANR-21-CE07-0044",
+      "edition": 2021,
+      "acronyme_programme": "AAPG2021",
+      "acronyme_appel_a_projet": "CE07",
+      "acronyme_projet": "PHOTOMATON-2",
+      "instrument_financement": "PRC - Projets de recherche collaborative",
+      "financing_instrument": "PRC - Collaborative research projects",
+      "departement_anr": "SPICE",
+      "aide_allouee_projet": 521920.0,
+      "lien": "https://anr.fr/Projet-ANR-21-CE07-0044",
+      "link": "https://anr.fr/Project-ANR-21-CE07-0044",
+      "intitule_complet_du_comite": "CE07 : 2018 - 2026 - Chimie moléculaire*",
+      "code_aap_comites": "CE07",
+      "anr_scientific_committee": "CE07 : 2018 - 2026 - Molecular chemistry*",
+      "numero_de_departement_tutelle_gestionnaire": [
+        "33",
+        "54",
+        "67",
+        "68"
+      ],
+      "numero_de_region_tutelle_gestionnaire": [
+        "44",
+        "44",
+        "44",
+        "75"
+      ],
+      "libelle_de_region_tutelle_gestionnaire": [
+        "Grand Est",
+        "Grand Est",
+        "Grand Est",
+        "Nouvelle-Aquitaine"
+      ],
+      "numero_de_departement_tutelle_hebergeante": [
+        "33",
+        "54",
+        "68",
+        "68"
+      ],
+      "numero_de_region_tutelle_hebergeante": [
+        "44",
+        "44",
+        "44",
+        "75"
+      ],
+      "libelle_de_region_tutelle_hebergeante": [
+        "Grand Est",
+        "Grand Est",
+        "Grand Est",
+        "Nouvelle-Aquitaine"
+      ],
+      "aide_allouee_projet_keuros": 521,
+      "sigle_instrument": "PRC",
+      "comite_d_evaluation": "CE07 Chimie moléculaire"
+    }
+  ]
+}
