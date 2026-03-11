@@ -1,8 +1,8 @@
 {
-  "apiVersion": "2.144",
+  "apiVersion": "2.145.3",
   "terms": "*",
-  "responseTime": 98,
-  "totalResults": 630775,
+  "responseTime": 107,
+  "totalResults": 630978,
   "pageNumber": 1,
   "pageSize": 20,
   "sort": "relevance",
@@ -15,7 +15,7 @@
   "bestBets": [],
   "results": [
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "43046674ResearchandInnovationaction1589846400000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SC1-PHE-CORONAVIRUS-2020-2D.json",
       "title": null,
@@ -204,7 +204,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31071089ResearchandInnovationaction1475539200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/ENG-GLOBALLY-01-2017.json",
       "title": null,
@@ -406,7 +406,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31073002ResearchandInnovationaction1450310400000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/S2R-CFM-IP5-03-2015.json",
       "title": null,
@@ -579,7 +579,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "44617121HORIZONResearchandInnovationActions1640131200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-MISS-2021-OCEAN-05-02.json",
       "title": null,
@@ -780,7 +780,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31115962ResearchandInnovationaction1575331200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/MG-BG-03-2020.json",
       "title": null,
@@ -955,7 +955,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31115950ResearchandInnovationaction1575331200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/MG-3-4-2020.json",
       "title": null,
@@ -1131,7 +1131,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31073986ResearchandInnovationaction1453161600000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FCH-02-6-2016.json",
       "title": null,
@@ -1302,7 +1302,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "44131589HORIZONFrameworkPartnerships1635811200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2021-DIGITAL-EMERGING-02-15.json",
       "title": null,
@@ -1477,7 +1477,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31052962SMEinstrumentphase21418860800000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BG-12-2015.json",
       "title": null,
@@ -1665,7 +1665,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "45640472HORIZONCoordinationandSupportActions1670284800000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-WIDERA-2023-ERA-01-04.json",
       "title": null,
@@ -1834,7 +1834,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "45704485HORIZONCoordinationandSupportActions1700006400000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2024-DIGITAL-EMERGING-01-34.json",
       "title": null,
@@ -2034,7 +2034,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "42793969ResearchandInnovationaction1578960000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FCH-04-2-2020.json",
       "title": null,
@@ -2213,7 +2213,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31090038Innovationaction1583971200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SU-FCT04-2020.json",
       "title": null,
@@ -2414,7 +2414,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31062495Coordinationandsupportaction1413936000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/NMP-40-2015.json",
       "title": null,
@@ -2578,7 +2578,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "42963137Bio-basedIndustriesCoordinationandSupportaction1586908800000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BBI-2020-SO4-S2.json",
       "title": null,
@@ -2785,7 +2785,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31052286Coordinationandsupportaction1386720000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SC5-19a-2014.json",
       "title": null,
@@ -2982,7 +2982,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31116234ResearchandInnovationaction1571097600000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FNR-12-2020.json",
       "title": null,
@@ -3158,7 +3158,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31110762Bio-basedIndustriesInnovationaction-Flagship1554336000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BBI-2019-SO3-F3.json",
       "title": null,
@@ -3362,7 +3362,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "31100676Coordinationandsupportaction1548288000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/LC-BAT-7-2019.json",
       "title": null,
@@ -3534,7 +3534,7 @@
       "highlightedFragments": []
     },
     {
-      "apiVersion": "2.144",
+      "apiVersion": "2.145.3",
       "reference": "44131435HORIZONInnovationActions1655337600000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2022-DIGITAL-EMERGING-02-07.json",
       "title": null,
