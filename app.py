@@ -354,21 +354,21 @@ pio.templates["totale_light"] = go.layout.Template(
             gridcolor="#E9EEF4",
             zerolinecolor="#D7DEE8",
             tickfont=dict(color="#4B5A6B"),
-            titlefont=dict(color="#4B5A6B"),
+            title=dict(font=dict(color="#4B5A6B")),
         ),
         yaxis=dict(
             showline=False,
             gridcolor="#E9EEF4",
             zerolinecolor="#D7DEE8",
             tickfont=dict(color="#4B5A6B"),
-            titlefont=dict(color="#4B5A6B"),
+            title=dict(font=dict(color="#4B5A6B")),
         ),
         coloraxis=dict(
             colorbar=dict(
                 outlinecolor="#DDE4EC",
                 tickcolor="#A0AEC0",
                 bgcolor="rgba(255,255,255,0.88)",
-                titlefont=dict(color="#4B5A6B"),
+                title=dict(font=dict(color="#4B5A6B")),
             )
         ),
     )
