@@ -19,8 +19,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
 
-pio.templates.default = "plotly_dark"
-
 import duckdb
 from filelock import FileLock, Timeout
 
@@ -67,50 +65,200 @@ st.set_page_config(page_title="Subsidy Intelligence Radar", layout="wide", initi
 st.markdown(
     """
 <style>
-  .main { background-color: #0f1622; }
-  section[data-testid="stSidebar"] { background-color: #111a28; }
-  h1,h2,h3,h4 { color: #eaf2ff; }
-  .stCaption { color: rgba(234,242,255,0.75) !important; }
+  :root {
+    --sir-bg: #f6f8fb;
+    --sir-surface: #ffffff;
+    --sir-surface-soft: #fbfcfe;
+    --sir-border: #dde4ec;
+    --sir-border-strong: #cfd8e3;
+    --sir-text: #182433;
+    --sir-text-soft: #5f6c7b;
+    --sir-accent: #d9472b;
+    --sir-accent-soft: #f29f67;
+    --sir-accent-pale: #fff3ed;
+    --sir-blue: #235a9f;
+    --sir-blue-soft: #eef4fb;
+    --sir-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  }
+
+  html, body, [data-testid="stAppViewContainer"], .main {
+    background: var(--sir-bg);
+    color: var(--sir-text);
+  }
+
+  [data-testid="stAppViewContainer"] > .main .block-container {
+    padding-top: 1.2rem;
+    padding-bottom: 3rem;
+    max-width: 1500px;
+  }
+
+  section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #f9fafc 0%, #f3f6fa 100%);
+    border-right: 1px solid var(--sir-border);
+  }
+
+  section[data-testid="stSidebar"] .block-container {
+    padding-top: 1rem;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: var(--sir-text);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  h1 {
+    margin-bottom: 0.2rem;
+  }
+
+  h3 {
+    margin-top: 0.9rem;
+  }
+
+  .stCaption,
+  [data-testid="stCaptionContainer"] {
+    color: var(--sir-text-soft) !important;
+  }
+
+  hr {
+    border-color: var(--sir-border) !important;
+  }
 
   div[data-testid="metric-container"] {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.10);
-    padding: 14px;
-    border-radius: 14px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    background: linear-gradient(180deg, #ffffff 0%, #fff8f5 100%);
+    border: 1px solid var(--sir-border);
+    border-top: 3px solid #e87554;
+    padding: 14px 16px;
+    border-radius: 16px;
+    box-shadow: var(--sir-shadow);
   }
 
-  .stTabs [data-baseweb="tab"]{
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.10);
+  div[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+    color: var(--sir-text-soft) !important;
+    font-weight: 600;
+  }
+
+  div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    color: var(--sir-text) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .stTabs [data-baseweb="tab-list"] {
+    gap: 0.45rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .stTabs [data-baseweb="tab"] {
+    background: #f3f6fa;
+    border: 1px solid var(--sir-border);
     border-radius: 12px;
     padding: 10px 14px;
-    color: rgba(234,242,255,0.88);
-  }
-  .stTabs [aria-selected="true"]{
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.18);
+    color: var(--sir-text-soft);
+    font-weight: 600;
   }
 
-  div[data-baseweb="select"] span { color: rgba(234,242,255,0.92); }
-  div[data-baseweb="tag"] { background: rgba(255,255,255,0.10) !important; }
+  .stTabs [data-baseweb="tab"]:hover {
+    border-color: #efc1ae;
+    color: var(--sir-text);
+  }
 
-  .stDataFrame { background: rgba(255,255,255,0.02); border-radius: 10px; }
-  .sir-chip-row { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 18px 0; }
+  .stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(217, 71, 43, 0.10), rgba(242, 159, 103, 0.14));
+    border: 1px solid #efc1ae;
+    color: #9c402a;
+    box-shadow: 0 8px 20px rgba(217, 71, 43, 0.08);
+  }
+
+  .stButton > button,
+  .stDownloadButton > button {
+    background: var(--sir-surface);
+    color: var(--sir-text);
+    border: 1px solid var(--sir-border-strong);
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  }
+
+  .stButton > button:hover,
+  .stDownloadButton > button:hover {
+    border-color: #e87554;
+    background: #fff7f3;
+    color: #9c402a;
+  }
+
+  .stButton > button:focus,
+  .stDownloadButton > button:focus {
+    border-color: var(--sir-blue);
+    box-shadow: 0 0 0 0.2rem rgba(35, 90, 159, 0.12);
+  }
+
+  .stTextInput input,
+  .stTextArea textarea,
+  .stNumberInput input,
+  div[data-baseweb="select"] > div,
+  div[data-baseweb="base-input"] > div {
+    background: var(--sir-surface) !important;
+    color: var(--sir-text) !important;
+    border: 1px solid var(--sir-border) !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+  }
+
+  div[data-baseweb="tag"] {
+    background: var(--sir-blue-soft) !important;
+    border: 1px solid rgba(35, 90, 159, 0.14) !important;
+    color: var(--sir-blue) !important;
+  }
+
+  .stRadio > div,
+  .stMultiSelect > div,
+  .stSelectbox > div {
+    color: var(--sir-text);
+  }
+
+  details[data-testid="stExpander"] {
+    background: var(--sir-surface);
+    border: 1px solid var(--sir-border);
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+  }
+
+  details[data-testid="stExpander"] summary {
+    background: var(--sir-surface-soft);
+  }
+
+  [data-testid="stDataFrame"],
+  .stDataFrame {
+    background: var(--sir-surface);
+    border: 1px solid var(--sir-border);
+    border-radius: 14px;
+  }
+
+  .sir-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 18px 0;
+  }
+
   .sir-chip {
-    display:inline-flex;
-    align-items:center;
-    padding:6px 10px;
-    border-radius:999px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.14);
-    color:rgba(234,242,255,0.92);
-    font-size:0.88rem;
-    line-height:1.2;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--sir-accent-pale);
+    border: 1px solid #f0c7b6;
+    color: #9c402a;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.2;
   }
+
   .sir-search-wrap {
-    background: linear-gradient(135deg, rgba(42,83,143,0.22), rgba(17,26,40,0.65));
-    border: 1px solid rgba(255,255,255,0.10);
+    background: linear-gradient(135deg, rgba(217, 71, 43, 0.06), rgba(35, 90, 159, 0.05));
+    border: 1px solid var(--sir-border);
     border-radius: 18px;
     padding: 16px 18px 8px 18px;
     margin: 10px 0 12px 0;
@@ -124,10 +272,21 @@ st.markdown(
 # ============================================================
 # Colors
 # ============================================================
+TOTALE_COLORWAY = [
+    "#D9472B",
+    "#F29F67",
+    "#235A9F",
+    "#7AA7D8",
+    "#C76A4A",
+    "#6B7280",
+]
+
 R2G = [
-    (0.00, "rgba(220,20,60,0.25)"),
-    (0.50, "rgba(255,165,0,0.60)"),
-    (1.00, "rgba(0,128,0,1.00)"),
+    (0.00, "#FFF3ED"),
+    (0.20, "#FBD9C9"),
+    (0.45, "#F6B07F"),
+    (0.75, "#E87554"),
+    (1.00, "#C93E2E"),
 ]
 
 EUROPE_DEFAULT_COUNTRIES = [
@@ -160,14 +319,62 @@ VALUE_CHAIN_ORDER = [
     "Unspecified",
 ]
 STAGE_COLORS = {
-    "Resources & feedstock": "rgba(54, 162, 235, 0.75)",
-    "Components & core technology": "rgba(255, 159, 64, 0.75)",
-    "Systems & infrastructure": "rgba(153, 102, 255, 0.75)",
-    "Deployment & operations": "rgba(75, 192, 192, 0.75)",
-    "End-use & market": "rgba(255, 99, 132, 0.75)",
-    "Research & concept": "rgba(201, 203, 207, 0.75)",
-    "Unspecified": "rgba(140, 140, 140, 0.55)",
+    "Resources & feedstock": "rgba(35, 90, 159, 0.78)",
+    "Components & core technology": "rgba(242, 159, 103, 0.82)",
+    "Systems & infrastructure": "rgba(217, 71, 43, 0.78)",
+    "Deployment & operations": "rgba(122, 167, 216, 0.82)",
+    "End-use & market": "rgba(231, 117, 84, 0.82)",
+    "Research & concept": "rgba(107, 114, 128, 0.68)",
+    "Unspecified": "rgba(148, 163, 184, 0.52)",
 }
+
+pio.templates["totale_light"] = go.layout.Template(
+    layout=go.Layout(
+        font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color="#182433"),
+        title=dict(font=dict(size=18, color="#182433")),
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#FFFFFF",
+        colorway=TOTALE_COLORWAY,
+        hoverlabel=dict(
+            bgcolor="#FFFFFF",
+            bordercolor="#DDE4EC",
+            font=dict(color="#182433"),
+        ),
+        legend=dict(
+            bgcolor="rgba(255,255,255,0.88)",
+            bordercolor="#E2E8F0",
+            borderwidth=1,
+            font=dict(color="#435266"),
+        ),
+        margin=dict(l=36, r=24, t=42, b=36),
+        bargap=0.18,
+        xaxis=dict(
+            showline=True,
+            linecolor="#CBD5E1",
+            gridcolor="#E9EEF4",
+            zerolinecolor="#D7DEE8",
+            tickfont=dict(color="#4B5A6B"),
+            titlefont=dict(color="#4B5A6B"),
+        ),
+        yaxis=dict(
+            showline=False,
+            gridcolor="#E9EEF4",
+            zerolinecolor="#D7DEE8",
+            tickfont=dict(color="#4B5A6B"),
+            titlefont=dict(color="#4B5A6B"),
+        ),
+        coloraxis=dict(
+            colorbar=dict(
+                outlinecolor="#DDE4EC",
+                tickcolor="#A0AEC0",
+                bgcolor="rgba(255,255,255,0.88)",
+                titlefont=dict(color="#4B5A6B"),
+            )
+        ),
+    )
+)
+pio.templates.default = "totale_light"
+px.defaults.color_discrete_sequence = TOTALE_COLORWAY
 
 
 # ============================================================
@@ -235,12 +442,12 @@ TAG_TO_THEMES = {
 I18N: Dict[str, Dict[str, str]] = {
     "FR": {
         "language": "Langue",
-        "title": "🛰️ Subsidy Intelligence Radar",
+        "title": "Subsidy Intelligence Radar",
         "subtitle": "Recherche guidée sur les subventions UE : résultats, acteurs, géographie, tendances et événements.",
-        "reset": "🧹 Réinitialiser",
-        "refresh": "🔄 Rafraîchir",
+        "reset": "Réinitialiser",
+        "refresh": "Rafraîchir les données",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
-        "filters": "🧩 Filtres",
+        "filters": "Filtres",
         "basic_filters": "Filtres essentiels",
         "advanced_filters": "Filtres avancés",
         "analysis_options": "Options d'analyse",
@@ -282,7 +489,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_status_missing_short": "Mapping groupes absent (fallback PIC).",
         "mapping_diag_toggle": "Diagnostic mapping (optionnel)",
         "refresh_cloud_cta": "Ouvrir GitHub Actions « Refresh Data »",
-        "kpis": "📊 Indicateurs clés",
+        "kpis": "Indicateurs clés",
         "insights_title": "Insights automatiques (périmètre courant)",
         "budget_total": "Budget total",
         "n_projects": "Nombre de projets",
@@ -292,18 +499,18 @@ I18N: Dict[str, Dict[str, str]] = {
         "top10_share": "Part Top10 acteurs",
         "hhi": "Concentration (HHI)",
         "no_data": "Aucune donnée pour cette sélection. Élargis les filtres.",
-        "tab_overview": "📌 Vue d’ensemble",
-        "tab_geo": "🌍 Géographie",
-        "tab_comp": "🏆 Benchmark acteurs",
-        "tab_trends": "📈 Tendances",
-        "tab_compare": "🆚 Comparaison",
-        "tab_macro": "🧭 Macro & actualités",
-        "tab_actor": "👤 Fiche acteur",
-        "tab_network": "🧬 Chaîne & réseau",
-        "tab_data": "🔎 Données",
-        "tab_quality": "🧪 Qualité",
-        "tab_help": "💬 Aide",
-        "tab_guide": "📘 Guide",
+        "tab_overview": "Vue d’ensemble",
+        "tab_geo": "Géographie",
+        "tab_comp": "Benchmark acteurs",
+        "tab_trends": "Tendances",
+        "tab_compare": "Comparaison",
+        "tab_macro": "Macro & actualités",
+        "tab_actor": "Fiche acteur",
+        "tab_network": "Chaîne & réseau",
+        "tab_data": "Données",
+        "tab_quality": "Qualité",
+        "tab_help": "Aide",
+        "tab_guide": "Guide",
         "zoom_on": "Zoom",
         "projection": "Projection",
         "borders": "Frontières & côtes",
@@ -384,12 +591,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "scope_funders_on": "financeurs inclus",
         "status_budget_title": "Budget par statut projet",
         "status_projects_title": "Projets par statut",
-        "tab_explorer": "🔎 Recherche & résultats",
-        "tab_actors_hub": "🏢 Acteurs",
-        "tab_markets": "🌍 Marchés & géographie",
-        "tab_trends_events": "📈 Tendances & événements",
-        "tab_advanced": "🧠 Analyse avancée",
-        "tab_admin": "🛠️ Admin & méthode",
+        "tab_explorer": "Recherche & résultats",
+        "tab_actors_hub": "Acteurs",
+        "tab_markets": "Marchés & géographie",
+        "tab_trends_events": "Tendances & événements",
+        "tab_advanced": "Analyse avancée",
+        "tab_admin": "Admin & méthode",
         "sub_results": "Résultats",
         "sub_overview": "Synthèse",
         "overview_caption": "Vue secondaire de synthèse : utilise d'abord Résultats pour explorer le périmètre, puis viens ici pour une lecture plus compacte.",
@@ -551,12 +758,12 @@ I18N: Dict[str, Dict[str, str]] = {
     },
     "EN": {
         "language": "Language",
-        "title": "🛰️ Subsidy Intelligence Radar",
+        "title": "Subsidy Intelligence Radar",
         "subtitle": "Guided search across EU subsidies: results, actors, geography, trends, and events.",
-        "reset": "🧹 Reset",
-        "refresh": "🔄 Refresh (rebuild)",
+        "reset": "Reset",
+        "refresh": "Refresh data",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
-        "filters": "🧩 Filters",
+        "filters": "Filters",
         "basic_filters": "Core filters",
         "advanced_filters": "Advanced filters",
         "analysis_options": "Analysis options",
@@ -598,7 +805,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "mapping_status_missing_short": "No group mapping (PIC fallback).",
         "mapping_diag_toggle": "Mapping diagnostics (optional)",
         "refresh_cloud_cta": "Open GitHub Actions \"Refresh Data\"",
-        "kpis": "📊 Key indicators",
+        "kpis": "Key indicators",
         "insights_title": "Automatic insights (current scope)",
         "budget_total": "Total budget",
         "n_projects": "Projects",
@@ -608,18 +815,18 @@ I18N: Dict[str, Dict[str, str]] = {
         "top10_share": "Top10 actors share",
         "hhi": "Concentration (HHI)",
         "no_data": "No data for this selection. Broaden the filters.",
-        "tab_overview": "📌 Overview",
-        "tab_geo": "🌍 Geography",
-        "tab_comp": "🏆 Actor benchmark",
-        "tab_trends": "📈 Trends",
-        "tab_compare": "🆚 Compare",
-        "tab_macro": "🧭 Macro & news",
-        "tab_actor": "👤 Actor profile",
-        "tab_network": "🧬 Value chain & network",
-        "tab_data": "🔎 Data",
-        "tab_quality": "🧪 Quality",
-        "tab_help": "💬 Help",
-        "tab_guide": "📘 Guide",
+        "tab_overview": "Overview",
+        "tab_geo": "Geography",
+        "tab_comp": "Actor benchmark",
+        "tab_trends": "Trends",
+        "tab_compare": "Compare",
+        "tab_macro": "Macro & news",
+        "tab_actor": "Actor profile",
+        "tab_network": "Value chain & network",
+        "tab_data": "Data",
+        "tab_quality": "Quality",
+        "tab_help": "Help",
+        "tab_guide": "Guide",
         "zoom_on": "Zoom",
         "projection": "Projection",
         "borders": "Borders & coastlines",
@@ -700,12 +907,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "scope_funders_on": "funders included",
         "status_budget_title": "Budget by project status",
         "status_projects_title": "Projects by status",
-        "tab_explorer": "🔎 Search & results",
-        "tab_actors_hub": "🏢 Actors",
-        "tab_markets": "🌍 Markets & geography",
-        "tab_trends_events": "📈 Trends & events",
-        "tab_advanced": "🧠 Advanced",
-        "tab_admin": "🛠️ Admin & method",
+        "tab_explorer": "Search & results",
+        "tab_actors_hub": "Actors",
+        "tab_markets": "Markets & geography",
+        "tab_trends_events": "Trends & events",
+        "tab_advanced": "Advanced",
+        "tab_admin": "Admin & method",
         "sub_results": "Results",
         "sub_overview": "Overview",
         "overview_caption": "Secondary summary view: use Results first to explore the scope, then come here for a more compact readout.",
@@ -2956,20 +3163,20 @@ with tab_geo:
             showframe=False,
             bgcolor="rgba(0,0,0,0)",
             showland=True,
-            landcolor="rgba(255,255,255,0.04)",
+            landcolor="#F7F9FC",
             showocean=True,
-            oceancolor="rgba(40,90,140,0.10)",
+            oceancolor="#EEF4FB",
             showlakes=True,
-            lakecolor="rgba(40,90,140,0.10)",
+            lakecolor="#EEF4FB",
         )
         if show_borders:
             geo_kwargs.update(
                 dict(
                     showcoastlines=True,
-                    coastlinecolor="rgba(255,255,255,0.25)",
+                    coastlinecolor="#D7DFE8",
                     coastlinewidth=0.8,
                     showcountries=True,
-                    countrycolor="rgba(255,255,255,0.25)",
+                    countrycolor="#D7DFE8",
                     countrywidth=0.7,
                 )
             )
@@ -3010,7 +3217,7 @@ with tab_geo:
                     lat=[x[2] for x in labels],
                     text=[x[0] for x in labels],
                     mode="text",
-                    textfont=dict(size=12, color="rgba(234,242,255,0.75)"),
+                    textfont=dict(size=12, color="rgba(95,108,123,0.78)"),
                     showlegend=False,
                     hoverinfo="skip",
                 )
@@ -3271,7 +3478,7 @@ with tab_comp:
             fig1.update_traces(
                 customdata=np.stack([m2["budget_str"], m2["ticket_str"]], axis=-1),
                 hovertemplate="<b>%{hovertext}</b><br>Budget: %{customdata[0]}<br>Ticket: %{customdata[1]}<extra></extra>",
-                marker=dict(line=dict(width=1, color="rgba(255,255,255,0.22)")),
+                marker=dict(line=dict(width=1, color="rgba(24,36,51,0.08)")),
             )
             st.plotly_chart(fig1, use_container_width=True)
             st.caption(t(lang, "legend_tip"))
@@ -3361,20 +3568,20 @@ with tab_comp:
                     height=720,
                 )
                 fig_tree.update_traces(
-                    marker=dict(line=dict(width=0.8, color="rgba(255,255,255,0.10)")),
+                    marker=dict(line=dict(width=0.8, color="rgba(255,255,255,0.45)")),
                     customdata=np.stack([agg["budget_str"]], axis=-1),
                     hovertemplate="<b>%{label}</b><br>Budget: %{customdata[0]}<br>%{percentEntry:.1%} of parent<extra></extra>",
                     texttemplate="%{label}<br>%{percentEntry:.0%}",
-                    textfont=dict(color="rgba(255,255,255,0.98)", size=14),
-                    insidetextfont=dict(color="rgba(255,255,255,0.98)", size=14),
-                    outsidetextfont=dict(color="rgba(255,255,255,0.98)", size=13),
-                    pathbar=dict(textfont=dict(color="rgba(255,255,255,0.98)", size=13)),
+                    textfont=dict(color="rgba(24,36,51,0.90)", size=14),
+                    insidetextfont=dict(color="rgba(24,36,51,0.90)", size=14),
+                    outsidetextfont=dict(color="rgba(24,36,51,0.88)", size=13),
+                    pathbar=dict(textfont=dict(color="rgba(24,36,51,0.90)", size=13)),
                 )
                 fig_tree.update_layout(
                     margin=dict(l=0, r=0, t=0, b=0),
                     uniformtext=dict(minsize=13, mode="hide"),
                     coloraxis_showscale=False,
-                    font=dict(color="rgba(255,255,255,0.98)"),
+                    font=dict(color="rgba(24,36,51,0.92)"),
                 )
                 st.plotly_chart(fig_tree, use_container_width=True)
 
@@ -3780,7 +3987,7 @@ with tab_macro:
                         yr = int(r["year"])
                         if yr not in valid_years:
                             continue
-                        fig.add_vline(x=yr, line_width=1, line_dash="dot", opacity=0.40, line_color="rgba(255,255,255,0.55)")
+                        fig.add_vline(x=yr, line_width=1, line_dash="dot", opacity=0.40, line_color="rgba(217,71,43,0.32)")
                         if show_event_labels and yr not in shown_years:
                             title_short = str(r.get("title", "")).strip()
                             if len(title_short) > 22:
@@ -3792,7 +3999,7 @@ with tab_macro:
                                 text=title_short,
                                 showarrow=False,
                                 textangle=-30,
-                                font=dict(size=10, color="rgba(240,245,255,0.90)"),
+                                font=dict(size=10, color="rgba(123,61,43,0.90)"),
                                 xanchor="left",
                             )
                             shown_years.add(yr)
@@ -4080,7 +4287,7 @@ with tab_actor:
                     y="theme_display",
                     orientation="h",
                     height=420,
-                    color_discrete_sequence=["rgba(120,180,255,0.95)"],
+                    color_discrete_sequence=["rgba(35,90,159,0.92)"],
                     labels={"budget_eur": "Budget (€)", "theme_display": ""},
                 )
             else:
@@ -4560,11 +4767,11 @@ with tab_value_chain:
                                         is_stage = stage_focus_on and (stg == str(stage_highlight))
                                         is_actor = actor_focus_on and (act == str(actor_highlight))
                                         if is_stage and is_actor:
-                                            link_colors.append("rgba(255,210,80,0.98)")
+                                            link_colors.append("rgba(232,117,84,0.96)")
                                         elif is_stage:
-                                            link_colors.append("rgba(255,210,80,0.90)")
+                                            link_colors.append("rgba(232,117,84,0.88)")
                                         elif is_actor:
-                                            link_colors.append("rgba(120,220,255,0.90)")
+                                            link_colors.append("rgba(35,90,159,0.86)")
                                         else:
                                             link_colors.append("rgba(170,170,170,0.14)")
 
@@ -4574,18 +4781,18 @@ with tab_value_chain:
                                         if not stage_focus_on and not actor_focus_on:
                                             node_colors.append(STAGE_COLORS.get(label, "rgba(170,170,170,0.65)"))
                                         elif stage_focus_on and (label == str(stage_highlight)):
-                                            node_colors.append("rgba(255,210,80,0.98)")
+                                            node_colors.append("rgba(232,117,84,0.96)")
                                         else:
                                             node_colors.append("rgba(170,170,170,0.28)")
                                     else:
                                         if not stage_focus_on and not actor_focus_on:
-                                            node_colors.append("rgba(120,180,255,0.78)")
+                                            node_colors.append("rgba(35,90,159,0.76)")
                                         elif actor_focus_on and (str(label) == str(actor_highlight)):
-                                            node_colors.append("rgba(120,220,255,0.96)")
+                                            node_colors.append("rgba(35,90,159,0.96)")
                                         elif stage_focus_on and (str(label) in connected_actors):
-                                            node_colors.append("rgba(120,180,255,0.90)")
+                                            node_colors.append("rgba(35,90,159,0.88)")
                                         else:
-                                            node_colors.append("rgba(120,180,255,0.22)")
+                                            node_colors.append("rgba(35,90,159,0.20)")
 
                                 fig_sankey = go.Figure(
                                     data=[
@@ -4593,7 +4800,7 @@ with tab_value_chain:
                                             node=dict(
                                                 pad=14,
                                                 thickness=14,
-                                                line=dict(color="rgba(255,255,255,0.22)", width=0.5),
+                                                line=dict(color="rgba(207,216,227,0.95)", width=0.7),
                                                 label=node_labels,
                                                 color=node_colors,
                                             ),
@@ -4790,9 +4997,9 @@ with tab_collaboration:
                     w = 1.0 + 3.5 * (float(r["shared_projects"]) / max_shared)
                     is_focus = bool(focus_partner_id) and (str(r["actor_id"]) == str(focus_partner_id))
                     line_color = (
-                        "rgba(255,215,120,0.95)"
+                        "rgba(232,117,84,0.92)"
                         if is_focus
-                        else ("rgba(120,180,255,0.45)" if not focus_partner_id else "rgba(120,180,255,0.18)")
+                        else ("rgba(35,90,159,0.40)" if not focus_partner_id else "rgba(35,90,159,0.16)")
                     )
                     fig_net.add_trace(
                         go.Scatter(
@@ -4810,17 +5017,17 @@ with tab_collaboration:
                 for aid in partners_view["actor_id"].astype(str).tolist():
                     is_focus = bool(focus_partner_id) and (aid == str(focus_partner_id))
                     if is_focus:
-                        partner_colors.append("rgba(255,215,120,0.98)")
+                        partner_colors.append("rgba(232,117,84,0.96)")
                     elif focus_partner_id:
-                        partner_colors.append("rgba(120,180,255,0.30)")
+                        partner_colors.append("rgba(35,90,159,0.26)")
                     else:
-                        partner_colors.append("rgba(120,180,255,0.9)")
+                        partner_colors.append("rgba(35,90,159,0.84)")
                 fig_net.add_trace(
                     go.Scatter(
                         x=[0.0],
                         y=[0.0],
                         mode="markers+text",
-                        marker=dict(size=34, color="rgba(255,180,80,0.95)", line=dict(width=1, color="rgba(255,255,255,0.5)")),
+                        marker=dict(size=34, color="rgba(232,117,84,0.92)", line=dict(width=1, color="rgba(207,216,227,0.95)")),
                         text=[focal_label[:44]],
                         textposition="bottom center",
                         hovertemplate=f"<b>{focal_label}</b><extra></extra>",
@@ -4832,7 +5039,7 @@ with tab_collaboration:
                         x=rx,
                         y=ry,
                         mode="markers+text",
-                        marker=dict(size=partner_size, color=partner_colors, line=dict(width=0.8, color="rgba(255,255,255,0.35)")),
+                        marker=dict(size=partner_size, color=partner_colors, line=dict(width=0.8, color="rgba(207,216,227,0.90)")),
                         text=[str(x)[:34] for x in partners_view["actor_label"].astype(str).tolist()],
                         textposition="top center",
                         customdata=np.stack(
@@ -4885,7 +5092,7 @@ with tab_concentration:
                 x=conc["actor_label"],
                 y=conc["b"],
                 name=t(lang, "concentration_budget"),
-                marker=dict(color="rgba(120,180,255,0.72)", line=dict(color="rgba(255,255,255,0.18)", width=0.8)),
+                marker=dict(color="rgba(35,90,159,0.72)", line=dict(color="rgba(207,216,227,0.80)", width=0.8)),
                 customdata=np.stack([conc["budget_str"]], axis=-1),
                 hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<extra></extra>",
             )
@@ -4897,15 +5104,15 @@ with tab_concentration:
                 yaxis="y2",
                 mode="lines+markers",
                 name=t(lang, "concentration_cum"),
-                line=dict(color="rgba(255,205,90,0.95)", width=2.4),
-                marker=dict(size=6, color="rgba(255,205,90,0.95)"),
+                line=dict(color="rgba(232,117,84,0.95)", width=2.4),
+                marker=dict(size=6, color="rgba(232,117,84,0.95)"),
                 hovertemplate="<b>%{x}</b><br>Cumulative: %{y:.1f}%<extra></extra>",
             )
         )
         fig_p.update_layout(
             height=460,
             xaxis=dict(title="", tickangle=-35),
-            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="rgba(255,255,255,0.08)"),
+            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="#E9EEF4"),
             yaxis2=dict(title=t(lang, "concentration_cum"), overlaying="y", side="right", range=[0, 100]),
             legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
             margin=dict(l=20, r=20, t=20, b=80),
