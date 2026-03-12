@@ -62,13 +62,13 @@ REFRESH_LOCK_STALE_SEC = int(os.environ.get("SUBSIDY_REFRESH_LOCK_STALE_SEC", "7
 # Page config + style
 # ============================================================
 STREAMLIT_THEME_OVERRIDES = {
-    "theme.base": "light",
-    "theme.primaryColor": "#4F7CAC",
-    "theme.backgroundColor": "#F7FAFC",
-    "theme.secondaryBackgroundColor": "#F2F7FA",
-    "theme.textColor": "#1F2937",
-    "theme.dataframeHeaderBackgroundColor": "#F4F8FB",
-    "theme.dataframeBorderColor": "#D9E2EC",
+    "theme.base": "dark",
+    "theme.primaryColor": "#2563EB",
+    "theme.backgroundColor": "#0B1220",
+    "theme.secondaryBackgroundColor": "#111827",
+    "theme.textColor": "#F8FAFC",
+    "theme.dataframeHeaderBackgroundColor": "#162033",
+    "theme.dataframeBorderColor": "#243145",
 }
 for _theme_key, _theme_value in STREAMLIT_THEME_OVERRIDES.items():
     try:
@@ -82,38 +82,43 @@ st.markdown(
     """
 <style>
   :root {
-    --primary-color: #4F7CAC;
-    --background-color: #F7FAFC;
-    --secondary-background-color: #F2F7FA;
-    --text-color: #1F2937;
-    --sir-bg: #F7FAFC;
-    --sir-sidebar: #F2F7FA;
-    --sir-surface: #FFFFFF;
-    --sir-surface-soft: #F8FBFD;
-    --sir-border: #D9E2EC;
-    --sir-border-strong: #D9E2EC;
-    --sir-text: #1F2937;
-    --sir-text-secondary: #475467;
-    --sir-text-muted: #667085;
-    --sir-cyan: #5BC0EB;
-    --sir-blue: #4F7CAC;
-    --sir-teal: #63B3A5;
-    --sir-green: #7BC47F;
-    --sir-cyan-soft: #EAF7FC;
-    --sir-blue-soft: #EEF4FB;
-    --sir-green-soft: #EEF9F0;
-    --sir-accent: #F28C6F;
-    --sir-accent-pale: #FFF1EC;
-    --sir-success: #157F3B;
-    --sir-warning: #B54708;
-    --sir-danger: #B42318;
-    --sir-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    --primary-color: #2563EB;
+    --background-color: #0B1220;
+    --secondary-background-color: #111827;
+    --text-color: #F8FAFC;
+    --sir-bg: #0B1220;
+    --sir-sidebar: #111827;
+    --sir-surface: #0F172A;
+    --sir-surface-soft: #162033;
+    --sir-border: #243145;
+    --sir-border-strong: #334155;
+    --sir-text: #F8FAFC;
+    --sir-text-secondary: #D0D8E4;
+    --sir-text-muted: #94A3B8;
+    --sir-blue: #2563EB;
+    --sir-cyan: #22D3EE;
+    --sir-teal: #14B8A6;
+    --sir-green: #22C55E;
+    --sir-orange: #F97316;
+    --sir-coral: #FB7185;
+    --sir-yellow: #FACC15;
+    --sir-blue-soft: rgba(37, 99, 235, 0.18);
+    --sir-cyan-soft: rgba(34, 211, 238, 0.18);
+    --sir-teal-soft: rgba(20, 184, 166, 0.18);
+    --sir-green-soft: rgba(34, 197, 94, 0.18);
+    --sir-orange-soft: rgba(249, 115, 22, 0.18);
+    --sir-accent: #F97316;
+    --sir-accent-pale: rgba(249, 115, 22, 0.18);
+    --sir-success: #22C55E;
+    --sir-warning: #FACC15;
+    --sir-danger: #FB7185;
+    --sir-shadow: 0 20px 48px rgba(2, 6, 23, 0.42);
   }
 
   html, body, [data-testid="stAppViewContainer"], .main {
     background: var(--sir-bg);
     color: var(--sir-text);
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   [data-testid="stAppViewContainer"] > .main .block-container {
@@ -125,7 +130,7 @@ st.markdown(
   section[data-testid="stSidebar"] {
     background: var(--sir-sidebar);
     border-right: 1px solid var(--sir-border);
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   section[data-testid="stSidebar"] .block-container {
@@ -193,7 +198,7 @@ st.markdown(
   }
 
   div[data-testid="metric-container"] {
-    background: #FFFFFF;
+    background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-top: 3px solid var(--sir-cyan);
     padding: 14px 16px;
@@ -218,7 +223,7 @@ st.markdown(
   }
 
   .stTabs [data-baseweb="tab"] {
-    background: #F8FBFD;
+    background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-radius: 12px;
     padding: 10px 14px;
@@ -232,21 +237,21 @@ st.markdown(
   }
 
   .stTabs [data-baseweb="tab"]:hover {
-    background: var(--sir-blue-soft);
-    border-color: #C7D8E8;
+    background: var(--sir-surface-soft);
+    border-color: var(--sir-border-strong);
     color: var(--sir-text);
   }
 
   .stTabs [aria-selected="true"] {
-    background: var(--sir-blue-soft);
-    border: 1px solid #BFD0E3;
-    color: var(--sir-blue);
-    box-shadow: 0 6px 16px rgba(79, 124, 172, 0.08);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(34, 211, 238, 0.14));
+    border: 1px solid rgba(34, 211, 238, 0.32);
+    color: var(--sir-text);
+    box-shadow: 0 10px 28px rgba(37, 99, 235, 0.16);
   }
 
   .stTabs [aria-selected="true"] *,
   .stTabs [aria-selected="true"] span {
-    color: var(--sir-blue) !important;
+    color: var(--sir-text) !important;
   }
 
   .stButton > button,
@@ -261,15 +266,15 @@ st.markdown(
 
   .stButton > button:hover,
   .stDownloadButton > button:hover {
-    border-color: var(--sir-blue);
+    border-color: rgba(34, 211, 238, 0.34);
     background: var(--sir-blue-soft);
-    color: var(--sir-blue);
+    color: var(--sir-text);
   }
 
   .stButton > button:focus,
   .stDownloadButton > button:focus {
-    border-color: var(--sir-blue);
-    box-shadow: 0 0 0 0.2rem rgba(35, 90, 159, 0.12);
+    border-color: var(--sir-cyan);
+    box-shadow: 0 0 0 0.2rem rgba(34, 211, 238, 0.18);
   }
 
   .stTextInput input,
@@ -302,9 +307,17 @@ st.markdown(
   }
 
   div[data-baseweb="tag"] {
-    background: var(--sir-cyan-soft) !important;
-    border: 1px solid rgba(91, 192, 235, 0.34) !important;
-    color: var(--sir-blue) !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.20), rgba(34, 211, 238, 0.14)) !important;
+    border: 1px solid rgba(34, 211, 238, 0.22) !important;
+    color: var(--sir-text) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+
+  div[data-baseweb="tag"] span,
+  div[data-baseweb="tag"] svg,
+  div[data-baseweb="tag"] path {
+    color: var(--sir-text) !important;
+    fill: var(--sir-text-secondary) !important;
   }
 
   .stRadio > div,
@@ -334,19 +347,19 @@ st.markdown(
   [role="dialog"],
   body [id^="portal"],
   [role="listbox"] {
-    background: var(--sir-surface) !important;
+    background: var(--sir-surface-soft) !important;
     border: 1px solid var(--sir-border) !important;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08) !important;
-    color-scheme: light !important;
+    box-shadow: 0 20px 36px rgba(2, 6, 23, 0.42) !important;
+    color-scheme: dark !important;
   }
 
   [role="option"] {
-    background: var(--sir-surface) !important;
+    background: var(--sir-surface-soft) !important;
   }
 
   [role="option"][aria-selected="true"],
   [role="option"]:hover {
-    background: var(--sir-cyan-soft) !important;
+    background: var(--sir-blue-soft) !important;
     color: var(--sir-text) !important;
   }
 
@@ -376,7 +389,7 @@ st.markdown(
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 16px 34px rgba(2, 6, 23, 0.28);
     overflow: hidden;
   }
 
@@ -400,45 +413,47 @@ st.markdown(
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-radius: 14px;
-    --gdg-bg-cell: #FFFFFF;
-    --gdg-bg-cell-medium: #FFFFFF;
-    --gdg-bg-header: #F4F8FB;
-    --gdg-bg-header-has-focus: #EEF4FB;
-    --gdg-bg-header-hovered: #EEF4FB;
-    --gdg-bg-search-result: #EAF7FC;
-    --gdg-bg-bubble: #EEF4FB;
-    --gdg-bg-bubble-selected: #EAF7FC;
-    --gdg-bg-row-hover: #F8FBFD;
-    --gdg-bg-cell-selected: #EEF4FB;
-    --gdg-bg-cell-selected-padded: #EAF7FC;
-    --gdg-accent-color: #4F7CAC;
-    --gdg-accent-light: #EEF4FB;
-    --gdg-border-color: #D9E2EC;
-    --gdg-horizontal-border-color: #E6EDF3;
-    --gdg-vertical-border-color: #EEF2F6;
-    --gdg-text-dark: #1F2937;
-    --gdg-text-medium: #475467;
-    --gdg-text-light: #667085;
-    --gdg-link-color: #4F7CAC;
-    --gdg-selection-ring: #5BC0EB;
+    --gdg-bg-cell: #0F172A;
+    --gdg-bg-cell-medium: #111827;
+    --gdg-bg-header: #162033;
+    --gdg-bg-header-has-focus: #1B2940;
+    --gdg-bg-header-hovered: #1B2940;
+    --gdg-bg-search-result: rgba(34, 211, 238, 0.14);
+    --gdg-bg-bubble: rgba(37, 99, 235, 0.18);
+    --gdg-bg-bubble-selected: rgba(34, 211, 238, 0.18);
+    --gdg-bg-row-hover: #162033;
+    --gdg-bg-cell-selected: rgba(37, 99, 235, 0.18);
+    --gdg-bg-cell-selected-padded: rgba(34, 211, 238, 0.16);
+    --gdg-accent-color: #22D3EE;
+    --gdg-accent-fg: #F8FAFC;
+    --gdg-accent-light: rgba(34, 211, 238, 0.16);
+    --gdg-border-color: #243145;
+    --gdg-horizontal-border-color: rgba(208, 216, 228, 0.10);
+    --gdg-vertical-border-color: rgba(208, 216, 228, 0.06);
+    --gdg-text-dark: #F8FAFC;
+    --gdg-text-medium: #D0D8E4;
+    --gdg-text-light: #94A3B8;
+    --gdg-link-color: #22D3EE;
+    --gdg-selection-ring: #22D3EE;
   }
 
   [data-testid="stDataFrame"] *,
   .stDataFrame * {
-    --gdg-bg-cell: #FFFFFF;
-    --gdg-bg-cell-medium: #FFFFFF;
-    --gdg-bg-header: #F4F8FB;
-    --gdg-bg-header-has-focus: #EEF4FB;
-    --gdg-bg-header-hovered: #EEF4FB;
-    --gdg-bg-row-hover: #F8FBFD;
-    --gdg-bg-cell-selected: #EEF4FB;
-    --gdg-bg-cell-selected-padded: #EAF7FC;
-    --gdg-accent-color: #4F7CAC;
-    --gdg-accent-light: #EEF4FB;
-    --gdg-border-color: #D9E2EC;
-    --gdg-text-dark: #1F2937;
-    --gdg-text-medium: #475467;
-    --gdg-text-light: #667085;
+    --gdg-bg-cell: #0F172A;
+    --gdg-bg-cell-medium: #111827;
+    --gdg-bg-header: #162033;
+    --gdg-bg-header-has-focus: #1B2940;
+    --gdg-bg-header-hovered: #1B2940;
+    --gdg-bg-row-hover: #162033;
+    --gdg-bg-cell-selected: rgba(37, 99, 235, 0.18);
+    --gdg-bg-cell-selected-padded: rgba(34, 211, 238, 0.16);
+    --gdg-accent-color: #22D3EE;
+    --gdg-accent-fg: #F8FAFC;
+    --gdg-accent-light: rgba(34, 211, 238, 0.16);
+    --gdg-border-color: #243145;
+    --gdg-text-dark: #F8FAFC;
+    --gdg-text-medium: #D0D8E4;
+    --gdg-text-light: #94A3B8;
   }
 
   [data-testid="stDataFrame"] [role="columnheader"],
@@ -448,7 +463,7 @@ st.markdown(
   }
 
   [data-testid="stDataFrame"] [role="columnheader"] {
-    background: #F4F8FB !important;
+    background: var(--sir-surface-soft) !important;
   }
 
   [data-testid="stDataFrame"] [role="gridcell"] {
@@ -456,14 +471,14 @@ st.markdown(
   }
 
   [data-testid="stDataFrame"] canvas {
-    background: #FFFFFF !important;
+    background: var(--sir-surface) !important;
   }
 
   [data-testid="stDataFrame"] [class*="glide"],
   [data-testid="stDataFrame"] [class*="gdg"],
   [data-testid="stDataFrame"] [data-testid*="Glide"],
   [data-testid="stDataFrame"] [data-testid*="DataFrame"] {
-    background: #FFFFFF !important;
+    background: var(--sir-surface) !important;
     color: var(--sir-text) !important;
   }
 
@@ -481,20 +496,36 @@ st.markdown(
     background: var(--sir-blue-soft) !important;
   }
 
+  [data-testid="stDataFrameColumnVisibilityMenu"] > div,
+  [data-testid="stDataFrameTooltipContent"],
+  [data-testid="stDataFrameTooltipTarget"],
+  .stDataFrame .gdg-d19meir1,
+  .stDataFrame .gdg-seveqep,
+  .stDataFrame .gdg-phbadu4 > div,
+  .stDataFrame .gdg-p13nj8j0 > div {
+    background: var(--sir-surface-soft) !important;
+    color: var(--sir-text) !important;
+    border-color: var(--sir-border) !important;
+  }
+
   table {
-    background: #FFFFFF;
+    background: var(--sir-surface);
     color: var(--sir-text);
     border-color: var(--sir-border);
   }
 
   thead tr th {
-    background: #F4F8FB !important;
+    background: var(--sir-surface-soft) !important;
     color: var(--sir-text) !important;
   }
 
   tbody tr td {
-    background: #FFFFFF !important;
+    background: var(--sir-surface) !important;
     color: var(--sir-text) !important;
+  }
+
+  tbody tr:hover td {
+    background: var(--sir-surface-soft) !important;
   }
 
   .sir-chip-row {
@@ -509,16 +540,16 @@ st.markdown(
     align-items: center;
     padding: 6px 10px;
     border-radius: 999px;
-    background: var(--sir-blue-soft);
-    border: 1px solid #C7D8E8;
-    color: var(--sir-blue);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(20, 184, 166, 0.14));
+    border: 1px solid rgba(34, 211, 238, 0.20);
+    color: var(--sir-text);
     font-size: 0.88rem;
     font-weight: 600;
     line-height: 1.2;
   }
 
   .sir-search-wrap {
-    background: linear-gradient(135deg, rgba(91, 192, 235, 0.08), rgba(99, 179, 165, 0.07));
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(20, 184, 166, 0.10));
     border: 1px solid var(--sir-border);
     border-radius: 18px;
     padding: 16px 18px 8px 18px;
@@ -526,7 +557,7 @@ st.markdown(
   }
 
   [data-testid="stPlotlyChart"] {
-    background: #FFFFFF;
+    background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-radius: 14px;
     padding: 6px;
@@ -536,11 +567,11 @@ st.markdown(
   [data-testid="stPlotlyChart"] .plot-container,
   [data-testid="stPlotlyChart"] .svg-container,
   [data-testid="stPlotlyChart"] .main-svg {
-    background: #FFFFFF !important;
+    background: var(--sir-surface) !important;
   }
 
   [data-testid="stPlotlyChart"] .modebar {
-    background: rgba(255,255,255,0.92) !important;
+    background: rgba(15, 23, 42, 0.92) !important;
     border: 1px solid var(--sir-border) !important;
     border-radius: 10px !important;
   }
@@ -559,21 +590,38 @@ st.markdown(
 # Colors
 # ============================================================
 TOTALE_COLORWAY = [
-    "#4F7CAC",
-    "#5BC0EB",
-    "#63B3A5",
-    "#7BC47F",
-    "#F28C6F",
-    "#A7C7E7",
+    "#2563EB",
+    "#22D3EE",
+    "#14B8A6",
+    "#22C55E",
+    "#F97316",
+    "#FB7185",
+    "#FACC15",
 ]
 
 R2G = [
-    (0.00, "#EEF4FB"),
-    (0.25, "#A7C7E7"),
-    (0.50, "#5BC0EB"),
-    (0.75, "#63B3A5"),
-    (1.00, "#7BC47F"),
+    (0.00, "#2563EB"),
+    (0.20, "#22D3EE"),
+    (0.45, "#14B8A6"),
+    (0.70, "#22C55E"),
+    (0.88, "#FACC15"),
+    (1.00, "#F97316"),
 ]
+
+APP_BG = "#0B1220"
+SIDEBAR_BG = "#111827"
+PANEL_BG = "#0F172A"
+PANEL_BG_SOFT = "#162033"
+BORDER = "#243145"
+BORDER_STRONG = "#334155"
+TEXT_PRIMARY = "#F8FAFC"
+TEXT_SECONDARY = "#D0D8E4"
+TEXT_MUTED = "#94A3B8"
+GRID_COLOR = "rgba(208, 216, 228, 0.10)"
+GRID_COLOR_SOFT = "rgba(208, 216, 228, 0.06)"
+MAP_LABEL_COLOR = "rgba(208, 216, 228, 0.62)"
+LEGEND_BG = "rgba(15, 23, 42, 0.88)"
+HOVER_BG = "#162033"
 
 EUROPE_DEFAULT_COUNTRIES = [
     "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Czechia",
@@ -605,61 +653,61 @@ VALUE_CHAIN_ORDER = [
     "Unspecified",
 ]
 STAGE_COLORS = {
-    "Resources & feedstock": "rgba(79, 124, 172, 0.78)",
-    "Components & core technology": "rgba(91, 192, 235, 0.82)",
-    "Systems & infrastructure": "rgba(99, 179, 165, 0.80)",
-    "Deployment & operations": "rgba(123, 196, 127, 0.78)",
-    "End-use & market": "rgba(167, 199, 231, 0.88)",
-    "Research & concept": "rgba(102, 112, 133, 0.72)",
-    "Unspecified": "rgba(152, 162, 179, 0.60)",
+    "Resources & feedstock": "rgba(37, 99, 235, 0.82)",
+    "Components & core technology": "rgba(34, 211, 238, 0.84)",
+    "Systems & infrastructure": "rgba(20, 184, 166, 0.82)",
+    "Deployment & operations": "rgba(34, 197, 94, 0.82)",
+    "End-use & market": "rgba(249, 115, 22, 0.84)",
+    "Research & concept": "rgba(251, 113, 133, 0.76)",
+    "Unspecified": "rgba(148, 163, 184, 0.56)",
 }
 
-pio.templates["totale_light"] = go.layout.Template(
+pio.templates["totale_dark"] = go.layout.Template(
     layout=go.Layout(
-        font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color="#1F2937"),
-        title=dict(font=dict(size=18, color="#1F2937")),
-        paper_bgcolor="#FFFFFF",
-        plot_bgcolor="#FFFFFF",
+        font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color=TEXT_PRIMARY),
+        title=dict(font=dict(size=18, color=TEXT_PRIMARY)),
+        paper_bgcolor=PANEL_BG,
+        plot_bgcolor=PANEL_BG,
         colorway=TOTALE_COLORWAY,
         hoverlabel=dict(
-            bgcolor="#FFFFFF",
-            bordercolor="#D0D5DD",
-            font=dict(color="#1F2937"),
+            bgcolor=HOVER_BG,
+            bordercolor=BORDER,
+            font=dict(color=TEXT_PRIMARY),
         ),
         legend=dict(
-            bgcolor="rgba(255,255,255,0.88)",
-            bordercolor="#D0D5DD",
+            bgcolor=LEGEND_BG,
+            bordercolor=BORDER,
             borderwidth=1,
-            font=dict(color="#475467"),
+            font=dict(color=TEXT_SECONDARY),
         ),
         margin=dict(l=36, r=24, t=42, b=36),
         bargap=0.18,
         xaxis=dict(
             showline=True,
-            linecolor="#D0D5DD",
-            gridcolor="#EAECF0",
-            zerolinecolor="#D0D5DD",
-            tickfont=dict(color="#475467"),
-            title=dict(font=dict(color="#475467")),
+            linecolor=BORDER,
+            gridcolor=GRID_COLOR,
+            zerolinecolor=BORDER,
+            tickfont=dict(color=TEXT_SECONDARY),
+            title=dict(font=dict(color=TEXT_SECONDARY)),
         ),
         yaxis=dict(
             showline=False,
-            gridcolor="#EAECF0",
-            zerolinecolor="#D0D5DD",
-            tickfont=dict(color="#475467"),
-            title=dict(font=dict(color="#475467")),
+            gridcolor=GRID_COLOR,
+            zerolinecolor=BORDER,
+            tickfont=dict(color=TEXT_SECONDARY),
+            title=dict(font=dict(color=TEXT_SECONDARY)),
         ),
         coloraxis=dict(
             colorbar=dict(
-                outlinecolor="#D0D5DD",
-                tickcolor="#667085",
-                bgcolor="rgba(255,255,255,0.88)",
-                title=dict(font=dict(color="#475467")),
+                outlinecolor=BORDER,
+                tickcolor=TEXT_MUTED,
+                bgcolor=LEGEND_BG,
+                title=dict(font=dict(color=TEXT_SECONDARY)),
             )
         ),
     )
 )
-pio.templates.default = "totale_light"
+pio.templates.default = "totale_dark"
 px.defaults.color_discrete_sequence = TOTALE_COLORWAY
 
 
@@ -2960,11 +3008,11 @@ with tab_results:
                     )
                     fig_year_budget.update_layout(
                         coloraxis_showscale=False,
-                        paper_bgcolor="#FFFFFF",
-                        plot_bgcolor="#FFFFFF",
-                        font=dict(color="#1F2937"),
-                        xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
-                        yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                        paper_bgcolor=PANEL_BG,
+                        plot_bgcolor=PANEL_BG,
+                        font=dict(color=TEXT_PRIMARY),
+                        xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                        yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                     )
                     st.plotly_chart(fig_year_budget, use_container_width=True)
                 with c2:
@@ -2978,11 +3026,11 @@ with tab_results:
                         labels={"n_projects": t(lang, "n_projects"), "year": "Year"},
                     )
                     fig_year_projects.update_layout(
-                        paper_bgcolor="#FFFFFF",
-                        plot_bgcolor="#FFFFFF",
-                        font=dict(color="#1F2937"),
-                        xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
-                        yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                        paper_bgcolor=PANEL_BG,
+                        plot_bgcolor=PANEL_BG,
+                        font=dict(color=TEXT_PRIMARY),
+                        xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                        yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                     )
                     st.plotly_chart(fig_year_projects, use_container_width=True)
 
@@ -3026,19 +3074,19 @@ with tab_results:
                     projection_type="natural earth",
                     showframe=False,
                     showland=True,
-                    landcolor="#F8FBFD",
+                    landcolor=PANEL_BG_SOFT,
                     showcountries=True,
-                    countrycolor="#D9E2EC",
+                    countrycolor=BORDER,
                     showcoastlines=True,
-                    coastlinecolor="#D9E2EC",
-                    bgcolor="#FFFFFF",
+                    coastlinecolor=BORDER,
+                    bgcolor=APP_BG,
                 )
                 fig_results_map.update_layout(
-                    coloraxis_colorbar=dict(title=color_title, len=0.7),
+                    coloraxis_colorbar=dict(title=color_title, len=0.7, bgcolor=LEGEND_BG, outlinecolor=BORDER, tickcolor=TEXT_MUTED),
                     margin=dict(l=0, r=0, t=0, b=0),
-                    paper_bgcolor="#FFFFFF",
-                    plot_bgcolor="#FFFFFF",
-                    font=dict(color="#1F2937"),
+                    paper_bgcolor=PANEL_BG,
+                    plot_bgcolor=PANEL_BG,
+                    font=dict(color=TEXT_PRIMARY),
                 )
                 st.plotly_chart(fig_results_map, use_container_width=True)
 
@@ -3097,11 +3145,11 @@ with tab_results:
                 fig_actors.update_layout(
                     coloraxis_showscale=False,
                     yaxis_title=None,
-                    paper_bgcolor="#FFFFFF",
-                    plot_bgcolor="#FFFFFF",
-                    font=dict(color="#1F2937"),
-                    xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
-                    yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                    paper_bgcolor=PANEL_BG,
+                    plot_bgcolor=PANEL_BG,
+                    font=dict(color=TEXT_PRIMARY),
+                    xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                    yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                 )
                 st.plotly_chart(fig_actors, use_container_width=True)
 
@@ -3486,22 +3534,22 @@ with tab_geo:
         geo_kwargs = dict(
             projection_type=projection,
             showframe=False,
-            bgcolor="#FFFFFF",
+            bgcolor=APP_BG,
             showland=True,
-            landcolor="#F8FBFD",
+            landcolor=PANEL_BG_SOFT,
             showocean=True,
-            oceancolor="#EEF4FB",
+            oceancolor=APP_BG,
             showlakes=True,
-            lakecolor="#EEF4FB",
+            lakecolor=APP_BG,
         )
         if show_borders:
             geo_kwargs.update(
                 dict(
                     showcoastlines=True,
-                    coastlinecolor="#D7DFE8",
+                    coastlinecolor=BORDER_STRONG,
                     coastlinewidth=0.8,
                     showcountries=True,
-                    countrycolor="#D7DFE8",
+                    countrycolor=BORDER_STRONG,
                     countrywidth=0.7,
                 )
             )
@@ -3542,7 +3590,7 @@ with tab_geo:
                     lat=[x[2] for x in labels],
                     text=[x[0] for x in labels],
                     mode="text",
-                    textfont=dict(size=12, color="rgba(102,112,133,0.68)"),
+                    textfont=dict(size=12, color=MAP_LABEL_COLOR),
                     showlegend=False,
                     hoverinfo="skip",
                 )
@@ -3550,10 +3598,10 @@ with tab_geo:
 
         fig_map.update_layout(
             margin=dict(l=0, r=0, t=0, b=0),
-            coloraxis_colorbar=dict(title=color_title, len=0.7),
-            paper_bgcolor="#FFFFFF",
-            plot_bgcolor="#FFFFFF",
-            font=dict(color="#1F2937"),
+            coloraxis_colorbar=dict(title=color_title, len=0.7, bgcolor=LEGEND_BG, outlinecolor=BORDER, tickcolor=TEXT_MUTED),
+            paper_bgcolor=PANEL_BG,
+            plot_bgcolor=PANEL_BG,
+            font=dict(color=TEXT_PRIMARY),
         )
         st.plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
 
@@ -3812,12 +3860,12 @@ with tab_comp:
                 marker=dict(line=dict(width=1, color="rgba(24,36,51,0.08)")),
             )
             fig1.update_layout(
-                paper_bgcolor="#FFFFFF",
-                plot_bgcolor="#FFFFFF",
-                font=dict(color="#1F2937"),
-                legend=dict(bgcolor="rgba(255,255,255,0.92)", bordercolor="#D9E2EC"),
-                xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
-                yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                paper_bgcolor=PANEL_BG,
+                plot_bgcolor=PANEL_BG,
+                font=dict(color=TEXT_PRIMARY),
+                legend=dict(bgcolor=LEGEND_BG, bordercolor=BORDER),
+                xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
             )
             st.plotly_chart(fig1, use_container_width=True)
             st.caption(t(lang, "legend_tip"))
@@ -3907,22 +3955,22 @@ with tab_comp:
                     height=720,
                 )
                 fig_tree.update_traces(
-                    marker=dict(line=dict(width=0.8, color="#D9E2EC")),
+                    marker=dict(line=dict(width=0.8, color="rgba(52, 65, 86, 0.88)")),
                     customdata=np.stack([agg["budget_str"]], axis=-1),
                     hovertemplate="<b>%{label}</b><br>Budget: %{customdata[0]}<br>%{percentEntry:.1%} of parent<extra></extra>",
                     texttemplate="%{label}<br>%{percentEntry:.0%}",
-                    textfont=dict(color="#1F2937", size=14),
-                    insidetextfont=dict(color="#1F2937", size=14),
-                    outsidetextfont=dict(color="#1F2937", size=13),
-                    pathbar=dict(textfont=dict(color="#1F2937", size=13)),
+                    textfont=dict(color=TEXT_PRIMARY, size=14),
+                    insidetextfont=dict(color=TEXT_PRIMARY, size=14),
+                    outsidetextfont=dict(color=TEXT_PRIMARY, size=13),
+                    pathbar=dict(textfont=dict(color=TEXT_PRIMARY, size=13)),
                 )
                 fig_tree.update_layout(
                     margin=dict(l=0, r=0, t=0, b=0),
                     uniformtext=dict(minsize=13, mode="hide"),
                     coloraxis_showscale=False,
-                    font=dict(color="#1F2937"),
-                    paper_bgcolor="#FFFFFF",
-                    plot_bgcolor="#FFFFFF",
+                    font=dict(color=TEXT_PRIMARY),
+                    paper_bgcolor=PANEL_BG,
+                    plot_bgcolor=PANEL_BG,
                 )
                 st.plotly_chart(fig_tree, use_container_width=True)
 
@@ -4328,7 +4376,7 @@ with tab_macro:
                         yr = int(r["year"])
                         if yr not in valid_years:
                             continue
-                        fig.add_vline(x=yr, line_width=1, line_dash="dot", opacity=0.40, line_color="rgba(79,124,172,0.42)")
+                        fig.add_vline(x=yr, line_width=1, line_dash="dot", opacity=0.40, line_color="rgba(34, 211, 238, 0.34)")
                         if show_event_labels and yr not in shown_years:
                             title_short = str(r.get("title", "")).strip()
                             if len(title_short) > 22:
@@ -4340,7 +4388,7 @@ with tab_macro:
                                 text=title_short,
                                 showarrow=False,
                                 textangle=-30,
-                                font=dict(size=10, color="#475467"),
+                                font=dict(size=10, color=TEXT_SECONDARY),
                                 xanchor="left",
                             )
                             shown_years.add(yr)
@@ -4628,7 +4676,7 @@ with tab_actor:
                     y="theme_display",
                     orientation="h",
                     height=420,
-                    color_discrete_sequence=["rgba(79,124,172,0.92)"],
+                    color_discrete_sequence=["rgba(37,99,235,0.92)"],
                     labels={"budget_eur": "Budget (€)", "theme_display": ""},
                 )
             else:
@@ -5103,37 +5151,37 @@ with tab_value_chain:
                                     links["actor_label"].astype(str).tolist(),
                                 ):
                                     if not stage_focus_on and not actor_focus_on:
-                                        link_colors.append(STAGE_COLORS.get(stg, "rgba(170,170,170,0.55)"))
+                                        link_colors.append(STAGE_COLORS.get(stg, "rgba(148,163,184,0.34)"))
                                     else:
                                         is_stage = stage_focus_on and (stg == str(stage_highlight))
                                         is_actor = actor_focus_on and (act == str(actor_highlight))
                                         if is_stage and is_actor:
-                                            link_colors.append("rgba(91,192,235,0.92)")
+                                            link_colors.append("rgba(34,211,238,0.94)")
                                         elif is_stage:
-                                            link_colors.append("rgba(91,192,235,0.82)")
+                                            link_colors.append("rgba(34,211,238,0.82)")
                                         elif is_actor:
-                                            link_colors.append("rgba(79,124,172,0.82)")
+                                            link_colors.append("rgba(37,99,235,0.82)")
                                         else:
-                                            link_colors.append("rgba(170,170,170,0.14)")
+                                            link_colors.append("rgba(148,163,184,0.10)")
 
                                 node_colors: List[str] = []
                                 for label in node_labels:
                                     if label in stage_order:
                                         if not stage_focus_on and not actor_focus_on:
-                                            node_colors.append(STAGE_COLORS.get(label, "rgba(170,170,170,0.65)"))
+                                            node_colors.append(STAGE_COLORS.get(label, "rgba(148,163,184,0.42)"))
                                         elif stage_focus_on and (label == str(stage_highlight)):
-                                            node_colors.append("rgba(91,192,235,0.92)")
+                                            node_colors.append("rgba(34,211,238,0.94)")
                                         else:
-                                            node_colors.append("rgba(170,170,170,0.28)")
+                                            node_colors.append("rgba(148,163,184,0.18)")
                                     else:
                                         if not stage_focus_on and not actor_focus_on:
-                                            node_colors.append("rgba(79,124,172,0.78)")
+                                            node_colors.append("rgba(37,99,235,0.78)")
                                         elif actor_focus_on and (str(label) == str(actor_highlight)):
-                                            node_colors.append("rgba(79,124,172,0.92)")
+                                            node_colors.append("rgba(37,99,235,0.94)")
                                         elif stage_focus_on and (str(label) in connected_actors):
-                                            node_colors.append("rgba(79,124,172,0.86)")
+                                            node_colors.append("rgba(37,99,235,0.84)")
                                         else:
-                                            node_colors.append("rgba(79,124,172,0.20)")
+                                            node_colors.append("rgba(37,99,235,0.18)")
 
                                 fig_sankey = go.Figure(
                                     data=[
@@ -5141,7 +5189,7 @@ with tab_value_chain:
                                             node=dict(
                                                 pad=14,
                                                 thickness=14,
-                                                line=dict(color="rgba(207,216,227,0.95)", width=0.7),
+                                                line=dict(color="rgba(52,65,86,0.92)", width=0.7),
                                                 label=node_labels,
                                                 color=node_colors,
                                             ),
@@ -5152,9 +5200,9 @@ with tab_value_chain:
                                 fig_sankey.update_layout(
                                     height=620,
                                     margin=dict(l=10, r=10, t=20, b=10),
-                                    paper_bgcolor="#FFFFFF",
-                                    plot_bgcolor="#FFFFFF",
-                                    font=dict(color="#475467"),
+                                    paper_bgcolor=PANEL_BG,
+                                    plot_bgcolor=PANEL_BG,
+                                    font=dict(color=TEXT_SECONDARY),
                                 )
                                 if HAS_PLOTLY_EVENTS and plotly_events is not None:
                                     clicked = plotly_events(
@@ -5344,9 +5392,9 @@ with tab_collaboration:
                     w = 1.0 + 3.5 * (float(r["shared_projects"]) / max_shared)
                     is_focus = bool(focus_partner_id) and (str(r["actor_id"]) == str(focus_partner_id))
                     line_color = (
-                        "rgba(91,192,235,0.90)"
+                        "rgba(34,211,238,0.90)"
                         if is_focus
-                        else ("rgba(79,124,172,0.42)" if not focus_partner_id else "rgba(79,124,172,0.16)")
+                        else ("rgba(37,99,235,0.36)" if not focus_partner_id else "rgba(37,99,235,0.14)")
                     )
                     fig_net.add_trace(
                         go.Scatter(
@@ -5364,17 +5412,17 @@ with tab_collaboration:
                 for aid in partners_view["actor_id"].astype(str).tolist():
                     is_focus = bool(focus_partner_id) and (aid == str(focus_partner_id))
                     if is_focus:
-                        partner_colors.append("rgba(91,192,235,0.94)")
+                        partner_colors.append("rgba(34,211,238,0.94)")
                     elif focus_partner_id:
-                        partner_colors.append("rgba(79,124,172,0.26)")
+                        partner_colors.append("rgba(37,99,235,0.24)")
                     else:
-                        partner_colors.append("rgba(79,124,172,0.82)")
+                        partner_colors.append("rgba(37,99,235,0.78)")
                 fig_net.add_trace(
                     go.Scatter(
                         x=[0.0],
                         y=[0.0],
                         mode="markers+text",
-                        marker=dict(size=34, color="rgba(79,124,172,0.90)", line=dict(width=1, color="rgba(217,226,236,0.95)")),
+                        marker=dict(size=34, color="rgba(20,184,166,0.90)", line=dict(width=1, color="rgba(52,65,86,0.95)")),
                         text=[focal_label[:44]],
                         textposition="bottom center",
                         hovertemplate=f"<b>{focal_label}</b><extra></extra>",
@@ -5386,7 +5434,7 @@ with tab_collaboration:
                         x=rx,
                         y=ry,
                         mode="markers+text",
-                        marker=dict(size=partner_size, color=partner_colors, line=dict(width=0.8, color="rgba(217,226,236,0.90)")),
+                        marker=dict(size=partner_size, color=partner_colors, line=dict(width=0.8, color="rgba(52,65,86,0.88)")),
                         text=[str(x)[:34] for x in partners_view["actor_label"].astype(str).tolist()],
                         textposition="top center",
                         customdata=np.stack(
@@ -5405,9 +5453,9 @@ with tab_collaboration:
                     xaxis=dict(visible=False),
                     yaxis=dict(visible=False, scaleanchor="x", scaleratio=1),
                     margin=dict(l=10, r=10, t=10, b=10),
-                    paper_bgcolor="#FFFFFF",
-                    plot_bgcolor="#FFFFFF",
-                    font=dict(color="#475467"),
+                    paper_bgcolor=PANEL_BG,
+                    plot_bgcolor=PANEL_BG,
+                    font=dict(color=TEXT_SECONDARY),
                 )
                 st.plotly_chart(fig_net, use_container_width=True)
 
@@ -5442,7 +5490,7 @@ with tab_concentration:
                 x=conc["actor_label"],
                 y=conc["b"],
                 name=t(lang, "concentration_budget"),
-                marker=dict(color="rgba(79,124,172,0.74)", line=dict(color="rgba(217,226,236,0.88)", width=0.8)),
+                marker=dict(color="rgba(37,99,235,0.74)", line=dict(color="rgba(52,65,86,0.88)", width=0.8)),
                 customdata=np.stack([conc["budget_str"]], axis=-1),
                 hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<extra></extra>",
             )
@@ -5454,21 +5502,21 @@ with tab_concentration:
                 yaxis="y2",
                 mode="lines+markers",
                 name=t(lang, "concentration_cum"),
-                line=dict(color="rgba(123,196,127,0.96)", width=2.4),
-                marker=dict(size=6, color="rgba(123,196,127,0.96)"),
+                line=dict(color="rgba(34,197,94,0.96)", width=2.4),
+                marker=dict(size=6, color="rgba(34,197,94,0.96)"),
                 hovertemplate="<b>%{x}</b><br>Cumulative: %{y:.1f}%<extra></extra>",
             )
         )
         fig_p.update_layout(
             height=460,
             xaxis=dict(title="", tickangle=-35),
-            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="#EAECF0"),
+            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor=GRID_COLOR),
             yaxis2=dict(title=t(lang, "concentration_cum"), overlaying="y", side="right", range=[0, 100]),
             legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
             margin=dict(l=20, r=20, t=20, b=80),
-            paper_bgcolor="#FFFFFF",
-            plot_bgcolor="#FFFFFF",
-            font=dict(color="#1F2937"),
+            paper_bgcolor=PANEL_BG,
+            plot_bgcolor=PANEL_BG,
+            font=dict(color=TEXT_PRIMARY),
         )
         st.plotly_chart(fig_p, use_container_width=True)
         st.caption(t(lang, "concentration_caption"))
