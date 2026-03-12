@@ -396,6 +396,18 @@ st.markdown(
     border-color: var(--sir-blue) !important;
   }
 
+  .stSlider [data-baseweb="slider"] [role="slider"] > div {
+    background: var(--sir-blue) !important;
+  }
+
+  .stSlider [data-baseweb="slider"] > div > div {
+    background: rgba(148, 163, 184, 0.18) !important;
+  }
+
+  .stSlider [data-baseweb="slider"] > div > div > div {
+    background: linear-gradient(90deg, var(--sir-blue), var(--sir-cyan)) !important;
+  }
+
   details[data-testid="stExpander"] {
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
@@ -745,7 +757,7 @@ TEXT_SECONDARY = "#D0D8E4"
 TEXT_MUTED = "#94A3B8"
 GRID_COLOR = "rgba(208, 216, 228, 0.10)"
 GRID_COLOR_SOFT = "rgba(208, 216, 228, 0.06)"
-MAP_LABEL_COLOR = "rgba(208, 216, 228, 0.62)"
+MAP_LABEL_COLOR = "rgba(208, 216, 228, 0.52)"
 LEGEND_BG = "rgba(15, 23, 42, 0.88)"
 HOVER_BG = "#162033"
 
@@ -1686,6 +1698,11 @@ def render_section_header(icon: str, title: str, desc: str = "", eyebrow: str = 
         ),
         unsafe_allow_html=True,
     )
+
+
+def render_plotly_chart(fig: go.Figure, **kwargs):
+    kwargs.setdefault("theme", None)
+    return st.__dict__["plotly_chart"](fig, **kwargs)
 
 
 def _fmt_mtime(p: Path) -> str:
@@ -3174,7 +3191,7 @@ with tab_results:
                         xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                         yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                     )
-                    st.plotly_chart(fig_year_budget, use_container_width=True)
+                    render_plotly_chart(fig_year_budget, use_container_width=True)
                 with c2:
                     st.markdown("#### " + t(lang, "results_projects_year"))
                     fig_year_projects = px.line(
@@ -3192,7 +3209,7 @@ with tab_results:
                         xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                         yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                     )
-                    st.plotly_chart(fig_year_projects, use_container_width=True)
+                    render_plotly_chart(fig_year_projects, use_container_width=True)
 
         elif results_view == t(lang, "results_map"):
             geo_res = fetch_df(f"""
@@ -3229,26 +3246,41 @@ with tab_results:
                     height=520,
                     labels={color_col: color_title},
                 )
+                fig_results_map.update_traces(
+                    marker_line_color="rgba(208, 216, 228, 0.22)",
+                    marker_line_width=0.7,
+                )
                 fig_results_map.update_geos(
                     scope="europe",
                     projection_type="natural earth",
                     showframe=False,
                     showland=True,
-                    landcolor=PANEL_BG_SOFT,
+                    landcolor="#18263D",
                     showcountries=True,
-                    countrycolor=BORDER,
+                    countrycolor="rgba(208, 216, 228, 0.18)",
                     showcoastlines=True,
-                    coastlinecolor=BORDER,
-                    bgcolor=APP_BG,
+                    coastlinecolor="rgba(208, 216, 228, 0.16)",
+                    showocean=True,
+                    oceancolor=APP_BG,
+                    showlakes=True,
+                    lakecolor=APP_BG,
+                    bgcolor=PANEL_BG,
                 )
                 fig_results_map.update_layout(
-                    coloraxis_colorbar=dict(title=color_title, len=0.7, bgcolor=LEGEND_BG, outlinecolor=BORDER, tickcolor=TEXT_MUTED),
+                    coloraxis_colorbar=dict(
+                        title=color_title,
+                        len=0.7,
+                        bgcolor=LEGEND_BG,
+                        outlinecolor=BORDER,
+                        tickcolor=TEXT_MUTED,
+                        tickfont=dict(color=TEXT_SECONDARY),
+                    ),
                     margin=dict(l=0, r=0, t=0, b=0),
                     paper_bgcolor=PANEL_BG,
                     plot_bgcolor=PANEL_BG,
                     font=dict(color=TEXT_PRIMARY),
                 )
-                st.plotly_chart(fig_results_map, use_container_width=True)
+                render_plotly_chart(fig_results_map, use_container_width=True)
 
                 st.markdown("#### " + t(lang, "results_country_rank"))
                 rank_geo = geo_res[geo_res[color_col].notna()].sort_values(color_col, ascending=False).head(15).copy()
@@ -3311,7 +3343,7 @@ with tab_results:
                     xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                     yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                 )
-                st.plotly_chart(fig_actors, use_container_width=True)
+                render_plotly_chart(fig_actors, use_container_width=True)
 
                 actor_tbl = res_actors.copy()
                 actor_tbl["budget_eur"] = actor_tbl["budget_eur"].map(lambda x: fmt_money(float(x), lang))
@@ -3363,7 +3395,7 @@ with tab_overview:
             hovertemplate="<b>%{y}</b><br>Budget: %{customdata[0]}<extra></extra>",
         )
         fig_alloc.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
-        st.plotly_chart(fig_alloc, use_container_width=True)
+        render_plotly_chart(fig_alloc, use_container_width=True)
 
     status_mix = fetch_df(f"""
     SELECT
@@ -3391,7 +3423,7 @@ with tab_overview:
                 labels={"budget_eur": "Budget (€)", "status_display": ""},
             )
             fig_status_budget.update_layout(coloraxis_showscale=False, yaxis_title=None)
-            st.plotly_chart(fig_status_budget, use_container_width=True)
+            render_plotly_chart(fig_status_budget, use_container_width=True)
         with s2:
             st.markdown("### " + t(lang, "status_projects_title"))
             fig_status_projects = px.bar(
@@ -3405,7 +3437,7 @@ with tab_overview:
                 labels={"n_projects": t(lang, "n_projects"), "status_display": ""},
             )
             fig_status_projects.update_layout(coloraxis_showscale=False, yaxis_title=None)
-            st.plotly_chart(fig_status_projects, use_container_width=True)
+            render_plotly_chart(fig_status_projects, use_container_width=True)
 
     st.divider()
     st.markdown("### " + t(lang, "insights_title"))
@@ -3533,7 +3565,7 @@ with tab_overview:
                 coloraxis_showscale=False,
                 margin=dict(l=20, r=20, t=10, b=10),
             )
-            st.plotly_chart(fig_budget, use_container_width=True)
+            render_plotly_chart(fig_budget, use_container_width=True)
 
             fig_median = px.bar(
                 yearly_ticket,
@@ -3559,7 +3591,7 @@ with tab_overview:
                 coloraxis_showscale=False,
                 margin=dict(l=20, r=20, t=10, b=10),
             )
-            st.plotly_chart(fig_median, use_container_width=True)
+            render_plotly_chart(fig_median, use_container_width=True)
             st.caption(t(lang, "ticket_shape_caption"))
 
 
@@ -3688,14 +3720,16 @@ with tab_geo:
                 "<br>Budget / M hab.: %{customdata[1]}"
                 "<extra></extra>"
             ),
+            marker_line_color="rgba(208, 216, 228, 0.22)",
+            marker_line_width=0.75,
         )
 
         geo_kwargs = dict(
             projection_type=projection,
             showframe=False,
-            bgcolor=APP_BG,
+            bgcolor=PANEL_BG,
             showland=True,
-            landcolor=PANEL_BG_SOFT,
+            landcolor="#18263D",
             showocean=True,
             oceancolor=APP_BG,
             showlakes=True,
@@ -3705,11 +3739,11 @@ with tab_geo:
             geo_kwargs.update(
                 dict(
                     showcoastlines=True,
-                    coastlinecolor=BORDER_STRONG,
+                    coastlinecolor="rgba(208, 216, 228, 0.20)",
                     coastlinewidth=0.8,
                     showcountries=True,
-                    countrycolor=BORDER_STRONG,
-                    countrywidth=0.7,
+                    countrycolor="rgba(208, 216, 228, 0.22)",
+                    countrywidth=0.75,
                 )
             )
         fig_map.update_geos(**geo_kwargs)
@@ -3757,12 +3791,19 @@ with tab_geo:
 
         fig_map.update_layout(
             margin=dict(l=0, r=0, t=0, b=0),
-            coloraxis_colorbar=dict(title=color_title, len=0.7, bgcolor=LEGEND_BG, outlinecolor=BORDER, tickcolor=TEXT_MUTED),
+            coloraxis_colorbar=dict(
+                title=color_title,
+                len=0.7,
+                bgcolor=LEGEND_BG,
+                outlinecolor=BORDER,
+                tickcolor=TEXT_MUTED,
+                tickfont=dict(color=TEXT_SECONDARY),
+            ),
             paper_bgcolor=PANEL_BG,
             plot_bgcolor=PANEL_BG,
             font=dict(color=TEXT_PRIMARY),
         )
-        st.plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
+        render_plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
 
         st.markdown(f"#### {t(lang, 'top_countries')}")
         top_c = geo_rank.head(15).copy()
@@ -3794,7 +3835,7 @@ with tab_geo:
                 ),
             )
             fig_bar.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
-            st.plotly_chart(fig_bar, use_container_width=True)
+            render_plotly_chart(fig_bar, use_container_width=True)
 
         if selected_country:
             country_sql = in_list([selected_country])
@@ -3857,7 +3898,7 @@ with tab_geo:
                         labels={"budget_eur": "Budget (€)", "actor_label": ""},
                     )
                     fig_country_actors.update_layout(coloraxis_showscale=False, yaxis_title=None)
-                    st.plotly_chart(fig_country_actors, use_container_width=True)
+                    render_plotly_chart(fig_country_actors, use_container_width=True)
             with d2:
                 st.markdown(f"##### {t(lang, 'geo_country_themes')}")
                 if country_themes.empty:
@@ -3875,7 +3916,7 @@ with tab_geo:
                         labels={"budget_eur": "Budget (€)", "theme_display": ""},
                     )
                     fig_country_themes.update_layout(coloraxis_showscale=False, yaxis_title=None)
-                    st.plotly_chart(fig_country_themes, use_container_width=True)
+                    render_plotly_chart(fig_country_themes, use_container_width=True)
 
             st.markdown(f"##### {t(lang, 'geo_country_projects')}")
             if country_projects.empty:
@@ -4026,7 +4067,7 @@ with tab_comp:
                 xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
                 yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
             )
-            st.plotly_chart(fig1, use_container_width=True)
+            render_plotly_chart(fig1, use_container_width=True)
             st.caption(t(lang, "legend_tip"))
 
     elif bm_view == t(lang, "bm_treemap"):
@@ -4131,7 +4172,7 @@ with tab_comp:
                     paper_bgcolor=PANEL_BG,
                     plot_bgcolor=PANEL_BG,
                 )
-                st.plotly_chart(fig_tree, use_container_width=True)
+                render_plotly_chart(fig_tree, use_container_width=True)
 
     else:
         st.subheader(t(lang, "bm_top"))
@@ -4163,7 +4204,7 @@ with tab_comp:
             )
             fig_overall.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
             st.markdown(f"#### {t(lang, 'bm_overall_rank')}")
-            st.plotly_chart(fig_overall, use_container_width=True)
+            render_plotly_chart(fig_overall, use_container_width=True)
 
             st.dataframe(
                 bm_table[["rank", "actor_label", "entity_display", "country_name2", "n_projects", "budget_str", "ticket_str"]].rename(
@@ -4262,7 +4303,7 @@ with tab_trends:
                 customdata=np.stack([tdf["value"].apply(hover)], axis=-1),
                 hovertemplate="<b>%{fullData.name}</b><br>%{x}<br>%{customdata[0]}<extra></extra>",
             )
-            st.plotly_chart(fig_area, use_container_width=True)
+            render_plotly_chart(fig_area, use_container_width=True)
 
             st.divider()
             st.markdown(f"#### {t(lang, 'drivers')}")
@@ -4282,7 +4323,7 @@ with tab_trends:
                 hovertemplate="<b>%{y}</b><br>Budget: %{customdata[0]}<extra></extra>",
             )
             fig_drv.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
-            st.plotly_chart(fig_drv, use_container_width=True)
+            render_plotly_chart(fig_drv, use_container_width=True)
 
 
 # ============================================================
@@ -4360,7 +4401,7 @@ with tab_compare:
         height=680,
         labels={"x": "Δ (points de %)" if lang == "FR" else "Δ (pp)", "y": ""},
     )
-    st.plotly_chart(fig, use_container_width=True)
+    render_plotly_chart(fig, use_container_width=True)
 
     table = view.head(60).copy()
     table["Part A (%)" if lang == "FR" else "Share A (%)"] = table["s_A"].map(lambda x: f"{100*x:.1f}%")
@@ -4551,7 +4592,7 @@ with tab_macro:
                             )
                             shown_years.add(yr)
 
-                st.plotly_chart(fig, use_container_width=True)
+                render_plotly_chart(fig, use_container_width=True)
 
                 st.divider()
                 st.markdown("#### " + t(lang, "macro_events"))
@@ -4818,11 +4859,11 @@ with tab_actor:
             c1, c2 = st.columns(2)
             with c1:
                 figb = px.bar(byy, x="year", y="budget_eur", height=360, labels={"budget_eur": "Budget (€)"})
-                st.plotly_chart(figb, use_container_width=True)
+                render_plotly_chart(figb, use_container_width=True)
             with c2:
                 fign = px.line(byy, x="year", y="n_projects", markers=True, height=360,
                                labels={"n_projects": "Projets" if lang == "FR" else "Projects"})
-                st.plotly_chart(fign, use_container_width=True)
+                render_plotly_chart(fign, use_container_width=True)
 
             st.divider()
             st.markdown(f"#### {t(lang, 'actor_mix_theme')}")
@@ -4848,7 +4889,7 @@ with tab_actor:
                     labels={"budget_eur": "Budget (€)", "theme_display": ""},
                 )
                 figt.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(figt, use_container_width=True)
+            render_plotly_chart(figt, use_container_width=True)
 
             st.markdown(f"#### {t(lang, 'actor_mix_country')}")
             if mix_c.empty:
@@ -4879,7 +4920,7 @@ with tab_actor:
                     labels={"budget_eur": "Budget (€)", "country_name": ""},
                 )
                 figc.update_layout(coloraxis_showscale=False)
-                st.plotly_chart(figc, use_container_width=True)
+                render_plotly_chart(figc, use_container_width=True)
 
         with actor_partners_tab:
             st.markdown(f"#### {t(lang, 'actor_partners')}")
@@ -5140,7 +5181,7 @@ with tab_value_chain:
                                     labels={"budget_eur": "Budget (€)", "actor_label": ""},
                                 )
                                 fig_stage.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
-                                st.plotly_chart(fig_stage, use_container_width=True)
+                                render_plotly_chart(fig_stage, use_container_width=True)
 
                                 actor_focus_options = stage_rank["actor_display"].astype(str).tolist()
                                 if actor_focus_options and str(st.session_state.get("vc_actor_focus_select", "")).strip() not in actor_focus_options:
@@ -5384,7 +5425,7 @@ with tab_value_chain:
                                             st.session_state["vc_pending_click"] = {"kind": "actor", "value": label_clicked}
                                             st.rerun()
                                 else:
-                                    st.plotly_chart(fig_sankey, use_container_width=True)
+                                    render_plotly_chart(fig_sankey, use_container_width=True)
                                     st.caption(t(lang, "vc_click_unavailable"))
         else:
             st.info("Sélectionne au moins une thématique." if lang == "FR" else "Select at least one theme.")
@@ -5612,7 +5653,7 @@ with tab_collaboration:
                     plot_bgcolor=PANEL_BG,
                     font=dict(color=TEXT_SECONDARY),
                 )
-                st.plotly_chart(fig_net, use_container_width=True)
+                render_plotly_chart(fig_net, use_container_width=True)
 
 
 # ============================================================
@@ -5673,7 +5714,7 @@ with tab_concentration:
             plot_bgcolor=PANEL_BG,
             font=dict(color=TEXT_PRIMARY),
         )
-        st.plotly_chart(fig_p, use_container_width=True)
+        render_plotly_chart(fig_p, use_container_width=True)
         st.caption(t(lang, "concentration_caption"))
 
 
