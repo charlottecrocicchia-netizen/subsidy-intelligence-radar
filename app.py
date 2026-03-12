@@ -9,6 +9,7 @@ import re
 import os
 import time
 import json
+import html
 
 import numpy as np
 import pandas as pd
@@ -95,6 +96,25 @@ st.markdown(
   div[data-baseweb="tag"] { background: rgba(255,255,255,0.10) !important; }
 
   .stDataFrame { background: rgba(255,255,255,0.02); border-radius: 10px; }
+  .sir-chip-row { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 18px 0; }
+  .sir-chip {
+    display:inline-flex;
+    align-items:center;
+    padding:6px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.14);
+    color:rgba(234,242,255,0.92);
+    font-size:0.88rem;
+    line-height:1.2;
+  }
+  .sir-search-wrap {
+    background: linear-gradient(135deg, rgba(42,83,143,0.22), rgba(17,26,40,0.65));
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 18px;
+    padding: 16px 18px 8px 18px;
+    margin: 10px 0 12px 0;
+  }
 </style>
 """,
     unsafe_allow_html=True,
@@ -216,7 +236,7 @@ I18N: Dict[str, Dict[str, str]] = {
     "FR": {
         "language": "Langue",
         "title": "🛰️ Subsidy Intelligence Radar",
-        "subtitle": "UE (CORDIS) — filtres, benchmarks, géographie, tendances, comparaison, macro & actualités.",
+        "subtitle": "Recherche guidée sur les subventions UE : résultats, acteurs, géographie, tendances et événements.",
         "reset": "🧹 Réinitialiser",
         "refresh": "🔄 Rafraîchir",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
@@ -334,6 +354,38 @@ I18N: Dict[str, Dict[str, str]] = {
         "scope_funders_on": "financeurs inclus",
         "status_budget_title": "Budget par statut projet",
         "status_projects_title": "Projets par statut",
+        "tab_explorer": "🔎 Recherche & résultats",
+        "tab_actors_hub": "🏢 Acteurs",
+        "tab_markets": "🌍 Marchés & géographie",
+        "tab_trends_events": "📈 Tendances & événements",
+        "tab_admin": "🛠️ Admin & méthode",
+        "sub_results": "Résultats",
+        "sub_overview": "Synthèse",
+        "sub_benchmark": "Benchmark",
+        "sub_network": "Chaîne & réseau",
+        "sub_data": "Données",
+        "sub_quality": "Qualité",
+        "results_title": "Résultats du périmètre",
+        "results_caption": "Une requête, plusieurs lectures du même périmètre.",
+        "results_view": "Vue principale",
+        "results_table": "Table projets",
+        "results_trend": "Tendance",
+        "results_map": "Carte",
+        "results_actors": "Acteurs",
+        "main_search_label": "Que veux-tu explorer ?",
+        "main_search_help": "Recherche libre sur acteur, projet, acronyme ou titre",
+        "main_search_placeholder": "Ex. AI Germany, hydrogen France, CNRS batteries",
+        "active_filters": "Filtres actifs",
+        "clear_search": "Effacer la recherche",
+        "no_results_title": "Aucun résultat pour ce périmètre.",
+        "no_results_hint": "Essaie d’élargir le pays, la période ou la thématique.",
+        "no_results_reset": "Réinitialiser les filtres",
+        "results_projects_table": "Projets trouvés",
+        "results_actor_table": "Acteurs dominants",
+        "results_budget_year": "Budget par année",
+        "results_projects_year": "Projets par année",
+        "results_country_rank": "Classement pays",
+        "docs_title": "Aide, guide et méthode",
         "download": "⬇️ Télécharger CSV (filtres actuels)",
         "download_page": "⬇️ Télécharger la page CSV",
         "download_full": "⬇️ Télécharger le CSV complet (filtres actuels)",
@@ -447,7 +499,7 @@ I18N: Dict[str, Dict[str, str]] = {
     "EN": {
         "language": "Language",
         "title": "🛰️ Subsidy Intelligence Radar",
-        "subtitle": "EU (CORDIS) — filters, benchmarks, geography, trends, comparison, macro & news.",
+        "subtitle": "Guided search across EU subsidies: results, actors, geography, trends, and events.",
         "reset": "🧹 Reset",
         "refresh": "🔄 Refresh (rebuild)",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
@@ -565,6 +617,38 @@ I18N: Dict[str, Dict[str, str]] = {
         "scope_funders_on": "funders included",
         "status_budget_title": "Budget by project status",
         "status_projects_title": "Projects by status",
+        "tab_explorer": "🔎 Search & results",
+        "tab_actors_hub": "🏢 Actors",
+        "tab_markets": "🌍 Markets & geography",
+        "tab_trends_events": "📈 Trends & events",
+        "tab_admin": "🛠️ Admin & method",
+        "sub_results": "Results",
+        "sub_overview": "Overview",
+        "sub_benchmark": "Benchmark",
+        "sub_network": "Value chain & network",
+        "sub_data": "Data",
+        "sub_quality": "Quality",
+        "results_title": "Results in scope",
+        "results_caption": "One query, several readings of the same scope.",
+        "results_view": "Primary view",
+        "results_table": "Project table",
+        "results_trend": "Trend",
+        "results_map": "Map",
+        "results_actors": "Actors",
+        "main_search_label": "What do you want to explore?",
+        "main_search_help": "Free search across actor, project, acronym, or title",
+        "main_search_placeholder": "E.g. AI Germany, hydrogen France, CNRS batteries",
+        "active_filters": "Active filters",
+        "clear_search": "Clear search",
+        "no_results_title": "No results for this scope.",
+        "no_results_hint": "Try widening country, time, or theme.",
+        "no_results_reset": "Reset filters",
+        "results_projects_table": "Matching projects",
+        "results_actor_table": "Leading actors",
+        "results_budget_year": "Budget by year",
+        "results_projects_year": "Projects by year",
+        "results_country_rank": "Country ranking",
+        "docs_title": "Help, guide, and method",
         "download": "⬇️ Download CSV (current filters)",
         "download_page": "⬇️ Download page CSV",
         "download_full": "⬇️ Download full CSV (current filters)",
@@ -742,6 +826,68 @@ def sql_contains_expr(column_sql: str, query: str) -> str:
     return f"lower(COALESCE({column_sql}, '')) LIKE '%{safe}%'"
 
 
+def _compact_filter_values(values: List[str], formatter=None, limit: int = 3) -> str:
+    vals = [str(v).strip() for v in values if str(v).strip()]
+    if formatter is not None:
+        vals = [str(formatter(v)) for v in vals]
+    if not vals:
+        return ""
+    if len(vals) <= limit:
+        return ", ".join(vals)
+    return ", ".join(vals[:limit]) + f" +{len(vals) - limit}"
+
+
+def active_filter_labels(meta: dict, lang: str) -> List[str]:
+    labels: List[str] = []
+    q = str(st.session_state.get("f_quick_search", "")).strip()
+    if q:
+        labels.append(f"{t(lang, 'quick_search')}: {q}")
+
+    countries = [x for x in st.session_state.get("f_countries", []) if x in meta.get("countries", [])]
+    if countries and len(countries) < len(meta.get("countries", [])):
+        labels.append(f"{t(lang, 'countries')}: {_compact_filter_values(countries)}")
+
+    themes = [x for x in st.session_state.get("f_themes_raw", []) if x in meta.get("themes", [])]
+    if themes and len(themes) < len(meta.get("themes", [])):
+        labels.append(f"{t(lang, 'themes')}: {_compact_filter_values(themes, lambda x: theme_raw_to_display(x, lang))}")
+
+    entities = [x for x in st.session_state.get("f_entity_raw", []) if x in meta.get("entities", [])]
+    if entities and len(entities) < len(meta.get("entities", [])):
+        labels.append(f"{t(lang, 'entity')}: {_compact_filter_values(entities, lambda x: entity_raw_to_display(x, lang))}")
+
+    statuses = [x for x in st.session_state.get("f_statuses", []) if x in meta.get("statuses", [])]
+    if statuses and len(statuses) < len(meta.get("statuses", [])):
+        labels.append(f"{t(lang, 'project_status')}: {_compact_filter_values(statuses, lambda x: status_raw_to_display(x, lang))}")
+
+    if bool(st.session_state.get("f_onetech_only", False)):
+        labels.append(t(lang, "onetech_only"))
+    if bool(st.session_state.get("f_use_actor_groups", False)):
+        labels.append(t(lang, "actor_grouping"))
+    if bool(st.session_state.get("f_exclude_funders", False)):
+        labels.append(t(lang, "exclude_funders"))
+    return labels
+
+
+def render_active_filter_chips(meta: dict, lang: str) -> None:
+    labels = active_filter_labels(meta, lang)
+    if not labels:
+        return
+    chips = "".join(
+        f"<span class='sir-chip'>{html.escape(label)}</span>"
+        for label in labels
+    )
+    st.markdown(
+        f"<div><strong>{html.escape(t(lang, 'active_filters'))}</strong></div><div class='sir-chip-row'>{chips}</div>",
+        unsafe_allow_html=True,
+    )
+
+
+def render_empty_state(lang: str) -> None:
+    st.warning(t(lang, "no_results_title"))
+    st.caption(t(lang, "no_results_hint"))
+    st.button(t(lang, "no_results_reset"), key="empty_state_reset", on_click=reset_filters)
+
+
 def _fmt_mtime(p: Path) -> str:
     from datetime import datetime
     try:
@@ -821,6 +967,10 @@ def reset_filters() -> None:
     for k in list(st.session_state.keys()):
         if k.startswith("f_") or k.startswith("macro_"):
             del st.session_state[k]
+
+
+def clear_search() -> None:
+    st.session_state["f_quick_search"] = ""
 
 
 # ============================================================
@@ -1627,6 +1777,24 @@ _ensure_filter_state()
 
 
 # ============================================================
+# Main search entry
+# ============================================================
+search_c1, search_c2 = st.columns([6, 1])
+with search_c1:
+    st.text_input(
+        t(lang, "main_search_label"),
+        key="f_quick_search",
+        help=t(lang, "main_search_help"),
+        placeholder=t(lang, "main_search_placeholder"),
+    )
+with search_c2:
+    st.write("")
+    st.write("")
+    st.button(t(lang, "clear_search"), key="clear_search_btn", width="stretch", on_click=clear_search)
+render_active_filter_chips(meta, lang)
+
+
+# ============================================================
 # Sidebar filters (display mapping FR/EN, raw stored)
 # ============================================================
 with st.sidebar:
@@ -1639,22 +1807,8 @@ with st.sidebar:
     eu_default = european_countries_present(meta["countries"])
     ctry_fallback = eu_default if eu_default else meta["countries"]
 
-    st.session_state["f_quick_search"] = st.text_input(
-        t(lang, "quick_search"),
-        value=st.session_state.get("f_quick_search", ""),
-        help=t(lang, "quick_search_hint"),
-    )
-
     with st.expander(t(lang, "basic_filters"), expanded=True):
         st.session_state["f_years"] = st.slider(t(lang, "period"), meta["miny"], meta["maxy"], st.session_state["f_years"])
-        st.session_state["f_statuses"] = st.multiselect(
-            t(lang, "project_status"),
-            meta["statuses"],
-            default=status_default or meta["statuses"],
-            format_func=lambda x: status_raw_to_display(str(x), lang),
-        )
-        st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
-
         themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
         themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
         st.session_state["f_themes_raw"] = st.multiselect(
@@ -1664,10 +1818,6 @@ with st.sidebar:
             format_func=lambda x: theme_raw_to_display(str(x), lang),
         )
         st.session_state["f_countries"] = st.multiselect(t(lang, "countries"), meta["countries"], default=ctry_default or ctry_fallback)
-
-    with st.expander(t(lang, "advanced_filters"), expanded=False):
-        st.session_state["f_sources"] = st.multiselect(t(lang, "sources"), meta["sources"], default=src_default or meta["sources"])
-        st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
         entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
         st.session_state["f_entity_raw"] = st.multiselect(
             t(lang, "entity"),
@@ -1675,6 +1825,17 @@ with st.sidebar:
             default=entities_default or meta["entities"],
             format_func=lambda x: entity_raw_to_display(str(x), lang),
         )
+
+    with st.expander(t(lang, "advanced_filters"), expanded=False):
+        st.session_state["f_sources"] = st.multiselect(t(lang, "sources"), meta["sources"], default=src_default or meta["sources"])
+        st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
+        st.session_state["f_statuses"] = st.multiselect(
+            t(lang, "project_status"),
+            meta["statuses"],
+            default=status_default or meta["statuses"],
+            format_func=lambda x: status_raw_to_display(str(x), lang),
+        )
+        st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
 
     with st.expander(t(lang, "analysis_options"), expanded=False):
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
@@ -1851,24 +2012,249 @@ st.divider()
 
 
 # ============================================================
-# Tabs (same)
+# Top navigation (result-first)
 # ============================================================
-tab_overview, tab_geo, tab_comp, tab_trends, tab_compare, tab_macro, tab_actor, tab_network, tab_data, tab_quality, tab_help, tab_guide = st.tabs(
+tab_explorer, tab_actors_hub, tab_markets, tab_trends_events, tab_admin = st.tabs(
     [
-        t(lang, "tab_overview"),
-        t(lang, "tab_geo"),
-        t(lang, "tab_comp"),
-        t(lang, "tab_trends"),
-        t(lang, "tab_compare"),
-        t(lang, "tab_macro"),
-        t(lang, "tab_actor"),
-        t(lang, "tab_network"),
-        t(lang, "tab_data"),
-        t(lang, "tab_quality"),
-        t(lang, "tab_help"),
-        t(lang, "tab_guide"),
+        t(lang, "tab_explorer"),
+        t(lang, "tab_actors_hub"),
+        t(lang, "tab_markets"),
+        t(lang, "tab_trends_events"),
+        t(lang, "tab_admin"),
     ]
 )
+
+with tab_explorer:
+    tab_results, tab_overview = st.tabs([t(lang, "sub_results"), t(lang, "sub_overview")])
+
+with tab_actors_hub:
+    tab_actor, tab_comp, tab_network = st.tabs(
+        [t(lang, "tab_actor"), t(lang, "sub_benchmark"), t(lang, "sub_network")]
+    )
+
+with tab_trends_events:
+    tab_trends, tab_compare, tab_macro = st.tabs(
+        [t(lang, "tab_trends"), t(lang, "tab_compare"), t(lang, "tab_macro")]
+    )
+
+with tab_admin:
+    tab_data, tab_quality = st.tabs([t(lang, "sub_data"), t(lang, "sub_quality")])
+    tab_docs = st.container()
+
+tab_geo = tab_markets
+tab_help = tab_docs
+tab_guide = tab_docs
+
+
+# ============================================================
+# TAB RESULTS (result-first)
+# ============================================================
+with tab_results:
+    st.markdown("### " + t(lang, "results_title"))
+    st.caption(t(lang, "results_caption"))
+
+    if nb_projects == 0:
+        render_empty_state(lang)
+    else:
+        results_view = st.radio(
+            t(lang, "results_view"),
+            [
+                t(lang, "results_table"),
+                t(lang, "results_trend"),
+                t(lang, "results_map"),
+                t(lang, "results_actors"),
+            ],
+            horizontal=True,
+            index=0,
+            key="results_view_mode",
+        )
+
+        if results_view == t(lang, "results_table"):
+            results_projects = fetch_df(f"""
+            SELECT
+              projectID,
+              MIN(year) AS year,
+              MIN(title) AS title,
+              MIN(theme) AS theme,
+              MIN(project_status) AS project_status,
+              COUNT(DISTINCT actor_id) AS n_actors,
+              COUNT(DISTINCT country_name) AS n_countries,
+              SUM(amount_eur) AS budget_eur
+            FROM {R}
+            WHERE {W}
+            GROUP BY projectID
+            ORDER BY budget_eur DESC
+            LIMIT 250
+            """)
+            if results_projects.empty:
+                render_empty_state(lang)
+            else:
+                results_projects["theme"] = results_projects["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
+                results_projects["project_status"] = results_projects["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
+                results_projects["budget_eur"] = results_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+                st.markdown("#### " + t(lang, "results_projects_table"))
+                st.dataframe(
+                    results_projects.rename(
+                        columns={
+                            "project_status": t(lang, "project_status"),
+                            "budget_eur": t(lang, "budget_total"),
+                            "n_actors": t(lang, "n_actors"),
+                            "theme": t(lang, "themes"),
+                        }
+                    ),
+                    use_container_width=True,
+                    height=620,
+                )
+
+        elif results_view == t(lang, "results_trend"):
+            res_year = fetch_df(f"""
+            SELECT
+              year,
+              SUM(amount_eur) AS budget_eur,
+              COUNT(DISTINCT projectID) AS n_projects
+            FROM {R}
+            WHERE {W}
+            GROUP BY year
+            ORDER BY year
+            """)
+            if res_year.empty:
+                render_empty_state(lang)
+            else:
+                c1, c2 = st.columns(2)
+                with c1:
+                    st.markdown("#### " + t(lang, "results_budget_year"))
+                    fig_year_budget = px.bar(
+                        res_year,
+                        x="year",
+                        y="budget_eur",
+                        color="budget_eur",
+                        color_continuous_scale=R2G,
+                        height=360,
+                        labels={"budget_eur": "Budget (€)", "year": "Year"},
+                    )
+                    fig_year_budget.update_layout(coloraxis_showscale=False)
+                    st.plotly_chart(fig_year_budget, use_container_width=True)
+                with c2:
+                    st.markdown("#### " + t(lang, "results_projects_year"))
+                    fig_year_projects = px.line(
+                        res_year,
+                        x="year",
+                        y="n_projects",
+                        markers=True,
+                        height=360,
+                        labels={"n_projects": t(lang, "n_projects"), "year": "Year"},
+                    )
+                    st.plotly_chart(fig_year_projects, use_container_width=True)
+
+        elif results_view == t(lang, "results_map"):
+            geo_res = fetch_df(f"""
+            SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
+            FROM {R}
+            WHERE {W} AND country_alpha3 IS NOT NULL AND TRIM(country_alpha3) <> ''
+            GROUP BY country_alpha3, country_name
+            ORDER BY amount_eur DESC
+            """)
+            if geo_res.empty:
+                render_empty_state(lang)
+            else:
+                geo_res["population"] = geo_res["country_alpha3"].map(POPULATION_BY_ALPHA3).astype(float)
+                geo_res["amount_per_million"] = np.where(
+                    geo_res["population"].notna() & (geo_res["population"] > 0),
+                    geo_res["amount_eur"].astype(float) / (geo_res["population"] / 1_000_000.0),
+                    np.nan,
+                )
+                metric_choice = st.radio(
+                    t(lang, "geo_metric"),
+                    [t(lang, "geo_metric_total"), t(lang, "geo_metric_per_million")],
+                    horizontal=True,
+                    index=1,
+                    key="results_geo_metric",
+                )
+                color_col = "amount_per_million" if metric_choice == t(lang, "geo_metric_per_million") else "amount_eur"
+                color_title = "€ / M hab." if color_col == "amount_per_million" else "Budget (€)"
+                fig_results_map = px.choropleth(
+                    geo_res,
+                    locations="country_alpha3",
+                    color=color_col,
+                    hover_name="country_name",
+                    color_continuous_scale=R2G,
+                    height=520,
+                    labels={color_col: color_title},
+                )
+                fig_results_map.update_geos(scope="europe", projection_type="natural earth", showframe=False)
+                fig_results_map.update_layout(coloraxis_colorbar=dict(title=color_title, len=0.7), margin=dict(l=0, r=0, t=0, b=0))
+                st.plotly_chart(fig_results_map, use_container_width=True)
+
+                st.markdown("#### " + t(lang, "results_country_rank"))
+                rank_geo = geo_res[geo_res[color_col].notna()].sort_values(color_col, ascending=False).head(15).copy()
+                rank_geo[color_col] = rank_geo[color_col].map(
+                    lambda x: fmt_money(float(x), lang) if color_col == "amount_eur" else f"{float(x):,.0f} € / M".replace(",", " ")
+                )
+                st.dataframe(
+                    rank_geo.rename(columns={color_col: color_title})[["country_name", color_title]],
+                    use_container_width=True,
+                    height=360,
+                )
+
+        else:
+            res_actors = fetch_df(f"""
+            WITH x AS (
+              SELECT
+                actor_id,
+                COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
+                COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name2,
+                amount_eur,
+                projectID
+              FROM {R}
+              WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+            )
+            SELECT
+              actor_id,
+              MIN(actor_label) AS actor_label,
+              MIN(country_name2) AS main_country,
+              SUM(amount_eur) AS budget_eur,
+              COUNT(DISTINCT projectID) AS n_projects
+            FROM x
+            GROUP BY actor_id
+            ORDER BY budget_eur DESC
+            LIMIT 25
+            """)
+            if res_actors.empty:
+                render_empty_state(lang)
+            else:
+                res_actors["avg_per_project"] = np.where(
+                    res_actors["n_projects"].astype(float) > 0,
+                    res_actors["budget_eur"].astype(float) / res_actors["n_projects"].astype(float),
+                    np.nan,
+                )
+                fig_actors = px.bar(
+                    res_actors.iloc[::-1],
+                    x="budget_eur",
+                    y="actor_label",
+                    orientation="h",
+                    color="budget_eur",
+                    color_continuous_scale=R2G,
+                    height=620,
+                    labels={"budget_eur": "Budget (€)", "actor_label": ""},
+                )
+                fig_actors.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                st.plotly_chart(fig_actors, use_container_width=True)
+
+                actor_tbl = res_actors.copy()
+                actor_tbl["budget_eur"] = actor_tbl["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+                actor_tbl["avg_per_project"] = actor_tbl["avg_per_project"].map(lambda x: fmt_money(float(x), lang))
+                st.markdown("#### " + t(lang, "results_actor_table"))
+                st.dataframe(
+                    actor_tbl.rename(
+                        columns={
+                            "main_country": t(lang, "countries"),
+                            "budget_eur": t(lang, "budget_total"),
+                            "avg_per_project": t(lang, "avg_ticket"),
+                        }
+                    )[["actor_label", t(lang, "countries"), t(lang, "budget_total"), "n_projects", t(lang, "avg_ticket")]],
+                    use_container_width=True,
+                    height=360,
+                )
 
 
 # ============================================================
@@ -2327,7 +2713,7 @@ with tab_comp:
     bm_view = st.radio(
         t(lang, "benchmark_mode"),
         [t(lang, "bm_scatter"), t(lang, "bm_treemap"), t(lang, "bm_top")],
-        index=0,
+        index=2,
         horizontal=True,
     )
 
@@ -3890,7 +4276,8 @@ with tab_quality:
 # TAB HELP (as before)
 # ============================================================
 with tab_help:
-    st.title(t(lang, "help_title"))
+    st.markdown("### " + t(lang, "docs_title"))
+    st.markdown("#### " + t(lang, "help_title"))
 
     with st.expander("Périmètre & finalité" if lang == "FR" else "Scope & purpose", expanded=True):
         if lang == "FR":
@@ -3943,7 +4330,8 @@ The **Macro & news** layer (events.csv) provides **context**: spot temporal alig
 # TAB GUIDE (same)
 # ============================================================
 with tab_guide:
-    st.title(t(lang, "guide_title"))
+    st.divider()
+    st.markdown("#### " + t(lang, "guide_title"))
 
     if lang == "FR":
         st.markdown("Guide pour lire les vues correctement, sans sur-interpréter. Tout dépend du **périmètre filtré** (sidebar).")
