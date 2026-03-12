@@ -14,6 +14,7 @@ import html
 import numpy as np
 import pandas as pd
 import streamlit as st
+from streamlit import config as st_config
 
 import plotly.express as px
 import plotly.graph_objects as go
@@ -60,6 +61,21 @@ REFRESH_LOCK_STALE_SEC = int(os.environ.get("SUBSIDY_REFRESH_LOCK_STALE_SEC", "7
 # ============================================================
 # Page config + style
 # ============================================================
+STREAMLIT_THEME_OVERRIDES = {
+    "theme.base": "light",
+    "theme.primaryColor": "#4F7CAC",
+    "theme.backgroundColor": "#F7FAFC",
+    "theme.secondaryBackgroundColor": "#F2F7FA",
+    "theme.textColor": "#1F2937",
+    "theme.dataframeHeaderBackgroundColor": "#F4F8FB",
+    "theme.dataframeBorderColor": "#D9E2EC",
+}
+for _theme_key, _theme_value in STREAMLIT_THEME_OVERRIDES.items():
+    try:
+        st_config.set_option(_theme_key, _theme_value)
+    except Exception:
+        pass
+
 st.set_page_config(page_title="Subsidy Intelligence Radar", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown(
