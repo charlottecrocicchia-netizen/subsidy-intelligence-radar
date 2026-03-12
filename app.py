@@ -318,17 +318,18 @@ st.markdown(
   }
 
   div[data-baseweb="tag"] {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.20), rgba(34, 211, 238, 0.14)) !important;
-    border: 1px solid rgba(34, 211, 238, 0.22) !important;
-    color: var(--sir-text) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    background: rgba(22, 32, 51, 0.92) !important;
+    border: 1px solid rgba(79, 124, 172, 0.36) !important;
+    color: var(--sir-text-secondary) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
   }
 
   div[data-baseweb="tag"] span,
   div[data-baseweb="tag"] svg,
   div[data-baseweb="tag"] path {
-    color: var(--sir-text) !important;
-    fill: var(--sir-text-secondary) !important;
+    color: var(--sir-text-secondary) !important;
+    fill: var(--sir-text-muted) !important;
   }
 
   .stRadio > div,
@@ -561,13 +562,13 @@ st.markdown(
   .sir-chip {
     display: inline-flex;
     align-items: center;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(20, 184, 166, 0.14));
-    border: 1px solid rgba(34, 211, 238, 0.20);
-    color: var(--sir-text);
-    font-size: 0.88rem;
-    font-weight: 600;
+    padding: 5px 9px;
+    border-radius: 10px;
+    background: rgba(22, 32, 51, 0.88);
+    border: 1px solid rgba(79, 124, 172, 0.28);
+    color: var(--sir-text-secondary);
+    font-size: 0.84rem;
+    font-weight: 550;
     line-height: 1.2;
   }
 
@@ -933,8 +934,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "refresh": "Rafraîchir les données",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
         "filters": "Filtres",
-        "basic_filters": "Filtres essentiels",
-        "advanced_filters": "Filtres avancés",
+        "basic_filters": "Filtres principaux",
+        "advanced_filters": "Plus de filtres",
         "analysis_options": "Options d'analyse",
         "sources": "Sources",
         "onetech_only": "Limiter au périmètre OneTech",
@@ -951,6 +952,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "countries": "Pays",
         "quick_search": "Recherche rapide",
         "quick_search_hint": "Recherche dans acteur, projet, acronyme ou titre",
+        "main_search_support": "Recherche libre dans les projets et acteurs. Pour le pays, la période ou le programme, utilise les filtres.",
+        "search_simplified_notice": "La recherche a été simplifiée pour éviter une erreur. Essaie un mot-clé simple puis affine avec les filtres.",
+        "search_ignored_notice": "La recherche n’a pas pu être appliquée avec cette saisie. Les filtres sont conservés ; essaie un mot-clé plus simple.",
+        "explore_overview_title": "Ce que vous pouvez faire ici",
+        "explore_overview_1": "Trouver des projets par thématique, pays et période",
+        "explore_overview_2": "Comparer les principaux acteurs d’un domaine",
+        "explore_overview_3": "Voir quels pays reçoivent le plus de financement",
+        "explore_overview_4": "Relier tendances de financement et événements macro",
+        "explore_overview_5": "Ouvrir ensuite les vues avancées si besoin",
+        "explore_overview_tip": "Commence par la recherche libre, puis affine avec les filtres.",
         "actor_grouping": "Regrouper entités juridiques (PIC/groupe)",
         "exclude_funders": "Exclure financeurs / agences",
         "actor_groups_ready": "Mapping groupes chargé",
@@ -986,7 +997,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "no_data": "Aucune donnée pour cette sélection. Élargis les filtres.",
         "tab_overview": "Vue d’ensemble",
         "tab_geo": "Géographie",
-        "tab_comp": "Benchmark acteurs",
+        "tab_comp": "Comparer les acteurs",
         "tab_trends": "Tendances",
         "tab_compare": "Comparaison",
         "tab_macro": "Macro & actualités",
@@ -997,7 +1008,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "tab_help": "Aide",
         "tab_guide": "Guide",
         "zoom_on": "Zoom",
-        "projection": "Projection",
+        "projection": "Type de carte",
         "borders": "Frontières & côtes",
         "labels": "Libellés continents",
         "top_countries": "Top 15 pays",
@@ -1007,7 +1018,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_pop_missing": "Population manquante pour certains pays: normalisation partielle.",
         "geo_caption": "Lecture géographique du périmètre actif: concentration, rang pays et détail pays.",
         "geo_country_picker": "Pays à détailler",
-        "geo_advanced_options": "Options avancées de carte",
+        "geo_advanced_options": "Réglages de carte",
         "geo_selected_summary": "Pays sélectionné",
         "geo_rank": "Rang",
         "geo_scope_share": "Part du périmètre",
@@ -1015,10 +1026,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_country_actors": "Acteurs principaux",
         "geo_country_themes": "Thèmes principaux",
         "geo_country_projects": "Projets principaux",
-        "benchmark_mode": "Vue benchmark",
-        "bm_scatter": "Positionnement (log/log)",
+        "benchmark_mode": "Vue de comparaison",
+        "bm_scatter": "Comparer volume et budget",
         "bm_treemap": "Treemap lisible",
-        "bm_top": "Classements",
+        "bm_top": "Classement des acteurs",
         "bm_caption": "Commence par un classement simple, puis ouvre les vues expertes si besoin.",
         "bm_default_caption": "Vue par défaut: lecture simple, table-first, du périmètre courant.",
         "bm_expert_caption": "Vue experte: utile pour explorer des positionnements ou hiérarchies plus complexes.",
@@ -1028,7 +1039,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "pct_threshold": "Seuil budget (percentile)",
         "topn": "Top N (après seuil)",
         "search_actor": "Recherche texte (contient…)",
-        "actor_picker": "Sélection d’un acteur",
+        "actor_picker": "Acteur à comparer",
         "actor_picker_hint": "Tape pour chercher dans la liste.",
         "legend_tip": "Astuce : clique sur la légende pour masquer/afficher une série.",
         "scatter_explain": (
@@ -1038,14 +1049,14 @@ I18N: Dict[str, Dict[str, str]] = {
             "**Pourquoi un projet compte pour plusieurs acteurs ?**\n"
             "Un projet a plusieurs participants : il est compté pour **chaque** acteur participant.\n"
         ),
-        "dimension": "Dimension d’analyse",
+        "dimension": "Regrouper par",
         "dim_theme": "Thématique",
         "dim_program": "Programme",
         "mode": "Mode",
         "mode_abs": "Budget (absolu)",
         "mode_share": "Part (% par année)",
-        "drivers": "Top moteurs (période)",
-        "compare_title": "Comparaison de périodes (Δ part de budget)",
+        "drivers": "Principaux moteurs",
+        "compare_title": "Comparer deux périodes",
         "period_a": "Période A",
         "period_b": "Période B",
         "compare_caption": "Comparaison en **% du budget total** de chaque période, Δ en **points de %**.",
@@ -1060,14 +1071,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_partners_caption": "Co-participants sur les mêmes projets, dans le périmètre actif.",
         "actor_tab_profile": "Profil",
         "actor_tab_partners": "Partenaires",
-        "actor_tab_peers": "Pairs",
+        "actor_tab_peers": "Acteurs comparables",
         "actor_top_theme": "Thème principal",
         "actor_entity_type": "Type d'entité",
         "actor_rank_overall": "Rang global",
         "actor_rank_peer": "Rang dans le groupe",
         "actor_avg_ticket": "Ticket moyen",
         "actor_peer_group": "Groupe de pairs",
-        "actor_peer_caption": "Comparaison simple dans le périmètre actif. Les visuels avancés restent dans l’onglet Benchmark.",
+        "actor_peer_caption": "Comparaison simple dans le périmètre actif. Les visuels avancés restent dans « Comparer les acteurs ».",
         "actor_peer_table": "Acteurs comparables",
         "scope_caption": "Périmètre actif",
         "scope_group_on": "vue groupes",
@@ -1086,11 +1097,11 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_overview": "Synthèse",
         "overview_caption": "Vue secondaire de synthèse : utilise d'abord Résultats pour explorer le périmètre, puis viens ici pour une lecture plus compacte.",
         "overview_yearly_extra": "Complément annuel : budgets et ticket médian",
-        "sub_benchmark": "Benchmark",
+        "sub_benchmark": "Comparer les acteurs",
         "sub_network": "Chaîne & réseau",
-        "sub_value_chain": "Chaîne de valeur",
-        "sub_collaboration": "Collaboration",
-        "sub_concentration": "Concentration",
+        "sub_value_chain": "Étapes et acteurs",
+        "sub_collaboration": "Partenariats",
+        "sub_concentration": "Concentration du financement",
         "sub_data": "Données",
         "sub_quality": "Qualité",
         "sub_debug": "Debug",
@@ -1155,7 +1166,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "rebuild_ok": "Mise à jour terminée.",
         "rebuild_fail": "Mise à jour incomplète / erreur.",
         "logs": "Logs",
-        "macro_filters": "Filtres Macro (indépendants)",
+        "macro_filters": "Options de contexte macro",
         "macro_use_global": "Utiliser les filtres globaux (sidebar)",
         "cloud_persistence_note": "Mode Streamlit Cloud : les mises à jour de fichiers via ce bouton ne sont pas durables. Utiliser le workflow GitHub « Refresh Data » pour une persistance automatique.",
         "refresh_cloud_skip": "Mode Streamlit Cloud : ce bouton ne lance pas de refresh durable. Lance le workflow GitHub « Refresh Data » (Actions) pour mettre à jour les données en ligne.",
@@ -1170,7 +1181,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "ticket_shape_median": "Ticket médian",
         "ticket_shape_total": "Budget annuel",
         "ticket_shape_projects": "Projets / an",
-        "concentration_title": "Concentration des acteurs (lecture Pareto)",
+        "concentration_title": "Concentration du financement",
         "concentration_caption": "Lecture simple: barres = budget par acteur, courbe = part cumulée.",
         "concentration_budget": "Budget acteur",
         "concentration_cum": "Part cumulée (%)",
@@ -1198,7 +1209,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_default_caption": "Commence par les étapes et les top acteurs ; la vue Sankey reste disponible plus bas.",
         "vc_expert_caption": "Vue experte : explore les flux et l’isolation visuelle entre étapes et acteurs.",
         "vc_stage_summary": "Résumé des étapes",
-        "vc_flow_expert": "Vue flux (Sankey)",
+        "vc_flow_expert": "Vue des flux",
         "vc_highlight_stage": "Étape à mettre en avant dans le Sankey",
         "vc_all_stages": "Toutes les étapes",
         "vc_isolate_stage": "Isoler uniquement l'étape sélectionnée",
@@ -1217,9 +1228,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "net_default_caption": "Commence par le tableau des partenaires ; le graphe réseau reste disponible plus bas.",
         "net_expert_caption": "Vue experte : utile pour explorer visuellement les liens autour de l’acteur focal.",
         "net_focal_actor": "Acteur focal",
-        "net_top_partners": "Top partenaires",
+        "net_top_partners": "Nombre de partenaires affichés",
         "net_partner_table": "Partenaires",
-        "net_graph_expert": "Vue graphe réseau",
+        "net_graph_expert": "Carte des partenariats",
         "net_shared_projects_total": "Projets partagés",
         "net_partner_budget_total": "Budget partenaires",
         "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
@@ -1249,8 +1260,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "refresh": "Refresh data",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
         "filters": "Filters",
-        "basic_filters": "Core filters",
-        "advanced_filters": "Advanced filters",
+        "basic_filters": "Main filters",
+        "advanced_filters": "More filters",
         "analysis_options": "Analysis options",
         "sources": "Sources",
         "onetech_only": "Restrict to OneTech scope",
@@ -1267,6 +1278,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "countries": "Countries",
         "quick_search": "Quick search",
         "quick_search_hint": "Search actor, project, acronym or title",
+        "main_search_support": "Free-text search across projects and actors. Use filters for country, time period, or programme.",
+        "search_simplified_notice": "Search was simplified to avoid an error. Try a simpler keyword, then refine with filters.",
+        "search_ignored_notice": "Search could not be applied safely for this input. Filters are still active; try a simpler keyword.",
+        "explore_overview_title": "What you can do here",
+        "explore_overview_1": "Find projects by theme, country, and time period",
+        "explore_overview_2": "Compare the main actors in a domain",
+        "explore_overview_3": "See which countries receive the most funding",
+        "explore_overview_4": "Relate funding trends to macro events",
+        "explore_overview_5": "Open advanced views only if needed",
+        "explore_overview_tip": "Start with free-text search, then refine with filters.",
         "actor_grouping": "Group legal entities (PIC/group)",
         "exclude_funders": "Exclude funders / agencies",
         "actor_groups_ready": "Group mapping loaded",
@@ -1302,7 +1323,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "no_data": "No data for this selection. Broaden the filters.",
         "tab_overview": "Overview",
         "tab_geo": "Geography",
-        "tab_comp": "Actor benchmark",
+        "tab_comp": "Compare actors",
         "tab_trends": "Trends",
         "tab_compare": "Compare",
         "tab_macro": "Macro & news",
@@ -1313,7 +1334,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "tab_help": "Help",
         "tab_guide": "Guide",
         "zoom_on": "Zoom",
-        "projection": "Projection",
+        "projection": "Map type",
         "borders": "Borders & coastlines",
         "labels": "Continent labels",
         "top_countries": "Top 15 countries",
@@ -1323,7 +1344,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_pop_missing": "Population missing for some countries: partial normalization.",
         "geo_caption": "Geographic reading of the active scope: concentration, country ranking, and country detail.",
         "geo_country_picker": "Country to inspect",
-        "geo_advanced_options": "Advanced map options",
+        "geo_advanced_options": "Map settings",
         "geo_selected_summary": "Selected country",
         "geo_rank": "Rank",
         "geo_scope_share": "Share of scope",
@@ -1331,10 +1352,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_country_actors": "Leading actors",
         "geo_country_themes": "Leading themes",
         "geo_country_projects": "Leading projects",
-        "benchmark_mode": "Benchmark view",
-        "bm_scatter": "Positioning (log/log)",
+        "benchmark_mode": "Comparison view",
+        "bm_scatter": "Compare volume and budget",
         "bm_treemap": "Readable treemap",
-        "bm_top": "Rankings",
+        "bm_top": "Actor rankings",
         "bm_caption": "Start with a simple ranking, then open the expert views if needed.",
         "bm_default_caption": "Default view: simple, table-first reading of the current scope.",
         "bm_expert_caption": "Expert view: useful for exploring more complex positioning and hierarchy patterns.",
@@ -1344,7 +1365,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "pct_threshold": "Budget threshold (percentile)",
         "topn": "Top N (after threshold)",
         "search_actor": "Text search (contains…)",
-        "actor_picker": "Pick an actor",
+        "actor_picker": "Actor to compare",
         "actor_picker_hint": "Type to search in the list.",
         "legend_tip": "Tip: click the legend to hide/show a series.",
         "scatter_explain": (
@@ -1354,14 +1375,14 @@ I18N: Dict[str, Dict[str, str]] = {
             "**Why can one project count for multiple actors?**\n"
             "A project has multiple participants: it is counted for **each** participating actor.\n"
         ),
-        "dimension": "Analysis dimension",
+        "dimension": "Group by",
         "dim_theme": "Theme",
         "dim_program": "Programme",
         "mode": "Mode",
         "mode_abs": "Budget (absolute)",
         "mode_share": "Share (% per year)",
-        "drivers": "Top drivers (period)",
-        "compare_title": "Period comparison (Δ budget share)",
+        "drivers": "Main drivers",
+        "compare_title": "Compare two periods",
         "period_a": "Period A",
         "period_b": "Period B",
         "compare_caption": "Comparison as **% of total budget** in each period, Δ in **percentage points**.",
@@ -1376,14 +1397,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_partners_caption": "Co-participants on the same projects within the active scope.",
         "actor_tab_profile": "Profile",
         "actor_tab_partners": "Partners",
-        "actor_tab_peers": "Peers",
+        "actor_tab_peers": "Comparable actors",
         "actor_top_theme": "Main theme",
         "actor_entity_type": "Entity type",
         "actor_rank_overall": "Overall rank",
         "actor_rank_peer": "Rank in peer group",
         "actor_avg_ticket": "Average ticket",
         "actor_peer_group": "Peer group",
-        "actor_peer_caption": "Simple comparison within the active scope. Advanced visuals stay in the Benchmark tab.",
+        "actor_peer_caption": "Simple comparison within the active scope. Advanced visuals stay in “Compare actors”.",
         "actor_peer_table": "Comparable actors",
         "scope_caption": "Active scope",
         "scope_group_on": "group view",
@@ -1402,11 +1423,11 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_overview": "Overview",
         "overview_caption": "Secondary summary view: use Results first to explore the scope, then come here for a more compact readout.",
         "overview_yearly_extra": "Yearly add-on: budgets and median ticket",
-        "sub_benchmark": "Benchmark",
+        "sub_benchmark": "Compare actors",
         "sub_network": "Value chain & network",
-        "sub_value_chain": "Value chain",
-        "sub_collaboration": "Collaboration",
-        "sub_concentration": "Concentration",
+        "sub_value_chain": "Stages and actors",
+        "sub_collaboration": "Partnerships",
+        "sub_concentration": "Funding concentration",
         "sub_data": "Data",
         "sub_quality": "Quality",
         "sub_debug": "Debug",
@@ -1471,7 +1492,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "rebuild_ok": "Update completed.",
         "rebuild_fail": "Update incomplete / failed.",
         "logs": "Logs",
-        "macro_filters": "Macro filters (independent)",
+        "macro_filters": "Macro context options",
         "macro_use_global": "Use global filters (sidebar)",
         "cloud_persistence_note": "Streamlit Cloud mode: file updates from this button are not durable. Use the GitHub workflow \"Refresh Data\" for persistent automation.",
         "refresh_cloud_skip": "Streamlit Cloud mode: this button does not run a durable refresh. Run the GitHub \"Refresh Data\" workflow (Actions) to update online data.",
@@ -1486,7 +1507,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "ticket_shape_median": "Median ticket",
         "ticket_shape_total": "Annual budget",
         "ticket_shape_projects": "Projects / year",
-        "concentration_title": "Actor concentration (Pareto view)",
+        "concentration_title": "Funding concentration",
         "concentration_caption": "Simple reading: bars = budget by actor, line = cumulative share.",
         "concentration_budget": "Actor budget",
         "concentration_cum": "Cumulative share (%)",
@@ -1514,7 +1535,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_default_caption": "Start with stages and top actors; the Sankey view stays available lower on the page.",
         "vc_expert_caption": "Expert view: explore flow patterns and visual isolation between stages and actors.",
         "vc_stage_summary": "Stage summary",
-        "vc_flow_expert": "Flow view (Sankey)",
+        "vc_flow_expert": "Flow view",
         "vc_highlight_stage": "Stage to highlight in Sankey",
         "vc_all_stages": "All stages",
         "vc_isolate_stage": "Show only selected stage",
@@ -1533,9 +1554,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "net_default_caption": "Start with the partner table; the network graph stays available lower on the page.",
         "net_expert_caption": "Expert view: useful for visually exploring links around the focal actor.",
         "net_focal_actor": "Focal actor",
-        "net_top_partners": "Top partners",
+        "net_top_partners": "Partners shown",
         "net_partner_table": "Partners",
-        "net_graph_expert": "Network graph view",
+        "net_graph_expert": "Partnership map",
         "net_shared_projects_total": "Shared projects",
         "net_partner_budget_total": "Partner budget",
         "actor_geo_single_country": "Actor concentrated in a single country in the current scope.",
@@ -1622,6 +1643,73 @@ def sql_contains_expr(column_sql: str, query: str) -> str:
     if not safe:
         return "TRUE"
     return f"lower(COALESCE({column_sql}, '')) LIKE '%{safe}%'"
+
+
+def quick_search_clause(prefix: str, query: str, columns: Optional[List[str]] = None) -> str:
+    cols = columns or ["projectID", "acronym", "title", "org_name", "actor_id"]
+    return "(" + " OR ".join(sql_contains_expr(f"{prefix}{col}", query) for col in cols) + ")"
+
+
+def _normalize_quick_search(query: str) -> str:
+    raw = str(query or "").replace("\x00", " ").replace("\r", " ").replace("\n", " ")
+    return re.sub(r"\s+", " ", raw).strip()
+
+
+def _validate_where_query(relation_sql: str, where_sql: str, table_alias: Optional[str] = None) -> None:
+    alias_sql = f" {str(table_alias).strip()}" if str(table_alias or "").strip() else ""
+    get_con().execute(f"SELECT 1 FROM {relation_sql}{alias_sql} WHERE {where_sql} LIMIT 1").fetchone()
+
+
+def build_safe_where_pair(
+    relation_sql: str,
+    *,
+    sources: List[str],
+    programmes: List[str],
+    years: Tuple[int, int],
+    use_section: bool,
+    sections: List[str],
+    onetech_only: bool,
+    statuses: List[str],
+    themes: List[str],
+    entities: List[str],
+    countries: List[str],
+    quick_search: str,
+) -> Tuple[str, str, Optional[str]]:
+    normalized_search = _normalize_quick_search(quick_search)
+    base_kwargs = dict(
+        sources=sources,
+        programmes=programmes,
+        years=years,
+        use_section=use_section,
+        sections=sections,
+        onetech_only=onetech_only,
+        statuses=statuses,
+        themes=themes,
+        entities=entities,
+        countries=countries,
+    )
+
+    w = where_clause(**base_kwargs, quick_search=normalized_search)
+    w_r = where_clause(**base_kwargs, quick_search=normalized_search, table_alias="r")
+    if not normalized_search:
+        return w, w_r, None
+
+    try:
+        _validate_where_query(relation_sql, w)
+        _validate_where_query(relation_sql, w_r, table_alias="r")
+        return w, w_r, None
+    except duckdb.Error:
+        text_only_cols = ["acronym", "title", "org_name"]
+        try:
+            w_text = where_clause(**base_kwargs, quick_search=normalized_search, quick_search_columns=text_only_cols)
+            w_r_text = where_clause(**base_kwargs, quick_search=normalized_search, table_alias="r", quick_search_columns=text_only_cols)
+            _validate_where_query(relation_sql, w_text)
+            _validate_where_query(relation_sql, w_r_text, table_alias="r")
+            return w_text, w_r_text, "search_simplified_notice"
+        except duckdb.Error:
+            w_plain = where_clause(**base_kwargs, quick_search="")
+            w_r_plain = where_clause(**base_kwargs, quick_search="", table_alias="r")
+            return w_plain, w_r_plain, "search_ignored_notice"
 
 
 def _compact_filter_values(values: List[str], formatter=None, limit: int = 3) -> str:
@@ -2294,6 +2382,7 @@ def where_clause(
     countries: List[str],
     quick_search: str,
     table_alias: Optional[str] = None,
+    quick_search_columns: Optional[List[str]] = None,
 ) -> str:
     prefix = f"{str(table_alias).strip()}." if str(table_alias or "").strip() else ""
     w = []
@@ -2315,20 +2404,8 @@ def where_clause(
     if countries:
         w.append(f"{prefix}country_name IN {in_list(countries)}")
     if str(quick_search).strip():
-        q = str(quick_search).strip()
-        w.append(
-            "("
-            + " OR ".join(
-                [
-                    sql_contains_expr(f"{prefix}projectID", q),
-                    sql_contains_expr(f"{prefix}acronym", q),
-                    sql_contains_expr(f"{prefix}title", q),
-                    sql_contains_expr(f"{prefix}org_name", q),
-                    sql_contains_expr(f"{prefix}actor_id", q),
-                ]
-            )
-            + ")"
-        )
+        q = _normalize_quick_search(str(quick_search).strip())
+        w.append(quick_search_clause(prefix, q, quick_search_columns))
     return " AND ".join(w) if w else "TRUE"
 
 
@@ -2648,6 +2725,7 @@ with search_c2:
     st.write("")
     st.write("")
     st.button(t(lang, "clear_search"), key="clear_search_btn", width="stretch", on_click=clear_search)
+st.caption(t(lang, "main_search_support"))
 render_active_filter_chips(meta, lang)
 
 
@@ -2700,36 +2778,23 @@ with st.sidebar:
 # ============================================================
 # Main WHERE
 # ============================================================
-W = where_clause(
-    sources=st.session_state["f_sources"],
-    programmes=st.session_state["f_programmes"],
-    years=st.session_state["f_years"],
-    use_section=False,
-    sections=[],
-    onetech_only=st.session_state["f_onetech_only"],
-    statuses=st.session_state["f_statuses"],
-    themes=st.session_state["f_themes_raw"],
-    entities=st.session_state["f_entity_raw"],
-    countries=st.session_state["f_countries"],
-    quick_search=st.session_state["f_quick_search"],
-)
-W_R = where_clause(
-    sources=st.session_state["f_sources"],
-    programmes=st.session_state["f_programmes"],
-    years=st.session_state["f_years"],
-    use_section=False,
-    sections=[],
-    onetech_only=st.session_state["f_onetech_only"],
-    statuses=st.session_state["f_statuses"],
-    themes=st.session_state["f_themes_raw"],
-    entities=st.session_state["f_entity_raw"],
-    countries=st.session_state["f_countries"],
-    quick_search=st.session_state["f_quick_search"],
-    table_alias="r",
-)
 R = rel_analytics(
     use_actor_groups=bool(st.session_state.get("f_use_actor_groups", False)),
     exclude_funders=bool(st.session_state.get("f_exclude_funders", False)),
+)
+W, W_R, search_notice_key = build_safe_where_pair(
+    R,
+    sources=st.session_state["f_sources"],
+    programmes=st.session_state["f_programmes"],
+    years=st.session_state["f_years"],
+    use_section=False,
+    sections=[],
+    onetech_only=st.session_state["f_onetech_only"],
+    statuses=st.session_state["f_statuses"],
+    themes=st.session_state["f_themes_raw"],
+    entities=st.session_state["f_entity_raw"],
+    countries=st.session_state["f_countries"],
+    quick_search=st.session_state["f_quick_search"],
 )
 
 
@@ -2848,6 +2913,22 @@ st.session_state["nav_target_actor_sub"] = ""
 # ============================================================
 with tab_results:
     render_section_header("⌕", t(lang, "results_title"), t(lang, "results_caption"), t(lang, "tab_explorer"))
+    if search_notice_key:
+        st.warning(t(lang, search_notice_key))
+    with st.container(border=True):
+        st.markdown("**" + t(lang, "explore_overview_title") + "**")
+        st.markdown(
+            "\n".join(
+                [
+                    f"- {t(lang, 'explore_overview_1')}",
+                    f"- {t(lang, 'explore_overview_2')}",
+                    f"- {t(lang, 'explore_overview_3')}",
+                    f"- {t(lang, 'explore_overview_4')}",
+                    f"- {t(lang, 'explore_overview_5')}",
+                ]
+            )
+        )
+        st.caption(t(lang, "explore_overview_tip"))
     st.markdown("#### ✦ " + t(lang, "kpis"))
     k1, k2, k3, k4, k5, k6 = st.columns(6)
     k1.metric(t(lang, "budget_total"), fmt_money(total_budget, lang))
@@ -4403,7 +4484,7 @@ with tab_compare:
     else:
         view["dim_disp"] = view["dim"].astype(str)
 
-    topk = st.slider("Top K variations" if lang == "FR" else "Top K shifts", 10, 60, 25)
+    topk = st.slider("Plus fortes évolutions" if lang == "FR" else "Strongest shifts", 10, 60, 25)
     view2 = pd.concat([view.head(topk), view.tail(topk)]).drop_duplicates().sort_values("delta_share")
 
     fig = px.bar(
@@ -5027,7 +5108,7 @@ with tab_value_chain:
     render_section_header("⇄", t(lang, "sub_value_chain"), t(lang, "vc_default_caption"), t(lang, "tab_advanced"))
     st.caption(t(lang, "vc_flow_help"))
 
-    st.markdown("#### " + ("Chaîne de valeur (budget -> acteurs)" if lang == "FR" else "Value chain (budget -> actors)"))
+    st.markdown("#### " + ("Étapes et acteurs (budget -> acteurs)" if lang == "FR" else "Stages and actors (budget -> actors)"))
     try:
         vc_dim = fetch_df(f"""
         SELECT theme, value_chain_stage, SUM(amount_eur) AS budget_eur
