@@ -313,10 +313,26 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_metric_total": "Budget total (€)",
         "geo_metric_per_million": "Budget / million hab. (€)",
         "geo_pop_missing": "Population manquante pour certains pays: normalisation partielle.",
+        "geo_caption": "Lecture géographique du périmètre actif: concentration, rang pays et détail pays.",
+        "geo_country_picker": "Pays à détailler",
+        "geo_advanced_options": "Options avancées de carte",
+        "geo_selected_summary": "Pays sélectionné",
+        "geo_rank": "Rang",
+        "geo_scope_share": "Part du périmètre",
+        "geo_country_detail": "Détail pays",
+        "geo_country_actors": "Acteurs principaux",
+        "geo_country_themes": "Thèmes principaux",
+        "geo_country_projects": "Projets principaux",
         "benchmark_mode": "Vue benchmark",
         "bm_scatter": "Positionnement (log/log)",
         "bm_treemap": "Treemap lisible",
         "bm_top": "Classements",
+        "bm_caption": "Commence par un classement simple, puis ouvre les vues expertes si besoin.",
+        "bm_default_caption": "Vue par défaut: lecture simple, table-first, du périmètre courant.",
+        "bm_expert_caption": "Vue experte: utile pour explorer des positionnements ou hiérarchies plus complexes.",
+        "bm_compare_scope": "Périmètre de comparaison",
+        "bm_overall_rank": "Classement global",
+        "bm_breakdown_entity": "Déclinaison par type d'entité",
         "pct_threshold": "Seuil budget (percentile)",
         "topn": "Top N (après seuil)",
         "search_actor": "Recherche texte (contient…)",
@@ -343,10 +359,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_caption": "Comparaison en **% du budget total** de chaque période, Δ en **points de %**.",
         "actor_profile": "Fiche acteur",
         "actor_group_mode_caption": "Vue groupe active: les fiches et graphes peuvent agréger plusieurs entités juridiques via mapping ou PIC.",
+        "actor_profile_caption": "Sélectionne un acteur puis lis rapidement son profil, ses partenaires et ses pairs dans le périmètre actif.",
+        "actor_opened_from_results": "Ouvert depuis un projet sélectionné dans Résultats.",
         "actor_trend": "Évolution (budget & projets)",
         "actor_mix_theme": "Mix thématique",
         "actor_mix_country": "Mix géographique",
         "actor_partners": "Top co-participants",
+        "actor_partners_caption": "Co-participants sur les mêmes projets, dans le périmètre actif.",
+        "actor_tab_profile": "Profil",
+        "actor_tab_partners": "Partenaires",
+        "actor_tab_peers": "Pairs",
+        "actor_top_theme": "Thème principal",
+        "actor_entity_type": "Type d'entité",
+        "actor_rank_overall": "Rang global",
+        "actor_rank_peer": "Rang dans le groupe",
+        "actor_avg_ticket": "Ticket moyen",
+        "actor_peer_group": "Groupe de pairs",
+        "actor_peer_caption": "Comparaison simple dans le périmètre actif. Les visuels avancés restent dans l’onglet Benchmark.",
+        "actor_peer_table": "Acteurs comparables",
         "scope_caption": "Périmètre actif",
         "scope_group_on": "vue groupes",
         "scope_group_off": "vue entités juridiques",
@@ -358,13 +388,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "tab_actors_hub": "🏢 Acteurs",
         "tab_markets": "🌍 Marchés & géographie",
         "tab_trends_events": "📈 Tendances & événements",
+        "tab_advanced": "🧠 Analyse avancée",
         "tab_admin": "🛠️ Admin & méthode",
         "sub_results": "Résultats",
         "sub_overview": "Synthèse",
+        "overview_caption": "Vue secondaire de synthèse : utilise d'abord Résultats pour explorer le périmètre, puis viens ici pour une lecture plus compacte.",
+        "overview_yearly_extra": "Complément annuel : budgets et ticket médian",
         "sub_benchmark": "Benchmark",
         "sub_network": "Chaîne & réseau",
+        "sub_value_chain": "Chaîne de valeur",
+        "sub_collaboration": "Collaboration",
+        "sub_concentration": "Concentration",
         "sub_data": "Données",
         "sub_quality": "Qualité",
+        "sub_debug": "Debug",
+        "advanced_title": "Analyse avancée",
+        "advanced_caption": "Vues expertes pour benchmark, chaîne de valeur, collaborations et concentration. Les surfaces par défaut restent dans Recherche, Acteurs et Géographie.",
+        "debug_title": "Debug & diagnostics",
+        "debug_caption": "Surfaces techniques déplacées hors de la sidebar pour garder l'exploration lisible.",
         "results_title": "Résultats du périmètre",
         "results_caption": "Une requête, plusieurs lectures du même périmètre.",
         "results_view": "Vue principale",
@@ -462,6 +503,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_top_actors_stage": "Top acteurs (étape)",
         "vc_single_stage_warn": "La sélection ne contient qu'une étape de chaîne de valeur. Lance un refresh pour recalculer la classification si besoin.",
         "vc_flow_help": "Choisis des thématiques puis des étapes pour voir quels acteurs opèrent à chaque maillon.",
+        "vc_default_caption": "Commence par les étapes et les top acteurs ; la vue Sankey reste disponible plus bas.",
+        "vc_expert_caption": "Vue experte : explore les flux et l’isolation visuelle entre étapes et acteurs.",
+        "vc_stage_summary": "Résumé des étapes",
+        "vc_flow_expert": "Vue flux (Sankey)",
         "vc_highlight_stage": "Étape à mettre en avant dans le Sankey",
         "vc_all_stages": "Toutes les étapes",
         "vc_isolate_stage": "Isoler uniquement l'étape sélectionnée",
@@ -477,6 +522,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "net_all_partners": "Tous les partenaires",
         "net_isolate_partner": "Isoler le partenaire sélectionné",
         "net_focus_help": "La mise en avant partenaire facilite la lecture des collaborations clés.",
+        "net_default_caption": "Commence par le tableau des partenaires ; le graphe réseau reste disponible plus bas.",
+        "net_expert_caption": "Vue experte : utile pour explorer visuellement les liens autour de l’acteur focal.",
+        "net_focal_actor": "Acteur focal",
+        "net_top_partners": "Top partenaires",
+        "net_partner_table": "Partenaires",
+        "net_graph_expert": "Vue graphe réseau",
+        "net_shared_projects_total": "Projets partagés",
+        "net_partner_budget_total": "Budget partenaires",
         "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
         "actor_countries": "Pays couverts",
         "actor_main_country": "Pays principal",
@@ -576,10 +629,26 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_metric_total": "Total budget (€)",
         "geo_metric_per_million": "Budget / million inhabitants (€)",
         "geo_pop_missing": "Population missing for some countries: partial normalization.",
+        "geo_caption": "Geographic reading of the active scope: concentration, country ranking, and country detail.",
+        "geo_country_picker": "Country to inspect",
+        "geo_advanced_options": "Advanced map options",
+        "geo_selected_summary": "Selected country",
+        "geo_rank": "Rank",
+        "geo_scope_share": "Share of scope",
+        "geo_country_detail": "Country detail",
+        "geo_country_actors": "Leading actors",
+        "geo_country_themes": "Leading themes",
+        "geo_country_projects": "Leading projects",
         "benchmark_mode": "Benchmark view",
         "bm_scatter": "Positioning (log/log)",
         "bm_treemap": "Readable treemap",
         "bm_top": "Rankings",
+        "bm_caption": "Start with a simple ranking, then open the expert views if needed.",
+        "bm_default_caption": "Default view: simple, table-first reading of the current scope.",
+        "bm_expert_caption": "Expert view: useful for exploring more complex positioning and hierarchy patterns.",
+        "bm_compare_scope": "Comparison scope",
+        "bm_overall_rank": "Overall ranking",
+        "bm_breakdown_entity": "Breakdown by entity type",
         "pct_threshold": "Budget threshold (percentile)",
         "topn": "Top N (after threshold)",
         "search_actor": "Text search (contains…)",
@@ -606,10 +675,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_caption": "Comparison as **% of total budget** in each period, Δ in **percentage points**.",
         "actor_profile": "Actor profile",
         "actor_group_mode_caption": "Group view is active: profiles and charts may aggregate several legal entities through mapping or PIC.",
+        "actor_profile_caption": "Pick an actor, then read their profile, partners, and peers within the active scope.",
+        "actor_opened_from_results": "Opened from a selected project in Results.",
         "actor_trend": "Trend (budget & projects)",
         "actor_mix_theme": "Theme mix",
         "actor_mix_country": "Geography mix",
         "actor_partners": "Top co-participants",
+        "actor_partners_caption": "Co-participants on the same projects within the active scope.",
+        "actor_tab_profile": "Profile",
+        "actor_tab_partners": "Partners",
+        "actor_tab_peers": "Peers",
+        "actor_top_theme": "Main theme",
+        "actor_entity_type": "Entity type",
+        "actor_rank_overall": "Overall rank",
+        "actor_rank_peer": "Rank in peer group",
+        "actor_avg_ticket": "Average ticket",
+        "actor_peer_group": "Peer group",
+        "actor_peer_caption": "Simple comparison within the active scope. Advanced visuals stay in the Benchmark tab.",
+        "actor_peer_table": "Comparable actors",
         "scope_caption": "Active scope",
         "scope_group_on": "group view",
         "scope_group_off": "legal-entity view",
@@ -621,13 +704,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "tab_actors_hub": "🏢 Actors",
         "tab_markets": "🌍 Markets & geography",
         "tab_trends_events": "📈 Trends & events",
+        "tab_advanced": "🧠 Advanced",
         "tab_admin": "🛠️ Admin & method",
         "sub_results": "Results",
         "sub_overview": "Overview",
+        "overview_caption": "Secondary summary view: use Results first to explore the scope, then come here for a more compact readout.",
+        "overview_yearly_extra": "Yearly add-on: budgets and median ticket",
         "sub_benchmark": "Benchmark",
         "sub_network": "Value chain & network",
+        "sub_value_chain": "Value chain",
+        "sub_collaboration": "Collaboration",
+        "sub_concentration": "Concentration",
         "sub_data": "Data",
         "sub_quality": "Quality",
+        "sub_debug": "Debug",
+        "advanced_title": "Advanced analysis",
+        "advanced_caption": "Expert views for benchmark, value chain, collaboration, and concentration. Default user flows stay in Search, Actors, and Geography.",
+        "debug_title": "Debug & diagnostics",
+        "debug_caption": "Technical surfaces moved out of the sidebar to keep exploration readable.",
         "results_title": "Results in scope",
         "results_caption": "One query, several readings of the same scope.",
         "results_view": "Primary view",
@@ -725,6 +819,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_top_actors_stage": "Top actors (stage)",
         "vc_single_stage_warn": "This selection contains a single value-chain stage. Run refresh to recompute stage classification if needed.",
         "vc_flow_help": "Pick themes then stages to see which actors operate on each link of the chain.",
+        "vc_default_caption": "Start with stages and top actors; the Sankey view stays available lower on the page.",
+        "vc_expert_caption": "Expert view: explore flow patterns and visual isolation between stages and actors.",
+        "vc_stage_summary": "Stage summary",
+        "vc_flow_expert": "Flow view (Sankey)",
         "vc_highlight_stage": "Stage to highlight in Sankey",
         "vc_all_stages": "All stages",
         "vc_isolate_stage": "Show only selected stage",
@@ -740,6 +838,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "net_all_partners": "All partners",
         "net_isolate_partner": "Isolate selected partner",
         "net_focus_help": "Partner highlight helps read key collaborations.",
+        "net_default_caption": "Start with the partner table; the network graph stays available lower on the page.",
+        "net_expert_caption": "Expert view: useful for visually exploring links around the focal actor.",
+        "net_focal_actor": "Focal actor",
+        "net_top_partners": "Top partners",
+        "net_partner_table": "Partners",
+        "net_graph_expert": "Network graph view",
+        "net_shared_projects_total": "Shared projects",
+        "net_partner_budget_total": "Partner budget",
         "actor_geo_single_country": "Actor concentrated in a single country in the current scope.",
         "actor_countries": "Countries covered",
         "actor_main_country": "Main country",
@@ -971,6 +1077,26 @@ def reset_filters() -> None:
 
 def clear_search() -> None:
     st.session_state["f_quick_search"] = ""
+
+
+def queue_tab_navigation(top_target: str = "", actor_sub_target: str = "") -> None:
+    st.session_state["nav_target_top"] = str(top_target or "")
+    st.session_state["nav_target_actor_sub"] = str(actor_sub_target or "")
+
+
+def sync_results_table_state(scope_token: str) -> None:
+    st.session_state.setdefault("results_table_rows_per_page", 100)
+    st.session_state.setdefault("results_table_page", 1)
+    if st.session_state.get("results_table_scope_token") != str(scope_token):
+        st.session_state["results_table_scope_token"] = str(scope_token)
+        st.session_state["results_table_page"] = 1
+        st.session_state.pop("results_table_full_export_bytes", None)
+        st.session_state["results_table_full_export_query_key"] = ""
+        st.session_state.pop("results_selected_project_id", None)
+        st.session_state["results_selected_project_view_token"] = ""
+        st.session_state.pop("results_selected_actor_id_candidate", None)
+        st.session_state.pop("results_drilldown_actor_id", None)
+        st.session_state.pop("results_project_table_df", None)
 
 
 # ============================================================
@@ -1836,70 +1962,8 @@ with st.sidebar:
             format_func=lambda x: status_raw_to_display(str(x), lang),
         )
         st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
-
-    with st.expander(t(lang, "analysis_options"), expanded=False):
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
         st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
-
-    mapping_cov = {"total_actors": 0, "matched_actors": 0}
-    mapping_keys = {"total_keys": 0, "matched_keys": 0}
-    mapping_key_pct = 0.0
-    if actor_map_info.get("available", False):
-        mapping_cov = actor_group_match_stats()
-        mapping_keys = actor_group_key_match_stats()
-        if mapping_keys["total_keys"] > 0:
-            mapping_key_pct = 100.0 * mapping_keys["matched_keys"] / mapping_keys["total_keys"]
-        if mapping_keys["total_keys"] > 0 and mapping_key_pct >= 80.0:
-            st.caption(t(lang, "mapping_status_ready"))
-        else:
-            st.caption(t(lang, "mapping_status_partial"))
-    else:
-        st.caption(t(lang, "mapping_status_missing_short"))
-    if not actor_map_info.get("available", False):
-        st.caption(t(lang, "exclude_funders_heuristic"))
-
-    with st.expander(t(lang, "mapping_diag_toggle"), expanded=False):
-        st.caption(f"**{t(lang, 'mapping_summary')}**")
-        if actor_map_info.get("available", False):
-            st.caption(f"{t(lang, 'mapping_loaded_count')}: {int(actor_map_info.get('rows_actor', 0)) + int(actor_map_info.get('rows_pic', 0))}")
-            st.caption(
-                f"{t(lang, 'mapping_keys_matched')}: "
-                f"{mapping_keys['matched_keys']}/{mapping_keys['total_keys']} ({mapping_key_pct:.1f}%)"
-            )
-            st.caption(f"{t(lang, 'mapping_global_impact')}: {mapping_cov['matched_actors']:,}")
-            if actor_map_info.get("source"):
-                st.caption(f"{t(lang, 'actor_groups_source')}: `{actor_map_info.get('source')}`")
-            if mapping_keys["total_keys"] > 0 and mapping_keys["matched_keys"] == 0:
-                st.warning(t(lang, "mapping_keys_issue"))
-                st.caption(t(lang, "mapping_mode_fallback"))
-            elif mapping_key_pct < 80.0:
-                st.warning(t(lang, "mapping_keys_partial"))
-                st.caption(t(lang, "mapping_mode_fallback"))
-            else:
-                st.caption(t(lang, "mapping_mode_explicit"))
-        else:
-            st.info(t(lang, "actor_groups_missing"))
-            st.caption(t(lang, "mapping_mode_pic_only"))
-
-    st.caption(f"{t(lang, 'build_sha')}: {current_git_sha()}")
-    with st.expander(t(lang, "diag_snapshot"), expanded=False):
-        st.caption(t(lang, "diag_snapshot_hint"))
-        ds = base_snapshot_stats()
-        es = events_snapshot_stats()
-        cs = connectors_snapshot_stats()
-        em = events_meta_snapshot()
-        st.caption(f"{t(lang, 'diag_rows')}: {ds['n_rows']:,}")
-        st.caption(f"{t(lang, 'diag_budget')}: {fmt_money(float(ds['total_budget']), lang)}")
-        st.caption(f"{t(lang, 'diag_projects')}: {ds['n_projects']:,}")
-        st.caption(f"{t(lang, 'diag_actors')}: {ds['n_actors']:,}")
-        st.caption(f"{t(lang, 'diag_years')}: {ds['min_year']}–{ds['max_year']}")
-        st.caption(f"{t(lang, 'diag_events')}: {es['n_events']:,}")
-        st.caption(f"{t(lang, 'diag_events_ai')}: {es['n_ai']:,}")
-        st.caption(f"{t(lang, 'diag_connectors')}: {int(cs.get('manifest_total', 0))}")
-        st.caption(f"{t(lang, 'diag_connectors_ready')}: {int(cs.get('manifest_ready', 0))}")
-        st.caption(f"{t(lang, 'diag_connectors_last')}: {cs.get('last_status', '—')}")
-        st.caption(f"{t(lang, 'diag_events_policy')}: {t(lang, 'diag_events_policy_value').format(hours=float(em.get('min_refresh_hours', 24.0)))}")
-        st.caption(f"{t(lang, 'last_update')} — {t(lang, 'last_update_events')}: {str(em.get('last_build_utc', '—'))}")
 
 
 # ============================================================
@@ -1941,8 +2005,6 @@ R = rel_analytics(
 # ============================================================
 # KPIs (DuckDB)
 # ============================================================
-st.subheader(t(lang, "kpis"))
-
 kpi = fetch_df(f"""
 SELECT
   SUM(amount_eur) AS total_budget,
@@ -1955,9 +2017,6 @@ WHERE {W}
 total_budget = float(kpi["total_budget"].iloc[0] or 0.0)
 nb_projects = int(kpi["n_projects"].iloc[0] or 0)
 nb_actors = int(kpi["n_actors"].iloc[0] or 0)
-
-if nb_projects == 0:
-    st.warning(t(lang, "no_data"))
 
 proj_stats = fetch_df(f"""
 SELECT
@@ -1988,14 +2047,6 @@ if not actor_b.empty and float(actor_b["b"].sum()) > 0:
     hhi = float(np.sum(shares**2))
     top10_share = float(b.sort_values(ascending=False).head(10).sum() / tot)
 
-k1, k2, k3, k4, k5, k6 = st.columns(6)
-k1.metric(t(lang, "budget_total"), fmt_money(total_budget, lang))
-k2.metric(t(lang, "n_projects"), f"{nb_projects:,}".replace(",", " "))
-k3.metric(t(lang, "n_actors"), f"{nb_actors:,}".replace(",", " "))
-k4.metric(t(lang, "avg_ticket"), fmt_money(avg_ticket, lang))
-k5.metric(t(lang, "median_ticket"), fmt_money(median_ticket, lang))
-k6.metric(t(lang, "top10_share"), fmt_pct(top10_share, 1))
-st.caption(f"{t(lang, 'hhi')}: {hhi:.3f}")
 scope_items = [
     f"{int(st.session_state['f_years'][0])}-{int(st.session_state['f_years'][1])}",
     t(lang, "scope_group_on") if st.session_state.get("f_use_actor_groups", False) else t(lang, "scope_group_off"),
@@ -2005,45 +2056,60 @@ if st.session_state.get("f_statuses"):
     scope_items.append(", ".join(status_raw_to_display(x, lang) for x in st.session_state["f_statuses"]))
 if str(st.session_state.get("f_quick_search", "")).strip():
     scope_items.append(f"{t(lang, 'quick_search')}: {str(st.session_state.get('f_quick_search', '')).strip()}")
-st.caption(
-    f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items)
-)
-st.divider()
+
 
 
 # ============================================================
 # Top navigation (result-first)
 # ============================================================
-tab_explorer, tab_actors_hub, tab_markets, tab_trends_events, tab_admin = st.tabs(
-    [
-        t(lang, "tab_explorer"),
-        t(lang, "tab_actors_hub"),
-        t(lang, "tab_markets"),
-        t(lang, "tab_trends_events"),
-        t(lang, "tab_admin"),
-    ]
+top_tab_labels = [
+    t(lang, "tab_explorer"),
+    t(lang, "tab_actors_hub"),
+    t(lang, "tab_markets"),
+    t(lang, "tab_trends_events"),
+    t(lang, "tab_advanced"),
+    t(lang, "tab_admin"),
+]
+default_top_tab = str(st.session_state.get("nav_target_top", "")).strip()
+if default_top_tab not in top_tab_labels:
+    default_top_tab = t(lang, "tab_explorer")
+tab_explorer, tab_actors_hub, tab_markets, tab_trends_events, tab_advanced, tab_admin = st.tabs(
+    top_tab_labels,
+    default=default_top_tab,
 )
 
 with tab_explorer:
     tab_results, tab_overview = st.tabs([t(lang, "sub_results"), t(lang, "sub_overview")])
 
 with tab_actors_hub:
-    tab_actor, tab_comp, tab_network = st.tabs(
-        [t(lang, "tab_actor"), t(lang, "sub_benchmark"), t(lang, "sub_network")]
-    )
+    tab_actor = st.container()
 
 with tab_trends_events:
     tab_trends, tab_compare, tab_macro = st.tabs(
         [t(lang, "tab_trends"), t(lang, "tab_compare"), t(lang, "tab_macro")]
     )
 
+with tab_advanced:
+    st.markdown(f"### {t(lang, 'advanced_title')}")
+    st.caption(t(lang, "advanced_caption"))
+    tab_comp, tab_value_chain, tab_collaboration, tab_concentration = st.tabs(
+        [
+            t(lang, "sub_benchmark"),
+            t(lang, "sub_value_chain"),
+            t(lang, "sub_collaboration"),
+            t(lang, "sub_concentration"),
+        ]
+    )
+
 with tab_admin:
-    tab_data, tab_quality = st.tabs([t(lang, "sub_data"), t(lang, "sub_quality")])
+    tab_data, tab_quality, tab_debug = st.tabs([t(lang, "sub_data"), t(lang, "sub_quality"), t(lang, "sub_debug")])
     tab_docs = st.container()
 
 tab_geo = tab_markets
 tab_help = tab_docs
 tab_guide = tab_docs
+st.session_state["nav_target_top"] = ""
+st.session_state["nav_target_actor_sub"] = ""
 
 
 # ============================================================
@@ -2052,6 +2118,19 @@ tab_guide = tab_docs
 with tab_results:
     st.markdown("### " + t(lang, "results_title"))
     st.caption(t(lang, "results_caption"))
+    st.subheader(t(lang, "kpis"))
+    k1, k2, k3, k4, k5, k6 = st.columns(6)
+    k1.metric(t(lang, "budget_total"), fmt_money(total_budget, lang))
+    k2.metric(t(lang, "n_projects"), f"{nb_projects:,}".replace(",", " "))
+    k3.metric(t(lang, "n_actors"), f"{nb_actors:,}".replace(",", " "))
+    k4.metric(t(lang, "avg_ticket"), fmt_money(avg_ticket, lang))
+    k5.metric(t(lang, "median_ticket"), fmt_money(median_ticket, lang))
+    k6.metric(t(lang, "top10_share"), fmt_pct(top10_share, 1))
+    st.caption(f"{t(lang, 'hhi')}: {hhi:.3f}")
+    st.caption(
+        f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items)
+    )
+    st.divider()
 
     if nb_projects == 0:
         render_empty_state(lang)
@@ -2070,7 +2149,10 @@ with tab_results:
         )
 
         if results_view == t(lang, "results_table"):
-            results_projects = fetch_df(f"""
+            results_scope_token = f"{R}||{W}"
+            sync_results_table_state(results_scope_token)
+
+            results_base_select_sql = f"""
             SELECT
               projectID,
               MIN(year) AS year,
@@ -2083,28 +2165,279 @@ with tab_results:
             FROM {R}
             WHERE {W}
             GROUP BY projectID
-            ORDER BY budget_eur DESC
-            LIMIT 250
-            """)
-            if results_projects.empty:
+            """
+            results_total = fetch_df(f"SELECT COUNT(*) AS n_rows FROM ({results_base_select_sql}) q")
+            total_matches = int(results_total["n_rows"].iloc[0] or 0) if not results_total.empty else 0
+
+            if total_matches == 0:
                 render_empty_state(lang)
             else:
+                rc1, rc2, rc3 = st.columns([1, 1, 2])
+                with rc1:
+                    rows_per_page = st.selectbox(
+                        t(lang, "rows_per_page"),
+                        [25, 50, 100, 250],
+                        index=[25, 50, 100, 250].index(int(st.session_state.get("results_table_rows_per_page", 100))),
+                        key="results_table_rows_per_page",
+                    )
+                max_page = max(1, (int(total_matches) + int(rows_per_page) - 1) // int(rows_per_page))
+                if int(st.session_state.get("results_table_page", 1)) > max_page:
+                    st.session_state["results_table_page"] = max_page
+                with rc2:
+                    page = st.number_input(
+                        t(lang, "page"),
+                        min_value=1,
+                        max_value=max_page,
+                        value=int(st.session_state.get("results_table_page", 1)),
+                        step=1,
+                        key="results_table_page",
+                    )
+                with rc3:
+                    st.caption(f"{t(lang, 'n_projects')}: {total_matches:,}".replace(",", " "))
+                    st.caption(f"Page {int(page)} / {int(max_page)}")
+
+                offset = (int(page) - 1) * int(rows_per_page)
+                results_projects_raw = fetch_df(f"""
+                {results_base_select_sql}
+                ORDER BY budget_eur DESC
+                LIMIT {int(rows_per_page)} OFFSET {int(offset)}
+                """)
+                results_projects = results_projects_raw.copy()
                 results_projects["theme"] = results_projects["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
                 results_projects["project_status"] = results_projects["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
                 results_projects["budget_eur"] = results_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
                 st.markdown("#### " + t(lang, "results_projects_table"))
-                st.dataframe(
-                    results_projects.rename(
-                        columns={
-                            "project_status": t(lang, "project_status"),
-                            "budget_eur": t(lang, "budget_total"),
-                            "n_actors": t(lang, "n_actors"),
-                            "theme": t(lang, "themes"),
-                        }
-                    ),
+                results_view_token = f"{results_scope_token}||page={int(page)}||rpp={int(rows_per_page)}"
+                if st.session_state.get("results_selected_project_view_token") != results_view_token:
+                    st.session_state["results_selected_project_view_token"] = results_view_token
+                    st.session_state.pop("results_selected_project_id", None)
+                    st.session_state.pop("results_project_table_df", None)
+
+                results_projects_display = results_projects.rename(
+                    columns={
+                        "project_status": t(lang, "project_status"),
+                        "budget_eur": t(lang, "budget_total"),
+                        "n_actors": t(lang, "n_actors"),
+                        "theme": t(lang, "themes"),
+                    }
+                )
+                results_table_event = st.dataframe(
+                    results_projects_display,
                     use_container_width=True,
                     height=620,
+                    hide_index=True,
+                    key="results_project_table_df",
+                    on_select="rerun",
+                    selection_mode="single-row",
                 )
+                selected_rows = []
+                try:
+                    selected_rows = list(getattr(getattr(results_table_event, "selection", None), "rows", []) or [])
+                except Exception:
+                    selected_rows = []
+                if selected_rows:
+                    row_idx = int(selected_rows[0])
+                    if 0 <= row_idx < len(results_projects_raw):
+                        st.session_state["results_selected_project_id"] = str(results_projects_raw.iloc[row_idx]["projectID"])
+
+                results_export_query_key = str(abs(hash(results_base_select_sql)))
+                if st.session_state.get("results_table_full_export_query_key") != results_export_query_key:
+                    st.session_state.pop("results_table_full_export_bytes", None)
+                    st.session_state["results_table_full_export_query_key"] = results_export_query_key
+
+                re1, re2 = st.columns(2)
+                with re1:
+                    st.download_button(
+                        t(lang, "download_page"),
+                        results_projects_raw.to_csv(index=False).encode("utf-8"),
+                        file_name="results_project_table_page.csv",
+                        mime="text/csv",
+                        key="results_table_download_page",
+                    )
+                with re2:
+                    if st.button(t(lang, "prepare_full_export"), width="stretch", key="results_table_prepare_full_export"):
+                        with st.spinner("Préparation de l’export..." if lang == "FR" else "Preparing export..."):
+                            st.session_state["results_table_full_export_bytes"] = export_query_csv_bytes(
+                                f"""
+                                {results_base_select_sql}
+                                ORDER BY budget_eur DESC
+                                """
+                            )
+
+                if "results_table_full_export_bytes" in st.session_state:
+                    st.download_button(
+                        t(lang, "download_full"),
+                        st.session_state["results_table_full_export_bytes"],
+                        file_name="results_project_table_full.csv",
+                        mime="text/csv",
+                        key="results_table_download_full",
+                    )
+
+                selected_project_id = str(st.session_state.get("results_selected_project_id", "")).strip()
+                if selected_project_id:
+                    detail_df = fetch_df(f"""
+                    SELECT
+                      projectID,
+                      MIN(title) AS title,
+                      MIN(acronym) AS acronym,
+                      MIN(year) AS year,
+                      MIN(program) AS program,
+                      MIN(theme) AS theme,
+                      MIN(project_status) AS project_status,
+                      SUM(amount_eur) AS budget_eur,
+                      COUNT(DISTINCT actor_id) AS n_actors,
+                      COUNT(DISTINCT country_name) AS n_countries
+                    FROM {R}
+                    WHERE {W} AND projectID IN {in_list([selected_project_id])}
+                    GROUP BY projectID
+                    LIMIT 1
+                    """)
+                    if detail_df.empty:
+                        st.session_state.pop("results_selected_project_id", None)
+                    else:
+                        detail = detail_df.iloc[0]
+                        countries_df = fetch_df(f"""
+                        SELECT DISTINCT country_name
+                        FROM {R}
+                        WHERE {W} AND projectID IN {in_list([selected_project_id])}
+                          AND country_name IS NOT NULL AND TRIM(country_name) <> ''
+                        ORDER BY country_name
+                        LIMIT 40
+                        """)
+                        actors_df = fetch_df(f"""
+                        SELECT
+                          actor_id,
+                          COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
+                          COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name,
+                          SUM(amount_eur) AS budget_eur
+                        FROM {R}
+                        WHERE {W} AND projectID IN {in_list([selected_project_id])}
+                          AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+                        GROUP BY actor_id, actor_label, country_name
+                        ORDER BY budget_eur DESC, actor_label
+                        LIMIT 30
+                        """)
+
+                        countries_list = [str(x) for x in countries_df["country_name"].tolist() if str(x).strip()] if not countries_df.empty else []
+                        if countries_list:
+                            country_select_key = f"results_detail_country_select::{selected_project_id}"
+                            st.session_state.setdefault(country_select_key, countries_list[0])
+                            if st.session_state.get(country_select_key) not in countries_list:
+                                st.session_state[country_select_key] = countries_list[0]
+
+                        st.divider()
+                        st.markdown("#### " + ("Détail projet" if lang == "FR" else "Project detail"))
+                        title_txt = str(detail.get("title") or selected_project_id).strip() or selected_project_id
+                        st.caption(("Projet sélectionné depuis la table de résultats." if lang == "FR" else "Project selected from the results table."))
+                        st.markdown(f"**{title_txt}**")
+                        if str(detail.get("acronym") or "").strip():
+                            st.caption(f"Acronym: {str(detail.get('acronym') or '').strip()}")
+
+                        dc1, dc2, dc3, dc4 = st.columns(4)
+                        dc1.metric(t(lang, "budget_total"), fmt_money(float(detail.get("budget_eur") or 0.0), lang))
+                        dc2.metric(t(lang, "n_actors"), f"{int(detail.get('n_actors') or 0):,}".replace(",", " "))
+                        dc3.metric(t(lang, "countries"), f"{int(detail.get('n_countries') or 0):,}".replace(",", " "))
+                        dc4.metric(("Année" if lang == "FR" else "Year"), str(int(detail.get("year") or 0)) if pd.notna(detail.get("year")) else "—")
+
+                        meta1, meta2, meta3 = st.columns(3)
+                        with meta1:
+                            st.caption(f"**{t(lang, 'programmes')}**")
+                            st.write(str(detail.get("program") or "—"))
+                        with meta2:
+                            st.caption(f"**{t(lang, 'themes')}**")
+                            st.write(theme_raw_to_display(str(detail.get("theme") or ""), lang) if str(detail.get("theme") or "").strip() else "—")
+                        with meta3:
+                            st.caption(f"**{t(lang, 'project_status')}**")
+                            st.write(status_raw_to_display(str(detail.get("project_status") or ""), lang) if str(detail.get("project_status") or "").strip() else "—")
+
+                        info1, info2 = st.columns([1.3, 1.7])
+                        with info1:
+                            st.caption(f"**{t(lang, 'countries')}**")
+                            if countries_list:
+                                st.write(", ".join(countries_list))
+                            else:
+                                st.write("—")
+                        with info2:
+                            st.caption("**Actors involved**" if lang != "FR" else "**Acteurs impliqués**")
+                            if actors_df.empty:
+                                st.write("—")
+                            else:
+                                actor_lines = []
+                                for _, row in actors_df.head(10).iterrows():
+                                    actor_lines.append(
+                                        f"- {str(row['actor_label'])} ({str(row['country_name'])}) — {fmt_money(float(row['budget_eur'] or 0.0), lang)}"
+                                    )
+                                st.markdown("\n".join(actor_lines))
+                                if len(actors_df) > 10:
+                                    more_n = int(len(actors_df) - 10)
+                                    st.caption((f"+{more_n} autres acteurs" if lang == "FR" else f"+{more_n} more actors"))
+
+                        st.caption(("Actions rapides" if lang == "FR" else "Quick actions"))
+                        qa1, qa2, qa3 = st.columns(3)
+                        with qa1:
+                            if countries_list:
+                                st.selectbox(
+                                    t(lang, "countries"),
+                                    countries_list,
+                                    key=country_select_key,
+                                    label_visibility="collapsed",
+                                )
+                                if st.button(("Ouvrir dans Géographie" if lang == "FR" else "Open in Geography"), key=f"results_geo_country_btn::{selected_project_id}"):
+                                    selected_country = str(st.session_state.get(country_select_key, "")).strip()
+                                    if selected_country:
+                                        st.session_state["f_countries"] = [selected_country]
+                                        queue_tab_navigation(top_target=t(lang, "tab_markets"))
+                                        st.rerun()
+                            else:
+                                st.caption("—")
+                        with qa2:
+                            project_theme_raw = str(detail.get("theme") or "").strip()
+                            if project_theme_raw:
+                                if st.button(("Filtrer ce thème" if lang == "FR" else "Filter this theme"), key=f"results_filter_theme_btn::{selected_project_id}"):
+                                    st.session_state["f_themes_raw"] = [project_theme_raw]
+                                    st.rerun()
+                            else:
+                                st.caption("—")
+                        with qa3:
+                            project_program = str(detail.get("program") or "").strip()
+                            if project_program:
+                                if st.button(("Filtrer ce programme" if lang == "FR" else "Filter this programme"), key=f"results_filter_program_btn::{selected_project_id}"):
+                                    st.session_state["f_programmes"] = [project_program]
+                                    st.rerun()
+                            else:
+                                st.caption("—")
+
+                        if not actors_df.empty:
+                            actors_hook = actors_df.copy()
+                            actors_hook["actor_display"] = actors_hook["actor_label"].astype(str) + " — " + actors_hook["country_name"].astype(str)
+                            actor_hook_key = f"results_actor_hook_select::{selected_project_id}"
+                            actor_options = actors_hook["actor_display"].astype(str).tolist()
+                            ah1, ah2 = st.columns([1.8, 1.0])
+                            with ah1:
+                                st.selectbox(
+                                    ("Acteur à explorer ensuite" if lang == "FR" else "Actor to explore next"),
+                                    actor_options,
+                                    key=actor_hook_key,
+                                )
+                            with ah2:
+                                if st.button(("Ouvrir dans Acteurs" if lang == "FR" else "Open in Actors"), key=f"results_actor_drill_btn::{selected_project_id}"):
+                                    chosen_display = str(st.session_state.get(actor_hook_key, actor_options[0])) if actor_options else ""
+                                    if chosen_display:
+                                        chosen_row = actors_hook[actors_hook["actor_display"].astype(str) == chosen_display].head(1)
+                                        if not chosen_row.empty:
+                                            chosen_actor_id = str(chosen_row.iloc[0]["actor_id"])
+                                            st.session_state["results_selected_actor_id_candidate"] = chosen_actor_id
+                                            st.session_state["results_drilldown_actor_id"] = chosen_actor_id
+                                            queue_tab_navigation(
+                                                top_target=t(lang, "tab_actors_hub"),
+                                                actor_sub_target=t(lang, "tab_actor"),
+                                            )
+                                            st.rerun()
+                            chosen_display = str(st.session_state.get(actor_hook_key, actor_options[0])) if actor_options else ""
+                            if chosen_display:
+                                chosen_row = actors_hook[actors_hook["actor_display"].astype(str) == chosen_display].head(1)
+                                if not chosen_row.empty:
+                                    st.session_state["results_selected_actor_id_candidate"] = str(chosen_row.iloc[0]["actor_id"])
 
         elif results_view == t(lang, "results_trend"):
             res_year = fetch_df(f"""
@@ -2261,6 +2594,8 @@ with tab_results:
 # TAB OVERVIEW (DuckDB)
 # ============================================================
 with tab_overview:
+    st.caption(t(lang, "overview_caption"))
+
     st.markdown("### " + ("Allocation du budget par type d’entité" if lang == "FR" else "Budget allocation by entity type"))
     alloc = fetch_df(f"""
     SELECT entity_type, SUM(amount_eur) AS amount_eur
@@ -2331,136 +2666,6 @@ with tab_overview:
             )
             fig_status_projects.update_layout(coloraxis_showscale=False, yaxis_title=None)
             st.plotly_chart(fig_status_projects, use_container_width=True)
-
-    st.divider()
-    st.markdown("### " + t(lang, "ticket_shape_title"))
-    tb = fetch_df(f"""
-    SELECT year, projectID, SUM(amount_eur) AS proj_budget
-    FROM {R}
-    WHERE {W}
-    GROUP BY year, projectID
-    HAVING SUM(amount_eur) > 0
-    """)
-    if tb.empty:
-        st.info(t(lang, "no_data"))
-    else:
-        tb["year"] = tb["year"].astype(int)
-        yearly_ticket = (
-            tb.groupby("year", as_index=False)
-            .agg(
-                total_budget=("proj_budget", "sum"),
-                median_budget=("proj_budget", "median"),
-                n_projects=("projectID", "nunique"),
-            )
-            .sort_values("year")
-        )
-        fig_budget = px.bar(
-            yearly_ticket,
-            x="year",
-            y="total_budget",
-            color="total_budget",
-            color_continuous_scale=R2G,
-            height=320,
-            labels={"year": "Year", "total_budget": "Budget (€)"},
-        )
-        fig_budget.update_traces(
-            customdata=np.stack(
-                [
-                    yearly_ticket["total_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                    yearly_ticket["n_projects"].astype(int).values,
-                ],
-                axis=-1,
-            ),
-            hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
-        )
-        fig_budget.update_layout(
-            showlegend=False,
-            coloraxis_showscale=False,
-            margin=dict(l=20, r=20, t=10, b=10),
-        )
-        st.plotly_chart(fig_budget, use_container_width=True)
-
-        fig_median = px.bar(
-            yearly_ticket,
-            x="year",
-            y="median_budget",
-            color="median_budget",
-            color_continuous_scale=R2G,
-            height=280,
-            labels={"year": "Year", "median_budget": t(lang, "ticket_shape_median") + " (€)"},
-        )
-        fig_median.update_traces(
-            customdata=np.stack(
-                [
-                    yearly_ticket["median_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                    yearly_ticket["n_projects"].astype(int).values,
-                ],
-                axis=-1,
-            ),
-            hovertemplate="<b>%{x}</b><br>Median ticket: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
-        )
-        fig_median.update_layout(
-            showlegend=False,
-            coloraxis_showscale=False,
-            margin=dict(l=20, r=20, t=10, b=10),
-        )
-        st.plotly_chart(fig_median, use_container_width=True)
-        st.caption(t(lang, "ticket_shape_caption"))
-
-    st.divider()
-    st.markdown("### " + t(lang, "concentration_title"))
-    conc = fetch_df(f"""
-    SELECT
-      COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
-      actor_id,
-      SUM(amount_eur) AS b
-    FROM {R}
-    WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
-    GROUP BY actor_label, actor_id
-    ORDER BY b DESC
-    LIMIT 25
-    """)
-    if conc.empty or float(conc["b"].sum()) <= 0:
-        st.info(t(lang, "no_data"))
-    else:
-        conc = conc.copy()
-        conc["actor_label"] = conc["actor_label"].astype(str).str.slice(0, 32)
-        conc["cum_share"] = conc["b"].astype(float).cumsum() / float(conc["b"].astype(float).sum()) * 100.0
-        conc["budget_str"] = conc["b"].astype(float).apply(lambda x: fmt_money(float(x), lang))
-
-        fig_p = go.Figure()
-        fig_p.add_trace(
-            go.Bar(
-                x=conc["actor_label"],
-                y=conc["b"],
-                name=t(lang, "concentration_budget"),
-                marker=dict(color="rgba(120,180,255,0.72)", line=dict(color="rgba(255,255,255,0.18)", width=0.8)),
-                customdata=np.stack([conc["budget_str"]], axis=-1),
-                hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<extra></extra>",
-            )
-        )
-        fig_p.add_trace(
-            go.Scatter(
-                x=conc["actor_label"],
-                y=conc["cum_share"],
-                yaxis="y2",
-                mode="lines+markers",
-                name=t(lang, "concentration_cum"),
-                line=dict(color="rgba(255,205,90,0.95)", width=2.4),
-                marker=dict(size=6, color="rgba(255,205,90,0.95)"),
-                hovertemplate="<b>%{x}</b><br>Cumulative: %{y:.1f}%<extra></extra>",
-            )
-        )
-        fig_p.update_layout(
-            height=460,
-            xaxis=dict(title="", tickangle=-35),
-            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="rgba(255,255,255,0.08)"),
-            yaxis2=dict(title=t(lang, "concentration_cum"), overlaying="y", side="right", range=[0, 100]),
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
-            margin=dict(l=20, r=20, t=20, b=80),
-        )
-        st.plotly_chart(fig_p, use_container_width=True)
-        st.caption(t(lang, "concentration_caption"))
 
     st.divider()
     st.markdown("### " + t(lang, "insights_title"))
@@ -2541,11 +2746,90 @@ with tab_overview:
     else:
         st.caption(t(lang, "no_data"))
 
+    st.divider()
+    with st.expander(t(lang, "overview_yearly_extra"), expanded=False):
+        st.markdown("### " + t(lang, "ticket_shape_title"))
+        tb = fetch_df(f"""
+        SELECT year, projectID, SUM(amount_eur) AS proj_budget
+        FROM {R}
+        WHERE {W}
+        GROUP BY year, projectID
+        HAVING SUM(amount_eur) > 0
+        """)
+        if tb.empty:
+            st.info(t(lang, "no_data"))
+        else:
+            tb["year"] = tb["year"].astype(int)
+            yearly_ticket = (
+                tb.groupby("year", as_index=False)
+                .agg(
+                    total_budget=("proj_budget", "sum"),
+                    median_budget=("proj_budget", "median"),
+                    n_projects=("projectID", "nunique"),
+                )
+                .sort_values("year")
+            )
+            fig_budget = px.bar(
+                yearly_ticket,
+                x="year",
+                y="total_budget",
+                color="total_budget",
+                color_continuous_scale=R2G,
+                height=320,
+                labels={"year": "Year", "total_budget": "Budget (€)"},
+            )
+            fig_budget.update_traces(
+                customdata=np.stack(
+                    [
+                        yearly_ticket["total_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                        yearly_ticket["n_projects"].astype(int).values,
+                    ],
+                    axis=-1,
+                ),
+                hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+            )
+            fig_budget.update_layout(
+                showlegend=False,
+                coloraxis_showscale=False,
+                margin=dict(l=20, r=20, t=10, b=10),
+            )
+            st.plotly_chart(fig_budget, use_container_width=True)
+
+            fig_median = px.bar(
+                yearly_ticket,
+                x="year",
+                y="median_budget",
+                color="median_budget",
+                color_continuous_scale=R2G,
+                height=280,
+                labels={"year": "Year", "median_budget": t(lang, "ticket_shape_median") + " (€)"},
+            )
+            fig_median.update_traces(
+                customdata=np.stack(
+                    [
+                        yearly_ticket["median_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                        yearly_ticket["n_projects"].astype(int).values,
+                    ],
+                    axis=-1,
+                ),
+                hovertemplate="<b>%{x}</b><br>Median ticket: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+            )
+            fig_median.update_layout(
+                showlegend=False,
+                coloraxis_showscale=False,
+                margin=dict(l=20, r=20, t=10, b=10),
+            )
+            st.plotly_chart(fig_median, use_container_width=True)
+            st.caption(t(lang, "ticket_shape_caption"))
+
 
 # ============================================================
 # TAB GEO (DuckDB)
 # ============================================================
 with tab_geo:
+    st.markdown(f"### {t(lang, 'tab_geo')}")
+    st.caption(t(lang, "geo_caption"))
+    st.caption(f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items))
     geo = fetch_df(f"""
     SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
     FROM {R}
@@ -2568,25 +2852,83 @@ with tab_geo:
         )
 
         zoom_opts = ["Auto", "Europe", "World", "Africa", "Asia", "North America", "South America", "Oceania"]
-        a, b, c, d, e = st.columns([1.2, 1.1, 1.2, 1.2, 1.4])
-        with a:
-            zoom = st.selectbox(t(lang, "zoom_on"), zoom_opts, index=1)
-        with b:
-            projection = st.selectbox(t(lang, "projection"), ["natural earth", "mercator"], index=0)
-        with c:
+        c1, c2 = st.columns([1.1, 1.4])
+        with c1:
             metric_mode = st.selectbox(
                 t(lang, "geo_metric"),
                 [t(lang, "geo_metric_total"), t(lang, "geo_metric_per_million")],
                 index=1,
             )
-        with d:
-            show_borders = st.checkbox(t(lang, "borders"), value=True)
-        with e:
-            show_labels = st.checkbox(t(lang, "labels"), value=False)
 
         is_per_million = metric_mode == t(lang, "geo_metric_per_million")
         color_col = "amount_per_million" if is_per_million else "amount_eur"
         color_title = "€ / M hab." if is_per_million else "Budget (€)"
+        geo_rank = geo[geo[color_col].notna()].copy() if is_per_million else geo.copy()
+        geo_rank = geo_rank.sort_values(color_col, ascending=False).reset_index(drop=True)
+        geo_rank["rank"] = np.arange(1, len(geo_rank) + 1)
+
+        country_options = geo_rank["country_name"].astype(str).tolist()
+        country_scope_token = f"{W}||{'|'.join(country_options)}"
+        drilldown_country = ""
+        active_country_filters = [str(x) for x in st.session_state.get("f_countries", []) if str(x).strip()]
+        if len(active_country_filters) == 1 and active_country_filters[0] in country_options:
+            drilldown_country = active_country_filters[0]
+
+        if st.session_state.get("geo_scope_token") != country_scope_token:
+            st.session_state["geo_scope_token"] = country_scope_token
+            if drilldown_country:
+                st.session_state["geo_selected_country"] = drilldown_country
+            elif country_options:
+                st.session_state["geo_selected_country"] = country_options[0]
+        else:
+            current_geo_country = str(st.session_state.get("geo_selected_country", "")).strip()
+            if drilldown_country and current_geo_country != drilldown_country:
+                st.session_state["geo_selected_country"] = drilldown_country
+            elif country_options and current_geo_country not in country_options:
+                st.session_state["geo_selected_country"] = country_options[0]
+
+        with c2:
+            if country_options:
+                st.selectbox(
+                    t(lang, "geo_country_picker"),
+                    country_options,
+                    key="geo_selected_country",
+                )
+
+        with st.expander(t(lang, "geo_advanced_options"), expanded=False):
+            a, b, d, e = st.columns([1.2, 1.1, 1.2, 1.4])
+            with a:
+                zoom = st.selectbox(t(lang, "zoom_on"), zoom_opts, index=1, key="geo_zoom")
+            with b:
+                projection = st.selectbox(t(lang, "projection"), ["natural earth", "mercator"], index=0, key="geo_projection")
+            with d:
+                show_borders = st.checkbox(t(lang, "borders"), value=True, key="geo_borders")
+            with e:
+                show_labels = st.checkbox(t(lang, "labels"), value=False, key="geo_labels")
+
+        selected_country = str(st.session_state.get("geo_selected_country", "")).strip() if country_options else ""
+        selected_geo_row = geo[geo["country_name"].astype(str) == selected_country].head(1)
+        selected_rank_row = geo_rank[geo_rank["country_name"].astype(str) == selected_country].head(1)
+        selected_total_budget = float(selected_geo_row.iloc[0]["amount_eur"] or 0.0) if not selected_geo_row.empty else 0.0
+        selected_per_million = (
+            float(selected_geo_row.iloc[0]["amount_per_million"])
+            if not selected_geo_row.empty and pd.notna(selected_geo_row.iloc[0]["amount_per_million"])
+            else np.nan
+        )
+        selected_rank = int(selected_rank_row.iloc[0]["rank"]) if not selected_rank_row.empty else 0
+        selected_scope_share = (selected_total_budget / float(geo["amount_eur"].sum())) if float(geo["amount_eur"].sum() or 0.0) > 0 else 0.0
+
+        if selected_country:
+            st.markdown(f"## {selected_country}")
+            g1, g2, g3, g4 = st.columns(4)
+            g1.metric(t(lang, "geo_rank"), f"{selected_rank}" if selected_rank else "—")
+            g2.metric(t(lang, "budget_total"), fmt_money(selected_total_budget, lang))
+            g3.metric(
+                t(lang, "geo_metric_per_million"),
+                "—" if pd.isna(selected_per_million) else f"{selected_per_million:,.0f} € / M".replace(",", " "),
+            )
+            g4.metric(t(lang, "geo_scope_share"), fmt_pct(selected_scope_share, 1))
+
         if is_per_million and geo["amount_per_million"].isna().any():
             st.caption(t(lang, "geo_pop_missing"))
 
@@ -2678,20 +3020,24 @@ with tab_geo:
         st.plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
 
         st.markdown(f"#### {t(lang, 'top_countries')}")
-        geo_rank = geo[geo[color_col].notna()].copy() if is_per_million else geo.copy()
-        top_c = geo_rank.sort_values(color_col, ascending=False).head(15).copy()
+        top_c = geo_rank.head(15).copy()
         if top_c.empty:
             st.info(t(lang, "no_data"))
         else:
+            top_c["country_display"] = np.where(
+                top_c["country_name"].astype(str) == selected_country,
+                "→ " + top_c["country_name"].astype(str),
+                top_c["country_name"].astype(str),
+            )
             fig_bar = px.bar(
                 top_c,
                 x=color_col,
-                y="country_name",
+                y="country_display",
                 orientation="h",
                 color=color_col,
                 color_continuous_scale=R2G,
                 height=520,
-                labels={color_col: color_title, "country_name": ""},
+                labels={color_col: color_title, "country_display": ""},
             )
             fig_bar.update_traces(
                 customdata=np.stack([top_c["budget_str"], top_c["per_million_str"]], axis=-1),
@@ -2705,17 +3051,117 @@ with tab_geo:
             fig_bar.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
             st.plotly_chart(fig_bar, use_container_width=True)
 
+        if selected_country:
+            country_sql = in_list([selected_country])
+            country_actors = fetch_df(f"""
+            SELECT
+              actor_id,
+              COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
+              SUM(amount_eur) AS budget_eur,
+              COUNT(DISTINCT projectID) AS n_projects
+            FROM {R}
+            WHERE {W} AND country_name IN {country_sql}
+              AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+            GROUP BY actor_id, actor_label
+            ORDER BY budget_eur DESC
+            LIMIT 12
+            """)
+            country_themes = fetch_df(f"""
+            SELECT
+              theme,
+              SUM(amount_eur) AS budget_eur,
+              COUNT(DISTINCT projectID) AS n_projects
+            FROM {R}
+            WHERE {W} AND country_name IN {country_sql}
+              AND theme IS NOT NULL AND TRIM(theme) <> ''
+            GROUP BY theme
+            ORDER BY budget_eur DESC
+            LIMIT 12
+            """)
+            country_projects = fetch_df(f"""
+            SELECT
+              projectID,
+              MIN(title) AS title,
+              MIN(year) AS year,
+              MIN(program) AS program,
+              MIN(theme) AS theme,
+              SUM(amount_eur) AS budget_eur
+            FROM {R}
+            WHERE {W} AND country_name IN {country_sql}
+            GROUP BY projectID
+            ORDER BY budget_eur DESC
+            LIMIT 12
+            """)
+
+            st.divider()
+            st.markdown(f"#### {t(lang, 'geo_country_detail')}")
+            d1, d2 = st.columns(2)
+            with d1:
+                st.markdown(f"##### {t(lang, 'geo_country_actors')}")
+                if country_actors.empty:
+                    st.info(t(lang, "no_data"))
+                else:
+                    fig_country_actors = px.bar(
+                        country_actors.iloc[::-1],
+                        x="budget_eur",
+                        y="actor_label",
+                        orientation="h",
+                        color="budget_eur",
+                        color_continuous_scale=R2G,
+                        height=440,
+                        labels={"budget_eur": "Budget (€)", "actor_label": ""},
+                    )
+                    fig_country_actors.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                    st.plotly_chart(fig_country_actors, use_container_width=True)
+            with d2:
+                st.markdown(f"##### {t(lang, 'geo_country_themes')}")
+                if country_themes.empty:
+                    st.info(t(lang, "no_data"))
+                else:
+                    country_themes["theme_display"] = country_themes["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
+                    fig_country_themes = px.bar(
+                        country_themes.iloc[::-1],
+                        x="budget_eur",
+                        y="theme_display",
+                        orientation="h",
+                        color="budget_eur",
+                        color_continuous_scale=R2G,
+                        height=440,
+                        labels={"budget_eur": "Budget (€)", "theme_display": ""},
+                    )
+                    fig_country_themes.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                    st.plotly_chart(fig_country_themes, use_container_width=True)
+
+            st.markdown(f"##### {t(lang, 'geo_country_projects')}")
+            if country_projects.empty:
+                st.info(t(lang, "no_data"))
+            else:
+                country_projects["budget"] = country_projects["budget_eur"].apply(lambda v: fmt_money(float(v), lang))
+                country_projects["theme_display"] = country_projects["theme"].map(
+                    lambda x: theme_raw_to_display(str(x), lang) if str(x).strip() else "—"
+                )
+                st.dataframe(
+                    country_projects[["year", "projectID", "title", "program", "theme_display", "budget"]].rename(
+                        columns={"theme_display": t(lang, "themes")}
+                    ),
+                    use_container_width=True,
+                    height=420,
+                    hide_index=True,
+                )
+
 
 # ============================================================
 # TAB COMP (Benchmark) — scatter, treemap, top (DuckDB)
 # ============================================================
 with tab_comp:
+    st.caption(t(lang, "bm_caption"))
     bm_view = st.radio(
         t(lang, "benchmark_mode"),
-        [t(lang, "bm_scatter"), t(lang, "bm_treemap"), t(lang, "bm_top")],
-        index=2,
+        [t(lang, "bm_top"), t(lang, "bm_scatter"), t(lang, "bm_treemap")],
+        index=0,
         horizontal=True,
     )
+    st.caption(t(lang, "bm_default_caption") if bm_view == t(lang, "bm_top") else t(lang, "bm_expert_caption"))
 
     m = fetch_df(f"""
     WITH x AS (
@@ -2752,15 +3198,19 @@ with tab_comp:
     m["ticket_eur"] = m["budget_eur"].astype(float) / m["n_projects"].astype(float).clip(lower=1.0)
     m["budget_str"] = m["budget_eur"].apply(lambda v: fmt_money(float(v), lang))
     m["ticket_str"] = m["ticket_eur"].apply(lambda v: fmt_money(float(v), lang))
+    m["entity_display"] = m["entity_type"].map(lambda x: entity_raw_to_display(str(x), lang))
 
-    a, b, c = st.columns([1.1, 1.0, 1.9])
-    with a:
-        pct = st.slider(t(lang, "pct_threshold"), 0, 99, 90)
+    with st.expander(t(lang, "bm_compare_scope"), expanded=(bm_view != t(lang, "bm_top"))):
+        a, b = st.columns([1.2, 1.0])
+        with a:
+            pct = st.slider(t(lang, "pct_threshold"), 0, 99, 90)
+        with b:
+            topn = st.number_input(t(lang, "topn"), min_value=20, max_value=5000, value=200, step=10)
         thr = float(np.nanpercentile(m["budget_eur"].astype(float).values, pct)) if len(m) else 0.0
         st.caption(f"≥ {fmt_money(thr, lang)}")
-    with b:
-        topn = st.number_input(t(lang, "topn"), min_value=20, max_value=5000, value=200, step=10)
-    with c:
+
+    c1, c2 = st.columns([1.4, 1.3])
+    with c1:
         query = st.text_input(t(lang, "search_actor"), value="")
 
     m2 = m[m["budget_eur"].astype(float) >= thr].copy()
@@ -2770,9 +3220,33 @@ with tab_comp:
 
     all_label = "Tous les acteurs" if lang == "FR" else "All actors"
     actor_options = [all_label] + m2["actor_label"].astype(str).tolist()
-    picked_label = st.selectbox(t(lang, "actor_picker"), actor_options, index=0, help=t(lang, "actor_picker_hint"))
+    with c2:
+        picked_label = st.selectbox(t(lang, "actor_picker"), actor_options, index=0, help=t(lang, "actor_picker_hint"))
     if picked_label != all_label:
         m2 = m2[m2["actor_label"].astype(str) == picked_label].copy()
+
+    def top_bar(entity_code: str, col, title: str):
+        sel = m[m["entity_type"].astype(str) == entity_code].sort_values("budget_eur", ascending=False).head(20)
+        if sel.empty:
+            col.caption("—")
+            return
+        fig = px.bar(
+            sel.iloc[::-1],
+            x="budget_eur",
+            y="actor_label",
+            orientation="h",
+            color="budget_eur",
+            color_continuous_scale=R2G,
+            height=560,
+            labels={"budget_eur": "Budget (€)", "actor_label": ""},
+        )
+        fig.update_traces(
+            customdata=np.stack([sel["budget_str"].iloc[::-1]], axis=-1),
+            hovertemplate="<b>%{y}</b><br>Budget: %{customdata[0]}<extra></extra>",
+        )
+        fig.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
+        col.markdown(f"#### {title}")
+        col.plotly_chart(fig, use_container_width=True)
 
     if bm_view == t(lang, "bm_scatter"):
         st.subheader(t(lang, "bm_scatter"))
@@ -2906,15 +3380,20 @@ with tab_comp:
 
     else:
         st.subheader(t(lang, "bm_top"))
-        c1, c2, c3 = st.columns(3)
+        if m2.empty:
+            st.info(t(lang, "no_data"))
+        else:
+            bm_table = m2.copy().reset_index(drop=True)
+            bm_table["rank"] = np.arange(1, len(bm_table) + 1)
 
-        def top_bar(entity_code: str, col, title: str):
-            sel = m[m["entity_type"].astype(str) == entity_code].sort_values("budget_eur", ascending=False).head(20)
-            if sel.empty:
-                col.caption("—")
-                return
-            fig = px.bar(
-                sel.iloc[::-1],
+            s1, s2, s3 = st.columns(3)
+            s1.metric(t(lang, "n_actors"), f"{len(bm_table):,}".replace(",", " "))
+            s2.metric(t(lang, "budget_total"), fmt_money(float(bm_table["budget_eur"].sum()), lang))
+            s3.metric(t(lang, "countries"), f"{bm_table['country_name2'].astype(str).nunique():,}".replace(",", " "))
+
+            top_overall = bm_table.head(15).copy()
+            fig_overall = px.bar(
+                top_overall.iloc[::-1],
                 x="budget_eur",
                 y="actor_label",
                 orientation="h",
@@ -2923,17 +3402,36 @@ with tab_comp:
                 height=560,
                 labels={"budget_eur": "Budget (€)", "actor_label": ""},
             )
-            fig.update_traces(
-                customdata=np.stack([sel["budget_str"].iloc[::-1]], axis=-1),
+            fig_overall.update_traces(
+                customdata=np.stack([top_overall["budget_str"].iloc[::-1]], axis=-1),
                 hovertemplate="<b>%{y}</b><br>Budget: %{customdata[0]}<extra></extra>",
             )
-            fig.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
-            col.markdown(f"#### {title}")
-            col.plotly_chart(fig, use_container_width=True)
+            fig_overall.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
+            st.markdown(f"#### {t(lang, 'bm_overall_rank')}")
+            st.plotly_chart(fig_overall, use_container_width=True)
 
-        top_bar("Private company", c1, "Top 20 industriels" if lang == "FR" else "Top 20 industrials")
-        top_bar("Research & academia", c2, "Top 20 recherche" if lang == "FR" else "Top 20 research")
-        top_bar("Public", c3, "Top 20 public" if lang == "FR" else "Top 20 public")
+            st.dataframe(
+                bm_table[["rank", "actor_label", "entity_display", "country_name2", "n_projects", "budget_str", "ticket_str"]].rename(
+                    columns={
+                        "rank": "#",
+                        "actor_label": t(lang, "actor_picker"),
+                        "entity_display": t(lang, "actor_entity_type"),
+                        "country_name2": t(lang, "countries"),
+                        "n_projects": t(lang, "n_projects"),
+                        "budget_str": t(lang, "budget_total"),
+                        "ticket_str": t(lang, "actor_avg_ticket"),
+                    }
+                ),
+                use_container_width=True,
+                height=420,
+                hide_index=True,
+            )
+
+            with st.expander(t(lang, "bm_breakdown_entity"), expanded=False):
+                c1, c2, c3 = st.columns(3)
+                top_bar("Private company", c1, "Top 20 industriels" if lang == "FR" else "Top 20 industrials")
+                top_bar("Research & academia", c2, "Top 20 recherche" if lang == "FR" else "Top 20 research")
+                top_bar("Public", c3, "Top 20 public" if lang == "FR" else "Top 20 public")
 
 
 # ============================================================
@@ -3379,8 +3877,10 @@ with tab_macro:
 # ============================================================
 with tab_actor:
     st.markdown(f"### {t(lang, 'actor_profile')}")
+    st.caption(t(lang, "actor_profile_caption"))
     if st.session_state.get("f_use_actor_groups", False):
         st.caption(t(lang, "actor_group_mode_caption"))
+    st.caption(f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items))
 
     try:
         actors = fetch_df(f"""
@@ -3427,16 +3927,37 @@ with tab_actor:
             actors["actor_label"].astype(str),
         )
         display_map = dict(zip(actors["actor_id"].astype(str), actors["actor_display"].astype(str)))
-        picked_id = st.selectbox(
-            t(lang, "actor_picker"),
-            actors["actor_id"].astype(str).tolist(),
-            index=0,
-            format_func=lambda aid: display_map.get(str(aid), str(aid)),
-            key="actor_profile_picker",
-        )
+        actor_ids = actors["actor_id"].astype(str).tolist()
+        pending_actor_drilldown = str(st.session_state.pop("results_drilldown_actor_id", "")).strip()
+        if pending_actor_drilldown and pending_actor_drilldown in actor_ids:
+            st.session_state["actor_profile_picker"] = pending_actor_drilldown
+        current_actor_picker = str(st.session_state.get("actor_profile_picker", "")).strip()
+        if current_actor_picker not in actor_ids:
+            st.session_state["actor_profile_picker"] = actor_ids[0]
+        selector_col, helper_col = st.columns([1.8, 1.2])
+        with selector_col:
+            picked_id = st.selectbox(
+                t(lang, "actor_picker"),
+                actor_ids,
+                index=0,
+                format_func=lambda aid: display_map.get(str(aid), str(aid)),
+                key="actor_profile_picker",
+            )
+        with helper_col:
+            if str(st.session_state.get("results_selected_actor_id_candidate", "")).strip() == str(picked_id):
+                st.info(t(lang, "actor_opened_from_results"), icon="↗️")
         picked_sql_list = in_list([str(picked_id)])
 
-        st.markdown(f"#### {t(lang, 'actor_trend')}")
+        actor_summary = fetch_df(f"""
+        SELECT
+          MIN(COALESCE(NULLIF(TRIM(org_name), ''), actor_id)) AS org_name2,
+          MIN(COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown')) AS country_name2,
+          MIN(COALESCE(NULLIF(TRIM(entity_type), ''), 'Unknown')) AS entity_type,
+          SUM(amount_eur) AS budget_eur,
+          COUNT(DISTINCT projectID) AS n_projects
+        FROM {R}
+        WHERE {W} AND actor_id IN {picked_sql_list}
+        """)
         byy = fetch_df(f"""
         SELECT year, SUM(amount_eur) AS budget_eur, COUNT(DISTINCT projectID) AS n_projects
         FROM {R}
@@ -3444,17 +3965,6 @@ with tab_actor:
         GROUP BY year
         ORDER BY year
         """)
-        c1, c2 = st.columns(2)
-        with c1:
-            figb = px.bar(byy, x="year", y="budget_eur", height=360, labels={"budget_eur": "Budget (€)"})
-            st.plotly_chart(figb, use_container_width=True)
-        with c2:
-            fign = px.line(byy, x="year", y="n_projects", markers=True, height=360,
-                           labels={"n_projects": "Projets" if lang == "FR" else "Projects"})
-            st.plotly_chart(fign, use_container_width=True)
-
-        st.divider()
-        st.markdown(f"#### {t(lang, 'actor_mix_theme')}")
         mix_t = fetch_df(f"""
         SELECT theme, SUM(amount_eur) AS budget_eur
         FROM {R}
@@ -3464,31 +3974,6 @@ with tab_actor:
         LIMIT 15
         """)
         mix_t["theme_display"] = mix_t["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
-        if len(mix_t) <= 1:
-            figt = px.bar(
-                mix_t.iloc[::-1],
-                x="budget_eur",
-                y="theme_display",
-                orientation="h",
-                height=420,
-                color_discrete_sequence=["rgba(120,180,255,0.95)"],
-                labels={"budget_eur": "Budget (€)", "theme_display": ""},
-            )
-        else:
-            figt = px.bar(
-                mix_t.iloc[::-1],
-                x="budget_eur",
-                y="theme_display",
-                orientation="h",
-                height=420,
-                color="budget_eur",
-                color_continuous_scale=R2G,
-                labels={"budget_eur": "Budget (€)", "theme_display": ""},
-            )
-            figt.update_layout(coloraxis_showscale=False)
-        st.plotly_chart(figt, use_container_width=True)
-
-        st.markdown(f"#### {t(lang, 'actor_mix_country')}")
         mix_c = fetch_df(f"""
         SELECT country_name, SUM(amount_eur) AS budget_eur
         FROM {R}
@@ -3497,38 +3982,6 @@ with tab_actor:
         ORDER BY budget_eur DESC
         LIMIT 15
         """)
-        if mix_c.empty:
-            st.info(t(lang, "no_data"))
-        elif len(mix_c) <= 1:
-            c_name = str(mix_c["country_name"].iloc[0])
-            c_budget = float(mix_c["budget_eur"].iloc[0] or 0.0)
-            c1g, c2g, c3g = st.columns(3)
-            c1g.metric(t(lang, "budget_total"), fmt_money(c_budget, lang))
-            c2g.metric(t(lang, "actor_countries"), "1")
-            c3g.metric(t(lang, "actor_main_country"), c_name)
-            st.caption(t(lang, "actor_geo_single_country"))
-        else:
-            c_main = str(mix_c.iloc[0]["country_name"])
-            c_total = float(mix_c["budget_eur"].sum())
-            c1g, c2g, c3g = st.columns(3)
-            c1g.metric(t(lang, "budget_total"), fmt_money(c_total, lang))
-            c2g.metric(t(lang, "actor_countries"), f"{len(mix_c)}")
-            c3g.metric(t(lang, "actor_main_country"), c_main)
-            figc = px.bar(
-                mix_c.iloc[::-1],
-                x="budget_eur",
-                y="country_name",
-                orientation="h",
-                height=420,
-                color="budget_eur",
-                color_continuous_scale=R2G,
-                labels={"budget_eur": "Budget (€)", "country_name": ""},
-            )
-            figc.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(figc, use_container_width=True)
-
-        st.divider()
-        st.markdown(f"#### {t(lang, 'actor_partners')}")
         partners = fetch_df(f"""
         WITH my_projects AS (
           SELECT DISTINCT r.projectID
@@ -3548,35 +4001,226 @@ with tab_actor:
         ORDER BY n_projects DESC, budget_eur DESC
         LIMIT 25
         """)
-        if partners.empty:
-            st.info(t(lang, "no_data"))
-        else:
-            partners["actor_label"] = np.where(
-                partners["org_name2"].astype(str) == partners["actor_id"].astype(str),
-                partners["actor_id"].astype(str),
-                (partners["org_name2"].astype(str) + " — " + partners["country_name2"].astype(str)),
-            )
-            partners["budget_eur"] = partners["budget_eur"].apply(lambda v: fmt_money(float(v), lang))
-            st.dataframe(partners[["actor_label", "n_projects", "budget_eur"]], use_container_width=True, height=520)
-
-
-# ============================================================
-# TAB NETWORK & VALUE CHAIN (DuckDB)
-# ============================================================
-with tab_network:
-    st.markdown("### " + ("Chaîne de valeur & réseau de collaboration" if lang == "FR" else "Value chain & collaboration network"))
-    st.caption(
-        (
-            "Lecture: gauche = étapes de chaîne de valeur, droite = acteurs. "
-            "L’épaisseur des liens = budget agrégé."
-            if lang == "FR"
-            else "Reading: left = value-chain stages, right = actors. "
-            "Link thickness = aggregated budget."
+        peer_df = fetch_df(f"""
+        WITH x AS (
+          SELECT
+            actor_id,
+            COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS org_name2,
+            COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name2,
+            COALESCE(NULLIF(TRIM(entity_type), ''), 'Unknown') AS entity_type,
+            amount_eur,
+            projectID
+          FROM {R}
+          WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
         )
-    )
+        SELECT
+          actor_id,
+          MIN(org_name2) AS org_name2,
+          MIN(country_name2) AS country_name2,
+          MIN(entity_type) AS entity_type,
+          SUM(amount_eur) AS budget_eur,
+          COUNT(DISTINCT projectID) AS n_projects
+        FROM x
+        GROUP BY actor_id
+        ORDER BY budget_eur DESC
+        LIMIT 5000
+        """)
+
+        actor_summary_row = actor_summary.iloc[0] if not actor_summary.empty else pd.Series(dtype="object")
+        selected_actor_display = display_map.get(str(picked_id), str(picked_id))
+        selected_budget = float(actor_summary_row.get("budget_eur") or 0.0)
+        selected_projects = int(actor_summary_row.get("n_projects") or 0)
+        selected_country = str(actor_summary_row.get("country_name2") or "—")
+        selected_entity_type = str(actor_summary_row.get("entity_type") or "—")
+        selected_theme = (
+            theme_raw_to_display(str(mix_t.iloc[0]["theme"]), lang)
+            if not mix_t.empty and str(mix_t.iloc[0]["theme"]).strip()
+            else "—"
+        )
+        selected_main_country = (
+            str(mix_c.iloc[0]["country_name"])
+            if not mix_c.empty and str(mix_c.iloc[0]["country_name"]).strip()
+            else selected_country
+        )
+
+        st.markdown(f"## {selected_actor_display}")
+        actor_meta = [selected_entity_type, selected_country]
+        actor_meta = [x for x in actor_meta if str(x).strip() and str(x).strip() != "—"]
+        if actor_meta:
+            st.caption(" · ".join(actor_meta))
+
+        s1, s2, s3, s4 = st.columns(4)
+        s1.metric(t(lang, "budget_total"), fmt_money(selected_budget, lang))
+        s2.metric(t(lang, "n_projects"), f"{selected_projects:,}".replace(",", " "))
+        s3.metric(t(lang, "actor_top_theme"), selected_theme)
+        s4.metric(t(lang, "actor_main_country"), selected_main_country)
+
+        actor_profile_tab, actor_partners_tab, actor_peers_tab = st.tabs(
+            [t(lang, "actor_tab_profile"), t(lang, "actor_tab_partners"), t(lang, "actor_tab_peers")],
+            default=t(lang, "actor_tab_profile"),
+        )
+
+        with actor_profile_tab:
+            st.markdown(f"#### {t(lang, 'actor_trend')}")
+            c1, c2 = st.columns(2)
+            with c1:
+                figb = px.bar(byy, x="year", y="budget_eur", height=360, labels={"budget_eur": "Budget (€)"})
+                st.plotly_chart(figb, use_container_width=True)
+            with c2:
+                fign = px.line(byy, x="year", y="n_projects", markers=True, height=360,
+                               labels={"n_projects": "Projets" if lang == "FR" else "Projects"})
+                st.plotly_chart(fign, use_container_width=True)
+
+            st.divider()
+            st.markdown(f"#### {t(lang, 'actor_mix_theme')}")
+            if len(mix_t) <= 1:
+                figt = px.bar(
+                    mix_t.iloc[::-1],
+                    x="budget_eur",
+                    y="theme_display",
+                    orientation="h",
+                    height=420,
+                    color_discrete_sequence=["rgba(120,180,255,0.95)"],
+                    labels={"budget_eur": "Budget (€)", "theme_display": ""},
+                )
+            else:
+                figt = px.bar(
+                    mix_t.iloc[::-1],
+                    x="budget_eur",
+                    y="theme_display",
+                    orientation="h",
+                    height=420,
+                    color="budget_eur",
+                    color_continuous_scale=R2G,
+                    labels={"budget_eur": "Budget (€)", "theme_display": ""},
+                )
+                figt.update_layout(coloraxis_showscale=False)
+            st.plotly_chart(figt, use_container_width=True)
+
+            st.markdown(f"#### {t(lang, 'actor_mix_country')}")
+            if mix_c.empty:
+                st.info(t(lang, "no_data"))
+            elif len(mix_c) <= 1:
+                c_name = str(mix_c["country_name"].iloc[0])
+                c_budget = float(mix_c["budget_eur"].iloc[0] or 0.0)
+                c1g, c2g, c3g = st.columns(3)
+                c1g.metric(t(lang, "budget_total"), fmt_money(c_budget, lang))
+                c2g.metric(t(lang, "actor_countries"), "1")
+                c3g.metric(t(lang, "actor_main_country"), c_name)
+                st.caption(t(lang, "actor_geo_single_country"))
+            else:
+                c_main = str(mix_c.iloc[0]["country_name"])
+                c_total = float(mix_c["budget_eur"].sum())
+                c1g, c2g, c3g = st.columns(3)
+                c1g.metric(t(lang, "budget_total"), fmt_money(c_total, lang))
+                c2g.metric(t(lang, "actor_countries"), f"{len(mix_c)}")
+                c3g.metric(t(lang, "actor_main_country"), c_main)
+                figc = px.bar(
+                    mix_c.iloc[::-1],
+                    x="budget_eur",
+                    y="country_name",
+                    orientation="h",
+                    height=420,
+                    color="budget_eur",
+                    color_continuous_scale=R2G,
+                    labels={"budget_eur": "Budget (€)", "country_name": ""},
+                )
+                figc.update_layout(coloraxis_showscale=False)
+                st.plotly_chart(figc, use_container_width=True)
+
+        with actor_partners_tab:
+            st.markdown(f"#### {t(lang, 'actor_partners')}")
+            st.caption(t(lang, "actor_partners_caption"))
+            if partners.empty:
+                st.info(t(lang, "no_data"))
+            else:
+                partners["actor_label"] = np.where(
+                    partners["org_name2"].astype(str) == partners["actor_id"].astype(str),
+                    partners["actor_id"].astype(str),
+                    (partners["org_name2"].astype(str) + " — " + partners["country_name2"].astype(str)),
+                )
+                partners["budget_eur"] = partners["budget_eur"].apply(lambda v: fmt_money(float(v), lang))
+                st.dataframe(partners[["actor_label", "n_projects", "budget_eur"]], use_container_width=True, height=520)
+
+        with actor_peers_tab:
+            st.markdown(f"#### {t(lang, 'actor_peer_table')}")
+            st.caption(t(lang, "actor_peer_caption"))
+            if peer_df.empty:
+                st.info(t(lang, "no_data"))
+            else:
+                peer_df["actor_label"] = np.where(
+                    peer_df["org_name2"].astype(str) == peer_df["actor_id"].astype(str),
+                    peer_df["actor_id"].astype(str),
+                    (peer_df["org_name2"].astype(str) + " — " + peer_df["country_name2"].astype(str)),
+                )
+                peer_df["ticket_eur"] = peer_df["budget_eur"].astype(float) / peer_df["n_projects"].astype(float).clip(lower=1.0)
+                peer_df = peer_df.sort_values("budget_eur", ascending=False).reset_index(drop=True)
+                peer_df["overall_rank"] = np.arange(1, len(peer_df) + 1)
+                selected_peer_row = peer_df[peer_df["actor_id"].astype(str) == str(picked_id)].head(1)
+
+                peer_group_label = "Tous les acteurs" if lang == "FR" else "All actors"
+                peer_scope = peer_df.copy()
+                if not selected_peer_row.empty:
+                    peer_entity_type = str(selected_peer_row.iloc[0]["entity_type"] or "").strip()
+                    if peer_entity_type and peer_entity_type.lower() != "unknown":
+                        peer_scope_candidate = peer_df[peer_df["entity_type"].astype(str) == peer_entity_type].copy()
+                        if len(peer_scope_candidate) > 1:
+                            peer_scope = peer_scope_candidate.copy()
+                            peer_group_label = peer_entity_type
+
+                peer_scope = peer_scope.sort_values("budget_eur", ascending=False).reset_index(drop=True)
+                peer_scope["peer_rank"] = np.arange(1, len(peer_scope) + 1)
+                selected_peer_scope_row = peer_scope[peer_scope["actor_id"].astype(str) == str(picked_id)].head(1)
+                selected_ticket = float(selected_peer_row.iloc[0]["ticket_eur"] or 0.0) if not selected_peer_row.empty else 0.0
+                selected_rank_overall = int(selected_peer_row.iloc[0]["overall_rank"]) if not selected_peer_row.empty else 0
+                selected_rank_peer = int(selected_peer_scope_row.iloc[0]["peer_rank"]) if not selected_peer_scope_row.empty else 0
+
+                p1, p2, p3, p4 = st.columns(4)
+                p1.metric(t(lang, "actor_rank_overall"), f"{selected_rank_overall}" if selected_rank_overall else "—")
+                p2.metric(t(lang, "actor_rank_peer"), f"{selected_rank_peer}" if selected_rank_peer else "—")
+                p3.metric(t(lang, "actor_avg_ticket"), fmt_money(selected_ticket, lang))
+                p4.metric(t(lang, "actor_peer_group"), peer_group_label)
+
+                peer_table = peer_scope.head(12).copy()
+                if str(picked_id) not in peer_table["actor_id"].astype(str).tolist():
+                    peer_table = pd.concat(
+                        [peer_table, peer_scope[peer_scope["actor_id"].astype(str) == str(picked_id)].head(1)],
+                        ignore_index=True,
+                    )
+                peer_table = peer_table.drop_duplicates(subset=["actor_id"]).copy()
+                selected_prefix = "Sélectionné — " if lang == "FR" else "Selected — "
+                peer_table["actor_display"] = np.where(
+                    peer_table["actor_id"].astype(str) == str(picked_id),
+                    selected_prefix + peer_table["actor_label"].astype(str),
+                    peer_table["actor_label"].astype(str),
+                )
+                peer_table["budget_fmt"] = peer_table["budget_eur"].apply(lambda v: fmt_money(float(v), lang))
+                peer_table["ticket_fmt"] = peer_table["ticket_eur"].apply(lambda v: fmt_money(float(v), lang))
+                st.dataframe(
+                    peer_table[["peer_rank", "actor_display", "entity_type", "n_projects", "budget_fmt", "ticket_fmt"]].rename(
+                        columns={
+                            "peer_rank": "#",
+                            "actor_display": t(lang, "actor_picker"),
+                            "entity_type": t(lang, "actor_entity_type"),
+                            "n_projects": t(lang, "n_projects"),
+                            "budget_fmt": t(lang, "budget_total"),
+                            "ticket_fmt": t(lang, "actor_avg_ticket"),
+                        }
+                    ),
+                    use_container_width=True,
+                    height=520,
+                    hide_index=True,
+                )
+
+
+# ============================================================
+# TAB ADVANCED VALUE CHAIN (DuckDB)
+# ============================================================
+with tab_value_chain:
+    st.markdown("### " + (t(lang, "sub_value_chain")))
+    st.caption(t(lang, "vc_default_caption"))
     st.caption(t(lang, "vc_flow_help"))
 
-    # ---------- Value chain ----------
     st.markdown("#### " + ("Chaîne de valeur (budget -> acteurs)" if lang == "FR" else "Value chain (budget -> actors)"))
     try:
         vc_dim = fetch_df(f"""
@@ -3668,6 +4312,7 @@ with tab_network:
                             st.info(t(lang, "no_data"))
                             st.divider()
                         else:
+                            vc_base = vc.copy()
                             stage_all_label = t(lang, "vc_all_stages")
                             if (
                                 isinstance(pending_click, dict)
@@ -3677,206 +4322,40 @@ with tab_network:
                                 st.session_state["vc_highlight_stage_select"] = str(pending_click.get("value"))
                                 st.session_state["vc_isolate_stage"] = True
                                 st.session_state["vc_isolate_actor"] = False
-                            h1, h2 = st.columns([2, 1])
-                            with h1:
-                                stage_highlight = st.selectbox(
-                                    t(lang, "vc_highlight_stage"),
-                                    [stage_all_label] + [str(x) for x in picked_stages],
-                                    index=0,
-                                    key="vc_highlight_stage_select",
-                                )
-                            with h2:
-                                vc_isolate_stage = st.checkbox(
-                                    t(lang, "vc_isolate_stage"),
-                                    value=False,
-                                    key="vc_isolate_stage",
-                                )
-                            st.caption(t(lang, "vc_isolation_help"))
-
-                            vc_view = vc.copy()
-                            if (stage_highlight != stage_all_label) and vc_isolate_stage:
-                                vc_view = vc_view[vc_view["value_chain_stage"].astype(str) == str(stage_highlight)].copy()
-
-                            if vc_view.empty:
-                                st.info(t(lang, "no_data"))
-                                st.divider()
-                                vc_view = vc.copy()
-
-                            present_stages = vc_view["value_chain_stage"].astype(str).nunique()
-                            only_research = present_stages == 1 and vc_view["value_chain_stage"].astype(str).iloc[0] == "Research & concept"
+                            summary_stage_order = (
+                                [s for s in VALUE_CHAIN_ORDER if s in vc_base["value_chain_stage"].astype(str).unique().tolist()]
+                                + sorted([s for s in vc_base["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
+                            )
+                            present_stages = vc_base["value_chain_stage"].astype(str).nunique()
+                            only_research = present_stages == 1 and vc_base["value_chain_stage"].astype(str).iloc[0] == "Research & concept"
                             if only_research:
                                 st.warning(t(lang, "vc_single_stage_warn"))
 
-                            rank_actors = (
-                                vc_view.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
-                                .sum()
-                                .sort_values("budget_eur", ascending=False)
-                                .head(int(vc_top_actors))
-                            )
-                            vc_view = vc_view.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
-
-                            stage_order = (
-                                [s for s in VALUE_CHAIN_ORDER if s in vc_view["value_chain_stage"].astype(str).unique().tolist()]
-                                + sorted([s for s in vc_view["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
-                            )
-                            actor_order = rank_actors["actor_label"].astype(str).tolist()
-                            actor_all_label = t(lang, "vc_all_actors")
-                            if (
-                                isinstance(pending_click, dict)
-                                and pending_click.get("kind") == "actor"
-                                and str(pending_click.get("value", "")) in [str(x) for x in actor_order]
-                            ):
-                                st.session_state["vc_highlight_actor_select"] = str(pending_click.get("value"))
-                                st.session_state["vc_isolate_actor"] = True
-                                st.session_state["vc_isolate_stage"] = False
-                            a1h, a2h = st.columns([2, 1])
-                            with a1h:
-                                actor_highlight = st.selectbox(
-                                    t(lang, "vc_highlight_actor"),
-                                    [actor_all_label] + actor_order,
-                                    index=0,
-                                    key="vc_highlight_actor_select",
-                                )
-                            with a2h:
-                                vc_isolate_actor = st.checkbox(
-                                    t(lang, "vc_isolate_actor"),
-                                    value=False,
-                                    key="vc_isolate_actor",
-                                )
-                            if (actor_highlight != actor_all_label) and vc_isolate_actor:
-                                vc_view = vc_view[vc_view["actor_label"].astype(str) == str(actor_highlight)].copy()
-                                if vc_view.empty:
-                                    st.info(t(lang, "no_data"))
-                                    st.divider()
-                                    vc_view = vc.copy()
-                                rank_actors = (
-                                    vc_view.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
-                                    .sum()
-                                    .sort_values("budget_eur", ascending=False)
-                                    .head(int(vc_top_actors))
-                                )
-                                vc_view = vc_view.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
-                                stage_order = (
-                                    [s for s in VALUE_CHAIN_ORDER if s in vc_view["value_chain_stage"].astype(str).unique().tolist()]
-                                    + sorted([s for s in vc_view["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
-                                )
-                                actor_order = rank_actors["actor_label"].astype(str).tolist()
-                            node_labels = stage_order + actor_order
-                            node_idx = {k: i for i, k in enumerate(node_labels)}
-
-                            links = (
-                                vc_view.groupby(["value_chain_stage", "actor_label"], as_index=False)["budget_eur"]
-                                .sum()
-                                .sort_values("budget_eur", ascending=False)
-                            )
-                            source = [node_idx[str(s)] for s in links["value_chain_stage"].astype(str)]
-                            target = [node_idx[str(a)] for a in links["actor_label"].astype(str)]
-                            value = links["budget_eur"].astype(float).tolist()
-
-                            connected_actors: set[str] = set()
-                            stage_focus_on = stage_highlight != stage_all_label
-                            actor_focus_on = actor_highlight != actor_all_label
-                            if stage_focus_on:
-                                connected_actors = set(
-                                    links[links["value_chain_stage"].astype(str) == str(stage_highlight)]["actor_label"].astype(str).tolist()
-                                )
-                            link_colors: List[str] = []
-                            for stg, act in zip(
-                                links["value_chain_stage"].astype(str).tolist(),
-                                links["actor_label"].astype(str).tolist(),
-                            ):
-                                if not stage_focus_on and not actor_focus_on:
-                                    link_colors.append(STAGE_COLORS.get(stg, "rgba(170,170,170,0.55)"))
-                                else:
-                                    is_stage = stage_focus_on and (stg == str(stage_highlight))
-                                    is_actor = actor_focus_on and (act == str(actor_highlight))
-                                    if is_stage and is_actor:
-                                        link_colors.append("rgba(255,210,80,0.98)")
-                                    elif is_stage:
-                                        link_colors.append("rgba(255,210,80,0.90)")
-                                    elif is_actor:
-                                        link_colors.append("rgba(120,220,255,0.90)")
-                                    else:
-                                        link_colors.append("rgba(170,170,170,0.14)")
-
-                            node_colors: List[str] = []
-                            for label in node_labels:
-                                if label in stage_order:
-                                    if not stage_focus_on and not actor_focus_on:
-                                        node_colors.append(STAGE_COLORS.get(label, "rgba(170,170,170,0.65)"))
-                                    elif stage_focus_on and (label == str(stage_highlight)):
-                                        node_colors.append("rgba(255,210,80,0.98)")
-                                    else:
-                                        node_colors.append("rgba(170,170,170,0.28)")
-                                else:
-                                    if not stage_focus_on and not actor_focus_on:
-                                        node_colors.append("rgba(120,180,255,0.78)")
-                                    elif actor_focus_on and (str(label) == str(actor_highlight)):
-                                        node_colors.append("rgba(120,220,255,0.96)")
-                                    elif stage_focus_on and (str(label) in connected_actors):
-                                        node_colors.append("rgba(120,180,255,0.90)")
-                                    else:
-                                        node_colors.append("rgba(120,180,255,0.22)")
-
-                            fig_sankey = go.Figure(
-                                data=[
-                                    go.Sankey(
-                                        node=dict(
-                                            pad=14,
-                                            thickness=14,
-                                            line=dict(color="rgba(255,255,255,0.22)", width=0.5),
-                                            label=node_labels,
-                                            color=node_colors,
-                                        ),
-                                        link=dict(source=source, target=target, value=value, color=link_colors),
-                                    )
-                                ]
-                            )
-                            fig_sankey.update_layout(height=620, margin=dict(l=10, r=10, t=20, b=10))
-                            if HAS_PLOTLY_EVENTS and plotly_events is not None:
-                                clicked = plotly_events(
-                                    fig_sankey,
-                                    click_event=True,
-                                    hover_event=False,
-                                    select_event=False,
-                                    override_height=620,
-                                    key="vc_sankey_clicks",
-                                )
-                                st.caption(t(lang, "vc_click_hint"))
-                                if clicked:
-                                    ev0 = clicked[0] if isinstance(clicked, list) and clicked else {}
-                                    label_clicked = str((ev0 or {}).get("label", "")).strip()
-                                    if not label_clicked:
-                                        idx = (ev0 or {}).get("pointIndex", (ev0 or {}).get("pointNumber"))
-                                        if isinstance(idx, int) and 0 <= int(idx) < len(node_labels):
-                                            label_clicked = str(node_labels[int(idx)])
-                                    if label_clicked in stage_order:
-                                        st.session_state["vc_pending_click"] = {"kind": "stage", "value": label_clicked}
-                                        st.rerun()
-                                    elif label_clicked in actor_order:
-                                        st.session_state["vc_pending_click"] = {"kind": "actor", "value": label_clicked}
-                                        st.rerun()
-                            else:
-                                st.plotly_chart(fig_sankey, use_container_width=True)
-                                st.caption(t(lang, "vc_click_unavailable"))
-
+                            st.markdown("#### " + t(lang, "vc_stage_summary"))
                             stage_tbl = (
-                                vc_view.groupby("value_chain_stage", as_index=False)["budget_eur"]
+                                vc_base.groupby("value_chain_stage", as_index=False)["budget_eur"]
                                 .sum()
                                 .sort_values("budget_eur", ascending=False)
                             )
                             stage_tbl["budget"] = stage_tbl["budget_eur"].map(lambda x: fmt_money(float(x), lang))
                             stage_tbl = stage_tbl.rename(columns={"value_chain_stage": ("Étape chaîne de valeur" if lang == "FR" else "Value-chain stage")})
-                            st.dataframe(stage_tbl[[("Étape chaîne de valeur" if lang == "FR" else "Value-chain stage"), "budget"]], use_container_width=True, height=260)
+                            st.dataframe(
+                                stage_tbl[[("Étape chaîne de valeur" if lang == "FR" else "Value-chain stage"), "budget"]],
+                                use_container_width=True,
+                                height=260,
+                            )
 
-                            st.markdown("##### " + t(lang, "vc_projects_focus"))
+                            if summary_stage_order:
+                                if str(st.session_state.get("vc_stage_focus_select", "")).strip() not in [str(x) for x in summary_stage_order]:
+                                    st.session_state["vc_stage_focus_select"] = str(summary_stage_order[0])
+                            st.markdown("##### " + t(lang, "vc_top_actors_stage"))
                             stage_focus = st.selectbox(
                                 t(lang, "vc_stage_focus"),
-                                stage_order,
+                                summary_stage_order,
                                 index=0,
                                 key="vc_stage_focus_select",
                             )
-                            stage_only = vc_view[vc_view["value_chain_stage"].astype(str) == str(stage_focus)].copy()
+                            stage_only = vc_base[vc_base["value_chain_stage"].astype(str) == str(stage_focus)].copy()
                             if stage_only.empty:
                                 st.info(t(lang, "no_data"))
                             else:
@@ -3911,9 +4390,12 @@ with tab_network:
                                 fig_stage.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
                                 st.plotly_chart(fig_stage, use_container_width=True)
 
+                                actor_focus_options = stage_rank["actor_display"].astype(str).tolist()
+                                if actor_focus_options and str(st.session_state.get("vc_actor_focus_select", "")).strip() not in actor_focus_options:
+                                    st.session_state["vc_actor_focus_select"] = str(actor_focus_options[0])
                                 actor_focus_display = st.selectbox(
                                     t(lang, "vc_actor_focus"),
-                                    stage_rank["actor_display"].astype(str).tolist(),
+                                    actor_focus_options,
                                     index=0,
                                     key="vc_actor_focus_select",
                                 )
@@ -3937,7 +4419,6 @@ with tab_network:
                                     LIMIT 120
                                     """)
                                 except Exception:
-                                    # Fallback: drop explicit theme IN to tolerate rare parser/catalog edge cases.
                                     proj_focus = fetch_df(f"""
                                     SELECT
                                       projectID,
@@ -3952,6 +4433,7 @@ with tab_network:
                                     ORDER BY budget_eur DESC
                                     LIMIT 120
                                     """)
+                                st.markdown("##### " + t(lang, "vc_projects_focus"))
                                 if proj_focus.empty:
                                     st.info(t(lang, "no_data"))
                                 else:
@@ -3961,13 +4443,207 @@ with tab_network:
                                         use_container_width=True,
                                         height=320,
                                     )
+
+                            with st.expander(t(lang, "vc_flow_expert"), expanded=False):
+                                st.caption(t(lang, "vc_expert_caption"))
+                                current_stage_highlight = str(st.session_state.get("vc_highlight_stage_select", "")).strip()
+                                if current_stage_highlight not in [stage_all_label] + [str(x) for x in picked_stages]:
+                                    st.session_state["vc_highlight_stage_select"] = stage_all_label
+                                h1, h2 = st.columns([2, 1])
+                                with h1:
+                                    stage_highlight = st.selectbox(
+                                        t(lang, "vc_highlight_stage"),
+                                        [stage_all_label] + [str(x) for x in picked_stages],
+                                        index=0,
+                                        key="vc_highlight_stage_select",
+                                    )
+                                with h2:
+                                    vc_isolate_stage = st.checkbox(
+                                        t(lang, "vc_isolate_stage"),
+                                        value=False,
+                                        key="vc_isolate_stage",
+                                    )
+                                st.caption(t(lang, "vc_isolation_help"))
+
+                                vc_view = vc_base.copy()
+                                if (stage_highlight != stage_all_label) and vc_isolate_stage:
+                                    vc_view = vc_view[vc_view["value_chain_stage"].astype(str) == str(stage_highlight)].copy()
+
+                                if vc_view.empty:
+                                    st.info(t(lang, "no_data"))
+                                    vc_view = vc_base.copy()
+
+                                rank_actors = (
+                                    vc_view.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
+                                .sum()
+                                .sort_values("budget_eur", ascending=False)
+                                .head(int(vc_top_actors))
+                                )
+                                vc_view = vc_view.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
+
+                                stage_order = (
+                                    [s for s in VALUE_CHAIN_ORDER if s in vc_view["value_chain_stage"].astype(str).unique().tolist()]
+                                    + sorted([s for s in vc_view["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
+                                )
+                                actor_order = rank_actors["actor_label"].astype(str).tolist()
+                                actor_all_label = t(lang, "vc_all_actors")
+                                if (
+                                    isinstance(pending_click, dict)
+                                    and pending_click.get("kind") == "actor"
+                                    and str(pending_click.get("value", "")) in [str(x) for x in actor_order]
+                                ):
+                                    st.session_state["vc_highlight_actor_select"] = str(pending_click.get("value"))
+                                    st.session_state["vc_isolate_actor"] = True
+                                    st.session_state["vc_isolate_stage"] = False
+                                current_actor_highlight = str(st.session_state.get("vc_highlight_actor_select", "")).strip()
+                                if current_actor_highlight not in [actor_all_label] + actor_order:
+                                    st.session_state["vc_highlight_actor_select"] = actor_all_label
+                                a1h, a2h = st.columns([2, 1])
+                                with a1h:
+                                    actor_highlight = st.selectbox(
+                                        t(lang, "vc_highlight_actor"),
+                                        [actor_all_label] + actor_order,
+                                        index=0,
+                                        key="vc_highlight_actor_select",
+                                    )
+                                with a2h:
+                                    vc_isolate_actor = st.checkbox(
+                                        t(lang, "vc_isolate_actor"),
+                                        value=False,
+                                        key="vc_isolate_actor",
+                                    )
+                                if (actor_highlight != actor_all_label) and vc_isolate_actor:
+                                    vc_view = vc_view[vc_view["actor_label"].astype(str) == str(actor_highlight)].copy()
+                                    if vc_view.empty:
+                                        st.info(t(lang, "no_data"))
+                                        vc_view = vc_base.copy()
+                                    rank_actors = (
+                                        vc_view.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
+                                    .sum()
+                                    .sort_values("budget_eur", ascending=False)
+                                    .head(int(vc_top_actors))
+                                    )
+                                    vc_view = vc_view.merge(rank_actors[["actor_id"]], on="actor_id", how="inner")
+                                    stage_order = (
+                                        [s for s in VALUE_CHAIN_ORDER if s in vc_view["value_chain_stage"].astype(str).unique().tolist()]
+                                        + sorted([s for s in vc_view["value_chain_stage"].astype(str).unique().tolist() if s not in VALUE_CHAIN_ORDER])
+                                    )
+                                    actor_order = rank_actors["actor_label"].astype(str).tolist()
+
+                                node_labels = stage_order + actor_order
+                                node_idx = {k: i for i, k in enumerate(node_labels)}
+
+                                links = (
+                                    vc_view.groupby(["value_chain_stage", "actor_label"], as_index=False)["budget_eur"]
+                                    .sum()
+                                    .sort_values("budget_eur", ascending=False)
+                                )
+                                source = [node_idx[str(s)] for s in links["value_chain_stage"].astype(str)]
+                                target = [node_idx[str(a)] for a in links["actor_label"].astype(str)]
+                                value = links["budget_eur"].astype(float).tolist()
+
+                                connected_actors: set[str] = set()
+                                stage_focus_on = stage_highlight != stage_all_label
+                                actor_focus_on = actor_highlight != actor_all_label
+                                if stage_focus_on:
+                                    connected_actors = set(
+                                        links[links["value_chain_stage"].astype(str) == str(stage_highlight)]["actor_label"].astype(str).tolist()
+                                    )
+                                link_colors: List[str] = []
+                                for stg, act in zip(
+                                    links["value_chain_stage"].astype(str).tolist(),
+                                    links["actor_label"].astype(str).tolist(),
+                                ):
+                                    if not stage_focus_on and not actor_focus_on:
+                                        link_colors.append(STAGE_COLORS.get(stg, "rgba(170,170,170,0.55)"))
+                                    else:
+                                        is_stage = stage_focus_on and (stg == str(stage_highlight))
+                                        is_actor = actor_focus_on and (act == str(actor_highlight))
+                                        if is_stage and is_actor:
+                                            link_colors.append("rgba(255,210,80,0.98)")
+                                        elif is_stage:
+                                            link_colors.append("rgba(255,210,80,0.90)")
+                                        elif is_actor:
+                                            link_colors.append("rgba(120,220,255,0.90)")
+                                        else:
+                                            link_colors.append("rgba(170,170,170,0.14)")
+
+                                node_colors: List[str] = []
+                                for label in node_labels:
+                                    if label in stage_order:
+                                        if not stage_focus_on and not actor_focus_on:
+                                            node_colors.append(STAGE_COLORS.get(label, "rgba(170,170,170,0.65)"))
+                                        elif stage_focus_on and (label == str(stage_highlight)):
+                                            node_colors.append("rgba(255,210,80,0.98)")
+                                        else:
+                                            node_colors.append("rgba(170,170,170,0.28)")
+                                    else:
+                                        if not stage_focus_on and not actor_focus_on:
+                                            node_colors.append("rgba(120,180,255,0.78)")
+                                        elif actor_focus_on and (str(label) == str(actor_highlight)):
+                                            node_colors.append("rgba(120,220,255,0.96)")
+                                        elif stage_focus_on and (str(label) in connected_actors):
+                                            node_colors.append("rgba(120,180,255,0.90)")
+                                        else:
+                                            node_colors.append("rgba(120,180,255,0.22)")
+
+                                fig_sankey = go.Figure(
+                                    data=[
+                                        go.Sankey(
+                                            node=dict(
+                                                pad=14,
+                                                thickness=14,
+                                                line=dict(color="rgba(255,255,255,0.22)", width=0.5),
+                                                label=node_labels,
+                                                color=node_colors,
+                                            ),
+                                            link=dict(source=source, target=target, value=value, color=link_colors),
+                                        )
+                                    ]
+                                )
+                                fig_sankey.update_layout(height=620, margin=dict(l=10, r=10, t=20, b=10))
+                                if HAS_PLOTLY_EVENTS and plotly_events is not None:
+                                    clicked = plotly_events(
+                                        fig_sankey,
+                                        click_event=True,
+                                        hover_event=False,
+                                        select_event=False,
+                                        override_height=620,
+                                        key="vc_sankey_clicks",
+                                    )
+                                    st.caption(t(lang, "vc_click_hint"))
+                                    if clicked:
+                                        ev0 = clicked[0] if isinstance(clicked, list) and clicked else {}
+                                        label_clicked = str((ev0 or {}).get("label", "")).strip()
+                                        if not label_clicked:
+                                            idx = (ev0 or {}).get("pointIndex", (ev0 or {}).get("pointNumber"))
+                                            if isinstance(idx, int) and 0 <= int(idx) < len(node_labels):
+                                                label_clicked = str(node_labels[int(idx)])
+                                        if label_clicked in stage_order:
+                                            st.session_state["vc_pending_click"] = {"kind": "stage", "value": label_clicked}
+                                            st.rerun()
+                                        elif label_clicked in actor_order:
+                                            st.session_state["vc_pending_click"] = {"kind": "actor", "value": label_clicked}
+                                            st.rerun()
+                                else:
+                                    st.plotly_chart(fig_sankey, use_container_width=True)
+                                    st.caption(t(lang, "vc_click_unavailable"))
         else:
             st.info("Sélectionne au moins une thématique." if lang == "FR" else "Select at least one theme.")
 
-    st.divider()
-
-    # ---------- Collaboration graph ----------
-    st.markdown("#### " + ("Graphe de collaboration (acteur focal)" if lang == "FR" else "Collaboration graph (focal actor)"))
+# ============================================================
+# TAB ADVANCED COLLABORATION (DuckDB)
+# ============================================================
+with tab_collaboration:
+    st.markdown("### " + t(lang, "sub_collaboration"))
+    st.caption(t(lang, "net_default_caption"))
+    st.caption(
+        (
+            "Lecture réseau: choisis un acteur focal puis observe ses partenaires et les projets partagés."
+            if lang == "FR"
+            else "Network reading: pick a focal actor, then inspect partners and shared projects."
+        )
+    )
     actor_rank = fetch_df(f"""
     SELECT
       actor_id,
@@ -3994,13 +4670,13 @@ with tab_network:
         nc1, nc2 = st.columns([2, 1])
         with nc1:
             focal_display = st.selectbox(
-                "Acteur focal" if lang == "FR" else "Focal actor",
+                t(lang, "net_focal_actor"),
                 actor_rank["actor_display"].astype(str).tolist(),
                 index=0,
             )
         with nc2:
             net_top = st.slider(
-                "Top partenaires" if lang == "FR" else "Top partners",
+                t(lang, "net_top_partners"),
                 5,
                 40,
                 16,
@@ -4074,80 +4750,20 @@ with tab_network:
                 if partners_view.empty:
                     partners_view = partners.copy()
 
-            n = len(partners_view)
-            angles = np.linspace(0, 2 * np.pi, n, endpoint=False)
-            rx, ry = np.cos(angles), np.sin(angles)
-
-            fig_net = go.Figure()
-            max_shared = float(max(1, partners_view["shared_projects"].max()))
-            for i, (_, r) in enumerate(partners_view.iterrows()):
-                w = 1.0 + 3.5 * (float(r["shared_projects"]) / max_shared)
-                is_focus = bool(focus_partner_id) and (str(r["actor_id"]) == str(focus_partner_id))
-                line_color = (
-                    "rgba(255,215,120,0.95)"
-                    if is_focus
-                    else ("rgba(120,180,255,0.45)" if not focus_partner_id else "rgba(120,180,255,0.18)")
-                )
-                fig_net.add_trace(
-                    go.Scatter(
-                        x=[0.0, float(rx[i])],
-                        y=[0.0, float(ry[i])],
-                        mode="lines",
-                        line=dict(width=w, color=line_color),
-                        hoverinfo="skip",
-                        showlegend=False,
-                    )
-                )
-
-            partner_size = 14 + 22 * (partners_view["shared_projects"].astype(float) / max_shared)
-            partner_colors = []
-            for aid in partners_view["actor_id"].astype(str).tolist():
-                is_focus = bool(focus_partner_id) and (aid == str(focus_partner_id))
-                if is_focus:
-                    partner_colors.append("rgba(255,215,120,0.98)")
-                elif focus_partner_id:
-                    partner_colors.append("rgba(120,180,255,0.30)")
-                else:
-                    partner_colors.append("rgba(120,180,255,0.9)")
-            fig_net.add_trace(
-                go.Scatter(
-                    x=[0.0],
-                    y=[0.0],
-                    mode="markers+text",
-                    marker=dict(size=34, color="rgba(255,180,80,0.95)", line=dict(width=1, color="rgba(255,255,255,0.5)")),
-                    text=[focal_label[:44]],
-                    textposition="bottom center",
-                    hovertemplate=f"<b>{focal_label}</b><extra></extra>",
-                    showlegend=False,
-                )
+            st.markdown(f"## {focal_label}")
+            ns1, ns2, ns3, ns4 = st.columns(4)
+            ns1.metric(t(lang, "net_focal_actor"), focal_label[:32] + ("…" if len(focal_label) > 32 else ""))
+            ns2.metric(t(lang, "net_partner_table"), f"{len(partners_view):,}".replace(",", " "))
+            ns3.metric(
+                t(lang, "net_shared_projects_total"),
+                f"{int(partners_view['shared_projects'].sum()):,}".replace(",", " "),
             )
-            fig_net.add_trace(
-                go.Scatter(
-                    x=rx,
-                    y=ry,
-                    mode="markers+text",
-                    marker=dict(size=partner_size, color=partner_colors, line=dict(width=0.8, color="rgba(255,255,255,0.35)")),
-                    text=[str(x)[:34] for x in partners_view["actor_label"].astype(str).tolist()],
-                    textposition="top center",
-                    customdata=np.stack(
-                        [
-                            partners_view["shared_projects"].astype(int).values,
-                            partners_view["partner_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                        ],
-                        axis=-1,
-                    ),
-                    hovertemplate="<b>%{text}</b><br>Shared projects: %{customdata[0]}<br>Budget: %{customdata[1]}<extra></extra>",
-                    showlegend=False,
-                )
+            ns4.metric(
+                t(lang, "net_partner_budget_total"),
+                fmt_money(float(partners_view["partner_budget"].sum()), lang),
             )
-            fig_net.update_layout(
-                height=640,
-                xaxis=dict(visible=False),
-                yaxis=dict(visible=False, scaleanchor="x", scaleratio=1),
-                margin=dict(l=10, r=10, t=10, b=10),
-            )
-            st.plotly_chart(fig_net, use_container_width=True)
 
+            st.markdown("#### " + t(lang, "net_partner_table"))
             ptab = partners_view.copy()
             ptab["budget"] = ptab["partner_budget"].apply(lambda x: fmt_money(float(x), lang))
             ptab = ptab.rename(
@@ -4156,7 +4772,146 @@ with tab_network:
                     "shared_projects": ("Projets communs" if lang == "FR" else "Shared projects"),
                 }
             )
-            st.dataframe(ptab[[("Partenaire" if lang == "FR" else "Partner"), ("Projets communs" if lang == "FR" else "Shared projects"), "budget"]], use_container_width=True, height=320)
+            st.dataframe(
+                ptab[[("Partenaire" if lang == "FR" else "Partner"), ("Projets communs" if lang == "FR" else "Shared projects"), "budget"]],
+                use_container_width=True,
+                height=320,
+            )
+
+            with st.expander(t(lang, "net_graph_expert"), expanded=False):
+                st.caption(t(lang, "net_expert_caption"))
+                n = len(partners_view)
+                angles = np.linspace(0, 2 * np.pi, n, endpoint=False)
+                rx, ry = np.cos(angles), np.sin(angles)
+
+                fig_net = go.Figure()
+                max_shared = float(max(1, partners_view["shared_projects"].max()))
+                for i, (_, r) in enumerate(partners_view.iterrows()):
+                    w = 1.0 + 3.5 * (float(r["shared_projects"]) / max_shared)
+                    is_focus = bool(focus_partner_id) and (str(r["actor_id"]) == str(focus_partner_id))
+                    line_color = (
+                        "rgba(255,215,120,0.95)"
+                        if is_focus
+                        else ("rgba(120,180,255,0.45)" if not focus_partner_id else "rgba(120,180,255,0.18)")
+                    )
+                    fig_net.add_trace(
+                        go.Scatter(
+                            x=[0.0, float(rx[i])],
+                            y=[0.0, float(ry[i])],
+                            mode="lines",
+                            line=dict(width=w, color=line_color),
+                            hoverinfo="skip",
+                            showlegend=False,
+                        )
+                    )
+
+                partner_size = 14 + 22 * (partners_view["shared_projects"].astype(float) / max_shared)
+                partner_colors = []
+                for aid in partners_view["actor_id"].astype(str).tolist():
+                    is_focus = bool(focus_partner_id) and (aid == str(focus_partner_id))
+                    if is_focus:
+                        partner_colors.append("rgba(255,215,120,0.98)")
+                    elif focus_partner_id:
+                        partner_colors.append("rgba(120,180,255,0.30)")
+                    else:
+                        partner_colors.append("rgba(120,180,255,0.9)")
+                fig_net.add_trace(
+                    go.Scatter(
+                        x=[0.0],
+                        y=[0.0],
+                        mode="markers+text",
+                        marker=dict(size=34, color="rgba(255,180,80,0.95)", line=dict(width=1, color="rgba(255,255,255,0.5)")),
+                        text=[focal_label[:44]],
+                        textposition="bottom center",
+                        hovertemplate=f"<b>{focal_label}</b><extra></extra>",
+                        showlegend=False,
+                    )
+                )
+                fig_net.add_trace(
+                    go.Scatter(
+                        x=rx,
+                        y=ry,
+                        mode="markers+text",
+                        marker=dict(size=partner_size, color=partner_colors, line=dict(width=0.8, color="rgba(255,255,255,0.35)")),
+                        text=[str(x)[:34] for x in partners_view["actor_label"].astype(str).tolist()],
+                        textposition="top center",
+                        customdata=np.stack(
+                            [
+                                partners_view["shared_projects"].astype(int).values,
+                                partners_view["partner_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                            ],
+                            axis=-1,
+                        ),
+                        hovertemplate="<b>%{text}</b><br>Shared projects: %{customdata[0]}<br>Budget: %{customdata[1]}<extra></extra>",
+                        showlegend=False,
+                    )
+                )
+                fig_net.update_layout(
+                    height=640,
+                    xaxis=dict(visible=False),
+                    yaxis=dict(visible=False, scaleanchor="x", scaleratio=1),
+                    margin=dict(l=10, r=10, t=10, b=10),
+                )
+                st.plotly_chart(fig_net, use_container_width=True)
+
+
+# ============================================================
+# TAB ADVANCED CONCENTRATION (DuckDB)
+# ============================================================
+with tab_concentration:
+    st.markdown("### " + t(lang, "concentration_title"))
+    conc = fetch_df(f"""
+    SELECT
+      COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
+      actor_id,
+      SUM(amount_eur) AS b
+    FROM {R}
+    WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+    GROUP BY actor_label, actor_id
+    ORDER BY b DESC
+    LIMIT 25
+    """)
+    if conc.empty or float(conc["b"].sum()) <= 0:
+        st.info(t(lang, "no_data"))
+    else:
+        conc = conc.copy()
+        conc["actor_label"] = conc["actor_label"].astype(str).str.slice(0, 32)
+        conc["cum_share"] = conc["b"].astype(float).cumsum() / float(conc["b"].astype(float).sum()) * 100.0
+        conc["budget_str"] = conc["b"].astype(float).apply(lambda x: fmt_money(float(x), lang))
+
+        fig_p = go.Figure()
+        fig_p.add_trace(
+            go.Bar(
+                x=conc["actor_label"],
+                y=conc["b"],
+                name=t(lang, "concentration_budget"),
+                marker=dict(color="rgba(120,180,255,0.72)", line=dict(color="rgba(255,255,255,0.18)", width=0.8)),
+                customdata=np.stack([conc["budget_str"]], axis=-1),
+                hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<extra></extra>",
+            )
+        )
+        fig_p.add_trace(
+            go.Scatter(
+                x=conc["actor_label"],
+                y=conc["cum_share"],
+                yaxis="y2",
+                mode="lines+markers",
+                name=t(lang, "concentration_cum"),
+                line=dict(color="rgba(255,205,90,0.95)", width=2.4),
+                marker=dict(size=6, color="rgba(255,205,90,0.95)"),
+                hovertemplate="<b>%{x}</b><br>Cumulative: %{y:.1f}%<extra></extra>",
+            )
+        )
+        fig_p.update_layout(
+            height=460,
+            xaxis=dict(title="", tickangle=-35),
+            yaxis=dict(title="Budget (€)", showgrid=True, gridcolor="rgba(255,255,255,0.08)"),
+            yaxis2=dict(title=t(lang, "concentration_cum"), overlaying="y", side="right", range=[0, 100]),
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
+            margin=dict(l=20, r=20, t=20, b=80),
+        )
+        st.plotly_chart(fig_p, use_container_width=True)
+        st.caption(t(lang, "concentration_caption"))
 
 
 # ============================================================
@@ -4242,6 +4997,74 @@ with tab_data:
             file_name="export_full_filtered.csv",
             mime="text/csv",
         )
+
+
+# ============================================================
+# TAB DEBUG (diagnostics)
+# ============================================================
+with tab_debug:
+    st.markdown(f"### {t(lang, 'debug_title')}")
+    st.caption(t(lang, 'debug_caption'))
+
+    mapping_cov = {"total_actors": 0, "matched_actors": 0}
+    mapping_keys = {"total_keys": 0, "matched_keys": 0}
+    mapping_key_pct = 0.0
+    if actor_map_info.get("available", False):
+        mapping_cov = actor_group_match_stats()
+        mapping_keys = actor_group_key_match_stats()
+        if mapping_keys["total_keys"] > 0:
+            mapping_key_pct = 100.0 * mapping_keys["matched_keys"] / mapping_keys["total_keys"]
+        if mapping_keys["total_keys"] > 0 and mapping_key_pct >= 80.0:
+            st.caption(t(lang, "mapping_status_ready"))
+        else:
+            st.caption(t(lang, "mapping_status_partial"))
+    else:
+        st.caption(t(lang, "mapping_status_missing_short"))
+    if not actor_map_info.get("available", False):
+        st.caption(t(lang, "exclude_funders_heuristic"))
+
+    with st.expander(t(lang, "mapping_diag_toggle"), expanded=True):
+        st.caption(f"**{t(lang, 'mapping_summary')}**")
+        if actor_map_info.get("available", False):
+            st.caption(f"{t(lang, 'mapping_loaded_count')}: {int(actor_map_info.get('rows_actor', 0)) + int(actor_map_info.get('rows_pic', 0))}")
+            st.caption(
+                f"{t(lang, 'mapping_keys_matched')}: "
+                f"{mapping_keys['matched_keys']}/{mapping_keys['total_keys']} ({mapping_key_pct:.1f}%)"
+            )
+            st.caption(f"{t(lang, 'mapping_global_impact')}: {mapping_cov['matched_actors']:,}")
+            if actor_map_info.get("source"):
+                st.caption(f"{t(lang, 'actor_groups_source')}: `{actor_map_info.get('source')}`")
+            if mapping_keys["total_keys"] > 0 and mapping_keys["matched_keys"] == 0:
+                st.warning(t(lang, "mapping_keys_issue"))
+                st.caption(t(lang, "mapping_mode_fallback"))
+            elif mapping_key_pct < 80.0:
+                st.warning(t(lang, "mapping_keys_partial"))
+                st.caption(t(lang, "mapping_mode_fallback"))
+            else:
+                st.caption(t(lang, "mapping_mode_explicit"))
+        else:
+            st.info(t(lang, "actor_groups_missing"))
+            st.caption(t(lang, "mapping_mode_pic_only"))
+
+    st.caption(f"{t(lang, 'build_sha')}: {current_git_sha()}")
+    with st.expander(t(lang, "diag_snapshot"), expanded=True):
+        st.caption(t(lang, "diag_snapshot_hint"))
+        ds = base_snapshot_stats()
+        es = events_snapshot_stats()
+        cs = connectors_snapshot_stats()
+        em = events_meta_snapshot()
+        st.caption(f"{t(lang, 'diag_rows')}: {ds['n_rows']:,}")
+        st.caption(f"{t(lang, 'diag_budget')}: {fmt_money(float(ds['total_budget']), lang)}")
+        st.caption(f"{t(lang, 'diag_projects')}: {ds['n_projects']:,}")
+        st.caption(f"{t(lang, 'diag_actors')}: {ds['n_actors']:,}")
+        st.caption(f"{t(lang, 'diag_years')}: {ds['min_year']}–{ds['max_year']}")
+        st.caption(f"{t(lang, 'diag_events')}: {es['n_events']:,}")
+        st.caption(f"{t(lang, 'diag_events_ai')}: {es['n_ai']:,}")
+        st.caption(f"{t(lang, 'diag_connectors')}: {int(cs.get('manifest_total', 0))}")
+        st.caption(f"{t(lang, 'diag_connectors_ready')}: {int(cs.get('manifest_ready', 0))}")
+        st.caption(f"{t(lang, 'diag_connectors_last')}: {cs.get('last_status', '—')}")
+        st.caption(f"{t(lang, 'diag_events_policy')}: {t(lang, 'diag_events_policy_value').format(hours=float(em.get('min_refresh_hours', 24.0)))}")
+        st.caption(f"{t(lang, 'last_update')} — {t(lang, 'last_update_events')}: {str(em.get('last_build_utc', '—'))}")
 
 
 # ============================================================
