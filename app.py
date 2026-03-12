@@ -296,15 +296,26 @@ st.markdown(
   }
 
   [data-baseweb="popover"],
+  [data-baseweb="menu"],
+  [data-baseweb="select-dropdown"],
+  [role="dialog"],
   [data-baseweb="popover"] * ,
+  [data-baseweb="menu"] *,
+  [data-baseweb="select-dropdown"] *,
+  [role="dialog"] *,
   [role="listbox"],
   [role="option"] {
     color: var(--sir-text) !important;
   }
 
+  [data-baseweb="popover"],
+  [data-baseweb="menu"],
+  [data-baseweb="select-dropdown"],
+  [role="dialog"],
   [role="listbox"] {
     background: var(--sir-surface) !important;
     border: 1px solid var(--sir-border) !important;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08) !important;
   }
 
   [role="option"] {
@@ -320,6 +331,19 @@ st.markdown(
   .stCheckbox label,
   .stRadio label {
     color: var(--sir-text) !important;
+  }
+
+  [role="slider"] {
+    accent-color: var(--sir-blue);
+  }
+
+  .stSlider [data-baseweb="slider"] * {
+    color: var(--sir-text) !important;
+  }
+
+  .stSlider [data-baseweb="slider"] [role="slider"] {
+    background: var(--sir-blue) !important;
+    border-color: var(--sir-blue) !important;
   }
 
   details[data-testid="stExpander"] {
@@ -391,6 +415,20 @@ st.markdown(
     background: #FFFFFF !important;
   }
 
+  [data-testid="stDataFrame"] > div,
+  [data-testid="stDataFrame"] section,
+  [data-testid="stDataFrame"] button,
+  [data-testid="stDataFrame"] input,
+  [data-testid="stDataFrame"] svg {
+    color: var(--sir-text) !important;
+    fill: var(--sir-text-secondary) !important;
+    background-color: transparent !important;
+  }
+
+  [data-testid="stDataFrame"] button:hover {
+    background: var(--sir-blue-soft) !important;
+  }
+
   table {
     background: #FFFFFF;
     color: var(--sir-text);
@@ -433,6 +471,24 @@ st.markdown(
     border-radius: 18px;
     padding: 16px 18px 8px 18px;
     margin: 10px 0 12px 0;
+  }
+
+  [data-testid="stPlotlyChart"] {
+    background: #FFFFFF;
+    border: 1px solid var(--sir-border);
+    border-radius: 14px;
+    padding: 6px;
+  }
+
+  [data-testid="stPlotlyChart"] .modebar {
+    background: rgba(255,255,255,0.92) !important;
+    border: 1px solid var(--sir-border) !important;
+    border-radius: 10px !important;
+  }
+
+  [data-testid="stPlotlyChart"] .modebar-btn path,
+  [data-testid="stPlotlyChart"] .modebar-btn svg {
+    fill: var(--sir-text-secondary) !important;
   }
 </style>
 """,
