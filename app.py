@@ -156,6 +156,17 @@ st.markdown(
     color: var(--sir-text-muted) !important;
   }
 
+  [data-testid="stAlert"] {
+    background: linear-gradient(135deg, rgba(22, 32, 51, 0.96), rgba(15, 23, 42, 0.98)) !important;
+    border: 1px solid var(--sir-border) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 14px 32px rgba(2, 6, 23, 0.24) !important;
+  }
+
+  [data-testid="stAlert"] * {
+    color: var(--sir-text) !important;
+  }
+
   p, li, span, div, label {
     color: inherit;
   }
@@ -556,6 +567,121 @@ st.markdown(
     margin: 10px 0 12px 0;
   }
 
+  .sir-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top right, rgba(34, 211, 238, 0.16), transparent 36%),
+      radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.12), transparent 34%),
+      linear-gradient(135deg, rgba(22, 32, 51, 0.98), rgba(11, 18, 32, 0.98));
+    border: 1px solid var(--sir-border);
+    border-radius: 22px;
+    padding: 22px 24px;
+    margin: 4px 0 16px 0;
+    box-shadow: 0 24px 56px rgba(2, 6, 23, 0.34);
+  }
+
+  .sir-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.14);
+    border: 1px solid rgba(34, 211, 238, 0.16);
+    color: var(--sir-cyan);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .sir-hero__title {
+    margin: 14px 0 8px 0;
+    color: var(--sir-text);
+    font-size: 2.3rem;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    font-weight: 760;
+  }
+
+  .sir-hero__subtitle {
+    margin: 0;
+    color: var(--sir-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 78ch;
+  }
+
+  .sir-section-head {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(20, 184, 166, 0.08));
+    border: 1px solid var(--sir-border);
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin: 10px 0 14px 0;
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.24);
+  }
+
+  .sir-section-head__row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .sir-section-head__icon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sir-text);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(34, 211, 238, 0.16));
+    border: 1px solid rgba(34, 211, 238, 0.18);
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+
+  .sir-section-head__eyebrow {
+    color: var(--sir-cyan);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .sir-section-head__title {
+    color: var(--sir-text);
+    font-size: 1.22rem;
+    line-height: 1.25;
+    font-weight: 720;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .sir-section-head__desc {
+    color: var(--sir-text-secondary);
+    font-size: 0.96rem;
+    line-height: 1.55;
+    margin: 6px 0 0 0;
+  }
+
+  .sir-inline-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.12);
+    border: 1px solid rgba(34, 211, 238, 0.16);
+    color: var(--sir-text-secondary);
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
   [data-testid="stPlotlyChart"] {
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
@@ -708,6 +834,7 @@ pio.templates["totale_dark"] = go.layout.Template(
     )
 )
 pio.templates.default = "totale_dark"
+px.defaults.template = "totale_dark"
 px.defaults.color_discrete_sequence = TOTALE_COLORWAY
 
 
@@ -925,12 +1052,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "scope_funders_on": "financeurs inclus",
         "status_budget_title": "Budget par statut projet",
         "status_projects_title": "Projets par statut",
-        "tab_explorer": "Recherche & résultats",
-        "tab_actors_hub": "Acteurs",
-        "tab_markets": "Marchés & géographie",
-        "tab_trends_events": "Tendances & événements",
-        "tab_advanced": "Analyse avancée",
-        "tab_admin": "Admin & méthode",
+        "tab_explorer": "⌕ Recherche & résultats",
+        "tab_actors_hub": "◈ Acteurs",
+        "tab_markets": "◎ Marchés & géographie",
+        "tab_trends_events": "↗ Tendances & événements",
+        "tab_advanced": "◇ Analyse avancée",
+        "tab_admin": "⚙ Admin & méthode",
         "sub_results": "Résultats",
         "sub_overview": "Synthèse",
         "overview_caption": "Vue secondaire de synthèse : utilise d'abord Résultats pour explorer le périmètre, puis viens ici pour une lecture plus compacte.",
@@ -1241,12 +1368,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "scope_funders_on": "funders included",
         "status_budget_title": "Budget by project status",
         "status_projects_title": "Projects by status",
-        "tab_explorer": "Search & results",
-        "tab_actors_hub": "Actors",
-        "tab_markets": "Markets & geography",
-        "tab_trends_events": "Trends & events",
-        "tab_advanced": "Advanced",
-        "tab_admin": "Admin & method",
+        "tab_explorer": "⌕ Search & results",
+        "tab_actors_hub": "◈ Actors",
+        "tab_markets": "◎ Markets & geography",
+        "tab_trends_events": "↗ Trends & events",
+        "tab_advanced": "◇ Advanced",
+        "tab_admin": "⚙ Admin & method",
         "sub_results": "Results",
         "sub_overview": "Overview",
         "overview_caption": "Secondary summary view: use Results first to explore the scope, then come here for a more compact readout.",
@@ -1533,6 +1660,32 @@ def render_empty_state(lang: str) -> None:
     st.warning(t(lang, "no_results_title"))
     st.caption(t(lang, "no_results_hint"))
     st.button(t(lang, "no_results_reset"), key="empty_state_reset", on_click=reset_filters)
+
+
+def render_section_header(icon: str, title: str, desc: str = "", eyebrow: str = "") -> None:
+    eyebrow_html = (
+        f"<div class='sir-section-head__eyebrow'>{html.escape(eyebrow)}</div>"
+        if str(eyebrow).strip()
+        else ""
+    )
+    desc_html = (
+        f"<p class='sir-section-head__desc'>{html.escape(desc)}</p>"
+        if str(desc).strip()
+        else ""
+    )
+    st.markdown(
+        (
+            "<div class='sir-section-head'>"
+            "<div class='sir-section-head__row'>"
+            f"<div class='sir-section-head__icon'>{html.escape(icon)}</div>"
+            "<div class='sir-section-head__content'>"
+            f"{eyebrow_html}"
+            f"<h3 class='sir-section-head__title'>{html.escape(title)}</h3>"
+            f"{desc_html}"
+            "</div></div></div>"
+        ),
+        unsafe_allow_html=True,
+    )
 
 
 def _fmt_mtime(p: Path) -> str:
@@ -2366,8 +2519,16 @@ with st.sidebar:
 # ============================================================
 # Guard
 # ============================================================
-st.title(t(lang, "title"))
-st.caption(t(lang, "subtitle"))
+st.markdown(
+    (
+        "<div class='sir-hero'>"
+        f"<div class='sir-hero__eyebrow'>◈ {'Internal R&D analytics' if lang == 'EN' else 'Veille R&D interne'}</div>"
+        f"<div class='sir-hero__title'>{html.escape(t(lang, 'title'))}</div>"
+        f"<p class='sir-hero__subtitle'>{html.escape(t(lang, 'subtitle'))}</p>"
+        "</div>"
+    ),
+    unsafe_allow_html=True,
+)
 
 if not PARQUET_PATH.exists():
     st.error(
@@ -2465,7 +2626,7 @@ render_active_filter_chips(meta, lang)
 # Sidebar filters (display mapping FR/EN, raw stored)
 # ============================================================
 with st.sidebar:
-    st.header(t(lang, "filters"))
+    st.header("◫ " + t(lang, "filters"))
 
     src_default = [x for x in st.session_state["f_sources"] if x in meta["sources"]]
     prg_default = [x for x in st.session_state["f_programmes"] if x in meta["programmes"]]
@@ -2657,9 +2818,8 @@ st.session_state["nav_target_actor_sub"] = ""
 # TAB RESULTS (result-first)
 # ============================================================
 with tab_results:
-    st.markdown("### " + t(lang, "results_title"))
-    st.caption(t(lang, "results_caption"))
-    st.subheader(t(lang, "kpis"))
+    render_section_header("⌕", t(lang, "results_title"), t(lang, "results_caption"), t(lang, "tab_explorer"))
+    st.markdown("#### ✦ " + t(lang, "kpis"))
     k1, k2, k3, k4, k5, k6 = st.columns(6)
     k1.metric(t(lang, "budget_total"), fmt_money(total_budget, lang))
     k2.metric(t(lang, "n_projects"), f"{nb_projects:,}".replace(",", " "))
@@ -3174,7 +3334,7 @@ with tab_results:
 # TAB OVERVIEW (DuckDB)
 # ============================================================
 with tab_overview:
-    st.caption(t(lang, "overview_caption"))
+    render_section_header("◌", t(lang, "sub_overview"), t(lang, "overview_caption"), t(lang, "tab_explorer"))
 
     st.markdown("### " + ("Allocation du budget par type d’entité" if lang == "FR" else "Budget allocation by entity type"))
     alloc = fetch_df(f"""
@@ -3407,8 +3567,7 @@ with tab_overview:
 # TAB GEO (DuckDB)
 # ============================================================
 with tab_geo:
-    st.markdown(f"### {t(lang, 'tab_geo')}")
-    st.caption(t(lang, "geo_caption"))
+    render_section_header("◎", t(lang, "tab_geo"), t(lang, "geo_caption"), t(lang, "tab_markets"))
     st.caption(f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items))
     geo = fetch_df(f"""
     SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
@@ -3740,7 +3899,7 @@ with tab_geo:
 # TAB COMP (Benchmark) — scatter, treemap, top (DuckDB)
 # ============================================================
 with tab_comp:
-    st.caption(t(lang, "bm_caption"))
+    render_section_header("↔", t(lang, "sub_benchmark"), t(lang, "bm_caption"), t(lang, "tab_advanced"))
     bm_view = st.radio(
         t(lang, "benchmark_mode"),
         [t(lang, "bm_top"), t(lang, "bm_scatter"), t(lang, "bm_treemap")],
@@ -4216,8 +4375,7 @@ with tab_compare:
 # TAB MACRO & NEWS — independent (DuckDB + events.csv)
 # ============================================================
 with tab_macro:
-    st.markdown(f"### {t(lang,'macro_title')}")
-    st.caption(t(lang, "macro_subtitle"))
+    render_section_header("↗", t(lang, "macro_title"), t(lang, "macro_subtitle"), t(lang, "tab_trends_events"))
 
     ev = load_events()
     if ev.empty:
@@ -4472,8 +4630,7 @@ with tab_macro:
 # TAB ACTOR PROFILE (DuckDB)
 # ============================================================
 with tab_actor:
-    st.markdown(f"### {t(lang, 'actor_profile')}")
-    st.caption(t(lang, "actor_profile_caption"))
+    render_section_header("◈", t(lang, "actor_profile"), t(lang, "actor_profile_caption"), t(lang, "tab_actors_hub"))
     if st.session_state.get("f_use_actor_groups", False):
         st.caption(t(lang, "actor_group_mode_caption"))
     st.caption(f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items))
@@ -4813,8 +4970,7 @@ with tab_actor:
 # TAB ADVANCED VALUE CHAIN (DuckDB)
 # ============================================================
 with tab_value_chain:
-    st.markdown("### " + (t(lang, "sub_value_chain")))
-    st.caption(t(lang, "vc_default_caption"))
+    render_section_header("⇄", t(lang, "sub_value_chain"), t(lang, "vc_default_caption"), t(lang, "tab_advanced"))
     st.caption(t(lang, "vc_flow_help"))
 
     st.markdown("#### " + ("Chaîne de valeur (budget -> acteurs)" if lang == "FR" else "Value chain (budget -> actors)"))
@@ -5237,8 +5393,7 @@ with tab_value_chain:
 # TAB ADVANCED COLLABORATION (DuckDB)
 # ============================================================
 with tab_collaboration:
-    st.markdown("### " + t(lang, "sub_collaboration"))
-    st.caption(t(lang, "net_default_caption"))
+    render_section_header("⟡", t(lang, "sub_collaboration"), t(lang, "net_default_caption"), t(lang, "tab_advanced"))
     st.caption(
         (
             "Lecture réseau: choisis un acteur focal puis observe ses partenaires et les projets partagés."
@@ -5464,7 +5619,7 @@ with tab_collaboration:
 # TAB ADVANCED CONCENTRATION (DuckDB)
 # ============================================================
 with tab_concentration:
-    st.markdown("### " + t(lang, "concentration_title"))
+    render_section_header("◔", t(lang, "concentration_title"), t(lang, "concentration_caption"), t(lang, "tab_advanced"))
     conc = fetch_df(f"""
     SELECT
       COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
@@ -5526,7 +5681,7 @@ with tab_concentration:
 # TAB DATA (paginated, DuckDB) + export
 # ============================================================
 with tab_data:
-    st.caption(t(lang, "data_warning"))
+    render_section_header("▣", t(lang, "sub_data"), t(lang, "data_warning"), t(lang, "tab_admin"))
 
     # Column choices (raw names)
     all_cols = [
@@ -5611,8 +5766,7 @@ with tab_data:
 # TAB DEBUG (diagnostics)
 # ============================================================
 with tab_debug:
-    st.markdown(f"### {t(lang, 'debug_title')}")
-    st.caption(t(lang, 'debug_caption'))
+    render_section_header("⚙", t(lang, "debug_title"), t(lang, "debug_caption"), t(lang, "tab_admin"))
 
     mapping_cov = {"total_actors": 0, "matched_actors": 0}
     mapping_keys = {"total_keys": 0, "matched_keys": 0}
@@ -5679,7 +5833,7 @@ with tab_debug:
 # TAB QUALITY (DuckDB)
 # ============================================================
 with tab_quality:
-    st.markdown(f"### {t(lang, 'quality_title')}")
+    render_section_header("✓", t(lang, "quality_title"), "", t(lang, "tab_admin"))
     qd = fetch_df(f"""
     SELECT
       COUNT(*) AS rows,
@@ -5707,7 +5861,7 @@ with tab_quality:
 # TAB HELP (as before)
 # ============================================================
 with tab_help:
-    st.markdown("### " + t(lang, "docs_title"))
+    render_section_header("ⓘ", t(lang, "docs_title"), "", t(lang, "tab_admin"))
     st.markdown("#### " + t(lang, "help_title"))
 
     with st.expander("Périmètre & finalité" if lang == "FR" else "Scope & purpose", expanded=True):
@@ -5762,7 +5916,7 @@ The **Macro & news** layer (events.csv) provides **context**: spot temporal alig
 # ============================================================
 with tab_guide:
     st.divider()
-    st.markdown("#### " + t(lang, "guide_title"))
+    render_section_header("✧", t(lang, "guide_title"), "", t(lang, "tab_admin"))
 
     if lang == "FR":
         st.markdown("Guide pour lire les vues correctement, sans sur-interpréter. Tout dépend du **périmètre filtré** (sidebar).")
