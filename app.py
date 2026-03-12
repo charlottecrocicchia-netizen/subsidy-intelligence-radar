@@ -66,18 +66,26 @@ st.markdown(
     """
 <style>
   :root {
-    --sir-bg: #f6f8fb;
-    --sir-surface: #ffffff;
-    --sir-surface-soft: #fbfcfe;
-    --sir-border: #dde4ec;
-    --sir-border-strong: #cfd8e3;
-    --sir-text: #182433;
-    --sir-text-soft: #5f6c7b;
-    --sir-accent: #d9472b;
-    --sir-accent-soft: #f29f67;
-    --sir-accent-pale: #fff3ed;
-    --sir-blue: #235a9f;
-    --sir-blue-soft: #eef4fb;
+    --primary-color: #E85D2A;
+    --background-color: #F7F9FC;
+    --secondary-background-color: #FFFFFF;
+    --text-color: #1F2937;
+    --sir-bg: #F7F9FC;
+    --sir-surface: #FFFFFF;
+    --sir-surface-soft: #FBFCFE;
+    --sir-border: #D0D5DD;
+    --sir-border-strong: #D0D5DD;
+    --sir-text: #1F2937;
+    --sir-text-secondary: #475467;
+    --sir-text-muted: #667085;
+    --sir-accent: #E85D2A;
+    --sir-accent-soft: #F7906D;
+    --sir-accent-pale: #FFF1EB;
+    --sir-blue: #2F6FED;
+    --sir-blue-soft: #EEF4FF;
+    --sir-success: #157F3B;
+    --sir-warning: #B54708;
+    --sir-danger: #B42318;
     --sir-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
   }
 
@@ -93,7 +101,7 @@ st.markdown(
   }
 
   section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #f9fafc 0%, #f3f6fa 100%);
+    background: linear-gradient(180deg, #FAFBFD 0%, #F4F7FB 100%);
     border-right: 1px solid var(--sir-border);
   }
 
@@ -117,7 +125,38 @@ st.markdown(
 
   .stCaption,
   [data-testid="stCaptionContainer"] {
-    color: var(--sir-text-soft) !important;
+    color: var(--sir-text-muted) !important;
+  }
+
+  p, li, span, div, label {
+    color: inherit;
+  }
+
+  [data-testid="stMarkdownContainer"],
+  [data-testid="stMarkdownContainer"] p,
+  [data-testid="stMarkdownContainer"] li,
+  [data-testid="stWidgetLabel"],
+  [data-testid="stWidgetLabel"] *,
+  .stSelectbox label,
+  .stMultiSelect label,
+  .stTextInput label,
+  .stTextArea label,
+  .stNumberInput label,
+  .stRadio label,
+  .stCheckbox label,
+  .stSlider label {
+    color: var(--sir-text) !important;
+  }
+
+  .stTextInput input::placeholder,
+  .stTextArea textarea::placeholder,
+  .stNumberInput input::placeholder {
+    color: var(--sir-text-muted) !important;
+    opacity: 1 !important;
+  }
+
+  a, a:visited {
+    color: var(--sir-blue);
   }
 
   hr {
@@ -125,16 +164,16 @@ st.markdown(
   }
 
   div[data-testid="metric-container"] {
-    background: linear-gradient(180deg, #ffffff 0%, #fff8f5 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F4 100%);
     border: 1px solid var(--sir-border);
-    border-top: 3px solid #e87554;
+    border-top: 3px solid var(--sir-accent);
     padding: 14px 16px;
     border-radius: 16px;
     box-shadow: var(--sir-shadow);
   }
 
   div[data-testid="metric-container"] [data-testid="stMetricLabel"] {
-    color: var(--sir-text-soft) !important;
+    color: var(--sir-text-secondary) !important;
     font-weight: 600;
   }
 
@@ -150,24 +189,34 @@ st.markdown(
   }
 
   .stTabs [data-baseweb="tab"] {
-    background: #f3f6fa;
+    background: #F5F7FA;
     border: 1px solid var(--sir-border);
     border-radius: 12px;
     padding: 10px 14px;
-    color: var(--sir-text-soft);
+    color: var(--sir-text-secondary);
     font-weight: 600;
   }
 
+  .stTabs [data-baseweb="tab"] *,
+  .stTabs [data-baseweb="tab"] span {
+    color: inherit !important;
+  }
+
   .stTabs [data-baseweb="tab"]:hover {
-    border-color: #efc1ae;
+    border-color: #F1B59F;
     color: var(--sir-text);
   }
 
   .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, rgba(217, 71, 43, 0.10), rgba(242, 159, 103, 0.14));
-    border: 1px solid #efc1ae;
-    color: #9c402a;
+    background: linear-gradient(135deg, rgba(232, 93, 42, 0.10), rgba(255, 241, 235, 0.96));
+    border: 1px solid #E8A185;
+    color: var(--sir-danger);
     box-shadow: 0 8px 20px rgba(217, 71, 43, 0.08);
+  }
+
+  .stTabs [aria-selected="true"] *,
+  .stTabs [aria-selected="true"] span {
+    color: var(--sir-danger) !important;
   }
 
   .stButton > button,
@@ -182,9 +231,9 @@ st.markdown(
 
   .stButton > button:hover,
   .stDownloadButton > button:hover {
-    border-color: #e87554;
-    background: #fff7f3;
-    color: #9c402a;
+    border-color: var(--sir-accent);
+    background: var(--sir-accent-pale);
+    color: var(--sir-danger);
   }
 
   .stButton > button:focus,
@@ -205,16 +254,60 @@ st.markdown(
     box-shadow: none !important;
   }
 
+  .stTextInput input:focus,
+  .stTextArea textarea:focus,
+  .stNumberInput input:focus,
+  div[data-baseweb="select"]:focus-within > div,
+  div[data-baseweb="base-input"]:focus-within > div {
+    border-color: var(--sir-blue) !important;
+    box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.12) !important;
+  }
+
+  div[data-baseweb="select"] span,
+  div[data-baseweb="select"] input,
+  div[data-baseweb="select"] svg,
+  div[data-baseweb="base-input"] input {
+    color: var(--sir-text) !important;
+    fill: var(--sir-text-secondary) !important;
+  }
+
   div[data-baseweb="tag"] {
     background: var(--sir-blue-soft) !important;
-    border: 1px solid rgba(35, 90, 159, 0.14) !important;
+    border: 1px solid rgba(47, 111, 237, 0.24) !important;
     color: var(--sir-blue) !important;
   }
 
   .stRadio > div,
   .stMultiSelect > div,
   .stSelectbox > div {
-    color: var(--sir-text);
+    color: var(--sir-text) !important;
+  }
+
+  [data-baseweb="popover"],
+  [data-baseweb="popover"] * ,
+  [role="listbox"],
+  [role="option"] {
+    color: var(--sir-text) !important;
+  }
+
+  [role="listbox"] {
+    background: var(--sir-surface) !important;
+    border: 1px solid var(--sir-border) !important;
+  }
+
+  [role="option"] {
+    background: var(--sir-surface) !important;
+  }
+
+  [role="option"][aria-selected="true"],
+  [role="option"]:hover {
+    background: var(--sir-blue-soft) !important;
+    color: var(--sir-text) !important;
+  }
+
+  .stCheckbox label,
+  .stRadio label {
+    color: var(--sir-text) !important;
   }
 
   details[data-testid="stExpander"] {
@@ -227,6 +320,17 @@ st.markdown(
 
   details[data-testid="stExpander"] summary {
     background: var(--sir-surface-soft);
+    color: var(--sir-text) !important;
+  }
+
+  details[data-testid="stExpander"] summary *,
+  details[data-testid="stExpander"] p,
+  details[data-testid="stExpander"] label {
+    color: var(--sir-text) !important;
+  }
+
+  details[data-testid="stExpander"][open] summary {
+    border-bottom: 1px solid var(--sir-border);
   }
 
   [data-testid="stDataFrame"],
@@ -234,6 +338,20 @@ st.markdown(
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-radius: 14px;
+  }
+
+  [data-testid="stDataFrame"] [role="columnheader"],
+  [data-testid="stDataFrame"] [role="gridcell"],
+  [data-testid="stDataFrame"] [role="rowheader"] {
+    color: var(--sir-text) !important;
+  }
+
+  [data-testid="stDataFrame"] [role="columnheader"] {
+    background: #F9FAFB !important;
+  }
+
+  [data-testid="stDataFrame"] [role="gridcell"] {
+    background: var(--sir-surface) !important;
   }
 
   .sir-chip-row {
@@ -249,15 +367,15 @@ st.markdown(
     padding: 6px 10px;
     border-radius: 999px;
     background: var(--sir-accent-pale);
-    border: 1px solid #f0c7b6;
-    color: #9c402a;
+    border: 1px solid #F1B59F;
+    color: var(--sir-danger);
     font-size: 0.88rem;
     font-weight: 600;
     line-height: 1.2;
   }
 
   .sir-search-wrap {
-    background: linear-gradient(135deg, rgba(217, 71, 43, 0.06), rgba(35, 90, 159, 0.05));
+    background: linear-gradient(135deg, rgba(232, 93, 42, 0.045), rgba(47, 111, 237, 0.04));
     border: 1px solid var(--sir-border);
     border-radius: 18px;
     padding: 16px 18px 8px 18px;
@@ -273,20 +391,20 @@ st.markdown(
 # Colors
 # ============================================================
 TOTALE_COLORWAY = [
-    "#D9472B",
-    "#F29F67",
-    "#235A9F",
-    "#7AA7D8",
-    "#C76A4A",
-    "#6B7280",
+    "#E85D2A",
+    "#2F6FED",
+    "#157F3B",
+    "#667085",
+    "#98A2B3",
+    "#F7906D",
 ]
 
 R2G = [
-    (0.00, "#FFF3ED"),
-    (0.20, "#FBD9C9"),
-    (0.45, "#F6B07F"),
-    (0.75, "#E87554"),
-    (1.00, "#C93E2E"),
+    (0.00, "#FFF1EB"),
+    (0.22, "#FDD7CA"),
+    (0.48, "#F7906D"),
+    (0.78, "#E85D2A"),
+    (1.00, "#B42318"),
 ]
 
 EUROPE_DEFAULT_COUNTRIES = [
@@ -319,56 +437,56 @@ VALUE_CHAIN_ORDER = [
     "Unspecified",
 ]
 STAGE_COLORS = {
-    "Resources & feedstock": "rgba(35, 90, 159, 0.78)",
-    "Components & core technology": "rgba(242, 159, 103, 0.82)",
-    "Systems & infrastructure": "rgba(217, 71, 43, 0.78)",
-    "Deployment & operations": "rgba(122, 167, 216, 0.82)",
-    "End-use & market": "rgba(231, 117, 84, 0.82)",
-    "Research & concept": "rgba(107, 114, 128, 0.68)",
-    "Unspecified": "rgba(148, 163, 184, 0.52)",
+    "Resources & feedstock": "rgba(47, 111, 237, 0.78)",
+    "Components & core technology": "rgba(247, 144, 109, 0.84)",
+    "Systems & infrastructure": "rgba(232, 93, 42, 0.80)",
+    "Deployment & operations": "rgba(21, 127, 59, 0.76)",
+    "End-use & market": "rgba(181, 71, 8, 0.82)",
+    "Research & concept": "rgba(102, 112, 133, 0.72)",
+    "Unspecified": "rgba(152, 162, 179, 0.60)",
 }
 
 pio.templates["totale_light"] = go.layout.Template(
     layout=go.Layout(
-        font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color="#182433"),
-        title=dict(font=dict(size=18, color="#182433")),
+        font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color="#1F2937"),
+        title=dict(font=dict(size=18, color="#1F2937")),
         paper_bgcolor="#FFFFFF",
         plot_bgcolor="#FFFFFF",
         colorway=TOTALE_COLORWAY,
         hoverlabel=dict(
             bgcolor="#FFFFFF",
-            bordercolor="#DDE4EC",
-            font=dict(color="#182433"),
+            bordercolor="#D0D5DD",
+            font=dict(color="#1F2937"),
         ),
         legend=dict(
             bgcolor="rgba(255,255,255,0.88)",
-            bordercolor="#E2E8F0",
+            bordercolor="#D0D5DD",
             borderwidth=1,
-            font=dict(color="#435266"),
+            font=dict(color="#475467"),
         ),
         margin=dict(l=36, r=24, t=42, b=36),
         bargap=0.18,
         xaxis=dict(
             showline=True,
-            linecolor="#CBD5E1",
-            gridcolor="#E9EEF4",
-            zerolinecolor="#D7DEE8",
-            tickfont=dict(color="#4B5A6B"),
-            title=dict(font=dict(color="#4B5A6B")),
+            linecolor="#D0D5DD",
+            gridcolor="#EAECF0",
+            zerolinecolor="#D0D5DD",
+            tickfont=dict(color="#475467"),
+            title=dict(font=dict(color="#475467")),
         ),
         yaxis=dict(
             showline=False,
-            gridcolor="#E9EEF4",
-            zerolinecolor="#D7DEE8",
-            tickfont=dict(color="#4B5A6B"),
-            title=dict(font=dict(color="#4B5A6B")),
+            gridcolor="#EAECF0",
+            zerolinecolor="#D0D5DD",
+            tickfont=dict(color="#475467"),
+            title=dict(font=dict(color="#475467")),
         ),
         coloraxis=dict(
             colorbar=dict(
-                outlinecolor="#DDE4EC",
-                tickcolor="#A0AEC0",
+                outlinecolor="#D0D5DD",
+                tickcolor="#667085",
                 bgcolor="rgba(255,255,255,0.88)",
-                title=dict(font=dict(color="#4B5A6B")),
+                title=dict(font=dict(color="#475467")),
             )
         ),
     )
