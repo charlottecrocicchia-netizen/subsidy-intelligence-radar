@@ -1294,36 +1294,38 @@ def where_clause(
     entities: List[str],
     countries: List[str],
     quick_search: str,
+    table_alias: Optional[str] = None,
 ) -> str:
+    prefix = f"{str(table_alias).strip()}." if str(table_alias or "").strip() else ""
     w = []
     if sources:
-        w.append(f"source IN {in_list(sources)}")
+        w.append(f"{prefix}source IN {in_list(sources)}")
     if programmes:
-        w.append(f"program IN {in_list(programmes)}")
-    w.append(f"year BETWEEN {int(years[0])} AND {int(years[1])}")
+        w.append(f"{prefix}program IN {in_list(programmes)}")
+    w.append(f"{prefix}year BETWEEN {int(years[0])} AND {int(years[1])}")
     if use_section and sections:
-        w.append(f"section IN {in_list(sections)}")
+        w.append(f"{prefix}section IN {in_list(sections)}")
     if onetech_only:
-        w.append(f"theme IN {in_list(sorted(list(ONETECH_THEMES_EN)))}")
+        w.append(f"{prefix}theme IN {in_list(sorted(list(ONETECH_THEMES_EN)))}")
     if statuses:
-        w.append(f"project_status IN {in_list(statuses)}")
+        w.append(f"{prefix}project_status IN {in_list(statuses)}")
     if themes:
-        w.append(f"theme IN {in_list(themes)}")
+        w.append(f"{prefix}theme IN {in_list(themes)}")
     if entities:
-        w.append(f"entity_type IN {in_list(entities)}")
+        w.append(f"{prefix}entity_type IN {in_list(entities)}")
     if countries:
-        w.append(f"country_name IN {in_list(countries)}")
+        w.append(f"{prefix}country_name IN {in_list(countries)}")
     if str(quick_search).strip():
         q = str(quick_search).strip()
         w.append(
             "("
             + " OR ".join(
                 [
-                    sql_contains_expr("projectID", q),
-                    sql_contains_expr("acronym", q),
-                    sql_contains_expr("title", q),
-                    sql_contains_expr("org_name", q),
-                    sql_contains_expr("actor_id", q),
+                    sql_contains_expr(f"{prefix}projectID", q),
+                    sql_contains_expr(f"{prefix}acronym", q),
+                    sql_contains_expr(f"{prefix}title", q),
+                    sql_contains_expr(f"{prefix}org_name", q),
+                    sql_contains_expr(f"{prefix}actor_id", q),
                 ]
             )
             + ")"
@@ -1754,6 +1756,20 @@ W = where_clause(
     entities=st.session_state["f_entity_raw"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
+)
+W_R = where_clause(
+    sources=st.session_state["f_sources"],
+    programmes=st.session_state["f_programmes"],
+    years=st.session_state["f_years"],
+    use_section=False,
+    sections=[],
+    onetech_only=st.session_state["f_onetech_only"],
+    statuses=st.session_state["f_statuses"],
+    themes=st.session_state["f_themes_raw"],
+    entities=st.session_state["f_entity_raw"],
+    countries=st.session_state["f_countries"],
+    quick_search=st.session_state["f_quick_search"],
+    table_alias="r",
 )
 R = rel_analytics(
     use_actor_groups=bool(st.session_state.get("f_use_actor_groups", False)),
@@ -3129,20 +3145,20 @@ with tab_actor:
         st.markdown(f"#### {t(lang, 'actor_partners')}")
         partners = fetch_df(f"""
         WITH my_projects AS (
-          SELECT DISTINCT projectID
-          FROM {R}
-          WHERE {W} AND actor_id IN {picked_sql_list}
+          SELECT DISTINCT r.projectID
+          FROM {R} r
+          WHERE {W_R} AND r.actor_id IN {picked_sql_list}
         )
         SELECT
-          COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS org_name2,
-          COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name2,
-          actor_id,
+          COALESCE(NULLIF(TRIM(r.org_name), ''), r.actor_id) AS org_name2,
+          COALESCE(NULLIF(TRIM(r.country_name), ''), 'Unknown') AS country_name2,
+          r.actor_id,
           COUNT(DISTINCT r.projectID) AS n_projects,
           SUM(r.amount_eur) AS budget_eur
         FROM {R} r
         JOIN my_projects p ON r.projectID = p.projectID
-        WHERE {W} AND r.actor_id IS NOT NULL AND TRIM(r.actor_id) <> '' AND r.actor_id NOT IN {picked_sql_list}
-        GROUP BY org_name2, country_name2, actor_id
+        WHERE {W_R} AND r.actor_id IS NOT NULL AND TRIM(r.actor_id) <> '' AND r.actor_id NOT IN {picked_sql_list}
+        GROUP BY org_name2, country_name2, r.actor_id
         ORDER BY n_projects DESC, budget_eur DESC
         LIMIT 25
         """)
