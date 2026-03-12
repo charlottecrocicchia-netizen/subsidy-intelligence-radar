@@ -705,7 +705,7 @@ st.markdown(
   [data-testid="stPlotlyChart"] .plot-container,
   [data-testid="stPlotlyChart"] .svg-container,
   [data-testid="stPlotlyChart"] .main-svg {
-    background: var(--sir-surface) !important;
+    background: transparent !important;
   }
 
   [data-testid="stPlotlyChart"] .modebar {
@@ -800,51 +800,63 @@ STAGE_COLORS = {
     "Unspecified": "rgba(148, 163, 184, 0.56)",
 }
 
-pio.templates["totale_dark"] = go.layout.Template(
-    layout=go.Layout(
-        font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color=TEXT_PRIMARY),
-        title=dict(font=dict(size=18, color=TEXT_PRIMARY)),
-        paper_bgcolor=PANEL_BG,
-        plot_bgcolor=PANEL_BG,
-        colorway=TOTALE_COLORWAY,
-        hoverlabel=dict(
-            bgcolor=HOVER_BG,
-            bordercolor=BORDER,
-            font=dict(color=TEXT_PRIMARY),
-        ),
-        legend=dict(
+_totale_dark = go.layout.Template(pio.templates["plotly_dark"])
+_totale_dark.layout.update(
+    font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color=TEXT_PRIMARY),
+    title=dict(font=dict(size=18, color=TEXT_PRIMARY)),
+    paper_bgcolor=PANEL_BG,
+    plot_bgcolor=PANEL_BG,
+    colorway=TOTALE_COLORWAY,
+    hoverlabel=dict(
+        bgcolor=HOVER_BG,
+        bordercolor=BORDER,
+        font=dict(color=TEXT_PRIMARY),
+    ),
+    legend=dict(
+        bgcolor=LEGEND_BG,
+        bordercolor=BORDER,
+        borderwidth=1,
+        font=dict(color=TEXT_SECONDARY),
+    ),
+    margin=dict(l=36, r=24, t=42, b=36),
+    bargap=0.18,
+    xaxis=dict(
+        showline=True,
+        linecolor=BORDER,
+        gridcolor=GRID_COLOR,
+        zerolinecolor=BORDER,
+        tickfont=dict(color=TEXT_SECONDARY),
+        title=dict(font=dict(color=TEXT_SECONDARY)),
+    ),
+    yaxis=dict(
+        showline=False,
+        gridcolor=GRID_COLOR,
+        zerolinecolor=BORDER,
+        tickfont=dict(color=TEXT_SECONDARY),
+        title=dict(font=dict(color=TEXT_SECONDARY)),
+    ),
+    coloraxis=dict(
+        colorbar=dict(
+            outlinecolor=BORDER,
+            tickcolor=TEXT_MUTED,
             bgcolor=LEGEND_BG,
-            bordercolor=BORDER,
-            borderwidth=1,
-            font=dict(color=TEXT_SECONDARY),
-        ),
-        margin=dict(l=36, r=24, t=42, b=36),
-        bargap=0.18,
-        xaxis=dict(
-            showline=True,
-            linecolor=BORDER,
-            gridcolor=GRID_COLOR,
-            zerolinecolor=BORDER,
-            tickfont=dict(color=TEXT_SECONDARY),
             title=dict(font=dict(color=TEXT_SECONDARY)),
-        ),
-        yaxis=dict(
-            showline=False,
-            gridcolor=GRID_COLOR,
-            zerolinecolor=BORDER,
-            tickfont=dict(color=TEXT_SECONDARY),
-            title=dict(font=dict(color=TEXT_SECONDARY)),
-        ),
-        coloraxis=dict(
-            colorbar=dict(
-                outlinecolor=BORDER,
-                tickcolor=TEXT_MUTED,
-                bgcolor=LEGEND_BG,
-                title=dict(font=dict(color=TEXT_SECONDARY)),
-            )
-        ),
-    )
+        )
+    ),
+    geo=dict(
+        bgcolor=PANEL_BG,
+        lakecolor=APP_BG,
+        oceancolor=APP_BG,
+        landcolor="#18263D",
+        showland=True,
+        showocean=True,
+        showlakes=True,
+        showcountries=True,
+        countrycolor="rgba(208, 216, 228, 0.18)",
+        coastlinecolor="rgba(208, 216, 228, 0.16)",
+    ),
 )
+pio.templates["totale_dark"] = _totale_dark
 pio.templates.default = "totale_dark"
 px.defaults.template = "totale_dark"
 px.defaults.color_discrete_sequence = TOTALE_COLORWAY
@@ -1702,7 +1714,7 @@ def render_section_header(icon: str, title: str, desc: str = "", eyebrow: str = 
 
 def render_plotly_chart(fig: go.Figure, **kwargs):
     kwargs.setdefault("theme", None)
-    return st.__dict__["plotly_chart"](fig, **kwargs)
+    return st.plotly_chart(fig, **kwargs)
 
 
 def _fmt_mtime(p: Path) -> str:
@@ -4032,7 +4044,8 @@ with tab_comp:
         )
         fig.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
         col.markdown(f"#### {title}")
-        col.plotly_chart(fig, use_container_width=True)
+        with col:
+            render_plotly_chart(fig, use_container_width=True)
 
     if bm_view == t(lang, "bm_scatter"):
         st.subheader(t(lang, "bm_scatter"))
