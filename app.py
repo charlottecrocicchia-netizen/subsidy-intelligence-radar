@@ -221,15 +221,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "refresh": "🔄 Rafraîchir",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
         "filters": "🧩 Filtres",
+        "basic_filters": "Filtres essentiels",
+        "advanced_filters": "Filtres avancés",
+        "analysis_options": "Options d'analyse",
         "sources": "Sources",
         "onetech_only": "Limiter au périmètre OneTech",
         "programmes": "Programmes",
         "period": "Période (année de démarrage)",
         "use_section": "Filtrer par section",
         "section": "Section (UE / Programme / Topic)",
+        "project_status": "Statut projet",
+        "status_open": "Ouvert",
+        "status_closed": "Fermé",
+        "status_unknown": "Inconnu",
         "themes": "Thématiques",
         "entity": "Type d’entité",
         "countries": "Pays",
+        "quick_search": "Recherche rapide",
+        "quick_search_hint": "Recherche dans acteur, projet, acronyme ou titre",
         "actor_grouping": "Regrouper entités juridiques (PIC/groupe)",
         "exclude_funders": "Exclure financeurs / agences",
         "actor_groups_ready": "Mapping groupes chargé",
@@ -303,7 +312,7 @@ I18N: Dict[str, Dict[str, str]] = {
         ),
         "dimension": "Dimension d’analyse",
         "dim_theme": "Thématique",
-        "dim_section": "Section",
+        "dim_program": "Programme",
         "mode": "Mode",
         "mode_abs": "Budget (absolu)",
         "mode_share": "Part (% par année)",
@@ -313,10 +322,18 @@ I18N: Dict[str, Dict[str, str]] = {
         "period_b": "Période B",
         "compare_caption": "Comparaison en **% du budget total** de chaque période, Δ en **points de %**.",
         "actor_profile": "Fiche acteur",
+        "actor_group_mode_caption": "Vue groupe active: les fiches et graphes peuvent agréger plusieurs entités juridiques via mapping ou PIC.",
         "actor_trend": "Évolution (budget & projets)",
         "actor_mix_theme": "Mix thématique",
         "actor_mix_country": "Mix géographique",
         "actor_partners": "Top co-participants",
+        "scope_caption": "Périmètre actif",
+        "scope_group_on": "vue groupes",
+        "scope_group_off": "vue entités juridiques",
+        "scope_funders_off": "financeurs exclus",
+        "scope_funders_on": "financeurs inclus",
+        "status_budget_title": "Budget par statut projet",
+        "status_projects_title": "Projets par statut",
         "download": "⬇️ Télécharger CSV (filtres actuels)",
         "download_page": "⬇️ Télécharger la page CSV",
         "download_full": "⬇️ Télécharger le CSV complet (filtres actuels)",
@@ -435,15 +452,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "refresh": "🔄 Refresh (rebuild)",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
         "filters": "🧩 Filters",
+        "basic_filters": "Core filters",
+        "advanced_filters": "Advanced filters",
+        "analysis_options": "Analysis options",
         "sources": "Sources",
         "onetech_only": "Restrict to OneTech scope",
         "programmes": "Programmes",
         "period": "Period (start year)",
         "use_section": "Filter by section",
         "section": "Section (EU / Programme / Topic)",
+        "project_status": "Project status",
+        "status_open": "Open",
+        "status_closed": "Closed",
+        "status_unknown": "Unknown",
         "themes": "Themes",
         "entity": "Entity type",
         "countries": "Countries",
+        "quick_search": "Quick search",
+        "quick_search_hint": "Search actor, project, acronym or title",
         "actor_grouping": "Group legal entities (PIC/group)",
         "exclude_funders": "Exclude funders / agencies",
         "actor_groups_ready": "Group mapping loaded",
@@ -517,7 +543,7 @@ I18N: Dict[str, Dict[str, str]] = {
         ),
         "dimension": "Analysis dimension",
         "dim_theme": "Theme",
-        "dim_section": "Section",
+        "dim_program": "Programme",
         "mode": "Mode",
         "mode_abs": "Budget (absolute)",
         "mode_share": "Share (% per year)",
@@ -527,10 +553,18 @@ I18N: Dict[str, Dict[str, str]] = {
         "period_b": "Period B",
         "compare_caption": "Comparison as **% of total budget** in each period, Δ in **percentage points**.",
         "actor_profile": "Actor profile",
+        "actor_group_mode_caption": "Group view is active: profiles and charts may aggregate several legal entities through mapping or PIC.",
         "actor_trend": "Trend (budget & projects)",
         "actor_mix_theme": "Theme mix",
         "actor_mix_country": "Geography mix",
         "actor_partners": "Top co-participants",
+        "scope_caption": "Active scope",
+        "scope_group_on": "group view",
+        "scope_group_off": "legal-entity view",
+        "scope_funders_off": "funders excluded",
+        "scope_funders_on": "funders included",
+        "status_budget_title": "Budget by project status",
+        "status_projects_title": "Projects by status",
         "download": "⬇️ Download CSV (current filters)",
         "download_page": "⬇️ Download page CSV",
         "download_full": "⬇️ Download full CSV (current filters)",
@@ -691,6 +725,21 @@ def entity_raw_to_display(raw: str, lang: str) -> str:
     if lang == "FR":
         return ENTITY_EN_TO_FR.get(raw, raw)
     return raw
+
+
+def status_raw_to_display(raw: str, lang: str) -> str:
+    mapping_fr = {"Open": "Ouvert", "Closed": "Fermé", "Unknown": "Inconnu"}
+    if lang == "FR":
+        return mapping_fr.get(str(raw), str(raw))
+    return str(raw)
+
+
+def sql_contains_expr(column_sql: str, query: str) -> str:
+    safe = str(query).replace("\x00", "").replace("\r", " ").replace("\n", " ").strip().lower()
+    safe = safe.replace("'", "''")
+    if not safe:
+        return "TRUE"
+    return f"lower(COALESCE({column_sql}, '')) LIKE '%{safe}%'"
 
 
 def _fmt_mtime(p: Path) -> str:
@@ -1240,9 +1289,11 @@ def where_clause(
     use_section: bool,
     sections: List[str],
     onetech_only: bool,
+    statuses: List[str],
     themes: List[str],
     entities: List[str],
     countries: List[str],
+    quick_search: str,
 ) -> str:
     w = []
     if sources:
@@ -1254,12 +1305,29 @@ def where_clause(
         w.append(f"section IN {in_list(sections)}")
     if onetech_only:
         w.append(f"theme IN {in_list(sorted(list(ONETECH_THEMES_EN)))}")
+    if statuses:
+        w.append(f"project_status IN {in_list(statuses)}")
     if themes:
         w.append(f"theme IN {in_list(themes)}")
     if entities:
         w.append(f"entity_type IN {in_list(entities)}")
     if countries:
         w.append(f"country_name IN {in_list(countries)}")
+    if str(quick_search).strip():
+        q = str(quick_search).strip()
+        w.append(
+            "("
+            + " OR ".join(
+                [
+                    sql_contains_expr("projectID", q),
+                    sql_contains_expr("acronym", q),
+                    sql_contains_expr("title", q),
+                    sql_contains_expr("org_name", q),
+                    sql_contains_expr("actor_id", q),
+                ]
+            )
+            + ")"
+        )
     return " AND ".join(w) if w else "TRUE"
 
 
@@ -1506,6 +1574,7 @@ def get_meta() -> dict:
         "sources": list_str(f"SELECT DISTINCT source FROM {R} WHERE source IS NOT NULL AND TRIM(source)<>'' ORDER BY source"),
         "programmes": list_str(f"SELECT DISTINCT program FROM {R} WHERE program IS NOT NULL AND TRIM(program)<>'' ORDER BY program"),
         "sections": list_str(f"SELECT DISTINCT section FROM {R} WHERE section IS NOT NULL AND TRIM(section)<>'' ORDER BY section"),
+        "statuses": list_str(f"SELECT DISTINCT project_status FROM {R} WHERE project_status IS NOT NULL AND TRIM(project_status)<>'' ORDER BY project_status"),
         "themes": list_str(f"SELECT DISTINCT theme FROM {R} WHERE theme IS NOT NULL AND TRIM(theme)<>'' ORDER BY theme"),
         "entities": list_str(f"SELECT DISTINCT entity_type FROM {R} WHERE entity_type IS NOT NULL AND TRIM(entity_type)<>'' ORDER BY entity_type"),
         "countries": list_str(f"SELECT DISTINCT country_name FROM {R} WHERE country_name IS NOT NULL AND TRIM(country_name)<>'' ORDER BY country_name"),
@@ -1521,6 +1590,9 @@ actor_map_info = register_actor_group_tables()
 def _ensure_filter_state() -> None:
     eu_default = european_countries_present(meta["countries"])
     default_countries = eu_default if eu_default else meta["countries"]
+    default_statuses = [s for s in ["Open", "Closed", "Unknown"] if s in meta["statuses"]]
+    if not default_statuses:
+        default_statuses = meta["statuses"]
 
     st.session_state.setdefault("f_sources", meta["sources"])
     st.session_state.setdefault("f_programmes", meta["programmes"])
@@ -1528,18 +1600,21 @@ def _ensure_filter_state() -> None:
     st.session_state.setdefault("f_use_section", False)
     st.session_state.setdefault("f_sections", [])
     st.session_state.setdefault("f_onetech_only", False)
+    st.session_state.setdefault("f_statuses", default_statuses)
     st.session_state.setdefault("f_themes_raw", meta["themes"])
     st.session_state.setdefault("f_entity_raw", meta["entities"])
     st.session_state.setdefault("f_countries", default_countries)
+    st.session_state.setdefault("f_quick_search", "")
     st.session_state.setdefault("f_use_actor_groups", False)
     st.session_state.setdefault("f_exclude_funders", True)
 
     # One-time migration: switch old "all countries by default" sessions to Europe default.
-    if not st.session_state.get("_country_default_migrated_v5", False):
+    if not st.session_state.get("_country_default_migrated_v6", False):
         st.session_state["f_countries"] = default_countries
+        st.session_state["f_statuses"] = default_statuses
         st.session_state["f_use_actor_groups"] = False
         st.session_state["f_exclude_funders"] = True
-        st.session_state["_country_default_migrated_v5"] = True
+        st.session_state["_country_default_migrated_v6"] = True
 
     # Section filter is intentionally disabled in sidebar UX (too technical for most users).
     st.session_state["f_use_section"] = False
@@ -1557,37 +1632,52 @@ with st.sidebar:
 
     src_default = [x for x in st.session_state["f_sources"] if x in meta["sources"]]
     prg_default = [x for x in st.session_state["f_programmes"] if x in meta["programmes"]]
+    status_default = [x for x in st.session_state["f_statuses"] if x in meta["statuses"]]
     ctry_default = [x for x in st.session_state["f_countries"] if x in meta["countries"]]
     eu_default = european_countries_present(meta["countries"])
     ctry_fallback = eu_default if eu_default else meta["countries"]
 
-    st.session_state["f_sources"] = st.multiselect(t(lang, "sources"), meta["sources"], default=src_default or meta["sources"])
-    st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
-    st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
-    st.session_state["f_years"] = st.slider(t(lang, "period"), meta["miny"], meta["maxy"], st.session_state["f_years"])
-
-    # Themes and entities are stored in raw values, labels are translated on display.
-    themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
-    themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
-    st.session_state["f_themes_raw"] = st.multiselect(
-        t(lang, "themes"),
-        themes_ui,
-        default=themes_default or themes_ui,
-        format_func=lambda x: theme_raw_to_display(str(x), lang),
+    st.session_state["f_quick_search"] = st.text_input(
+        t(lang, "quick_search"),
+        value=st.session_state.get("f_quick_search", ""),
+        help=t(lang, "quick_search_hint"),
     )
 
-    entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
-    st.session_state["f_entity_raw"] = st.multiselect(
-        t(lang, "entity"),
-        meta["entities"],
-        default=entities_default or meta["entities"],
-        format_func=lambda x: entity_raw_to_display(str(x), lang),
-    )
+    with st.expander(t(lang, "basic_filters"), expanded=True):
+        st.session_state["f_years"] = st.slider(t(lang, "period"), meta["miny"], meta["maxy"], st.session_state["f_years"])
+        st.session_state["f_statuses"] = st.multiselect(
+            t(lang, "project_status"),
+            meta["statuses"],
+            default=status_default or meta["statuses"],
+            format_func=lambda x: status_raw_to_display(str(x), lang),
+        )
+        st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
 
-    st.session_state["f_countries"] = st.multiselect(t(lang, "countries"), meta["countries"], default=ctry_default or ctry_fallback)
+        themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
+        themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
+        st.session_state["f_themes_raw"] = st.multiselect(
+            t(lang, "themes"),
+            themes_ui,
+            default=themes_default or themes_ui,
+            format_func=lambda x: theme_raw_to_display(str(x), lang),
+        )
+        st.session_state["f_countries"] = st.multiselect(t(lang, "countries"), meta["countries"], default=ctry_default or ctry_fallback)
 
-    st.divider()
-    st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+    with st.expander(t(lang, "advanced_filters"), expanded=False):
+        st.session_state["f_sources"] = st.multiselect(t(lang, "sources"), meta["sources"], default=src_default or meta["sources"])
+        st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
+        entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
+        st.session_state["f_entity_raw"] = st.multiselect(
+            t(lang, "entity"),
+            meta["entities"],
+            default=entities_default or meta["entities"],
+            format_func=lambda x: entity_raw_to_display(str(x), lang),
+        )
+
+    with st.expander(t(lang, "analysis_options"), expanded=False):
+        st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+        st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
+
     mapping_cov = {"total_actors": 0, "matched_actors": 0}
     mapping_keys = {"total_keys": 0, "matched_keys": 0}
     mapping_key_pct = 0.0
@@ -1602,8 +1692,6 @@ with st.sidebar:
             st.caption(t(lang, "mapping_status_partial"))
     else:
         st.caption(t(lang, "mapping_status_missing_short"))
-
-    st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
     if not actor_map_info.get("available", False):
         st.caption(t(lang, "exclude_funders_heuristic"))
 
@@ -1661,9 +1749,11 @@ W = where_clause(
     use_section=False,
     sections=[],
     onetech_only=st.session_state["f_onetech_only"],
+    statuses=st.session_state["f_statuses"],
     themes=st.session_state["f_themes_raw"],
     entities=st.session_state["f_entity_raw"],
     countries=st.session_state["f_countries"],
+    quick_search=st.session_state["f_quick_search"],
 )
 R = rel_analytics(
     use_actor_groups=bool(st.session_state.get("f_use_actor_groups", False)),
@@ -1729,10 +1819,17 @@ k4.metric(t(lang, "avg_ticket"), fmt_money(avg_ticket, lang))
 k5.metric(t(lang, "median_ticket"), fmt_money(median_ticket, lang))
 k6.metric(t(lang, "top10_share"), fmt_pct(top10_share, 1))
 st.caption(f"{t(lang, 'hhi')}: {hhi:.3f}")
+scope_items = [
+    f"{int(st.session_state['f_years'][0])}-{int(st.session_state['f_years'][1])}",
+    t(lang, "scope_group_on") if st.session_state.get("f_use_actor_groups", False) else t(lang, "scope_group_off"),
+    t(lang, "scope_funders_off") if st.session_state.get("f_exclude_funders", False) else t(lang, "scope_funders_on"),
+]
+if st.session_state.get("f_statuses"):
+    scope_items.append(", ".join(status_raw_to_display(x, lang) for x in st.session_state["f_statuses"]))
+if str(st.session_state.get("f_quick_search", "")).strip():
+    scope_items.append(f"{t(lang, 'quick_search')}: {str(st.session_state.get('f_quick_search', '')).strip()}")
 st.caption(
-    f"{t(lang, 'kpi_scope')}: "
-    f"{'grouping=ON' if st.session_state.get('f_use_actor_groups', False) else 'grouping=OFF'} · "
-    f"{'exclude_funders=ON' if st.session_state.get('f_exclude_funders', False) else 'exclude_funders=OFF'}"
+    f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items)
 )
 st.divider()
 
@@ -1790,6 +1887,48 @@ with tab_overview:
         )
         fig_alloc.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
         st.plotly_chart(fig_alloc, use_container_width=True)
+
+    status_mix = fetch_df(f"""
+    SELECT
+      project_status,
+      SUM(amount_eur) AS budget_eur,
+      COUNT(DISTINCT projectID) AS n_projects
+    FROM {R}
+    WHERE {W}
+    GROUP BY project_status
+    ORDER BY budget_eur DESC
+    """)
+    if not status_mix.empty:
+        status_mix["status_display"] = status_mix["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
+        s1, s2 = st.columns(2)
+        with s1:
+            st.markdown("### " + t(lang, "status_budget_title"))
+            fig_status_budget = px.bar(
+                status_mix.iloc[::-1],
+                x="budget_eur",
+                y="status_display",
+                orientation="h",
+                color="budget_eur",
+                color_continuous_scale=R2G,
+                height=260,
+                labels={"budget_eur": "Budget (€)", "status_display": ""},
+            )
+            fig_status_budget.update_layout(coloraxis_showscale=False, yaxis_title=None)
+            st.plotly_chart(fig_status_budget, use_container_width=True)
+        with s2:
+            st.markdown("### " + t(lang, "status_projects_title"))
+            fig_status_projects = px.bar(
+                status_mix.iloc[::-1],
+                x="n_projects",
+                y="status_display",
+                orientation="h",
+                color="n_projects",
+                color_continuous_scale=R2G,
+                height=260,
+                labels={"n_projects": t(lang, "n_projects"), "status_display": ""},
+            )
+            fig_status_projects.update_layout(coloraxis_showscale=False, yaxis_title=None)
+            st.plotly_chart(fig_status_projects, use_container_width=True)
 
     st.divider()
     st.markdown("### " + t(lang, "ticket_shape_title"))
@@ -2401,11 +2540,11 @@ with tab_comp:
 with tab_trends:
     dim_choice = st.radio(
         t(lang, "dimension"),
-        [t(lang, "dim_theme"), t(lang, "dim_section")],
+        [t(lang, "dim_theme"), t(lang, "dim_program")],
         index=0,
         horizontal=True,
     )
-    dim_col = "section" if dim_choice == t(lang, "dim_section") else "theme"
+    dim_col = "program" if dim_choice == t(lang, "dim_program") else "theme"
 
     dim_budget = fetch_df(f"""
     SELECT {dim_col} AS dim, SUM(amount_eur) AS amount_eur
@@ -2528,8 +2667,8 @@ with tab_compare:
     with a2:
         period_b = st.slider(t(lang, "period_b"), min_year, max_year, value=st.session_state["cmp_period_b"], key="cmp_period_b")
 
-    dim_choice = st.radio(t(lang, "dimension"), [t(lang, "dim_theme"), t(lang, "dim_section")], index=0, horizontal=True, key="cmp_dim")
-    dim_col = "section" if dim_choice == t(lang, "dim_section") else "theme"
+    dim_choice = st.radio(t(lang, "dimension"), [t(lang, "dim_theme"), t(lang, "dim_program")], index=0, horizontal=True, key="cmp_dim")
+    dim_col = "program" if dim_choice == t(lang, "dim_program") else "theme"
 
     def share_df(y0: int, y1: int) -> pd.DataFrame:
         return fetch_df(f"""
@@ -2838,6 +2977,8 @@ with tab_macro:
 # ============================================================
 with tab_actor:
     st.markdown(f"### {t(lang, 'actor_profile')}")
+    if st.session_state.get("f_use_actor_groups", False):
+        st.caption(t(lang, "actor_group_mode_caption"))
 
     try:
         actors = fetch_df(f"""
@@ -3667,6 +3808,8 @@ with tab_data:
         page_df["theme"] = page_df["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
     if "entity_type" in page_df.columns:
         page_df["entity_type"] = page_df["entity_type"].map(lambda x: entity_raw_to_display(str(x), lang))
+    if "project_status" in page_df.columns:
+        page_df["project_status"] = page_df["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
     if "amount_eur" in page_df.columns:
         page_df["amount_eur"] = page_df["amount_eur"].apply(lambda v: fmt_money(float(v) if v is not None else np.nan, lang))
 

@@ -535,6 +535,85 @@ Si carte geo non normalisee population:
 ### `.github/workflows/refresh-data.yml`
 - Automatisation durable des artefacts versionnes.
 
+## 13) Architecture cible entreprise (prochaine etape)
+
+Pour un usage entreprise stable, le mode cible recommande n'est pas "le dashboard interroge toutes les API directement a chaque clic". Le mode cible est:
+
+```mermaid
+flowchart LR
+    A["APIs / MCP / fichiers sources"] --> B["Pipeline d'ingestion incremental"]
+    B --> C["Modele maitre normalise"]
+    C --> D["Semantic model BI / couche analytique"]
+    D --> E["Dashboard Streamlit / Power BI"]
+    D --> F["Chatbot IA / Copilot / agent"]
+```
+
+### 13.1 Modele de donnees cible
+
+Le modele cible doit separer clairement:
+- `fact_awards`: projets laureats / financements obtenus,
+- `fact_calls`: appels ouverts / fermes / historiques,
+- `dim_actor_legal`: entite juridique,
+- `dim_group`: groupe corporate,
+- `bridge_actor_group`: rattachement entite -> groupe dans le temps,
+- `dim_theme`: thematique normalisee,
+- `dim_value_chain_stage`: maillon de chaine de valeur,
+- `dim_project_status`: `Open` / `Closed` / `Unknown`,
+- `dim_funder`: financeur / agence / type d'organisme.
+
+### 13.2 PIC et regroupement groupe
+
+Le code actuel sait:
+- utiliser un mapping explicite via `actor_groups.csv`,
+- retomber sur un fallback `PIC` quand le mapping n'est pas renseigne.
+
+Attention:
+- le `PIC` identifie surtout une organisation/entite participante,
+- il ne suffit pas toujours pour reconstruire un groupe corporate complet,
+- un regroupement fiable "groupe" demande une table metier maintenue (`group_id`, `group_name`, historique, eventuels alias).
+
+### 13.3 IA / Microsoft / Power BI
+
+Si l'outil doit vivre dans l'ecosysteme Microsoft, la cible recommandee est:
+- pipeline de donnees versionne,
+- semantic model propre (etoile / dimensions explicites),
+- visualisation dans Power BI ou Streamlit,
+- couche conversationnelle via Copilot / agent sur ce semantic model.
+
+Implication pratique:
+- l'IA ne doit pas interroger des CSV heterogenes bruts,
+- elle doit s'appuyer sur un modele metier stable et documente,
+- les synonymes, descriptions de colonnes, mesures et relations doivent etre formalises.
+
+### 13.4 Classification thematique et negations
+
+Le code actuel contient deja une premiere protection contre des phrases du type:
+- `not in scope`,
+- `excluded from scope`,
+- `without`,
+- `sans`,
+- `hors`.
+
+Pour une fiabilite entreprise, la prochaine etape est:
+- annotation d'un echantillon de projets,
+- evaluation faux positifs / faux negatifs,
+- regles de negation plus fines au niveau phrase,
+- eventuellement modele NLP specialise si le volume et l'enjeu le justifient.
+
+### 13.5 Ce qui est realiste a court terme
+
+Court terme:
+- consolider `laureats + calls ouverts/fermes`,
+- fiabiliser `acteur legal / groupe / PIC`,
+- documenter les mesures et definitions,
+- rendre l'UI plus simple et orientee usages.
+
+Plus tard:
+- chatbot IA branche sur modele analytique,
+- graphes de collaboration navigables,
+- analyses guidees en langage naturel,
+- vues "chaine de valeur x acteur x call x budget".
+
 ---
 
 Si besoin, une version "executive summary" (1 page) peut etre ajoutee en plus de ce document.
