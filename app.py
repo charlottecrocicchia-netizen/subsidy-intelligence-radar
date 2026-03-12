@@ -97,6 +97,7 @@ st.markdown(
   html, body, [data-testid="stAppViewContainer"], .main {
     background: var(--sir-bg);
     color: var(--sir-text);
+    color-scheme: light;
   }
 
   [data-testid="stAppViewContainer"] > .main .block-container {
@@ -108,6 +109,7 @@ st.markdown(
   section[data-testid="stSidebar"] {
     background: var(--sir-sidebar);
     border-right: 1px solid var(--sir-border);
+    color-scheme: light;
   }
 
   section[data-testid="stSidebar"] .block-container {
@@ -299,10 +301,12 @@ st.markdown(
   [data-baseweb="menu"],
   [data-baseweb="select-dropdown"],
   [role="dialog"],
+  body [id^="portal"],
   [data-baseweb="popover"] * ,
   [data-baseweb="menu"] *,
   [data-baseweb="select-dropdown"] *,
   [role="dialog"] *,
+  body [id^="portal"] *,
   [role="listbox"],
   [role="option"] {
     color: var(--sir-text) !important;
@@ -312,10 +316,12 @@ st.markdown(
   [data-baseweb="menu"],
   [data-baseweb="select-dropdown"],
   [role="dialog"],
+  body [id^="portal"],
   [role="listbox"] {
     background: var(--sir-surface) !important;
     border: 1px solid var(--sir-border) !important;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08) !important;
+    color-scheme: light !important;
   }
 
   [role="option"] {
@@ -324,7 +330,11 @@ st.markdown(
 
   [role="option"][aria-selected="true"],
   [role="option"]:hover {
-    background: var(--sir-blue-soft) !important;
+    background: var(--sir-cyan-soft) !important;
+    color: var(--sir-text) !important;
+  }
+
+  [aria-selected="true"][role="option"] * {
     color: var(--sir-text) !important;
   }
 
@@ -397,6 +407,24 @@ st.markdown(
     --gdg-selection-ring: #5BC0EB;
   }
 
+  [data-testid="stDataFrame"] *,
+  .stDataFrame * {
+    --gdg-bg-cell: #FFFFFF;
+    --gdg-bg-cell-medium: #FFFFFF;
+    --gdg-bg-header: #F4F8FB;
+    --gdg-bg-header-has-focus: #EEF4FB;
+    --gdg-bg-header-hovered: #EEF4FB;
+    --gdg-bg-row-hover: #F8FBFD;
+    --gdg-bg-cell-selected: #EEF4FB;
+    --gdg-bg-cell-selected-padded: #EAF7FC;
+    --gdg-accent-color: #4F7CAC;
+    --gdg-accent-light: #EEF4FB;
+    --gdg-border-color: #D9E2EC;
+    --gdg-text-dark: #1F2937;
+    --gdg-text-medium: #475467;
+    --gdg-text-light: #667085;
+  }
+
   [data-testid="stDataFrame"] [role="columnheader"],
   [data-testid="stDataFrame"] [role="gridcell"],
   [data-testid="stDataFrame"] [role="rowheader"] {
@@ -413,6 +441,14 @@ st.markdown(
 
   [data-testid="stDataFrame"] canvas {
     background: #FFFFFF !important;
+  }
+
+  [data-testid="stDataFrame"] [class*="glide"],
+  [data-testid="stDataFrame"] [class*="gdg"],
+  [data-testid="stDataFrame"] [data-testid*="Glide"],
+  [data-testid="stDataFrame"] [data-testid*="DataFrame"] {
+    background: #FFFFFF !important;
+    color: var(--sir-text) !important;
   }
 
   [data-testid="stDataFrame"] > div,
@@ -478,6 +514,13 @@ st.markdown(
     border: 1px solid var(--sir-border);
     border-radius: 14px;
     padding: 6px;
+  }
+
+  [data-testid="stPlotlyChart"] .js-plotly-plot,
+  [data-testid="stPlotlyChart"] .plot-container,
+  [data-testid="stPlotlyChart"] .svg-container,
+  [data-testid="stPlotlyChart"] .main-svg {
+    background: #FFFFFF !important;
   }
 
   [data-testid="stPlotlyChart"] .modebar {
@@ -2899,7 +2942,14 @@ with tab_results:
                         height=360,
                         labels={"budget_eur": "Budget (€)", "year": "Year"},
                     )
-                    fig_year_budget.update_layout(coloraxis_showscale=False)
+                    fig_year_budget.update_layout(
+                        coloraxis_showscale=False,
+                        paper_bgcolor="#FFFFFF",
+                        plot_bgcolor="#FFFFFF",
+                        font=dict(color="#1F2937"),
+                        xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                        yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                    )
                     st.plotly_chart(fig_year_budget, use_container_width=True)
                 with c2:
                     st.markdown("#### " + t(lang, "results_projects_year"))
@@ -2910,6 +2960,13 @@ with tab_results:
                         markers=True,
                         height=360,
                         labels={"n_projects": t(lang, "n_projects"), "year": "Year"},
+                    )
+                    fig_year_projects.update_layout(
+                        paper_bgcolor="#FFFFFF",
+                        plot_bgcolor="#FFFFFF",
+                        font=dict(color="#1F2937"),
+                        xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                        yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
                     )
                     st.plotly_chart(fig_year_projects, use_container_width=True)
 
@@ -2948,8 +3005,25 @@ with tab_results:
                     height=520,
                     labels={color_col: color_title},
                 )
-                fig_results_map.update_geos(scope="europe", projection_type="natural earth", showframe=False)
-                fig_results_map.update_layout(coloraxis_colorbar=dict(title=color_title, len=0.7), margin=dict(l=0, r=0, t=0, b=0))
+                fig_results_map.update_geos(
+                    scope="europe",
+                    projection_type="natural earth",
+                    showframe=False,
+                    showland=True,
+                    landcolor="#F8FBFD",
+                    showcountries=True,
+                    countrycolor="#D9E2EC",
+                    showcoastlines=True,
+                    coastlinecolor="#D9E2EC",
+                    bgcolor="#FFFFFF",
+                )
+                fig_results_map.update_layout(
+                    coloraxis_colorbar=dict(title=color_title, len=0.7),
+                    margin=dict(l=0, r=0, t=0, b=0),
+                    paper_bgcolor="#FFFFFF",
+                    plot_bgcolor="#FFFFFF",
+                    font=dict(color="#1F2937"),
+                )
                 st.plotly_chart(fig_results_map, use_container_width=True)
 
                 st.markdown("#### " + t(lang, "results_country_rank"))
@@ -3004,7 +3078,15 @@ with tab_results:
                     height=620,
                     labels={"budget_eur": "Budget (€)", "actor_label": ""},
                 )
-                fig_actors.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                fig_actors.update_layout(
+                    coloraxis_showscale=False,
+                    yaxis_title=None,
+                    paper_bgcolor="#FFFFFF",
+                    plot_bgcolor="#FFFFFF",
+                    font=dict(color="#1F2937"),
+                    xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                    yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                )
                 st.plotly_chart(fig_actors, use_container_width=True)
 
                 actor_tbl = res_actors.copy()
@@ -3388,7 +3470,7 @@ with tab_geo:
         geo_kwargs = dict(
             projection_type=projection,
             showframe=False,
-            bgcolor="rgba(0,0,0,0)",
+            bgcolor="#FFFFFF",
             showland=True,
             landcolor="#F8FBFD",
             showocean=True,
@@ -3444,13 +3526,19 @@ with tab_geo:
                     lat=[x[2] for x in labels],
                     text=[x[0] for x in labels],
                     mode="text",
-                    textfont=dict(size=12, color="#667085"),
+                    textfont=dict(size=12, color="rgba(102,112,133,0.68)"),
                     showlegend=False,
                     hoverinfo="skip",
                 )
             )
 
-        fig_map.update_layout(margin=dict(l=0, r=0, t=0, b=0), coloraxis_colorbar=dict(title=color_title, len=0.7))
+        fig_map.update_layout(
+            margin=dict(l=0, r=0, t=0, b=0),
+            coloraxis_colorbar=dict(title=color_title, len=0.7),
+            paper_bgcolor="#FFFFFF",
+            plot_bgcolor="#FFFFFF",
+            font=dict(color="#1F2937"),
+        )
         st.plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
 
         st.markdown(f"#### {t(lang, 'top_countries')}")
@@ -3707,6 +3795,14 @@ with tab_comp:
                 hovertemplate="<b>%{hovertext}</b><br>Budget: %{customdata[0]}<br>Ticket: %{customdata[1]}<extra></extra>",
                 marker=dict(line=dict(width=1, color="rgba(24,36,51,0.08)")),
             )
+            fig1.update_layout(
+                paper_bgcolor="#FFFFFF",
+                plot_bgcolor="#FFFFFF",
+                font=dict(color="#1F2937"),
+                legend=dict(bgcolor="rgba(255,255,255,0.92)", bordercolor="#D9E2EC"),
+                xaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+                yaxis=dict(gridcolor="#EAECF0", tickfont=dict(color="#475467")),
+            )
             st.plotly_chart(fig1, use_container_width=True)
             st.caption(t(lang, "legend_tip"))
 
@@ -3809,6 +3905,8 @@ with tab_comp:
                     uniformtext=dict(minsize=13, mode="hide"),
                     coloraxis_showscale=False,
                     font=dict(color="#1F2937"),
+                    paper_bgcolor="#FFFFFF",
+                    plot_bgcolor="#FFFFFF",
                 )
                 st.plotly_chart(fig_tree, use_container_width=True)
 
@@ -5035,7 +5133,13 @@ with tab_value_chain:
                                         )
                                     ]
                                 )
-                                fig_sankey.update_layout(height=620, margin=dict(l=10, r=10, t=20, b=10))
+                                fig_sankey.update_layout(
+                                    height=620,
+                                    margin=dict(l=10, r=10, t=20, b=10),
+                                    paper_bgcolor="#FFFFFF",
+                                    plot_bgcolor="#FFFFFF",
+                                    font=dict(color="#475467"),
+                                )
                                 if HAS_PLOTLY_EVENTS and plotly_events is not None:
                                     clicked = plotly_events(
                                         fig_sankey,
@@ -5285,6 +5389,9 @@ with tab_collaboration:
                     xaxis=dict(visible=False),
                     yaxis=dict(visible=False, scaleanchor="x", scaleratio=1),
                     margin=dict(l=10, r=10, t=10, b=10),
+                    paper_bgcolor="#FFFFFF",
+                    plot_bgcolor="#FFFFFF",
+                    font=dict(color="#475467"),
                 )
                 st.plotly_chart(fig_net, use_container_width=True)
 
@@ -5343,6 +5450,9 @@ with tab_concentration:
             yaxis2=dict(title=t(lang, "concentration_cum"), overlaying="y", side="right", range=[0, 100]),
             legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0.0),
             margin=dict(l=20, r=20, t=20, b=80),
+            paper_bgcolor="#FFFFFF",
+            plot_bgcolor="#FFFFFF",
+            font=dict(color="#1F2937"),
         )
         st.plotly_chart(fig_p, use_container_width=True)
         st.caption(t(lang, "concentration_caption"))
