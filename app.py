@@ -139,6 +139,84 @@ st.markdown(
     padding-top: 1rem;
   }
 
+  section[data-testid="stSidebar"] [data-testid="stWidgetLabel"],
+  section[data-testid="stSidebar"] [data-testid="stWidgetLabel"] *,
+  section[data-testid="stSidebar"] .stSelectbox label,
+  section[data-testid="stSidebar"] .stMultiSelect label,
+  section[data-testid="stSidebar"] .stTextInput label,
+  section[data-testid="stSidebar"] .stTextArea label,
+  section[data-testid="stSidebar"] .stNumberInput label,
+  section[data-testid="stSidebar"] .stRadio label,
+  section[data-testid="stSidebar"] .stCheckbox label,
+  section[data-testid="stSidebar"] .stSlider label {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    line-height: 1.38 !important;
+  }
+
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary,
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary * {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    line-height: 1.35 !important;
+  }
+
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary {
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+    min-height: 2.6rem !important;
+  }
+
+  section[data-testid="stSidebar"] .stSelectbox,
+  section[data-testid="stSidebar"] .stMultiSelect,
+  section[data-testid="stSidebar"] .stSlider,
+  section[data-testid="stSidebar"] .stRadio,
+  section[data-testid="stSidebar"] .stCheckbox,
+  section[data-testid="stSidebar"] .stTextInput,
+  section[data-testid="stSidebar"] .stNumberInput {
+    margin-bottom: 0.35rem;
+  }
+
+  section[data-testid="stSidebar"] div[data-baseweb="select"] > div,
+  section[data-testid="stSidebar"] div[data-baseweb="base-input"] > div {
+    min-height: 46px !important;
+    height: auto !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    align-items: flex-start !important;
+  }
+
+  section[data-testid="stSidebar"] div[data-baseweb="select"] > div > div {
+    align-items: flex-start !important;
+    flex-wrap: wrap !important;
+    row-gap: 4px !important;
+  }
+
+  section[data-testid="stSidebar"] div[data-baseweb="select"] span,
+  section[data-testid="stSidebar"] div[data-baseweb="select"] input,
+  section[data-testid="stSidebar"] div[data-baseweb="base-input"] input {
+    line-height: 1.35 !important;
+  }
+
+  section[data-testid="stSidebar"] div[data-baseweb="tag"] {
+    max-width: 100%;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+  }
+
+  section[data-testid="stSidebar"] div[data-baseweb="tag"] span {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    line-height: 1.28 !important;
+  }
+
+  section[data-testid="stSidebar"] [role="slider"] {
+    min-height: 20px;
+  }
+
   h1, h2, h3, h4, h5 {
     color: var(--sir-text);
     letter-spacing: -0.02em;
