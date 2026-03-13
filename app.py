@@ -63,7 +63,7 @@ REFRESH_LOCK_STALE_SEC = int(os.environ.get("SUBSIDY_REFRESH_LOCK_STALE_SEC", "7
 # ============================================================
 STREAMLIT_THEME_OVERRIDES = {
     "theme.base": "dark",
-    "theme.primaryColor": "#2563EB",
+    "theme.primaryColor": "#5BC0EB",
     "theme.backgroundColor": "#0B1220",
     "theme.secondaryBackgroundColor": "#111827",
     "theme.textColor": "#F8FAFC",
@@ -82,7 +82,7 @@ st.markdown(
     """
 <style>
   :root {
-    --primary-color: #2563EB;
+    --primary-color: #5BC0EB;
     --background-color: #0B1220;
     --secondary-background-color: #111827;
     --text-color: #F8FAFC;
@@ -95,7 +95,7 @@ st.markdown(
     --sir-text: #F8FAFC;
     --sir-text-secondary: #D0D8E4;
     --sir-text-muted: #94A3B8;
-    --sir-blue: #2563EB;
+    --sir-blue: #5BC0EB;
     --sir-cyan: #22D3EE;
     --sir-teal: #14B8A6;
     --sir-green: #22C55E;
@@ -113,12 +113,14 @@ st.markdown(
     --sir-warning: #FACC15;
     --sir-danger: #FB7185;
     --sir-shadow: 0 20px 48px rgba(2, 6, 23, 0.42);
+    --sir-font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", sans-serif;
   }
 
   html, body, [data-testid="stAppViewContainer"], .main {
     background: var(--sir-bg);
     color: var(--sir-text);
     color-scheme: dark;
+    font-family: var(--sir-font) !important;
   }
 
   [data-testid="stAppViewContainer"] > .main .block-container {
@@ -167,8 +169,9 @@ st.markdown(
     color: var(--sir-text) !important;
   }
 
-  p, li, span, div, label {
+  p, li, span, div, label, button, input, textarea, select {
     color: inherit;
+    font-family: var(--sir-font) !important;
   }
 
   [data-testid="stMarkdownContainer"],
@@ -318,8 +321,8 @@ st.markdown(
   }
 
   div[data-baseweb="tag"] {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(34, 211, 238, 0.12)) !important;
-    border: 1px solid rgba(91, 192, 235, 0.34) !important;
+    background: linear-gradient(135deg, rgba(91, 192, 235, 0.11), rgba(34, 211, 238, 0.07)) !important;
+    border: 1px solid rgba(91, 192, 235, 0.24) !important;
     color: var(--sir-text) !important;
     border-radius: 10px !important;
     box-shadow: none !important;
@@ -564,8 +567,8 @@ st.markdown(
     align-items: center;
     padding: 5px 9px;
     border-radius: 10px;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(20, 184, 166, 0.10));
-    border: 1px solid rgba(91, 192, 235, 0.26);
+    background: linear-gradient(135deg, rgba(91, 192, 235, 0.10), rgba(20, 184, 166, 0.07));
+    border: 1px solid rgba(91, 192, 235, 0.20);
     color: var(--sir-text-secondary);
     font-size: 0.84rem;
     font-weight: 550;
@@ -803,7 +806,7 @@ STAGE_COLORS = {
 
 _totale_dark = go.layout.Template(pio.templates["plotly_dark"])
 _totale_dark.layout.update(
-    font=dict(family="Aptos, Segoe UI, Helvetica Neue, sans-serif", size=13, color=TEXT_PRIMARY),
+    font=dict(family="system-ui, -apple-system, BlinkMacSystemFont, SF Pro Text, SF Pro Display, Segoe UI, sans-serif", size=13, color=TEXT_PRIMARY),
     title=dict(font=dict(size=18, color=TEXT_PRIMARY)),
     paper_bgcolor=PANEL_BG,
     plot_bgcolor=PANEL_BG,
