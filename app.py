@@ -1204,6 +1204,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_support": "Recherche libre dans les projets et acteurs. Pour le pays, la période ou le programme, utilise les filtres.",
         "search_simplified_notice": "La recherche a été simplifiée pour éviter une erreur. Essaie un mot-clé simple puis affine avec les filtres.",
         "search_ignored_notice": "La recherche n’a pas pu être appliquée avec cette saisie. Les filtres sont conservés ; essaie un mot-clé plus simple.",
+        "view_recover_hint": "Essaie une recherche plus simple ou ajuste les filtres. Les autres vues restent disponibles.",
+        "chart_render_unavailable": "Ce graphique n’a pas pu être affiché pour ce périmètre.",
+        "results_view_unavailable": "Cette vue de résultats n’a pas pu être affichée pour ce périmètre.",
+        "geo_view_unavailable": "La vue géographique n’a pas pu être affichée pour ce périmètre.",
+        "benchmark_view_unavailable": "Cette vue de comparaison n’a pas pu être affichée pour ce périmètre.",
+        "value_chain_view_unavailable": "La vue étapes et acteurs n’a pas pu être affichée pour ce périmètre.",
         "explore_overview_title": "Ce que vous pouvez faire ici",
         "explore_overview_1": "Trouver des projets par thématique, pays et période",
         "explore_overview_2": "Comparer les principaux acteurs d’un domaine",
@@ -1370,8 +1376,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_map": "Carte",
         "results_actors": "Acteurs",
         "main_search_label": "Que veux-tu explorer ?",
-        "main_search_help": "Recherche libre sur acteur, projet, acronyme ou titre",
-        "main_search_placeholder": "Ex. AI Germany, hydrogen France, CNRS batteries",
+        "main_search_help": "Recherche libre dans acteur, projet, acronyme ou titre",
+        "main_search_placeholder": "Ex. AI, hydrogène, CNRS, batteries",
         "active_filters": "Filtres actifs",
         "clear_search": "Effacer la recherche",
         "no_results_title": "Aucun résultat pour ce périmètre.",
@@ -1534,6 +1540,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_support": "Free-text search across projects and actors. Use filters for country, time period, or programme.",
         "search_simplified_notice": "Search was simplified to avoid an error. Try a simpler keyword, then refine with filters.",
         "search_ignored_notice": "Search could not be applied safely for this input. Filters are still active; try a simpler keyword.",
+        "view_recover_hint": "Try a simpler search or adjust the filters. Other views remain available.",
+        "chart_render_unavailable": "This chart could not be displayed for the current scope.",
+        "results_view_unavailable": "This results view could not be displayed for the current scope.",
+        "geo_view_unavailable": "The geography view could not be displayed for the current scope.",
+        "benchmark_view_unavailable": "This comparison view could not be displayed for the current scope.",
+        "value_chain_view_unavailable": "The stages and actors view could not be displayed for the current scope.",
         "explore_overview_title": "What you can do here",
         "explore_overview_1": "Find projects by theme, country, and time period",
         "explore_overview_2": "Compare the main actors in a domain",
@@ -1700,8 +1712,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_map": "Map",
         "results_actors": "Actors",
         "main_search_label": "What do you want to explore?",
-        "main_search_help": "Free search across actor, project, acronym, or title",
-        "main_search_placeholder": "E.g. AI Germany, hydrogen France, CNRS batteries",
+        "main_search_help": "Free-text search across actor, project, acronym, or title",
+        "main_search_placeholder": "E.g. AI, hydrogen, CNRS, batteries",
         "active_filters": "Active filters",
         "clear_search": "Clear search",
         "no_results_title": "No results for this scope.",
@@ -2057,9 +2069,32 @@ def render_section_header(icon: str, title: str, desc: str = "", eyebrow: str = 
     )
 
 
+SAFE_VIEW_EXCEPTIONS = (duckdb.Error, ValueError, KeyError, IndexError, TypeError)
+PLOTLY_RENDER_EXCEPTIONS = (ValueError, TypeError, RuntimeError)
+
+
+def render_view_warning(lang: str, warning_key: str) -> None:
+    st.warning(t(lang, warning_key))
+    st.caption(t(lang, "view_recover_hint"))
+
+
+def safe_fetch_df(sql: str, *, columns: List[str], lang: str, warning_key: str) -> pd.DataFrame:
+    try:
+        return fetch_df(sql)
+    except duckdb.Error:
+        render_view_warning(lang, warning_key)
+        return pd.DataFrame(columns=columns)
+
+
 def render_plotly_chart(fig: go.Figure, **kwargs):
     kwargs.setdefault("theme", None)
-    return st.plotly_chart(fig, **kwargs)
+    try:
+        return st.plotly_chart(fig, **kwargs)
+    except PLOTLY_RENDER_EXCEPTIONS:
+        current_lang = str(globals().get("lang", "EN"))
+        st.warning(t(current_lang, "chart_render_unavailable"))
+        st.caption(t(current_lang, "view_recover_hint"))
+        return None
 
 
 def _fmt_mtime(p: Path) -> str:
@@ -3237,7 +3272,7 @@ with tab_results:
             WHERE {W}
             GROUP BY projectID
             """
-            results_total = fetch_df(f"SELECT COUNT(*) AS n_rows FROM ({results_base_select_sql}) q")
+            results_total = safe_fetch_df(f"SELECT COUNT(*) AS n_rows FROM ({results_base_select_sql}) q", columns=["n_rows"], lang=lang, warning_key="results_view_unavailable")
             total_matches = int(results_total["n_rows"].iloc[0] or 0) if not results_total.empty else 0
 
             if total_matches == 0:
@@ -3266,11 +3301,11 @@ with tab_results:
                     st.caption(f"Page {int(page)} / {int(max_page)}")
 
                 offset = (int(page) - 1) * int(rows_per_page)
-                results_projects_raw = fetch_df(f"""
+                results_projects_raw = safe_fetch_df(f"""
                 {results_base_select_sql}
                 ORDER BY budget_eur DESC
                 LIMIT {int(rows_per_page)} OFFSET {int(offset)}
-                """)
+                """, columns=["projectID", "year", "title", "theme", "project_status", "n_actors", "n_countries", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
                 results_projects = results_projects_raw.copy()
                 results_projects["theme"] = results_projects["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
                 results_projects["project_status"] = results_projects["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
@@ -3344,7 +3379,7 @@ with tab_results:
 
                 selected_project_id = str(st.session_state.get("results_selected_project_id", "")).strip()
                 if selected_project_id:
-                    detail_df = fetch_df(f"""
+                    detail_df = safe_fetch_df(f"""
                     SELECT
                       projectID,
                       MIN(title) AS title,
@@ -3360,20 +3395,20 @@ with tab_results:
                     WHERE {W} AND projectID IN {in_list([selected_project_id])}
                     GROUP BY projectID
                     LIMIT 1
-                    """)
+                    """, columns=["projectID", "title", "acronym", "year", "program", "theme", "project_status", "budget_eur", "n_actors", "n_countries"], lang=lang, warning_key="results_view_unavailable")
                     if detail_df.empty:
                         st.session_state.pop("results_selected_project_id", None)
                     else:
                         detail = detail_df.iloc[0]
-                        countries_df = fetch_df(f"""
+                        countries_df = safe_fetch_df(f"""
                         SELECT DISTINCT country_name
                         FROM {R}
                         WHERE {W} AND projectID IN {in_list([selected_project_id])}
                           AND country_name IS NOT NULL AND TRIM(country_name) <> ''
                         ORDER BY country_name
                         LIMIT 40
-                        """)
-                        actors_df = fetch_df(f"""
+                        """, columns=["country_name"], lang=lang, warning_key="results_view_unavailable")
+                        actors_df = safe_fetch_df(f"""
                         SELECT
                           actor_id,
                           COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
@@ -3385,7 +3420,7 @@ with tab_results:
                         GROUP BY actor_id, actor_label, country_name
                         ORDER BY budget_eur DESC, actor_label
                         LIMIT 30
-                        """)
+                        """, columns=["actor_id", "actor_label", "country_name", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
 
                         countries_list = [str(x) for x in countries_df["country_name"].tolist() if str(x).strip()] if not countries_df.empty else []
                         if countries_list:
@@ -3509,7 +3544,7 @@ with tab_results:
                                     st.session_state["results_selected_actor_id_candidate"] = str(chosen_row.iloc[0]["actor_id"])
 
         elif results_view == t(lang, "results_trend"):
-            res_year = fetch_df(f"""
+            res_year = safe_fetch_df(f"""
             SELECT
               year,
               SUM(amount_eur) AS budget_eur,
@@ -3518,7 +3553,7 @@ with tab_results:
             WHERE {W}
             GROUP BY year
             ORDER BY year
-            """)
+            """, columns=["year", "budget_eur", "n_projects"], lang=lang, warning_key="results_view_unavailable")
             if res_year.empty:
                 render_empty_state(lang)
             else:
@@ -3563,13 +3598,13 @@ with tab_results:
                     render_plotly_chart(fig_year_projects, use_container_width=True)
 
         elif results_view == t(lang, "results_map"):
-            geo_res = fetch_df(f"""
+            geo_res = safe_fetch_df(f"""
             SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
             FROM {R}
             WHERE {W} AND country_alpha3 IS NOT NULL AND TRIM(country_alpha3) <> ''
             GROUP BY country_alpha3, country_name
             ORDER BY amount_eur DESC
-            """)
+            """, columns=["country_alpha3", "country_name", "amount_eur"], lang=lang, warning_key="results_view_unavailable")
             if geo_res.empty:
                 render_empty_state(lang)
             else:
@@ -3645,7 +3680,7 @@ with tab_results:
                 )
 
         else:
-            res_actors = fetch_df(f"""
+            res_actors = safe_fetch_df(f"""
             WITH x AS (
               SELECT
                 actor_id,
@@ -3666,7 +3701,7 @@ with tab_results:
             GROUP BY actor_id
             ORDER BY budget_eur DESC
             LIMIT 25
-            """)
+            """, columns=["actor_id", "actor_label", "main_country", "budget_eur", "n_projects"], lang=lang, warning_key="results_view_unavailable")
             if res_actors.empty:
                 render_empty_state(lang)
             else:
@@ -3726,7 +3761,7 @@ with tab_overview:
     WHERE {W}
     GROUP BY entity_type
     ORDER BY amount_eur DESC
-    """)
+    """, columns=["country_alpha3", "country_name", "amount_eur"], lang=lang, warning_key="geo_view_unavailable")
     if alloc.empty:
         st.info(t(lang, "no_data"))
     else:
@@ -3952,13 +3987,13 @@ with tab_overview:
 with tab_geo:
     render_section_header("◎", t(lang, "tab_geo"), t(lang, "geo_caption"), t(lang, "tab_markets"))
     st.caption(f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items))
-    geo = fetch_df(f"""
+    geo = safe_fetch_df(f"""
     SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
     FROM {R}
     WHERE {W} AND country_alpha3 IS NOT NULL AND TRIM(country_alpha3) <> ''
     GROUP BY country_alpha3, country_name
     ORDER BY amount_eur DESC
-    """)
+    """, columns=["country_alpha3", "country_name", "amount_eur"], lang=lang, warning_key="geo_view_unavailable")
     if geo.empty:
         st.info(t(lang, "no_data"))
     else:
@@ -4191,7 +4226,7 @@ with tab_geo:
 
         if selected_country:
             country_sql = in_list([selected_country])
-            country_actors = fetch_df(f"""
+            country_actors = safe_fetch_df(f"""
             SELECT
               actor_id,
               COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
@@ -4203,8 +4238,8 @@ with tab_geo:
             GROUP BY actor_id, actor_label
             ORDER BY budget_eur DESC
             LIMIT 12
-            """)
-            country_themes = fetch_df(f"""
+            """, columns=["actor_id", "actor_label", "budget_eur", "n_projects"], lang=lang, warning_key="geo_view_unavailable")
+            country_themes = safe_fetch_df(f"""
             SELECT
               theme,
               SUM(amount_eur) AS budget_eur,
@@ -4215,8 +4250,8 @@ with tab_geo:
             GROUP BY theme
             ORDER BY budget_eur DESC
             LIMIT 12
-            """)
-            country_projects = fetch_df(f"""
+            """, columns=["theme", "budget_eur", "n_projects"], lang=lang, warning_key="geo_view_unavailable")
+            country_projects = safe_fetch_df(f"""
             SELECT
               projectID,
               MIN(title) AS title,
@@ -4229,7 +4264,7 @@ with tab_geo:
             GROUP BY projectID
             ORDER BY budget_eur DESC
             LIMIT 12
-            """)
+            """, columns=["projectID", "title", "year", "program", "theme", "budget_eur"], lang=lang, warning_key="geo_view_unavailable")
 
             st.divider()
             st.markdown(f"#### {t(lang, 'geo_country_detail')}")
@@ -4302,7 +4337,7 @@ with tab_comp:
     )
     st.caption(t(lang, "bm_default_caption") if bm_view == t(lang, "bm_top") else t(lang, "bm_expert_caption"))
 
-    m = fetch_df(f"""
+    m = safe_fetch_df(f"""
     WITH x AS (
       SELECT
         actor_id,
@@ -4323,7 +4358,7 @@ with tab_comp:
       COUNT(DISTINCT projectID) AS n_projects
     FROM x
     GROUP BY actor_id
-    """)
+    """, columns=["actor_id", "org_name2", "country_name2", "entity_type", "budget_eur", "n_projects"], lang=lang, warning_key="benchmark_view_unavailable")
 
     if m.empty:
         st.info(t(lang, "no_data"))
@@ -5413,7 +5448,7 @@ with tab_value_chain:
         include_unspecified = st.checkbox(t(lang, "include_unspecified"), value=False, key="vc_include_unspecified")
 
         if picked_themes:
-            vc = fetch_df(f"""
+            vc = safe_fetch_df(f"""
             SELECT
               value_chain_stage,
               actor_id,
@@ -5422,7 +5457,7 @@ with tab_value_chain:
             FROM {R}
             WHERE {W} AND theme IN {in_list(picked_themes)}
             GROUP BY value_chain_stage, actor_id, actor_label
-            """)
+            """, columns=["value_chain_stage", "actor_id", "actor_label", "budget_eur"], lang=lang, warning_key="value_chain_view_unavailable")
 
             if vc.empty:
                 st.info(t(lang, "no_data"))
