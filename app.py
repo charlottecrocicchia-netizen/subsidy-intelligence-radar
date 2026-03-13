@@ -167,10 +167,42 @@ st.markdown(
   }
 
   section[data-testid="stSidebar"] details[data-testid="stExpander"] summary {
+    position: relative !important;
+    list-style: none !important;
     padding-top: 0.78rem !important;
-    padding-right: 2rem !important;
+    padding-right: 2.25rem !important;
     padding-bottom: 0.78rem !important;
     min-height: 2.9rem !important;
+  }
+
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary::-webkit-details-marker {
+    display: none !important;
+  }
+
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary .material-symbols-rounded,
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary .material-symbols-outlined,
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary .material-icons,
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary [data-testid="stExpanderToggleIcon"],
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary svg {
+    display: none !important;
+  }
+
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary::after {
+    content: "›";
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sir-cyan);
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 700;
+    opacity: 0.92;
+    pointer-events: none;
+  }
+
+  section[data-testid="stSidebar"] details[data-testid="stExpander"][open] summary::after {
+    transform: translateY(-50%) rotate(90deg);
   }
 
   section[data-testid="stSidebar"] .stSelectbox,
@@ -207,11 +239,16 @@ st.markdown(
 
   section[data-testid="stSidebar"] div[data-baseweb="tag"] {
     display: inline-flex !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     max-width: 100%;
     margin-top: 0 !important;
     margin-right: 6px !important;
     margin-bottom: 6px !important;
+    padding: 3px 8px !important;
+    background: linear-gradient(135deg, rgba(79, 124, 172, 0.24), rgba(34, 211, 238, 0.12)) !important;
+    border: 1px solid rgba(34, 211, 238, 0.28) !important;
+    color: var(--sir-text) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02) !important;
   }
 
   section[data-testid="stSidebar"] div[data-baseweb="tag"] span {
@@ -220,6 +257,12 @@ st.markdown(
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
     line-height: 1.34 !important;
+    color: var(--sir-text) !important;
+  }
+
+  section[data-testid="stSidebar"] div[data-baseweb="tag"] svg,
+  section[data-testid="stSidebar"] div[data-baseweb="tag"] path {
+    fill: rgba(208, 216, 228, 0.88) !important;
   }
 
   section[data-testid="stSidebar"] [role="slider"] {
@@ -445,8 +488,8 @@ st.markdown(
   }
 
   div[data-baseweb="tag"] {
-    background: linear-gradient(135deg, rgba(91, 192, 235, 0.11), rgba(34, 211, 238, 0.07)) !important;
-    border: 1px solid rgba(91, 192, 235, 0.24) !important;
+    background: linear-gradient(135deg, rgba(79, 124, 172, 0.18), rgba(34, 211, 238, 0.10)) !important;
+    border: 1px solid rgba(34, 211, 238, 0.24) !important;
     color: var(--sir-text) !important;
     border-radius: 10px !important;
     box-shadow: none !important;
