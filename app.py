@@ -142,20 +142,33 @@ st.markdown(
   h1, h2, h3, h4, h5 {
     color: var(--sir-text);
     letter-spacing: -0.02em;
-    font-weight: 700;
+    font-weight: 650;
+    line-height: 1.18;
   }
 
   h1 {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.18rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.35rem);
+  }
+
+  h2 {
+    font-size: clamp(1.34rem, 1.9vw, 1.7rem);
   }
 
   h3 {
-    margin-top: 0.9rem;
+    margin-top: 0.8rem;
+    font-size: clamp(1.08rem, 1.4vw, 1.28rem);
+  }
+
+  h4 {
+    font-size: clamp(0.98rem, 1.2vw, 1.1rem);
   }
 
   .stCaption,
   [data-testid="stCaptionContainer"] {
     color: var(--sir-text-muted) !important;
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
   }
 
   [data-testid="stAlert"] {
@@ -188,6 +201,8 @@ st.markdown(
   .stCheckbox label,
   .stSlider label {
     color: var(--sir-text) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.4 !important;
   }
 
   .stTextInput input::placeholder,
@@ -215,20 +230,40 @@ st.markdown(
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-top: 3px solid rgba(91, 192, 235, 0.78);
-    padding: 14px 16px;
+    padding: 12px 14px;
     border-radius: 16px;
     box-shadow: var(--sir-shadow);
+    min-height: 112px;
+    height: 100%;
   }
 
   div[data-testid="metric-container"] [data-testid="stMetricLabel"] {
     color: var(--sir-text-secondary) !important;
-    font-weight: 600;
+    font-weight: 580;
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    min-height: 2.2em;
   }
 
   div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     color: var(--sir-text) !important;
-    font-weight: 700;
+    font-weight: 640;
+    font-size: clamp(1.12rem, 1.7vw, 1.5rem) !important;
+    line-height: 1.08 !important;
     letter-spacing: -0.02em;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  div[data-testid="metric-container"] [data-testid="stMetricDelta"] {
+    font-size: 0.78rem !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
   }
 
   .stTabs [data-baseweb="tab-list"] {
@@ -240,9 +275,11 @@ st.markdown(
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
     border-radius: 12px;
-    padding: 10px 14px;
+    padding: 9px 13px;
     color: var(--sir-text-secondary);
-    font-weight: 600;
+    font-weight: 580;
+    font-size: 0.92rem;
+    line-height: 1.2;
   }
 
   .stTabs [data-baseweb="tab"] *,
@@ -385,6 +422,17 @@ st.markdown(
   .stCheckbox label,
   .stRadio label {
     color: var(--sir-text) !important;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    accent-color: var(--sir-blue) !important;
+  }
+
+  [role="radio"][aria-checked="true"],
+  [role="checkbox"][aria-checked="true"] {
+    border-color: var(--sir-blue) !important;
+    box-shadow: 0 0 0 1px rgba(79, 124, 172, 0.18) !important;
   }
 
   [role="slider"] {
@@ -544,6 +592,11 @@ st.markdown(
   thead tr th {
     background: var(--sir-surface-soft) !important;
     color: var(--sir-text) !important;
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
   }
 
   tbody tr td {
@@ -570,9 +623,11 @@ st.markdown(
     background: linear-gradient(135deg, rgba(91, 192, 235, 0.10), rgba(20, 184, 166, 0.07));
     border: 1px solid rgba(91, 192, 235, 0.20);
     color: var(--sir-text-secondary);
-    font-size: 0.84rem;
-    font-weight: 550;
-    line-height: 1.2;
+    font-size: 0.8rem;
+    font-weight: 540;
+    line-height: 1.3;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .sir-search-wrap {
@@ -613,20 +668,20 @@ st.markdown(
   }
 
   .sir-hero__title {
-    margin: 14px 0 8px 0;
+    margin: 12px 0 8px 0;
     color: var(--sir-text);
-    font-size: 2.3rem;
-    line-height: 1.06;
+    font-size: clamp(1.85rem, 2.7vw, 2.25rem);
+    line-height: 1.1;
     letter-spacing: -0.03em;
-    font-weight: 760;
+    font-weight: 690;
   }
 
   .sir-hero__subtitle {
     margin: 0;
     color: var(--sir-text-secondary);
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 78ch;
+    font-size: 0.97rem;
+    line-height: 1.55;
+    max-width: 72ch;
   }
 
   .sir-section-head {
@@ -671,18 +726,20 @@ st.markdown(
 
   .sir-section-head__title {
     color: var(--sir-text);
-    font-size: 1.22rem;
-    line-height: 1.25;
-    font-weight: 720;
+    font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+    line-height: 1.28;
+    font-weight: 650;
     margin: 0;
     letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
   }
 
   .sir-section-head__desc {
     color: var(--sir-text-secondary);
-    font-size: 0.96rem;
-    line-height: 1.55;
+    font-size: 0.92rem;
+    line-height: 1.5;
     margin: 6px 0 0 0;
+    overflow-wrap: anywhere;
   }
 
   .sir-inline-note {
@@ -694,8 +751,55 @@ st.markdown(
     background: rgba(34, 211, 238, 0.12);
     border: 1px solid rgba(34, 211, 238, 0.14);
     color: var(--sir-text-secondary);
-    font-size: 0.84rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 560;
+    line-height: 1.3;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+
+  @media (max-width: 1200px) {
+    div[data-testid="metric-container"] {
+      padding: 11px 12px;
+      min-height: 104px;
+    }
+
+    div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+      font-size: clamp(1.02rem, 1.55vw, 1.32rem) !important;
+    }
+
+    .sir-section-head {
+      padding: 14px 16px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .sir-hero {
+      padding: 18px 18px;
+      border-radius: 18px;
+    }
+
+    .sir-hero__title {
+      font-size: clamp(1.62rem, 6vw, 1.95rem);
+    }
+
+    .sir-section-head__row {
+      gap: 10px;
+    }
+
+    .sir-section-head__icon {
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+      padding: 8px 11px;
+      font-size: 0.88rem;
+    }
   }
 
   [data-testid="stPlotlyChart"] {
