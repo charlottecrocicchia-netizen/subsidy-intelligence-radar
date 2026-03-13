@@ -1138,7 +1138,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_treemap": "Vue en blocs",
         "bm_top": "Classement des acteurs",
         "bm_caption": "Commence par un classement simple, puis ouvre les vues expertes si besoin.",
-        "bm_default_caption": "Vue par défaut: lecture simple, table-first, du périmètre courant.",
+        "bm_default_caption": "Vue par défaut : lecture simple du périmètre courant, avec tableau en premier.",
         "bm_expert_caption": "Vue experte: utile pour explorer des positionnements ou hiérarchies plus complexes.",
         "bm_compare_scope": "Réglages de comparaison",
         "bm_overall_rank": "Classement global",
@@ -1174,7 +1174,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_trend": "Évolution (budget & projets)",
         "actor_mix_theme": "Mix thématique",
         "actor_mix_country": "Mix géographique",
-        "actor_partners": "Top co-participants",
+        "actor_partners": "Principaux co-participants",
         "actor_partners_caption": "Co-participants sur les mêmes projets, dans le périmètre actif.",
         "actor_tab_profile": "Profil",
         "actor_tab_partners": "Partenaires",
@@ -1211,14 +1211,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_concentration": "Concentration du financement",
         "sub_data": "Données",
         "sub_quality": "Qualité",
-        "sub_debug": "Debug",
+        "sub_debug": "Diagnostic",
         "advanced_title": "Analyse avancée",
         "advanced_caption": "Vues expertes pour benchmark, chaîne de valeur, collaborations et concentration. Les surfaces par défaut restent dans Recherche, Acteurs et Géographie.",
         "adv_benchmark_helper": "Repère rapidement quels acteurs dominent le périmètre, puis ouvre les vues expertes si besoin.",
         "adv_value_chain_helper": "Vois à quelle étape interviennent les acteurs et quels projets sont liés à chaque étape.",
         "adv_collaboration_helper": "Identifie les partenaires clés d’un acteur avant d’ouvrir la carte réseau.",
         "adv_concentration_helper": "Vois si le financement est réparti entre beaucoup d’acteurs ou concentré sur quelques-uns.",
-        "debug_title": "Debug & diagnostics",
+        "debug_title": "Diagnostic & technique",
         "debug_caption": "Surfaces techniques déplacées hors de la sidebar pour garder l'exploration lisible.",
         "results_title": "Résultats du périmètre",
         "results_caption": "Une requête, plusieurs lectures du même périmètre.",
@@ -1347,13 +1347,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
         "actor_countries": "Pays couverts",
         "actor_main_country": "Pays principal",
-        "diag_snapshot": "Diagnostic snapshot",
+        "diag_snapshot": "Diagnostic global",
         "diag_snapshot_hint": "Ces valeurs sont globales (hors filtres sidebar).",
-        "diag_rows": "Lignes dataset",
-        "diag_budget": "Budget dataset",
-        "diag_projects": "Projets dataset",
-        "diag_actors": "Acteurs dataset",
-        "diag_years": "Plage années dataset",
+        "diag_rows": "Lignes base",
+        "diag_budget": "Budget base",
+        "diag_projects": "Projets base",
+        "diag_actors": "Acteurs base",
+        "diag_years": "Plage années base",
         "diag_events": "Événements macro",
         "diag_events_ai": "Événements macro tag AI",
         "diag_connectors": "Connecteurs configurés",
@@ -1504,7 +1504,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_trend": "Trend (budget & projects)",
         "actor_mix_theme": "Theme mix",
         "actor_mix_country": "Geography mix",
-        "actor_partners": "Top co-participants",
+        "actor_partners": "Principaux co-participants",
         "actor_partners_caption": "Co-participants on the same projects within the active scope.",
         "actor_tab_profile": "Profile",
         "actor_tab_partners": "Partners",
@@ -1541,14 +1541,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_concentration": "Funding concentration",
         "sub_data": "Data",
         "sub_quality": "Quality",
-        "sub_debug": "Debug",
+        "sub_debug": "Diagnostic",
         "advanced_title": "Advanced analysis",
         "advanced_caption": "Expert views for benchmark, value chain, collaboration, and concentration. Default user flows stay in Search, Actors, and Geography.",
         "adv_benchmark_helper": "Use this to spot the leading actors in the current scope before opening the expert charts.",
         "adv_value_chain_helper": "Use this to see which actors are active at each stage and which projects sit behind them.",
         "adv_collaboration_helper": "Use this to identify an actor’s key partners before opening the network map.",
         "adv_concentration_helper": "Use this to see whether funding is spread across many actors or concentrated in a few.",
-        "debug_title": "Debug & diagnostics",
+        "debug_title": "Diagnostic & technique",
         "debug_caption": "Technical surfaces moved out of the sidebar to keep exploration readable.",
         "results_title": "Results in scope",
         "results_caption": "One query, several readings of the same scope.",
@@ -3849,6 +3849,7 @@ with tab_geo:
 
         country_options = geo_rank["country_name"].astype(str).tolist()
         country_scope_token = f"{W}||{'|'.join(country_options)}"
+        preferred_geo_country = "France" if "France" in country_options else (country_options[0] if country_options else "")
         drilldown_country = ""
         active_country_filters = [str(x) for x in st.session_state.get("f_countries", []) if str(x).strip()]
         if len(active_country_filters) == 1 and active_country_filters[0] in country_options:
@@ -3858,14 +3859,14 @@ with tab_geo:
             st.session_state["geo_scope_token"] = country_scope_token
             if drilldown_country:
                 st.session_state["geo_selected_country"] = drilldown_country
-            elif country_options:
-                st.session_state["geo_selected_country"] = country_options[0]
+            elif preferred_geo_country:
+                st.session_state["geo_selected_country"] = preferred_geo_country
         else:
             current_geo_country = str(st.session_state.get("geo_selected_country", "")).strip()
             if drilldown_country and current_geo_country != drilldown_country:
                 st.session_state["geo_selected_country"] = drilldown_country
-            elif country_options and current_geo_country not in country_options:
-                st.session_state["geo_selected_country"] = country_options[0]
+            elif preferred_geo_country and current_geo_country not in country_options:
+                st.session_state["geo_selected_country"] = preferred_geo_country
 
         with c2:
             if country_options:
