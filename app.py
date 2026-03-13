@@ -149,10 +149,13 @@ st.markdown(
   section[data-testid="stSidebar"] .stRadio label,
   section[data-testid="stSidebar"] .stCheckbox label,
   section[data-testid="stSidebar"] .stSlider label {
+    display: block !important;
+    width: 100% !important;
     white-space: normal !important;
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
-    line-height: 1.38 !important;
+    line-height: 1.46 !important;
+    margin-bottom: 0.12rem !important;
   }
 
   section[data-testid="stSidebar"] details[data-testid="stExpander"] summary,
@@ -160,13 +163,14 @@ st.markdown(
     white-space: normal !important;
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
-    line-height: 1.35 !important;
+    line-height: 1.42 !important;
   }
 
   section[data-testid="stSidebar"] details[data-testid="stExpander"] summary {
-    padding-top: 0.7rem !important;
-    padding-bottom: 0.7rem !important;
-    min-height: 2.6rem !important;
+    padding-top: 0.78rem !important;
+    padding-right: 2rem !important;
+    padding-bottom: 0.78rem !important;
+    min-height: 2.9rem !important;
   }
 
   section[data-testid="stSidebar"] .stSelectbox,
@@ -176,41 +180,46 @@ st.markdown(
   section[data-testid="stSidebar"] .stCheckbox,
   section[data-testid="stSidebar"] .stTextInput,
   section[data-testid="stSidebar"] .stNumberInput {
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.5rem;
   }
 
   section[data-testid="stSidebar"] div[data-baseweb="select"] > div,
   section[data-testid="stSidebar"] div[data-baseweb="base-input"] > div {
-    min-height: 46px !important;
+    min-height: 52px !important;
     height: auto !important;
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
     align-items: flex-start !important;
   }
 
   section[data-testid="stSidebar"] div[data-baseweb="select"] > div > div {
     align-items: flex-start !important;
+    align-content: flex-start !important;
     flex-wrap: wrap !important;
-    row-gap: 4px !important;
+    row-gap: 6px !important;
   }
 
   section[data-testid="stSidebar"] div[data-baseweb="select"] span,
   section[data-testid="stSidebar"] div[data-baseweb="select"] input,
   section[data-testid="stSidebar"] div[data-baseweb="base-input"] input {
-    line-height: 1.35 !important;
+    line-height: 1.42 !important;
   }
 
   section[data-testid="stSidebar"] div[data-baseweb="tag"] {
+    display: inline-flex !important;
+    align-items: flex-start !important;
     max-width: 100%;
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
+    margin-top: 0 !important;
+    margin-right: 6px !important;
+    margin-bottom: 6px !important;
   }
 
   section[data-testid="stSidebar"] div[data-baseweb="tag"] span {
+    display: block !important;
     white-space: normal !important;
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
-    line-height: 1.28 !important;
+    line-height: 1.34 !important;
   }
 
   section[data-testid="stSidebar"] [role="slider"] {
@@ -318,19 +327,19 @@ st.markdown(
   div[data-testid="metric-container"] [data-testid="stMetricLabel"] {
     color: var(--sir-text-secondary) !important;
     font-weight: 580;
-    font-size: 0.78rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.76rem !important;
+    line-height: 1.4 !important;
     white-space: normal !important;
     overflow-wrap: anywhere !important;
     word-break: break-word !important;
-    min-height: 2.2em;
+    min-height: 2.5em;
   }
 
   div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     color: var(--sir-text) !important;
-    font-weight: 640;
-    font-size: clamp(1.12rem, 1.7vw, 1.5rem) !important;
-    line-height: 1.08 !important;
+    font-weight: 630;
+    font-size: clamp(1.02rem, 1.45vw, 1.38rem) !important;
+    line-height: 1.14 !important;
     letter-spacing: -0.02em;
     white-space: normal !important;
     overflow-wrap: anywhere !important;
@@ -840,11 +849,15 @@ st.markdown(
   @media (max-width: 1200px) {
     div[data-testid="metric-container"] {
       padding: 11px 12px;
-      min-height: 104px;
+      min-height: 108px;
+    }
+
+    div[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+      min-height: 2.7em;
     }
 
     div[data-testid="metric-container"] [data-testid="stMetricValue"] {
-      font-size: clamp(1.02rem, 1.55vw, 1.32rem) !important;
+      font-size: clamp(0.98rem, 1.38vw, 1.24rem) !important;
     }
 
     .sir-section-head {
