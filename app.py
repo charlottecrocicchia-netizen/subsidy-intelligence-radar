@@ -170,7 +170,7 @@ st.markdown(
     position: relative !important;
     list-style: none !important;
     padding-top: 0.78rem !important;
-    padding-right: 2.25rem !important;
+    padding-right: 0.9rem !important;
     padding-bottom: 0.78rem !important;
     min-height: 2.9rem !important;
   }
@@ -179,30 +179,14 @@ st.markdown(
     display: none !important;
   }
 
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary [data-testid="stExpanderToggleIcon"],
   section[data-testid="stSidebar"] details[data-testid="stExpander"] summary .material-symbols-rounded,
   section[data-testid="stSidebar"] details[data-testid="stExpander"] summary .material-symbols-outlined,
-  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary .material-icons,
-  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary [data-testid="stExpanderToggleIcon"],
-  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary svg {
-    display: none !important;
-  }
-
-  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary::after {
-    content: "›";
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--sir-cyan);
-    font-size: 1rem;
-    line-height: 1;
-    font-weight: 700;
-    opacity: 0.92;
-    pointer-events: none;
-  }
-
-  section[data-testid="stSidebar"] details[data-testid="stExpander"][open] summary::after {
-    transform: translateY(-50%) rotate(90deg);
+  section[data-testid="stSidebar"] details[data-testid="stExpander"] summary .material-icons {
+    color: var(--sir-cyan) !important;
+    font-size: 1rem !important;
+    margin-right: 0.5rem !important;
+    flex: 0 0 auto !important;
   }
 
   section[data-testid="stSidebar"] .stSelectbox,
@@ -245,8 +229,9 @@ st.markdown(
     margin-right: 6px !important;
     margin-bottom: 6px !important;
     padding: 3px 8px !important;
-    background: linear-gradient(135deg, rgba(79, 124, 172, 0.24), rgba(34, 211, 238, 0.12)) !important;
-    border: 1px solid rgba(34, 211, 238, 0.28) !important;
+    background-color: rgba(79, 124, 172, 0.22) !important;
+    background-image: linear-gradient(135deg, rgba(79, 124, 172, 0.24), rgba(34, 211, 238, 0.12)) !important;
+    border: 1px solid rgba(34, 211, 238, 0.30) !important;
     color: var(--sir-text) !important;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.02) !important;
   }
@@ -315,6 +300,23 @@ st.markdown(
   p, li, span, div, label, button, input, textarea, select {
     color: inherit;
     font-family: var(--sir-font) !important;
+  }
+
+  .material-symbols-rounded,
+  .material-symbols-outlined,
+  .material-icons,
+  [data-testid="stExpanderToggleIcon"],
+  [data-testid="stExpanderToggleIcon"] * {
+    font-family: "Material Symbols Rounded", "Material Symbols Outlined", "Material Icons" !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    -webkit-font-feature-settings: "liga" !important;
+    -webkit-font-smoothing: antialiased !important;
   }
 
   [data-testid="stMarkdownContainer"],
