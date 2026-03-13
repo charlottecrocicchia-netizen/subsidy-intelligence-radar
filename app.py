@@ -245,6 +245,12 @@ st.markdown(
     color: var(--sir-text) !important;
   }
 
+  section[data-testid="stSidebar"] div[data-baseweb="tag"] *,
+  section[data-testid="stSidebar"] div[data-baseweb="tag"] span {
+    color: var(--sir-text) !important;
+    background: transparent !important;
+  }
+
   section[data-testid="stSidebar"] div[data-baseweb="tag"] svg,
   section[data-testid="stSidebar"] div[data-baseweb="tag"] path {
     fill: rgba(208, 216, 228, 0.88) !important;
@@ -297,7 +303,7 @@ st.markdown(
     color: var(--sir-text) !important;
   }
 
-  p, li, span, div, label, button, input, textarea, select {
+  p, li, label, button, input, textarea, select {
     color: inherit;
     font-family: var(--sir-font) !important;
   }
