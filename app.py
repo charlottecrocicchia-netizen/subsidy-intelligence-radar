@@ -1028,16 +1028,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_country_projects": "Projets principaux",
         "benchmark_mode": "Vue de comparaison",
         "bm_scatter": "Comparer volume et budget",
-        "bm_treemap": "Treemap lisible",
+        "bm_treemap": "Vue en blocs",
         "bm_top": "Classement des acteurs",
         "bm_caption": "Commence par un classement simple, puis ouvre les vues expertes si besoin.",
         "bm_default_caption": "Vue par défaut: lecture simple, table-first, du périmètre courant.",
         "bm_expert_caption": "Vue experte: utile pour explorer des positionnements ou hiérarchies plus complexes.",
-        "bm_compare_scope": "Périmètre de comparaison",
+        "bm_compare_scope": "Réglages de comparaison",
         "bm_overall_rank": "Classement global",
-        "bm_breakdown_entity": "Déclinaison par type d'entité",
-        "pct_threshold": "Seuil budget (percentile)",
-        "topn": "Top N (après seuil)",
+        "bm_breakdown_entity": "Par type d'entité",
+        "pct_threshold": "Seuil de budget",
+        "topn": "Nombre d'acteurs affichés",
         "search_actor": "Recherche texte (contient…)",
         "actor_picker": "Acteur à comparer",
         "actor_picker_hint": "Tape pour chercher dans la liste.",
@@ -1107,6 +1107,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_debug": "Debug",
         "advanced_title": "Analyse avancée",
         "advanced_caption": "Vues expertes pour benchmark, chaîne de valeur, collaborations et concentration. Les surfaces par défaut restent dans Recherche, Acteurs et Géographie.",
+        "adv_benchmark_helper": "Repère rapidement quels acteurs dominent le périmètre, puis ouvre les vues expertes si besoin.",
+        "adv_value_chain_helper": "Vois à quelle étape interviennent les acteurs et quels projets sont liés à chaque étape.",
+        "adv_collaboration_helper": "Identifie les partenaires clés d’un acteur avant d’ouvrir la carte réseau.",
+        "adv_concentration_helper": "Vois si le financement est réparti entre beaucoup d’acteurs ou concentré sur quelques-uns.",
         "debug_title": "Debug & diagnostics",
         "debug_caption": "Surfaces techniques déplacées hors de la sidebar pour garder l'exploration lisible.",
         "results_title": "Résultats du périmètre",
@@ -1209,8 +1213,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_default_caption": "Commence par les étapes et les top acteurs ; la vue Sankey reste disponible plus bas.",
         "vc_expert_caption": "Vue experte : explore les flux et l’isolation visuelle entre étapes et acteurs.",
         "vc_stage_summary": "Résumé des étapes",
-        "vc_flow_expert": "Vue des flux",
-        "vc_highlight_stage": "Étape à mettre en avant dans le Sankey",
+        "vc_flow_expert": "Flux entre étapes et acteurs",
+        "vc_highlight_stage": "Étape à mettre en avant",
         "vc_all_stages": "Toutes les étapes",
         "vc_isolate_stage": "Isoler uniquement l'étape sélectionnée",
         "vc_highlight_actor": "Acteur à mettre en avant",
@@ -1354,16 +1358,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_country_projects": "Leading projects",
         "benchmark_mode": "Comparison view",
         "bm_scatter": "Compare volume and budget",
-        "bm_treemap": "Readable treemap",
+        "bm_treemap": "Block view",
         "bm_top": "Actor rankings",
         "bm_caption": "Start with a simple ranking, then open the expert views if needed.",
         "bm_default_caption": "Default view: simple, table-first reading of the current scope.",
         "bm_expert_caption": "Expert view: useful for exploring more complex positioning and hierarchy patterns.",
-        "bm_compare_scope": "Comparison scope",
+        "bm_compare_scope": "Comparison settings",
         "bm_overall_rank": "Overall ranking",
-        "bm_breakdown_entity": "Breakdown by entity type",
-        "pct_threshold": "Budget threshold (percentile)",
-        "topn": "Top N (after threshold)",
+        "bm_breakdown_entity": "By entity type",
+        "pct_threshold": "Budget threshold",
+        "topn": "Actors shown",
         "search_actor": "Text search (contains…)",
         "actor_picker": "Actor to compare",
         "actor_picker_hint": "Type to search in the list.",
@@ -1433,6 +1437,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_debug": "Debug",
         "advanced_title": "Advanced analysis",
         "advanced_caption": "Expert views for benchmark, value chain, collaboration, and concentration. Default user flows stay in Search, Actors, and Geography.",
+        "adv_benchmark_helper": "Use this to spot the leading actors in the current scope before opening the expert charts.",
+        "adv_value_chain_helper": "Use this to see which actors are active at each stage and which projects sit behind them.",
+        "adv_collaboration_helper": "Use this to identify an actor’s key partners before opening the network map.",
+        "adv_concentration_helper": "Use this to see whether funding is spread across many actors or concentrated in a few.",
         "debug_title": "Debug & diagnostics",
         "debug_caption": "Technical surfaces moved out of the sidebar to keep exploration readable.",
         "results_title": "Results in scope",
@@ -1535,8 +1543,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_default_caption": "Start with stages and top actors; the Sankey view stays available lower on the page.",
         "vc_expert_caption": "Expert view: explore flow patterns and visual isolation between stages and actors.",
         "vc_stage_summary": "Stage summary",
-        "vc_flow_expert": "Flow view",
-        "vc_highlight_stage": "Stage to highlight in Sankey",
+        "vc_flow_expert": "Flows between stages and actors",
+        "vc_highlight_stage": "Stage to highlight",
         "vc_all_stages": "All stages",
         "vc_isolate_stage": "Show only selected stage",
         "vc_highlight_actor": "Actor to highlight",
@@ -4034,6 +4042,7 @@ with tab_geo:
 # ============================================================
 with tab_comp:
     render_section_header("↔", t(lang, "sub_benchmark"), t(lang, "bm_caption"), t(lang, "tab_advanced"))
+    st.caption(t(lang, "adv_benchmark_helper"))
     bm_view = st.radio(
         t(lang, "benchmark_mode"),
         [t(lang, "bm_top"), t(lang, "bm_scatter"), t(lang, "bm_treemap")],
@@ -5106,7 +5115,7 @@ with tab_actor:
 # ============================================================
 with tab_value_chain:
     render_section_header("⇄", t(lang, "sub_value_chain"), t(lang, "vc_default_caption"), t(lang, "tab_advanced"))
-    st.caption(t(lang, "vc_flow_help"))
+    st.caption(t(lang, "adv_value_chain_helper"))
 
     st.markdown("#### " + ("Étapes et acteurs (budget -> acteurs)" if lang == "FR" else "Stages and actors (budget -> actors)"))
     try:
@@ -5529,13 +5538,7 @@ with tab_value_chain:
 # ============================================================
 with tab_collaboration:
     render_section_header("⟡", t(lang, "sub_collaboration"), t(lang, "net_default_caption"), t(lang, "tab_advanced"))
-    st.caption(
-        (
-            "Lecture réseau: choisis un acteur focal puis observe ses partenaires et les projets partagés."
-            if lang == "FR"
-            else "Network reading: pick a focal actor, then inspect partners and shared projects."
-        )
-    )
+    st.caption(t(lang, "adv_collaboration_helper"))
     actor_rank = fetch_df(f"""
     SELECT
       actor_id,
@@ -5755,6 +5758,7 @@ with tab_collaboration:
 # ============================================================
 with tab_concentration:
     render_section_header("◔", t(lang, "concentration_title"), t(lang, "concentration_caption"), t(lang, "tab_advanced"))
+    st.caption(t(lang, "adv_concentration_helper"))
     conc = fetch_df(f"""
     SELECT
       COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
