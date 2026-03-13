@@ -63,7 +63,7 @@ REFRESH_LOCK_STALE_SEC = int(os.environ.get("SUBSIDY_REFRESH_LOCK_STALE_SEC", "7
 # ============================================================
 STREAMLIT_THEME_OVERRIDES = {
     "theme.base": "dark",
-    "theme.primaryColor": "#5BC0EB",
+    "theme.primaryColor": "#4F7CAC",
     "theme.backgroundColor": "#0B1220",
     "theme.secondaryBackgroundColor": "#111827",
     "theme.textColor": "#F8FAFC",
@@ -82,7 +82,7 @@ st.markdown(
     """
 <style>
   :root {
-    --primary-color: #5BC0EB;
+    --primary-color: #4F7CAC;
     --background-color: #0B1220;
     --secondary-background-color: #111827;
     --text-color: #F8FAFC;
@@ -95,20 +95,20 @@ st.markdown(
     --sir-text: #F8FAFC;
     --sir-text-secondary: #D0D8E4;
     --sir-text-muted: #94A3B8;
-    --sir-blue: #5BC0EB;
+    --sir-blue: #4F7CAC;
     --sir-cyan: #22D3EE;
     --sir-teal: #14B8A6;
     --sir-green: #22C55E;
     --sir-orange: #F97316;
     --sir-coral: #FB7185;
     --sir-yellow: #FACC15;
-    --sir-blue-soft: rgba(37, 99, 235, 0.18);
-    --sir-cyan-soft: rgba(34, 211, 238, 0.18);
-    --sir-teal-soft: rgba(20, 184, 166, 0.18);
+    --sir-blue-soft: rgba(79, 124, 172, 0.14);
+    --sir-cyan-soft: rgba(34, 211, 238, 0.14);
+    --sir-teal-soft: rgba(20, 184, 166, 0.14);
     --sir-green-soft: rgba(34, 197, 94, 0.18);
-    --sir-orange-soft: rgba(249, 115, 22, 0.18);
-    --sir-accent: #F97316;
-    --sir-accent-pale: rgba(249, 115, 22, 0.18);
+    --sir-orange-soft: rgba(249, 115, 22, 0.10);
+    --sir-accent: #22D3EE;
+    --sir-accent-pale: rgba(34, 211, 238, 0.12);
     --sir-success: #22C55E;
     --sir-warning: #FACC15;
     --sir-danger: #FB7185;
@@ -214,7 +214,7 @@ st.markdown(
   div[data-testid="metric-container"] {
     background: var(--sir-surface);
     border: 1px solid var(--sir-border);
-    border-top: 3px solid var(--sir-cyan);
+    border-top: 3px solid rgba(91, 192, 235, 0.78);
     padding: 14px 16px;
     border-radius: 16px;
     box-shadow: var(--sir-shadow);
@@ -257,10 +257,10 @@ st.markdown(
   }
 
   .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(34, 211, 238, 0.14));
+    background: linear-gradient(135deg, rgba(79, 124, 172, 0.18), rgba(34, 211, 238, 0.10));
     border: 1px solid rgba(34, 211, 238, 0.32);
     color: var(--sir-text);
-    box-shadow: 0 10px 28px rgba(37, 99, 235, 0.16);
+    box-shadow: 0 10px 28px rgba(79, 124, 172, 0.14);
   }
 
   .stTabs [aria-selected="true"] *,
@@ -309,7 +309,7 @@ st.markdown(
   div[data-baseweb="select"]:focus-within > div,
   div[data-baseweb="base-input"]:focus-within > div {
     border-color: var(--sir-blue) !important;
-    box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.12) !important;
+    box-shadow: 0 0 0 3px rgba(79, 124, 172, 0.12) !important;
   }
 
   div[data-baseweb="select"] span,
@@ -409,7 +409,7 @@ st.markdown(
   }
 
   .stSlider [data-baseweb="slider"] > div > div > div {
-    background: linear-gradient(90deg, var(--sir-blue), var(--sir-cyan)) !important;
+    background: linear-gradient(90deg, rgba(79, 124, 172, 0.95), rgba(34, 211, 238, 0.72)) !important;
   }
 
   details[data-testid="stExpander"] {
@@ -576,7 +576,7 @@ st.markdown(
   }
 
   .sir-search-wrap {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(20, 184, 166, 0.10));
+    background: linear-gradient(135deg, rgba(79, 124, 172, 0.14), rgba(20, 184, 166, 0.08));
     border: 1px solid var(--sir-border);
     border-radius: 18px;
     padding: 16px 18px 8px 18px;
@@ -588,7 +588,7 @@ st.markdown(
     overflow: hidden;
     background:
       radial-gradient(circle at top right, rgba(34, 211, 238, 0.16), transparent 36%),
-      radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.12), transparent 34%),
+      radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.10), transparent 34%),
       linear-gradient(135deg, rgba(22, 32, 51, 0.98), rgba(11, 18, 32, 0.98));
     border: 1px solid var(--sir-border);
     border-radius: 22px;
@@ -603,8 +603,8 @@ st.markdown(
     gap: 8px;
     padding: 5px 10px;
     border-radius: 999px;
-    background: rgba(34, 211, 238, 0.14);
-    border: 1px solid rgba(34, 211, 238, 0.16);
+    background: rgba(34, 211, 238, 0.10);
+    border: 1px solid rgba(34, 211, 238, 0.14);
     color: var(--sir-cyan);
     font-size: 0.76rem;
     font-weight: 700;
@@ -630,7 +630,7 @@ st.markdown(
   }
 
   .sir-section-head {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(20, 184, 166, 0.08));
+    background: linear-gradient(135deg, rgba(79, 124, 172, 0.12), rgba(20, 184, 166, 0.07));
     border: 1px solid var(--sir-border);
     border-radius: 18px;
     padding: 16px 18px;
@@ -653,7 +653,7 @@ st.markdown(
     align-items: center;
     justify-content: center;
     color: var(--sir-text);
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(34, 211, 238, 0.16));
+    background: linear-gradient(135deg, rgba(79, 124, 172, 0.20), rgba(34, 211, 238, 0.12));
     border: 1px solid rgba(34, 211, 238, 0.18);
     font-size: 1rem;
     font-weight: 700;
@@ -692,7 +692,7 @@ st.markdown(
     padding: 5px 10px;
     border-radius: 999px;
     background: rgba(34, 211, 238, 0.12);
-    border: 1px solid rgba(34, 211, 238, 0.16);
+    border: 1px solid rgba(34, 211, 238, 0.14);
     color: var(--sir-text-secondary);
     font-size: 0.84rem;
     font-weight: 600;
@@ -732,7 +732,7 @@ st.markdown(
 # Colors
 # ============================================================
 TOTALE_COLORWAY = [
-    "#2563EB",
+    "#4F7CAC",
     "#22D3EE",
     "#14B8A6",
     "#22C55E",
@@ -742,7 +742,7 @@ TOTALE_COLORWAY = [
 ]
 
 R2G = [
-    (0.00, "#2563EB"),
+    (0.00, "#4F7CAC"),
     (0.20, "#22D3EE"),
     (0.45, "#14B8A6"),
     (0.70, "#22C55E"),
@@ -795,12 +795,12 @@ VALUE_CHAIN_ORDER = [
     "Unspecified",
 ]
 STAGE_COLORS = {
-    "Resources & feedstock": "rgba(37, 99, 235, 0.82)",
+    "Resources & feedstock": "rgba(79, 124, 172, 0.82)",
     "Components & core technology": "rgba(34, 211, 238, 0.84)",
     "Systems & infrastructure": "rgba(20, 184, 166, 0.82)",
     "Deployment & operations": "rgba(34, 197, 94, 0.82)",
-    "End-use & market": "rgba(249, 115, 22, 0.84)",
-    "Research & concept": "rgba(251, 113, 133, 0.76)",
+    "End-use & market": "rgba(249, 115, 22, 0.56)",
+    "Research & concept": "rgba(167, 199, 231, 0.72)",
     "Unspecified": "rgba(148, 163, 184, 0.56)",
 }
 
