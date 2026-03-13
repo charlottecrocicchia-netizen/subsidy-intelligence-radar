@@ -3755,13 +3755,13 @@ with tab_overview:
     render_section_header("◌", t(lang, "sub_overview"), t(lang, "overview_caption"), t(lang, "tab_explorer"))
 
     st.markdown("### " + ("Allocation du budget par type d’entité" if lang == "FR" else "Budget allocation by entity type"))
-    alloc = fetch_df(f"""
+    alloc = safe_fetch_df(f"""
     SELECT entity_type, SUM(amount_eur) AS amount_eur
     FROM {R}
     WHERE {W}
     GROUP BY entity_type
     ORDER BY amount_eur DESC
-    """, columns=["country_alpha3", "country_name", "amount_eur"], lang=lang, warning_key="geo_view_unavailable")
+    """, columns=["entity_type", "amount_eur"], lang=lang, warning_key="results_view_unavailable")
     if alloc.empty:
         st.info(t(lang, "no_data"))
     else:
