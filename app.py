@@ -1210,6 +1210,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_view_unavailable": "La vue géographique n’a pas pu être affichée pour ce périmètre.",
         "benchmark_view_unavailable": "Cette vue de comparaison n’a pas pu être affichée pour ce périmètre.",
         "value_chain_view_unavailable": "La vue étapes et acteurs n’a pas pu être affichée pour ce périmètre.",
+        "partnership_view_unavailable": "La vue partenariats n’a pas pu être affichée pour ce périmètre.",
+        "concentration_view_unavailable": "La vue de concentration n’a pas pu être affichée pour ce périmètre.",
+        "geo_empty_hint": "Essaie d’élargir la période, le périmètre géographique ou de revenir à une lecture pays plus large.",
+        "geo_country_empty_hint": "Essaie un autre pays, une période plus large, ou reviens au classement global.",
+        "advanced_empty_hint": "Essaie d’élargir le périmètre ou commence par la vue tableau/classement avant d’ouvrir les vues expertes.",
+        "benchmark_empty_hint": "Essaie d’élargir le périmètre ou reviens au classement simple des acteurs.",
+        "value_chain_empty_hint": "Essaie d’élargir les thématiques, de réactiver toutes les étapes, ou de revenir au résumé des étapes.",
+        "partnership_empty_hint": "Choisis un acteur plus central, augmente le nombre de partenaires affichés, ou élargis le périmètre.",
+        "concentration_empty_hint": "Élargis le périmètre pour comparer davantage d’acteurs ou reviens à la vue acteurs.",
+        "net_no_partners": "Aucun partenaire dans le périmètre actuel.",
         "explore_overview_title": "Ce que vous pouvez faire ici",
         "explore_overview_1": "Trouver des projets par thématique, pays et période",
         "explore_overview_2": "Comparer les principaux acteurs d’un domaine",
@@ -1347,10 +1357,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "tab_markets": "◎ Marchés & géographie",
         "tab_trends_events": "↗ Tendances & événements",
         "tab_advanced": "◇ Analyse avancée",
-        "tab_admin": "⚙ Admin & méthode",
+        "tab_admin": "⋯ Support",
+        "admin_title": "Support & méthode",
+        "admin_caption": "Exports, qualité, diagnostic et documentation interne. Cette zone n’est pas nécessaire pour l’exploration standard.",
         "sub_results": "Résultats",
-        "sub_overview": "Synthèse",
-        "overview_caption": "Vue secondaire de synthèse : utilise d'abord Résultats pour explorer le périmètre, puis viens ici pour une lecture plus compacte.",
+        "sub_overview": "Contexte rapide",
+        "overview_caption": "Synthèse d’appoint : commence par Résultats pour répondre à la question, puis utilise cette page pour un résumé compact du périmètre.",
+        "overview_support_note": "Cette page sert de synthèse compacte. Pour explorer, comparer et filtrer en priorité, reste dans Résultats.",
         "overview_yearly_extra": "Complément annuel : budgets et ticket médian",
         "sub_benchmark": "Comparer les acteurs",
         "sub_network": "Chaîne & réseau",
@@ -1383,6 +1396,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "no_results_title": "Aucun résultat pour ce périmètre.",
         "no_results_hint": "Essaie d’élargir le pays, la période ou la thématique.",
         "no_results_reset": "Réinitialiser les filtres",
+        "no_results_clear_search": "Effacer la recherche",
+        "no_results_broaden": "Essaie d’élargir le pays, la période ou la thématique, ou de simplifier la recherche.",
+        "results_summary_title": "Réponse synthétique",
+        "results_summary_headline": "Le périmètre courant couvre {projects} projets pour {budget}, avec {actors} acteurs dans {countries} pays.",
+        "results_summary_headline_single_country": "Le périmètre courant couvre {projects} projets pour {budget}, avec {actors} acteurs en {country}.",
+        "results_summary_country_lead": "Le budget le plus élevé se situe en {country}.",
+        "results_summary_actor_lead": "L’acteur le plus financé est {actor}.",
+        "results_summary_theme_lead": "La thématique dominante est {theme}.",
+        "results_summary_fallback": "Le périmètre courant couvre {projects} projets pour {budget} et {actors} acteurs uniques.",
+        "results_primary_visual": "Lecture principale",
+        "results_primary_trend": "Budget annuel",
+        "results_primary_countries": "Pays dominants",
+        "results_primary_actors": "Acteurs dominants",
+        "results_next_steps": "Étapes suivantes suggérées",
+        "results_next_geo": "Voir la géographie",
+        "results_next_actors": "Voir les acteurs",
+        "results_next_trends": "Voir les tendances",
+        "results_other_views": "Autres lectures du périmètre",
         "results_projects_table": "Projets trouvés",
         "results_actor_table": "Acteurs dominants",
         "results_budget_year": "Budget par année",
@@ -1546,6 +1577,16 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_view_unavailable": "The geography view could not be displayed for the current scope.",
         "benchmark_view_unavailable": "This comparison view could not be displayed for the current scope.",
         "value_chain_view_unavailable": "The stages and actors view could not be displayed for the current scope.",
+        "partnership_view_unavailable": "The partnerships view could not be displayed for the current scope.",
+        "concentration_view_unavailable": "The funding concentration view could not be displayed for the current scope.",
+        "geo_empty_hint": "Try widening the time range, broadening geography, or returning to a wider country-level view.",
+        "geo_country_empty_hint": "Try another country, a wider time range, or go back to the overall country ranking.",
+        "advanced_empty_hint": "Try widening the scope or start with the table/ranking view before opening expert visuals.",
+        "benchmark_empty_hint": "Try widening the scope or return to the simple actor ranking.",
+        "value_chain_empty_hint": "Try broadening themes, re-enabling all stages, or returning to the stage summary.",
+        "partnership_empty_hint": "Choose a more central actor, show more partners, or widen the scope.",
+        "concentration_empty_hint": "Widen the scope to compare more actors or return to the actors view.",
+        "net_no_partners": "No partners are available in the current scope.",
         "explore_overview_title": "What you can do here",
         "explore_overview_1": "Find projects by theme, country, and time period",
         "explore_overview_2": "Compare the main actors in a domain",
@@ -1683,10 +1724,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "tab_markets": "◎ Markets & geography",
         "tab_trends_events": "↗ Trends & events",
         "tab_advanced": "◇ Advanced",
-        "tab_admin": "⚙ Admin & method",
+        "tab_admin": "⋯ Support",
+        "admin_title": "Support & method",
+        "admin_caption": "Exports, quality checks, diagnostics, and internal documentation. This area is not required for standard exploration.",
         "sub_results": "Results",
-        "sub_overview": "Overview",
-        "overview_caption": "Secondary summary view: use Results first to explore the scope, then come here for a more compact readout.",
+        "sub_overview": "Context summary",
+        "overview_caption": "Supporting summary: start with Results to answer the question, then use this page for a compact scope readout.",
+        "overview_support_note": "This page is a compact supporting summary. For primary exploration, comparisons, and filtering, stay in Results.",
         "overview_yearly_extra": "Yearly add-on: budgets and median ticket",
         "sub_benchmark": "Compare actors",
         "sub_network": "Value chain & network",
@@ -1719,6 +1763,24 @@ I18N: Dict[str, Dict[str, str]] = {
         "no_results_title": "No results for this scope.",
         "no_results_hint": "Try widening country, time, or theme.",
         "no_results_reset": "Reset filters",
+        "no_results_clear_search": "Clear search",
+        "no_results_broaden": "Try widening country, time, or theme filters, or use a simpler search.",
+        "results_summary_title": "In brief",
+        "results_summary_headline": "The current scope contains {projects} projects worth {budget}, with {actors} actors across {countries} countries.",
+        "results_summary_headline_single_country": "The current scope contains {projects} projects worth {budget}, with {actors} actors in {country}.",
+        "results_summary_country_lead": "The largest budget is in {country}.",
+        "results_summary_actor_lead": "The leading funded actor is {actor}.",
+        "results_summary_theme_lead": "The leading theme is {theme}.",
+        "results_summary_fallback": "The current scope contains {projects} projects worth {budget} and {actors} unique actors.",
+        "results_primary_visual": "Primary reading",
+        "results_primary_trend": "Annual budget",
+        "results_primary_countries": "Leading countries",
+        "results_primary_actors": "Leading actors",
+        "results_next_steps": "Suggested next steps",
+        "results_next_geo": "Open geography",
+        "results_next_actors": "Open actors",
+        "results_next_trends": "Open trends",
+        "results_other_views": "Other ways to read this scope",
         "results_projects_table": "Matching projects",
         "results_actor_table": "Leading actors",
         "results_budget_year": "Budget by year",
@@ -2040,7 +2102,19 @@ def render_active_filter_chips(meta: dict, lang: str) -> None:
 def render_empty_state(lang: str) -> None:
     st.warning(t(lang, "no_results_title"))
     st.caption(t(lang, "no_results_hint"))
-    st.button(t(lang, "no_results_reset"), key="empty_state_reset", on_click=reset_filters)
+    st.caption(t(lang, "no_results_broaden"))
+    c1, c2 = st.columns(2)
+    with c1:
+        has_search = bool(str(st.session_state.get("f_quick_search", "")).strip())
+        st.button(
+            t(lang, "no_results_clear_search"),
+            key="empty_state_clear_search",
+            on_click=clear_search,
+            disabled=not has_search,
+            width="stretch",
+        )
+    with c2:
+        st.button(t(lang, "no_results_reset"), key="empty_state_reset", on_click=reset_filters, width="stretch")
 
 
 def render_section_header(icon: str, title: str, desc: str = "", eyebrow: str = "") -> None:
@@ -2076,6 +2150,16 @@ PLOTLY_RENDER_EXCEPTIONS = (ValueError, TypeError, RuntimeError)
 def render_view_warning(lang: str, warning_key: str) -> None:
     st.warning(t(lang, warning_key))
     st.caption(t(lang, "view_recover_hint"))
+
+
+def render_guided_empty_state(lang: str, hint_key: str) -> None:
+    st.info(t(lang, "no_data"))
+    st.caption(t(lang, hint_key))
+
+
+def render_guided_message(lang: str, message: str, hint_key: str) -> None:
+    st.info(message)
+    st.caption(t(lang, hint_key))
 
 
 def safe_fetch_df(sql: str, *, columns: List[str], lang: str, warning_key: str) -> pd.DataFrame:
@@ -2203,6 +2287,113 @@ def sync_results_table_state(scope_token: str) -> None:
         st.session_state.pop("results_selected_actor_id_candidate", None)
         st.session_state.pop("results_drilldown_actor_id", None)
         st.session_state.pop("results_project_table_df", None)
+
+
+def build_results_scope_summary(
+    relation_sql: str,
+    where_sql: str,
+    *,
+    lang: str,
+    total_budget: float,
+    n_projects: int,
+    n_actors: int,
+) -> dict:
+    fallback = {
+        "headline": t(lang, "results_summary_fallback").format(
+            projects=f"{int(n_projects):,}".replace(",", " "),
+            budget=fmt_money(float(total_budget), lang),
+            actors=f"{int(n_actors):,}".replace(",", " "),
+        ),
+        "detail": "",
+        "primary_view": "trend",
+        "n_countries": 0,
+    }
+    try:
+        shape = fetch_df(f"""
+        SELECT
+          COUNT(DISTINCT country_name) AS n_countries,
+          COUNT(DISTINCT theme) AS n_themes,
+          COUNT(DISTINCT year) AS n_years
+        FROM {relation_sql}
+        WHERE {where_sql}
+        """)
+        if shape.empty:
+            return fallback
+
+        n_countries = int(shape["n_countries"].iloc[0] or 0)
+        n_themes = int(shape["n_themes"].iloc[0] or 0)
+        n_years = int(shape["n_years"].iloc[0] or 0)
+
+        top_country = ""
+        top_actor = ""
+        top_theme = ""
+
+        if n_countries > 0:
+            top_country_df = fetch_df(f"""
+            SELECT country_name, SUM(amount_eur) AS budget_eur
+            FROM {relation_sql}
+            WHERE {where_sql} AND country_name IS NOT NULL AND TRIM(country_name) <> ''
+            GROUP BY country_name
+            ORDER BY budget_eur DESC
+            LIMIT 1
+            """)
+            if not top_country_df.empty:
+                top_country = str(top_country_df["country_name"].iloc[0] or "").strip()
+
+        top_actor_df = fetch_df(f"""
+        SELECT COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label, SUM(amount_eur) AS budget_eur
+        FROM {relation_sql}
+        WHERE {where_sql} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+        GROUP BY actor_label
+        ORDER BY budget_eur DESC
+        LIMIT 1
+        """)
+        if not top_actor_df.empty:
+            top_actor = str(top_actor_df["actor_label"].iloc[0] or "").strip()
+
+        top_theme_df = fetch_df(f"""
+        SELECT theme, SUM(amount_eur) AS budget_eur
+        FROM {relation_sql}
+        WHERE {where_sql} AND theme IS NOT NULL AND TRIM(theme) <> ''
+        GROUP BY theme
+        ORDER BY budget_eur DESC
+        LIMIT 1
+        """)
+        if not top_theme_df.empty:
+            top_theme = theme_raw_to_display(str(top_theme_df["theme"].iloc[0] or "").strip(), lang)
+
+        if n_countries <= 1 and top_country:
+            headline = t(lang, "results_summary_headline_single_country").format(
+                projects=f"{int(n_projects):,}".replace(",", " "),
+                budget=fmt_money(float(total_budget), lang),
+                actors=f"{int(n_actors):,}".replace(",", " "),
+                country=top_country,
+            )
+        else:
+            headline = t(lang, "results_summary_headline").format(
+                projects=f"{int(n_projects):,}".replace(",", " "),
+                budget=fmt_money(float(total_budget), lang),
+                actors=f"{int(n_actors):,}".replace(",", " "),
+                countries=f"{int(n_countries):,}".replace(",", " "),
+            )
+
+        detail_parts = []
+        if n_countries > 1 and top_country:
+            detail_parts.append(t(lang, "results_summary_country_lead").format(country=top_country))
+        if top_actor:
+            detail_parts.append(t(lang, "results_summary_actor_lead").format(actor=top_actor))
+        if n_themes > 1 and top_theme:
+            detail_parts.append(t(lang, "results_summary_theme_lead").format(theme=top_theme))
+
+        primary_view = "trend" if n_years > 1 else ("countries" if n_countries > 1 else "actors")
+        return {
+            "headline": headline,
+            "detail": " ".join(detail_parts).strip(),
+            "primary_view": primary_view,
+            "n_countries": n_countries,
+        }
+    except duckdb.Error:
+        return fallback
 
 
 # ============================================================
@@ -3193,6 +3384,7 @@ with tab_advanced:
     )
 
 with tab_admin:
+    render_section_header("⋯", t(lang, "admin_title"), t(lang, "admin_caption"), t(lang, "tab_admin"))
     tab_data, tab_quality, tab_debug = st.tabs([t(lang, "sub_data"), t(lang, "sub_quality"), t(lang, "sub_debug")])
     tab_docs = st.container()
 
@@ -3210,6 +3402,7 @@ with tab_results:
     render_section_header("⌕", t(lang, "results_title"), t(lang, "results_caption"), t(lang, "tab_explorer"))
     if search_notice_key:
         st.warning(t(lang, search_notice_key))
+
     with st.container(border=True):
         st.markdown("**" + t(lang, "explore_overview_title") + "**")
         st.markdown(
@@ -3224,6 +3417,22 @@ with tab_results:
             )
         )
         st.caption(t(lang, "explore_overview_tip"))
+
+    scope_summary = build_results_scope_summary(
+        R,
+        W,
+        lang=lang,
+        total_budget=total_budget,
+        n_projects=nb_projects,
+        n_actors=nb_actors,
+    )
+
+    with st.container(border=True):
+        st.markdown("**" + t(lang, "results_summary_title") + "**")
+        st.write(scope_summary["headline"])
+        if str(scope_summary.get("detail", "")).strip():
+            st.caption(scope_summary["detail"])
+
     st.markdown("#### ✦ " + t(lang, "kpis"))
     k1, k2, k3, k4, k5, k6 = st.columns(6)
     k1.metric(t(lang, "budget_total"), fmt_money(total_budget, lang))
@@ -3233,519 +3442,618 @@ with tab_results:
     k5.metric(t(lang, "median_ticket"), fmt_money(median_ticket, lang))
     k6.metric(t(lang, "top10_share"), fmt_pct(top10_share, 1))
     st.caption(f"{t(lang, 'hhi')}: {hhi:.3f}")
-    st.caption(
-        f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items)
-    )
+    st.caption(f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items))
     st.divider()
 
     if nb_projects == 0:
         render_empty_state(lang)
     else:
-        results_view = st.radio(
-            t(lang, "results_view"),
-            [
-                t(lang, "results_table"),
-                t(lang, "results_trend"),
-                t(lang, "results_map"),
-                t(lang, "results_actors"),
-            ],
-            horizontal=True,
-            index=0,
-            key="results_view_mode",
-        )
-
-        if results_view == t(lang, "results_table"):
-            results_scope_token = f"{R}||{W}"
-            sync_results_table_state(results_scope_token)
-
-            results_base_select_sql = f"""
-            SELECT
-              projectID,
-              MIN(year) AS year,
-              MIN(title) AS title,
-              MIN(theme) AS theme,
-              MIN(project_status) AS project_status,
-              COUNT(DISTINCT actor_id) AS n_actors,
-              COUNT(DISTINCT country_name) AS n_countries,
-              SUM(amount_eur) AS budget_eur
-            FROM {R}
-            WHERE {W}
-            GROUP BY projectID
-            """
-            results_total = safe_fetch_df(f"SELECT COUNT(*) AS n_rows FROM ({results_base_select_sql}) q", columns=["n_rows"], lang=lang, warning_key="results_view_unavailable")
-            total_matches = int(results_total["n_rows"].iloc[0] or 0) if not results_total.empty else 0
-
-            if total_matches == 0:
-                render_empty_state(lang)
-            else:
-                rc1, rc2, rc3 = st.columns([1, 1, 2])
-                with rc1:
-                    rows_per_page = st.selectbox(
-                        t(lang, "rows_per_page"),
-                        [25, 50, 100, 250],
-                        key="results_table_rows_per_page",
-                    )
-                max_page = max(1, (int(total_matches) + int(rows_per_page) - 1) // int(rows_per_page))
-                if int(st.session_state.get("results_table_page", 1)) > max_page:
-                    st.session_state["results_table_page"] = max_page
-                with rc2:
-                    page = st.number_input(
-                        t(lang, "page"),
-                        min_value=1,
-                        max_value=max_page,
-                        step=1,
-                        key="results_table_page",
-                    )
-                with rc3:
-                    st.caption(f"{t(lang, 'n_projects')}: {total_matches:,}".replace(",", " "))
-                    st.caption(f"Page {int(page)} / {int(max_page)}")
-
-                offset = (int(page) - 1) * int(rows_per_page)
-                results_projects_raw = safe_fetch_df(f"""
-                {results_base_select_sql}
-                ORDER BY budget_eur DESC
-                LIMIT {int(rows_per_page)} OFFSET {int(offset)}
-                """, columns=["projectID", "year", "title", "theme", "project_status", "n_actors", "n_countries", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
-                results_projects = results_projects_raw.copy()
-                results_projects["theme"] = results_projects["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
-                results_projects["project_status"] = results_projects["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
-                results_projects["budget_eur"] = results_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
-                st.markdown("#### " + t(lang, "results_projects_table"))
-                results_view_token = f"{results_scope_token}||page={int(page)}||rpp={int(rows_per_page)}"
-                if st.session_state.get("results_selected_project_view_token") != results_view_token:
-                    st.session_state["results_selected_project_view_token"] = results_view_token
-                    st.session_state.pop("results_selected_project_id", None)
-                    st.session_state.pop("results_project_table_df", None)
-
-                results_projects_display = results_projects.rename(
-                    columns={
-                        "project_status": t(lang, "project_status"),
-                        "budget_eur": t(lang, "budget_total"),
-                        "n_actors": t(lang, "n_actors"),
-                        "theme": t(lang, "themes"),
-                    }
-                )
-                results_table_event = st.dataframe(
-                    results_projects_display,
-                    use_container_width=True,
-                    height=620,
-                    hide_index=True,
-                    key="results_project_table_df",
-                    on_select="rerun",
-                    selection_mode="single-row",
-                )
-                selected_rows = []
-                try:
-                    selected_rows = list(getattr(getattr(results_table_event, "selection", None), "rows", []) or [])
-                except Exception:
-                    selected_rows = []
-                if selected_rows:
-                    row_idx = int(selected_rows[0])
-                    if 0 <= row_idx < len(results_projects_raw):
-                        st.session_state["results_selected_project_id"] = str(results_projects_raw.iloc[row_idx]["projectID"])
-
-                results_export_query_key = str(abs(hash(results_base_select_sql)))
-                if st.session_state.get("results_table_full_export_query_key") != results_export_query_key:
-                    st.session_state.pop("results_table_full_export_bytes", None)
-                    st.session_state["results_table_full_export_query_key"] = results_export_query_key
-
-                re1, re2 = st.columns(2)
-                with re1:
-                    st.download_button(
-                        t(lang, "download_page"),
-                        results_projects_raw.to_csv(index=False).encode("utf-8"),
-                        file_name="results_project_table_page.csv",
-                        mime="text/csv",
-                        key="results_table_download_page",
-                    )
-                with re2:
-                    if st.button(t(lang, "prepare_full_export"), width="stretch", key="results_table_prepare_full_export"):
-                        with st.spinner("Préparation de l’export..." if lang == "FR" else "Preparing export..."):
-                            st.session_state["results_table_full_export_bytes"] = export_query_csv_bytes(
-                                f"""
-                                {results_base_select_sql}
-                                ORDER BY budget_eur DESC
-                                """
-                            )
-
-                if "results_table_full_export_bytes" in st.session_state:
-                    st.download_button(
-                        t(lang, "download_full"),
-                        st.session_state["results_table_full_export_bytes"],
-                        file_name="results_project_table_full.csv",
-                        mime="text/csv",
-                        key="results_table_download_full",
-                    )
-
-                selected_project_id = str(st.session_state.get("results_selected_project_id", "")).strip()
-                if selected_project_id:
-                    detail_df = safe_fetch_df(f"""
-                    SELECT
-                      projectID,
-                      MIN(title) AS title,
-                      MIN(acronym) AS acronym,
-                      MIN(year) AS year,
-                      MIN(program) AS program,
-                      MIN(theme) AS theme,
-                      MIN(project_status) AS project_status,
-                      SUM(amount_eur) AS budget_eur,
-                      COUNT(DISTINCT actor_id) AS n_actors,
-                      COUNT(DISTINCT country_name) AS n_countries
-                    FROM {R}
-                    WHERE {W} AND projectID IN {in_list([selected_project_id])}
-                    GROUP BY projectID
-                    LIMIT 1
-                    """, columns=["projectID", "title", "acronym", "year", "program", "theme", "project_status", "budget_eur", "n_actors", "n_countries"], lang=lang, warning_key="results_view_unavailable")
-                    if detail_df.empty:
-                        st.session_state.pop("results_selected_project_id", None)
-                    else:
-                        detail = detail_df.iloc[0]
-                        countries_df = safe_fetch_df(f"""
-                        SELECT DISTINCT country_name
-                        FROM {R}
-                        WHERE {W} AND projectID IN {in_list([selected_project_id])}
-                          AND country_name IS NOT NULL AND TRIM(country_name) <> ''
-                        ORDER BY country_name
-                        LIMIT 40
-                        """, columns=["country_name"], lang=lang, warning_key="results_view_unavailable")
-                        actors_df = safe_fetch_df(f"""
-                        SELECT
-                          actor_id,
-                          COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
-                          COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name,
-                          SUM(amount_eur) AS budget_eur
-                        FROM {R}
-                        WHERE {W} AND projectID IN {in_list([selected_project_id])}
-                          AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
-                        GROUP BY actor_id, actor_label, country_name
-                        ORDER BY budget_eur DESC, actor_label
-                        LIMIT 30
-                        """, columns=["actor_id", "actor_label", "country_name", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
-
-                        countries_list = [str(x) for x in countries_df["country_name"].tolist() if str(x).strip()] if not countries_df.empty else []
-                        if countries_list:
-                            country_select_key = f"results_detail_country_select::{selected_project_id}"
-                            st.session_state.setdefault(country_select_key, countries_list[0])
-                            if st.session_state.get(country_select_key) not in countries_list:
-                                st.session_state[country_select_key] = countries_list[0]
-
-                        st.divider()
-                        st.markdown("#### " + ("Détail projet" if lang == "FR" else "Project detail"))
-                        title_txt = str(detail.get("title") or selected_project_id).strip() or selected_project_id
-                        st.caption(("Projet sélectionné depuis la table de résultats." if lang == "FR" else "Project selected from the results table."))
-                        st.markdown(f"**{title_txt}**")
-                        if str(detail.get("acronym") or "").strip():
-                            st.caption(f"Acronym: {str(detail.get('acronym') or '').strip()}")
-
-                        dc1, dc2, dc3, dc4 = st.columns(4)
-                        dc1.metric(t(lang, "budget_total"), fmt_money(float(detail.get("budget_eur") or 0.0), lang))
-                        dc2.metric(t(lang, "n_actors"), f"{int(detail.get('n_actors') or 0):,}".replace(",", " "))
-                        dc3.metric(t(lang, "countries"), f"{int(detail.get('n_countries') or 0):,}".replace(",", " "))
-                        dc4.metric(("Année" if lang == "FR" else "Year"), str(int(detail.get("year") or 0)) if pd.notna(detail.get("year")) else "—")
-
-                        meta1, meta2, meta3 = st.columns(3)
-                        with meta1:
-                            st.caption(f"**{t(lang, 'programmes')}**")
-                            st.write(str(detail.get("program") or "—"))
-                        with meta2:
-                            st.caption(f"**{t(lang, 'themes')}**")
-                            st.write(theme_raw_to_display(str(detail.get("theme") or ""), lang) if str(detail.get("theme") or "").strip() else "—")
-                        with meta3:
-                            st.caption(f"**{t(lang, 'project_status')}**")
-                            st.write(status_raw_to_display(str(detail.get("project_status") or ""), lang) if str(detail.get("project_status") or "").strip() else "—")
-
-                        info1, info2 = st.columns([1.3, 1.7])
-                        with info1:
-                            st.caption(f"**{t(lang, 'countries')}**")
-                            if countries_list:
-                                st.write(", ".join(countries_list))
-                            else:
-                                st.write("—")
-                        with info2:
-                            st.caption("**Actors involved**" if lang != "FR" else "**Acteurs impliqués**")
-                            if actors_df.empty:
-                                st.write("—")
-                            else:
-                                actor_lines = []
-                                for _, row in actors_df.head(10).iterrows():
-                                    actor_lines.append(
-                                        f"- {str(row['actor_label'])} ({str(row['country_name'])}) — {fmt_money(float(row['budget_eur'] or 0.0), lang)}"
-                                    )
-                                st.markdown("\n".join(actor_lines))
-                                if len(actors_df) > 10:
-                                    more_n = int(len(actors_df) - 10)
-                                    st.caption((f"+{more_n} autres acteurs" if lang == "FR" else f"+{more_n} more actors"))
-
-                        st.caption(("Actions rapides" if lang == "FR" else "Quick actions"))
-                        qa1, qa2, qa3 = st.columns(3)
-                        with qa1:
-                            if countries_list:
-                                st.selectbox(
-                                    t(lang, "countries"),
-                                    countries_list,
-                                    key=country_select_key,
-                                    label_visibility="collapsed",
-                                )
-                                if st.button(("Ouvrir dans Géographie" if lang == "FR" else "Open in Geography"), key=f"results_geo_country_btn::{selected_project_id}"):
-                                    selected_country = str(st.session_state.get(country_select_key, "")).strip()
-                                    if selected_country:
-                                        st.session_state["f_countries"] = [selected_country]
-                                        queue_tab_navigation(top_target=t(lang, "tab_markets"))
-                                        st.rerun()
-                            else:
-                                st.caption("—")
-                        with qa2:
-                            project_theme_raw = str(detail.get("theme") or "").strip()
-                            if project_theme_raw:
-                                if st.button(("Filtrer ce thème" if lang == "FR" else "Filter this theme"), key=f"results_filter_theme_btn::{selected_project_id}"):
-                                    st.session_state["f_themes_raw"] = [project_theme_raw]
-                                    st.rerun()
-                            else:
-                                st.caption("—")
-                        with qa3:
-                            project_program = str(detail.get("program") or "").strip()
-                            if project_program:
-                                if st.button(("Filtrer ce programme" if lang == "FR" else "Filter this programme"), key=f"results_filter_program_btn::{selected_project_id}"):
-                                    st.session_state["f_programmes"] = [project_program]
-                                    st.rerun()
-                            else:
-                                st.caption("—")
-
-                        if not actors_df.empty:
-                            actors_hook = actors_df.copy()
-                            actors_hook["actor_display"] = actors_hook["actor_label"].astype(str) + " — " + actors_hook["country_name"].astype(str)
-                            actor_hook_key = f"results_actor_hook_select::{selected_project_id}"
-                            actor_options = actors_hook["actor_display"].astype(str).tolist()
-                            ah1, ah2 = st.columns([1.8, 1.0])
-                            with ah1:
-                                st.selectbox(
-                                    ("Acteur à explorer ensuite" if lang == "FR" else "Actor to explore next"),
-                                    actor_options,
-                                    key=actor_hook_key,
-                                )
-                            with ah2:
-                                if st.button(("Ouvrir dans Acteurs" if lang == "FR" else "Open in Actors"), key=f"results_actor_drill_btn::{selected_project_id}"):
-                                    chosen_display = str(st.session_state.get(actor_hook_key, actor_options[0])) if actor_options else ""
-                                    if chosen_display:
-                                        chosen_row = actors_hook[actors_hook["actor_display"].astype(str) == chosen_display].head(1)
-                                        if not chosen_row.empty:
-                                            chosen_actor_id = str(chosen_row.iloc[0]["actor_id"])
-                                            st.session_state["results_selected_actor_id_candidate"] = chosen_actor_id
-                                            st.session_state["results_drilldown_actor_id"] = chosen_actor_id
-                                            queue_tab_navigation(
-                                                top_target=t(lang, "tab_actors_hub"),
-                                                actor_sub_target=t(lang, "tab_actor"),
-                                            )
-                                            st.rerun()
-                            chosen_display = str(st.session_state.get(actor_hook_key, actor_options[0])) if actor_options else ""
-                            if chosen_display:
-                                chosen_row = actors_hook[actors_hook["actor_display"].astype(str) == chosen_display].head(1)
-                                if not chosen_row.empty:
-                                    st.session_state["results_selected_actor_id_candidate"] = str(chosen_row.iloc[0]["actor_id"])
-
-        elif results_view == t(lang, "results_trend"):
-            res_year = safe_fetch_df(f"""
-            SELECT
-              year,
-              SUM(amount_eur) AS budget_eur,
-              COUNT(DISTINCT projectID) AS n_projects
+        st.markdown("#### " + t(lang, "results_primary_visual"))
+        primary_view = str(scope_summary.get("primary_view", "trend"))
+        if primary_view == "trend":
+            st.caption(t(lang, "results_primary_trend"))
+            primary_year = safe_fetch_df(f"""
+            SELECT year, SUM(amount_eur) AS budget_eur
             FROM {R}
             WHERE {W}
             GROUP BY year
             ORDER BY year
-            """, columns=["year", "budget_eur", "n_projects"], lang=lang, warning_key="results_view_unavailable")
-            if res_year.empty:
-                render_empty_state(lang)
+            """, columns=["year", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
+            if primary_year.empty:
+                render_view_warning(lang, "results_view_unavailable")
             else:
-                c1, c2 = st.columns(2)
-                with c1:
-                    st.markdown("#### " + t(lang, "results_budget_year"))
-                    fig_year_budget = px.bar(
-                        res_year,
-                        x="year",
-                        y="budget_eur",
-                        color="budget_eur",
-                        color_continuous_scale=R2G,
-                        height=360,
-                        labels={"budget_eur": "Budget (€)", "year": "Year"},
-                    )
-                    fig_year_budget.update_layout(
-                        coloraxis_showscale=False,
-                        paper_bgcolor=PANEL_BG,
-                        plot_bgcolor=PANEL_BG,
-                        font=dict(color=TEXT_PRIMARY),
-                        xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
-                        yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
-                    )
-                    render_plotly_chart(fig_year_budget, use_container_width=True)
-                with c2:
-                    st.markdown("#### " + t(lang, "results_projects_year"))
-                    fig_year_projects = px.line(
-                        res_year,
-                        x="year",
-                        y="n_projects",
-                        markers=True,
-                        height=360,
-                        labels={"n_projects": t(lang, "n_projects"), "year": "Year"},
-                    )
-                    fig_year_projects.update_layout(
-                        paper_bgcolor=PANEL_BG,
-                        plot_bgcolor=PANEL_BG,
-                        font=dict(color=TEXT_PRIMARY),
-                        xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
-                        yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
-                    )
-                    render_plotly_chart(fig_year_projects, use_container_width=True)
-
-        elif results_view == t(lang, "results_map"):
-            geo_res = safe_fetch_df(f"""
-            SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
-            FROM {R}
-            WHERE {W} AND country_alpha3 IS NOT NULL AND TRIM(country_alpha3) <> ''
-            GROUP BY country_alpha3, country_name
-            ORDER BY amount_eur DESC
-            """, columns=["country_alpha3", "country_name", "amount_eur"], lang=lang, warning_key="results_view_unavailable")
-            if geo_res.empty:
-                render_empty_state(lang)
-            else:
-                geo_res["population"] = geo_res["country_alpha3"].map(POPULATION_BY_ALPHA3).astype(float)
-                geo_res["amount_per_million"] = np.where(
-                    geo_res["population"].notna() & (geo_res["population"] > 0),
-                    geo_res["amount_eur"].astype(float) / (geo_res["population"] / 1_000_000.0),
-                    np.nan,
-                )
-                metric_choice = st.radio(
-                    t(lang, "geo_metric"),
-                    [t(lang, "geo_metric_total"), t(lang, "geo_metric_per_million")],
-                    horizontal=True,
-                    index=1,
-                    key="results_geo_metric",
-                )
-                color_col = "amount_per_million" if metric_choice == t(lang, "geo_metric_per_million") else "amount_eur"
-                color_title = "€ / M hab." if color_col == "amount_per_million" else "Budget (€)"
-                fig_results_map = px.choropleth(
-                    geo_res,
-                    locations="country_alpha3",
-                    color=color_col,
-                    hover_name="country_name",
+                fig_primary = px.bar(
+                    primary_year,
+                    x="year",
+                    y="budget_eur",
+                    color="budget_eur",
                     color_continuous_scale=R2G,
-                    height=520,
-                    labels={color_col: color_title},
+                    height=380,
+                    labels={"budget_eur": "Budget (€)", "year": "Year"},
                 )
-                fig_results_map.update_traces(
-                    marker_line_color="rgba(208, 216, 228, 0.22)",
-                    marker_line_width=0.7,
+                fig_primary.update_layout(coloraxis_showscale=False)
+                render_plotly_chart(fig_primary, use_container_width=True)
+        elif primary_view == "countries":
+            st.caption(t(lang, "results_primary_countries"))
+            primary_geo = safe_fetch_df(f"""
+            SELECT country_name, SUM(amount_eur) AS amount_eur
+            FROM {R}
+            WHERE {W} AND country_name IS NOT NULL AND TRIM(country_name) <> ''
+            GROUP BY country_name
+            ORDER BY amount_eur DESC
+            LIMIT 12
+            """, columns=["country_name", "amount_eur"], lang=lang, warning_key="results_view_unavailable")
+            if primary_geo.empty:
+                render_view_warning(lang, "results_view_unavailable")
+            else:
+                fig_primary = px.bar(
+                    primary_geo.iloc[::-1],
+                    x="amount_eur",
+                    y="country_name",
+                    orientation="h",
+                    color="amount_eur",
+                    color_continuous_scale=R2G,
+                    height=420,
+                    labels={"amount_eur": "Budget (€)", "country_name": ""},
                 )
-                fig_results_map.update_geos(
-                    scope="europe",
-                    projection_type="natural earth",
-                    showframe=False,
-                    showland=True,
-                    landcolor="#18263D",
-                    showcountries=True,
-                    countrycolor="rgba(208, 216, 228, 0.18)",
-                    showcoastlines=True,
-                    coastlinecolor="rgba(208, 216, 228, 0.16)",
-                    showocean=True,
-                    oceancolor=APP_BG,
-                    showlakes=True,
-                    lakecolor=APP_BG,
-                    bgcolor=PANEL_BG,
-                )
-                fig_results_map.update_layout(
-                    coloraxis_colorbar=dict(
-                        title=color_title,
-                        len=0.7,
-                        bgcolor=LEGEND_BG,
-                        outlinecolor=BORDER,
-                        tickcolor=TEXT_MUTED,
-                        tickfont=dict(color=TEXT_SECONDARY),
-                    ),
-                    margin=dict(l=0, r=0, t=0, b=0),
-                    paper_bgcolor=PANEL_BG,
-                    plot_bgcolor=PANEL_BG,
-                    font=dict(color=TEXT_PRIMARY),
-                )
-                render_plotly_chart(fig_results_map, use_container_width=True)
-
-                st.markdown("#### " + t(lang, "results_country_rank"))
-                rank_geo = geo_res[geo_res[color_col].notna()].sort_values(color_col, ascending=False).head(15).copy()
-                rank_geo[color_col] = rank_geo[color_col].map(
-                    lambda x: fmt_money(float(x), lang) if color_col == "amount_eur" else f"{float(x):,.0f} € / M".replace(",", " ")
-                )
-                st.dataframe(
-                    rank_geo.rename(columns={color_col: color_title})[["country_name", color_title]],
-                    use_container_width=True,
-                    height=360,
-                )
-
+                fig_primary.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                render_plotly_chart(fig_primary, use_container_width=True)
         else:
-            res_actors = safe_fetch_df(f"""
+            st.caption(t(lang, "results_primary_actors"))
+            primary_actors = safe_fetch_df(f"""
             WITH x AS (
               SELECT
                 actor_id,
                 COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
-                COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name2,
-                amount_eur,
-                projectID
+                amount_eur
               FROM {R}
               WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
             )
-            SELECT
-              actor_id,
-              MIN(actor_label) AS actor_label,
-              MIN(country_name2) AS main_country,
-              SUM(amount_eur) AS budget_eur,
-              COUNT(DISTINCT projectID) AS n_projects
+            SELECT actor_label, SUM(amount_eur) AS budget_eur
             FROM x
-            GROUP BY actor_id
+            GROUP BY actor_label
             ORDER BY budget_eur DESC
-            LIMIT 25
-            """, columns=["actor_id", "actor_label", "main_country", "budget_eur", "n_projects"], lang=lang, warning_key="results_view_unavailable")
-            if res_actors.empty:
-                render_empty_state(lang)
+            LIMIT 12
+            """, columns=["actor_label", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
+            if primary_actors.empty:
+                render_view_warning(lang, "results_view_unavailable")
             else:
-                res_actors["avg_per_project"] = np.where(
-                    res_actors["n_projects"].astype(float) > 0,
-                    res_actors["budget_eur"].astype(float) / res_actors["n_projects"].astype(float),
-                    np.nan,
-                )
-                fig_actors = px.bar(
-                    res_actors.iloc[::-1],
+                fig_primary = px.bar(
+                    primary_actors.iloc[::-1],
                     x="budget_eur",
                     y="actor_label",
                     orientation="h",
                     color="budget_eur",
                     color_continuous_scale=R2G,
-                    height=620,
+                    height=420,
                     labels={"budget_eur": "Budget (€)", "actor_label": ""},
                 )
-                fig_actors.update_layout(
-                    coloraxis_showscale=False,
-                    yaxis_title=None,
-                    paper_bgcolor=PANEL_BG,
-                    plot_bgcolor=PANEL_BG,
-                    font=dict(color=TEXT_PRIMARY),
-                    xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
-                    yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
-                )
-                render_plotly_chart(fig_actors, use_container_width=True)
+                fig_primary.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                render_plotly_chart(fig_primary, use_container_width=True)
 
-                actor_tbl = res_actors.copy()
-                actor_tbl["budget_eur"] = actor_tbl["budget_eur"].map(lambda x: fmt_money(float(x), lang))
-                actor_tbl["avg_per_project"] = actor_tbl["avg_per_project"].map(lambda x: fmt_money(float(x), lang))
-                st.markdown("#### " + t(lang, "results_actor_table"))
-                st.dataframe(
-                    actor_tbl.rename(
-                        columns={
-                            "main_country": t(lang, "countries"),
-                            "budget_eur": t(lang, "budget_total"),
-                            "avg_per_project": t(lang, "avg_ticket"),
-                        }
-                    )[["actor_label", t(lang, "countries"), t(lang, "budget_total"), "n_projects", t(lang, "avg_ticket")]],
-                    use_container_width=True,
-                    height=360,
+        st.divider()
+
+        results_scope_token = f"{R}||{W}"
+        sync_results_table_state(results_scope_token)
+
+        results_base_select_sql = f"""
+        SELECT
+          projectID,
+          MIN(year) AS year,
+          MIN(title) AS title,
+          MIN(theme) AS theme,
+          MIN(project_status) AS project_status,
+          COUNT(DISTINCT actor_id) AS n_actors,
+          COUNT(DISTINCT country_name) AS n_countries,
+          SUM(amount_eur) AS budget_eur
+        FROM {R}
+        WHERE {W}
+        GROUP BY projectID
+        """
+        results_total = safe_fetch_df(f"SELECT COUNT(*) AS n_rows FROM ({results_base_select_sql}) q", columns=["n_rows"], lang=lang, warning_key="results_view_unavailable")
+        total_matches = int(results_total["n_rows"].iloc[0] or 0) if not results_total.empty else 0
+
+        if total_matches == 0:
+            render_empty_state(lang)
+        else:
+            rc1, rc2, rc3 = st.columns([1, 1, 2])
+            with rc1:
+                rows_per_page = st.selectbox(
+                    t(lang, "rows_per_page"),
+                    [25, 50, 100, 250],
+                    key="results_table_rows_per_page",
                 )
+            max_page = max(1, (int(total_matches) + int(rows_per_page) - 1) // int(rows_per_page))
+            if int(st.session_state.get("results_table_page", 1)) > max_page:
+                st.session_state["results_table_page"] = max_page
+            with rc2:
+                page = st.number_input(
+                    t(lang, "page"),
+                    min_value=1,
+                    max_value=max_page,
+                    step=1,
+                    key="results_table_page",
+                )
+            with rc3:
+                st.caption(f"{t(lang, 'n_projects')}: {total_matches:,}".replace(",", " "))
+                st.caption(f"Page {int(page)} / {int(max_page)}")
+
+            offset = (int(page) - 1) * int(rows_per_page)
+            results_projects_raw = safe_fetch_df(f"""
+            {results_base_select_sql}
+            ORDER BY budget_eur DESC
+            LIMIT {int(rows_per_page)} OFFSET {int(offset)}
+            """, columns=["projectID", "year", "title", "theme", "project_status", "n_actors", "n_countries", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
+            results_projects = results_projects_raw.copy()
+            results_projects["theme"] = results_projects["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
+            results_projects["project_status"] = results_projects["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
+            results_projects["budget_eur"] = results_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+
+            st.markdown("#### " + t(lang, "results_projects_table"))
+            results_view_token = f"{results_scope_token}||page={int(page)}||rpp={int(rows_per_page)}"
+            if st.session_state.get("results_selected_project_view_token") != results_view_token:
+                st.session_state["results_selected_project_view_token"] = results_view_token
+                st.session_state.pop("results_selected_project_id", None)
+                st.session_state.pop("results_project_table_df", None)
+
+            results_projects_display = results_projects.rename(
+                columns={
+                    "project_status": t(lang, "project_status"),
+                    "budget_eur": t(lang, "budget_total"),
+                    "n_actors": t(lang, "n_actors"),
+                    "theme": t(lang, "themes"),
+                }
+            )
+            results_table_event = st.dataframe(
+                results_projects_display,
+                use_container_width=True,
+                height=620,
+                hide_index=True,
+                key="results_project_table_df",
+                on_select="rerun",
+                selection_mode="single-row",
+            )
+            selected_rows = []
+            try:
+                selected_rows = list(getattr(getattr(results_table_event, "selection", None), "rows", []) or [])
+            except Exception:
+                selected_rows = []
+            if selected_rows:
+                row_idx = int(selected_rows[0])
+                if 0 <= row_idx < len(results_projects_raw):
+                    st.session_state["results_selected_project_id"] = str(results_projects_raw.iloc[row_idx]["projectID"])
+
+            results_export_query_key = str(abs(hash(results_base_select_sql)))
+            if st.session_state.get("results_table_full_export_query_key") != results_export_query_key:
+                st.session_state.pop("results_table_full_export_bytes", None)
+                st.session_state["results_table_full_export_query_key"] = results_export_query_key
+
+            re1, re2 = st.columns(2)
+            with re1:
+                st.download_button(
+                    t(lang, "download_page"),
+                    results_projects_raw.to_csv(index=False).encode("utf-8"),
+                    file_name="results_project_table_page.csv",
+                    mime="text/csv",
+                    key="results_table_download_page",
+                )
+            with re2:
+                if st.button(t(lang, "prepare_full_export"), width="stretch", key="results_table_prepare_full_export"):
+                    with st.spinner("Préparation de l’export..." if lang == "FR" else "Preparing export..."):
+                        st.session_state["results_table_full_export_bytes"] = export_query_csv_bytes(
+                            f"""
+                            {results_base_select_sql}
+                            ORDER BY budget_eur DESC
+                            """
+                        )
+
+            if "results_table_full_export_bytes" in st.session_state:
+                st.download_button(
+                    t(lang, "download_full"),
+                    st.session_state["results_table_full_export_bytes"],
+                    file_name="results_project_table_full.csv",
+                    mime="text/csv",
+                    key="results_table_download_full",
+                )
+
+            selected_project_id = str(st.session_state.get("results_selected_project_id", "")).strip()
+            if selected_project_id:
+                detail_df = safe_fetch_df(f"""
+                SELECT
+                  projectID,
+                  MIN(title) AS title,
+                  MIN(acronym) AS acronym,
+                  MIN(year) AS year,
+                  MIN(program) AS program,
+                  MIN(theme) AS theme,
+                  MIN(project_status) AS project_status,
+                  SUM(amount_eur) AS budget_eur,
+                  COUNT(DISTINCT actor_id) AS n_actors,
+                  COUNT(DISTINCT country_name) AS n_countries
+                FROM {R}
+                WHERE {W} AND projectID IN {in_list([selected_project_id])}
+                GROUP BY projectID
+                LIMIT 1
+                """, columns=["projectID", "title", "acronym", "year", "program", "theme", "project_status", "budget_eur", "n_actors", "n_countries"], lang=lang, warning_key="results_view_unavailable")
+                if detail_df.empty:
+                    st.session_state.pop("results_selected_project_id", None)
+                else:
+                    detail = detail_df.iloc[0]
+                    countries_df = safe_fetch_df(f"""
+                    SELECT DISTINCT country_name
+                    FROM {R}
+                    WHERE {W} AND projectID IN {in_list([selected_project_id])}
+                      AND country_name IS NOT NULL AND TRIM(country_name) <> ''
+                    ORDER BY country_name
+                    LIMIT 40
+                    """, columns=["country_name"], lang=lang, warning_key="results_view_unavailable")
+                    actors_df = safe_fetch_df(f"""
+                    SELECT
+                      actor_id,
+                      COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
+                      COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name,
+                      SUM(amount_eur) AS budget_eur
+                    FROM {R}
+                    WHERE {W} AND projectID IN {in_list([selected_project_id])}
+                      AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+                    GROUP BY actor_id, actor_label, country_name
+                    ORDER BY budget_eur DESC, actor_label
+                    LIMIT 30
+                    """, columns=["actor_id", "actor_label", "country_name", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
+
+                    countries_list = [str(x) for x in countries_df["country_name"].tolist() if str(x).strip()] if not countries_df.empty else []
+                    if countries_list:
+                        country_select_key = f"results_detail_country_select::{selected_project_id}"
+                        st.session_state.setdefault(country_select_key, countries_list[0])
+                        if st.session_state.get(country_select_key) not in countries_list:
+                            st.session_state[country_select_key] = countries_list[0]
+
+                    st.divider()
+                    st.markdown("#### " + ("Détail projet" if lang == "FR" else "Project detail"))
+                    title_txt = str(detail.get("title") or selected_project_id).strip() or selected_project_id
+                    st.caption(("Projet sélectionné depuis la table de résultats." if lang == "FR" else "Project selected from the results table."))
+                    st.markdown(f"**{title_txt}**")
+                    if str(detail.get("acronym") or "").strip():
+                        st.caption(f"Acronym: {str(detail.get('acronym') or '').strip()}")
+
+                    dc1, dc2, dc3, dc4 = st.columns(4)
+                    dc1.metric(t(lang, "budget_total"), fmt_money(float(detail.get("budget_eur") or 0.0), lang))
+                    dc2.metric(t(lang, "n_actors"), f"{int(detail.get('n_actors') or 0):,}".replace(",", " "))
+                    dc3.metric(t(lang, "countries"), f"{int(detail.get('n_countries') or 0):,}".replace(",", " "))
+                    dc4.metric(("Année" if lang == "FR" else "Year"), str(int(detail.get("year") or 0)) if pd.notna(detail.get("year")) else "—")
+
+                    meta1, meta2, meta3 = st.columns(3)
+                    with meta1:
+                        st.caption(f"**{t(lang, 'programmes')}**")
+                        st.write(str(detail.get("program") or "—"))
+                    with meta2:
+                        st.caption(f"**{t(lang, 'themes')}**")
+                        st.write(theme_raw_to_display(str(detail.get("theme") or ""), lang) if str(detail.get("theme") or "").strip() else "—")
+                    with meta3:
+                        st.caption(f"**{t(lang, 'project_status')}**")
+                        st.write(status_raw_to_display(str(detail.get("project_status") or ""), lang) if str(detail.get("project_status") or "").strip() else "—")
+
+                    info1, info2 = st.columns([1.3, 1.7])
+                    with info1:
+                        st.caption(f"**{t(lang, 'countries')}**")
+                        if countries_list:
+                            st.write(", ".join(countries_list))
+                        else:
+                            st.write("—")
+                    with info2:
+                        st.caption("**Actors involved**" if lang != "FR" else "**Acteurs impliqués**")
+                        if actors_df.empty:
+                            st.write("—")
+                        else:
+                            actor_lines = []
+                            for _, row in actors_df.head(10).iterrows():
+                                actor_lines.append(
+                                    f"- {str(row['actor_label'])} ({str(row['country_name'])}) — {fmt_money(float(row['budget_eur'] or 0.0), lang)}"
+                                )
+                            st.markdown("\n".join(actor_lines))
+                            if len(actors_df) > 10:
+                                more_n = int(len(actors_df) - 10)
+                                st.caption((f"+{more_n} autres acteurs" if lang == "FR" else f"+{more_n} more actors"))
+
+                    st.caption(("Actions rapides" if lang == "FR" else "Quick actions"))
+                    qa1, qa2, qa3 = st.columns(3)
+                    with qa1:
+                        if countries_list:
+                            st.selectbox(
+                                t(lang, "countries"),
+                                countries_list,
+                                key=country_select_key,
+                                label_visibility="collapsed",
+                            )
+                            if st.button(("Ouvrir dans Géographie" if lang == "FR" else "Open in Geography"), key=f"results_geo_country_btn::{selected_project_id}"):
+                                selected_country = str(st.session_state.get(country_select_key, "")).strip()
+                                if selected_country:
+                                    st.session_state["f_countries"] = [selected_country]
+                                    queue_tab_navigation(top_target=t(lang, "tab_markets"))
+                                    st.rerun()
+                        else:
+                            st.caption("—")
+                    with qa2:
+                        project_theme_raw = str(detail.get("theme") or "").strip()
+                        if project_theme_raw:
+                            if st.button(("Filtrer ce thème" if lang == "FR" else "Filter this theme"), key=f"results_filter_theme_btn::{selected_project_id}"):
+                                st.session_state["f_themes_raw"] = [project_theme_raw]
+                                st.rerun()
+                        else:
+                            st.caption("—")
+                    with qa3:
+                        project_program = str(detail.get("program") or "").strip()
+                        if project_program:
+                            if st.button(("Filtrer ce programme" if lang == "FR" else "Filter this programme"), key=f"results_filter_program_btn::{selected_project_id}"):
+                                st.session_state["f_programmes"] = [project_program]
+                                st.rerun()
+                        else:
+                            st.caption("—")
+
+                    if not actors_df.empty:
+                        actors_hook = actors_df.copy()
+                        actors_hook["actor_display"] = actors_hook["actor_label"].astype(str) + " — " + actors_hook["country_name"].astype(str)
+                        actor_hook_key = f"results_actor_hook_select::{selected_project_id}"
+                        actor_options = actors_hook["actor_display"].astype(str).tolist()
+                        ah1, ah2 = st.columns([1.8, 1.0])
+                        with ah1:
+                            st.selectbox(
+                                ("Acteur à explorer ensuite" if lang == "FR" else "Actor to explore next"),
+                                actor_options,
+                                key=actor_hook_key,
+                            )
+                        with ah2:
+                            if st.button(("Ouvrir dans Acteurs" if lang == "FR" else "Open in Actors"), key=f"results_actor_drill_btn::{selected_project_id}"):
+                                chosen_display = str(st.session_state.get(actor_hook_key, actor_options[0])) if actor_options else ""
+                                if chosen_display:
+                                    chosen_row = actors_hook[actors_hook["actor_display"].astype(str) == chosen_display].head(1)
+                                    if not chosen_row.empty:
+                                        chosen_actor_id = str(chosen_row.iloc[0]["actor_id"])
+                                        st.session_state["results_selected_actor_id_candidate"] = chosen_actor_id
+                                        st.session_state["results_drilldown_actor_id"] = chosen_actor_id
+                                        queue_tab_navigation(
+                                            top_target=t(lang, "tab_actors_hub"),
+                                            actor_sub_target=t(lang, "tab_actor"),
+                                        )
+                                        st.rerun()
+                        chosen_display = str(st.session_state.get(actor_hook_key, actor_options[0])) if actor_options else ""
+                        if chosen_display:
+                            chosen_row = actors_hook[actors_hook["actor_display"].astype(str) == chosen_display].head(1)
+                            if not chosen_row.empty:
+                                st.session_state["results_selected_actor_id_candidate"] = str(chosen_row.iloc[0]["actor_id"])
+
+            st.divider()
+            st.markdown("#### " + t(lang, "results_next_steps"))
+            n1, n2, n3 = st.columns(3)
+            with n1:
+                if st.button(t(lang, "results_next_geo"), key="results_next_geo_btn", width="stretch"):
+                    queue_tab_navigation(top_target=t(lang, "tab_markets"))
+                    st.rerun()
+            with n2:
+                if st.button(t(lang, "results_next_actors"), key="results_next_actors_btn", width="stretch"):
+                    queue_tab_navigation(top_target=t(lang, "tab_actors_hub"))
+                    st.rerun()
+            with n3:
+                if st.button(t(lang, "results_next_trends"), key="results_next_trends_btn", width="stretch"):
+                    queue_tab_navigation(top_target=t(lang, "tab_trends_events"))
+                    st.rerun()
+
+            st.divider()
+            results_view = st.radio(
+                t(lang, "results_other_views"),
+                [
+                    t(lang, "results_trend"),
+                    t(lang, "results_map"),
+                    t(lang, "results_actors"),
+                ],
+                horizontal=True,
+                index=0,
+                key="results_secondary_view_mode",
+            )
+
+            if results_view == t(lang, "results_trend"):
+                res_year = safe_fetch_df(f"""
+                SELECT
+                  year,
+                  SUM(amount_eur) AS budget_eur,
+                  COUNT(DISTINCT projectID) AS n_projects
+                FROM {R}
+                WHERE {W}
+                GROUP BY year
+                ORDER BY year
+                """, columns=["year", "budget_eur", "n_projects"], lang=lang, warning_key="results_view_unavailable")
+                if res_year.empty:
+                    render_empty_state(lang)
+                else:
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        st.markdown("#### " + t(lang, "results_budget_year"))
+                        fig_year_budget = px.bar(
+                            res_year,
+                            x="year",
+                            y="budget_eur",
+                            color="budget_eur",
+                            color_continuous_scale=R2G,
+                            height=360,
+                            labels={"budget_eur": "Budget (€)", "year": "Year"},
+                        )
+                        fig_year_budget.update_layout(
+                            coloraxis_showscale=False,
+                            paper_bgcolor=PANEL_BG,
+                            plot_bgcolor=PANEL_BG,
+                            font=dict(color=TEXT_PRIMARY),
+                            xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                            yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                        )
+                        render_plotly_chart(fig_year_budget, use_container_width=True)
+                    with c2:
+                        st.markdown("#### " + t(lang, "results_projects_year"))
+                        fig_year_projects = px.line(
+                            res_year,
+                            x="year",
+                            y="n_projects",
+                            markers=True,
+                            height=360,
+                            labels={"n_projects": t(lang, "n_projects"), "year": "Year"},
+                        )
+                        fig_year_projects.update_layout(
+                            paper_bgcolor=PANEL_BG,
+                            plot_bgcolor=PANEL_BG,
+                            font=dict(color=TEXT_PRIMARY),
+                            xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                            yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                        )
+                        render_plotly_chart(fig_year_projects, use_container_width=True)
+
+            elif results_view == t(lang, "results_map"):
+                geo_res = safe_fetch_df(f"""
+                SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
+                FROM {R}
+                WHERE {W} AND country_alpha3 IS NOT NULL AND TRIM(country_alpha3) <> ''
+                GROUP BY country_alpha3, country_name
+                ORDER BY amount_eur DESC
+                """, columns=["country_alpha3", "country_name", "amount_eur"], lang=lang, warning_key="results_view_unavailable")
+                if geo_res.empty:
+                    render_empty_state(lang)
+                else:
+                    geo_res["population"] = geo_res["country_alpha3"].map(POPULATION_BY_ALPHA3).astype(float)
+                    geo_res["amount_per_million"] = np.where(
+                        geo_res["population"].notna() & (geo_res["population"] > 0),
+                        geo_res["amount_eur"].astype(float) / (geo_res["population"] / 1_000_000.0),
+                        np.nan,
+                    )
+                    metric_choice = st.radio(
+                        t(lang, "geo_metric"),
+                        [t(lang, "geo_metric_total"), t(lang, "geo_metric_per_million")],
+                        horizontal=True,
+                        index=1,
+                        key="results_geo_metric",
+                    )
+                    color_col = "amount_per_million" if metric_choice == t(lang, "geo_metric_per_million") else "amount_eur"
+                    color_title = "€ / M hab." if color_col == "amount_per_million" else "Budget (€)"
+                    fig_results_map = px.choropleth(
+                        geo_res,
+                        locations="country_alpha3",
+                        color=color_col,
+                        hover_name="country_name",
+                        color_continuous_scale=R2G,
+                        height=520,
+                        labels={color_col: color_title},
+                    )
+                    fig_results_map.update_traces(
+                        marker_line_color="rgba(208, 216, 228, 0.22)",
+                        marker_line_width=0.7,
+                    )
+                    fig_results_map.update_geos(
+                        scope="europe",
+                        projection_type="natural earth",
+                        showframe=False,
+                        showland=True,
+                        landcolor="#18263D",
+                        showcountries=True,
+                        countrycolor="rgba(208, 216, 228, 0.18)",
+                        showcoastlines=True,
+                        coastlinecolor="rgba(208, 216, 228, 0.16)",
+                        showocean=True,
+                        oceancolor=APP_BG,
+                        showlakes=True,
+                        lakecolor=APP_BG,
+                        bgcolor=PANEL_BG,
+                    )
+                    fig_results_map.update_layout(
+                        coloraxis_colorbar=dict(
+                            title=color_title,
+                            len=0.7,
+                            bgcolor=LEGEND_BG,
+                            outlinecolor=BORDER,
+                            tickcolor=TEXT_MUTED,
+                            tickfont=dict(color=TEXT_SECONDARY),
+                        ),
+                        margin=dict(l=0, r=0, t=0, b=0),
+                        paper_bgcolor=PANEL_BG,
+                        plot_bgcolor=PANEL_BG,
+                        font=dict(color=TEXT_PRIMARY),
+                    )
+                    render_plotly_chart(fig_results_map, use_container_width=True)
+
+                    st.markdown("#### " + t(lang, "results_country_rank"))
+                    rank_geo = geo_res[geo_res[color_col].notna()].sort_values(color_col, ascending=False).head(15).copy()
+                    rank_geo[color_col] = rank_geo[color_col].map(
+                        lambda x: fmt_money(float(x), lang) if color_col == "amount_eur" else f"{float(x):,.0f} € / M".replace(",", " ")
+                    )
+                    st.dataframe(
+                        rank_geo.rename(columns={color_col: color_title})[["country_name", color_title]],
+                        use_container_width=True,
+                        height=360,
+                    )
+
+            else:
+                res_actors = safe_fetch_df(f"""
+                WITH x AS (
+                  SELECT
+                    actor_id,
+                    COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
+                    COALESCE(NULLIF(TRIM(country_name), ''), 'Unknown') AS country_name2,
+                    amount_eur,
+                    projectID
+                  FROM {R}
+                  WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+                )
+                SELECT
+                  actor_id,
+                  MIN(actor_label) AS actor_label,
+                  MIN(country_name2) AS main_country,
+                  SUM(amount_eur) AS budget_eur,
+                  COUNT(DISTINCT projectID) AS n_projects
+                FROM x
+                GROUP BY actor_id
+                ORDER BY budget_eur DESC
+                LIMIT 25
+                """, columns=["actor_id", "actor_label", "main_country", "budget_eur", "n_projects"], lang=lang, warning_key="results_view_unavailable")
+                if res_actors.empty:
+                    render_empty_state(lang)
+                else:
+                    res_actors["avg_per_project"] = np.where(
+                        res_actors["n_projects"].astype(float) > 0,
+                        res_actors["budget_eur"].astype(float) / res_actors["n_projects"].astype(float),
+                        np.nan,
+                    )
+                    fig_actors = px.bar(
+                        res_actors.iloc[::-1],
+                        x="budget_eur",
+                        y="actor_label",
+                        orientation="h",
+                        color="budget_eur",
+                        color_continuous_scale=R2G,
+                        height=620,
+                        labels={"budget_eur": "Budget (€)", "actor_label": ""},
+                    )
+                    fig_actors.update_layout(
+                        coloraxis_showscale=False,
+                        yaxis_title=None,
+                        paper_bgcolor=PANEL_BG,
+                        plot_bgcolor=PANEL_BG,
+                        font=dict(color=TEXT_PRIMARY),
+                        xaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                        yaxis=dict(gridcolor=GRID_COLOR, tickfont=dict(color=TEXT_SECONDARY)),
+                    )
+                    render_plotly_chart(fig_actors, use_container_width=True)
+
+                    actor_tbl = res_actors.copy()
+                    actor_tbl["budget_eur"] = actor_tbl["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+                    actor_tbl["avg_per_project"] = actor_tbl["avg_per_project"].map(lambda x: fmt_money(float(x), lang))
+                    st.markdown("#### " + t(lang, "results_actor_table"))
+                    st.dataframe(
+                        actor_tbl.rename(
+                            columns={
+                                "main_country": t(lang, "countries"),
+                                "budget_eur": t(lang, "budget_total"),
+                                "avg_per_project": t(lang, "avg_ticket"),
+                            }
+                        )[["actor_label", t(lang, "countries"), t(lang, "budget_total"), "n_projects", t(lang, "avg_ticket")]],
+                        use_container_width=True,
+                        height=360,
+                    )
 
 
 # ============================================================
@@ -3753,8 +4061,9 @@ with tab_results:
 # ============================================================
 with tab_overview:
     render_section_header("◌", t(lang, "sub_overview"), t(lang, "overview_caption"), t(lang, "tab_explorer"))
+    st.caption(t(lang, "overview_support_note"))
 
-    st.markdown("### " + ("Allocation du budget par type d’entité" if lang == "FR" else "Budget allocation by entity type"))
+    st.markdown("#### " + ("Allocation du budget par type d’entité" if lang == "FR" else "Budget allocation by entity type"))
     alloc = safe_fetch_df(f"""
     SELECT entity_type, SUM(amount_eur) AS amount_eur
     FROM {R}
@@ -3797,7 +4106,7 @@ with tab_overview:
         status_mix["status_display"] = status_mix["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
         s1, s2 = st.columns(2)
         with s1:
-            st.markdown("### " + t(lang, "status_budget_title"))
+            st.markdown("#### " + t(lang, "status_budget_title"))
             fig_status_budget = px.bar(
                 status_mix.iloc[::-1],
                 x="budget_eur",
@@ -3811,7 +4120,7 @@ with tab_overview:
             fig_status_budget.update_layout(coloraxis_showscale=False, yaxis_title=None)
             render_plotly_chart(fig_status_budget, use_container_width=True)
         with s2:
-            st.markdown("### " + t(lang, "status_projects_title"))
+            st.markdown("#### " + t(lang, "status_projects_title"))
             fig_status_projects = px.bar(
                 status_mix.iloc[::-1],
                 x="n_projects",
@@ -3826,7 +4135,7 @@ with tab_overview:
             render_plotly_chart(fig_status_projects, use_container_width=True)
 
     st.divider()
-    st.markdown("### " + t(lang, "insights_title"))
+    st.markdown("#### " + t(lang, "insights_title"))
     insights: List[str] = []
     try:
         top_theme = fetch_df(f"""
@@ -3906,7 +4215,7 @@ with tab_overview:
 
     st.divider()
     with st.expander(t(lang, "overview_yearly_extra"), expanded=False):
-        st.markdown("### " + t(lang, "ticket_shape_title"))
+        st.markdown("#### " + t(lang, "ticket_shape_title"))
         tb = fetch_df(f"""
         SELECT year, projectID, SUM(amount_eur) AS proj_budget
         FROM {R}
@@ -3995,7 +4304,7 @@ with tab_geo:
     ORDER BY amount_eur DESC
     """, columns=["country_alpha3", "country_name", "amount_eur"], lang=lang, warning_key="geo_view_unavailable")
     if geo.empty:
-        st.info(t(lang, "no_data"))
+        render_guided_empty_state(lang, "geo_empty_hint")
     else:
         geo["population"] = geo["country_alpha3"].map(POPULATION_BY_ALPHA3).astype(float)
         geo["amount_per_million"] = np.where(
@@ -4195,7 +4504,7 @@ with tab_geo:
         st.markdown(f"#### {t(lang, 'top_countries')}")
         top_c = geo_rank.head(15).copy()
         if top_c.empty:
-            st.info(t(lang, "no_data"))
+            render_guided_empty_state(lang, "geo_empty_hint")
         else:
             top_c["country_display"] = np.where(
                 top_c["country_name"].astype(str) == selected_country,
@@ -4272,7 +4581,7 @@ with tab_geo:
             with d1:
                 st.markdown(f"##### {t(lang, 'geo_country_actors')}")
                 if country_actors.empty:
-                    st.info(t(lang, "no_data"))
+                    render_guided_empty_state(lang, "geo_country_empty_hint")
                 else:
                     fig_country_actors = px.bar(
                         country_actors.iloc[::-1],
@@ -4289,7 +4598,7 @@ with tab_geo:
             with d2:
                 st.markdown(f"##### {t(lang, 'geo_country_themes')}")
                 if country_themes.empty:
-                    st.info(t(lang, "no_data"))
+                    render_guided_empty_state(lang, "geo_country_empty_hint")
                 else:
                     country_themes["theme_display"] = country_themes["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
                     fig_country_themes = px.bar(
@@ -4307,7 +4616,7 @@ with tab_geo:
 
             st.markdown(f"##### {t(lang, 'geo_country_projects')}")
             if country_projects.empty:
-                st.info(t(lang, "no_data"))
+                render_guided_empty_state(lang, "geo_country_empty_hint")
             else:
                 country_projects["budget"] = country_projects["budget_eur"].apply(lambda v: fmt_money(float(v), lang))
                 country_projects["theme_display"] = country_projects["theme"].map(
@@ -4361,7 +4670,7 @@ with tab_comp:
     """, columns=["actor_id", "org_name2", "country_name2", "entity_type", "budget_eur", "n_projects"], lang=lang, warning_key="benchmark_view_unavailable")
 
     if m.empty:
-        st.info(t(lang, "no_data"))
+        render_guided_empty_state(lang, "benchmark_empty_hint")
 
     # Disambiguate label like your pandas logic (org + country)
     m["actor_label"] = np.where(
@@ -4379,7 +4688,7 @@ with tab_comp:
         with a:
             pct = st.slider(t(lang, "pct_threshold"), 0, 99, 90)
         with b:
-            topn = st.number_input(t(lang, "topn"), min_value=20, max_value=5000, value=200, step=10)
+            topn = st.number_input(t(lang, "topn"), min_value=20, max_value=5000, value=100, step=10)
         thr = float(np.nanpercentile(m["budget_eur"].astype(float).values, pct)) if len(m) else 0.0
         st.caption(f"≥ {fmt_money(thr, lang)}")
 
@@ -4428,7 +4737,7 @@ with tab_comp:
         st.info(t(lang, "scatter_explain"), icon="ℹ️")
 
         if m2.empty:
-            st.info(t(lang, "no_data"))
+            render_guided_empty_state(lang, "benchmark_empty_hint")
         else:
             fig1 = px.scatter(
                 m2,
@@ -4488,7 +4797,7 @@ with tab_comp:
         st.caption(t(lang, "bm_treemap_help"))
 
         # Build treemap base by SQL (theme, country, actor)
-        base = fetch_df(f"""
+        base = safe_fetch_df(f"""
         SELECT theme, country_name, 
                COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS org_name2,
                actor_id,
@@ -4496,9 +4805,9 @@ with tab_comp:
         FROM {R}
         WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
         GROUP BY theme, country_name, org_name2, actor_id
-        """)
+        """, columns=["theme", "country_name", "org_name2", "actor_id", "amount_eur"], lang=lang, warning_key="benchmark_view_unavailable")
         if base.empty:
-            st.info(t(lang, "no_data"))
+            render_guided_empty_state(lang, "benchmark_empty_hint")
         else:
             base["theme_display"] = base["theme"].astype(str).map(lambda x: theme_raw_to_display(x, lang))
             base["actor_label"] = np.where(
@@ -4533,7 +4842,7 @@ with tab_comp:
             agg["budget_str"] = agg["amount_eur"].apply(lambda v: fmt_money(float(v), lang))
 
             if agg.empty:
-                st.info(t(lang, "no_data"))
+                render_guided_empty_state(lang, "benchmark_empty_hint")
             else:
                 fig_tree = px.treemap(
                     agg,
@@ -4566,7 +4875,7 @@ with tab_comp:
     else:
         st.subheader(t(lang, "bm_top"))
         if m2.empty:
-            st.info(t(lang, "no_data"))
+            render_guided_empty_state(lang, "benchmark_empty_hint")
         else:
             bm_table = m2.copy().reset_index(drop=True)
             bm_table["rank"] = np.arange(1, len(bm_table) + 1)
@@ -5404,20 +5713,20 @@ with tab_value_chain:
     st.caption(t(lang, "adv_value_chain_helper"))
 
     st.markdown("#### " + ("Étapes et acteurs (budget -> acteurs)" if lang == "FR" else "Stages and actors (budget -> actors)"))
-    try:
-        vc_dim = fetch_df(f"""
-        SELECT theme, value_chain_stage, SUM(amount_eur) AS budget_eur
-        FROM {R}
-        WHERE {W}
-        GROUP BY theme, value_chain_stage
-        ORDER BY budget_eur DESC
-        """)
-    except Exception:
-        st.error(t(lang, "vc_query_error"))
-        vc_dim = pd.DataFrame(columns=["theme", "value_chain_stage", "budget_eur"])
+    vc_dim = safe_fetch_df(f"""
+    SELECT theme, value_chain_stage, SUM(amount_eur) AS budget_eur
+    FROM {R}
+    WHERE {W}
+    GROUP BY theme, value_chain_stage
+    ORDER BY budget_eur DESC
+    """, columns=["theme", "value_chain_stage", "budget_eur"], lang=lang, warning_key="value_chain_view_unavailable")
 
     if vc_dim.empty:
-        st.info(t(lang, "missing_stage_col") if "value_chain_stage" not in set(base_schema_columns()) else t(lang, "no_data"))
+        if "value_chain_stage" not in set(base_schema_columns()):
+            st.info(t(lang, "missing_stage_col"))
+            st.caption(t(lang, "value_chain_empty_hint"))
+        else:
+            render_guided_empty_state(lang, "value_chain_empty_hint")
     else:
         top_themes = (
             vc_dim.groupby("theme", as_index=False)["budget_eur"]
@@ -5442,7 +5751,7 @@ with tab_value_chain:
                 "Top acteurs" if lang == "FR" else "Top actors",
                 8,
                 50,
-                20,
+                12,
                 1,
             )
         include_unspecified = st.checkbox(t(lang, "include_unspecified"), value=False, key="vc_include_unspecified")
@@ -5460,12 +5769,12 @@ with tab_value_chain:
             """, columns=["value_chain_stage", "actor_id", "actor_label", "budget_eur"], lang=lang, warning_key="value_chain_view_unavailable")
 
             if vc.empty:
-                st.info(t(lang, "no_data"))
+                render_guided_empty_state(lang, "value_chain_empty_hint")
             else:
                 if (not include_unspecified) and (vc["value_chain_stage"].astype(str) != "Unspecified").any():
                     vc = vc[vc["value_chain_stage"].astype(str) != "Unspecified"].copy()
                 if vc.empty:
-                    st.info(t(lang, "no_data"))
+                    render_guided_empty_state(lang, "value_chain_empty_hint")
                 else:
                     all_stages = vc["value_chain_stage"].astype(str).unique().tolist()
                     stage_options = [s for s in VALUE_CHAIN_ORDER if s in all_stages] + sorted([s for s in all_stages if s not in VALUE_CHAIN_ORDER])
@@ -5486,12 +5795,12 @@ with tab_value_chain:
                             default=stage_options,
                         )
                     if not picked_stages:
-                        st.info(t(lang, "no_data"))
+                        render_guided_empty_state(lang, "value_chain_empty_hint")
                         st.divider()
                     else:
                         vc = vc[vc["value_chain_stage"].astype(str).isin([str(x) for x in picked_stages])].copy()
                         if vc.empty:
-                            st.info(t(lang, "no_data"))
+                            render_guided_empty_state(lang, "value_chain_empty_hint")
                             st.divider()
                         else:
                             vc_base = vc.copy()
@@ -5539,7 +5848,7 @@ with tab_value_chain:
                             )
                             stage_only = vc_base[vc_base["value_chain_stage"].astype(str) == str(stage_focus)].copy()
                             if stage_only.empty:
-                                st.info(t(lang, "no_data"))
+                                render_guided_empty_state(lang, "value_chain_empty_hint")
                             else:
                                 stage_rank = (
                                     stage_only.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
@@ -5550,7 +5859,7 @@ with tab_value_chain:
                                     t(lang, "vc_top_actors_stage"),
                                     5,
                                     40,
-                                    15,
+                                    10,
                                     1,
                                     key="vc_top_stage_slider",
                                 )
@@ -5617,7 +5926,7 @@ with tab_value_chain:
                                     """)
                                 st.markdown("##### " + t(lang, "vc_projects_focus"))
                                 if proj_focus.empty:
-                                    st.info(t(lang, "no_data"))
+                                    render_guided_empty_state(lang, "value_chain_empty_hint")
                                 else:
                                     proj_focus["budget"] = proj_focus["budget_eur"].map(lambda x: fmt_money(float(x), lang))
                                     st.dataframe(
@@ -5652,7 +5961,7 @@ with tab_value_chain:
                                     vc_view = vc_view[vc_view["value_chain_stage"].astype(str) == str(stage_highlight)].copy()
 
                                 if vc_view.empty:
-                                    st.info(t(lang, "no_data"))
+                                    render_guided_empty_state(lang, "value_chain_empty_hint")
                                     vc_view = vc_base.copy()
 
                                 rank_actors = (
@@ -5697,7 +6006,7 @@ with tab_value_chain:
                                 if (actor_highlight != actor_all_label) and vc_isolate_actor:
                                     vc_view = vc_view[vc_view["actor_label"].astype(str) == str(actor_highlight)].copy()
                                     if vc_view.empty:
-                                        st.info(t(lang, "no_data"))
+                                        render_guided_empty_state(lang, "value_chain_empty_hint")
                                         vc_view = vc_base.copy()
                                     rank_actors = (
                                         vc_view.groupby(["actor_id", "actor_label"], as_index=False)["budget_eur"]
@@ -5817,7 +6126,11 @@ with tab_value_chain:
                                     render_plotly_chart(fig_sankey, use_container_width=True)
                                     st.caption(t(lang, "vc_click_unavailable"))
         else:
-            st.info("Sélectionne au moins une thématique." if lang == "FR" else "Select at least one theme.")
+            render_guided_message(
+                lang,
+                "Sélectionne au moins une thématique." if lang == "FR" else "Select at least one theme.",
+                "value_chain_empty_hint",
+            )
 
 # ============================================================
 # TAB ADVANCED COLLABORATION (DuckDB)
@@ -5825,7 +6138,7 @@ with tab_value_chain:
 with tab_collaboration:
     render_section_header("⟡", t(lang, "sub_collaboration"), t(lang, "net_default_caption"), t(lang, "tab_advanced"))
     st.caption(t(lang, "adv_collaboration_helper"))
-    actor_rank = fetch_df(f"""
+    actor_rank = safe_fetch_df(f"""
     SELECT
       actor_id,
       COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
@@ -5836,10 +6149,10 @@ with tab_collaboration:
     GROUP BY actor_id, actor_label
     ORDER BY budget_eur DESC
     LIMIT 400
-    """)
+    """, columns=["actor_id", "actor_label", "budget_eur", "n_projects"], lang=lang, warning_key="partnership_view_unavailable")
 
     if actor_rank.empty:
-        st.info(t(lang, "no_data"))
+        render_guided_empty_state(lang, "partnership_empty_hint")
     else:
         dup = actor_rank["actor_label"].astype(str).duplicated(keep=False)
         actor_rank["actor_display"] = np.where(
@@ -5860,7 +6173,7 @@ with tab_collaboration:
                 t(lang, "net_top_partners"),
                 5,
                 40,
-                16,
+                10,
                 1,
             )
 
@@ -5869,7 +6182,7 @@ with tab_collaboration:
         focal_sql_list = in_list([focal_id_raw])
         focal_label = str(focal_row["actor_label"])
 
-        partners = fetch_df(f"""
+        partners = safe_fetch_df(f"""
         WITH part AS (
           SELECT
             projectID,
@@ -5894,10 +6207,10 @@ with tab_collaboration:
         GROUP BY p.actor_id, p.actor_label
         ORDER BY shared_projects DESC, partner_budget DESC
         LIMIT {int(net_top)}
-        """)
+        """, columns=["actor_id", "actor_label", "shared_projects", "partner_budget"], lang=lang, warning_key="partnership_view_unavailable")
 
         if partners.empty:
-            st.info("Aucun partenaire dans le périmètre." if lang == "FR" else "No partners in scope.")
+            render_guided_message(lang, t(lang, "net_no_partners"), "partnership_empty_hint")
         else:
             dup_p = partners["actor_label"].astype(str).duplicated(keep=False)
             partners["partner_display"] = np.where(
@@ -6045,7 +6358,7 @@ with tab_collaboration:
 with tab_concentration:
     render_section_header("◔", t(lang, "concentration_title"), t(lang, "concentration_caption"), t(lang, "tab_advanced"))
     st.caption(t(lang, "adv_concentration_helper"))
-    conc = fetch_df(f"""
+    conc = safe_fetch_df(f"""
     SELECT
       COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
       actor_id,
@@ -6054,10 +6367,10 @@ with tab_concentration:
     WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
     GROUP BY actor_label, actor_id
     ORDER BY b DESC
-    LIMIT 25
-    """)
+    LIMIT 15
+    """, columns=["actor_label", "actor_id", "b"], lang=lang, warning_key="concentration_view_unavailable")
     if conc.empty or float(conc["b"].sum()) <= 0:
-        st.info(t(lang, "no_data"))
+        render_guided_empty_state(lang, "concentration_empty_hint")
     else:
         conc = conc.copy()
         conc["actor_label"] = conc["actor_label"].astype(str).str.slice(0, 32)
