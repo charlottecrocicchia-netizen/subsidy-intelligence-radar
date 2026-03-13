@@ -318,9 +318,9 @@ st.markdown(
   }
 
   div[data-baseweb="tag"] {
-    background: rgba(22, 32, 51, 0.92) !important;
-    border: 1px solid rgba(79, 124, 172, 0.36) !important;
-    color: var(--sir-text-secondary) !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(34, 211, 238, 0.12)) !important;
+    border: 1px solid rgba(91, 192, 235, 0.34) !important;
+    color: var(--sir-text) !important;
     border-radius: 10px !important;
     box-shadow: none !important;
   }
@@ -328,8 +328,8 @@ st.markdown(
   div[data-baseweb="tag"] span,
   div[data-baseweb="tag"] svg,
   div[data-baseweb="tag"] path {
-    color: var(--sir-text-secondary) !important;
-    fill: var(--sir-text-muted) !important;
+    color: var(--sir-text) !important;
+    fill: rgba(208, 216, 228, 0.86) !important;
   }
 
   .stRadio > div,
@@ -564,8 +564,8 @@ st.markdown(
     align-items: center;
     padding: 5px 9px;
     border-radius: 10px;
-    background: rgba(22, 32, 51, 0.88);
-    border: 1px solid rgba(79, 124, 172, 0.28);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(20, 184, 166, 0.10));
+    border: 1px solid rgba(91, 192, 235, 0.26);
     color: var(--sir-text-secondary);
     font-size: 0.84rem;
     font-weight: 550;
@@ -1904,8 +1904,11 @@ def queue_tab_navigation(top_target: str = "", actor_sub_target: str = "") -> No
 
 
 def sync_results_table_state(scope_token: str) -> None:
-    st.session_state.setdefault("results_table_rows_per_page", 100)
-    st.session_state.setdefault("results_table_page", 1)
+    allowed_rows = [25, 50, 100, 250]
+    if st.session_state.get("results_table_rows_per_page") not in allowed_rows:
+        st.session_state["results_table_rows_per_page"] = 100
+    if int(st.session_state.get("results_table_page", 1)) < 1:
+        st.session_state["results_table_page"] = 1
     if st.session_state.get("results_table_scope_token") != str(scope_token):
         st.session_state["results_table_scope_token"] = str(scope_token)
         st.session_state["results_table_page"] = 1
@@ -2996,7 +2999,6 @@ with tab_results:
                     rows_per_page = st.selectbox(
                         t(lang, "rows_per_page"),
                         [25, 50, 100, 250],
-                        index=[25, 50, 100, 250].index(int(st.session_state.get("results_table_rows_per_page", 100))),
                         key="results_table_rows_per_page",
                     )
                 max_page = max(1, (int(total_matches) + int(rows_per_page) - 1) // int(rows_per_page))
@@ -3007,7 +3009,6 @@ with tab_results:
                         t(lang, "page"),
                         min_value=1,
                         max_value=max_page,
-                        value=int(st.session_state.get("results_table_page", 1)),
                         step=1,
                         key="results_table_page",
                     )
