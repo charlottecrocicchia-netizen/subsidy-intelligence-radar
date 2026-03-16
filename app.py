@@ -1183,9 +1183,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "refresh": "Rafraîchir les données",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
         "filters": "Filtres",
-        "basic_filters": "Filtres principaux",
-        "advanced_filters": "Plus de filtres",
-        "analysis_options": "Options d'analyse",
+        "basic_filters": "Filtres métier",
+        "advanced_filters": "Plus de filtres métier",
+        "analysis_options": "Comportement d'analyse",
         "sources": "Sources",
         "onetech_only": "Limiter au périmètre OneTech",
         "programmes": "Programmes",
@@ -1201,7 +1201,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "countries": "Pays",
         "quick_search": "Recherche rapide",
         "quick_search_hint": "Recherche dans acteur, projet, acronyme ou titre",
-        "main_search_support": "Recherche libre dans les projets et acteurs. Pour le pays, la période ou le programme, utilise les filtres.",
+        "main_search_support": "Recherche libre dans les projets et acteurs. Utilise ensuite les filtres pour préciser pays, période et programme.",
+        "main_search_examples": "Exemples : « hydrogène en Allemagne depuis 2021 », « principaux acteurs IA en France », « compare les batteries entre France et Allemagne ».",
         "search_simplified_notice": "La recherche a été simplifiée pour éviter une erreur. Essaie un mot-clé simple puis affine avec les filtres.",
         "search_ignored_notice": "La recherche n’a pas pu être appliquée avec cette saisie. Les filtres sont conservés ; essaie un mot-clé plus simple.",
         "view_recover_hint": "Essaie une recherche plus simple ou ajuste les filtres. Les autres vues restent disponibles.",
@@ -1327,7 +1328,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_caption": "Comparaison en **% du budget total** de chaque période, Δ en **points de %**.",
         "actor_profile": "Fiche acteur",
         "actor_group_mode_caption": "Vue groupe active: les fiches et graphes peuvent agréger plusieurs entités juridiques via mapping ou PIC.",
-        "actor_profile_caption": "Sélectionne un acteur puis lis rapidement son profil, ses partenaires et ses pairs dans le périmètre actif.",
+        "actor_profile_caption": "Choisis un acteur, puis commence par son profil, son évolution et ses projets avant d’ouvrir les lectures plus expertes.",
         "actor_opened_from_results": "Ouvert depuis un projet sélectionné dans Résultats.",
         "actor_trend": "Évolution (budget & projets)",
         "actor_mix_theme": "Mix thématique",
@@ -1361,28 +1362,35 @@ I18N: Dict[str, Dict[str, str]] = {
         "admin_title": "Support & méthode",
         "admin_caption": "Exports, qualité, diagnostic et documentation interne. Cette zone n’est pas nécessaire pour l’exploration standard.",
         "sub_results": "Résultats",
-        "sub_overview": "Contexte rapide",
-        "overview_caption": "Synthèse d’appoint : commence par Résultats pour répondre à la question, puis utilise cette page pour un résumé compact du périmètre.",
-        "overview_support_note": "Cette page sert de synthèse compacte. Pour explorer, comparer et filtrer en priorité, reste dans Résultats.",
+        "sub_overview": "Synthèse d’appui",
+        "overview_caption": "Lecture secondaire : commence par Résultats pour répondre à la question, puis utilise cette page pour un résumé compact du périmètre.",
+        "overview_support_note": "Cette page sert de synthèse d’appui. Pour la lecture principale, les comparaisons et la table de preuve, reste d’abord dans Résultats.",
+        "overview_more_context": "Plus de contexte",
         "overview_yearly_extra": "Complément annuel : budgets et ticket médian",
         "sub_benchmark": "Comparer les acteurs",
         "sub_network": "Chaîne & réseau",
         "sub_value_chain": "Étapes et acteurs",
         "sub_collaboration": "Partenariats",
         "sub_concentration": "Concentration du financement",
-        "sub_data": "Données",
-        "sub_quality": "Qualité",
-        "sub_debug": "Diagnostic",
+        "sub_data": "Exports & données",
+        "sub_quality": "Qualité & méthode",
+        "sub_debug": "Diagnostic technique",
         "advanced_title": "Analyse avancée",
-        "advanced_caption": "Vues expertes pour benchmark, chaîne de valeur, collaborations et concentration. Les surfaces par défaut restent dans Recherche, Acteurs et Géographie.",
+        "advanced_caption": "Vues expertes pour aller plus loin après la lecture principale. Commence d’abord par Recherche, Acteurs, Géographie ou Tendances.",
+        "advanced_overview_title": "Quand ouvrir l’analyse avancée",
+        "advanced_overview_1": "Comparer les acteurs quand un classement simple ne suffit plus",
+        "advanced_overview_2": "Voir les étapes et acteurs pour lire une chaîne de valeur",
+        "advanced_overview_3": "Explorer les partenariats autour d’un acteur focal",
+        "advanced_overview_4": "Mesurer si le financement est réparti ou concentré",
+        "advanced_overview_tip": "Commence par les tableaux et classements ci-dessous ; les graphes experts restent un second niveau de lecture.",
         "adv_benchmark_helper": "Repère rapidement quels acteurs dominent le périmètre, puis ouvre les vues expertes si besoin.",
         "adv_value_chain_helper": "Vois à quelle étape interviennent les acteurs et quels projets sont liés à chaque étape.",
         "adv_collaboration_helper": "Identifie les partenaires clés d’un acteur avant d’ouvrir la carte réseau.",
         "adv_concentration_helper": "Vois si le financement est réparti entre beaucoup d’acteurs ou concentré sur quelques-uns.",
-        "debug_title": "Diagnostic & technique",
+        "debug_title": "Diagnostic technique",
         "debug_caption": "Surfaces techniques déplacées hors de la sidebar pour garder l'exploration lisible.",
         "results_title": "Résultats du périmètre",
-        "results_caption": "Une requête, plusieurs lectures du même périmètre.",
+        "results_caption": "Commence ici : définis une question, lis la réponse, puis ouvre les autres lectures seulement si besoin.",
         "results_view": "Vue principale",
         "results_table": "Table projets",
         "results_trend": "Tendance",
@@ -1415,7 +1423,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_next_trends": "Voir les tendances",
         "results_other_views": "Autres lectures du périmètre",
         "results_projects_table": "Projets trouvés",
+        "results_projects_table_caption": "Cette table est la preuve du périmètre courant : elle montre les projets derrière la réponse et le graphique principal.",
         "results_actor_table": "Acteurs dominants",
+        "results_other_views_caption": "Ces lectures restent utiles, mais elles complètent la lecture principale plutôt qu’elles ne la remplacent.",
         "results_budget_year": "Budget par année",
         "results_projects_year": "Projets par année",
         "results_country_rank": "Classement pays",
@@ -1435,8 +1445,25 @@ I18N: Dict[str, Dict[str, str]] = {
         "last_update": "Dernière MAJ",
         "last_update_data": "Données",
         "last_update_events": "Événements",
-        "macro_title": "Macro & actualités — analyse approfondie",
-        "macro_subtitle": "Onglet indépendant : filtres macro internes (ne dépend pas de la sidebar).",
+        "macro_title": "Macro & actualités — lecture de contexte",
+        "macro_subtitle": "Commence par les tendances, puis utilise cette vue pour ajouter du contexte événementiel si utile.",
+        "trends_title": "Tendances du périmètre",
+        "trends_caption": "Lis d’abord l’évolution annuelle et les principaux moteurs. Les réglages plus denses restent secondaires.",
+        "trends_summary_title": "En bref",
+        "trends_summary_abs": "Le périmètre est surtout porté par {dim} sur la période sélectionnée.",
+        "trends_summary_share": "{dim} représente la plus grande part du budget sur la période sélectionnée.",
+        "trends_empty_hint": "Essaie d’élargir la période, de sélectionner moins de séries, ou reviens à la vue Résultats.",
+        "compare_intro": "Compare deux périodes pour voir quels thèmes ou programmes gagnent ou perdent en poids relatif.",
+        "geo_primary_reading": "La carte sert de repère. Utilise surtout le classement pour comparer précisément les pays dans le périmètre courant.",
+        "geo_rank_table": "Classement pays",
+        "actor_answer_title": "En bref",
+        "actor_top_projects": "Projets principaux",
+        "actor_empty_hint": "Essaie d’élargir le périmètre, ou ouvre d’abord Résultats pour repartir d’une sélection plus large.",
+        "support_overview_title": "À quoi sert cette zone",
+        "support_overview_1": "Exporter les données du périmètre courant",
+        "support_overview_2": "Vérifier qualité, couverture et méthode",
+        "support_overview_3": "Ouvrir les diagnostics techniques si besoin",
+        "support_overview_tip": "Cette zone reste utile pour l’exploitation interne, mais elle n’est pas nécessaire pour répondre à une question métier courante.",
         "macro_match": "Correspondance des événements",
         "macro_match_theme": "Par thématique (theme)",
         "macro_match_tag": "Par tag (tag → thématiques)",
@@ -1550,9 +1577,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "refresh": "Refresh data",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
         "filters": "Filters",
-        "basic_filters": "Main filters",
-        "advanced_filters": "More filters",
-        "analysis_options": "Analysis options",
+        "basic_filters": "Business filters",
+        "advanced_filters": "More business filters",
+        "analysis_options": "Analysis behavior",
         "sources": "Sources",
         "onetech_only": "Restrict to OneTech scope",
         "programmes": "Programmes",
@@ -1568,7 +1595,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "countries": "Countries",
         "quick_search": "Quick search",
         "quick_search_hint": "Search actor, project, acronym or title",
-        "main_search_support": "Free-text search across projects and actors. Use filters for country, time period, or programme.",
+        "main_search_support": "Free-text search across projects and actors. Then use filters to narrow country, time period, and programme.",
+        "main_search_examples": "Examples: “hydrogen in Germany since 2021”, “top AI actors in France”, “compare batteries across France and Germany”.",
         "search_simplified_notice": "Search was simplified to avoid an error. Try a simpler keyword, then refine with filters.",
         "search_ignored_notice": "Search could not be applied safely for this input. Filters are still active; try a simpler keyword.",
         "view_recover_hint": "Try a simpler search or adjust the filters. Other views remain available.",
@@ -1694,7 +1722,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_caption": "Comparison as **% of total budget** in each period, Δ in **percentage points**.",
         "actor_profile": "Actor profile",
         "actor_group_mode_caption": "Group view is active: profiles and charts may aggregate several legal entities through mapping or PIC.",
-        "actor_profile_caption": "Pick an actor, then read their profile, partners, and peers within the active scope.",
+        "actor_profile_caption": "Pick an actor, then start with their profile, evolution, and projects before opening deeper expert reads.",
         "actor_opened_from_results": "Opened from a selected project in Results.",
         "actor_trend": "Trend (budget & projects)",
         "actor_mix_theme": "Theme mix",
@@ -1728,28 +1756,35 @@ I18N: Dict[str, Dict[str, str]] = {
         "admin_title": "Support & method",
         "admin_caption": "Exports, quality checks, diagnostics, and internal documentation. This area is not required for standard exploration.",
         "sub_results": "Results",
-        "sub_overview": "Context summary",
-        "overview_caption": "Supporting summary: start with Results to answer the question, then use this page for a compact scope readout.",
-        "overview_support_note": "This page is a compact supporting summary. For primary exploration, comparisons, and filtering, stay in Results.",
+        "sub_overview": "Support summary",
+        "overview_caption": "Secondary read: start with Results to answer the question, then use this page for a compact scope summary.",
+        "overview_support_note": "This page is a supporting summary. For the main reading flow, comparisons, and the evidence table, start with Results.",
+        "overview_more_context": "More context",
         "overview_yearly_extra": "Yearly add-on: budgets and median ticket",
         "sub_benchmark": "Compare actors",
         "sub_network": "Value chain & network",
         "sub_value_chain": "Stages and actors",
         "sub_collaboration": "Partnerships",
         "sub_concentration": "Funding concentration",
-        "sub_data": "Data",
-        "sub_quality": "Quality",
-        "sub_debug": "Diagnostic",
+        "sub_data": "Exports & data",
+        "sub_quality": "Quality & method",
+        "sub_debug": "Technical diagnostics",
         "advanced_title": "Advanced analysis",
-        "advanced_caption": "Expert views for benchmark, value chain, collaboration, and concentration. Default user flows stay in Search, Actors, and Geography.",
+        "advanced_caption": "Expert views for going deeper after the main reading flow. Start with Search, Actors, Geography, or Trends first.",
+        "advanced_overview_title": "When to open advanced analysis",
+        "advanced_overview_1": "Compare actors when a simple ranking is no longer enough",
+        "advanced_overview_2": "Read stages and actors to understand a value chain",
+        "advanced_overview_3": "Explore partnerships around a focal actor",
+        "advanced_overview_4": "Measure whether funding is spread or concentrated",
+        "advanced_overview_tip": "Start with the rankings and tables below; expert charts remain a second layer of reading.",
         "adv_benchmark_helper": "Use this to spot the leading actors in the current scope before opening the expert charts.",
         "adv_value_chain_helper": "Use this to see which actors are active at each stage and which projects sit behind them.",
         "adv_collaboration_helper": "Use this to identify an actor’s key partners before opening the network map.",
         "adv_concentration_helper": "Use this to see whether funding is spread across many actors or concentrated in a few.",
-        "debug_title": "Diagnostic & technique",
+        "debug_title": "Technical diagnostics",
         "debug_caption": "Technical surfaces moved out of the sidebar to keep exploration readable.",
         "results_title": "Results in scope",
-        "results_caption": "One query, several readings of the same scope.",
+        "results_caption": "Start here: define the question, read the answer, then open other readings only if needed.",
         "results_view": "Primary view",
         "results_table": "Project table",
         "results_trend": "Trend",
@@ -1782,7 +1817,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_next_trends": "Open trends",
         "results_other_views": "Other ways to read this scope",
         "results_projects_table": "Matching projects",
+        "results_projects_table_caption": "This table is the evidence layer for the current scope: it shows the projects behind the answer and the main chart.",
         "results_actor_table": "Leading actors",
+        "results_other_views_caption": "These views remain useful, but they complement the primary reading instead of replacing it.",
         "results_budget_year": "Budget by year",
         "results_projects_year": "Projects by year",
         "results_country_rank": "Country ranking",
@@ -1802,8 +1839,25 @@ I18N: Dict[str, Dict[str, str]] = {
         "last_update": "Last update",
         "last_update_data": "Data",
         "last_update_events": "Events",
-        "macro_title": "Macro & news — deep dive",
-        "macro_subtitle": "Independent tab: internal macro filters (does not depend on the sidebar).",
+        "macro_title": "Macro & news — context read",
+        "macro_subtitle": "Start with trends, then use this view to add event context when useful.",
+        "trends_title": "Scope trends",
+        "trends_caption": "Start with annual evolution and key drivers. Denser controls stay secondary.",
+        "trends_summary_title": "In brief",
+        "trends_summary_abs": "The current scope is mainly driven by {dim} over the selected period.",
+        "trends_summary_share": "{dim} holds the largest share of funding over the selected period.",
+        "trends_empty_hint": "Try widening the time range, selecting fewer series, or go back to Results.",
+        "compare_intro": "Compare two periods to see which themes or programmes gain or lose relative weight.",
+        "geo_primary_reading": "Use the map as orientation. Use the ranking to compare countries precisely within the current scope.",
+        "geo_rank_table": "Country ranking",
+        "actor_answer_title": "In brief",
+        "actor_top_projects": "Top projects",
+        "actor_empty_hint": "Try widening the scope, or start from Results to rebuild a broader selection.",
+        "support_overview_title": "What this area is for",
+        "support_overview_1": "Export data from the current scope",
+        "support_overview_2": "Check quality, coverage, and method",
+        "support_overview_3": "Open technical diagnostics when needed",
+        "support_overview_tip": "This area remains useful for internal operations, but it is not needed for a standard business question.",
         "macro_match": "Event matching",
         "macro_match_theme": "By theme (theme)",
         "macro_match_tag": "By tag (tag → themes)",
@@ -3212,6 +3266,7 @@ with search_c2:
     st.write("")
     st.button(t(lang, "clear_search"), key="clear_search_btn", width="stretch", on_click=clear_search)
 st.caption(t(lang, "main_search_support"))
+st.caption(t(lang, "main_search_examples"))
 render_active_filter_chips(meta, lang)
 
 
@@ -3239,6 +3294,10 @@ with st.sidebar:
             format_func=lambda x: theme_raw_to_display(str(x), lang),
         )
         st.session_state["f_countries"] = st.multiselect(t(lang, "countries"), meta["countries"], default=ctry_default or ctry_fallback)
+        st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
+
+    with st.expander(t(lang, "advanced_filters"), expanded=False):
+        st.session_state["f_sources"] = st.multiselect(t(lang, "sources"), meta["sources"], default=src_default or meta["sources"])
         entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
         st.session_state["f_entity_raw"] = st.multiselect(
             t(lang, "entity"),
@@ -3246,16 +3305,13 @@ with st.sidebar:
             default=entities_default or meta["entities"],
             format_func=lambda x: entity_raw_to_display(str(x), lang),
         )
-
-    with st.expander(t(lang, "advanced_filters"), expanded=False):
-        st.session_state["f_sources"] = st.multiselect(t(lang, "sources"), meta["sources"], default=src_default or meta["sources"])
-        st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
         st.session_state["f_statuses"] = st.multiselect(
             t(lang, "project_status"),
             meta["statuses"],
             default=status_default or meta["statuses"],
             format_func=lambda x: status_raw_to_display(str(x), lang),
         )
+    with st.expander(t(lang, "analysis_options"), expanded=False):
         st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
         st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
@@ -3374,6 +3430,19 @@ with tab_trends_events:
 with tab_advanced:
     st.markdown(f"### {t(lang, 'advanced_title')}")
     st.caption(t(lang, "advanced_caption"))
+    with st.container(border=True):
+        st.markdown("**" + t(lang, "advanced_overview_title") + "**")
+        st.markdown(
+            "\n".join(
+                [
+                    f"- {t(lang, 'advanced_overview_1')}",
+                    f"- {t(lang, 'advanced_overview_2')}",
+                    f"- {t(lang, 'advanced_overview_3')}",
+                    f"- {t(lang, 'advanced_overview_4')}",
+                ]
+            )
+        )
+        st.caption(t(lang, "advanced_overview_tip"))
     tab_comp, tab_value_chain, tab_collaboration, tab_concentration = st.tabs(
         [
             t(lang, "sub_benchmark"),
@@ -3385,6 +3454,18 @@ with tab_advanced:
 
 with tab_admin:
     render_section_header("⋯", t(lang, "admin_title"), t(lang, "admin_caption"), t(lang, "tab_admin"))
+    with st.container(border=True):
+        st.markdown("**" + t(lang, "support_overview_title") + "**")
+        st.markdown(
+            "\n".join(
+                [
+                    f"- {t(lang, 'support_overview_1')}",
+                    f"- {t(lang, 'support_overview_2')}",
+                    f"- {t(lang, 'support_overview_3')}",
+                ]
+            )
+        )
+        st.caption(t(lang, "support_overview_tip"))
     tab_data, tab_quality, tab_debug = st.tabs([t(lang, "sub_data"), t(lang, "sub_quality"), t(lang, "sub_debug")])
     tab_docs = st.container()
 
@@ -3590,6 +3671,7 @@ with tab_results:
             results_projects["budget_eur"] = results_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
 
             st.markdown("#### " + t(lang, "results_projects_table"))
+            st.caption(t(lang, "results_projects_table_caption"))
             results_view_token = f"{results_scope_token}||page={int(page)}||rpp={int(rows_per_page)}"
             if st.session_state.get("results_selected_project_view_token") != results_view_token:
                 st.session_state["results_selected_project_view_token"] = results_view_token
@@ -3839,6 +3921,7 @@ with tab_results:
                     st.rerun()
 
             st.divider()
+            st.caption(t(lang, "results_other_views_caption"))
             results_view = st.radio(
                 t(lang, "results_other_views"),
                 [
@@ -4091,203 +4174,203 @@ with tab_overview:
         )
         fig_alloc.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
         render_plotly_chart(fig_alloc, use_container_width=True)
-
-    status_mix = fetch_df(f"""
-    SELECT
-      project_status,
-      SUM(amount_eur) AS budget_eur,
-      COUNT(DISTINCT projectID) AS n_projects
-    FROM {R}
-    WHERE {W}
-    GROUP BY project_status
-    ORDER BY budget_eur DESC
-    """)
-    if not status_mix.empty:
-        status_mix["status_display"] = status_mix["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
-        s1, s2 = st.columns(2)
-        with s1:
-            st.markdown("#### " + t(lang, "status_budget_title"))
-            fig_status_budget = px.bar(
-                status_mix.iloc[::-1],
-                x="budget_eur",
-                y="status_display",
-                orientation="h",
-                color="budget_eur",
-                color_continuous_scale=R2G,
-                height=260,
-                labels={"budget_eur": "Budget (€)", "status_display": ""},
-            )
-            fig_status_budget.update_layout(coloraxis_showscale=False, yaxis_title=None)
-            render_plotly_chart(fig_status_budget, use_container_width=True)
-        with s2:
-            st.markdown("#### " + t(lang, "status_projects_title"))
-            fig_status_projects = px.bar(
-                status_mix.iloc[::-1],
-                x="n_projects",
-                y="status_display",
-                orientation="h",
-                color="n_projects",
-                color_continuous_scale=R2G,
-                height=260,
-                labels={"n_projects": t(lang, "n_projects"), "status_display": ""},
-            )
-            fig_status_projects.update_layout(coloraxis_showscale=False, yaxis_title=None)
-            render_plotly_chart(fig_status_projects, use_container_width=True)
-
-    st.divider()
-    st.markdown("#### " + t(lang, "insights_title"))
-    insights: List[str] = []
-    try:
-        top_theme = fetch_df(f"""
-        SELECT theme, SUM(amount_eur) AS b
+    with st.expander(t(lang, "overview_more_context"), expanded=False):
+        status_mix = fetch_df(f"""
+        SELECT
+          project_status,
+          SUM(amount_eur) AS budget_eur,
+          COUNT(DISTINCT projectID) AS n_projects
         FROM {R}
         WHERE {W}
-        GROUP BY theme
-        ORDER BY b DESC
-        LIMIT 1
+        GROUP BY project_status
+        ORDER BY budget_eur DESC
         """)
-        if not top_theme.empty:
-            th = theme_raw_to_display(str(top_theme["theme"].iloc[0]), lang)
-            insights.append(
-                (
-                    f"Thème leader: **{th}** ({fmt_money(float(top_theme['b'].iloc[0]), lang)})."
-                    if lang == "FR"
-                    else f"Leading theme: **{th}** ({fmt_money(float(top_theme['b'].iloc[0]), lang)})."
+        if not status_mix.empty:
+            status_mix["status_display"] = status_mix["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
+            s1, s2 = st.columns(2)
+            with s1:
+                st.markdown("#### " + t(lang, "status_budget_title"))
+                fig_status_budget = px.bar(
+                    status_mix.iloc[::-1],
+                    x="budget_eur",
+                    y="status_display",
+                    orientation="h",
+                    color="budget_eur",
+                    color_continuous_scale=R2G,
+                    height=260,
+                    labels={"budget_eur": "Budget (€)", "status_display": ""},
                 )
-            )
-    except Exception:
-        pass
-    try:
-        top_actor = fetch_df(f"""
-        SELECT COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label, SUM(amount_eur) AS b
-        FROM {R}
-        WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
-        GROUP BY actor_label
-        ORDER BY b DESC
-        LIMIT 1
-        """)
-        if not top_actor.empty:
-            insights.append(
-                (
-                    f"Acteur principal: **{str(top_actor['actor_label'].iloc[0])[:64]}** ({fmt_money(float(top_actor['b'].iloc[0]), lang)})."
-                    if lang == "FR"
-                    else f"Top actor: **{str(top_actor['actor_label'].iloc[0])[:64]}** ({fmt_money(float(top_actor['b'].iloc[0]), lang)})."
+                fig_status_budget.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                render_plotly_chart(fig_status_budget, use_container_width=True)
+            with s2:
+                st.markdown("#### " + t(lang, "status_projects_title"))
+                fig_status_projects = px.bar(
+                    status_mix.iloc[::-1],
+                    x="n_projects",
+                    y="status_display",
+                    orientation="h",
+                    color="n_projects",
+                    color_continuous_scale=R2G,
+                    height=260,
+                    labels={"n_projects": t(lang, "n_projects"), "status_display": ""},
                 )
-            )
-    except Exception:
-        pass
-    try:
-        yoy = fetch_df(f"""
-        WITH y AS (
-          SELECT year, SUM(amount_eur) AS b
-          FROM {R}
-          WHERE {W}
-          GROUP BY year
-        ),
-        z AS (
-          SELECT year, b, LAG(b) OVER (ORDER BY year) AS prev_b
-          FROM y
-        )
-        SELECT year, b, prev_b
-        FROM z
-        WHERE prev_b IS NOT NULL
-        ORDER BY year DESC
-        LIMIT 1
-        """)
-        if not yoy.empty:
-            curr = float(yoy["b"].iloc[0] or 0.0)
-            prev = float(yoy["prev_b"].iloc[0] or 0.0)
-            delta = ((curr / prev) - 1.0) * 100.0 if prev > 0 else 0.0
-            insights.append(
-                (
-                    f"Variation annuelle la plus récente: **{delta:+.1f}%**."
-                    if lang == "FR"
-                    else f"Most recent annual change: **{delta:+.1f}%**."
-                )
-            )
-    except Exception:
-        pass
-    if insights:
-        for row in insights:
-            st.markdown(f"- {row}")
-    else:
-        st.caption(t(lang, "no_data"))
+                fig_status_projects.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                render_plotly_chart(fig_status_projects, use_container_width=True)
 
-    st.divider()
-    with st.expander(t(lang, "overview_yearly_extra"), expanded=False):
-        st.markdown("#### " + t(lang, "ticket_shape_title"))
-        tb = fetch_df(f"""
-        SELECT year, projectID, SUM(amount_eur) AS proj_budget
-        FROM {R}
-        WHERE {W}
-        GROUP BY year, projectID
-        HAVING SUM(amount_eur) > 0
-        """)
-        if tb.empty:
-            st.info(t(lang, "no_data"))
+        st.divider()
+        st.markdown("#### " + t(lang, "insights_title"))
+        insights: List[str] = []
+        try:
+            top_theme = fetch_df(f"""
+            SELECT theme, SUM(amount_eur) AS b
+            FROM {R}
+            WHERE {W}
+            GROUP BY theme
+            ORDER BY b DESC
+            LIMIT 1
+            """)
+            if not top_theme.empty:
+                th = theme_raw_to_display(str(top_theme["theme"].iloc[0]), lang)
+                insights.append(
+                    (
+                        f"Thème leader: **{th}** ({fmt_money(float(top_theme['b'].iloc[0]), lang)})."
+                        if lang == "FR"
+                        else f"Leading theme: **{th}** ({fmt_money(float(top_theme['b'].iloc[0]), lang)})."
+                    )
+                )
+        except Exception:
+            pass
+        try:
+            top_actor = fetch_df(f"""
+            SELECT COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label, SUM(amount_eur) AS b
+            FROM {R}
+            WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+            GROUP BY actor_label
+            ORDER BY b DESC
+            LIMIT 1
+            """)
+            if not top_actor.empty:
+                insights.append(
+                    (
+                        f"Acteur principal: **{str(top_actor['actor_label'].iloc[0])[:64]}** ({fmt_money(float(top_actor['b'].iloc[0]), lang)})."
+                        if lang == "FR"
+                        else f"Top actor: **{str(top_actor['actor_label'].iloc[0])[:64]}** ({fmt_money(float(top_actor['b'].iloc[0]), lang)})."
+                    )
+                )
+        except Exception:
+            pass
+        try:
+            yoy = fetch_df(f"""
+            WITH y AS (
+              SELECT year, SUM(amount_eur) AS b
+              FROM {R}
+              WHERE {W}
+              GROUP BY year
+            ),
+            z AS (
+              SELECT year, b, LAG(b) OVER (ORDER BY year) AS prev_b
+              FROM y
+            )
+            SELECT year, b, prev_b
+            FROM z
+            WHERE prev_b IS NOT NULL
+            ORDER BY year DESC
+            LIMIT 1
+            """)
+            if not yoy.empty:
+                curr = float(yoy["b"].iloc[0] or 0.0)
+                prev = float(yoy["prev_b"].iloc[0] or 0.0)
+                delta = ((curr / prev) - 1.0) * 100.0 if prev > 0 else 0.0
+                insights.append(
+                    (
+                        f"Variation annuelle la plus récente: **{delta:+.1f}%**."
+                        if lang == "FR"
+                        else f"Most recent annual change: **{delta:+.1f}%**."
+                    )
+                )
+        except Exception:
+            pass
+        if insights:
+            for row in insights:
+                st.markdown(f"- {row}")
         else:
-            tb["year"] = tb["year"].astype(int)
-            yearly_ticket = (
-                tb.groupby("year", as_index=False)
-                .agg(
-                    total_budget=("proj_budget", "sum"),
-                    median_budget=("proj_budget", "median"),
-                    n_projects=("projectID", "nunique"),
-                )
-                .sort_values("year")
-            )
-            fig_budget = px.bar(
-                yearly_ticket,
-                x="year",
-                y="total_budget",
-                color="total_budget",
-                color_continuous_scale=R2G,
-                height=320,
-                labels={"year": "Year", "total_budget": "Budget (€)"},
-            )
-            fig_budget.update_traces(
-                customdata=np.stack(
-                    [
-                        yearly_ticket["total_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                        yearly_ticket["n_projects"].astype(int).values,
-                    ],
-                    axis=-1,
-                ),
-                hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
-            )
-            fig_budget.update_layout(
-                showlegend=False,
-                coloraxis_showscale=False,
-                margin=dict(l=20, r=20, t=10, b=10),
-            )
-            render_plotly_chart(fig_budget, use_container_width=True)
+            st.caption(t(lang, "no_data"))
 
-            fig_median = px.bar(
-                yearly_ticket,
-                x="year",
-                y="median_budget",
-                color="median_budget",
-                color_continuous_scale=R2G,
-                height=280,
-                labels={"year": "Year", "median_budget": t(lang, "ticket_shape_median") + " (€)"},
-            )
-            fig_median.update_traces(
-                customdata=np.stack(
-                    [
-                        yearly_ticket["median_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
-                        yearly_ticket["n_projects"].astype(int).values,
-                    ],
-                    axis=-1,
-                ),
-                hovertemplate="<b>%{x}</b><br>Median ticket: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
-            )
-            fig_median.update_layout(
-                showlegend=False,
-                coloraxis_showscale=False,
-                margin=dict(l=20, r=20, t=10, b=10),
-            )
-            render_plotly_chart(fig_median, use_container_width=True)
-            st.caption(t(lang, "ticket_shape_caption"))
+        st.divider()
+        with st.expander(t(lang, "overview_yearly_extra"), expanded=False):
+            st.markdown("#### " + t(lang, "ticket_shape_title"))
+            tb = fetch_df(f"""
+            SELECT year, projectID, SUM(amount_eur) AS proj_budget
+            FROM {R}
+            WHERE {W}
+            GROUP BY year, projectID
+            HAVING SUM(amount_eur) > 0
+            """)
+            if tb.empty:
+                st.info(t(lang, "no_data"))
+            else:
+                tb["year"] = tb["year"].astype(int)
+                yearly_ticket = (
+                    tb.groupby("year", as_index=False)
+                    .agg(
+                        total_budget=("proj_budget", "sum"),
+                        median_budget=("proj_budget", "median"),
+                        n_projects=("projectID", "nunique"),
+                    )
+                    .sort_values("year")
+                )
+                fig_budget = px.bar(
+                    yearly_ticket,
+                    x="year",
+                    y="total_budget",
+                    color="total_budget",
+                    color_continuous_scale=R2G,
+                    height=320,
+                    labels={"year": "Year", "total_budget": "Budget (€)"},
+                )
+                fig_budget.update_traces(
+                    customdata=np.stack(
+                        [
+                            yearly_ticket["total_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                            yearly_ticket["n_projects"].astype(int).values,
+                        ],
+                        axis=-1,
+                    ),
+                    hovertemplate="<b>%{x}</b><br>Budget: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+                )
+                fig_budget.update_layout(
+                    showlegend=False,
+                    coloraxis_showscale=False,
+                    margin=dict(l=20, r=20, t=10, b=10),
+                )
+                render_plotly_chart(fig_budget, use_container_width=True)
+
+                fig_median = px.bar(
+                    yearly_ticket,
+                    x="year",
+                    y="median_budget",
+                    color="median_budget",
+                    color_continuous_scale=R2G,
+                    height=280,
+                    labels={"year": "Year", "median_budget": t(lang, "ticket_shape_median") + " (€)"},
+                )
+                fig_median.update_traces(
+                    customdata=np.stack(
+                        [
+                            yearly_ticket["median_budget"].astype(float).apply(lambda x: fmt_money(float(x), lang)).values,
+                            yearly_ticket["n_projects"].astype(int).values,
+                        ],
+                        axis=-1,
+                    ),
+                    hovertemplate="<b>%{x}</b><br>Median ticket: %{customdata[0]}<br>Projects: %{customdata[1]}<extra></extra>",
+                )
+                fig_median.update_layout(
+                    showlegend=False,
+                    coloraxis_showscale=False,
+                    margin=dict(l=20, r=20, t=10, b=10),
+                )
+                render_plotly_chart(fig_median, use_container_width=True)
+                st.caption(t(lang, "ticket_shape_caption"))
 
 
 # ============================================================
@@ -4499,39 +4582,47 @@ with tab_geo:
             plot_bgcolor=PANEL_BG,
             font=dict(color=TEXT_PRIMARY),
         )
-        render_plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
 
-        st.markdown(f"#### {t(lang, 'top_countries')}")
-        top_c = geo_rank.head(15).copy()
-        if top_c.empty:
-            render_guided_empty_state(lang, "geo_empty_hint")
-        else:
-            top_c["country_display"] = np.where(
-                top_c["country_name"].astype(str) == selected_country,
-                "→ " + top_c["country_name"].astype(str),
-                top_c["country_name"].astype(str),
-            )
-            fig_bar = px.bar(
-                top_c,
-                x=color_col,
-                y="country_display",
-                orientation="h",
-                color=color_col,
-                color_continuous_scale=R2G,
-                height=520,
-                labels={color_col: color_title, "country_display": ""},
-            )
-            fig_bar.update_traces(
-                customdata=np.stack([top_c["budget_str"], top_c["per_million_str"]], axis=-1),
-                hovertemplate=(
-                    "<b>%{y}</b>"
-                    "<br>Budget: %{customdata[0]}"
-                    "<br>Budget / M hab.: %{customdata[1]}"
-                    "<extra></extra>"
-                ),
-            )
-            fig_bar.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
-            render_plotly_chart(fig_bar, use_container_width=True)
+        st.caption(t(lang, "geo_primary_reading"))
+        geo_map_col, geo_rank_col = st.columns([1.6, 1.0])
+        with geo_map_col:
+            render_plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
+        with geo_rank_col:
+            st.markdown(f"#### {t(lang, 'geo_rank_table')}")
+            top_c = geo_rank.head(15).copy()
+            if top_c.empty:
+                render_guided_empty_state(lang, "geo_empty_hint")
+            else:
+                total_geo_budget = float(geo["amount_eur"].sum() or 0.0)
+                top_c["country_display"] = np.where(
+                    top_c["country_name"].astype(str) == selected_country,
+                    "→ " + top_c["country_name"].astype(str),
+                    top_c["country_name"].astype(str),
+                )
+                if is_per_million:
+                    top_c["metric_display"] = top_c["amount_per_million"].apply(
+                        lambda v: "—" if pd.isna(v) else f"{float(v):,.0f} € / M".replace(",", " ")
+                    )
+                    metric_label = t(lang, "geo_metric_per_million")
+                else:
+                    top_c["metric_display"] = top_c["amount_eur"].apply(lambda v: fmt_money(float(v), lang))
+                    metric_label = t(lang, "budget_total")
+                top_c["share_display"] = top_c["amount_eur"].apply(
+                    lambda v: fmt_pct(float(v) / total_geo_budget, 1) if total_geo_budget > 0 else "—"
+                )
+                st.dataframe(
+                    top_c[["rank", "country_display", "metric_display", "share_display"]].rename(
+                        columns={
+                            "rank": "#",
+                            "country_display": t(lang, "countries"),
+                            "metric_display": metric_label,
+                            "share_display": t(lang, "geo_scope_share"),
+                        }
+                    ),
+                    use_container_width=True,
+                    height=640,
+                    hide_index=True,
+                )
 
         if selected_country:
             country_sql = in_list([selected_country])
@@ -4688,7 +4779,7 @@ with tab_comp:
         with a:
             pct = st.slider(t(lang, "pct_threshold"), 0, 99, 90)
         with b:
-            topn = st.number_input(t(lang, "topn"), min_value=20, max_value=5000, value=100, step=10)
+            topn = st.number_input(t(lang, "topn"), min_value=20, max_value=5000, value=60, step=10)
         thr = float(np.nanpercentile(m["budget_eur"].astype(float).values, pct)) if len(m) else 0.0
         st.caption(f"≥ {fmt_money(thr, lang)}")
 
@@ -4932,6 +5023,7 @@ with tab_comp:
 # TAB TRENDS (DuckDB)
 # ============================================================
 with tab_trends:
+    render_section_header("↗", t(lang, "trends_title"), t(lang, "trends_caption"), t(lang, "tab_trends_events"))
     dim_choice = st.radio(
         t(lang, "dimension"),
         [t(lang, "dim_theme"), t(lang, "dim_program")],
@@ -4948,15 +5040,15 @@ with tab_trends:
     ORDER BY amount_eur DESC
     """)
     if dim_budget.empty:
-        st.info(t(lang, "no_data"))
+        render_guided_empty_state(lang, "trends_empty_hint")
     else:
         dims_all_raw = [str(x) for x in dim_budget["dim"].tolist() if str(x).strip()]
         dims_all_disp = [theme_raw_to_display(x, lang) if dim_col == "theme" else x for x in dims_all_raw]
-        top_default = dims_all_disp[: min(12, len(dims_all_disp))]
+        top_default = dims_all_disp[: min(8, len(dims_all_disp))]
 
         selected_dims = st.multiselect("Séries" if lang == "FR" else "Series", dims_all_disp, default=top_default)
         if not selected_dims:
-            st.info(t(lang, "no_data"))
+            render_guided_empty_state(lang, "trends_empty_hint")
         else:
             # translate back to raw if needed
             if dim_col == "theme":
@@ -4965,7 +5057,7 @@ with tab_trends:
             else:
                 selected_raw = selected_dims
 
-            mode = st.radio(t(lang, "mode"), [t(lang, "mode_abs"), t(lang, "mode_share")], index=1, horizontal=True, key="tr_mode")
+            mode = st.radio(t(lang, "mode"), [t(lang, "mode_abs"), t(lang, "mode_share")], index=0, horizontal=True, key="tr_mode")
 
             tdf = fetch_df(f"""
             SELECT year, {dim_col} AS dim, SUM(amount_eur) AS amount_eur
@@ -4987,6 +5079,22 @@ with tab_trends:
                 tdf["value"] = tdf["amount_eur"]
                 ylab = "Budget (€)"
                 hover = lambda v: fmt_money(float(v), lang)
+
+            leading_dim = (
+                tdf.groupby("dim", as_index=False)["amount_eur"]
+                .sum()
+                .sort_values("amount_eur", ascending=False)
+                .head(1)
+            )
+            if not leading_dim.empty:
+                lead_name = str(leading_dim["dim"].iloc[0])
+                with st.container(border=True):
+                    st.markdown("**" + t(lang, "trends_summary_title") + "**")
+                    st.write(
+                        t(lang, "trends_summary_share" if mode == t(lang, "mode_share") else "trends_summary_abs").format(
+                            dim=lead_name
+                        )
+                    )
 
             fig_area = px.area(
                 tdf.sort_values("year"),
@@ -5028,8 +5136,8 @@ with tab_trends:
 # TAB COMPARE (DuckDB)
 # ============================================================
 with tab_compare:
-    st.markdown(f"### {t(lang, 'compare_title')}")
-    st.caption(t(lang, "compare_caption"))
+    render_section_header("⇆", t(lang, "compare_title"), t(lang, "compare_caption"), t(lang, "tab_trends_events"))
+    st.caption(t(lang, "compare_intro"))
 
     min_year = meta["miny"]
     max_year = meta["maxy"]
@@ -5083,31 +5191,34 @@ with tab_compare:
     view["delta_share"] = view["s_B"] - view["s_A"]
     view = view.sort_values("delta_share", ascending=False)
 
-    if dim_col == "theme":
-        view["dim_disp"] = view["dim"].map(lambda x: theme_raw_to_display(str(x), lang))
+    if view.empty:
+        render_guided_empty_state(lang, "trends_empty_hint")
     else:
-        view["dim_disp"] = view["dim"].astype(str)
+        if dim_col == "theme":
+            view["dim_disp"] = view["dim"].map(lambda x: theme_raw_to_display(str(x), lang))
+        else:
+            view["dim_disp"] = view["dim"].astype(str)
 
-    topk = st.slider("Plus fortes évolutions" if lang == "FR" else "Strongest shifts", 10, 60, 25)
-    view2 = pd.concat([view.head(topk), view.tail(topk)]).drop_duplicates().sort_values("delta_share")
+        topk = st.slider("Plus fortes évolutions" if lang == "FR" else "Strongest shifts", 10, 60, 20)
+        view2 = pd.concat([view.head(topk), view.tail(topk)]).drop_duplicates().sort_values("delta_share")
 
-    fig = px.bar(
-        view2,
-        x=(view2["delta_share"] * 100.0),
-        y=view2["dim_disp"],
-        orientation="h",
-        height=680,
-        labels={"x": "Δ (points de %)" if lang == "FR" else "Δ (pp)", "y": ""},
-    )
-    render_plotly_chart(fig, use_container_width=True)
+        fig = px.bar(
+            view2,
+            x=(view2["delta_share"] * 100.0),
+            y=view2["dim_disp"],
+            orientation="h",
+            height=680,
+            labels={"x": "Δ (points de %)" if lang == "FR" else "Δ (pp)", "y": ""},
+        )
+        render_plotly_chart(fig, use_container_width=True)
 
-    table = view.head(60).copy()
-    table["Part A (%)" if lang == "FR" else "Share A (%)"] = table["s_A"].map(lambda x: f"{100*x:.1f}%")
-    table["Part B (%)" if lang == "FR" else "Share B (%)"] = table["s_B"].map(lambda x: f"{100*x:.1f}%")
-    table["Δ"] = table["delta_share"].map(lambda x: fmt_pp(float(x), 2, lang))
-    table = table[["dim_disp", "Part A (%)" if lang == "FR" else "Share A (%)", "Part B (%)" if lang == "FR" else "Share B (%)", "Δ"]]
-    table = table.rename(columns={"dim_disp": "dim"})
-    st.dataframe(table, use_container_width=True, height=520)
+        table = view.head(60).copy()
+        table["Part A (%)" if lang == "FR" else "Share A (%)"] = table["s_A"].map(lambda x: f"{100*x:.1f}%")
+        table["Part B (%)" if lang == "FR" else "Share B (%)"] = table["s_B"].map(lambda x: f"{100*x:.1f}%")
+        table["Δ"] = table["delta_share"].map(lambda x: fmt_pp(float(x), 2, lang))
+        table = table[["dim_disp", "Part A (%)" if lang == "FR" else "Share A (%)", "Part B (%)" if lang == "FR" else "Share B (%)", "Δ"]]
+        table = table.rename(columns={"dim_disp": "dim"})
+        st.dataframe(table, use_container_width=True, height=520)
 
 
 # ============================================================
@@ -5405,7 +5516,7 @@ with tab_actor:
             actors = pd.DataFrame(columns=["actor_id", "org_name2", "country_name2", "budget_eur"])
             st.error(t(lang, "no_data"))
     if actors.empty:
-        st.info(t(lang, "no_data"))
+        render_guided_empty_state(lang, "actor_empty_hint")
     else:
         actors["actor_label"] = np.where(
             actors["org_name2"].astype(str) == actors["actor_id"].astype(str),
@@ -5474,6 +5585,20 @@ with tab_actor:
         ORDER BY budget_eur DESC
         LIMIT 15
         """)
+        actor_projects = safe_fetch_df(f"""
+        SELECT
+          projectID,
+          MIN(title) AS title,
+          MIN(year) AS year,
+          MIN(program) AS program,
+          MIN(theme) AS theme,
+          SUM(amount_eur) AS budget_eur
+        FROM {R}
+        WHERE {W} AND actor_id IN {picked_sql_list}
+        GROUP BY projectID
+        ORDER BY budget_eur DESC
+        LIMIT 20
+        """, columns=["projectID", "title", "year", "program", "theme", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
         partners = fetch_df(f"""
         WITH my_projects AS (
           SELECT DISTINCT r.projectID
@@ -5540,6 +5665,16 @@ with tab_actor:
         actor_meta = [x for x in actor_meta if str(x).strip() and str(x).strip() != "—"]
         if actor_meta:
             st.caption(" · ".join(actor_meta))
+
+        with st.container(border=True):
+            st.markdown("**" + t(lang, "actor_answer_title") + "**")
+            st.write(
+                (
+                    f"Cet acteur capte {fmt_money(selected_budget, lang)} via {selected_projects:,} projets, surtout sur {selected_theme} et principalement en {selected_main_country}."
+                    if lang == "FR"
+                    else f"This actor captures {fmt_money(selected_budget, lang)} across {selected_projects:,} projects, mainly in {selected_theme} and primarily in {selected_main_country}."
+                ).replace(",", " ")
+            )
 
         s1, s2, s3, s4 = st.columns(4)
         s1.metric(t(lang, "budget_total"), fmt_money(selected_budget, lang))
@@ -5619,6 +5754,24 @@ with tab_actor:
                 )
                 figc.update_layout(coloraxis_showscale=False)
                 render_plotly_chart(figc, use_container_width=True)
+
+            st.divider()
+            st.markdown(f"#### {t(lang, 'actor_top_projects')}")
+            if actor_projects.empty:
+                render_guided_empty_state(lang, "actor_empty_hint")
+            else:
+                actor_projects["budget"] = actor_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+                actor_projects["theme_display"] = actor_projects["theme"].map(
+                    lambda x: theme_raw_to_display(str(x), lang) if str(x).strip() else "—"
+                )
+                st.dataframe(
+                    actor_projects[["year", "projectID", "title", "program", "theme_display", "budget"]].rename(
+                        columns={"theme_display": t(lang, "themes")}
+                    ),
+                    use_container_width=True,
+                    height=360,
+                    hide_index=True,
+                )
 
         with actor_partners_tab:
             st.markdown(f"#### {t(lang, 'actor_partners')}")
@@ -5751,7 +5904,7 @@ with tab_value_chain:
                 "Top acteurs" if lang == "FR" else "Top actors",
                 8,
                 50,
-                12,
+                10,
                 1,
             )
         include_unspecified = st.checkbox(t(lang, "include_unspecified"), value=False, key="vc_include_unspecified")
@@ -5859,7 +6012,7 @@ with tab_value_chain:
                                     t(lang, "vc_top_actors_stage"),
                                     5,
                                     40,
-                                    10,
+                                    8,
                                     1,
                                     key="vc_top_stage_slider",
                                 )
@@ -6173,7 +6326,7 @@ with tab_collaboration:
                 t(lang, "net_top_partners"),
                 5,
                 40,
-                10,
+                8,
                 1,
             )
 
