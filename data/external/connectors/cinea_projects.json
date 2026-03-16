@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 529,
+    "count": 556,
     "results": [
       {
         "country": {
@@ -86,7 +86,8 @@
           "issued": "2025-02-20T08:36:07Z",
           "description": {
             "en": "European Climate, Infrastructure and Environment Executive Agency"
-          }
+          },
+          "source_type": "dcat-ap"
         },
         "translation_meta": {
           "details": {
@@ -746,6 +747,7 @@
             }
           ],
           "spatial": [],
+          "source_type": "dcat-ap",
           "description": {
             "en": "Open Data Portal Spain"
           },
@@ -1295,6 +1297,7 @@
         ],
         "catalog": {
           "id": "zenodo",
+          "source_type": "dcat-ap",
           "issued": "2025-07-03T07:23:00Z",
           "description": {
             "en": "Open repository for EU-funded research outputs from Horizon Europe, Euratom, and earlier Framework Programmes."
@@ -1327,8 +1330,7 @@
           },
           "title": {
             "en": "EU Open Research Repository"
-          },
-          "count": 25393
+          }
         },
         "translation_meta": {
           "details": {
@@ -1449,17 +1451,18 @@
           "title": {
             "fr": "La plateforme de données luxembourgeoise"
           },
-          "issued": "2022-06-24T12:30:29Z",
-          "description": {
-            "en": "Open Data Portal Luxembourg"
-          },
-          "homepage": "https://data.public.lu",
           "publisher": {
             "type": "Agent",
             "homepage": "https://gouvernement.lu",
             "name": "Le Gouvernement du Grand-Duché de Luxembourg",
             "email": "mailto:info@data.public.lu"
           },
+          "issued": "2022-06-24T12:30:29Z",
+          "description": {
+            "en": "Open Data Portal Luxembourg"
+          },
+          "homepage": "https://data.public.lu",
+          "source_type": "udata",
           "modified": "2023-02-10T18:15:01.883580",
           "language": [
             {
@@ -1991,6 +1994,7 @@
             }
           ],
           "spatial": [],
+          "source_type": "dcat-ap",
           "description": {
             "en": "Open Data Portal Spain"
           },
@@ -2477,17 +2481,18 @@
           "description": {
             "en": "Open Data Portal Switzerland"
           },
+          "source_type": "dcat-ap",
           "title": {
             "de": "opendata.swiss"
           },
-          "modified": "2024-03-12T10:32:33Z",
-          "homepage": "https://opendata.swiss",
           "publisher": {
             "type": "Agent",
             "email": "mailto:opendata@bfs.admin.ch",
             "name": "Federal Statistical Office",
             "homepage": "https://www.bfs.admin.ch"
           },
+          "modified": "2024-03-12T10:32:33Z",
+          "homepage": "https://opendata.swiss",
           "issued": "2024-03-12T10:32:33Z",
           "country": {
             "label": "Switzerland",
@@ -3176,457 +3181,6 @@
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_iniciativas_08006id_miembro"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
-          "label": "Spain",
-          "id": "es"
-        },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_08006id_miembro",
-        "catalog": {
-          "id": "datos-gob-es",
-          "language": [
-            {
-              "id": "es",
-              "label": "Spanish",
-              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
-            }
-          ],
-          "homepage": "https://datos.gob.es",
-          "issued": "2022-11-21T05:37:01Z",
-          "country": {
-            "label": "Spain",
-            "id": "es",
-            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-          },
-          "spatial_resource": [
-            {
-              "label": "Spain",
-              "id": "es",
-              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-            }
-          ],
-          "spatial": [],
-          "description": {
-            "en": "Open Data Portal Spain"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:soporte@datos.gob.es",
-            "homepage": "https://www.hacienda.gob.es",
-            "name": "Ministerio de Hacienda y Administraciones Públicas"
-          },
-          "modified": "2023-02-02T23:43:40.086753",
-          "title": {
-            "es": "datos.gob.es"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "es": {
-              "machine_translated": false,
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            }
-          },
-          "full_available_languages": [
-            "et",
-            "es",
-            "nl",
-            "it",
-            "sk",
-            "fi",
-            "de",
-            "da",
-            "cs",
-            "el",
-            "hu",
-            "sv",
-            "ga",
-            "hr",
-            "pl",
-            "mt",
-            "ro",
-            "pt",
-            "uk",
-            "lt",
-            "fr",
-            "en",
-            "bg",
-            "lv",
-            "sl"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Initiativen von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Víctor Tomás Chinea Mendozan aloitteet – VIII vaalikausi",
-          "pt": "Iniciativas de Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Инициативи на Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Víctor Tomįs Chinea Mendoza iniciatyvos – VIII įstatymų leidėjas",
-          "lv": "Víctor Tomás Chinea Mendoza — VIII sasaukuma iniciatīvas",
-          "hr": "Inicijative Víctor Tomás Chinea Mendoza – VIII zakonodavna vlast",
-          "fr": "Initiatives de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Víctor Tomás Chinea Mendoza kezdeményezései – VIII. törvényhozás",
-          "uk": "Ініціативи Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Iniciatívy Víctora Tomása Chineu Mendozu – VIII volebné obdobie",
-          "sl": "Pobude Víctorja Tomása Chinee Mendoze – VIII. zakonodajno obdobje",
-          "ga": "Tionscnaimh Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Initiativ från Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "el": "Πρωτοβουλίες του Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "en": "Initiatives of Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Iniziative di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Iniciativas de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Víctor Tomás Chinea Mendoza algatused – VIII ametiaeg",
-          "cs": "Iniciativy Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Inicjatywy Víctora Tomása Chinei Mendozy – VIII kadencji",
-          "ro": "Inițiativele lui Víctor Tomás Chinea Mendoza – a VIII-a legislatură",
-          "da": "Initiativer fra Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "nl": "Initiatieven van Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
-            "id": "es",
-            "label": "Spanish"
-          }
-        ],
-        "title": {
-          "de": "Initiativen von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Víctor Tomás Chinea Mendozan aloitteet – VIII vaalikausi",
-          "pt": "Iniciativas de Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Инициативи на Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Víctor Tomįs Chinea Mendoza iniciatyvos – VIII įstatymų leidėjas",
-          "hr": "Inicijative Víctor Tomás Chinea Mendoza – VIII zakonodavna vlast",
-          "lv": "Víctor Tomás Chinea Mendoza — VIII sasaukuma iniciatīvas",
-          "fr": "Initiatives de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Víctor Tomás Chinea Mendoza kezdeményezései – VIII. törvényhozás",
-          "uk": "Ініціативи Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Iniciatívy Víctora Tomása Chineu Mendozu – VIII volebné obdobie",
-          "sl": "Pobude Víctorja Tomása Chinee Mendoze – VIII. zakonodajno obdobje",
-          "ga": "Tionscnaimh Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Initiativ från Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "el": "Πρωτοβουλίες του Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "en": "Initiatives of Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Iniziative di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Iniciativas de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Víctor Tomás Chinea Mendoza algatused – VIII ametiaeg",
-          "cs": "Iniciativy Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Inicjatywy Víctora Tomása Chinei Mendozy – VIII kadencji",
-          "da": "Initiativer fra Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "ro": "Inițiativele lui Víctor Tomás Chinea Mendoza – a VIII-a legislatură",
-          "nl": "Initiatieven van Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
-        },
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/08006?format=csv"
-            ],
-            "id": "3c22db4d-91b3-49cb-b708-8f4931de015c",
-            "title": {
-              "de": "VIII Legislaturperiode (CSV)",
-              "fi": "VIII Lainsäädäntö (CSV)",
-              "pt": "VIII legislatura (CSV)",
-              "bg": "VIII законодателен мандат (CSV)",
-              "lt": "VIII įstatymų leidėjas (CSV)",
-              "hr": "Zakonodavna vlast (CSV)",
-              "lv": "VIII likumdevējs (CSV)",
-              "fr": "VIII législature (CSV)",
-              "hu": "VIII. törvényhozás (CSV)",
-              "uk": "VIII Законодавчий орган (CSV)",
-              "sk": "VIII zákonodarca (CSV)",
-              "sl": "VIII. zakonodajalec (CSV)",
-              "ga": "VIII reachtas (CSV)",
-              "sv": "VIII Lagstiftning (CSV)",
-              "el": "VIII νομοθέτης (CSV)",
-              "mt": "VIII leġiżlatura (CSV)",
-              "en": "VIII legislature (CSV)",
-              "it": "VIII Legislativo (CSV)",
-              "es": "VIII legislatura (CSV)",
-              "et": "VIII seadusandlik kogu (CSV)",
-              "cs": "VIII. volební období (CSV)",
-              "pl": "VIII legislacja (CSV)",
-              "da": "VIII lovgiver (CSV)",
-              "ro": "VIII Legislativ (CSV)",
-              "nl": "VIII legislatuur (CSV)"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/08006?format=json"
-            ],
-            "id": "b954e354-96b1-4ab1-bba0-3746e01aacc8",
-            "title": {
-              "de": "VIII Wahlperiode (JSON)",
-              "fi": "VIII vaalikausi (JSON)",
-              "pt": "VIII legislatura (JSON)",
-              "bg": "VIII парламентарен мандат (JSON)",
-              "lt": "VIII Parlamento kadencija (JSON)",
-              "lv": "VIII Parlamenta sasaukums (JSON)",
-              "hr": "VIII. parlamentarni saziv (JSON)",
-              "fr": "VIIIe législature (JSON)",
-              "hu": "VIII. parlamenti ciklus (JSON)",
-              "uk": "VIII парламентський термін (JSON)",
-              "sk": "VIII volebné obdobie (JSON)",
-              "sl": "VIII. parlamentarno obdobje (JSON)",
-              "ga": "VIII téarma parlaiminteach (JSON)",
-              "sv": "VIII:s valperiod (JSON)",
-              "el": "VIII κοινοβουλευτική περίοδος (JSON)",
-              "mt": "VIII leġiżlatura (JSON)",
-              "en": "VIII parliamentary term (JSON)",
-              "it": "VIII legislatura (JSON)",
-              "es": "VIII legislatura (JSON)",
-              "et": "Parlamendi VIII ametiaeg (JSON)",
-              "cs": "VIII. volební období (JSON)",
-              "pl": "VIII kadencja parlamentarna (JSON)",
-              "ro": "A VIII-a legislatură (JSON)",
-              "da": "VIII valgperiode (JSON)",
-              "nl": "VIII zittingsperiode (JSON)"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 190
-        },
-        "modified": "2021-05-07T00:00:00+02:00",
-        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_08006id_miembro",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
-            "id": "JUST",
-            "label": {
-              "nn": "Justis, rettssystem og allmenn tryggleik",
-              "no": "Justis, rettssystem og allmenn sikkerhet",
-              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
-              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
-              "pt": "Justiça, sistema judiciário e segurança pública",
-              "bg": "Правосъдие, съдебна система и обществена безопасност",
-              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
-              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
-              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
-              "fr": "Justice, système juridique et sécurité publique",
-              "hu": "Igazságügy, jogrendszer és közbiztonság",
-              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
-              "sl": "Pravosodje, pravni sistem in javna varnost",
-              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
-              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
-              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
-              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
-              "en": "Justice, legal system and public safety",
-              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
-              "es": "Justicia, sistema judicial y seguridad pública",
-              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
-              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
-              "nb": "Justis, rettssystem og allmenn sikkerhet",
-              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
-              "ro": "Justiție, sistem juridic și siguranță publică",
-              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
-              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
-            }
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          }
-        ],
-        "issued": "2021-05-07T00:00:00+02:00",
-        "catalog_record": {
-          "modified": "2026-02-11T00:11:45Z",
-          "issued": "2023-02-01T09:30:08Z"
-        }
-      },
-      {
-        "identifier": [
           "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
         ],
         "country": {
@@ -3659,6 +3213,7 @@
             }
           ],
           "spatial": [],
+          "source_type": "dcat-ap",
           "description": {
             "en": "Open Data Portal Spain"
           },
@@ -4110,6 +3665,7 @@
             }
           ],
           "spatial": [],
+          "source_type": "dcat-ap",
           "description": {
             "en": "Open Data Portal Spain"
           },
@@ -4529,6 +4085,458 @@
       },
       {
         "identifier": [
+          "https://datos.parcan.es/dataset/diputado_iniciativas_08006id_miembro"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_08006id_miembro",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T09:17:02Z",
+              "issued": "2023-02-01T09:30:08Z"
+            }
+          },
+          "full_available_languages": [
+            "et",
+            "es",
+            "nl",
+            "it",
+            "sk",
+            "fi",
+            "de",
+            "da",
+            "cs",
+            "el",
+            "hu",
+            "sv",
+            "ga",
+            "hr",
+            "pl",
+            "mt",
+            "ro",
+            "pt",
+            "uk",
+            "lt",
+            "fr",
+            "en",
+            "bg",
+            "lv",
+            "sl"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Initiativen von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
+          "fi": "Víctor Tomás Chinea Mendozan aloitteet – VIII vaalikausi",
+          "pt": "Iniciativas de Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "bg": "Инициативи на Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
+          "lt": "Víctor Tomįs Chinea Mendoza iniciatyvos – VIII įstatymų leidėjas",
+          "lv": "Víctor Tomás Chinea Mendoza — VIII sasaukuma iniciatīvas",
+          "hr": "Inicijative Víctor Tomás Chinea Mendoza – VIII zakonodavna vlast",
+          "fr": "Initiatives de Víctor Tomás Chinea Mendoza — VIIIe législature",
+          "hu": "Víctor Tomás Chinea Mendoza kezdeményezései – VIII. törvényhozás",
+          "uk": "Ініціативи Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
+          "sk": "Iniciatívy Víctora Tomása Chineu Mendozu – VIII volebné obdobie",
+          "sl": "Pobude Víctorja Tomása Chinee Mendoze – VIII. zakonodajno obdobje",
+          "ga": "Tionscnaimh Víctor Tomás Chinea Mendoza — VIII reachtas",
+          "sv": "Initiativ från Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
+          "el": "Πρωτοβουλίες του Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
+          "mt": "Inizjattivi ta’ Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
+          "en": "Initiatives of Víctor Tomás Chinea Mendoza — VIII legislature",
+          "it": "Iniziative di Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "es": "Iniciativas de Víctor Tomás Chinea Mendoza - VIII legislatura",
+          "et": "Víctor Tomás Chinea Mendoza algatused – VIII ametiaeg",
+          "cs": "Iniciativy Víctor Tomás Chinea Mendoza – VIII. volební období",
+          "pl": "Inicjatywy Víctora Tomása Chinei Mendozy – VIII kadencji",
+          "ro": "Inițiativele lui Víctor Tomás Chinea Mendoza – a VIII-a legislatură",
+          "da": "Initiativer fra Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
+          "nl": "Initiatieven van Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Initiativen von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
+          "fi": "Víctor Tomás Chinea Mendozan aloitteet – VIII vaalikausi",
+          "pt": "Iniciativas de Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "bg": "Инициативи на Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
+          "lt": "Víctor Tomįs Chinea Mendoza iniciatyvos – VIII įstatymų leidėjas",
+          "hr": "Inicijative Víctor Tomás Chinea Mendoza – VIII zakonodavna vlast",
+          "lv": "Víctor Tomás Chinea Mendoza — VIII sasaukuma iniciatīvas",
+          "fr": "Initiatives de Víctor Tomás Chinea Mendoza — VIIIe législature",
+          "hu": "Víctor Tomás Chinea Mendoza kezdeményezései – VIII. törvényhozás",
+          "uk": "Ініціативи Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
+          "sk": "Iniciatívy Víctora Tomása Chineu Mendozu – VIII volebné obdobie",
+          "sl": "Pobude Víctorja Tomása Chinee Mendoze – VIII. zakonodajno obdobje",
+          "ga": "Tionscnaimh Víctor Tomás Chinea Mendoza — VIII reachtas",
+          "sv": "Initiativ från Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
+          "el": "Πρωτοβουλίες του Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
+          "mt": "Inizjattivi ta’ Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
+          "en": "Initiatives of Víctor Tomás Chinea Mendoza — VIII legislature",
+          "it": "Iniziative di Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "es": "Iniciativas de Víctor Tomás Chinea Mendoza - VIII legislatura",
+          "et": "Víctor Tomás Chinea Mendoza algatused – VIII ametiaeg",
+          "cs": "Iniciativy Víctor Tomás Chinea Mendoza – VIII. volební období",
+          "pl": "Inicjatywy Víctora Tomása Chinei Mendozy – VIII kadencji",
+          "da": "Initiativer fra Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
+          "ro": "Inițiativele lui Víctor Tomás Chinea Mendoza – a VIII-a legislatură",
+          "nl": "Initiatieven van Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
+        },
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "https://parcan.es/api/diputado/iniciativas/08006?format=csv"
+            ],
+            "id": "3c22db4d-91b3-49cb-b708-8f4931de015c",
+            "title": {
+              "de": "VIII Legislaturperiode (CSV)",
+              "fi": "VIII Lainsäädäntö (CSV)",
+              "pt": "VIII legislatura (CSV)",
+              "bg": "VIII законодателен мандат (CSV)",
+              "lt": "VIII įstatymų leidėjas (CSV)",
+              "hr": "Zakonodavna vlast (CSV)",
+              "lv": "VIII likumdevējs (CSV)",
+              "fr": "VIII législature (CSV)",
+              "hu": "VIII. törvényhozás (CSV)",
+              "uk": "VIII Законодавчий орган (CSV)",
+              "sk": "VIII zákonodarca (CSV)",
+              "sl": "VIII. zakonodajalec (CSV)",
+              "ga": "VIII reachtas (CSV)",
+              "sv": "VIII Lagstiftning (CSV)",
+              "el": "VIII νομοθέτης (CSV)",
+              "mt": "VIII leġiżlatura (CSV)",
+              "en": "VIII legislature (CSV)",
+              "it": "VIII Legislativo (CSV)",
+              "es": "VIII legislatura (CSV)",
+              "et": "VIII seadusandlik kogu (CSV)",
+              "cs": "VIII. volební období (CSV)",
+              "pl": "VIII legislacja (CSV)",
+              "da": "VIII lovgiver (CSV)",
+              "ro": "VIII Legislativ (CSV)",
+              "nl": "VIII legislatuur (CSV)"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://parcan.es/api/diputado/iniciativas/08006?format=json"
+            ],
+            "id": "b954e354-96b1-4ab1-bba0-3746e01aacc8",
+            "title": {
+              "de": "VIII Wahlperiode (JSON)",
+              "fi": "VIII vaalikausi (JSON)",
+              "pt": "VIII legislatura (JSON)",
+              "bg": "VIII парламентарен мандат (JSON)",
+              "lt": "VIII Parlamento kadencija (JSON)",
+              "lv": "VIII Parlamenta sasaukums (JSON)",
+              "hr": "VIII. parlamentarni saziv (JSON)",
+              "fr": "VIIIe législature (JSON)",
+              "hu": "VIII. parlamenti ciklus (JSON)",
+              "uk": "VIII парламентський термін (JSON)",
+              "sk": "VIII volebné obdobie (JSON)",
+              "sl": "VIII. parlamentarno obdobje (JSON)",
+              "ga": "VIII téarma parlaiminteach (JSON)",
+              "sv": "VIII:s valperiod (JSON)",
+              "el": "VIII κοινοβουλευτική περίοδος (JSON)",
+              "mt": "VIII leġiżlatura (JSON)",
+              "en": "VIII parliamentary term (JSON)",
+              "it": "VIII legislatura (JSON)",
+              "es": "VIII legislatura (JSON)",
+              "et": "Parlamendi VIII ametiaeg (JSON)",
+              "cs": "VIII. volební období (JSON)",
+              "pl": "VIII kadencja parlamentarna (JSON)",
+              "ro": "A VIII-a legislatură (JSON)",
+              "da": "VIII valgperiode (JSON)",
+              "nl": "VIII zittingsperiode (JSON)"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 190
+        },
+        "modified": "2021-05-07T00:00:00+02:00",
+        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_08006id_miembro",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
+            "label": {
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
+          }
+        ],
+        "issued": "2021-05-07T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-02-11T00:11:45Z",
+          "issued": "2023-02-01T09:30:08Z"
+        }
+      },
+      {
+        "identifier": [
           "http://datos.santander.es/catalogo/cines"
         ],
         "country": {
@@ -4568,6 +4576,7 @@
             }
           ],
           "spatial": [],
+          "source_type": "dcat-ap",
           "description": {
             "en": "Open Data Portal Spain"
           },
