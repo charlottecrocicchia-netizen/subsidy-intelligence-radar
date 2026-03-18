@@ -1019,6 +1019,22 @@ EUROPE_DEFAULT_COUNTRIES = [
     "Norway", "Switzerland", "United Kingdom", "Iceland",
 ]
 
+EU27_COUNTRIES = [
+    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Czechia",
+    "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland",
+    "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland",
+    "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden",
+]
+
+ASSOCIATED_COUNTRIES = [
+    "Switzerland", "Norway", "Israel", "Turkey", "Türkiye", "Iceland",
+    "Serbia", "Albania", "Montenegro", "North Macedonia", "Republic of North Macedonia",
+    "Bosnia and Herzegovina", "Kosovo", "Kosovo*",
+    "Moldova", "Republic of Moldova", "Ukraine", "Georgia", "Armenia",
+    "Tunisia", "Morocco", "South Korea", "Republic of Korea", "Korea, Republic of",
+    "Japan", "Canada", "New Zealand", "United Kingdom",
+]
+
 # World Bank/UN style rounded values (inhabitants). Used only for budget-per-population normalization in map.
 POPULATION_BY_ALPHA3 = {
     "AUT": 9130000, "BEL": 11700000, "BGR": 6440000, "HRV": 3870000, "CYP": 1250000, "CZE": 10900000,
@@ -1199,6 +1215,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "themes": "Thématiques",
         "entity": "Type d’entité",
         "countries": "Pays",
+        "country_preset_eu27": "UE 27",
+        "country_preset_associated": "UE + Associés",
+        "country_preset_all": "Tous",
         "quick_search": "Recherche rapide",
         "quick_search_hint": "Recherche dans acteur, projet, acronyme ou titre",
         "main_search_support": "Recherche libre dans les projets et acteurs. Utilise ensuite les filtres pour préciser pays, période et programme.",
@@ -1609,6 +1628,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "themes": "Themes",
         "entity": "Entity type",
         "countries": "Countries",
+        "country_preset_eu27": "EU 27",
+        "country_preset_associated": "EU + Associated",
+        "country_preset_all": "All",
         "quick_search": "Quick search",
         "quick_search_hint": "Search actor, project, acronym or title",
         "main_search_support": "Free-text search across projects and actors. Then use filters to narrow country, time period, and programme.",
@@ -2303,6 +2325,18 @@ def is_streamlit_cloud_runtime() -> bool:
 def european_countries_present(countries: List[str]) -> List[str]:
     existing = set(countries or [])
     ordered = [c for c in EUROPE_DEFAULT_COUNTRIES if c in existing]
+    return ordered
+
+
+def eu27_countries_present(countries: List[str]) -> List[str]:
+    existing = set(countries or [])
+    ordered = [c for c in EU27_COUNTRIES if c in existing]
+    return ordered
+
+
+def associated_countries_present(countries: List[str]) -> List[str]:
+    existing = set(countries or [])
+    ordered = [c for c in ASSOCIATED_COUNTRIES if c in existing]
     return ordered
 
 
@@ -3401,6 +3435,22 @@ if st.session_state.get("app_mode") == "advanced":
                 format_func=lambda x: theme_raw_to_display(str(x), lang),
             )
         with basic_c3:
+            eu27_present = eu27_countries_present(meta["countries"])
+            assoc_present = associated_countries_present(meta["countries"])
+            eu_plus_associated = list(dict.fromkeys(eu27_present + assoc_present))
+            preset_c1, preset_c2, preset_c3 = st.columns(3)
+            with preset_c1:
+                if st.button(t(lang, "country_preset_eu27"), key="country_preset_eu27_btn", width="stretch"):
+                    st.session_state["f_countries"] = eu27_present
+                    st.rerun()
+            with preset_c2:
+                if st.button(t(lang, "country_preset_associated"), key="country_preset_associated_btn", width="stretch"):
+                    st.session_state["f_countries"] = eu_plus_associated
+                    st.rerun()
+            with preset_c3:
+                if st.button(t(lang, "country_preset_all"), key="country_preset_all_btn", width="stretch"):
+                    st.session_state["f_countries"] = list(meta["countries"])
+                    st.rerun()
             st.session_state["f_countries"] = st.multiselect(
                 t(lang, "countries"),
                 meta["countries"],
