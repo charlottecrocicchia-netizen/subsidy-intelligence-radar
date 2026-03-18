@@ -121,6 +121,8 @@ def infer_theme(*parts: str) -> str:
     if not txt:
         return "Other"
 
+    # Returns a single best-matching theme label.
+    # This build does not create one row per matched theme.
     best_theme = "Other"
     best_score = 0
 
@@ -366,7 +368,10 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
     else:
         df["section"] = label
 
-    # theme uses title+acronym+objective+abstract
+    # Theme uses title+acronym+objective+abstract and produces a single inferred
+    # label per row. Because CORDIS is merged at participant level above, the
+    # same project theme is repeated across participant rows, but projects are
+    # not exploded into multiple rows with different themes.
     title_s = df.get("title", pd.Series([""] * len(df))).fillna("").astype(str)
     acr_s = df.get("acronym", pd.Series([""] * len(df))).fillna("").astype(str)
     obj_s = df.get("objective", pd.Series([""] * len(df))).fillna("").astype(str)
@@ -516,6 +521,8 @@ def load_ademe(folder: Path) -> pd.DataFrame:
         "country_alpha3": "FRA",
         "country_name": "France",
         "amount_eur": amount_num,
+        # ADEME rows also receive a single inferred theme label. There is no
+        # multi-theme row explosion at build time.
         "theme": [infer_theme(str(t)) for t in title_s.fillna("").astype(str)],
         "value_chain_stage": [infer_value_chain_stage(str(t)) for t in title_s.fillna("").astype(str)],
         "project_status": pd.Series(project_status).astype("string").fillna("Unknown").astype(str),
@@ -621,6 +628,8 @@ def _connector_frame_to_schema(df: pd.DataFrame, connector_id: str) -> pd.DataFr
         + " "
         + abstract.fillna("").astype(str)
     )
+    # External connectors keep one theme value per row, either provided by the
+    # source or inferred as a single fallback label.
     theme = np.where(pd.Series(theme_src).astype(str).str.len() > 0, theme_src, [infer_theme(str(x)) for x in text_for_inference])
     value_chain_stage = np.where(pd.Series(stage_src).astype(str).str.len() > 0, stage_src, [infer_value_chain_stage(str(x)) for x in text_for_inference])
     project_status = np.where(pd.Series(status_src).astype(str).str.len() > 0, status_src, "Unknown")

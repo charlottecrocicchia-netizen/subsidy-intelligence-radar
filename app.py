@@ -1478,6 +1478,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_summary_country_lead": "Le budget le plus élevé se situe en {country}.",
         "results_summary_actor_lead": "L’acteur le plus financé est {actor}.",
         "results_summary_theme_lead": "La thématique dominante est {theme}.",
+        "theme_counting_note": "Note : dans le build actuel, chaque ligne reçoit une seule thématique inférée. Un projet n’apparaît donc pas dans plusieurs thèmes ici.",
         "results_summary_fallback": "Le périmètre courant couvre {projects} projets pour {budget} et {actors} acteurs uniques.",
         "results_primary_visual": "Lecture principale",
         "results_primary_trend": "Budget annuel",
@@ -1894,6 +1895,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_summary_country_lead": "The largest budget is in {country}.",
         "results_summary_actor_lead": "The leading funded actor is {actor}.",
         "results_summary_theme_lead": "The leading theme is {theme}.",
+        "theme_counting_note": "Note: in the current build, each row receives a single inferred theme. A project therefore does not appear in multiple themes here.",
         "results_summary_fallback": "The current scope contains {projects} projects worth {budget} and {actors} unique actors.",
         "results_primary_visual": "Primary reading",
         "results_primary_trend": "Annual budget",
@@ -2519,6 +2521,7 @@ def build_results_scope_summary(
             top_actor = str(top_actor_df["actor_label"].iloc[0] or "").strip()
 
         top_theme_df = fetch_df(f"""
+        -- Current build stores one inferred theme label per row/project view.
         SELECT theme, SUM(amount_eur) AS budget_eur
         FROM {relation_sql}
         WHERE {where_sql} AND theme IS NOT NULL AND TRIM(theme) <> ''
@@ -3596,6 +3599,7 @@ W_partners, W_R_partners, _ = build_safe_where_pair(
 kpi, kpi_failed = safe_fetch_df_quiet(f"""
 SELECT
   SUM(amount_eur) AS total_budget,
+  -- DISTINCT is required because analytics rows are not one-row-per-project.
   COUNT(DISTINCT projectID) AS n_projects,
   COUNT(DISTINCT actor_id) FILTER (WHERE actor_id IS NOT NULL AND TRIM(actor_id) <> '') AS n_actors
 FROM {R}
@@ -4517,6 +4521,7 @@ with tab_overview:
         insights: List[str] = []
         try:
             top_theme = fetch_df(f"""
+            -- Current build stores one inferred theme label per row/project view.
             SELECT theme, SUM(amount_eur) AS b
             FROM {R}
             WHERE {W}
@@ -4942,6 +4947,7 @@ with tab_geo:
             """, columns=["actor_id", "actor_label", "budget_eur", "n_projects"], lang=lang, warning_key="geo_view_unavailable")
             country_themes = safe_fetch_df(f"""
             SELECT
+              -- Current build stores one inferred theme label per row/project view.
               theme,
               SUM(amount_eur) AS budget_eur,
               COUNT(DISTINCT projectID) AS n_projects
@@ -5342,6 +5348,7 @@ with tab_trends:
     dim_col = "program" if dim_choice == t(lang, "dim_program") else "theme"
 
     dim_budget = fetch_df(f"""
+    -- Current build stores one inferred theme label per row/project view.
     SELECT {dim_col} AS dim, SUM(amount_eur) AS amount_eur
     FROM {R}
     WHERE {W}
@@ -5369,6 +5376,7 @@ with tab_trends:
             mode = st.radio(t(lang, "mode"), [t(lang, "mode_abs"), t(lang, "mode_share")], index=0, horizontal=True, key="tr_mode")
 
             tdf = fetch_df(f"""
+            -- Current build stores one inferred theme label per row/project view.
             SELECT year, {dim_col} AS dim, SUM(amount_eur) AS amount_eur
             FROM {R}
             WHERE {W} AND {dim_col} IN {in_list(selected_raw)}
@@ -5419,6 +5427,8 @@ with tab_trends:
                 hovertemplate="<b>%{fullData.name}</b><br>%{x}<br>%{customdata[0]}<extra></extra>",
             )
             render_plotly_chart(fig_area, use_container_width=True)
+            if dim_col == "theme":
+                st.caption(t(lang, "theme_counting_note"))
 
             st.divider()
             st.markdown(f"#### {t(lang, 'drivers')}")
@@ -5489,6 +5499,7 @@ with tab_compare:
         amount_expr = f"SUM(amount_eur) / {float(max(1, years_count))}" if normalize_annual else "SUM(amount_eur)"
         return fetch_df(f"""
         WITH g AS (
+          -- Current build stores one inferred theme label per row/project view.
           SELECT {dim_col} AS dim, {amount_expr} AS b
           FROM {R}
           WHERE {W} AND year BETWEEN {int(y0)} AND {int(y1)}
@@ -5890,6 +5901,7 @@ with tab_actor:
         ORDER BY year
         """)
         mix_t = fetch_df(f"""
+        -- Current build stores one inferred theme label per row/project view.
         SELECT theme, SUM(amount_eur) AS budget_eur
         FROM {R}
         WHERE {W} AND actor_id IN {picked_sql_list}
@@ -6235,6 +6247,7 @@ with tab_value_chain:
 
     st.markdown("#### " + ("Étapes et acteurs (budget -> acteurs)" if lang == "FR" else "Stages and actors (budget -> actors)"))
     vc_dim = safe_fetch_df(f"""
+    -- Current build stores one inferred theme label per row/project view.
     SELECT theme, value_chain_stage, SUM(amount_eur) AS budget_eur
     FROM {R}
     WHERE {W}
