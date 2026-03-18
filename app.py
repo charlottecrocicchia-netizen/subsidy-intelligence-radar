@@ -2786,6 +2786,9 @@ def sync_guided_entry_from_filters(meta: dict) -> None:
         if theme in st.session_state["guided_themes_raw"]
     }
     st.session_state["guided_subtopics"] = _selected_guided_subtopics(st.session_state["guided_themes_raw"])
+    selected_set = set(st.session_state["guided_themes_raw"])
+    for theme in meta.get("themes", []):
+        st.session_state[f"guided_theme_selected::{theme}"] = theme in selected_set
 
 
 def apply_guided_entry_to_filters(meta: dict) -> None:
@@ -3945,6 +3948,18 @@ st.session_state["_last_app_mode"] = st.session_state["app_mode"]
 
 
 if st.session_state.get("sir_screen", "welcome") == "welcome":
+    theme_widget_keys = [f"guided_theme_selected::{theme}" for theme in meta["themes"]]
+    if any(key in st.session_state for key in theme_widget_keys):
+        selected_from_widgets = [theme for theme in meta["themes"] if bool(st.session_state.get(f"guided_theme_selected::{theme}", False))]
+        if selected_from_widgets != list(st.session_state.get("guided_themes_raw", [])):
+            st.session_state["guided_themes_raw"] = selected_from_widgets
+            pruned_map = {
+                theme: values
+                for theme, values in _clean_guided_subtopics_by_theme().items()
+                if theme in selected_from_widgets
+            }
+            st.session_state["guided_subtopics_by_theme"] = pruned_map
+            st.session_state["guided_subtopics"] = _selected_guided_subtopics(selected_from_widgets)
     render_section_header("⌕", t(lang, "guided_home_title"), t(lang, "guided_home_caption"), "")
     with st.container(border=True):
         st.markdown("**" + t(lang, "guided_home_intro_title") + "**")
@@ -3988,12 +4003,13 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
             guided_theme_choices = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
             for idx, theme in enumerate(meta["themes"]):
                 label = theme_raw_to_display(str(theme), lang)
-                selected = theme in guided_theme_choices
-                button_label = ("✓ " if selected else "") + label
+                widget_key = f"guided_theme_selected::{theme}"
+                st.session_state.setdefault(widget_key, theme in guided_theme_choices)
                 with theme_cols[idx % 2]:
-                    if st.button(button_label, key=f"guided_theme_card::{theme}", width="stretch"):
-                        toggle_guided_theme(str(theme))
-                        st.rerun()
+                    with st.container(border=True):
+                        st.checkbox(label, key=widget_key)
+            guided_theme_choices = [theme for theme in meta["themes"] if bool(st.session_state.get(f"guided_theme_selected::{theme}", False))]
+            st.session_state["guided_themes_raw"] = guided_theme_choices
             st.caption(t(lang, "guided_home_topics_help"))
             if guided_theme_choices:
                 st.caption(t(lang, "guided_home_selected_themes"))
@@ -4049,10 +4065,14 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 if st.button(t(lang, "country_preset_all"), key="guided_country_preset_all_btn", width="stretch"):
                     st.session_state["guided_countries"] = list(meta["countries"])
                     st.rerun()
-            st.session_state["guided_countries"] = st.multiselect(
+            if not st.session_state.get("guided_countries"):
+                st.session_state["guided_countries"] = [
+                    x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]
+                ] or _default_countries_from_meta(meta)
+            st.multiselect(
                 t(lang, "countries"),
                 meta["countries"],
-                default=[x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]] or _default_countries_from_meta(meta),
+                key="guided_countries",
             )
             st.caption(t(lang, "guided_home_countries_help"))
             st.slider(
