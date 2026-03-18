@@ -4869,12 +4869,14 @@ with tab_geo:
                     key="geo_selected_country",
                 )
 
+        if not st.session_state.get("_geo_zoom_default_auto_v1", False):
+            st.session_state["geo_zoom"] = "Auto"
+            st.session_state["_geo_zoom_default_auto_v1"] = True
+
         with st.expander(t(lang, "geo_advanced_options"), expanded=False):
-            a, b, d, e = st.columns([1.2, 1.1, 1.2, 1.4])
+            a, d, e = st.columns([1.2, 1.2, 1.4])
             with a:
                 zoom = st.selectbox(t(lang, "zoom_on"), zoom_opts, index=0, key="geo_zoom")
-            with b:
-                projection = st.selectbox(t(lang, "projection"), ["natural earth", "mercator"], index=0, key="geo_projection")
             with d:
                 show_borders = st.checkbox(t(lang, "borders"), value=True, key="geo_borders")
             with e:
@@ -4928,7 +4930,7 @@ with tab_geo:
         )
 
         geo_kwargs = dict(
-            projection_type=projection,
+            projection_type="natural earth",
             showframe=False,
             bgcolor=PANEL_BG,
             showland=True,
