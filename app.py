@@ -1428,10 +1428,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_title": "Comparer deux périodes",
         "period_a": "Période A",
         "period_b": "Période B",
-        "compare_caption": "Comparaison en **% du budget total** de chaque période, Δ en **points de %**.",
+        "compare_caption": "Comparaison du **budget** entre deux périodes, avec lecture des écarts en euros.",
         "compare_normalize_annual": "Ramener à la moyenne annuelle",
         "compare_period_years": "Période A : {years_a} ans, Période B : {years_b} ans",
         "compare_period_years_normalized": "Période A : {years_a} ans, Période B : {years_b} ans · lecture ramenée à une moyenne annuelle.",
+        "compare_budget_a": "Budget A",
+        "compare_budget_b": "Budget B",
+        "compare_delta_budget": "Δ budget",
         "actor_profile": "Fiche acteur",
         "actor_group_mode_caption": "Vue groupe active: les fiches et graphes peuvent agréger plusieurs entités juridiques via mapping ou PIC.",
         "actor_profile_caption": "Choisis un acteur, puis commence par son profil, son évolution et ses projets avant d’ouvrir les lectures plus expertes.",
@@ -1568,7 +1571,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "trends_summary_abs": "Le périmètre est surtout porté par {dim} sur la période sélectionnée.",
         "trends_summary_share": "{dim} représente la plus grande part du budget sur la période sélectionnée.",
         "trends_empty_hint": "Essaie d’élargir la période, de sélectionner moins de séries, ou reviens à la vue Résultats.",
-        "compare_intro": "Compare deux périodes pour voir quels thèmes ou programmes gagnent ou perdent en poids relatif.",
+        "compare_intro": "Compare deux périodes pour voir quels thèmes ou programmes gagnent ou perdent le plus en budget.",
         "geo_primary_reading": "La carte sert de repère. Utilise surtout le classement pour comparer précisément les pays dans le périmètre courant.",
         "geo_rank_table": "Classement pays",
         "actor_answer_title": "En bref",
@@ -1845,10 +1848,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_title": "Compare two periods",
         "period_a": "Period A",
         "period_b": "Period B",
-        "compare_caption": "Comparison as **% of total budget** in each period, Δ in **percentage points**.",
+        "compare_caption": "Comparison of **budget** across two periods, with deltas shown in euros.",
         "compare_normalize_annual": "Normalize to annual average",
         "compare_period_years": "Period A: {years_a} years, Period B: {years_b} years",
         "compare_period_years_normalized": "Period A: {years_a} years, Period B: {years_b} years · normalized to annual average.",
+        "compare_budget_a": "Budget A",
+        "compare_budget_b": "Budget B",
+        "compare_delta_budget": "Δ budget",
         "actor_profile": "Actor profile",
         "actor_group_mode_caption": "Group view is active: profiles and charts may aggregate several legal entities through mapping or PIC.",
         "actor_profile_caption": "Pick an actor, then start with their profile, evolution, and projects before opening deeper expert reads.",
@@ -1985,7 +1991,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "trends_summary_abs": "The current scope is mainly driven by {dim} over the selected period.",
         "trends_summary_share": "{dim} holds the largest share of funding over the selected period.",
         "trends_empty_hint": "Try widening the time range, selecting fewer series, or go back to Results.",
-        "compare_intro": "Compare two periods to see which themes or programmes gain or lose relative weight.",
+        "compare_intro": "Compare two periods to see which themes or programmes gain or lose the most budget.",
         "geo_primary_reading": "Use the map as orientation. Use the ranking to compare countries precisely within the current scope.",
         "geo_rank_table": "Country ranking",
         "actor_answer_title": "In brief",
@@ -5615,7 +5621,7 @@ with tab_compare:
     years_a = max(1, int(period_a[1]) - int(period_a[0]) + 1)
     years_b = max(1, int(period_b[1]) - int(period_b[0]) + 1)
 
-    def share_df(y0: int, y1: int, years_count: int) -> pd.DataFrame:
+    def budget_df(y0: int, y1: int, years_count: int) -> pd.DataFrame:
         amount_expr = f"SUM(amount_eur) / {float(max(1, years_count))}" if normalize_annual else "SUM(amount_eur)"
         return fetch_df(f"""
         WITH g AS (
@@ -5624,17 +5630,16 @@ with tab_compare:
           FROM {R}
           WHERE {W} AND year BETWEEN {int(y0)} AND {int(y1)}
           GROUP BY dim
-        ),
-        tot AS (SELECT SUM(b) AS t FROM g)
-        SELECT g.dim, CASE WHEN tot.t > 0 THEN g.b / tot.t ELSE 0 END AS s
-        FROM g, tot
+        )
+        SELECT dim, b
+        FROM g
         """)
 
-    sA = share_df(period_a[0], period_a[1], years_a)
-    sB = share_df(period_b[0], period_b[1], years_b)
+    sA = budget_df(period_a[0], period_a[1], years_a)
+    sB = budget_df(period_b[0], period_b[1], years_b)
     view = pd.merge(sA, sB, on="dim", how="outer", suffixes=("_A", "_B")).fillna(0.0)
-    view["delta_share"] = view["s_B"] - view["s_A"]
-    view = view.sort_values("delta_share", ascending=False)
+    view["delta_budget"] = view["b_B"] - view["b_A"]
+    view = view.sort_values("delta_budget", ascending=False)
 
     if view.empty:
         render_guided_empty_state(lang, "trends_empty_hint")
@@ -5645,15 +5650,20 @@ with tab_compare:
             view["dim_disp"] = view["dim"].astype(str)
 
         topk = st.slider("Plus fortes évolutions" if lang == "FR" else "Strongest shifts", 10, 60, 20)
-        view2 = pd.concat([view.head(topk), view.tail(topk)]).drop_duplicates().sort_values("delta_share")
+        view2 = pd.concat([view.head(topk), view.tail(topk)]).drop_duplicates().sort_values("delta_budget")
+        view2["delta_budget_fmt"] = view2["delta_budget"].apply(lambda x: fmt_money(float(x), lang))
 
         fig = px.bar(
             view2,
-            x=(view2["delta_share"] * 100.0),
+            x="delta_budget",
             y=view2["dim_disp"],
             orientation="h",
             height=680,
-            labels={"x": "Δ (points de %)" if lang == "FR" else "Δ (pp)", "y": ""},
+            labels={"x": t(lang, "compare_delta_budget") + " (€)", "y": ""},
+        )
+        fig.update_traces(
+            customdata=np.stack([view2["delta_budget_fmt"]], axis=-1),
+            hovertemplate="<b>%{y}</b><br>%{customdata[0]}<extra></extra>",
         )
         render_plotly_chart(fig, use_container_width=True)
         st.caption(
@@ -5664,10 +5674,10 @@ with tab_compare:
         )
 
         table = view.head(60).copy()
-        table["Part A (%)" if lang == "FR" else "Share A (%)"] = table["s_A"].map(lambda x: f"{100*x:.1f}%")
-        table["Part B (%)" if lang == "FR" else "Share B (%)"] = table["s_B"].map(lambda x: f"{100*x:.1f}%")
-        table["Δ"] = table["delta_share"].map(lambda x: fmt_pp(float(x), 2, lang))
-        table = table[["dim_disp", "Part A (%)" if lang == "FR" else "Share A (%)", "Part B (%)" if lang == "FR" else "Share B (%)", "Δ"]]
+        table[t(lang, "compare_budget_a")] = table["b_A"].map(lambda x: fmt_money(float(x), lang))
+        table[t(lang, "compare_budget_b")] = table["b_B"].map(lambda x: fmt_money(float(x), lang))
+        table["Δ"] = table["delta_budget"].map(lambda x: fmt_money(float(x), lang))
+        table = table[["dim_disp", t(lang, "compare_budget_a"), t(lang, "compare_budget_b"), "Δ"]]
         table = table.rename(columns={"dim_disp": "dim"})
         st.dataframe(table, use_container_width=True, height=520)
 
