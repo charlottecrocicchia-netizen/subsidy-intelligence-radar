@@ -4160,37 +4160,29 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
             )
             st.caption(t(lang, "guided_home_theme_cards_help"))
             current_guided_themes = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
-            if hasattr(st, "pills"):
-                pill_selection = st.pills(
-                    t(lang, "themes"),
-                    meta["themes"],
-                    selection_mode="multi",
-                    default=current_guided_themes,
-                    format_func=lambda x: theme_raw_to_display(str(x), lang),
-                    key="guided_theme_pills",
-                    label_visibility="collapsed",
-                )
-                guided_theme_choices = [x for x in meta["themes"] if x in (pill_selection or [])]
-                if guided_theme_choices != current_guided_themes:
-                    subtopic_map = _clean_guided_subtopics_by_theme()
-                    st.session_state["guided_themes_raw"] = guided_theme_choices
-                    st.session_state["guided_subtopics_by_theme"] = {
-                        theme: subtopic_map.get(theme, [])
-                        for theme in guided_theme_choices
-                        if subtopic_map.get(theme)
-                    }
-                    st.session_state["guided_subtopics"] = _selected_guided_subtopics(guided_theme_choices)
-            else:
-                theme_cols = st.columns(2)
-                guided_theme_choices = current_guided_themes
-                for idx, theme in enumerate(meta["themes"]):
-                    label = theme_raw_to_display(str(theme), lang)
-                    selected = theme in guided_theme_choices
-                    button_label = ("✓ " if selected else "") + label
-                    with theme_cols[idx % 2]:
-                        if st.button(button_label, key=f"guided_theme_card::{theme}", width="stretch"):
-                            toggle_guided_theme(str(theme))
-                            st.rerun()
+            theme_cols = st.columns(2)
+            for theme in meta["themes"]:
+                widget_key = f"guided_theme_selected::{theme}"
+                if widget_key not in st.session_state:
+                    st.session_state[widget_key] = theme in current_guided_themes
+            for idx, theme in enumerate(meta["themes"]):
+                label = theme_raw_to_display(str(theme), lang)
+                with theme_cols[idx % 2]:
+                    with st.container(border=True):
+                        st.checkbox(label, key=f"guided_theme_selected::{theme}")
+            guided_theme_choices = [
+                theme for theme in meta["themes"]
+                if bool(st.session_state.get(f"guided_theme_selected::{theme}", False))
+            ]
+            if guided_theme_choices != current_guided_themes:
+                subtopic_map = _clean_guided_subtopics_by_theme()
+                st.session_state["guided_themes_raw"] = guided_theme_choices
+                st.session_state["guided_subtopics_by_theme"] = {
+                    theme: subtopic_map.get(theme, [])
+                    for theme in guided_theme_choices
+                    if subtopic_map.get(theme)
+                }
+                st.session_state["guided_subtopics"] = _selected_guided_subtopics(guided_theme_choices)
             st.caption(t(lang, "guided_home_topics_help"))
             if guided_theme_choices:
                 st.caption(t(lang, "guided_home_selected_themes"))
