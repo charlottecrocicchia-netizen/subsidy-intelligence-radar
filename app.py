@@ -1349,6 +1349,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "period_a": "Période A",
         "period_b": "Période B",
         "compare_caption": "Comparaison en **% du budget total** de chaque période, Δ en **points de %**.",
+        "compare_normalize_annual": "Ramener à la moyenne annuelle",
+        "compare_period_years": "Période A : {years_a} ans, Période B : {years_b} ans",
+        "compare_period_years_normalized": "Période A : {years_a} ans, Période B : {years_b} ans · lecture ramenée à une moyenne annuelle.",
         "actor_profile": "Fiche acteur",
         "actor_group_mode_caption": "Vue groupe active: les fiches et graphes peuvent agréger plusieurs entités juridiques via mapping ou PIC.",
         "actor_profile_caption": "Choisis un acteur, puis commence par son profil, son évolution et ses projets avant d’ouvrir les lectures plus expertes.",
@@ -1762,6 +1765,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "period_a": "Period A",
         "period_b": "Period B",
         "compare_caption": "Comparison as **% of total budget** in each period, Δ in **percentage points**.",
+        "compare_normalize_annual": "Normalize to annual average",
+        "compare_period_years": "Period A: {years_a} years, Period B: {years_b} years",
+        "compare_period_years_normalized": "Period A: {years_a} years, Period B: {years_b} years · normalized to annual average.",
         "actor_profile": "Actor profile",
         "actor_group_mode_caption": "Group view is active: profiles and charts may aggregate several legal entities through mapping or PIC.",
         "actor_profile_caption": "Pick an actor, then start with their profile, evolution, and projects before opening deeper expert reads.",
@@ -5433,11 +5439,16 @@ with tab_compare:
 
     dim_choice = st.radio(t(lang, "dimension"), [t(lang, "dim_theme"), t(lang, "dim_program")], index=0, horizontal=True, key="cmp_dim")
     dim_col = "program" if dim_choice == t(lang, "dim_program") else "theme"
+    normalize_annual = st.checkbox(t(lang, "compare_normalize_annual"), value=False, key="cmp_normalize_annual")
 
-    def share_df(y0: int, y1: int) -> pd.DataFrame:
+    years_a = max(1, int(period_a[1]) - int(period_a[0]) + 1)
+    years_b = max(1, int(period_b[1]) - int(period_b[0]) + 1)
+
+    def share_df(y0: int, y1: int, years_count: int) -> pd.DataFrame:
+        amount_expr = f"SUM(amount_eur) / {float(max(1, years_count))}" if normalize_annual else "SUM(amount_eur)"
         return fetch_df(f"""
         WITH g AS (
-          SELECT {dim_col} AS dim, SUM(amount_eur) AS b
+          SELECT {dim_col} AS dim, {amount_expr} AS b
           FROM {R}
           WHERE {W} AND year BETWEEN {int(y0)} AND {int(y1)}
           GROUP BY dim
@@ -5447,8 +5458,8 @@ with tab_compare:
         FROM g, tot
         """)
 
-    sA = share_df(period_a[0], period_a[1])
-    sB = share_df(period_b[0], period_b[1])
+    sA = share_df(period_a[0], period_a[1], years_a)
+    sB = share_df(period_b[0], period_b[1], years_b)
     view = pd.merge(sA, sB, on="dim", how="outer", suffixes=("_A", "_B")).fillna(0.0)
     view["delta_share"] = view["s_B"] - view["s_A"]
     view = view.sort_values("delta_share", ascending=False)
@@ -5473,6 +5484,12 @@ with tab_compare:
             labels={"x": "Δ (points de %)" if lang == "FR" else "Δ (pp)", "y": ""},
         )
         render_plotly_chart(fig, use_container_width=True)
+        st.caption(
+            t(lang, "compare_period_years_normalized" if normalize_annual else "compare_period_years").format(
+                years_a=years_a,
+                years_b=years_b,
+            )
+        )
 
         table = view.head(60).copy()
         table["Part A (%)" if lang == "FR" else "Share A (%)"] = table["s_A"].map(lambda x: f"{100*x:.1f}%")
