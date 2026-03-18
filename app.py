@@ -1409,6 +1409,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_label": "Que veux-tu explorer ?",
         "main_search_help": "Recherche libre dans acteur, projet, acronyme ou titre",
         "main_search_placeholder": "Ex. AI, hydrogène, CNRS, batteries",
+        "app_mode_label": "Mode",
+        "app_mode_simple": "Vue d'ensemble",
+        "app_mode_advanced": "Recherche avancée",
+        "simple_mode_filters_note": "Cette vue applique le périmètre par défaut. Passe en Recherche avancée pour afficher et modifier les filtres.",
         "active_filters": "Filtres actifs",
         "clear_search": "Effacer la recherche",
         "no_results_title": "Aucun résultat pour ce périmètre.",
@@ -1814,6 +1818,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_label": "What do you want to explore?",
         "main_search_help": "Free-text search across actor, project, acronym, or title",
         "main_search_placeholder": "E.g. AI, hydrogen, CNRS, batteries",
+        "app_mode_label": "Mode",
+        "app_mode_simple": "Overview",
+        "app_mode_advanced": "Advanced search",
+        "simple_mode_filters_note": "This view applies the default scope. Switch to Advanced search to show and edit filters.",
         "active_filters": "Active filters",
         "clear_search": "Clear search",
         "no_results_title": "No results for this scope.",
@@ -3277,6 +3285,71 @@ def _ensure_filter_state() -> None:
 
 
 _ensure_filter_state()
+st.session_state.setdefault("app_mode", "simple")
+
+
+def _current_filter_snapshot() -> Dict[str, object]:
+    return {
+        "f_sources": list(st.session_state.get("f_sources", [])),
+        "f_programmes": list(st.session_state.get("f_programmes", [])),
+        "f_years": tuple(st.session_state.get("f_years", (meta["miny"], meta["maxy"]))),
+        "f_statuses": list(st.session_state.get("f_statuses", [])),
+        "f_themes_raw": list(st.session_state.get("f_themes_raw", [])),
+        "f_entity_raw": list(st.session_state.get("f_entity_raw", [])),
+        "f_countries": list(st.session_state.get("f_countries", [])),
+        "f_onetech_only": bool(st.session_state.get("f_onetech_only", False)),
+        "f_use_actor_groups": bool(st.session_state.get("f_use_actor_groups", False)),
+        "f_exclude_funders": bool(st.session_state.get("f_exclude_funders", True)),
+    }
+
+
+def _apply_filter_snapshot(snapshot: Dict[str, object]) -> None:
+    for key, value in snapshot.items():
+        st.session_state[key] = value
+
+
+def _simple_mode_filter_snapshot() -> Dict[str, object]:
+    eu_default = european_countries_present(meta["countries"])
+    default_countries = eu_default if eu_default else meta["countries"]
+    default_statuses = [s for s in ["Open", "Closed", "Unknown"] if s in meta["statuses"]]
+    if not default_statuses:
+        default_statuses = meta["statuses"]
+    return {
+        "f_sources": list(meta["sources"]),
+        "f_programmes": list(meta["programmes"]),
+        "f_years": (meta["miny"], meta["maxy"]),
+        "f_statuses": list(default_statuses),
+        "f_themes_raw": list(meta["themes"]),
+        "f_entity_raw": list(meta["entities"]),
+        "f_countries": list(default_countries),
+        "f_onetech_only": False,
+        "f_use_actor_groups": False,
+        "f_exclude_funders": True,
+    }
+
+
+previous_app_mode = str(st.session_state.get("_last_app_mode", st.session_state["app_mode"]))
+if st.session_state["app_mode"] == "simple":
+    if previous_app_mode != "simple":
+        st.session_state["_advanced_filter_snapshot"] = _current_filter_snapshot()
+    _apply_filter_snapshot(_simple_mode_filter_snapshot())
+elif previous_app_mode == "simple":
+    saved_snapshot = st.session_state.get("_advanced_filter_snapshot")
+    if isinstance(saved_snapshot, dict):
+        _apply_filter_snapshot(saved_snapshot)
+st.session_state["_last_app_mode"] = st.session_state["app_mode"]
+
+
+# ============================================================
+# App mode
+# ============================================================
+st.radio(
+    t(lang, "app_mode_label"),
+    ["simple", "advanced"],
+    horizontal=True,
+    key="app_mode",
+    format_func=lambda mode: t(lang, "app_mode_simple") if str(mode) == "simple" else t(lang, "app_mode_advanced"),
+)
 
 
 # ============================================================
@@ -3305,75 +3378,78 @@ ctry_default = [x for x in st.session_state["f_countries"] if x in meta["countri
 eu_default = european_countries_present(meta["countries"])
 ctry_fallback = eu_default if eu_default else meta["countries"]
 
-with st.expander(t(lang, "filters"), expanded=False):
-    st.caption(t(lang, "basic_filters"))
-    basic_c1, basic_c2, basic_c3, basic_c4 = st.columns(4)
-    with basic_c1:
-        st.session_state["f_years"] = st.slider(
-            t(lang, "period"),
-            meta["miny"],
-            meta["maxy"],
-            st.session_state["f_years"],
-        )
-    themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
-    themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
-    with basic_c2:
-        st.session_state["f_themes_raw"] = st.multiselect(
-            t(lang, "themes"),
-            themes_ui,
-            default=themes_default or themes_ui,
-            format_func=lambda x: theme_raw_to_display(str(x), lang),
-        )
-    with basic_c3:
-        st.session_state["f_countries"] = st.multiselect(
-            t(lang, "countries"),
-            meta["countries"],
-            default=ctry_default or ctry_fallback,
-        )
-    with basic_c4:
-        st.session_state["f_programmes"] = st.multiselect(
-            t(lang, "programmes"),
-            meta["programmes"],
-            default=prg_default or meta["programmes"],
-        )
+if st.session_state.get("app_mode") == "advanced":
+    with st.expander(t(lang, "filters"), expanded=False):
+        st.caption(t(lang, "basic_filters"))
+        basic_c1, basic_c2, basic_c3, basic_c4 = st.columns(4)
+        with basic_c1:
+            st.session_state["f_years"] = st.slider(
+                t(lang, "period"),
+                meta["miny"],
+                meta["maxy"],
+                st.session_state["f_years"],
+            )
+        themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
+        themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
+        with basic_c2:
+            st.session_state["f_themes_raw"] = st.multiselect(
+                t(lang, "themes"),
+                themes_ui,
+                default=themes_default or themes_ui,
+                format_func=lambda x: theme_raw_to_display(str(x), lang),
+            )
+        with basic_c3:
+            st.session_state["f_countries"] = st.multiselect(
+                t(lang, "countries"),
+                meta["countries"],
+                default=ctry_default or ctry_fallback,
+            )
+        with basic_c4:
+            st.session_state["f_programmes"] = st.multiselect(
+                t(lang, "programmes"),
+                meta["programmes"],
+                default=prg_default or meta["programmes"],
+            )
 
-    st.divider()
-    st.caption(t(lang, "advanced_filters"))
-    adv_c1, adv_c2, adv_c3 = st.columns(3)
-    with adv_c1:
-        st.session_state["f_sources"] = st.multiselect(
-            t(lang, "sources"),
-            meta["sources"],
-            default=src_default or meta["sources"],
-        )
-    entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
-    with adv_c2:
-        st.session_state["f_entity_raw"] = st.multiselect(
-            t(lang, "entity"),
-            meta["entities"],
-            default=entities_default or meta["entities"],
-            format_func=lambda x: entity_raw_to_display(str(x), lang),
-        )
-    with adv_c3:
-        st.session_state["f_statuses"] = st.multiselect(
-            t(lang, "project_status"),
-            meta["statuses"],
-            default=status_default or meta["statuses"],
-            format_func=lambda x: status_raw_to_display(str(x), lang),
-        )
+        st.divider()
+        st.caption(t(lang, "advanced_filters"))
+        adv_c1, adv_c2, adv_c3 = st.columns(3)
+        with adv_c1:
+            st.session_state["f_sources"] = st.multiselect(
+                t(lang, "sources"),
+                meta["sources"],
+                default=src_default or meta["sources"],
+            )
+        entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
+        with adv_c2:
+            st.session_state["f_entity_raw"] = st.multiselect(
+                t(lang, "entity"),
+                meta["entities"],
+                default=entities_default or meta["entities"],
+                format_func=lambda x: entity_raw_to_display(str(x), lang),
+            )
+        with adv_c3:
+            st.session_state["f_statuses"] = st.multiselect(
+                t(lang, "project_status"),
+                meta["statuses"],
+                default=status_default or meta["statuses"],
+                format_func=lambda x: status_raw_to_display(str(x), lang),
+            )
 
-    st.divider()
-    st.caption(t(lang, "analysis_options"))
-    ana_c1, ana_c2, ana_c3 = st.columns(3)
-    with ana_c1:
-        st.session_state["f_onetech_only"] = st.checkbox(
-            t(lang, "onetech_only"),
-            value=st.session_state["f_onetech_only"],
-        )
-    with ana_c2:
-        st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
-    with ana_c3:
-        st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
+        st.divider()
+        st.caption(t(lang, "analysis_options"))
+        ana_c1, ana_c2, ana_c3 = st.columns(3)
+        with ana_c1:
+            st.session_state["f_onetech_only"] = st.checkbox(
+                t(lang, "onetech_only"),
+                value=st.session_state["f_onetech_only"],
+            )
+        with ana_c2:
+            st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+        with ana_c3:
+            st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
+else:
+    st.caption(t(lang, "simple_mode_filters_note"))
 
 render_active_filter_chips(meta, lang)
 
@@ -3463,74 +3539,111 @@ if str(st.session_state.get("f_quick_search", "")).strip():
 # ============================================================
 # Top navigation (result-first)
 # ============================================================
-top_tab_labels = [
-    t(lang, "tab_explorer"),
-    t(lang, "tab_actors_hub"),
-    t(lang, "tab_markets"),
-    t(lang, "tab_trends_events"),
-    t(lang, "tab_advanced"),
-    t(lang, "tab_admin"),
-]
+app_mode = str(st.session_state.get("app_mode", "simple"))
+if app_mode == "simple":
+    top_tab_labels = [
+        t(lang, "tab_explorer"),
+        t(lang, "tab_markets"),
+        t(lang, "tab_trends_events"),
+    ]
+else:
+    top_tab_labels = [
+        t(lang, "tab_explorer"),
+        t(lang, "tab_actors_hub"),
+        t(lang, "tab_markets"),
+        t(lang, "tab_trends_events"),
+        t(lang, "tab_advanced"),
+        t(lang, "tab_admin"),
+    ]
 default_top_tab = str(st.session_state.get("nav_target_top", "")).strip()
 if default_top_tab not in top_tab_labels:
     default_top_tab = t(lang, "tab_explorer")
-tab_explorer, tab_actors_hub, tab_markets, tab_trends_events, tab_advanced, tab_admin = st.tabs(
-    top_tab_labels,
-    default=default_top_tab,
-)
+if app_mode == "simple":
+    tab_explorer, tab_markets, tab_trends_events = st.tabs(
+        top_tab_labels,
+        default=default_top_tab,
+    )
+    tab_actors_hub = None
+    tab_advanced = None
+    tab_admin = None
+    hidden_actor_placeholder = st.empty()
+    hidden_comp_placeholder = st.empty()
+    hidden_value_chain_placeholder = st.empty()
+    hidden_collaboration_placeholder = st.empty()
+    hidden_concentration_placeholder = st.empty()
+    hidden_data_placeholder = st.empty()
+    hidden_quality_placeholder = st.empty()
+    hidden_debug_placeholder = st.empty()
+    hidden_docs_placeholder = st.empty()
+    tab_actor = hidden_actor_placeholder.container()
+    tab_comp = hidden_comp_placeholder.container()
+    tab_value_chain = hidden_value_chain_placeholder.container()
+    tab_collaboration = hidden_collaboration_placeholder.container()
+    tab_concentration = hidden_concentration_placeholder.container()
+    tab_data = hidden_data_placeholder.container()
+    tab_quality = hidden_quality_placeholder.container()
+    tab_debug = hidden_debug_placeholder.container()
+    tab_docs = hidden_docs_placeholder.container()
+else:
+    tab_explorer, tab_actors_hub, tab_markets, tab_trends_events, tab_advanced, tab_admin = st.tabs(
+        top_tab_labels,
+        default=default_top_tab,
+    )
 
 with tab_explorer:
     tab_results, tab_overview = st.tabs([t(lang, "sub_results"), t(lang, "sub_overview")])
 
-with tab_actors_hub:
-    tab_actor = st.container()
+if app_mode == "advanced":
+    with tab_actors_hub:
+        tab_actor = st.container()
 
 with tab_trends_events:
     tab_trends, tab_compare, tab_macro = st.tabs(
         [t(lang, "tab_trends"), t(lang, "tab_compare"), t(lang, "tab_macro")]
     )
 
-with tab_advanced:
-    st.markdown(f"### {t(lang, 'advanced_title')}")
-    st.caption(t(lang, "advanced_caption"))
-    with st.container(border=True):
-        st.markdown("**" + t(lang, "advanced_overview_title") + "**")
-        st.markdown(
-            "\n".join(
-                [
-                    f"- {t(lang, 'advanced_overview_1')}",
-                    f"- {t(lang, 'advanced_overview_2')}",
-                    f"- {t(lang, 'advanced_overview_3')}",
-                    f"- {t(lang, 'advanced_overview_4')}",
-                ]
+if app_mode == "advanced":
+    with tab_advanced:
+        st.markdown(f"### {t(lang, 'advanced_title')}")
+        st.caption(t(lang, "advanced_caption"))
+        with st.container(border=True):
+            st.markdown("**" + t(lang, "advanced_overview_title") + "**")
+            st.markdown(
+                "\n".join(
+                    [
+                        f"- {t(lang, 'advanced_overview_1')}",
+                        f"- {t(lang, 'advanced_overview_2')}",
+                        f"- {t(lang, 'advanced_overview_3')}",
+                        f"- {t(lang, 'advanced_overview_4')}",
+                    ]
+                )
             )
+            st.caption(t(lang, "advanced_overview_tip"))
+        tab_comp, tab_value_chain, tab_collaboration, tab_concentration = st.tabs(
+            [
+                t(lang, "sub_benchmark"),
+                t(lang, "sub_value_chain"),
+                t(lang, "sub_collaboration"),
+                t(lang, "sub_concentration"),
+            ]
         )
-        st.caption(t(lang, "advanced_overview_tip"))
-    tab_comp, tab_value_chain, tab_collaboration, tab_concentration = st.tabs(
-        [
-            t(lang, "sub_benchmark"),
-            t(lang, "sub_value_chain"),
-            t(lang, "sub_collaboration"),
-            t(lang, "sub_concentration"),
-        ]
-    )
 
-with tab_admin:
-    render_section_header("⋯", t(lang, "admin_title"), t(lang, "admin_caption"), t(lang, "tab_admin"))
-    with st.container(border=True):
-        st.markdown("**" + t(lang, "support_overview_title") + "**")
-        st.markdown(
-            "\n".join(
-                [
-                    f"- {t(lang, 'support_overview_1')}",
-                    f"- {t(lang, 'support_overview_2')}",
-                    f"- {t(lang, 'support_overview_3')}",
-                ]
+    with tab_admin:
+        render_section_header("⋯", t(lang, "admin_title"), t(lang, "admin_caption"), t(lang, "tab_admin"))
+        with st.container(border=True):
+            st.markdown("**" + t(lang, "support_overview_title") + "**")
+            st.markdown(
+                "\n".join(
+                    [
+                        f"- {t(lang, 'support_overview_1')}",
+                        f"- {t(lang, 'support_overview_2')}",
+                        f"- {t(lang, 'support_overview_3')}",
+                    ]
+                )
             )
-        )
-        st.caption(t(lang, "support_overview_tip"))
-    tab_data, tab_quality, tab_debug = st.tabs([t(lang, "sub_data"), t(lang, "sub_quality"), t(lang, "sub_debug")])
-    tab_docs = st.container()
+            st.caption(t(lang, "support_overview_tip"))
+        tab_data, tab_quality, tab_debug = st.tabs([t(lang, "sub_data"), t(lang, "sub_quality"), t(lang, "sub_debug")])
+        tab_docs = st.container()
 
 tab_geo = tab_markets
 tab_help = tab_docs
@@ -3936,7 +4049,7 @@ with tab_results:
                                 key=actor_hook_key,
                             )
                         with ah2:
-                            if st.button(("Ouvrir dans Acteurs" if lang == "FR" else "Open in Actors"), key=f"results_actor_drill_btn::{selected_project_id}"):
+                            if app_mode == "advanced" and st.button(("Ouvrir dans Acteurs" if lang == "FR" else "Open in Actors"), key=f"results_actor_drill_btn::{selected_project_id}"):
                                 chosen_display = str(st.session_state.get(actor_hook_key, actor_options[0])) if actor_options else ""
                                 if chosen_display:
                                     chosen_row = actors_hook[actors_hook["actor_display"].astype(str) == chosen_display].head(1)
@@ -3957,15 +4070,19 @@ with tab_results:
 
             st.divider()
             st.markdown("#### " + t(lang, "results_next_steps"))
-            n1, n2, n3 = st.columns(3)
+            next_cols = st.columns(3 if app_mode == "advanced" else 2)
+            n1 = next_cols[0]
+            n2 = next_cols[1] if app_mode == "advanced" else None
+            n3 = next_cols[2] if app_mode == "advanced" else next_cols[1]
             with n1:
                 if st.button(t(lang, "results_next_geo"), key="results_next_geo_btn", width="stretch"):
                     queue_tab_navigation(top_target=t(lang, "tab_markets"))
                     st.rerun()
-            with n2:
-                if st.button(t(lang, "results_next_actors"), key="results_next_actors_btn", width="stretch"):
-                    queue_tab_navigation(top_target=t(lang, "tab_actors_hub"))
-                    st.rerun()
+            if app_mode == "advanced" and n2 is not None:
+                with n2:
+                    if st.button(t(lang, "results_next_actors"), key="results_next_actors_btn", width="stretch"):
+                        queue_tab_navigation(top_target=t(lang, "tab_actors_hub"))
+                        st.rerun()
             with n3:
                 if st.button(t(lang, "results_next_trends"), key="results_next_trends_btn", width="stretch"):
                     queue_tab_navigation(top_target=t(lang, "tab_trends_events"))
@@ -5089,6 +5206,9 @@ with tab_comp:
                 top_bar("Research & academia", c2, "Top 20 recherche" if lang == "FR" else "Top 20 research")
                 top_bar("Public", c3, "Top 20 public" if lang == "FR" else "Top 20 public")
 
+if app_mode == "simple":
+    hidden_comp_placeholder.empty()
+
 
 # ============================================================
 # TAB TRENDS (DuckDB)
@@ -5975,6 +6095,9 @@ with tab_actor:
                     hide_index=True,
                 )
 
+if app_mode == "simple":
+    hidden_actor_placeholder.empty()
+
 
 # ============================================================
 # TAB ADVANCED VALUE CHAIN (DuckDB)
@@ -6403,6 +6526,9 @@ with tab_value_chain:
                 "value_chain_empty_hint",
             )
 
+if app_mode == "simple":
+    hidden_value_chain_placeholder.empty()
+
 # ============================================================
 # TAB ADVANCED COLLABORATION (DuckDB)
 # ============================================================
@@ -6622,6 +6748,9 @@ with tab_collaboration:
                 )
                 render_plotly_chart(fig_net, use_container_width=True)
 
+if app_mode == "simple":
+    hidden_collaboration_placeholder.empty()
+
 
 # ============================================================
 # TAB ADVANCED CONCENTRATION (DuckDB)
@@ -6684,6 +6813,9 @@ with tab_concentration:
         )
         render_plotly_chart(fig_p, use_container_width=True)
         st.caption(t(lang, "concentration_caption"))
+
+if app_mode == "simple":
+    hidden_concentration_placeholder.empty()
 
 
 # ============================================================
@@ -6770,6 +6902,9 @@ with tab_data:
             mime="text/csv",
         )
 
+if app_mode == "simple":
+    hidden_data_placeholder.empty()
+
 
 # ============================================================
 # TAB DEBUG (diagnostics)
@@ -6837,6 +6972,9 @@ with tab_debug:
         st.caption(f"{t(lang, 'diag_events_policy')}: {t(lang, 'diag_events_policy_value').format(hours=float(em.get('min_refresh_hours', 24.0)))}")
         st.caption(f"{t(lang, 'last_update')} — {t(lang, 'last_update_events')}: {str(em.get('last_build_utc', '—'))}")
 
+if app_mode == "simple":
+    hidden_debug_placeholder.empty()
+
 
 # ============================================================
 # TAB QUALITY (DuckDB)
@@ -6864,6 +7002,9 @@ with tab_quality:
             "amount_zero_%": float(qd["amount_zero_pct"].iloc[0] or 0.0),
         }
         st.dataframe(pd.DataFrame([out]), use_container_width=True)
+
+if app_mode == "simple":
+    hidden_quality_placeholder.empty()
 
 
 # ============================================================
@@ -7053,3 +7194,6 @@ with tab_guide:
 - Use grouped mode (PIC/group) for industrial-group level reading.
                 """
             )
+
+if app_mode == "simple":
+    hidden_docs_placeholder.empty()
