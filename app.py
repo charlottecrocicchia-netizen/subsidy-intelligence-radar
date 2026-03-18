@@ -1039,31 +1039,55 @@ MAP_LABEL_COLOR = "rgba(208, 216, 228, 0.52)"
 LEGEND_BG = "rgba(15, 23, 42, 0.88)"
 HOVER_BG = "#162033"
 
+# ============================================================
+# Country mapping (ISO alpha-2 -> full name)
+# ============================================================
+COUNTRY_CODE_TO_NAME = {
+    # EU 27
+    "AT": "Austria", "BE": "Belgium", "BG": "Bulgaria", "HR": "Croatia",
+    "CY": "Cyprus", "CZ": "Czechia", "DK": "Denmark", "EE": "Estonia",
+    "FI": "Finland", "FR": "France", "DE": "Germany", "GR": "Greece", "EL": "Greece",
+    "HU": "Hungary", "IE": "Ireland", "IT": "Italy", "LV": "Latvia",
+    "LT": "Lithuania", "LU": "Luxembourg", "MT": "Malta", "NL": "Netherlands",
+    "PL": "Poland", "PT": "Portugal", "RO": "Romania", "SK": "Slovakia",
+    "SI": "Slovenia", "ES": "Spain", "SE": "Sweden",
+    # Associated countries (Horizon Europe, as of Oct 2025)
+    "NO": "Norway", "IS": "Iceland", "CH": "Switzerland", "LI": "Liechtenstein",
+    "UK": "United Kingdom", "GB": "United Kingdom",
+    "TR": "Türkiye", "RS": "Serbia", "AL": "Albania", "ME": "Montenegro",
+    "MK": "North Macedonia", "BA": "Bosnia and Herzegovina",
+    "XK": "Kosovo", "MD": "Moldova", "UA": "Ukraine", "GE": "Georgia", "AM": "Armenia",
+    "IL": "Israel", "TN": "Tunisia", "EG": "Egypt", "MA": "Morocco",
+    "KR": "South Korea", "CA": "Canada", "NZ": "New Zealand",
+    "FO": "Faroe Islands",
+    # Other frequent participants (not associated but appear in CORDIS)
+    "US": "United States", "JP": "Japan", "CN": "China", "IN": "India",
+    "BR": "Brazil", "ZA": "South Africa", "AU": "Australia",
+    "SG": "Singapore", "TW": "Taiwan", "CL": "Chile", "MX": "Mexico",
+    "AR": "Argentina", "CO": "Colombia", "TH": "Thailand", "MY": "Malaysia",
+    "ID": "Indonesia", "PH": "Philippines", "VN": "Vietnam",
+    "NG": "Nigeria", "KE": "Kenya", "GH": "Ghana", "ET": "Ethiopia",
+    "SN": "Senegal", "TZ": "Tanzania", "UG": "Uganda",
+    "RU": "Russia", "BY": "Belarus",
+}
+
 EU27_COUNTRIES = [
-    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Czech Republic",
-    "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland",
-    "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland",
-    "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden",
+    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czechia",
+    "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary",
+    "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta",
+    "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia",
+    "Spain", "Sweden",
 ]
 
-ASSOCIATED_COUNTRIES = [
-    # EEA/EFTA
-    "Norway", "Iceland", "Switzerland", "Liechtenstein",
-    # Western Balkans
-    "Albania", "Bosnia and Herzegovina", "Kosovo", "Kosovo*",
-    "Montenegro", "North Macedonia", "Republic of North Macedonia", "Serbia", "Türkiye", "Turkey",
-    # Eastern Partnership
-    "Armenia", "Georgia", "Moldova", "Republic of Moldova", "Ukraine",
-    # Southern Neighbourhood
-    "Israel", "Tunisia", "Egypt",
-    # Other associated
-    "Canada", "Faroe Islands", "New Zealand", "South Korea", "Republic of Korea", "Korea, Republic of",
-    "United Kingdom",
+ASSOCIATED_COUNTRIES_HORIZON_EUROPE = [
+    "Albania", "Armenia", "Bosnia and Herzegovina", "Canada", "Egypt",
+    "Faroe Islands", "Georgia", "Iceland", "Israel", "Kosovo",
+    "Moldova", "Montenegro", "New Zealand", "North Macedonia", "Norway",
+    "South Korea", "Serbia", "Switzerland", "Türkiye", "Tunisia",
+    "Ukraine", "United Kingdom",
 ]
 
-EUROPE_DEFAULT_COUNTRIES = EU27_COUNTRIES + [
-    "Norway", "Switzerland", "United Kingdom", "Iceland",
-]
+EUROPE_DEFAULT_COUNTRIES = EU27_COUNTRIES + ["Norway", "Switzerland", "United Kingdom", "Iceland"]
 
 # World Bank/UN style rounded values (inhabitants). Used only for budget-per-population normalization in map.
 POPULATION_BY_ALPHA3 = {
@@ -2382,7 +2406,7 @@ def eu27_countries_present(countries: List[str]) -> List[str]:
 
 def associated_countries_present(countries: List[str]) -> List[str]:
     existing = set(countries or [])
-    ordered = [c for c in ASSOCIATED_COUNTRIES if c in existing]
+    ordered = [c for c in ASSOCIATED_COUNTRIES_HORIZON_EUROPE if c in existing]
     return ordered
 
 
@@ -2682,8 +2706,20 @@ def get_con() -> duckdb.DuckDBPyConnection:
 
 
 def rel() -> str:
-    base_rel = f"read_parquet('{PARQUET_PATH.as_posix()}')"
-    return f"(SELECT * FROM {base_rel} WHERE UPPER(COALESCE(source, '')) <> 'ADEME')"
+    raw = f"read_parquet('{PARQUET_PATH.as_posix()}')"
+    case_lines = []
+    for code, name in COUNTRY_CODE_TO_NAME.items():
+        safe_code = code.replace("'", "''")
+        safe_name = name.replace("'", "''")
+        case_lines.append(f"WHEN UPPER(TRIM(country_name)) = '{safe_code}' THEN '{safe_name}'")
+    case_sql = " ".join(case_lines)
+    return (
+        f"(SELECT * REPLACE("
+        f"(CASE {case_sql} ELSE TRIM(COALESCE(country_name, '')) END) AS country_name"
+        f") FROM {raw} "
+        f"WHERE UPPER(COALESCE(source, '')) <> 'ADEME' "
+        f"AND UPPER(COALESCE(program, '')) NOT LIKE '%ADEME%')"
+    )
 
 
 @st.cache_data(show_spinner=False)
