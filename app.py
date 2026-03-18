@@ -1305,6 +1305,100 @@ THEME_EN_TO_FR = {
     "Other": "Autres",
 }
 
+THEME_SUBCATEGORIES = {
+    "Hydrogen (H2)": [
+        "Hydrogen production",
+        "Electrolysis",
+        "Hydrogen storage",
+        "Hydrogen transport & distribution",
+        "Fuel cells",
+        "Industrial uses",
+        "Mobility applications",
+        "Catalysts, membranes & safety",
+    ],
+    "Solar (PV/CSP)": [
+        "Photovoltaic materials",
+        "PV cells & architectures",
+        "PV modules & balance of system",
+        "Concentrated solar power (CSP)",
+        "Solar thermal",
+        "Grid integration & flexibility",
+        "Recycling & sustainability",
+    ],
+    "Wind": [
+        "Onshore wind",
+        "Offshore wind",
+        "Floating wind",
+        "Turbines, blades & materials",
+        "Aerodynamics & wake effects",
+        "Operations & maintenance",
+        "Grid integration",
+    ],
+    "Bioenergy & SAF": [
+        "Biomass & feedstocks",
+        "Biofuels",
+        "Advanced biofuels",
+        "Sustainable aviation fuel (SAF)",
+        "Biochemical conversion",
+        "Thermochemical conversion",
+        "Lifecycle assessment & sustainability",
+    ],
+    "CCUS": [
+        "CO2 capture",
+        "Direct air capture (DAC)",
+        "CO2 transport",
+        "CO2 storage",
+        "CO2 utilization",
+        "Carbon mineralization",
+        "Monitoring, reporting & verification",
+    ],
+    "Nuclear & SMR": [
+        "SMR technologies",
+        "Reactor systems",
+        "Fuel cycle",
+        "Nuclear materials",
+        "Safety & licensing",
+        "Waste management",
+        "Decommissioning",
+    ],
+    "Batteries & Storage": [
+        "Battery chemistries",
+        "Electrode & electrolyte materials",
+        "Cells, modules & packs",
+        "Battery management systems",
+        "Stationary storage",
+        "Aging, diagnostics & safety",
+        "Recycling & second life",
+    ],
+    "AI & Digital": [
+        "Artificial intelligence & machine learning",
+        "Computer vision & sensing",
+        "Digital twins",
+        "Modeling & simulation",
+        "Optimization & decision support",
+        "Data platforms & software",
+        "Cybersecurity",
+    ],
+    "Advanced materials": [
+        "Catalysts",
+        "Membranes & separators",
+        "Coatings & surface engineering",
+        "Composites & structural materials",
+        "Nanomaterials",
+        "Functional materials",
+        "Recyclable & circular materials",
+    ],
+    "E-mobility": [
+        "Electric vehicles",
+        "Charging infrastructure",
+        "Power electronics",
+        "Electric drivetrains",
+        "Smart charging",
+        "Vehicle-to-grid (V2G)",
+        "Heavy-duty, maritime & aviation electrification",
+    ],
+}
+
 ENTITY_EN_TO_FR = {
     "Private company": "Entreprise (privé)",
     "Research & academia": "Recherche & académique",
@@ -1364,6 +1458,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_next_1": "les résultats détaillés du périmètre choisi",
         "guided_home_next_2": "les acteurs, la géographie et les tendances déjà préfiltrés",
         "guided_home_next_3": "tous les filtres avancés si tu veux aller plus loin",
+        "guided_home_theme_cards_help": "Clique sur une carte pour ajouter ou retirer une grande thématique.",
+        "guided_home_selected_themes": "Thématiques retenues",
+        "guided_home_subtopics": "Sous-thématiques préparatoires",
+        "guided_home_subtopics_help": "Ces sous-thèmes servent pour l’instant à cadrer le sujet. Ils ne filtrent pas encore directement les requêtes dans l’app.",
         "reset": "Réinitialiser",
         "refresh": "Rafraîchir les données",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
@@ -1822,6 +1920,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_next_1": "detailed results for the chosen scope",
         "guided_home_next_2": "actors, geography, and trends already prefiltered",
         "guided_home_next_3": "all advanced filters if you want to go deeper",
+        "guided_home_theme_cards_help": "Click a card to add or remove a main theme.",
+        "guided_home_selected_themes": "Selected themes",
+        "guided_home_subtopics": "Preparatory sub-themes",
+        "guided_home_subtopics_help": "These sub-themes currently help frame the topic only. They do not yet drive SQL filtering directly in the app.",
         "reset": "Reset",
         "refresh": "Refresh data",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
@@ -2675,6 +2777,18 @@ def apply_guided_entry_to_filters(meta: dict) -> None:
 
 def clear_search() -> None:
     st.session_state["f_quick_search"] = ""
+
+
+def toggle_guided_theme(theme: str) -> None:
+    current = [x for x in st.session_state.get("guided_themes_raw", []) if str(x).strip()]
+    theme = str(theme)
+    if theme in current:
+        current = [x for x in current if x != theme]
+    else:
+        current.append(theme)
+    st.session_state["guided_themes_raw"] = current
+    if len(current) != 1:
+        st.session_state["guided_subtopics"] = []
 
 
 def queue_tab_navigation(top_target: str = "", actor_sub_target: str = "") -> None:
@@ -3619,7 +3733,6 @@ def get_meta(_cache_buster: str = "v5_view_mapping") -> dict:
     }
 
 meta = get_meta()
-actor_map_info = register_actor_group_tables()
 
 
 # ============================================================
@@ -3664,6 +3777,7 @@ st.session_state.setdefault("app_mode", "simple")
 st.session_state.setdefault("sir_screen", "welcome")
 if any(k not in st.session_state for k in ["guided_search", "guided_themes_raw", "guided_countries", "guided_years"]):
     sync_guided_entry_from_filters(meta)
+st.session_state.setdefault("guided_subtopics", [])
 
 
 def _current_filter_snapshot() -> Dict[str, object]:
@@ -3757,13 +3871,38 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 help=t(lang, "guided_home_search_help"),
                 placeholder=t(lang, "main_search_placeholder"),
             )
-            st.session_state["guided_themes_raw"] = st.multiselect(
-                t(lang, "guided_home_topics"),
-                meta["themes"],
-                default=[x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]],
-                format_func=lambda x: theme_raw_to_display(str(x), lang),
-            )
+            st.caption(t(lang, "guided_home_theme_cards_help"))
+            theme_cols = st.columns(2)
+            guided_theme_choices = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
+            for idx, theme in enumerate(meta["themes"]):
+                label = theme_raw_to_display(str(theme), lang)
+                selected = theme in guided_theme_choices
+                button_label = ("✓ " if selected else "") + label
+                with theme_cols[idx % 2]:
+                    if st.button(button_label, key=f"guided_theme_card::{theme}", width="stretch"):
+                        toggle_guided_theme(str(theme))
+                        st.rerun()
             st.caption(t(lang, "guided_home_topics_help"))
+            if guided_theme_choices:
+                st.caption(t(lang, "guided_home_selected_themes"))
+                st.markdown(
+                    "<div class='sir-guided-pill-row'>" + "".join(
+                        f"<span class='sir-guided-pill'>{html.escape(theme_raw_to_display(str(x), lang))}</span>" for x in guided_theme_choices
+                    ) + "</div>",
+                    unsafe_allow_html=True,
+                )
+            if len(guided_theme_choices) == 1 and str(guided_theme_choices[0]) in THEME_SUBCATEGORIES:
+                only_theme = str(guided_theme_choices[0])
+                available_subtopics = THEME_SUBCATEGORIES.get(only_theme, [])
+                current_subtopics = [x for x in st.session_state.get("guided_subtopics", []) if x in available_subtopics]
+                st.session_state["guided_subtopics"] = st.multiselect(
+                    t(lang, "guided_home_subtopics"),
+                    available_subtopics,
+                    default=current_subtopics,
+                )
+                st.caption(t(lang, "guided_home_subtopics_help"))
+            else:
+                st.session_state["guided_subtopics"] = []
 
     with gh2:
         with st.container(border=True):
@@ -3826,6 +3965,7 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
 
     st.stop()
 
+actor_map_info = register_actor_group_tables()
 
 # ============================================================
 # App mode
