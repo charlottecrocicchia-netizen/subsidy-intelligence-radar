@@ -2779,6 +2779,7 @@ def sync_guided_entry_from_filters(meta: dict) -> None:
     st.session_state["guided_search"] = str(st.session_state.get("f_quick_search", ""))
     st.session_state["guided_themes_raw"] = [] if set(current_themes) == set(meta["themes"]) else current_themes
     st.session_state["guided_countries"] = current_countries or default_countries
+    st.session_state["guided_countries_widget"] = list(st.session_state["guided_countries"])
     st.session_state["guided_years"] = current_years
     st.session_state["guided_subtopics_by_theme"] = {
         theme: values
@@ -3891,6 +3892,7 @@ if any(k not in st.session_state for k in ["guided_search", "guided_themes_raw",
     sync_guided_entry_from_filters(meta)
 st.session_state.setdefault("guided_subtopics", [])
 st.session_state.setdefault("guided_subtopics_by_theme", {})
+st.session_state.setdefault("guided_countries_widget", list(st.session_state.get("guided_countries", [])))
 st.session_state.setdefault("f_guided_subtopics", [])
 st.session_state.setdefault("f_guided_topic_terms", [])
 
@@ -4056,24 +4058,34 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
             with gp1:
                 if st.button(t(lang, "country_preset_eu27"), key="guided_country_preset_eu27_btn", width="stretch"):
                     st.session_state["guided_countries"] = guided_eu27
+                    st.session_state["guided_countries_widget"] = list(guided_eu27)
                     st.rerun()
             with gp2:
                 if st.button(t(lang, "country_preset_associated"), key="guided_country_preset_associated_btn", width="stretch"):
                     st.session_state["guided_countries"] = guided_eu_plus
+                    st.session_state["guided_countries_widget"] = list(guided_eu_plus)
                     st.rerun()
             with gp3:
                 if st.button(t(lang, "country_preset_all"), key="guided_country_preset_all_btn", width="stretch"):
                     st.session_state["guided_countries"] = list(meta["countries"])
+                    st.session_state["guided_countries_widget"] = list(meta["countries"])
                     st.rerun()
             if not st.session_state.get("guided_countries"):
                 st.session_state["guided_countries"] = [
                     x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]
                 ] or _default_countries_from_meta(meta)
+            st.session_state["guided_countries_widget"] = [
+                x for x in st.session_state.get("guided_countries_widget", st.session_state.get("guided_countries", []))
+                if x in meta["countries"]
+            ] or list(st.session_state.get("guided_countries", []))
             st.multiselect(
                 t(lang, "countries"),
                 meta["countries"],
-                key="guided_countries",
+                key="guided_countries_widget",
             )
+            st.session_state["guided_countries"] = [
+                x for x in st.session_state.get("guided_countries_widget", []) if x in meta["countries"]
+            ]
             st.caption(t(lang, "guided_home_countries_help"))
             st.slider(
                 t(lang, "period"),
