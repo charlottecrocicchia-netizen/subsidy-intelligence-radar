@@ -1397,6 +1397,86 @@ THEME_SUBCATEGORIES = {
         "Vehicle-to-grid (V2G)",
         "Heavy-duty, maritime & aviation electrification",
     ],
+    "Climate & Environment": [
+        "Climate adaptation",
+        "Climate mitigation",
+        "Carbon footprint & LCA",
+        "Air quality",
+        "Water resources & treatment",
+        "Pollution monitoring & remediation",
+        "Biodiversity & ecosystems",
+        "Circular economy & waste",
+    ],
+    "Industry & Manufacturing": [
+        "Advanced manufacturing",
+        "Process intensification",
+        "Industrial decarbonization",
+        "Automation & robotics",
+        "Sensors & industrial monitoring",
+        "Predictive maintenance",
+        "Supply chain & logistics",
+        "Quality control & inspection",
+    ],
+    "Transport & Aviation": [
+        "Sustainable aviation",
+        "Aeronautics systems",
+        "Rail transport",
+        "Maritime transport",
+        "Logistics & freight",
+        "Low-emission mobility systems",
+        "Transport infrastructure",
+        "Traffic optimization & operations",
+    ],
+    "Health & Biotech": [
+        "Drug discovery",
+        "Bioprocessing & biomanufacturing",
+        "Diagnostics",
+        "Medical devices",
+        "Genomics & omics",
+        "Vaccines & therapeutics",
+        "Digital health",
+        "Biomaterials & tissue engineering",
+    ],
+    "Space": [
+        "Earth observation",
+        "Satellite systems",
+        "Launch systems",
+        "Space propulsion",
+        "Space robotics",
+        "Planetary exploration",
+        "Telecommunications & navigation",
+        "Space situational awareness",
+    ],
+    "Agriculture & Food": [
+        "Precision agriculture",
+        "Agri-biotech",
+        "Soil health",
+        "Crop improvement",
+        "Food processing",
+        "Alternative proteins",
+        "Water efficiency in agriculture",
+        "Food systems sustainability",
+    ],
+    "Security & Resilience": [
+        "Cybersecurity",
+        "Critical infrastructure resilience",
+        "Energy security",
+        "Disaster risk reduction",
+        "Civil security",
+        "Defense technologies",
+        "Surveillance & detection",
+        "Emergency response systems",
+    ],
+    "Other": [
+        "Cross-disciplinary research",
+        "Policy & governance",
+        "Socio-economic analysis",
+        "Education & skills",
+        "Demonstration projects",
+        "Pilot projects",
+        "Infrastructure support",
+        "Unclassified / miscellaneous",
+    ],
 }
 
 SUBTOPIC_TERM_OVERRIDES = {
@@ -2431,6 +2511,58 @@ def entity_raw_to_display(raw: str, lang: str) -> str:
         return ENTITY_EN_TO_FR.get(raw, raw)
     return raw
 
+def country_value_labels(raw: str) -> List[str]:
+    value = str(raw or "").strip()
+    if not value:
+        return []
+    parts = [p.strip() for p in re.split(r"[;,/]+", value) if p.strip()]
+    labels: List[str] = []
+    for part in parts or [value]:
+        mapped = COUNTRY_CODE_TO_NAME.get(part.upper(), part)
+        if mapped not in labels:
+            labels.append(mapped)
+    return labels
+
+
+def country_raw_to_display(raw: str) -> str:
+    labels = country_value_labels(raw)
+    if not labels:
+        return ""
+    return " / ".join(labels)
+
+
+def normalized_country_options(values: List[str]) -> List[str]:
+    ordered: List[str] = []
+    for raw in values or []:
+        labels = country_value_labels(raw) or [str(raw).strip()]
+        for label in labels:
+            clean = str(label).strip()
+            if clean and clean not in ordered:
+                ordered.append(clean)
+    return ordered
+
+
+def normalize_country_selection(values: List[str], available: List[str]) -> List[str]:
+    allowed = set(str(x).strip() for x in available or [] if str(x).strip())
+    normalized: List[str] = []
+    for raw in values or []:
+        labels = country_value_labels(raw) or [str(raw).strip()]
+        for label in labels:
+            clean = str(label).strip()
+            if clean and clean in allowed and clean not in normalized:
+                normalized.append(clean)
+    return normalized
+
+
+def _country_values_matching(countries: List[str], allowed_names: List[str]) -> List[str]:
+    allowed = set(str(x) for x in allowed_names if str(x).strip())
+    matched: List[str] = []
+    for raw in countries or []:
+        labels = set(country_value_labels(raw))
+        if labels & allowed and raw not in matched:
+            matched.append(raw)
+    return matched
+
 
 def status_raw_to_display(raw: str, lang: str) -> str:
     mapping_fr = {"Open": "Ouvert", "Closed": "Fermé", "Unknown": "Inconnu"}
@@ -2535,7 +2667,7 @@ def active_filter_labels(meta: dict, lang: str) -> List[str]:
 
     countries = [x for x in st.session_state.get("f_countries", []) if x in meta.get("countries", [])]
     if countries and len(countries) < len(meta.get("countries", [])):
-        labels.append(f"{t(lang, 'countries')}: {_compact_filter_values(countries)}")
+        labels.append(f"{t(lang, 'countries')}: {_compact_filter_values(countries, country_raw_to_display)}")
 
     themes = [x for x in st.session_state.get("f_themes_raw", []) if x in meta.get("themes", [])]
     if themes and len(themes) < len(meta.get("themes", [])):
@@ -2692,21 +2824,15 @@ def is_streamlit_cloud_runtime() -> bool:
 
 
 def european_countries_present(countries: List[str]) -> List[str]:
-    existing = set(countries or [])
-    ordered = [c for c in EUROPE_DEFAULT_COUNTRIES if c in existing]
-    return ordered
+    return _country_values_matching(countries, EUROPE_DEFAULT_COUNTRIES)
 
 
 def eu27_countries_present(countries: List[str]) -> List[str]:
-    existing = set(countries or [])
-    ordered = [c for c in EU27_COUNTRIES if c in existing]
-    return ordered
+    return _country_values_matching(countries, EU27_COUNTRIES)
 
 
 def associated_countries_present(countries: List[str]) -> List[str]:
-    existing = set(countries or [])
-    ordered = [c for c in ASSOCIATED_COUNTRIES_HORIZON_EUROPE if c in existing]
-    return ordered
+    return _country_values_matching(countries, ASSOCIATED_COUNTRIES_HORIZON_EUROPE)
 
 
 @st.cache_data(show_spinner=False)
@@ -3828,11 +3954,14 @@ if not PARQUET_PATH.exists():
 # Metadata lists + ranges (cheap)
 # ============================================================
 @st.cache_data(show_spinner=False, ttl=300)
-def get_meta(_cache_buster: str = "v5_view_mapping") -> dict:
+def get_meta(_cache_buster: str = "v6_country_names") -> dict:
     R = rel()
     yr = fetch_df(f"SELECT MIN(year) AS miny, MAX(year) AS maxy FROM {R}")
     miny = int(yr["miny"].iloc[0])
     maxy = int(yr["maxy"].iloc[0])
+    raw_countries = list_str(
+        f"SELECT DISTINCT country_name FROM {R} WHERE country_name IS NOT NULL AND TRIM(country_name)<>'' ORDER BY country_name"
+    )
 
     return {
         "miny": miny,
@@ -3843,7 +3972,7 @@ def get_meta(_cache_buster: str = "v5_view_mapping") -> dict:
         "statuses": list_str(f"SELECT DISTINCT project_status FROM {R} WHERE project_status IS NOT NULL AND TRIM(project_status)<>'' ORDER BY project_status"),
         "themes": list_str(f"SELECT DISTINCT theme FROM {R} WHERE theme IS NOT NULL AND TRIM(theme)<>'' ORDER BY theme"),
         "entities": list_str(f"SELECT DISTINCT entity_type FROM {R} WHERE entity_type IS NOT NULL AND TRIM(entity_type)<>'' ORDER BY entity_type"),
-        "countries": list_str(f"SELECT DISTINCT country_name FROM {R} WHERE country_name IS NOT NULL AND TRIM(country_name)<>'' ORDER BY country_name"),
+        "countries": normalized_country_options(raw_countries),
     }
 
 meta = get_meta()
@@ -3886,11 +4015,33 @@ def _ensure_filter_state() -> None:
     st.session_state["f_sections"] = []
 
 
+def _normalize_country_state(meta: dict) -> None:
+    available = list(meta.get("countries", []))
+    if not available:
+        return
+    default_countries = _default_countries_from_meta(meta)
+    for key in ["f_countries", "guided_countries", "guided_countries_widget"]:
+        current = st.session_state.get(key, [])
+        if isinstance(current, (list, tuple, set)):
+            current_values = list(current)
+        elif str(current).strip():
+            current_values = [str(current).strip()]
+        else:
+            current_values = []
+        normalized = normalize_country_selection(current_values, available)
+        if normalized:
+            st.session_state[key] = normalized
+        elif key == "f_countries" and not current_values:
+            st.session_state[key] = list(default_countries)
+
+
 _ensure_filter_state()
+_normalize_country_state(meta)
 st.session_state.setdefault("app_mode", "simple")
 st.session_state.setdefault("sir_screen", "welcome")
 if any(k not in st.session_state for k in ["guided_search", "guided_themes_raw", "guided_countries", "guided_years"]):
     sync_guided_entry_from_filters(meta)
+_normalize_country_state(meta)
 st.session_state.setdefault("guided_subtopics", [])
 st.session_state.setdefault("guided_subtopics_by_theme", {})
 st.session_state.setdefault("guided_countries_widget", list(st.session_state.get("guided_countries", [])))
@@ -4070,6 +4221,7 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 t(lang, "countries"),
                 meta["countries"],
                 key="guided_countries_widget",
+                format_func=country_raw_to_display,
             )
             st.session_state["guided_countries"] = [
                 x for x in st.session_state.get("guided_countries_widget", []) if x in meta["countries"]
@@ -4207,6 +4359,7 @@ if st.session_state.get("app_mode") == "advanced":
                 t(lang, "countries"),
                 meta["countries"],
                 key="f_countries",
+                format_func=country_raw_to_display,
             )
         with basic_c4:
             st.session_state["f_programmes"] = st.multiselect(
