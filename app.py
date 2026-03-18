@@ -15,6 +15,10 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from streamlit import config as st_config
+try:
+    import pycountry
+except Exception:
+    pycountry = None
 
 import plotly.express as px
 import plotly.graph_objects as go
@@ -2518,7 +2522,20 @@ def country_value_labels(raw: str) -> List[str]:
     parts = [p.strip() for p in re.split(r"[;,/]+", value) if p.strip()]
     labels: List[str] = []
     for part in parts or [value]:
-        mapped = COUNTRY_CODE_TO_NAME.get(part.upper(), part)
+        part_clean = str(part).strip()
+        mapped = COUNTRY_CODE_TO_NAME.get(part_clean.upper(), part_clean)
+        if mapped == part_clean and pycountry is not None:
+            try:
+                if len(part_clean) == 2:
+                    country = pycountry.countries.get(alpha_2=part_clean.upper())
+                    if country is not None:
+                        mapped = str(country.name)
+                elif len(part_clean) == 3:
+                    country = pycountry.countries.get(alpha_3=part_clean.upper())
+                    if country is not None:
+                        mapped = str(country.name)
+            except Exception:
+                mapped = part_clean
         if mapped not in labels:
             labels.append(mapped)
     return labels
@@ -4142,16 +4159,38 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 placeholder=t(lang, "main_search_placeholder"),
             )
             st.caption(t(lang, "guided_home_theme_cards_help"))
-            theme_cols = st.columns(2)
-            guided_theme_choices = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
-            for idx, theme in enumerate(meta["themes"]):
-                label = theme_raw_to_display(str(theme), lang)
-                selected = theme in guided_theme_choices
-                button_label = ("✓ " if selected else "") + label
-                with theme_cols[idx % 2]:
-                    if st.button(button_label, key=f"guided_theme_card::{theme}", width="stretch"):
-                        toggle_guided_theme(str(theme))
-                        st.rerun()
+            current_guided_themes = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
+            if hasattr(st, "pills"):
+                pill_selection = st.pills(
+                    t(lang, "themes"),
+                    meta["themes"],
+                    selection_mode="multi",
+                    default=current_guided_themes,
+                    format_func=lambda x: theme_raw_to_display(str(x), lang),
+                    key="guided_theme_pills",
+                    label_visibility="collapsed",
+                )
+                guided_theme_choices = [x for x in meta["themes"] if x in (pill_selection or [])]
+                if guided_theme_choices != current_guided_themes:
+                    subtopic_map = _clean_guided_subtopics_by_theme()
+                    st.session_state["guided_themes_raw"] = guided_theme_choices
+                    st.session_state["guided_subtopics_by_theme"] = {
+                        theme: subtopic_map.get(theme, [])
+                        for theme in guided_theme_choices
+                        if subtopic_map.get(theme)
+                    }
+                    st.session_state["guided_subtopics"] = _selected_guided_subtopics(guided_theme_choices)
+            else:
+                theme_cols = st.columns(2)
+                guided_theme_choices = current_guided_themes
+                for idx, theme in enumerate(meta["themes"]):
+                    label = theme_raw_to_display(str(theme), lang)
+                    selected = theme in guided_theme_choices
+                    button_label = ("✓ " if selected else "") + label
+                    with theme_cols[idx % 2]:
+                        if st.button(button_label, key=f"guided_theme_card::{theme}", width="stretch"):
+                            toggle_guided_theme(str(theme))
+                            st.rerun()
             st.caption(t(lang, "guided_home_topics_help"))
             if guided_theme_choices:
                 st.caption(t(lang, "guided_home_selected_themes"))
