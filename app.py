@@ -31,7 +31,6 @@ HAS_PLOTLY_EVENTS = False
 
 WIP_SECTIONS = {
     "free_text_search": True,
-    "ademe": True,
     "actor_grouping": True,
     "value_chain": True,
 }
@@ -1461,10 +1460,6 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_label": "Que veux-tu explorer ?",
         "main_search_help": "Recherche libre dans acteur, projet, acronyme ou titre",
         "main_search_placeholder": "Ex. AI, hydrogène, CNRS, batteries",
-        "app_mode_label": "Mode",
-        "app_mode_simple": "Vue d'ensemble",
-        "app_mode_advanced": "Recherche avancée",
-        "simple_mode_filters_note": "Cette vue applique le périmètre par défaut. Passe en Recherche avancée pour afficher et modifier les filtres.",
         "active_filters": "Filtres actifs",
         "clear_search": "Effacer la recherche",
         "no_results_title": "Aucun résultat pour ce périmètre.",
@@ -1621,6 +1616,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_geo_single_country": "Acteur concentré sur un seul pays dans le périmètre actuel.",
         "actor_countries": "Pays couverts",
         "actor_main_country": "Pays principal",
+        "app_mode_label": "Mode",
+        "app_mode_simple": "Vue d'ensemble",
+        "app_mode_advanced": "Recherche avancée",
+        "simple_mode_filters_note": "Cette vue applique le périmètre par défaut. Passe en Recherche avancée pour afficher et modifier les filtres.",
         "diag_snapshot": "Diagnostic global",
         "diag_snapshot_hint": "Ces valeurs sont globales (hors filtres sidebar).",
         "diag_rows": "Lignes base",
@@ -1878,10 +1877,6 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_label": "What do you want to explore?",
         "main_search_help": "Free-text search across actor, project, acronym, or title",
         "main_search_placeholder": "E.g. AI, hydrogen, CNRS, batteries",
-        "app_mode_label": "Mode",
-        "app_mode_simple": "Overview",
-        "app_mode_advanced": "Advanced search",
-        "simple_mode_filters_note": "This view applies the default scope. Switch to Advanced search to show and edit filters.",
         "active_filters": "Active filters",
         "clear_search": "Clear search",
         "no_results_title": "No results for this scope.",
@@ -2038,6 +2033,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_geo_single_country": "Actor concentrated in a single country in the current scope.",
         "actor_countries": "Countries covered",
         "actor_main_country": "Main country",
+        "app_mode_label": "Mode",
+        "app_mode_simple": "Overview",
+        "app_mode_advanced": "Advanced search",
+        "simple_mode_filters_note": "This view applies the default scope. Switch to Advanced search to show and edit filters.",
         "diag_snapshot": "Snapshot diagnostics",
         "diag_snapshot_hint": "These values are global (independent from sidebar filters).",
         "diag_rows": "Dataset rows",
@@ -2678,7 +2677,8 @@ def get_con() -> duckdb.DuckDBPyConnection:
 
 
 def rel() -> str:
-    return f"read_parquet('{PARQUET_PATH.as_posix()}')"
+    base_rel = f"read_parquet('{PARQUET_PATH.as_posix()}')"
+    return f"(SELECT * FROM {base_rel} WHERE UPPER(COALESCE(source, '')) <> 'ADEME')"
 
 
 @st.cache_data(show_spinner=False)
@@ -3313,8 +3313,8 @@ def get_meta() -> dict:
     return {
         "miny": miny,
         "maxy": maxy,
-        "sources": list_str(f"SELECT DISTINCT source FROM {R} WHERE source IS NOT NULL AND TRIM(source)<>'' ORDER BY source"),
-        "programmes": list_str(f"SELECT DISTINCT program FROM {R} WHERE program IS NOT NULL AND TRIM(program)<>'' ORDER BY program"),
+        "sources": list_str(f"SELECT DISTINCT source FROM {R} WHERE source IS NOT NULL AND TRIM(source)<>'' AND UPPER(TRIM(source)) <> 'ADEME' ORDER BY source"),
+        "programmes": list_str(f"SELECT DISTINCT program FROM {R} WHERE program IS NOT NULL AND TRIM(program)<>'' AND UPPER(TRIM(program)) NOT LIKE '%ADEME%' ORDER BY program"),
         "sections": list_str(f"SELECT DISTINCT section FROM {R} WHERE section IS NOT NULL AND TRIM(section)<>'' ORDER BY section"),
         "statuses": list_str(f"SELECT DISTINCT project_status FROM {R} WHERE project_status IS NOT NULL AND TRIM(project_status)<>'' ORDER BY project_status"),
         "themes": list_str(f"SELECT DISTINCT theme FROM {R} WHERE theme IS NOT NULL AND TRIM(theme)<>'' ORDER BY theme"),
@@ -3513,8 +3513,6 @@ if st.session_state.get("app_mode") == "advanced":
         st.caption(t(lang, "advanced_filters"))
         adv_c1, adv_c2, adv_c3 = st.columns(3)
         with adv_c1:
-            if WIP_SECTIONS.get("ademe", False) and any("ADEME" in str(src).upper() for src in meta["sources"]):
-                st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
             st.session_state["f_sources"] = st.multiselect(
                 t(lang, "sources"),
                 meta["sources"],
