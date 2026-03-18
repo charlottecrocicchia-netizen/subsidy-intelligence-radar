@@ -166,20 +166,57 @@ def infer_value_chain_stage(*parts: str) -> str:
 # Country helpers (minimal, robust)
 # ============================================================
 _FALLBACK_NAME = {
-    "FR": "France", "DE": "Germany", "NL": "Netherlands", "ES": "Spain", "IT": "Italy", "BE": "Belgium",
-    "SE": "Sweden", "DK": "Denmark", "FI": "Finland", "NO": "Norway", "IE": "Ireland", "PT": "Portugal",
-    "PL": "Poland", "AT": "Austria", "GR": "Greece", "CZ": "Czechia", "HU": "Hungary", "RO": "Romania",
-    "BG": "Bulgaria", "SK": "Slovakia", "SI": "Slovenia", "HR": "Croatia", "LT": "Lithuania", "LV": "Latvia",
-    "EE": "Estonia", "LU": "Luxembourg", "CY": "Cyprus", "MT": "Malta", "CH": "Switzerland", "UK": "United Kingdom",
-    "US": "United States",
+    # EU 27
+    "AT": "Austria", "BE": "Belgium", "BG": "Bulgaria", "HR": "Croatia",
+    "CY": "Cyprus", "CZ": "Czechia", "DK": "Denmark", "EE": "Estonia",
+    "FI": "Finland", "FR": "France", "DE": "Germany", "GR": "Greece", "EL": "Greece",
+    "HU": "Hungary", "IE": "Ireland", "IT": "Italy", "LV": "Latvia",
+    "LT": "Lithuania", "LU": "Luxembourg", "MT": "Malta", "NL": "Netherlands",
+    "PL": "Poland", "PT": "Portugal", "RO": "Romania", "SK": "Slovakia",
+    "SI": "Slovenia", "ES": "Spain", "SE": "Sweden",
+    # Associated countries (Horizon Europe, as of 2025)
+    "NO": "Norway", "IS": "Iceland", "CH": "Switzerland", "LI": "Liechtenstein",
+    "UK": "United Kingdom", "GB": "United Kingdom",
+    "TR": "Türkiye", "RS": "Serbia", "AL": "Albania", "ME": "Montenegro",
+    "MK": "North Macedonia", "BA": "Bosnia and Herzegovina",
+    "XK": "Kosovo", "MD": "Moldova", "UA": "Ukraine", "GE": "Georgia", "AM": "Armenia",
+    "IL": "Israel", "TN": "Tunisia", "EG": "Egypt", "MA": "Morocco",
+    "KR": "South Korea", "CA": "Canada", "NZ": "New Zealand",
+    "FO": "Faroe Islands",
+    # Other frequent participants
+    "US": "United States", "JP": "Japan", "CN": "China", "IN": "India",
+    "BR": "Brazil", "ZA": "South Africa", "AU": "Australia",
+    "SG": "Singapore", "TW": "Taiwan", "CL": "Chile", "MX": "Mexico",
+    "AR": "Argentina", "CO": "Colombia", "TH": "Thailand", "MY": "Malaysia",
+    "ID": "Indonesia", "PH": "Philippines", "VN": "Vietnam",
+    "NG": "Nigeria", "KE": "Kenya", "GH": "Ghana", "ET": "Ethiopia",
+    "SN": "Senegal", "TZ": "Tanzania", "UG": "Uganda",
+    "RU": "Russia", "BY": "Belarus",
 }
 _FALLBACK_A3 = {
-    "FR": "FRA", "DE": "DEU", "NL": "NLD", "ES": "ESP", "IT": "ITA", "BE": "BEL",
-    "SE": "SWE", "DK": "DNK", "FI": "FIN", "NO": "NOR", "IE": "IRL", "PT": "PRT",
-    "PL": "POL", "AT": "AUT", "GR": "GRC", "CZ": "CZE", "HU": "HUN", "RO": "ROU",
-    "BG": "BGR", "SK": "SVK", "SI": "SVN", "HR": "HRV", "LT": "LTU", "LV": "LVA",
-    "EE": "EST", "LU": "LUX", "CY": "CYP", "MT": "MLT", "CH": "CHE", "UK": "GBR",
-    "US": "USA",
+    # EU 27
+    "AT": "AUT", "BE": "BEL", "BG": "BGR", "HR": "HRV",
+    "CY": "CYP", "CZ": "CZE", "DK": "DNK", "EE": "EST",
+    "FI": "FIN", "FR": "FRA", "DE": "DEU", "GR": "GRC", "EL": "GRC",
+    "HU": "HUN", "IE": "IRL", "IT": "ITA", "LV": "LVA",
+    "LT": "LTU", "LU": "LUX", "MT": "MLT", "NL": "NLD",
+    "PL": "POL", "PT": "PRT", "RO": "ROU", "SK": "SVK",
+    "SI": "SVN", "ES": "ESP", "SE": "SWE",
+    # Associated
+    "NO": "NOR", "IS": "ISL", "CH": "CHE", "LI": "LIE",
+    "UK": "GBR", "GB": "GBR",
+    "TR": "TUR", "RS": "SRB", "AL": "ALB", "ME": "MNE",
+    "MK": "MKD", "BA": "BIH",
+    "XK": "XKX", "MD": "MDA", "UA": "UKR", "GE": "GEO", "AM": "ARM",
+    "IL": "ISR", "TN": "TUN", "EG": "EGY", "MA": "MAR",
+    "KR": "KOR", "CA": "CAN", "NZ": "NZL",
+    "FO": "FRO",
+    # Other
+    "US": "USA", "JP": "JPN", "CN": "CHN", "IN": "IND",
+    "BR": "BRA", "ZA": "ZAF", "AU": "AUS",
+    "SG": "SGP", "TW": "TWN", "CL": "CHL", "MX": "MEX",
+    "AR": "ARG", "CO": "COL", "TH": "THA", "MY": "MYS",
+    "RU": "RUS", "BY": "BLR",
 }
 
 

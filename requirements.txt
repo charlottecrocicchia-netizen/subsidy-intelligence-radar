@@ -10,3 +10,4 @@ rdflib
 pyarrow
 duckdb
 filelock
+pycountry

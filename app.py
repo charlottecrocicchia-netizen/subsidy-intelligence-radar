@@ -1039,28 +1039,30 @@ MAP_LABEL_COLOR = "rgba(208, 216, 228, 0.52)"
 LEGEND_BG = "rgba(15, 23, 42, 0.88)"
 HOVER_BG = "#162033"
 
-EUROPE_DEFAULT_COUNTRIES = [
-    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Czechia",
-    "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland",
-    "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland",
-    "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden",
-    "Norway", "Switzerland", "United Kingdom", "Iceland",
-]
-
 EU27_COUNTRIES = [
-    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Czechia",
+    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Czech Republic",
     "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland",
     "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland",
     "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden",
 ]
 
 ASSOCIATED_COUNTRIES = [
-    "Switzerland", "Norway", "Israel", "Turkey", "Türkiye", "Iceland",
-    "Serbia", "Albania", "Montenegro", "North Macedonia", "Republic of North Macedonia",
-    "Bosnia and Herzegovina", "Kosovo", "Kosovo*",
-    "Moldova", "Republic of Moldova", "Ukraine", "Georgia", "Armenia",
-    "Tunisia", "Morocco", "South Korea", "Republic of Korea", "Korea, Republic of",
-    "Japan", "Canada", "New Zealand", "United Kingdom",
+    # EEA/EFTA
+    "Norway", "Iceland", "Switzerland", "Liechtenstein",
+    # Western Balkans
+    "Albania", "Bosnia and Herzegovina", "Kosovo", "Kosovo*",
+    "Montenegro", "North Macedonia", "Republic of North Macedonia", "Serbia", "Türkiye", "Turkey",
+    # Eastern Partnership
+    "Armenia", "Georgia", "Moldova", "Republic of Moldova", "Ukraine",
+    # Southern Neighbourhood
+    "Israel", "Tunisia", "Egypt",
+    # Other associated
+    "Canada", "Faroe Islands", "New Zealand", "South Korea", "Republic of Korea", "Korea, Republic of",
+    "United Kingdom",
+]
+
+EUROPE_DEFAULT_COUNTRIES = EU27_COUNTRIES + [
+    "Norway", "Switzerland", "United Kingdom", "Iceland",
 ]
 
 # World Bank/UN style rounded values (inhabitants). Used only for budget-per-population normalization in map.
@@ -1070,7 +1072,10 @@ POPULATION_BY_ALPHA3 = {
     "HUN": 9580000, "IRL": 5320000, "ITA": 58900000, "LVA": 1880000, "LTU": 2860000, "LUX": 673000,
     "MLT": 564000, "NLD": 18000000, "POL": 37700000, "PRT": 10500000, "ROU": 19000000, "SVK": 5430000,
     "SVN": 2120000, "ESP": 48800000, "SWE": 10600000, "NOR": 5560000, "CHE": 8920000, "GBR": 68200000,
-    "ISL": 394000,
+    "ISL": 394000, "SRB": 6650000, "ALB": 2780000, "MNE": 620000, "MKD": 1840000,
+    "BIH": 3210000, "XKX": 1780000, "MDA": 2540000, "UKR": 37000000,
+    "GEO": 3690000, "ARM": 2780000, "TUN": 12500000, "EGY": 112000000,
+    "MAR": 37900000, "NZL": 5280000, "FRO": 54000, "LIE": 40000,
     "USA": 340000000, "CAN": 41000000, "AUS": 27000000, "JPN": 124000000, "CHN": 1410000000, "IND": 1430000000,
     "BRA": 216000000, "ZAF": 62000000, "KOR": 51800000, "ISR": 10000000, "TUR": 85700000, "UKR": 37000000,
 }
@@ -4785,6 +4790,22 @@ with tab_geo:
 
         if is_per_million and geo["amount_per_million"].isna().any():
             st.caption(t(lang, "geo_pop_missing"))
+
+        geo_preset_c1, geo_preset_c2, geo_preset_c3 = st.columns(3)
+        with geo_preset_c1:
+            if st.button(t(lang, "country_preset_eu27"), key="geo_country_eu27_btn", width="stretch"):
+                st.session_state["f_countries"] = eu27_countries_present(meta["countries"])
+                st.rerun()
+        with geo_preset_c2:
+            if st.button(t(lang, "country_preset_associated"), key="geo_country_associated_btn", width="stretch"):
+                eu27 = eu27_countries_present(meta["countries"])
+                assoc = associated_countries_present(meta["countries"])
+                st.session_state["f_countries"] = list(dict.fromkeys(eu27 + assoc))
+                st.rerun()
+        with geo_preset_c3:
+            if st.button(t(lang, "country_preset_all"), key="geo_country_all_btn", width="stretch"):
+                st.session_state["f_countries"] = list(meta["countries"])
+                st.rerun()
 
         fig_map = px.choropleth(
             geo,
