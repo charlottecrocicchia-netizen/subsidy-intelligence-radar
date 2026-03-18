@@ -924,6 +924,66 @@ st.markdown(
     overflow-wrap: anywhere;
   }
 
+  .sir-guided-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 16px 0;
+  }
+
+  .sir-guided-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(79, 124, 172, 0.14);
+    border: 1px solid rgba(79, 124, 172, 0.20);
+    color: var(--sir-text-secondary);
+    font-size: 0.82rem;
+    font-weight: 560;
+    line-height: 1.35;
+  }
+
+  .sir-guided-card-title {
+    color: var(--sir-text);
+    font-size: 1rem;
+    font-weight: 640;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px 0;
+  }
+
+  .sir-guided-card-desc {
+    color: var(--sir-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+  }
+
+  .sir-guided-next {
+    background: linear-gradient(135deg, rgba(79, 124, 172, 0.10), rgba(20, 184, 166, 0.06));
+    border: 1px solid var(--sir-border);
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin-top: 10px;
+  }
+
+  .sir-guided-next__title {
+    color: var(--sir-text);
+    font-size: 1rem;
+    font-weight: 650;
+    margin: 0 0 8px 0;
+  }
+
+  .sir-guided-next ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--sir-text-secondary);
+  }
+
+  .sir-guided-next li {
+    margin: 0 0 6px 0;
+  }
+
 
   @media (max-width: 1200px) {
     div[data-testid="metric-container"] {
@@ -1275,6 +1335,35 @@ I18N: Dict[str, Dict[str, str]] = {
         "language": "Langue",
         "title": "Subsidy Intelligence Radar",
         "subtitle": "Recherche guidée sur les subventions UE : résultats, acteurs, géographie, tendances et événements.",
+        "guided_home_title": "Commencer par un sujet",
+        "guided_home_caption": "Choisis d’abord les thèmes qui t’intéressent, puis ouvre l’analyse complète avec ce périmètre déjà prérempli.",
+        "guided_home_intro_title": "Parcours guidé",
+        "guided_home_intro": "Commence ici si tu veux cadrer rapidement un sujet avant d’ouvrir tous les filtres et toutes les vues.",
+        "guided_home_search": "Sujet ou mots-clés",
+        "guided_home_search_help": "Exemples : hydrogène Allemagne, batteries France, IA industrie.",
+        "guided_home_topics": "Thématiques à suivre",
+        "guided_home_topics_help": "Laisse vide si tu veux ouvrir l’analyse sur toutes les thématiques.",
+        "guided_home_subtopics_note": "Les sous-thématiques détaillées ne sont pas encore structurées dans le référentiel. Cette entrée guidée travaille donc au niveau des grandes thématiques.",
+        "guided_home_countries_help": "Commence par un périmètre pays simple ; tu pourras l’affiner ensuite dans les filtres complets.",
+        "guided_home_period_help": "La période définit le cadrage de départ avant l’analyse détaillée.",
+        "guided_home_open": "Ouvrir l’analyse complète",
+        "guided_home_back": "Retour au cadrage",
+        "guided_home_analysis_note": "Tu es dans l’analyse complète. Reviens au cadrage guidé si tu veux changer rapidement le sujet de départ.",
+        "guided_home_examples_label": "Exemples de demandes",
+        "guided_home_example_1": "Hydrogène en Allemagne depuis 2021",
+        "guided_home_example_2": "Acteurs batteries en France",
+        "guided_home_example_3": "IA & numérique en Europe",
+        "guided_home_topic_card": "1. Définir le sujet",
+        "guided_home_topic_card_desc": "Commence par les mots-clés et les grandes thématiques qui t’intéressent vraiment.",
+        "guided_home_scope_card": "2. Définir le périmètre",
+        "guided_home_scope_card_desc": "Cadre ensuite le point de départ avec les pays et la période.",
+        "guided_home_metric_themes": "Thématiques",
+        "guided_home_metric_countries": "Pays",
+        "guided_home_metric_period": "Période",
+        "guided_home_next_title": "Ce que l’analyse complète va ouvrir",
+        "guided_home_next_1": "les résultats détaillés du périmètre choisi",
+        "guided_home_next_2": "les acteurs, la géographie et les tendances déjà préfiltrés",
+        "guided_home_next_3": "tous les filtres avancés si tu veux aller plus loin",
         "reset": "Réinitialiser",
         "refresh": "Rafraîchir les données",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
@@ -1704,6 +1793,35 @@ I18N: Dict[str, Dict[str, str]] = {
         "language": "Language",
         "title": "Subsidy Intelligence Radar",
         "subtitle": "Guided search across EU subsidies: results, actors, geography, trends, and events.",
+        "guided_home_title": "Start with a topic",
+        "guided_home_caption": "Pick the themes that matter to you first, then open the full analysis with that scope already prefilled.",
+        "guided_home_intro_title": "Guided start",
+        "guided_home_intro": "Use this entry screen to frame a topic quickly before opening every filter and every analytical view.",
+        "guided_home_search": "Topic or keywords",
+        "guided_home_search_help": "Examples: hydrogen Germany, batteries France, AI industry.",
+        "guided_home_topics": "Themes to follow",
+        "guided_home_topics_help": "Leave empty if you want to open the analysis across all themes.",
+        "guided_home_subtopics_note": "Detailed sub-themes are not structured yet in the reference model. This guided entry therefore works at the main-theme level for now.",
+        "guided_home_countries_help": "Start with a simple country perimeter; you can refine it later in the full filters.",
+        "guided_home_period_help": "The period sets your starting perimeter before deeper analysis.",
+        "guided_home_open": "Open full analysis",
+        "guided_home_back": "Back to guided start",
+        "guided_home_analysis_note": "You are in the full analysis view. Use the button on the left if you want to quickly reframe the starting topic.",
+        "guided_home_examples_label": "Example prompts",
+        "guided_home_example_1": "Hydrogen in Germany since 2021",
+        "guided_home_example_2": "Battery actors in France",
+        "guided_home_example_3": "AI & digital in Europe",
+        "guided_home_topic_card": "1. Define the topic",
+        "guided_home_topic_card_desc": "Start with the keywords and major themes you actually want to follow.",
+        "guided_home_scope_card": "2. Define the perimeter",
+        "guided_home_scope_card_desc": "Then set the starting geography and time range.",
+        "guided_home_metric_themes": "Themes",
+        "guided_home_metric_countries": "Countries",
+        "guided_home_metric_period": "Period",
+        "guided_home_next_title": "What the full analysis will open",
+        "guided_home_next_1": "detailed results for the chosen scope",
+        "guided_home_next_2": "actors, geography, and trends already prefiltered",
+        "guided_home_next_3": "all advanced filters if you want to go deeper",
         "reset": "Reset",
         "refresh": "Refresh data",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
@@ -2507,6 +2625,52 @@ def reset_filters() -> None:
     for k in list(st.session_state.keys()):
         if k.startswith("f_") or k.startswith("macro_"):
             del st.session_state[k]
+
+
+def _default_countries_from_meta(meta: dict) -> List[str]:
+    eu_default = european_countries_present(meta["countries"])
+    return eu_default if eu_default else list(meta["countries"])
+
+
+def _default_statuses_from_meta(meta: dict) -> List[str]:
+    default_statuses = [s for s in ["Open", "Closed", "Unknown"] if s in meta["statuses"]]
+    return default_statuses if default_statuses else list(meta["statuses"])
+
+
+def sync_guided_entry_from_filters(meta: dict) -> None:
+    default_countries = _default_countries_from_meta(meta)
+    current_themes = [x for x in st.session_state.get("f_themes_raw", []) if x in meta["themes"]]
+    current_countries = [x for x in st.session_state.get("f_countries", []) if x in meta["countries"]]
+    current_years = tuple(st.session_state.get("f_years", (meta["miny"], meta["maxy"])))
+    if len(current_years) != 2:
+        current_years = (meta["miny"], meta["maxy"])
+
+    st.session_state["guided_search"] = str(st.session_state.get("f_quick_search", ""))
+    st.session_state["guided_themes_raw"] = [] if set(current_themes) == set(meta["themes"]) else current_themes
+    st.session_state["guided_countries"] = current_countries or default_countries
+    st.session_state["guided_years"] = current_years
+
+
+def apply_guided_entry_to_filters(meta: dict) -> None:
+    default_countries = _default_countries_from_meta(meta)
+    default_statuses = _default_statuses_from_meta(meta)
+    guided_themes = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
+    guided_countries = [x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]]
+    guided_years = tuple(st.session_state.get("guided_years", (meta["miny"], meta["maxy"])))
+    if len(guided_years) != 2:
+        guided_years = (meta["miny"], meta["maxy"])
+
+    st.session_state["f_quick_search"] = str(st.session_state.get("guided_search", "")).strip()
+    st.session_state["f_themes_raw"] = guided_themes if guided_themes else list(meta["themes"])
+    st.session_state["f_countries"] = guided_countries if guided_countries else default_countries
+    st.session_state["f_years"] = guided_years
+    st.session_state["f_sources"] = list(meta["sources"])
+    st.session_state["f_programmes"] = list(meta["programmes"])
+    st.session_state["f_statuses"] = default_statuses
+    st.session_state["f_entity_raw"] = list(meta["entities"])
+    st.session_state["f_onetech_only"] = False
+    st.session_state["f_use_actor_groups"] = False
+    st.session_state["f_exclude_funders"] = True
 
 
 def clear_search() -> None:
@@ -3497,6 +3661,9 @@ def _ensure_filter_state() -> None:
 
 _ensure_filter_state()
 st.session_state.setdefault("app_mode", "simple")
+st.session_state.setdefault("sir_screen", "welcome")
+if any(k not in st.session_state for k in ["guided_search", "guided_themes_raw", "guided_countries", "guided_years"]):
+    sync_guided_entry_from_filters(meta)
 
 
 def _current_filter_snapshot() -> Dict[str, object]:
@@ -3551,6 +3718,115 @@ elif previous_app_mode == "simple":
 st.session_state["_last_app_mode"] = st.session_state["app_mode"]
 
 
+if st.session_state.get("sir_screen", "welcome") == "welcome":
+    render_section_header("⌕", t(lang, "guided_home_title"), t(lang, "guided_home_caption"), "")
+    with st.container(border=True):
+        st.markdown("**" + t(lang, "guided_home_intro_title") + "**")
+        st.write(t(lang, "guided_home_intro"))
+        st.caption(t(lang, "guided_home_subtopics_note"))
+
+    example_prompts = [
+        t(lang, "guided_home_example_1"),
+        t(lang, "guided_home_example_2"),
+        t(lang, "guided_home_example_3"),
+    ]
+    st.caption(t(lang, "guided_home_examples_label"))
+    st.markdown(
+        "<div class='sir-guided-pill-row'>" + "".join(
+            f"<span class='sir-guided-pill'>{html.escape(p)}</span>" for p in example_prompts
+        ) + "</div>",
+        unsafe_allow_html=True,
+    )
+
+    selected_theme_count = len([x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]) or len(meta["themes"])
+    selected_country_count = len([x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]]) or len(_default_countries_from_meta(meta))
+    guided_years_value = tuple(st.session_state.get("guided_years", (meta["miny"], meta["maxy"])))
+    summary_c1, summary_c2, summary_c3 = st.columns(3)
+    summary_c1.metric(t(lang, "guided_home_metric_themes"), f"{selected_theme_count:,}".replace(",", " "))
+    summary_c2.metric(t(lang, "guided_home_metric_countries"), f"{selected_country_count:,}".replace(",", " "))
+    summary_c3.metric(t(lang, "guided_home_metric_period"), f"{int(guided_years_value[0])}–{int(guided_years_value[1])}")
+
+    gh1, gh2 = st.columns([1.7, 1.3])
+    with gh1:
+        with st.container(border=True):
+            st.markdown(f"<div class='sir-guided-card-title'>{html.escape(t(lang, 'guided_home_topic_card'))}</div>", unsafe_allow_html=True)
+            st.markdown(f"<p class='sir-guided-card-desc'>{html.escape(t(lang, 'guided_home_topic_card_desc'))}</p>", unsafe_allow_html=True)
+            st.text_input(
+                t(lang, "guided_home_search"),
+                key="guided_search",
+                help=t(lang, "guided_home_search_help"),
+                placeholder=t(lang, "main_search_placeholder"),
+            )
+            st.session_state["guided_themes_raw"] = st.multiselect(
+                t(lang, "guided_home_topics"),
+                meta["themes"],
+                default=[x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]],
+                format_func=lambda x: theme_raw_to_display(str(x), lang),
+            )
+            st.caption(t(lang, "guided_home_topics_help"))
+
+    with gh2:
+        with st.container(border=True):
+            st.markdown(f"<div class='sir-guided-card-title'>{html.escape(t(lang, 'guided_home_scope_card'))}</div>", unsafe_allow_html=True)
+            st.markdown(f"<p class='sir-guided-card-desc'>{html.escape(t(lang, 'guided_home_scope_card_desc'))}</p>", unsafe_allow_html=True)
+            guided_eu27 = eu27_countries_present(meta["countries"])
+            guided_assoc = associated_countries_present(meta["countries"])
+            guided_eu_plus = list(dict.fromkeys(guided_eu27 + guided_assoc))
+            gp1, gp2, gp3 = st.columns(3)
+            with gp1:
+                if st.button(t(lang, "country_preset_eu27"), key="guided_country_preset_eu27_btn", width="stretch"):
+                    st.session_state["guided_countries"] = guided_eu27
+                    st.rerun()
+            with gp2:
+                if st.button(t(lang, "country_preset_associated"), key="guided_country_preset_associated_btn", width="stretch"):
+                    st.session_state["guided_countries"] = guided_eu_plus
+                    st.rerun()
+            with gp3:
+                if st.button(t(lang, "country_preset_all"), key="guided_country_preset_all_btn", width="stretch"):
+                    st.session_state["guided_countries"] = list(meta["countries"])
+                    st.rerun()
+            st.session_state["guided_countries"] = st.multiselect(
+                t(lang, "countries"),
+                meta["countries"],
+                default=[x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]] or _default_countries_from_meta(meta),
+            )
+            st.caption(t(lang, "guided_home_countries_help"))
+            st.session_state["guided_years"] = st.slider(
+                t(lang, "period"),
+                meta["miny"],
+                meta["maxy"],
+                tuple(st.session_state.get("guided_years", (meta["miny"], meta["maxy"]))),
+                key="guided_years",
+            )
+            st.caption(t(lang, "guided_home_period_help"))
+
+    st.markdown(
+        "<div class='sir-guided-next'>"
+        f"<div class='sir-guided-next__title'>{html.escape(t(lang, 'guided_home_next_title'))}</div>"
+        "<ul>"
+        f"<li>{html.escape(t(lang, 'guided_home_next_1'))}</li>"
+        f"<li>{html.escape(t(lang, 'guided_home_next_2'))}</li>"
+        f"<li>{html.escape(t(lang, 'guided_home_next_3'))}</li>"
+        "</ul>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
+
+    launch_c1, launch_c2 = st.columns([1.6, 4.4])
+    with launch_c1:
+        if st.button(t(lang, "guided_home_open"), key="guided_home_open_btn", width="stretch", type="primary"):
+            apply_guided_entry_to_filters(meta)
+            st.session_state["app_mode"] = "advanced"
+            st.session_state["_last_app_mode"] = "advanced"
+            st.session_state["sir_screen"] = "analysis"
+            queue_tab_navigation(top_target=t(lang, "tab_explorer"))
+            st.rerun()
+    with launch_c2:
+        st.caption(t(lang, "guided_home_caption"))
+
+    st.stop()
+
+
 # ============================================================
 # App mode
 # ============================================================
@@ -3561,6 +3837,15 @@ st.radio(
     key="app_mode",
     format_func=lambda mode: t(lang, "app_mode_simple") if str(mode) == "simple" else t(lang, "app_mode_advanced"),
 )
+
+nav_back_c1, nav_back_c2 = st.columns([1.4, 4.6])
+with nav_back_c1:
+    if st.button(t(lang, "guided_home_back"), key="guided_home_back_btn", width="stretch"):
+        sync_guided_entry_from_filters(meta)
+        st.session_state["sir_screen"] = "welcome"
+        st.rerun()
+with nav_back_c2:
+    st.caption(t(lang, "guided_home_analysis_note"))
 
 
 # ============================================================
