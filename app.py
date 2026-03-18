@@ -1342,9 +1342,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_partners_mode": "Lecture des partenaires",
         "actor_partners_mode_scope": "Dans le périmètre actif",
         "actor_partners_mode_matched": "Tous les partenaires sur les projets retenus",
-        "actor_partners_mode_scope_caption": "Lecture stricte : seuls les partenaires qui respectent aussi les filtres actifs sont classés ici.",
-        "actor_partners_mode_matched_caption": "Lecture élargie : les projets sont sélectionnés avec le périmètre actif, puis tous les co-participants enregistrés sur ces projets sont pris en compte, même s’ils ne passent pas tous les filtres d’acteur.",
+        "actor_partners_mode_scope_caption": "Lecture stricte : les partenaires restent classés sur le périmètre actif, mais le filtre type d’entité n’est pas appliqué à cette lecture.",
+        "actor_partners_mode_matched_caption": "Lecture élargie : les projets sont sélectionnés avec le périmètre actif, puis tous les co-participants enregistrés sur ces projets sont pris en compte, le filtre type d’entité restant ignoré.",
         "actor_partners_scope_note_extra": "Des partenaires supplémentaires existent sur les projets retenus mais ne respectent pas tous les filtres actifs. Ouvre la lecture élargie pour les voir.",
+        "partners_entity_filter_note": "Les partenaires sont affichés toutes typologies confondues, indépendamment du filtre entité.",
         "actor_tab_profile": "Profil",
         "actor_tab_partners": "Partenaires",
         "actor_tab_peers": "Acteurs comparables",
@@ -1751,9 +1752,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_partners_mode": "Partner reading",
         "actor_partners_mode_scope": "Within the active scope",
         "actor_partners_mode_matched": "All partners on matched projects",
-        "actor_partners_mode_scope_caption": "Strict read: only partners that also match the active filters are ranked here.",
-        "actor_partners_mode_matched_caption": "Expanded read: projects are selected with the active scope, then all co-participants recorded on those matched projects are included even if they do not pass every actor-level filter.",
+        "actor_partners_mode_scope_caption": "Strict read: partners are still ranked within the active scope, but the entity-type filter is not applied to this partner read.",
+        "actor_partners_mode_matched_caption": "Expanded read: projects are selected with the active scope, then all co-participants recorded on those matched projects are included, with the entity-type filter still ignored.",
         "actor_partners_scope_note_extra": "Additional partners exist on the matched projects but do not pass every active filter. Open the expanded read to include them.",
+        "partners_entity_filter_note": "Partners shown across all entity types, regardless of entity filter.",
         "actor_tab_profile": "Profile",
         "actor_tab_partners": "Partners",
         "actor_tab_peers": "Comparable actors",
@@ -3472,6 +3474,20 @@ W, W_R, search_notice_key = build_safe_where_pair(
     statuses=st.session_state["f_statuses"],
     themes=st.session_state["f_themes_raw"],
     entities=st.session_state["f_entity_raw"],
+    countries=st.session_state["f_countries"],
+    quick_search=st.session_state["f_quick_search"],
+)
+W_partners, W_R_partners, _ = build_safe_where_pair(
+    R,
+    sources=st.session_state["f_sources"],
+    programmes=st.session_state["f_programmes"],
+    years=st.session_state["f_years"],
+    use_section=False,
+    sections=[],
+    onetech_only=st.session_state["f_onetech_only"],
+    statuses=st.session_state["f_statuses"],
+    themes=st.session_state["f_themes_raw"],
+    entities=meta["entities"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
 )
@@ -5800,7 +5816,7 @@ with tab_actor:
         WITH my_projects AS (
           SELECT DISTINCT r.projectID
           FROM {R} r
-          WHERE {W_R} AND r.actor_id IN {picked_sql_list}
+          WHERE {W_R_partners} AND r.actor_id IN {picked_sql_list}
         )
         SELECT
           COALESCE(NULLIF(TRIM(r.org_name), ''), r.actor_id) AS org_name2,
@@ -5810,7 +5826,7 @@ with tab_actor:
           SUM(r.amount_eur) AS budget_eur
         FROM {R} r
         JOIN my_projects p ON r.projectID = p.projectID
-        WHERE {W_R} AND r.actor_id IS NOT NULL AND TRIM(r.actor_id) <> '' AND r.actor_id NOT IN {picked_sql_list}
+        WHERE {W_R_partners} AND r.actor_id IS NOT NULL AND TRIM(r.actor_id) <> '' AND r.actor_id NOT IN {picked_sql_list}
         GROUP BY org_name2, country_name2, r.actor_id
         ORDER BY n_projects DESC, budget_eur DESC
         LIMIT 25
@@ -5819,7 +5835,7 @@ with tab_actor:
         WITH my_projects AS (
           SELECT DISTINCT r.projectID
           FROM {R} r
-          WHERE {W_R} AND r.actor_id IN {picked_sql_list}
+          WHERE {W_R_partners} AND r.actor_id IN {picked_sql_list}
         )
         SELECT
           COALESCE(NULLIF(TRIM(r.org_name), ''), r.actor_id) AS org_name2,
@@ -5997,6 +6013,7 @@ with tab_actor:
         with actor_partners_tab:
             st.markdown(f"#### {t(lang, 'actor_partners')}")
             st.caption(t(lang, "actor_partners_caption"))
+            st.caption(t(lang, "partners_entity_filter_note"))
             partner_reading = st.radio(
                 t(lang, "actor_partners_mode"),
                 [t(lang, "actor_partners_mode_scope"), t(lang, "actor_partners_mode_matched")],
@@ -6587,7 +6604,7 @@ with tab_collaboration:
             COALESCE(NULLIF(TRIM(org_name), ''), actor_id) AS actor_label,
             SUM(amount_eur) AS actor_budget
           FROM {R}
-          WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+          WHERE {W_partners} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
           GROUP BY projectID, actor_id, actor_label
         ),
         focus_projects AS (
@@ -6747,6 +6764,7 @@ with tab_collaboration:
                     font=dict(color=TEXT_SECONDARY),
                 )
                 render_plotly_chart(fig_net, use_container_width=True)
+                st.caption(t(lang, "partners_entity_filter_note"))
 
 if app_mode == "simple":
     hidden_collaboration_placeholder.empty()
