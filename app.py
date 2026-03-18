@@ -76,7 +76,7 @@ for _theme_key, _theme_value in STREAMLIT_THEME_OVERRIDES.items():
     except Exception:
         pass
 
-st.set_page_config(page_title="Subsidy Intelligence Radar", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Subsidy Intelligence Radar", layout="wide", initial_sidebar_state="collapsed")
 
 st.markdown(
     """
@@ -3135,75 +3135,75 @@ def refresh_with_lock() -> Tuple[bool, Dict[str, str]]:
 
 
 # ============================================================
-# Sidebar: language + reset + refresh + last update + logs
+# Header: language + hero + actions
 # ============================================================
-with st.sidebar:
-    lang = st.radio("Language", ["FR", "EN"], index=0, horizontal=True, label_visibility="collapsed", key="ui_lang")
+cloud_runtime = is_streamlit_cloud_runtime()
+hero_col, lang_col = st.columns([6.2, 1.1])
+with lang_col:
+    lang = st.radio(
+        "Language",
+        ["FR", "EN"],
+        index=0 if st.session_state.get("ui_lang", "FR") == "FR" else 1,
+        horizontal=True,
+        label_visibility="collapsed",
+        key="ui_lang",
+    )
     st.caption(t(lang, "language"))
-    cloud_runtime = is_streamlit_cloud_runtime()
+with hero_col:
+    st.markdown(
+        (
+            "<div class='sir-hero'>"
+            f"<div class='sir-hero__eyebrow'>◈ {'Internal R&D analytics' if lang == 'EN' else 'Veille R&D interne'}</div>"
+            f"<div class='sir-hero__title'>{html.escape(t(lang, 'title'))}</div>"
+            f"<p class='sir-hero__subtitle'>{html.escape(t(lang, 'subtitle'))}</p>"
+            "</div>"
+        ),
+        unsafe_allow_html=True,
+    )
 
+action_c1, action_c2, action_c3 = st.columns([1.1, 1.1, 3.8])
+with action_c1:
+    if st.button(t(lang, "reset"), width="stretch"):
+        reset_filters()
+        st.cache_data.clear()
+        st.cache_resource.clear()
+        st.rerun()
+with action_c2:
+    refresh_clicked = st.button(
+        t(lang, "refresh"),
+        width="stretch",
+        help=t(lang, "refresh_hint"),
+        disabled=cloud_runtime,
+    )
+    if refresh_clicked:
+        with st.spinner("Mise à jour en cours (CORDIS + events)..." if lang == "FR" else "Updating (CORDIS + events)..."):
+            ok, logs = refresh_with_lock()
+        st.session_state["last_rebuild_ok"] = ok
+        st.session_state["last_rebuild_cloud_skip"] = False
+        st.session_state["last_rebuild_logs"] = logs
+        st.rerun()
+with action_c3:
     st.caption(f"{t(lang,'last_update')} — {t(lang,'last_update_data')}: {_fmt_mtime(PARQUET_PATH)}")
     st.caption(f"{t(lang,'last_update')} — {t(lang,'last_update_events')}: {_fmt_mtime(EVENTS_PATH)}")
 
-    st.divider()
+if cloud_runtime:
+    st.caption(t(lang, "cloud_persistence_note"))
+    st.caption(t(lang, "refresh_cloud_disabled"))
+    act_url = github_actions_refresh_url()
+    if act_url:
+        st.caption(f"[{t(lang, 'refresh_cloud_cta')}]({act_url})")
 
-    c1, c2 = st.columns(2)
-    with c1:
-        if st.button(t(lang, "reset"), width="stretch"):
-            reset_filters()
-            st.cache_data.clear()
-            st.cache_resource.clear()
-            st.rerun()
-
-    with c2:
-        refresh_clicked = st.button(
-            t(lang, "refresh"),
-            width="stretch",
-            help=t(lang, "refresh_hint"),
-            disabled=cloud_runtime,
-        )
-        if refresh_clicked:
-            with st.spinner("Mise à jour en cours (CORDIS + events)..." if lang == "FR" else "Updating (CORDIS + events)..."):
-                ok, logs = refresh_with_lock()
-            st.session_state["last_rebuild_ok"] = ok
-            st.session_state["last_rebuild_cloud_skip"] = False
-            st.session_state["last_rebuild_logs"] = logs
-            st.rerun()
-
-    if cloud_runtime:
-        st.caption(t(lang, "cloud_persistence_note"))
-        st.caption(t(lang, "refresh_cloud_disabled"))
-        act_url = github_actions_refresh_url()
-        if act_url:
-            st.caption(f"[{t(lang, 'refresh_cloud_cta')}]({act_url})")
-
-    if "last_rebuild_logs" in st.session_state:
-        st.divider()
-        if st.session_state.get("last_rebuild_cloud_skip"):
-            st.info(t(lang, "refresh_cloud_skip"))
-        elif st.session_state.get("last_rebuild_ok"):
-            st.success(t(lang, "rebuild_ok"))
-        else:
-            st.warning(t(lang, "rebuild_fail"))
-        with st.expander(t(lang, "logs"), expanded=False):
-            for k, v in st.session_state["last_rebuild_logs"].items():
-                st.markdown(f"**{k}**")
-                st.code(v or "", language="text")
-
-
-# ============================================================
-# Guard
-# ============================================================
-st.markdown(
-    (
-        "<div class='sir-hero'>"
-        f"<div class='sir-hero__eyebrow'>◈ {'Internal R&D analytics' if lang == 'EN' else 'Veille R&D interne'}</div>"
-        f"<div class='sir-hero__title'>{html.escape(t(lang, 'title'))}</div>"
-        f"<p class='sir-hero__subtitle'>{html.escape(t(lang, 'subtitle'))}</p>"
-        "</div>"
-    ),
-    unsafe_allow_html=True,
-)
+if "last_rebuild_logs" in st.session_state:
+    if st.session_state.get("last_rebuild_cloud_skip"):
+        st.info(t(lang, "refresh_cloud_skip"))
+    elif st.session_state.get("last_rebuild_ok"):
+        st.success(t(lang, "rebuild_ok"))
+    else:
+        st.warning(t(lang, "rebuild_fail"))
+    with st.expander(t(lang, "logs"), expanded=False):
+        for k, v in st.session_state["last_rebuild_logs"].items():
+            st.markdown(f"**{k}**")
+            st.code(v or "", language="text")
 
 if not PARQUET_PATH.exists():
     st.error(
@@ -3297,54 +3297,85 @@ with search_c2:
 st.caption(t(lang, "main_search_support"))
 st.caption(t(lang, "main_search_examples"))
 st.caption(t(lang, "main_search_exploratory"))
-render_active_filter_chips(meta, lang)
 
+src_default = [x for x in st.session_state["f_sources"] if x in meta["sources"]]
+prg_default = [x for x in st.session_state["f_programmes"] if x in meta["programmes"]]
+status_default = [x for x in st.session_state["f_statuses"] if x in meta["statuses"]]
+ctry_default = [x for x in st.session_state["f_countries"] if x in meta["countries"]]
+eu_default = european_countries_present(meta["countries"])
+ctry_fallback = eu_default if eu_default else meta["countries"]
 
-# ============================================================
-# Sidebar filters (display mapping FR/EN, raw stored)
-# ============================================================
-with st.sidebar:
-    st.header("◫ " + t(lang, "filters"))
-
-    src_default = [x for x in st.session_state["f_sources"] if x in meta["sources"]]
-    prg_default = [x for x in st.session_state["f_programmes"] if x in meta["programmes"]]
-    status_default = [x for x in st.session_state["f_statuses"] if x in meta["statuses"]]
-    ctry_default = [x for x in st.session_state["f_countries"] if x in meta["countries"]]
-    eu_default = european_countries_present(meta["countries"])
-    ctry_fallback = eu_default if eu_default else meta["countries"]
-
-    with st.expander(t(lang, "basic_filters"), expanded=True):
-        st.session_state["f_years"] = st.slider(t(lang, "period"), meta["miny"], meta["maxy"], st.session_state["f_years"])
-        themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
-        themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
+with st.expander(t(lang, "filters"), expanded=False):
+    st.caption(t(lang, "basic_filters"))
+    basic_c1, basic_c2, basic_c3, basic_c4 = st.columns(4)
+    with basic_c1:
+        st.session_state["f_years"] = st.slider(
+            t(lang, "period"),
+            meta["miny"],
+            meta["maxy"],
+            st.session_state["f_years"],
+        )
+    themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
+    themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
+    with basic_c2:
         st.session_state["f_themes_raw"] = st.multiselect(
             t(lang, "themes"),
             themes_ui,
             default=themes_default or themes_ui,
             format_func=lambda x: theme_raw_to_display(str(x), lang),
         )
-        st.session_state["f_countries"] = st.multiselect(t(lang, "countries"), meta["countries"], default=ctry_default or ctry_fallback)
-        st.session_state["f_programmes"] = st.multiselect(t(lang, "programmes"), meta["programmes"], default=prg_default or meta["programmes"])
+    with basic_c3:
+        st.session_state["f_countries"] = st.multiselect(
+            t(lang, "countries"),
+            meta["countries"],
+            default=ctry_default or ctry_fallback,
+        )
+    with basic_c4:
+        st.session_state["f_programmes"] = st.multiselect(
+            t(lang, "programmes"),
+            meta["programmes"],
+            default=prg_default or meta["programmes"],
+        )
 
-    with st.expander(t(lang, "advanced_filters"), expanded=False):
-        st.session_state["f_sources"] = st.multiselect(t(lang, "sources"), meta["sources"], default=src_default or meta["sources"])
-        entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
+    st.divider()
+    st.caption(t(lang, "advanced_filters"))
+    adv_c1, adv_c2, adv_c3 = st.columns(3)
+    with adv_c1:
+        st.session_state["f_sources"] = st.multiselect(
+            t(lang, "sources"),
+            meta["sources"],
+            default=src_default or meta["sources"],
+        )
+    entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
+    with adv_c2:
         st.session_state["f_entity_raw"] = st.multiselect(
             t(lang, "entity"),
             meta["entities"],
             default=entities_default or meta["entities"],
             format_func=lambda x: entity_raw_to_display(str(x), lang),
         )
+    with adv_c3:
         st.session_state["f_statuses"] = st.multiselect(
             t(lang, "project_status"),
             meta["statuses"],
             default=status_default or meta["statuses"],
             format_func=lambda x: status_raw_to_display(str(x), lang),
         )
-    with st.expander(t(lang, "analysis_options"), expanded=False):
-        st.session_state["f_onetech_only"] = st.checkbox(t(lang, "onetech_only"), value=st.session_state["f_onetech_only"])
+
+    st.divider()
+    st.caption(t(lang, "analysis_options"))
+    ana_c1, ana_c2, ana_c3 = st.columns(3)
+    with ana_c1:
+        st.session_state["f_onetech_only"] = st.checkbox(
+            t(lang, "onetech_only"),
+            value=st.session_state["f_onetech_only"],
+        )
+    with ana_c2:
         st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+    with ana_c3:
         st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
+
+render_active_filter_chips(meta, lang)
 
 
 # ============================================================
