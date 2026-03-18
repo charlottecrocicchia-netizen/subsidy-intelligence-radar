@@ -4788,6 +4788,21 @@ with tab_geo:
         st.caption(t(lang, "geo_perimeter_default"))
     else:
         st.caption(t(lang, "geo_perimeter_custom"))
+    geo_preset_c1, geo_preset_c2, geo_preset_c3 = st.columns(3)
+    with geo_preset_c1:
+        if st.button(t(lang, "country_preset_eu27"), key="geo_country_eu27_btn", width="stretch"):
+            st.session_state["f_countries"] = eu27_countries_present(meta["countries"])
+            st.rerun()
+    with geo_preset_c2:
+        if st.button(t(lang, "country_preset_associated"), key="geo_country_associated_btn", width="stretch"):
+            eu27 = eu27_countries_present(meta["countries"])
+            assoc = associated_countries_present(meta["countries"])
+            st.session_state["f_countries"] = list(dict.fromkeys(eu27 + assoc))
+            st.rerun()
+    with geo_preset_c3:
+        if st.button(t(lang, "country_preset_all"), key="geo_country_all_btn", width="stretch"):
+            st.session_state["f_countries"] = list(meta["countries"])
+            st.rerun()
     geo = safe_fetch_df(f"""
     SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
     FROM {R}
@@ -4857,7 +4872,7 @@ with tab_geo:
         with st.expander(t(lang, "geo_advanced_options"), expanded=False):
             a, b, d, e = st.columns([1.2, 1.1, 1.2, 1.4])
             with a:
-                zoom = st.selectbox(t(lang, "zoom_on"), zoom_opts, index=1, key="geo_zoom")
+                zoom = st.selectbox(t(lang, "zoom_on"), zoom_opts, index=0, key="geo_zoom")
             with b:
                 projection = st.selectbox(t(lang, "projection"), ["natural earth", "mercator"], index=0, key="geo_projection")
             with d:
@@ -4890,22 +4905,6 @@ with tab_geo:
 
         if is_per_million and geo["amount_per_million"].isna().any():
             st.caption(t(lang, "geo_pop_missing"))
-
-        geo_preset_c1, geo_preset_c2, geo_preset_c3 = st.columns(3)
-        with geo_preset_c1:
-            if st.button(t(lang, "country_preset_eu27"), key="geo_country_eu27_btn", width="stretch"):
-                st.session_state["f_countries"] = eu27_countries_present(meta["countries"])
-                st.rerun()
-        with geo_preset_c2:
-            if st.button(t(lang, "country_preset_associated"), key="geo_country_associated_btn", width="stretch"):
-                eu27 = eu27_countries_present(meta["countries"])
-                assoc = associated_countries_present(meta["countries"])
-                st.session_state["f_countries"] = list(dict.fromkeys(eu27 + assoc))
-                st.rerun()
-        with geo_preset_c3:
-            if st.button(t(lang, "country_preset_all"), key="geo_country_all_btn", width="stretch"):
-                st.session_state["f_countries"] = list(meta["countries"])
-                st.rerun()
 
         fig_map = px.choropleth(
             geo,
