@@ -5658,10 +5658,17 @@ with tab_compare:
         fig = px.bar(
             view2,
             x="delta_budget",
-            y=view2["dim_disp"],
+            y="dim_disp",
             orientation="h",
             height=680,
-            labels={"x": t(lang, "compare_delta_budget") + " (€)", "y": ""},
+            labels={
+                "delta_budget": t(lang, "compare_delta_budget"),
+                "dim_disp": t(lang, "dim_program") if dim_col == "program" else t(lang, "dim_theme"),
+            },
+        )
+        fig.update_layout(
+            xaxis_title=t(lang, "compare_delta_budget"),
+            yaxis_title=None,
         )
         fig.update_traces(
             customdata=np.stack([view2["delta_budget_fmt"]], axis=-1),
