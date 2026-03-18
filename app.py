@@ -29,6 +29,13 @@ ENABLE_SANKEY_CLICK = False
 plotly_events = None
 HAS_PLOTLY_EVENTS = False
 
+WIP_SECTIONS = {
+    "free_text_search": True,
+    "ademe": True,
+    "actor_grouping": True,
+    "value_chain": True,
+}
+
 
 # ============================================================
 # Paths (reproductible)
@@ -127,6 +134,28 @@ st.markdown(
     padding-top: 1.2rem;
     padding-bottom: 3rem;
     max-width: 1500px;
+  }
+
+  .sir-wip-badge-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 0.35rem 0;
+  }
+
+  .sir-wip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.52rem;
+    border-radius: 999px;
+    border: 1px solid rgba(249, 115, 22, 0.30);
+    background: rgba(249, 115, 22, 0.14);
+    color: #FDBA74;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    white-space: nowrap;
   }
 
   section[data-testid="stSidebar"] {
@@ -2030,6 +2059,11 @@ def t(lang: str, key: str) -> str:
     return I18N[lang].get(key, key)
 
 
+def wip_badge(lang: str) -> str:
+    label = "⚠ En cours" if lang == "FR" else "⚠ WIP"
+    return f"<span class='sir-wip-badge'>{html.escape(label)}</span>"
+
+
 # ============================================================
 # Formatting
 # ============================================================
@@ -3397,6 +3431,9 @@ st.radio(
 # ============================================================
 # Main search entry
 # ============================================================
+if WIP_SECTIONS.get("free_text_search", False):
+    st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
+
 search_c1, search_c2 = st.columns([6, 1])
 with search_c1:
     st.text_input(
@@ -3473,6 +3510,8 @@ if st.session_state.get("app_mode") == "advanced":
         st.caption(t(lang, "advanced_filters"))
         adv_c1, adv_c2, adv_c3 = st.columns(3)
         with adv_c1:
+            if WIP_SECTIONS.get("ademe", False) and any("ADEME" in str(src).upper() for src in meta["sources"]):
+                st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
             st.session_state["f_sources"] = st.multiselect(
                 t(lang, "sources"),
                 meta["sources"],
@@ -3503,6 +3542,8 @@ if st.session_state.get("app_mode") == "advanced":
                 value=st.session_state["f_onetech_only"],
             )
         with ana_c2:
+            if WIP_SECTIONS.get("actor_grouping", False):
+                st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
             st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
         with ana_c3:
             st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
@@ -6188,6 +6229,8 @@ if app_mode == "simple":
 # ============================================================
 with tab_value_chain:
     render_section_header("⇄", t(lang, "sub_value_chain"), t(lang, "vc_default_caption"), t(lang, "tab_advanced"))
+    if WIP_SECTIONS.get("value_chain", False) and not ENABLE_SANKEY_CLICK:
+        st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
     st.caption(t(lang, "adv_value_chain_helper"))
 
     st.markdown("#### " + ("Étapes et acteurs (budget -> acteurs)" if lang == "FR" else "Stages and actors (budget -> actors)"))
