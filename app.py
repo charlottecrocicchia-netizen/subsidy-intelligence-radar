@@ -4043,22 +4043,21 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
             guided_eu27 = eu27_countries_present(meta["countries"])
             guided_assoc = associated_countries_present(meta["countries"])
             guided_eu_plus = list(dict.fromkeys(guided_eu27 + guided_assoc))
+
+            def _apply_guided_country_preset(countries_list):
+                st.session_state["guided_countries"] = list(countries_list)
+                st.session_state["guided_countries_widget"] = list(countries_list)
+
             gp1, gp2, gp3 = st.columns(3)
             with gp1:
-                if st.button(t(lang, "country_preset_eu27"), key="guided_country_preset_eu27_btn", width="stretch"):
-                    st.session_state["guided_countries"] = guided_eu27
-                    st.session_state["guided_countries_widget"] = list(guided_eu27)
-                    st.rerun()
+                st.button(t(lang, "country_preset_eu27"), key="guided_country_preset_eu27_btn", width="stretch",
+                          on_click=_apply_guided_country_preset, args=(guided_eu27,))
             with gp2:
-                if st.button(t(lang, "country_preset_associated"), key="guided_country_preset_associated_btn", width="stretch"):
-                    st.session_state["guided_countries"] = guided_eu_plus
-                    st.session_state["guided_countries_widget"] = list(guided_eu_plus)
-                    st.rerun()
+                st.button(t(lang, "country_preset_associated"), key="guided_country_preset_associated_btn", width="stretch",
+                          on_click=_apply_guided_country_preset, args=(guided_eu_plus,))
             with gp3:
-                if st.button(t(lang, "country_preset_all"), key="guided_country_preset_all_btn", width="stretch"):
-                    st.session_state["guided_countries"] = list(meta["countries"])
-                    st.session_state["guided_countries_widget"] = list(meta["countries"])
-                    st.rerun()
+                st.button(t(lang, "country_preset_all"), key="guided_country_preset_all_btn", width="stretch",
+                          on_click=_apply_guided_country_preset, args=(list(meta["countries"]),))
             if not st.session_state.get("guided_countries"):
                 st.session_state["guided_countries"] = [
                     x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]
@@ -4190,23 +4189,24 @@ if st.session_state.get("app_mode") == "advanced":
             eu27_present = eu27_countries_present(meta["countries"])
             assoc_present = associated_countries_present(meta["countries"])
             eu_plus_associated = list(dict.fromkeys(eu27_present + assoc_present))
+
+            def _apply_sidebar_country_preset(countries_list):
+                st.session_state["f_countries"] = list(countries_list)
+
             preset_c1, preset_c2, preset_c3 = st.columns(3)
             with preset_c1:
-                if st.button(t(lang, "country_preset_eu27"), key="country_preset_eu27_btn", width="stretch"):
-                    st.session_state["f_countries"] = eu27_present
-                    st.rerun()
+                st.button(t(lang, "country_preset_eu27"), key="country_preset_eu27_btn", width="stretch",
+                          on_click=_apply_sidebar_country_preset, args=(eu27_present,))
             with preset_c2:
-                if st.button(t(lang, "country_preset_associated"), key="country_preset_associated_btn", width="stretch"):
-                    st.session_state["f_countries"] = eu_plus_associated
-                    st.rerun()
+                st.button(t(lang, "country_preset_associated"), key="country_preset_associated_btn", width="stretch",
+                          on_click=_apply_sidebar_country_preset, args=(eu_plus_associated,))
             with preset_c3:
-                if st.button(t(lang, "country_preset_all"), key="country_preset_all_btn", width="stretch"):
-                    st.session_state["f_countries"] = list(meta["countries"])
-                    st.rerun()
-            st.session_state["f_countries"] = st.multiselect(
+                st.button(t(lang, "country_preset_all"), key="country_preset_all_btn", width="stretch",
+                          on_click=_apply_sidebar_country_preset, args=(list(meta["countries"]),))
+            st.multiselect(
                 t(lang, "countries"),
                 meta["countries"],
-                default=ctry_default or ctry_fallback,
+                key="f_countries",
             )
         with basic_c4:
             st.session_state["f_programmes"] = st.multiselect(
@@ -5394,21 +5394,23 @@ with tab_geo:
         st.caption(t(lang, "geo_perimeter_default"))
     else:
         st.caption(t(lang, "geo_perimeter_custom"))
+    def _apply_geo_country_preset(countries_list):
+        st.session_state["f_countries"] = list(countries_list)
+
+    _geo_eu27 = eu27_countries_present(meta["countries"])
+    _geo_assoc = associated_countries_present(meta["countries"])
+    _geo_eu_plus = list(dict.fromkeys(_geo_eu27 + _geo_assoc))
+
     geo_preset_c1, geo_preset_c2, geo_preset_c3 = st.columns(3)
     with geo_preset_c1:
-        if st.button(t(lang, "country_preset_eu27"), key="geo_country_eu27_btn", width="stretch"):
-            st.session_state["f_countries"] = eu27_countries_present(meta["countries"])
-            st.rerun()
+        st.button(t(lang, "country_preset_eu27"), key="geo_country_eu27_btn", width="stretch",
+                  on_click=_apply_geo_country_preset, args=(_geo_eu27,))
     with geo_preset_c2:
-        if st.button(t(lang, "country_preset_associated"), key="geo_country_associated_btn", width="stretch"):
-            eu27 = eu27_countries_present(meta["countries"])
-            assoc = associated_countries_present(meta["countries"])
-            st.session_state["f_countries"] = list(dict.fromkeys(eu27 + assoc))
-            st.rerun()
+        st.button(t(lang, "country_preset_associated"), key="geo_country_associated_btn", width="stretch",
+                  on_click=_apply_geo_country_preset, args=(_geo_eu_plus,))
     with geo_preset_c3:
-        if st.button(t(lang, "country_preset_all"), key="geo_country_all_btn", width="stretch"):
-            st.session_state["f_countries"] = list(meta["countries"])
-            st.rerun()
+        st.button(t(lang, "country_preset_all"), key="geo_country_all_btn", width="stretch",
+                  on_click=_apply_geo_country_preset, args=(list(meta["countries"]),))
     geo = safe_fetch_df(f"""
     SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
     FROM {R}
