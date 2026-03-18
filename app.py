@@ -1203,11 +1203,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "quick_search_hint": "Recherche dans acteur, projet, acronyme ou titre",
         "main_search_support": "Recherche libre dans les projets et acteurs. Utilise ensuite les filtres pour préciser pays, période et programme.",
         "main_search_examples": "Exemples : « hydrogène en Allemagne depuis 2021 », « principaux acteurs IA en France », « compare les batteries entre France et Allemagne ».",
+        "main_search_exploratory": "Recherche libre exploratoire : fonctionne mieux avec des mots-clés simples. Utilise les filtres pour cadrer le pays, la période et le programme.",
         "search_simplified_notice": "La recherche a été simplifiée pour éviter une erreur. Essaie un mot-clé simple puis affine avec les filtres.",
         "search_ignored_notice": "La recherche n’a pas pu être appliquée avec cette saisie. Les filtres sont conservés ; essaie un mot-clé plus simple.",
         "view_recover_hint": "Essaie une recherche plus simple ou ajuste les filtres. Les autres vues restent disponibles.",
         "chart_render_unavailable": "Ce graphique n’a pas pu être affiché pour ce périmètre.",
         "results_view_unavailable": "Cette vue de résultats n’a pas pu être affichée pour ce périmètre.",
+        "results_scope_partial_warning": "Certaines informations de synthèse n’ont pas pu être calculées complètement pour ce périmètre.",
         "geo_view_unavailable": "La vue géographique n’a pas pu être affichée pour ce périmètre.",
         "benchmark_view_unavailable": "Cette vue de comparaison n’a pas pu être affichée pour ce périmètre.",
         "value_chain_view_unavailable": "La vue étapes et acteurs n’a pas pu être affichée pour ce périmètre.",
@@ -1283,6 +1285,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_metric_per_million": "Budget / million hab. (€)",
         "geo_pop_missing": "Population manquante pour certains pays: normalisation partielle.",
         "geo_caption": "Lecture géographique du périmètre actif: concentration, rang pays et détail pays.",
+        "geo_perimeter_default": "Périmètre par défaut : pays européens présents dans la base, avec États membres de l’UE et quelques pays associés lorsqu’ils sont disponibles.",
+        "geo_perimeter_custom": "Le classement ci-dessous suit tes filtres pays actuels. Par défaut, l’app démarre sur l’Europe présente dans la base, y compris quelques pays associés lorsqu’ils sont disponibles.",
         "geo_country_picker": "Pays à détailler",
         "geo_advanced_options": "Réglages de carte",
         "geo_selected_summary": "Pays sélectionné",
@@ -1333,8 +1337,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_trend": "Évolution (budget & projets)",
         "actor_mix_theme": "Mix thématique",
         "actor_mix_country": "Mix géographique",
-        "actor_partners": "Principaux co-participants",
-        "actor_partners_caption": "Co-participants sur les mêmes projets, dans le périmètre actif.",
+        "actor_partners": "Partenaires principaux",
+        "actor_partners_caption": "Lis d’abord le tableau des partenaires. Le réseau détaillé reste dans Analyse avancée.",
+        "actor_partners_mode": "Lecture des partenaires",
+        "actor_partners_mode_scope": "Dans le périmètre actif",
+        "actor_partners_mode_matched": "Tous les partenaires sur les projets retenus",
+        "actor_partners_mode_scope_caption": "Lecture stricte : seuls les partenaires qui respectent aussi les filtres actifs sont classés ici.",
+        "actor_partners_mode_matched_caption": "Lecture élargie : les projets sont sélectionnés avec le périmètre actif, puis tous les co-participants enregistrés sur ces projets sont pris en compte, même s’ils ne passent pas tous les filtres d’acteur.",
+        "actor_partners_scope_note_extra": "Des partenaires supplémentaires existent sur les projets retenus mais ne respectent pas tous les filtres actifs. Ouvre la lecture élargie pour les voir.",
         "actor_tab_profile": "Profil",
         "actor_tab_partners": "Partenaires",
         "actor_tab_peers": "Acteurs comparables",
@@ -1447,6 +1457,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "last_update_events": "Événements",
         "macro_title": "Macro & actualités — lecture de contexte",
         "macro_subtitle": "Commence par les tendances, puis utilise cette vue pour ajouter du contexte événementiel si utile.",
+        "macro_exploratory_note": "Lecture exploratoire : les événements servent de contexte indicatif et ne couvrent pas nécessairement tous les signaux pertinents.",
         "trends_title": "Tendances du périmètre",
         "trends_caption": "Lis d’abord l’évolution annuelle et les principaux moteurs. Les réglages plus denses restent secondaires.",
         "trends_summary_title": "En bref",
@@ -1597,11 +1608,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "quick_search_hint": "Search actor, project, acronym or title",
         "main_search_support": "Free-text search across projects and actors. Then use filters to narrow country, time period, and programme.",
         "main_search_examples": "Examples: “hydrogen in Germany since 2021”, “top AI actors in France”, “compare batteries across France and Germany”.",
+        "main_search_exploratory": "Exploratory free-text search works best with simple keywords. Use filters to narrow country, time period, and programme.",
         "search_simplified_notice": "Search was simplified to avoid an error. Try a simpler keyword, then refine with filters.",
         "search_ignored_notice": "Search could not be applied safely for this input. Filters are still active; try a simpler keyword.",
         "view_recover_hint": "Try a simpler search or adjust the filters. Other views remain available.",
         "chart_render_unavailable": "This chart could not be displayed for the current scope.",
         "results_view_unavailable": "This results view could not be displayed for the current scope.",
+        "results_scope_partial_warning": "Some scope summary information could not be fully computed for the current selection.",
         "geo_view_unavailable": "The geography view could not be displayed for the current scope.",
         "benchmark_view_unavailable": "This comparison view could not be displayed for the current scope.",
         "value_chain_view_unavailable": "The stages and actors view could not be displayed for the current scope.",
@@ -1677,6 +1690,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_metric_per_million": "Budget / million inhabitants (€)",
         "geo_pop_missing": "Population missing for some countries: partial normalization.",
         "geo_caption": "Geographic reading of the active scope: concentration, country ranking, and country detail.",
+        "geo_perimeter_default": "Default perimeter: European countries present in the dataset, including EU member states and a few associated countries when available.",
+        "geo_perimeter_custom": "The ranking below follows your current country filters. By default, the app starts from the European countries present in the dataset, including a few associated countries when available.",
         "geo_country_picker": "Country to inspect",
         "geo_advanced_options": "Map settings",
         "geo_selected_summary": "Selected country",
@@ -1727,8 +1742,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_trend": "Trend (budget & projects)",
         "actor_mix_theme": "Theme mix",
         "actor_mix_country": "Geography mix",
-        "actor_partners": "Principaux co-participants",
-        "actor_partners_caption": "Co-participants on the same projects within the active scope.",
+        "actor_partners": "Leading partners",
+        "actor_partners_caption": "Start with the partner table. The detailed network remains in Advanced.",
+        "actor_partners_mode": "Partner reading",
+        "actor_partners_mode_scope": "Within the active scope",
+        "actor_partners_mode_matched": "All partners on matched projects",
+        "actor_partners_mode_scope_caption": "Strict read: only partners that also match the active filters are ranked here.",
+        "actor_partners_mode_matched_caption": "Expanded read: projects are selected with the active scope, then all co-participants recorded on those matched projects are included even if they do not pass every actor-level filter.",
+        "actor_partners_scope_note_extra": "Additional partners exist on the matched projects but do not pass every active filter. Open the expanded read to include them.",
         "actor_tab_profile": "Profile",
         "actor_tab_partners": "Partners",
         "actor_tab_peers": "Comparable actors",
@@ -1841,6 +1862,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "last_update_events": "Events",
         "macro_title": "Macro & news — context read",
         "macro_subtitle": "Start with trends, then use this view to add event context when useful.",
+        "macro_exploratory_note": "Exploratory read: events are indicative context and may not cover every relevant macro signal.",
         "trends_title": "Scope trends",
         "trends_caption": "Start with annual evolution and key drivers. Denser controls stay secondary.",
         "trends_summary_title": "In brief",
@@ -2222,6 +2244,13 @@ def safe_fetch_df(sql: str, *, columns: List[str], lang: str, warning_key: str) 
     except duckdb.Error:
         render_view_warning(lang, warning_key)
         return pd.DataFrame(columns=columns)
+
+
+def safe_fetch_df_quiet(sql: str, *, columns: List[str]) -> Tuple[pd.DataFrame, bool]:
+    try:
+        return fetch_df(sql), False
+    except duckdb.Error:
+        return pd.DataFrame(columns=columns), True
 
 
 def render_plotly_chart(fig: go.Figure, **kwargs):
@@ -3267,6 +3296,7 @@ with search_c2:
     st.button(t(lang, "clear_search"), key="clear_search_btn", width="stretch", on_click=clear_search)
 st.caption(t(lang, "main_search_support"))
 st.caption(t(lang, "main_search_examples"))
+st.caption(t(lang, "main_search_exploratory"))
 render_active_filter_chips(meta, lang)
 
 
@@ -3343,20 +3373,20 @@ W, W_R, search_notice_key = build_safe_where_pair(
 # ============================================================
 # KPIs (DuckDB)
 # ============================================================
-kpi = fetch_df(f"""
+kpi, kpi_failed = safe_fetch_df_quiet(f"""
 SELECT
   SUM(amount_eur) AS total_budget,
   COUNT(DISTINCT projectID) AS n_projects,
   COUNT(DISTINCT actor_id) FILTER (WHERE actor_id IS NOT NULL AND TRIM(actor_id) <> '') AS n_actors
 FROM {R}
 WHERE {W}
-""")
+""", columns=["total_budget", "n_projects", "n_actors"])
 
-total_budget = float(kpi["total_budget"].iloc[0] or 0.0)
-nb_projects = int(kpi["n_projects"].iloc[0] or 0)
-nb_actors = int(kpi["n_actors"].iloc[0] or 0)
+total_budget = float(kpi["total_budget"].iloc[0] or 0.0) if not kpi.empty else 0.0
+nb_projects = int(kpi["n_projects"].iloc[0] or 0) if not kpi.empty else 0
+nb_actors = int(kpi["n_actors"].iloc[0] or 0) if not kpi.empty else 0
 
-proj_stats = fetch_df(f"""
+proj_stats, proj_stats_failed = safe_fetch_df_quiet(f"""
 SELECT
   AVG(proj_budget) AS avg_ticket,
   MEDIAN(proj_budget) AS median_ticket
@@ -3366,16 +3396,16 @@ FROM (
   WHERE {W}
   GROUP BY projectID
 ) t
-""")
-avg_ticket = float(proj_stats["avg_ticket"].iloc[0] or 0.0)
-median_ticket = float(proj_stats["median_ticket"].iloc[0] or 0.0)
+""", columns=["avg_ticket", "median_ticket"])
+avg_ticket = float(proj_stats["avg_ticket"].iloc[0] or 0.0) if not proj_stats.empty else 0.0
+median_ticket = float(proj_stats["median_ticket"].iloc[0] or 0.0) if not proj_stats.empty else 0.0
 
-actor_b = fetch_df(f"""
+actor_b, actor_b_failed = safe_fetch_df_quiet(f"""
 SELECT actor_id, SUM(amount_eur) AS b
 FROM {R}
 WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
 GROUP BY actor_id
-""")
+""", columns=["actor_id", "b"])
 top10_share = 0.0
 hhi = 0.0
 if not actor_b.empty and float(actor_b["b"].sum()) > 0:
@@ -3384,6 +3414,8 @@ if not actor_b.empty and float(actor_b["b"].sum()) > 0:
     shares = (b / tot).to_numpy()
     hhi = float(np.sum(shares**2))
     top10_share = float(b.sort_values(ascending=False).head(10).sum() / tot)
+
+main_scope_metrics_failed = bool(kpi_failed or proj_stats_failed or actor_b_failed)
 
 scope_items = [
     f"{int(st.session_state['f_years'][0])}-{int(st.session_state['f_years'][1])}",
@@ -3483,21 +3515,9 @@ with tab_results:
     render_section_header("⌕", t(lang, "results_title"), t(lang, "results_caption"), t(lang, "tab_explorer"))
     if search_notice_key:
         st.warning(t(lang, search_notice_key))
-
-    with st.container(border=True):
-        st.markdown("**" + t(lang, "explore_overview_title") + "**")
-        st.markdown(
-            "\n".join(
-                [
-                    f"- {t(lang, 'explore_overview_1')}",
-                    f"- {t(lang, 'explore_overview_2')}",
-                    f"- {t(lang, 'explore_overview_3')}",
-                    f"- {t(lang, 'explore_overview_4')}",
-                    f"- {t(lang, 'explore_overview_5')}",
-                ]
-            )
-        )
-        st.caption(t(lang, "explore_overview_tip"))
+    if main_scope_metrics_failed:
+        st.warning(t(lang, "results_scope_partial_warning"))
+        st.caption(t(lang, "view_recover_hint"))
 
     scope_summary = build_results_scope_summary(
         R,
@@ -3921,6 +3941,20 @@ with tab_results:
                     st.rerun()
 
             st.divider()
+            with st.expander(t(lang, "explore_overview_title"), expanded=False):
+                st.markdown(
+                    "\n".join(
+                        [
+                            f"- {t(lang, 'explore_overview_1')}",
+                            f"- {t(lang, 'explore_overview_2')}",
+                            f"- {t(lang, 'explore_overview_3')}",
+                            f"- {t(lang, 'explore_overview_4')}",
+                            f"- {t(lang, 'explore_overview_5')}",
+                        ]
+                    )
+                )
+                st.caption(t(lang, "explore_overview_tip"))
+
             st.caption(t(lang, "results_other_views_caption"))
             results_view = st.radio(
                 t(lang, "results_other_views"),
@@ -4379,6 +4413,12 @@ with tab_overview:
 with tab_geo:
     render_section_header("◎", t(lang, "tab_geo"), t(lang, "geo_caption"), t(lang, "tab_markets"))
     st.caption(f"{t(lang, 'scope_caption')}: " + " · ".join(scope_items))
+    geo_default_scope = european_countries_present(meta["countries"])
+    current_geo_scope = [str(x) for x in st.session_state.get("f_countries", []) if str(x).strip()]
+    if geo_default_scope and set(current_geo_scope) == set(geo_default_scope):
+        st.caption(t(lang, "geo_perimeter_default"))
+    else:
+        st.caption(t(lang, "geo_perimeter_custom"))
     geo = safe_fetch_df(f"""
     SELECT country_alpha3, country_name, SUM(amount_eur) AS amount_eur
     FROM {R}
@@ -5024,6 +5064,11 @@ with tab_comp:
 # ============================================================
 with tab_trends:
     render_section_header("↗", t(lang, "trends_title"), t(lang, "trends_caption"), t(lang, "tab_trends_events"))
+    st.caption(
+        "Commence par la tendance annuelle, puis ouvre la comparaison de périodes ou le contexte macro seulement si tu as besoin d’un niveau de lecture supplémentaire."
+        if lang == "FR"
+        else "Start with the annual trend, then open period comparison or macro context only if you need a deeper read."
+    )
     dim_choice = st.radio(
         t(lang, "dimension"),
         [t(lang, "dim_theme"), t(lang, "dim_program")],
@@ -5226,6 +5271,7 @@ with tab_compare:
 # ============================================================
 with tab_macro:
     render_section_header("↗", t(lang, "macro_title"), t(lang, "macro_subtitle"), t(lang, "tab_trends_events"))
+    st.caption(t(lang, "macro_exploratory_note"))
 
     ev = load_events()
     if ev.empty:
@@ -5599,7 +5645,7 @@ with tab_actor:
         ORDER BY budget_eur DESC
         LIMIT 20
         """, columns=["projectID", "title", "year", "program", "theme", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
-        partners = fetch_df(f"""
+        partners_scope = safe_fetch_df(f"""
         WITH my_projects AS (
           SELECT DISTINCT r.projectID
           FROM {R} r
@@ -5617,7 +5663,26 @@ with tab_actor:
         GROUP BY org_name2, country_name2, r.actor_id
         ORDER BY n_projects DESC, budget_eur DESC
         LIMIT 25
-        """)
+        """, columns=["org_name2", "country_name2", "actor_id", "n_projects", "budget_eur"], lang=lang, warning_key="partnership_view_unavailable")
+        partners_matched = safe_fetch_df(f"""
+        WITH my_projects AS (
+          SELECT DISTINCT r.projectID
+          FROM {R} r
+          WHERE {W_R} AND r.actor_id IN {picked_sql_list}
+        )
+        SELECT
+          COALESCE(NULLIF(TRIM(r.org_name), ''), r.actor_id) AS org_name2,
+          COALESCE(NULLIF(TRIM(r.country_name), ''), 'Unknown') AS country_name2,
+          r.actor_id,
+          COUNT(DISTINCT r.projectID) AS n_projects,
+          SUM(r.amount_eur) AS budget_eur
+        FROM {R} r
+        JOIN my_projects p ON r.projectID = p.projectID
+        WHERE r.actor_id IS NOT NULL AND TRIM(r.actor_id) <> '' AND r.actor_id NOT IN {picked_sql_list}
+        GROUP BY org_name2, country_name2, r.actor_id
+        ORDER BY n_projects DESC, budget_eur DESC
+        LIMIT 25
+        """, columns=["org_name2", "country_name2", "actor_id", "n_projects", "budget_eur"], lang=lang, warning_key="partnership_view_unavailable")
         peer_df = fetch_df(f"""
         WITH x AS (
           SELECT
@@ -5675,6 +5740,11 @@ with tab_actor:
                     else f"This actor captures {fmt_money(selected_budget, lang)} across {selected_projects:,} projects, mainly in {selected_theme} and primarily in {selected_main_country}."
                 ).replace(",", " ")
             )
+        st.caption(
+            "Lis d’abord l’évolution, les thèmes dominants et les projets principaux ; ouvre ensuite les partenaires et les comparables pour approfondir."
+            if lang == "FR"
+            else "Start with trend, leading themes, and top projects; then use partners and comparable actors to go deeper."
+        )
 
         s1, s2, s3, s4 = st.columns(4)
         s1.metric(t(lang, "budget_total"), fmt_money(selected_budget, lang))
@@ -5776,8 +5846,25 @@ with tab_actor:
         with actor_partners_tab:
             st.markdown(f"#### {t(lang, 'actor_partners')}")
             st.caption(t(lang, "actor_partners_caption"))
+            partner_reading = st.radio(
+                t(lang, "actor_partners_mode"),
+                [t(lang, "actor_partners_mode_scope"), t(lang, "actor_partners_mode_matched")],
+                index=0,
+                horizontal=True,
+            )
+            partners = partners_scope if partner_reading == t(lang, "actor_partners_mode_scope") else partners_matched
+            st.caption(
+                t(lang, "actor_partners_mode_scope_caption")
+                if partner_reading == t(lang, "actor_partners_mode_scope")
+                else t(lang, "actor_partners_mode_matched_caption")
+            )
+            if (
+                partner_reading == t(lang, "actor_partners_mode_scope")
+                and len(partners_matched) > len(partners_scope)
+            ):
+                st.info(t(lang, "actor_partners_scope_note_extra"))
             if partners.empty:
-                st.info(t(lang, "no_data"))
+                render_guided_message(lang, t(lang, "net_no_partners"), "partnership_empty_hint")
             else:
                 partners["actor_label"] = np.where(
                     partners["org_name2"].astype(str) == partners["actor_id"].astype(str),
