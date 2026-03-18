@@ -5015,7 +5015,7 @@ with tab_geo:
             render_plotly_chart(fig_map, use_container_width=True, config={"scrollZoom": True})
         with geo_rank_col:
             st.markdown(f"#### {t(lang, 'geo_rank_table')}")
-            top_c = geo_rank.head(15).copy()
+            top_c = geo_rank.copy()
             if top_c.empty:
                 render_guided_empty_state(lang, "geo_empty_hint")
             else:
