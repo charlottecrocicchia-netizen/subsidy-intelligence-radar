@@ -2723,7 +2723,7 @@ def rel() -> str:
 
 
 @st.cache_data(show_spinner=False)
-def base_schema_columns() -> List[str]:
+def base_schema_columns(_cache_version: str = "v3_country_names") -> List[str]:
     df = get_con().execute(f"SELECT * FROM {rel()} LIMIT 0").fetchdf()
     return [str(c) for c in df.columns]
 
@@ -3345,7 +3345,7 @@ if not PARQUET_PATH.exists():
 # Metadata lists + ranges (cheap)
 # ============================================================
 @st.cache_data(show_spinner=False)
-def get_meta() -> dict:
+def get_meta(_cache_version: str = "v3_country_names") -> dict:
     R = rel()
     yr = fetch_df(f"SELECT MIN(year) AS miny, MAX(year) AS maxy FROM {R}")
     miny = int(yr["miny"].iloc[0])
