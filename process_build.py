@@ -83,13 +83,48 @@ VALUE_CHAIN_RULES: Dict[str, List[str]] = {
 }
 VALUE_CHAIN_PRIORITY = list(VALUE_CHAIN_RULES.keys())
 
-NEGATION_TOKENS = ["not", "no", "without", "excluding", "exclude", "except", "non", "sans", "hors", "ne pas"]
+NEGATION_TOKENS = [
+    "not", "no", "without", "excluding", "exclude", "except",
+    "non", "sans", "hors", "ne pas", "a exclure", "à exclure",
+]
 NEG_RE = re.compile(r"\b(" + "|".join([re.escape(x) for x in NEGATION_TOKENS]) + r")\b", flags=re.IGNORECASE)
+EXCLUSION_CONTEXT_RE = re.compile(
+    r"\b(not in scope|out of scope|excluded from scope|exclude this|to exclude|a exclure|à exclure|hors perimetre|hors périmètre|non retenu)\b",
+    flags=re.IGNORECASE,
+)
+TEXT_ALIAS_PATTERNS = [
+    (re.compile(r"\bhydrog[eè]ne\b", flags=re.IGNORECASE), "hydrogen"),
+    (re.compile(r"\b[eé]lectrolyseur?s?\b", flags=re.IGNORECASE), "electrolyser"),
+    (re.compile(r"\b(?:pile a combustible|pile à combustible)s?\b", flags=re.IGNORECASE), "fuel cell"),
+    (re.compile(r"\bsolaire\b", flags=re.IGNORECASE), "solar"),
+    (re.compile(r"\bphotovolta[iï]que?s?\b", flags=re.IGNORECASE), "photovoltaic"),
+    (re.compile(r"\b[eé]olien(?:ne)?s?\b", flags=re.IGNORECASE), "wind"),
+    (re.compile(r"\bbiocarburants?\b", flags=re.IGNORECASE), "biofuel"),
+    (re.compile(r"\bbiomasse\b", flags=re.IGNORECASE), "biomass"),
+    (re.compile(r"\bbiogaz\b", flags=re.IGNORECASE), "biogas"),
+    (re.compile(r"\bbatteri(?:e|es)\b", flags=re.IGNORECASE), "battery"),
+    (re.compile(r"\bstockage\b", flags=re.IGNORECASE), "storage"),
+    (re.compile(r"\bintelligence artificielle\b", flags=re.IGNORECASE), "artificial intelligence"),
+    (re.compile(r"\bnum[eé]rique\b", flags=re.IGNORECASE), "digital"),
+    (re.compile(r"\b(?:jumeau numerique|jumeau numérique)s?\b", flags=re.IGNORECASE), "digital twin"),
+    (re.compile(r"\bmat[eé]riaux?\b", flags=re.IGNORECASE), "materials"),
+    (re.compile(r"\b(?:mobilite electrique|mobilité électrique)\b", flags=re.IGNORECASE), "e-mobility"),
+    (re.compile(r"\b(?:capture du carbone|captage du carbone)\b", flags=re.IGNORECASE), "carbon capture"),
+    (re.compile(r"\b(?:capture de co2|captage de co2)\b", flags=re.IGNORECASE), "co2 capture"),
+    (re.compile(r"\bstockage du co2\b", flags=re.IGNORECASE), "co2 storage"),
+    (re.compile(r"\bnucl[eé]aire\b", flags=re.IGNORECASE), "nuclear"),
+    (re.compile(r"\bsant[eé]\b", flags=re.IGNORECASE), "health"),
+    (re.compile(r"\bagriculture\b", flags=re.IGNORECASE), "agriculture"),
+    (re.compile(r"\bespace\b", flags=re.IGNORECASE), "space"),
+]
 
 
 def _clean_text(*parts: str) -> str:
     txt = " ".join([(p or "") for p in parts]).lower()
     txt = re.sub(r"[\r\n\t]+", " ", txt)
+    txt = re.sub(r"\s+", " ", txt).strip()
+    for patt, repl in TEXT_ALIAS_PATTERNS:
+        txt = patt.sub(repl, txt)
     txt = re.sub(r"\s+", " ", txt).strip()
     return txt
 
@@ -108,7 +143,7 @@ def _keyword_positive_hit(txt: str, keyword: str) -> bool:
         right = txt[idx + len(kw): idx + len(kw) + 30]
 
         neg_left = NEG_RE.search(left) is not None
-        explicit_excl = re.search(r"\b(not in scope|out of scope|excluded from scope)\b", left + right) is not None
+        explicit_excl = EXCLUSION_CONTEXT_RE.search(left + right) is not None
         # Keep positive occurrences unless they are clearly in an exclusion context.
         if not neg_left and not explicit_excl:
             return True

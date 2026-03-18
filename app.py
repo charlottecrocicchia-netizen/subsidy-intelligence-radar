@@ -1303,6 +1303,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_support": "Recherche libre dans les projets et acteurs. Utilise ensuite les filtres pour préciser pays, période et programme.",
         "main_search_examples": "Exemples : « hydrogène en Allemagne depuis 2021 », « principaux acteurs IA en France », « compare les batteries entre France et Allemagne ».",
         "main_search_exploratory": "Recherche libre exploratoire : fonctionne mieux avec des mots-clés simples. Utilise les filtres pour cadrer le pays, la période et le programme.",
+        "search_literal_note": "La recherche libre reste littérale. Les synonymes et exclusions servent surtout à la classification thématique, pas encore à une vraie recherche sémantique.",
         "search_simplified_notice": "La recherche a été simplifiée pour éviter une erreur. Essaie un mot-clé simple puis affine avec les filtres.",
         "search_ignored_notice": "La recherche n’a pas pu être appliquée avec cette saisie. Les filtres sont conservés ; essaie un mot-clé plus simple.",
         "view_recover_hint": "Essaie une recherche plus simple ou ajuste les filtres. Les autres vues restent disponibles.",
@@ -1436,6 +1437,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_budget_b": "Budget B",
         "compare_delta_budget": "Écart de budget (B - A)",
         "compare_budget_reading": "Lecture : à droite, la période B finance davantage ; à gauche, elle finance moins. La comparaison porte sur le budget, pas sur une part relative.",
+        "budget_envelope_note": "Les budgets sont lus comme des enveloppes de projet rattachées à l’année de démarrage. Ce ne sont pas des montants effectivement versés chaque année.",
+        "theme_method_note": "Les thématiques sont inférées par règles de mots-clés FR/EN avec gestion de quelques exclusions. Chaque projet reçoit aujourd’hui un thème principal.",
+        "theme_review_label": "À reclasser",
+        "theme_review_note": "« À reclasser » regroupe les projets sans correspondance thématique suffisamment forte dans le référentiel actuel.",
+        "actor_grouping_note": "Le regroupement d’entités dépend d’un mapping groupes et d’un fallback PIC. Il reste partiel pour certaines filiales et structures corporate.",
+        "value_chain_method_note": "Les étapes de chaîne de valeur sont inférées à partir du texte projet. Cette lecture reste indicative et ne remplace pas une qualification TRL auditée.",
+        "partnership_stage_note": "La lecture des partenaires n’est pas encore découpée directement par étape de chaîne de valeur. Utilise d’abord le thème et le périmètre actif pour cadrer l’analyse.",
         "actor_profile": "Fiche acteur",
         "actor_group_mode_caption": "Vue groupe active: les fiches et graphes peuvent agréger plusieurs entités juridiques via mapping ou PIC.",
         "actor_profile_caption": "Choisis un acteur, puis commence par son profil, son évolution et ses projets avant d’ouvrir les lectures plus expertes.",
@@ -1724,6 +1732,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "main_search_support": "Free-text search across projects and actors. Then use filters to narrow country, time period, and programme.",
         "main_search_examples": "Examples: “hydrogen in Germany since 2021”, “top AI actors in France”, “compare batteries across France and Germany”.",
         "main_search_exploratory": "Exploratory free-text search works best with simple keywords. Use filters to narrow country, time period, and programme.",
+        "search_literal_note": "Free-text search remains literal. Synonyms and exclusions currently feed theme classification more than true semantic search.",
         "search_simplified_notice": "Search was simplified to avoid an error. Try a simpler keyword, then refine with filters.",
         "search_ignored_notice": "Search could not be applied safely for this input. Filters are still active; try a simpler keyword.",
         "view_recover_hint": "Try a simpler search or adjust the filters. Other views remain available.",
@@ -1857,6 +1866,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_budget_b": "Budget B",
         "compare_delta_budget": "Budget change (B - A)",
         "compare_budget_reading": "Reading: bars to the right mean period B funds more; bars to the left mean it funds less. This compares budget, not relative share.",
+        "budget_envelope_note": "Budgets are read as total project envelopes attached to the project start year. They are not actual yearly disbursements.",
+        "theme_method_note": "Themes are inferred from controlled FR/EN keyword rules with a few exclusion patterns. Each project currently receives one main theme.",
+        "theme_review_label": "Needs review",
+        "theme_review_note": "“Needs review” groups projects without a strong enough thematic match in the current reference set.",
+        "actor_grouping_note": "Entity grouping depends on a group mapping plus PIC fallback. It remains partial for some subsidiaries and corporate structures.",
+        "value_chain_method_note": "Value-chain stages are inferred from project text. This is indicative and should not be read as an audited TRL classification.",
+        "partnership_stage_note": "The partnership view is not yet sliced directly by value-chain stage. Use theme filters and active scope first to narrow the reading.",
         "actor_profile": "Actor profile",
         "actor_group_mode_caption": "Group view is active: profiles and charts may aggregate several legal entities through mapping or PIC.",
         "actor_profile_caption": "Pick an actor, then start with their profile, evolution, and projects before opening deeper expert reads.",
@@ -2159,6 +2175,9 @@ def fmt_pp(delta_share: float, digits: int = 2, lang: str = "FR") -> str:
 # UI mapping
 # ============================================================
 def theme_raw_to_display(raw: str, lang: str) -> str:
+    raw = str(raw)
+    if raw == "Other":
+        return t(lang, "theme_review_label")
     if lang == "FR":
         return THEME_EN_TO_FR.get(raw, raw)
     return raw
@@ -3565,6 +3584,7 @@ with search_c2:
 st.caption(t(lang, "main_search_support"))
 st.caption(t(lang, "main_search_examples"))
 st.caption(t(lang, "main_search_exploratory"))
+st.caption(t(lang, "search_literal_note"))
 
 src_default = [x for x in st.session_state["f_sources"] if x in meta["sources"]]
 prg_default = [x for x in st.session_state["f_programmes"] if x in meta["programmes"]]
@@ -3659,6 +3679,7 @@ if st.session_state.get("app_mode") == "advanced":
             if WIP_SECTIONS.get("actor_grouping", False):
                 st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
             st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
+            st.caption(t(lang, "actor_grouping_note"))
         with ana_c3:
             st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
 else:
@@ -5467,6 +5488,7 @@ with tab_trends:
         if lang == "FR"
         else "Start with the annual trend, then open period comparison or macro context only if you need a deeper read."
     )
+    st.caption(t(lang, "budget_envelope_note"))
     dim_choice = st.radio(
         t(lang, "dimension"),
         [t(lang, "dim_theme"), t(lang, "dim_program")],
@@ -5557,6 +5579,9 @@ with tab_trends:
             render_plotly_chart(fig_area, use_container_width=True)
             if dim_col == "theme":
                 st.caption(t(lang, "theme_counting_note"))
+                st.caption(t(lang, "theme_method_note"))
+                if "Other" in [str(x) for x in selected_raw]:
+                    st.caption(t(lang, "theme_review_note"))
 
             st.divider()
             st.markdown(f"#### {t(lang, 'drivers')}")
@@ -5585,6 +5610,7 @@ with tab_trends:
 with tab_compare:
     render_section_header("⇆", t(lang, "compare_title"), t(lang, "compare_caption"), t(lang, "tab_trends_events"))
     st.caption(t(lang, "compare_intro"))
+    st.caption(t(lang, "budget_envelope_note"))
 
     min_year = meta["miny"]
     max_year = meta["maxy"]
@@ -6384,6 +6410,7 @@ with tab_value_chain:
     if WIP_SECTIONS.get("value_chain", False) and not ENABLE_SANKEY_CLICK:
         st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
     st.caption(t(lang, "adv_value_chain_helper"))
+    st.caption(t(lang, "value_chain_method_note"))
 
     st.markdown("#### " + ("Étapes et acteurs (budget -> acteurs)" if lang == "FR" else "Stages and actors (budget -> actors)"))
     vc_dim = safe_fetch_df(f"""
@@ -6815,6 +6842,7 @@ if app_mode == "simple":
 with tab_collaboration:
     render_section_header("⟡", t(lang, "sub_collaboration"), t(lang, "net_default_caption"), t(lang, "tab_advanced"))
     st.caption(t(lang, "adv_collaboration_helper"))
+    st.caption(t(lang, "partnership_stage_note"))
     actor_rank = safe_fetch_df(f"""
     SELECT
       actor_id,
