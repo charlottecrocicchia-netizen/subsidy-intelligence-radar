@@ -1071,6 +1071,29 @@ COUNTRY_CODE_TO_NAME = {
     "RU": "Russia", "BY": "Belarus",
 }
 
+# Alpha-2 → Alpha-3 mapping (needed for choropleth map)
+COUNTRY_CODE_TO_ALPHA3 = {
+    "AT": "AUT", "BE": "BEL", "BG": "BGR", "HR": "HRV", "CY": "CYP", "CZ": "CZE",
+    "DK": "DNK", "EE": "EST", "FI": "FIN", "FR": "FRA", "DE": "DEU", "GR": "GRC",
+    "EL": "GRC", "HU": "HUN", "IE": "IRL", "IT": "ITA", "LV": "LVA", "LT": "LTU",
+    "LU": "LUX", "MT": "MLT", "NL": "NLD", "PL": "POL", "PT": "PRT", "RO": "ROU",
+    "SK": "SVK", "SI": "SVN", "ES": "ESP", "SE": "SWE",
+    "NO": "NOR", "IS": "ISL", "CH": "CHE", "LI": "LIE",
+    "UK": "GBR", "GB": "GBR",
+    "TR": "TUR", "RS": "SRB", "AL": "ALB", "ME": "MNE", "MK": "MKD", "BA": "BIH",
+    "XK": "XKX", "MD": "MDA", "UA": "UKR", "GE": "GEO", "AM": "ARM",
+    "IL": "ISR", "TN": "TUN", "EG": "EGY", "MA": "MAR",
+    "KR": "KOR", "CA": "CAN", "NZ": "NZL", "FO": "FRO",
+    "US": "USA", "JP": "JPN", "CN": "CHN", "IN": "IND",
+    "BR": "BRA", "ZA": "ZAF", "AU": "AUS",
+    "SG": "SGP", "TW": "TWN", "CL": "CHL", "MX": "MEX",
+    "AR": "ARG", "CO": "COL", "TH": "THA", "MY": "MYS",
+    "ID": "IDN", "PH": "PHL", "VN": "VNM",
+    "NG": "NGA", "KE": "KEN", "GH": "GHA", "ET": "ETH",
+    "SN": "SEN", "TZ": "TZA", "UG": "UGA",
+    "RU": "RUS", "BY": "BLR",
+}
+
 EU27_COUNTRIES = [
     "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czechia",
     "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary",
@@ -2705,25 +2728,66 @@ def get_con() -> duckdb.DuckDBPyConnection:
     return con
 
 
-def rel() -> str:
+def _ensure_base_view() -> None:
+    """
+    Create (or replace) a DuckDB view 'subsidy_base' that:
+    1. Reads the parquet
+    2. Maps 2-letter country codes to full English names (fixes country_name)
+    3. Maps 2-letter country codes to 3-letter ISO codes (fixes country_alpha3 for maps)
+    4. Excludes ADEME rows
+    This runs once per session. All queries use 'subsidy_base' instead of read_parquet().
+    """
+    con = get_con()
     raw = f"read_parquet('{PARQUET_PATH.as_posix()}')"
-    case_lines = []
-    for code, name in COUNTRY_CODE_TO_NAME.items():
+
+    # Build mapping table with both full name and alpha3
+    rows = []
+    all_codes = set(COUNTRY_CODE_TO_NAME.keys()) | set(COUNTRY_CODE_TO_ALPHA3.keys())
+    for code in sorted(all_codes):
+        name = COUNTRY_CODE_TO_NAME.get(code, code)
+        a3 = COUNTRY_CODE_TO_ALPHA3.get(code, code)
         safe_code = code.replace("'", "''")
         safe_name = name.replace("'", "''")
-        case_lines.append(f"WHEN UPPER(TRIM(country_name)) = '{safe_code}' THEN '{safe_name}'")
-    case_sql = " ".join(case_lines)
-    return (
-        f"(SELECT * REPLACE("
-        f"(CASE {case_sql} ELSE TRIM(COALESCE(country_name, '')) END) AS country_name"
-        f") FROM {raw} "
-        f"WHERE UPPER(COALESCE(source, '')) <> 'ADEME' "
-        f"AND UPPER(COALESCE(program, '')) NOT LIKE '%ADEME%')"
-    )
+        safe_a3 = a3.replace("'", "''")
+        rows.append(f"('{safe_code}', '{safe_name}', '{safe_a3}')")
+    values = ", ".join(rows)
+
+    con.execute("DROP TABLE IF EXISTS _country_map;")
+    con.execute("CREATE TABLE _country_map (code VARCHAR, full_name VARCHAR, alpha3 VARCHAR);")
+    con.execute(f"INSERT INTO _country_map VALUES {values};")
+
+    # Create the base view: fix BOTH country_name AND country_alpha3
+    con.execute("DROP VIEW IF EXISTS subsidy_base;")
+    con.execute(f"""
+        CREATE VIEW subsidy_base AS
+        SELECT
+            b.* EXCLUDE (country_name, country_alpha3),
+            COALESCE(cn.full_name, ca3.full_name, TRIM(COALESCE(b.country_name, ''))) AS country_name,
+            COALESCE(cn.alpha3, ca3.alpha3, TRIM(COALESCE(b.country_alpha3, ''))) AS country_alpha3
+        FROM {raw} b
+        LEFT JOIN _country_map cn
+            ON UPPER(TRIM(b.country_name)) = cn.code
+        LEFT JOIN _country_map ca3
+            ON UPPER(TRIM(b.country_alpha3)) = ca3.code
+        WHERE UPPER(COALESCE(b.source, '')) <> 'ADEME'
+          AND UPPER(COALESCE(b.program, '')) NOT LIKE '%ADEME%'
+    """)
+
+
+# Track whether the view has been created this session
+_BASE_VIEW_READY = False
+
+
+def rel() -> str:
+    global _BASE_VIEW_READY
+    if not _BASE_VIEW_READY:
+        _ensure_base_view()
+        _BASE_VIEW_READY = True
+    return "subsidy_base"
 
 
 @st.cache_data(show_spinner=False)
-def base_schema_columns(_cache_version: str = "v3_country_names") -> List[str]:
+def base_schema_columns(_cache_version: str = "v5_view_mapping") -> List[str]:
     df = get_con().execute(f"SELECT * FROM {rel()} LIMIT 0").fetchdf()
     return [str(c) for c in df.columns]
 
@@ -3344,8 +3408,8 @@ if not PARQUET_PATH.exists():
 # ============================================================
 # Metadata lists + ranges (cheap)
 # ============================================================
-@st.cache_data(show_spinner=False)
-def get_meta(_cache_version: str = "v3_country_names") -> dict:
+@st.cache_data(show_spinner=False, ttl=300)
+def get_meta(_cache_buster: str = "v5_view_mapping") -> dict:
     R = rel()
     yr = fetch_df(f"SELECT MIN(year) AS miny, MAX(year) AS maxy FROM {R}")
     miny = int(yr["miny"].iloc[0])
