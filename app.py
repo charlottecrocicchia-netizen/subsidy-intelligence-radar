@@ -1399,6 +1399,25 @@ THEME_SUBCATEGORIES = {
     ],
 }
 
+SUBTOPIC_TERM_OVERRIDES = {
+    "Electrolysis": ["electrolysis", "electrolyser", "electrolyzer"],
+    "Fuel cells": ["fuel cells", "fuel cell"],
+    "Direct air capture (DAC)": ["direct air capture", "DAC"],
+    "Concentrated solar power (CSP)": ["concentrated solar power", "CSP"],
+    "Sustainable aviation fuel (SAF)": ["sustainable aviation fuel", "SAF"],
+    "SMR technologies": ["SMR", "small modular reactor", "small modular reactors"],
+    "Artificial intelligence & machine learning": ["artificial intelligence", "machine learning", "AI"],
+    "Digital twins": ["digital twin", "digital twins"],
+    "Vehicle-to-grid (V2G)": ["vehicle-to-grid", "vehicle to grid", "V2G"],
+    "CO2 capture": ["CO2 capture", "carbon capture"],
+    "CO2 transport": ["CO2 transport", "carbon transport"],
+    "CO2 storage": ["CO2 storage", "carbon storage"],
+    "CO2 utilization": ["CO2 utilization", "carbon utilization", "carbon use"],
+    "Catalysts, membranes & safety": ["catalysts", "membranes", "hydrogen safety"],
+    "PV cells & architectures": ["PV cells", "photovoltaic cells"],
+    "Charging infrastructure": ["charging infrastructure", "charging station", "charging stations"],
+}
+
 ENTITY_EN_TO_FR = {
     "Private company": "Entreprise (privé)",
     "Research & academia": "Recherche & académique",
@@ -1458,10 +1477,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_next_1": "les résultats détaillés du périmètre choisi",
         "guided_home_next_2": "les acteurs, la géographie et les tendances déjà préfiltrés",
         "guided_home_next_3": "tous les filtres avancés si tu veux aller plus loin",
-        "guided_home_theme_cards_help": "Clique sur une carte pour ajouter ou retirer une grande thématique.",
+        "guided_home_theme_cards_help": "Clique sur un ou plusieurs thèmes. Tu pourras affiner ensuite.",
         "guided_home_selected_themes": "Thématiques retenues",
         "guided_home_subtopics": "Sous-thématiques préparatoires",
-        "guided_home_subtopics_help": "Ces sous-thèmes servent pour l’instant à cadrer le sujet. Ils ne filtrent pas encore directement les requêtes dans l’app.",
+        "guided_home_subtopics_help": "Choisis des sous-thèmes si tu veux affiner. Ils seront repris dans l’analyse comme termes guidés de recherche.",
+        "guided_terms": "Sous-thèmes guidés",
+        "guided_terms_applied": "Sous-thèmes guidés appliqués",
         "reset": "Réinitialiser",
         "refresh": "Rafraîchir les données",
         "refresh_hint": "Met à jour CORDIS + events (offline), puis recharge l’app.",
@@ -1920,10 +1941,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_next_1": "detailed results for the chosen scope",
         "guided_home_next_2": "actors, geography, and trends already prefiltered",
         "guided_home_next_3": "all advanced filters if you want to go deeper",
-        "guided_home_theme_cards_help": "Click a card to add or remove a main theme.",
+        "guided_home_theme_cards_help": "Click one or more themes. You can refine them afterwards.",
         "guided_home_selected_themes": "Selected themes",
         "guided_home_subtopics": "Preparatory sub-themes",
-        "guided_home_subtopics_help": "These sub-themes currently help frame the topic only. They do not yet drive SQL filtering directly in the app.",
+        "guided_home_subtopics_help": "Choose sub-themes if you want to refine the topic. They will be carried into the analysis as guided search terms.",
+        "guided_terms": "Guided sub-themes",
+        "guided_terms_applied": "Guided sub-themes applied",
         "reset": "Reset",
         "refresh": "Refresh data",
         "refresh_hint": "Updates CORDIS + events (offline), then reloads the app.",
@@ -2453,6 +2476,7 @@ def build_safe_where_pair(
     entities: List[str],
     countries: List[str],
     quick_search: str,
+    extra_search_terms: Optional[List[str]] = None,
 ) -> Tuple[str, str, Optional[str]]:
     normalized_search = _normalize_quick_search(quick_search)
     base_kwargs = dict(
@@ -2466,6 +2490,7 @@ def build_safe_where_pair(
         themes=themes,
         entities=entities,
         countries=countries,
+        extra_search_terms=extra_search_terms,
     )
 
     w = where_clause(**base_kwargs, quick_search=normalized_search)
@@ -2523,6 +2548,10 @@ def active_filter_labels(meta: dict, lang: str) -> List[str]:
     statuses = [x for x in st.session_state.get("f_statuses", []) if x in meta.get("statuses", [])]
     if statuses and len(statuses) < len(meta.get("statuses", [])):
         labels.append(f"{t(lang, 'project_status')}: {_compact_filter_values(statuses, lambda x: status_raw_to_display(x, lang))}")
+
+    guided_subtopics = [x for x in st.session_state.get("f_guided_subtopics", []) if str(x).strip()]
+    if guided_subtopics:
+        labels.append(f"{t(lang, 'guided_terms')}: {_compact_filter_values(guided_subtopics, limit=2)}")
 
     if bool(st.session_state.get("f_onetech_only", False)):
         labels.append(t(lang, "onetech_only"))
@@ -2751,6 +2780,12 @@ def sync_guided_entry_from_filters(meta: dict) -> None:
     st.session_state["guided_themes_raw"] = [] if set(current_themes) == set(meta["themes"]) else current_themes
     st.session_state["guided_countries"] = current_countries or default_countries
     st.session_state["guided_years"] = current_years
+    st.session_state["guided_subtopics_by_theme"] = {
+        theme: values
+        for theme, values in _clean_guided_subtopics_by_theme().items()
+        if theme in st.session_state["guided_themes_raw"]
+    }
+    st.session_state["guided_subtopics"] = _selected_guided_subtopics(st.session_state["guided_themes_raw"])
 
 
 def apply_guided_entry_to_filters(meta: dict) -> None:
@@ -2762,10 +2797,19 @@ def apply_guided_entry_to_filters(meta: dict) -> None:
     if len(guided_years) != 2:
         guided_years = (meta["miny"], meta["maxy"])
 
+    selected_subtopics = _selected_guided_subtopics(guided_themes)
+    guided_topic_terms: List[str] = []
+    for subtopic in selected_subtopics:
+        for term in _subtopic_search_terms(subtopic):
+            if term not in guided_topic_terms:
+                guided_topic_terms.append(term)
+
     st.session_state["f_quick_search"] = str(st.session_state.get("guided_search", "")).strip()
     st.session_state["f_themes_raw"] = guided_themes if guided_themes else list(meta["themes"])
     st.session_state["f_countries"] = guided_countries if guided_countries else default_countries
     st.session_state["f_years"] = guided_years
+    st.session_state["f_guided_subtopics"] = selected_subtopics
+    st.session_state["f_guided_topic_terms"] = guided_topic_terms
     st.session_state["f_sources"] = list(meta["sources"])
     st.session_state["f_programmes"] = list(meta["programmes"])
     st.session_state["f_statuses"] = default_statuses
@@ -2779,16 +2823,73 @@ def clear_search() -> None:
     st.session_state["f_quick_search"] = ""
 
 
+def _clean_guided_subtopics_by_theme() -> Dict[str, List[str]]:
+    raw = st.session_state.get("guided_subtopics_by_theme", {})
+    if not isinstance(raw, dict):
+        return {}
+    cleaned: Dict[str, List[str]] = {}
+    for theme, subtopics in raw.items():
+        theme_key = str(theme)
+        allowed = [str(x) for x in THEME_SUBCATEGORIES.get(theme_key, [])]
+        if not allowed:
+            continue
+        values: List[str] = []
+        if isinstance(subtopics, (list, tuple, set)):
+            for item in subtopics:
+                value = str(item).strip()
+                if value and value in allowed and value not in values:
+                    values.append(value)
+        if values:
+            cleaned[theme_key] = values
+    return cleaned
+
+
+def _selected_guided_subtopics(selected_themes: Optional[List[str]] = None) -> List[str]:
+    subtopic_map = _clean_guided_subtopics_by_theme()
+    theme_order = [str(x) for x in (selected_themes or st.session_state.get("guided_themes_raw", []))]
+    selected: List[str] = []
+    for theme in theme_order:
+        for subtopic in subtopic_map.get(theme, []):
+            if subtopic not in selected:
+                selected.append(subtopic)
+    return selected
+
+
+def _subtopic_search_terms(subtopic: str) -> List[str]:
+    terms: List[str] = []
+
+    def add(term: str) -> None:
+        cleaned = re.sub(r"\s+", " ", str(term or "").strip())
+        if cleaned and cleaned.lower() not in {x.lower() for x in terms}:
+            terms.append(cleaned)
+
+    raw = str(subtopic).strip()
+    add(raw)
+    base = re.sub(r"\s*\([^)]*\)", "", raw).strip(" ,-")
+    if base and base != raw:
+        add(base)
+    for inner in re.findall(r"\(([^)]{1,30})\)", raw):
+        add(inner)
+    for part in re.split(r"\s*&\s*|\s*/\s*", base):
+        if len(part.strip()) >= 3:
+            add(part.strip())
+    for alias in SUBTOPIC_TERM_OVERRIDES.get(raw, []):
+        add(alias)
+    return terms
+
+
 def toggle_guided_theme(theme: str) -> None:
     current = [x for x in st.session_state.get("guided_themes_raw", []) if str(x).strip()]
     theme = str(theme)
+    subtopic_map = _clean_guided_subtopics_by_theme()
     if theme in current:
         current = [x for x in current if x != theme]
+        subtopic_map.pop(theme, None)
     else:
         current.append(theme)
     st.session_state["guided_themes_raw"] = current
-    if len(current) != 1:
-        st.session_state["guided_subtopics"] = []
+    st.session_state["guided_subtopics_by_theme"] = subtopic_map
+    st.session_state["guided_subtopics"] = _selected_guided_subtopics(current)
 
 
 def queue_tab_navigation(top_target: str = "", actor_sub_target: str = "") -> None:
@@ -3449,6 +3550,7 @@ def where_clause(
     quick_search: str,
     table_alias: Optional[str] = None,
     quick_search_columns: Optional[List[str]] = None,
+    extra_search_terms: Optional[List[str]] = None,
 ) -> str:
     prefix = f"{str(table_alias).strip()}." if str(table_alias or "").strip() else ""
     w = []
@@ -3472,6 +3574,13 @@ def where_clause(
     if str(quick_search).strip():
         q = _normalize_quick_search(str(quick_search).strip())
         w.append(quick_search_clause(prefix, q, quick_search_columns))
+    extra_terms = [
+        _normalize_quick_search(str(term).strip())
+        for term in (extra_search_terms or [])
+        if str(term).strip()
+    ]
+    if extra_terms:
+        w.append("(" + " OR ".join(quick_search_clause(prefix, term, quick_search_columns) for term in extra_terms) + ")")
     return " AND ".join(w) if w else "TRUE"
 
 
@@ -3778,6 +3887,9 @@ st.session_state.setdefault("sir_screen", "welcome")
 if any(k not in st.session_state for k in ["guided_search", "guided_themes_raw", "guided_countries", "guided_years"]):
     sync_guided_entry_from_filters(meta)
 st.session_state.setdefault("guided_subtopics", [])
+st.session_state.setdefault("guided_subtopics_by_theme", {})
+st.session_state.setdefault("f_guided_subtopics", [])
+st.session_state.setdefault("f_guided_topic_terms", [])
 
 
 def _current_filter_snapshot() -> Dict[str, object]:
@@ -3891,17 +4003,30 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                     ) + "</div>",
                     unsafe_allow_html=True,
                 )
-            if len(guided_theme_choices) == 1 and str(guided_theme_choices[0]) in THEME_SUBCATEGORIES:
-                only_theme = str(guided_theme_choices[0])
-                available_subtopics = THEME_SUBCATEGORIES.get(only_theme, [])
-                current_subtopics = [x for x in st.session_state.get("guided_subtopics", []) if x in available_subtopics]
-                st.session_state["guided_subtopics"] = st.multiselect(
-                    t(lang, "guided_home_subtopics"),
-                    available_subtopics,
-                    default=current_subtopics,
-                )
+            guided_subtopic_map = _clean_guided_subtopics_by_theme()
+            if guided_theme_choices:
                 st.caption(t(lang, "guided_home_subtopics_help"))
+                updated_subtopic_map: Dict[str, List[str]] = {}
+                for theme in guided_theme_choices:
+                    theme_key = str(theme)
+                    available_subtopics = THEME_SUBCATEGORIES.get(theme_key, [])
+                    if not available_subtopics:
+                        continue
+                    current_subtopics = [x for x in guided_subtopic_map.get(theme_key, []) if x in available_subtopics]
+                    with st.container(border=True):
+                        st.markdown("**" + theme_raw_to_display(theme_key, lang) + "**")
+                        selected_subtopics = st.multiselect(
+                            t(lang, "guided_home_subtopics"),
+                            available_subtopics,
+                            default=current_subtopics,
+                            key=f"guided_subtopics_widget::{theme_key}",
+                        )
+                    if selected_subtopics:
+                        updated_subtopic_map[theme_key] = selected_subtopics
+                st.session_state["guided_subtopics_by_theme"] = updated_subtopic_map
+                st.session_state["guided_subtopics"] = _selected_guided_subtopics(guided_theme_choices)
             else:
+                st.session_state["guided_subtopics_by_theme"] = {}
                 st.session_state["guided_subtopics"] = []
 
     with gh2:
@@ -3986,6 +4111,8 @@ with nav_back_c1:
         st.rerun()
 with nav_back_c2:
     st.caption(t(lang, "guided_home_analysis_note"))
+    if st.session_state.get("f_guided_subtopics"):
+        st.caption(t(lang, "guided_terms_applied") + ": " + ", ".join(st.session_state.get("f_guided_subtopics", [])))
 
 
 # ============================================================
@@ -4133,6 +4260,7 @@ W, W_R, search_notice_key = build_safe_where_pair(
     entities=st.session_state["f_entity_raw"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
+    extra_search_terms=st.session_state.get("f_guided_topic_terms", []),
 )
 W_partners, W_R_partners, _ = build_safe_where_pair(
     R,
@@ -4147,6 +4275,7 @@ W_partners, W_R_partners, _ = build_safe_where_pair(
     entities=meta["entities"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
+    extra_search_terms=st.session_state.get("f_guided_topic_terms", []),
 )
 
 
@@ -4207,6 +4336,8 @@ if st.session_state.get("f_statuses"):
     scope_items.append(", ".join(status_raw_to_display(x, lang) for x in st.session_state["f_statuses"]))
 if str(st.session_state.get("f_quick_search", "")).strip():
     scope_items.append(f"{t(lang, 'quick_search')}: {str(st.session_state.get('f_quick_search', '')).strip()}")
+if st.session_state.get("f_guided_subtopics"):
+    scope_items.append(f"{t(lang, 'guided_terms')}: {_compact_filter_values(st.session_state.get('f_guided_subtopics', []), limit=2)}")
 
 
 
