@@ -20,7 +20,7 @@ Le systeme est pense pour:
 
 ```mermaid
 flowchart TD
-    A["Sources externes (CORDIS/ADEME/RSS/SPARQL/API optionnelles)"] --> B["pipeline.py + build_events.py + connectors optionnels"]
+    A["Sources externes (CORDIS/RSS/SPARQL/API optionnelles)"] --> B["pipeline.py + build_events.py + connectors optionnels"]
     B --> C["data/processed/subsidy_base.parquet"]
     B --> D["data/external/events.csv"]
     B --> E["data/processed/actor_master/group_master/project_actor_links"]
@@ -58,14 +58,11 @@ Points importants:
 - `https://cordis.europa.eu/data/cordis-HORIZONprojects-csv.zip`
 - `https://cordis.europa.eu/data/cordis-h2020projects-csv.zip`
 
-2. ADEME via API data.gouv.fr (meta dataset + ressource CSV):
-- `https://www.data.gouv.fr/api/1/datasets/640afdff7a07961cdc232d19/`
-
-3. EC Newsroom RSS:
+2. EC Newsroom RSS:
 - `https://ec.europa.eu/newsroom/horizon2020/feed?lang=en&orderby=item_date&topic_id=615`
 - `https://ec.europa.eu/newsroom/horizon2020/feed?lang=en&orderby=item_date&topic_id=613`
 
-4. EUR-Lex / Cellar SPARQL:
+3. EUR-Lex / Cellar SPARQL:
 - `https://publications.europa.eu/webapi/rdf/sparql`
 
 ## 4.2 Sources optionnelles (framework pret, configuration locale requise)
@@ -98,7 +95,6 @@ Avantages:
 | Source/API | Script appele | Quand | Artefact produit |
 |---|---|---|---|
 | CORDIS bulk CSV ZIP | `pipeline.py` -> `process_build.py` | Refresh manuel UI / GitHub Action | `data/processed/subsidy_base.{csv,parquet}` |
-| ADEME data.gouv API | `pipeline.py` -> `process_build.py` | Refresh manuel UI / GitHub Action | inclus dans `subsidy_base` |
 | EC Newsroom RSS | `build_events.py` | Refresh manuel UI / GitHub Action | `data/external/events.csv` |
 | EUR-Lex SPARQL | `build_events.py` | Refresh manuel UI / GitHub Action | `data/external/events.csv` |
 | CINEA / Qlik / EU Funding / MCP (optionnel) | `pipeline.py` -> `incremental_connectors.py` | Refresh si `connectors_manifest.csv` present + `enabled=true` | `data/external/connectors/*` |
@@ -224,7 +220,6 @@ Fichier actif versionne:
 Fonctions cle:
 - `ensure_data_updated(force=False, verbose=False)`: orchestration globale.
 - `_http_stamp()`: stamp distant (ETag/Last-Modified/Content-Length).
-- `_ademe_url_and_stamp()`: resolution de la meilleure ressource ADEME.
 - `_acquire_lock()` / `_release_lock()`: verrou local.
 - `_read_state()` / `_write_state()`: persistence dans `data/processed/_state.json`.
 
@@ -237,14 +232,14 @@ Logique:
    - ou colonnes schema requises manquantes (`pic`, `value_chain_stage`, `project_status`).
 3. Lance connecteurs incrementaux optionnels (manifest) si present.
 4. Si rebuild coeur requis:
-   - download CORDIS + ADEME,
+   - download CORDIS,
    - rebuild via `process_build.build_processed_dataset`.
 5. Met a jour `_state.json`.
 
 ## 6.2 Build dataset (`process_build.py`)
 
 Responsabilites:
-- chargement CORDIS + ADEME,
+- chargement CORDIS,
 - nettoyage/normalisation,
 - enrichissements metier,
 - ecriture atomique CSV + parquet (compression zstd),
@@ -259,7 +254,7 @@ Points metier importants:
 - `VALUE_CHAIN_RULES` -> `value_chain_stage`.
 
 3. Statut projet:
-- `Open/Closed/Unknown` selon date de fin (CORDIS) ou annee (ADEME fallback).
+- `Open/Closed/Unknown` selon date de fin projet.
 
 4. Groupement acteur/groupe:
 - join avec `actor_groups.csv` si disponible,
@@ -522,7 +517,7 @@ Si carte geo non normalisee population:
 
 ### `process_build.py`
 - ETL principal et normalisation.
-- Fonctions cles: `load_cordis_program`, `load_ademe`, `infer_theme`, `infer_value_chain_stage`, `build_master_actor_tables`, `build_processed_dataset`.
+- Fonctions cles: `load_cordis_program`, `infer_theme`, `infer_value_chain_stage`, `build_master_actor_tables`, `build_processed_dataset`.
 
 ### `build_events.py`
 - ETL evenements macro.

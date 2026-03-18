@@ -1,5 +1,8 @@
 # Subsidy Intelligence Radar — quick start (local + Streamlit Cloud)
 
+Project-awards data source:
+- CORDIS only (`Horizon Europe` + `Horizon 2020`)
+
 Documentation technique complete:
 - `DOCUMENTATION_TECHNIQUE_COMPLETE.md`
 - Email equipe pret a envoyer:
@@ -37,7 +40,7 @@ streamlit run app.py
 ```
 
 In the app, click **Refresh** to (re)build:
-- `pipeline.py` (download + build `data/processed/subsidy_base.csv`)
+- `pipeline.py` (download CORDIS + build `data/processed/subsidy_base.csv`)
 - `build_events.py` (build `data/external/events.csv`)
 
 `events.csv` now stores a dedicated `url` column (source link) in addition to notes.

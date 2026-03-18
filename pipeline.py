@@ -4,7 +4,7 @@
 pipeline.py — Update raw sources + rebuild processed dataset.
 
 Two modes:
-- LOCAL (recommended): download CORDIS zips + ADEME csv, then rebuild data/processed/subsidy_base.{csv,parquet}
+- LOCAL (recommended): download CORDIS zips, then rebuild data/processed/subsidy_base.{csv,parquet}
 - STREAMLIT CLOUD: never downloads big sources (avoids "Oh no"). Only checks that processed parquet exists.
 
 Author: Charlotte Crocicchia (rewritten & hardened)
@@ -19,7 +19,7 @@ import time
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Optional, Tuple
+from typing import Dict
 
 import requests
 
@@ -40,10 +40,6 @@ CORDIS_URLS = {
     "horizon_europe": "https://cordis.europa.eu/data/cordis-HORIZONprojects-csv.zip",
     "h2020": "https://cordis.europa.eu/data/cordis-h2020projects-csv.zip",
 }
-
-# ADEME dataset on data.gouv.fr (dataset id stable)
-ADEME_DATASET_API = "https://www.data.gouv.fr/api/1/datasets/640afdff7a07961cdc232d19/"
-
 
 # ============================
 # Environment detection
@@ -134,42 +130,6 @@ def _http_stamp(url: str) -> str:
         except Exception:
             return ""
 
-
-def _pick_best_csv_resource(resources: list) -> Optional[dict]:
-    csvs = []
-    for r in resources:
-        fmt = str(r.get("format", "")).lower()
-        mime = str(r.get("mime", "")).lower()
-        title = str(r.get("title", "")).lower()
-        if fmt == "csv" or "csv" in mime or title.endswith(".csv") or " csv" in title:
-            csvs.append(r)
-    if not csvs:
-        return None
-
-    # prefer latest non-doc
-    def key(r: dict) -> Tuple[int, str]:
-        title = str(r.get("title", "")).lower()
-        is_doc = int(("swagger" in title) or ("documentation" in title) or ("api" in title))
-        last = str(r.get("last_modified") or r.get("created_at") or "")
-        return (is_doc, last)
-
-    csvs.sort(key=key)
-    return csvs[-1]
-
-
-def _ademe_url_and_stamp() -> Tuple[Optional[str], str]:
-    try:
-        js = requests.get(ADEME_DATASET_API, timeout=60, headers=HEADERS).json()
-        r = _pick_best_csv_resource(js.get("resources", []))
-        if not r:
-            return None, ""
-        url = r.get("url") or (r.get("latest") or {}).get("url")
-        stamp = str(r.get("last_modified") or r.get("created_at") or "")
-        return url, stamp
-    except Exception:
-        return None, ""
-
-
 # ============================
 # Download helpers
 # ============================
@@ -247,8 +207,6 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
 
     # Compute stamps
     cordis_stamps = {k: _http_stamp(url) for k, url in CORDIS_URLS.items()}
-    ademe_url, ademe_stamp = _ademe_url_and_stamp()
-
     need_core = force or (not OUT_PARQUET.exists()) or (not OUT_CSV.exists())
     reasons = []
     if force:
@@ -271,10 +229,6 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
             if s and prev.get(f"cordis_{k}") != s:
                 need_core = True
                 reasons.append(f"cordis_changed:{k}")
-        if ademe_stamp and prev.get("ademe_stamp") != ademe_stamp:
-            need_core = True
-            reasons.append("ademe_changed")
-
     connectors_manifest = BASE_DIR / "data" / "external" / "connectors_manifest.csv"
     need_connectors = connectors_manifest.exists()
 
@@ -306,12 +260,6 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
                     print(f"[pipeline] Download CORDIS {name}")
                 _download_and_extract_zip(url, RAW_DIR / "cordis" / name)
 
-            # ADEME optional
-            if ademe_url:
-                if verbose:
-                    print("[pipeline] Download ADEME CSV")
-                _download_stream(ademe_url, RAW_DIR / "france" / "ademe" / "ademe_aides_full.csv")
-
             # Build processed
             if verbose:
                 print("[pipeline] Build processed dataset")
@@ -322,7 +270,6 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
             # Update core data state only when rebuild happened
             state["stamps"] = {
                 **{f"cordis_{k}": v for k, v in cordis_stamps.items()},
-                "ademe_stamp": ademe_stamp,
             }
             state["last_build_ts"] = time.time()
 

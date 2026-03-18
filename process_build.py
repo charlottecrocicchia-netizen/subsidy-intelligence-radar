@@ -4,7 +4,6 @@
 process_build.py — Build data/processed/subsidy_base.csv (+ .parquet)
 
 - Loads CORDIS (Horizon Europe + Horizon 2020) from data/raw/cordis/<program>/{project,organization}.csv
-- Loads ADEME France from data/raw/france/ademe/ademe_aides_full.csv (optional)
 - Normalizes schema + types
 - Writes outputs atomically to avoid partial files during refresh on Streamlit Cloud
 
@@ -406,132 +405,6 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
 
     return out
 
-
-# ============================================================
-# ADEME loader (robust + avoid “Unknown actor mega”)
-# ============================================================
-def load_ademe(folder: Path) -> pd.DataFrame:
-    f = folder / "ademe_aides_full.csv"
-    if not f.exists():
-        return pd.DataFrame(columns=_SCHEMA_COLS())
-
-    # detect separator
-    try:
-        head = f.read_text(errors="ignore").splitlines()[0]
-    except Exception:
-        head = ""
-    sep = ";" if head.count(";") > head.count(",") else ","
-
-    df = pd.read_csv(f, sep=sep, low_memory=False)
-
-    def pick_series(*cols: str) -> pd.Series:
-        c = pick_col(df, *cols)
-        if c:
-            return df[c]
-        return pd.Series([np.nan] * len(df))
-
-    # name / title / amount / date
-    org = pick_series(
-        "beneficiaire", "Bénéficiaire", "beneficiaires", "nom", "Nom", "raison_sociale", "Raison sociale",
-        "nomBeneficiaire", "nom_beneficiaire",
-    )
-    title = pick_series("objet", "Objet", "description", "Description", "intitule", "Intitulé")
-    amount = pick_series("montant", "Montant", "montant_eur", "montant (€)", "montant_accorde", "Montant accordé")
-    date_col = pick_series("date", "Date", "date_versement", "dateConvention", "date_signature", "Date signature")
-
-    section = pick_series(
-        "dispositif", "Dispositif", "nature", "Nature", "programme", "Programme",
-        "dispositifAide", "dispositif_aide",
-    ).fillna("ADEME")
-
-    org_s = org.astype("string").fillna("").astype(str).str.strip()
-    title_s = title.astype("string").fillna("").astype(str).str.strip()
-    amount_num = pd.to_numeric(amount.astype(str).str.replace(",", ".", regex=False), errors="coerce")
-    year = pd.to_datetime(date_col, errors="coerce").dt.year
-    project_status = np.where(
-        year.isna(),
-        "Unknown",
-        np.where(year >= int(date.today().year), "Open", "Closed"),
-    )
-
-    # actor_id: prefer SIRET/SIREN if present
-    siret_col = pick_col(df, "siret", "SIRET", "idBeneficiaire", "id_beneficiaire")
-    siren_col = pick_col(df, "siren", "SIREN")
-    commune_col = pick_col(df, "commune", "Commune", "ville", "Ville")
-    dept_col = pick_col(df, "departement", "Département", "dept", "DEP")
-
-    loc_hint = ""
-    if commune_col:
-        loc_hint = df[commune_col].astype("string").fillna("").astype(str).str.strip()
-    elif dept_col:
-        loc_hint = df[dept_col].astype("string").fillna("").astype(str).str.strip()
-
-    org_norm = org_s.apply(norm_name)
-    loc_norm = (pd.Series(loc_hint).apply(norm_name) if isinstance(loc_hint, pd.Series) else pd.Series([""] * len(df)))
-
-    actor_id = pd.Series([""] * len(df), dtype="string")
-
-    if siret_col:
-        siret = df[siret_col].astype("string").fillna("").astype(str).str.replace(r"\D+", "", regex=True)
-        actor_id = np.where(siret.str.len() >= 10, "FR:SIRET:" + siret, actor_id)
-    if siren_col:
-        siren = df[siren_col].astype("string").fillna("").astype(str).str.replace(r"\D+", "", regex=True)
-        actor_id = np.where((pd.Series(actor_id).astype(str).str.len() == 0) & (siren.str.len() >= 9), "FR:SIREN:" + siren, actor_id)
-
-    # fallback: name + location
-    actor_id = np.where(
-        pd.Series(actor_id).astype(str).str.len() == 0,
-        "FR:ADEME:" + org_norm.astype(str) + ":" + loc_norm.astype(str),
-        actor_id
-    )
-
-    # DROP rows where beneficiary empty
-    mask_ok = org_s.str.len() > 0
-
-    project_id_src = pick_series(
-        "id", "ID", "reference", "Référence", "numero_dossier", "Numéro dossier",
-        "referenceDecision", "reference_decision", "idRAE", "id_rae",
-    ).astype("string").fillna("").astype(str).str.strip()
-    date_token = pd.to_datetime(date_col, errors="coerce").dt.strftime("%Y%m%d").fillna("00000000")
-    proj_fallback = (
-        "ADEME:"
-        + org_norm.astype(str).str.slice(0, 80).str.replace(" ", "_", regex=False)
-        + ":"
-        + date_token.astype(str)
-        + ":"
-        + pd.Series(np.arange(len(df)), dtype="int64").astype(str)
-    )
-    project_id = np.where(project_id_src.str.len() > 0, project_id_src, proj_fallback)
-
-    df_out = pd.DataFrame({
-        "source": "ADEME",
-        "program": "ADEME (France)",
-        "section": section.astype("string").fillna("ADEME").astype(str),
-        "year": year,
-        "projectID": pd.Series(project_id).astype("string").fillna("").astype(str),
-        "acronym": "",
-        "title": title_s,
-        "objective": "",
-        "abstract": "",
-        "actor_id": pd.Series(actor_id).astype("string").fillna("").astype(str),
-        "pic": "",
-        "org_name": org_s,
-        "entity_type": "Unknown",
-        "country_alpha2": "FR",
-        "country_alpha3": "FRA",
-        "country_name": "France",
-        "amount_eur": amount_num,
-        # ADEME rows also receive a single inferred theme label. There is no
-        # multi-theme row explosion at build time.
-        "theme": [infer_theme(str(t)) for t in title_s.fillna("").astype(str)],
-        "value_chain_stage": [infer_value_chain_stage(str(t)) for t in title_s.fillna("").astype(str)],
-        "project_status": pd.Series(project_status).astype("string").fillna("Unknown").astype(str),
-    })
-
-    df_out = df_out[mask_ok].copy()
-    return df_out
-
-
 # ============================================================
 # External connectors loader (optional, via connectors_manifest.csv)
 # ============================================================
@@ -888,7 +761,6 @@ def build_master_actor_tables(base_df: pd.DataFrame, out_dir: Path, actor_group_
 # ============================================================
 def build_processed_dataset(raw_dir: Path, out_csv: Path) -> None:
     cordis_root = raw_dir / "cordis"
-    ademe_root = raw_dir / "france" / "ademe"
 
     dfs: List[pd.DataFrame] = []
 
@@ -905,8 +777,6 @@ def build_processed_dataset(raw_dir: Path, out_csv: Path) -> None:
     else:
         print("[WARN] Missing:", h2)
 
-    # ADEME optional
-    dfs.append(load_ademe(ademe_root))
     # Optional connector outputs (API/MCP), if enabled and available.
     dfs.append(load_external_connectors(raw_dir.parent))
 
