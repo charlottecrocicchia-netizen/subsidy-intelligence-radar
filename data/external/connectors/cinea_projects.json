@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 556,
+    "count": 558,
     "results": [
       {
         "country": {
@@ -1284,15 +1284,15 @@
       },
       {
         "country": {
+          "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
           "label": "EU institutions",
-          "id": "eu",
-          "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
+          "id": "eu"
         },
         "keywords": [
           {
+            "language": "en",
             "id": "italian-film-industry,-gender-data,-gender-inequality-in-the-film-industry,-film-data,-director,-producer,-screenwriter,-editor,-director-of-photography,-set-designer,-production-designer,-makeup,-costume,-special-effects,-music,-head-of-department,-cinema,-audiovisual-media,-women",
-            "label": "Italian film industry, gender data, gender inequality in the film industry, film data, director, producer, screenwriter, editor, director of photography, set designer, production designer, makeup, costume, special effects, music, head of department, cinema, audiovisual media, women",
-            "language": "en"
+            "label": "Italian film industry, gender data, gender inequality in the film industry, film data, director, producer, screenwriter, editor, director of photography, set designer, production designer, makeup, costume, special effects, music, head of department, cinema, audiovisual media, women"
           }
         ],
         "catalog": {
@@ -1349,9 +1349,9 @@
         },
         "language": [
           {
+            "resource": "http://publications.europa.eu/resource/authority/language/ENG",
             "id": "en",
-            "label": "English",
-            "resource": "http://publications.europa.eu/resource/authority/language/ENG"
+            "label": "English"
           }
         ],
         "title": {
@@ -1361,8 +1361,8 @@
           "resource": "http://purl.org/dc/dcmitype/Dataset"
         },
         "access_right": {
-          "label": "restricted",
-          "resource": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED"
+          "resource": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
+          "label": "restricted"
         },
         "modified": "2023-06-20T00:00:00Z",
         "id": "oai-zenodo-org-6365647",
@@ -1385,16 +1385,16 @@
         ],
         "creator": [
           {
-            "type": "Person",
-            "name": "Tarantino, Matteo"
+            "name": "Tarantino, Matteo",
+            "type": "Person"
           },
           {
-            "type": "Person",
-            "name": "Fanchi, Mariagrazia"
+            "name": "Fanchi, Mariagrazia",
+            "type": "Person"
           },
           {
-            "type": "Person",
-            "name": "Rosa Barotsi"
+            "name": "Rosa Barotsi",
+            "type": "Person"
           }
         ],
         "resource": "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647",
@@ -1402,10 +1402,10 @@
         "version_info": "01",
         "distributions": [
           {
-            "id": "00561817-f720-4618-ad7e-c1267039ac2f",
             "access_url": [
               "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647"
-            ]
+            ],
+            "id": "00561817-f720-4618-ad7e-c1267039ac2f"
           }
         ],
         "is_hvd": false,
@@ -1413,8 +1413,8 @@
           "scoring": 110
         },
         "publisher": {
-          "type": "Agent",
-          "name": "Zenodo"
+          "name": "Zenodo",
+          "type": "Agent"
         },
         "page": [
           {
@@ -1428,9 +1428,9 @@
       },
       {
         "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/LUX",
           "label": "Luxembourg",
-          "id": "lu",
-          "resource": "http://publications.europa.eu/resource/authority/country/LUX"
+          "id": "lu"
         },
         "resource": "http://data.europa.eu/88u/dataset/cineast-convention",
         "catalog": {
@@ -1451,18 +1451,18 @@
           "title": {
             "fr": "La plateforme de données luxembourgeoise"
           },
-          "publisher": {
-            "type": "Agent",
-            "homepage": "https://gouvernement.lu",
-            "name": "Le Gouvernement du Grand-Duché de Luxembourg",
-            "email": "mailto:info@data.public.lu"
-          },
           "issued": "2022-06-24T12:30:29Z",
           "description": {
             "en": "Open Data Portal Luxembourg"
           },
           "homepage": "https://data.public.lu",
           "source_type": "udata",
+          "publisher": {
+            "type": "Agent",
+            "homepage": "https://gouvernement.lu",
+            "name": "Le Gouvernement du Grand-Duché de Luxembourg",
+            "email": "mailto:info@data.public.lu"
+          },
           "modified": "2023-02-10T18:15:01.883580",
           "language": [
             {
@@ -1474,7 +1474,37 @@
         },
         "translation_meta": {
           "details": {
-            "da": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "hr": {
               "machine_translated": true,
               "original_language": "fr",
               "issued": "2025-09-05T18:20:34Z"
@@ -1488,102 +1518,7 @@
               "original_language": "fr",
               "issued": "2025-09-05T18:20:34Z"
             },
-            "es": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "de": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
             "uk": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "hr": {
               "machine_translated": true,
               "original_language": "fr",
               "issued": "2025-09-05T18:20:34Z"
@@ -1593,7 +1528,72 @@
               "original_language": "fr",
               "issued": "2025-09-05T18:20:34Z"
             },
-            "bg": {
+            "sl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "es": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "nl": {
               "machine_translated": true,
               "original_language": "fr",
               "issued": "2025-09-05T18:20:34Z"
@@ -1629,308 +1629,308 @@
           "status": "processing"
         },
         "description": {
-          "ga": "Comhaontú idir an Stát agus an comhlachas bus neamhbhrabúis CineEast.",
-          "pl": "Umowa między państwem a nienastawionym na zysk stowarzyszeniem autobusowym CineEast.",
-          "en": "Agreement between the State and the non-profit bus association CineEast.",
-          "et": "Riigi ja mittetulundusühingu CineEast vaheline leping.",
-          "sl": "Sporazum med državo in neprofitnim avtobusnim združenjem CineEast.",
-          "sk": "Dohoda medzi štátom a neziskovým autobusovým združením CineEast.",
-          "el": "Συμφωνία μεταξύ του κράτους και της μη κερδοσκοπικής ένωσης λεωφορείων CineEast.",
-          "bg": "Споразумение между държавата и сдружението за автобусни превози с нестопанска цел CineEast.",
-          "it": "Accordo tra lo Stato e l'associazione di autobus senza scopo di lucro CineEast.",
-          "fr": "Convention entre l'Etat ez l'association sans bus lucratif CineEast.",
-          "fi": "Valtion ja voittoa tavoittelemattoman linja-autoyhdistyksen CineEastin välinen sopimus.",
-          "cs": "Dohoda mezi státem a neziskovým sdružením autobusové dopravy CineEast.",
-          "mt": "Ftehim bejn l-Istat u l-assoċjazzjoni tal-karozzi tal-linja mingħajr skop ta’ qligħ CineEast.",
-          "lv": "Nolīgums starp valsti un bezpeļņas autobusu asociāciju CineEast.",
-          "ro": "Acord între stat și asociația non-profit de autobuze CineEast.",
           "de": "Vereinbarung zwischen dem Staat und dem gemeinnützigen Busverband CineEast.",
+          "fi": "Valtion ja voittoa tavoittelemattoman linja-autoyhdistyksen CineEastin välinen sopimus.",
           "pt": "Acordo entre o Estado e a associação sem fins lucrativos de autocarros CineEast.",
-          "sv": "Överenskommelse mellan staten och den ideella bussföreningen CineEast.",
+          "bg": "Споразумение между държавата и сдружението за автобусни превози с нестопанска цел CineEast.",
           "lt": "Valstybės ir pelno nesiekiančios autobusų asociacijos „CineEast“ susitarimas.",
-          "nl": "Overeenkomst tussen de staat en de non-profit busvereniging CineEast.",
+          "lv": "Nolīgums starp valsti un bezpeļņas autobusu asociāciju CineEast.",
+          "hr": "Ugovor između države i neprofitne autobusne udruge CineEast.",
+          "fr": "Convention entre l'Etat ez l'association sans bus lucratif CineEast.",
           "hu": "Megállapodás az állam és a CineEast nonprofit buszszövetség között.",
-          "es": "Convenio entre el Estado y la asociación de autobuses sin ánimo de lucro CineEast.",
-          "da": "Aftale mellem staten og den almennyttige bussammenslutning CineEast.",
           "uk": "Угода між державою та некомерційною автобусною асоціацією CineEast.",
-          "hr": "Ugovor između države i neprofitne autobusne udruge CineEast."
+          "sk": "Dohoda medzi štátom a neziskovým autobusovým združením CineEast.",
+          "sl": "Sporazum med državo in neprofitnim avtobusnim združenjem CineEast.",
+          "ga": "Comhaontú idir an Stát agus an comhlachas bus neamhbhrabúis CineEast.",
+          "sv": "Överenskommelse mellan staten och den ideella bussföreningen CineEast.",
+          "el": "Συμφωνία μεταξύ του κράτους και της μη κερδοσκοπικής ένωσης λεωφορείων CineEast.",
+          "mt": "Ftehim bejn l-Istat u l-assoċjazzjoni tal-karozzi tal-linja mingħajr skop ta’ qligħ CineEast.",
+          "en": "Agreement between the State and the non-profit bus association CineEast.",
+          "it": "Accordo tra lo Stato e l'associazione di autobus senza scopo di lucro CineEast.",
+          "es": "Convenio entre el Estado y la asociación de autobuses sin ánimo de lucro CineEast.",
+          "et": "Riigi ja mittetulundusühingu CineEast vaheline leping.",
+          "cs": "Dohoda mezi státem a neziskovým sdružením autobusové dopravy CineEast.",
+          "pl": "Umowa między państwem a nienastawionym na zysk stowarzyszeniem autobusowym CineEast.",
+          "ro": "Acord între stat și asociația non-profit de autobuze CineEast.",
+          "da": "Aftale mellem staten og den almennyttige bussammenslutning CineEast.",
+          "nl": "Overeenkomst tussen de staat en de non-profit busvereniging CineEast."
         },
         "index": "dataset",
         "title": {
-          "da": "Cineast_convention",
+          "de": "Cineast_Konvention",
+          "fi": "Cineast_convention",
+          "pt": "Cineast_convention",
+          "bg": "Cineast_Convention",
+          "lt": "Cineast_convention",
+          "lv": "Cineast_convention",
+          "hr": "Cineast_konvencija",
           "fr": "CinEast_convention",
           "hu": "Cineast_convention",
-          "es": "Cineast_convention",
-          "el": "Cineast_σύμβαση",
-          "lv": "Cineast_convention",
-          "pt": "Cineast_convention",
-          "sv": "Cineast-konventionen",
-          "et": "Cineast_convention",
-          "ga": "Coinbhinsiún Cineast_",
-          "mt": "Konvenzjoni ta' Cineast",
-          "sl": "Cineast_konvencija",
-          "pl": "Cineast_konwencja",
-          "nl": "Cineast_convention",
-          "fi": "Cineast_convention",
-          "cs": "Cineast_convention",
-          "en": "Cineast_convention",
-          "de": "Cineast_Konvention",
-          "lt": "Cineast_convention",
           "uk": "Cineast_convention",
-          "ro": "Convenția Cineast",
-          "it": "Cineast_convenzione",
-          "hr": "Cineast_konvencija",
           "sk": "Cineast_convention",
-          "bg": "Cineast_Convention"
+          "sl": "Cineast_konvencija",
+          "ga": "Coinbhinsiún Cineast_",
+          "sv": "Cineast-konventionen",
+          "el": "Cineast_σύμβαση",
+          "mt": "Konvenzjoni ta' Cineast",
+          "en": "Cineast_convention",
+          "it": "Cineast_convenzione",
+          "es": "Cineast_convention",
+          "et": "Cineast_convention",
+          "cs": "Cineast_convention",
+          "pl": "Cineast_konwencja",
+          "da": "Cineast_convention",
+          "ro": "Convenția Cineast",
+          "nl": "Cineast_convention"
         },
         "accrual_periodicity": {
-          "label": "unknown",
-          "resource": "http://publications.europa.eu/resource/authority/frequency/UNKNOWN"
+          "resource": "http://publications.europa.eu/resource/authority/frequency/UNKNOWN",
+          "label": "unknown"
         },
         "distributions": [
           {
-            "id": "eb91487f-294d-4acb-bc65-25bd190acaf9",
-            "description": {
-              "fr": " Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d'un montant de 60 000 euros à partir de l’exercice 2026, dans la limite des moyens budgétairés disponibles et autorisés par la Chambre des Députés."
-            },
-            "issued": "2026-02-24T07:55:29.420Z",
             "license": {
               "id": "notspecified"
             },
-            "modified": "2026-02-24T07:56:28.934Z",
-            "title": {
-              "fr": "CinEast_convention - 4e avenant, 2026.pdf"
-            },
+            "access_url": [
+              "https://download.data.public.lu/resources/cineast-convention/20260224-075529/146-cineast-4-avenant-23022026.pdf"
+            ],
             "checksum": {
               "checksum_value": "5383794024858fa245b3c9f2b33ff3ad"
             },
-            "access_url": [
-              "https://download.data.public.lu/resources/cineast-convention/20260224-075529/146-cineast-4-avenant-23022026.pdf"
-            ]
+            "description": {
+              "fr": " Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d'un montant de 60 000 euros à partir de l’exercice 2026, dans la limite des moyens budgétairés disponibles et autorisés par la Chambre des Députés."
+            },
+            "modified": "2026-02-24T07:56:28.934Z",
+            "id": "eb91487f-294d-4acb-bc65-25bd190acaf9",
+            "issued": "2026-02-24T07:55:29.420Z",
+            "title": {
+              "fr": "CinEast_convention - 4e avenant, 2026.pdf"
+            }
           },
           {
-            "id": "a1c291fb-dfd7-45b9-8ce6-41a72394aa3b",
-            "description": {
-              "pt": "A contribuição financeira do Estado é paga numa prestação única correspondente a 100 % da contribuição financeira anual do Estado devida para o ano em curso.",
-              "de": "Die finanzielle Beteiligung des Staates wird in einer einzigen Tranche in Höhe von 100 % der jährlichen finanziellen Beteiligung des Staates für das laufende Jahr festgesetzt.",
-              "fr": "La participation financière de l'État est liquidée en une seule tranche correspondant à 100 % de la participation financière annuelle de l'État redue pour l'année en cours.",
-              "pl": "Wkład finansowy państwa jest wypłacany w jednej racie odpowiadającej 100 % rocznego wkładu finansowego państwa należnego za bieżący rok.",
-              "lt": "Valstybės finansinis įnašas mokamas kaip vienkartinė įmoka, atitinkanti 100 % einamiesiems metams mokėtino valstybės metinio finansinio įnašo.",
-              "uk": "Фінансовий внесок держави сплачується в єдиному розстрочку, що відповідає 100 % річного фінансового внеску держави за поточний рік.",
-              "en": "The State's financial contribution shall be paid in a single instalment corresponding to 100 % of the State's annual financial contribution due for the current year.",
-              "cs": "Finanční příspěvek státu se vyplácí v jediné splátce, která odpovídá 100 % ročního finančního příspěvku státu splatného pro běžný rok.",
-              "et": "Riigi rahaline toetus makstakse ühekordse maksena, mis vastab 100 %-le jooksval aastal tasumisele kuuluvast riigi iga-aastasest rahalisest toetusest.",
-              "lv": "Valsts finansiālo ieguldījumu izmaksā vienā maksājumā, kas atbilst 100 % no valsts ikgadējā finansiālā ieguldījuma, kurš jāmaksā par kārtējo gadu.",
-              "it": "Il contributo finanziario dello Stato è versato in un'unica rata corrispondente al 100 % del contributo finanziario annuale dello Stato dovuto per l'anno in corso.",
-              "el": "Η χρηματοδοτική συνεισφορά του κράτους καταβάλλεται σε μία μόνο δόση που αντιστοιχεί στο 100 % της ετήσιας χρηματοδοτικής συνεισφοράς του κράτους που οφείλεται για το τρέχον έτος.",
-              "nl": "De financiële bijdrage van de staat wordt betaald in één tranche die overeenkomt met 100 % van de jaarlijkse financiële bijdrage van de staat die voor het lopende jaar verschuldigd is.",
-              "da": "Statens finansielle bidrag udbetales i en enkelt rate svarende til 100 % af statens årlige finansielle bidrag for det indeværende år.",
-              "bg": "Финансовото участие на държавата се изплаща на една вноска, съответстваща на 100 % от годишната финансова вноска на държавата, дължима за текущата година.",
-              "sk": "Finančný príspevok štátu sa vyplatí v jednej splátke, ktorá zodpovedá 100 % ročného finančného príspevku štátu splatného za bežný rok.",
-              "es": "La contribución financiera del Estado se abonará en un único tramo correspondiente al 100 % de la contribución financiera anual del Estado adeudada para el año en curso.",
-              "ro": "Contribuția financiară a statului se plătește într-o singură tranșă, reprezentând 100 % din contribuția financiară anuală a statului datorată pentru anul în curs.",
-              "mt": "Il-kontribuzzjoni finanzjarja tal-Istat għandha titħallas f'pagament wieħed li jikkorrispondi għal 100 % tal-kontribuzzjoni finanzjarja annwali tal-Istat dovuta għas-sena attwali.",
-              "fi": "Valtion rahoitusosuus maksetaan yhtenä eränä, joka vastaa 100:aa prosenttia kyseisenä vuonna maksettavasta valtion vuotuisesta rahoitusosuudesta.",
-              "sv": "Statens ekonomiska bidrag ska betalas i en enda delbetalning som motsvarar 100 % av statens årliga ekonomiska bidrag för det innevarande året.",
-              "sl": "Finančni prispevek države se plača v enkratnem znesku, ki ustreza 100 % letnega finančnega prispevka države za tekoče leto.",
-              "hu": "Az állam pénzügyi hozzájárulását egyetlen részletben kell kifizetni, amely az állam folyó évre esedékes éves pénzügyi hozzájárulása 100 %-ának felel meg.",
-              "ga": "Íocfar ranníocaíocht airgeadais an Stáit in aon tráthchuid amháin a chomhfhreagraíonn do 100 % de ranníocaíocht bhliantúil airgeadais an Stáit atá dlite don bhliain reatha.",
-              "hr": "Financijski doprinos države isplaćuje se u jednom obroku koji odgovara 100 % godišnjeg financijskog doprinosa države za tekuću godinu."
-            },
-            "title": {
-              "bg": "CinEast_convention, 1-во допълнение 2023.pdf",
-              "pt": "CinEast_convention, 1.a adenda, 2023.pdf",
-              "pl": "CinEast_convention, 1. addendum 2023.pdf",
-              "mt": "CinEast_convention, l-ewwel addendum 2023.pdf",
-              "cs": "CinEast_convention, 1. dodatek 2023.pdf",
-              "et": "CinEast_convention, 1. lisand 2023.pdf",
-              "fr": "CinEast_convention - 1er avenant, 2023.pdf",
-              "it": "CinEast_convention, 1° addendum 2023.pdf",
-              "lt": "CinEast_convention, 2023 m. pirmasis papildymas.pdf",
-              "sv": "CinEast_convention, första tillägget 2023.pdf",
-              "el": "CinEast_convention, 1η προσθήκη 2023.pdf",
-              "da": "CinEast_convention, 1. tillæg 2023.pdf",
-              "lv": "CinEast_convention, 2023. gada 1. papildinājums.pdf",
-              "de": "CinEast_convention, 1. Zusatzvereinbarung 2023.pdf",
-              "es": "CinEast_convention, 1.a adenda 2023.pdf",
-              "sl": "CinEast_convention, 1. dodatek 2023.pdf",
-              "uk": "CinEast_convention, 1 додаток 2023.pdf",
-              "ro": "CinEast_convention, primul addendum 2023.pdf",
-              "sk": "CinEast_convention, 1. dodatok 2023.pdf",
-              "hu": "CinEast_convention, 1. kiegészítés 2023.pdf",
-              "hr": "CinEast_convention, 1. dopuna 2023.pdf",
-              "fi": "CinEast_convention, 1. lisäys 2023.pdf",
-              "ga": "CinEast_convention, an chéad aguisín 2023.pdf",
-              "nl": "CinEast_convention, 1e addendum 2023.pdf",
-              "en": "CinEast_convention, 1st addendum 2023.pdf"
+            "license": {
+              "id": "notspecified"
             },
             "access_url": [
               "https://download.data.public.lu/resources/cineast-convention/20240625-082714/cineast-convention-1er-avenant-2023.pdf"
             ],
-            "license": {
-              "id": "notspecified"
-            },
             "checksum": {
               "checksum_value": "7953e1268314bd43a53619348912c6d0dd8522bc"
             },
+            "description": {
+              "de": "Die finanzielle Beteiligung des Staates wird in einer einzigen Tranche in Höhe von 100 % der jährlichen finanziellen Beteiligung des Staates für das laufende Jahr festgesetzt.",
+              "fi": "Valtion rahoitusosuus maksetaan yhtenä eränä, joka vastaa 100:aa prosenttia kyseisenä vuonna maksettavasta valtion vuotuisesta rahoitusosuudesta.",
+              "pt": "A contribuição financeira do Estado é paga numa prestação única correspondente a 100 % da contribuição financeira anual do Estado devida para o ano em curso.",
+              "bg": "Финансовото участие на държавата се изплаща на една вноска, съответстваща на 100 % от годишната финансова вноска на държавата, дължима за текущата година.",
+              "lt": "Valstybės finansinis įnašas mokamas kaip vienkartinė įmoka, atitinkanti 100 % einamiesiems metams mokėtino valstybės metinio finansinio įnašo.",
+              "lv": "Valsts finansiālo ieguldījumu izmaksā vienā maksājumā, kas atbilst 100 % no valsts ikgadējā finansiālā ieguldījuma, kurš jāmaksā par kārtējo gadu.",
+              "hr": "Financijski doprinos države isplaćuje se u jednom obroku koji odgovara 100 % godišnjeg financijskog doprinosa države za tekuću godinu.",
+              "fr": "La participation financière de l'État est liquidée en une seule tranche correspondant à 100 % de la participation financière annuelle de l'État redue pour l'année en cours.",
+              "hu": "Az állam pénzügyi hozzájárulását egyetlen részletben kell kifizetni, amely az állam folyó évre esedékes éves pénzügyi hozzájárulása 100 %-ának felel meg.",
+              "uk": "Фінансовий внесок держави сплачується в єдиному розстрочку, що відповідає 100 % річного фінансового внеску держави за поточний рік.",
+              "sk": "Finančný príspevok štátu sa vyplatí v jednej splátke, ktorá zodpovedá 100 % ročného finančného príspevku štátu splatného za bežný rok.",
+              "sl": "Finančni prispevek države se plača v enkratnem znesku, ki ustreza 100 % letnega finančnega prispevka države za tekoče leto.",
+              "ga": "Íocfar ranníocaíocht airgeadais an Stáit in aon tráthchuid amháin a chomhfhreagraíonn do 100 % de ranníocaíocht bhliantúil airgeadais an Stáit atá dlite don bhliain reatha.",
+              "sv": "Statens ekonomiska bidrag ska betalas i en enda delbetalning som motsvarar 100 % av statens årliga ekonomiska bidrag för det innevarande året.",
+              "el": "Η χρηματοδοτική συνεισφορά του κράτους καταβάλλεται σε μία μόνο δόση που αντιστοιχεί στο 100 % της ετήσιας χρηματοδοτικής συνεισφοράς του κράτους που οφείλεται για το τρέχον έτος.",
+              "mt": "Il-kontribuzzjoni finanzjarja tal-Istat għandha titħallas f'pagament wieħed li jikkorrispondi għal 100 % tal-kontribuzzjoni finanzjarja annwali tal-Istat dovuta għas-sena attwali.",
+              "en": "The State's financial contribution shall be paid in a single instalment corresponding to 100 % of the State's annual financial contribution due for the current year.",
+              "it": "Il contributo finanziario dello Stato è versato in un'unica rata corrispondente al 100 % del contributo finanziario annuale dello Stato dovuto per l'anno in corso.",
+              "es": "La contribución financiera del Estado se abonará en un único tramo correspondiente al 100 % de la contribución financiera anual del Estado adeudada para el año en curso.",
+              "et": "Riigi rahaline toetus makstakse ühekordse maksena, mis vastab 100 %-le jooksval aastal tasumisele kuuluvast riigi iga-aastasest rahalisest toetusest.",
+              "cs": "Finanční příspěvek státu se vyplácí v jediné splátce, která odpovídá 100 % ročního finančního příspěvku státu splatného pro běžný rok.",
+              "pl": "Wkład finansowy państwa jest wypłacany w jednej racie odpowiadającej 100 % rocznego wkładu finansowego państwa należnego za bieżący rok.",
+              "da": "Statens finansielle bidrag udbetales i en enkelt rate svarende til 100 % af statens årlige finansielle bidrag for det indeværende år.",
+              "ro": "Contribuția financiară a statului se plătește într-o singură tranșă, reprezentând 100 % din contribuția financiară anuală a statului datorată pentru anul în curs.",
+              "nl": "De financiële bijdrage van de staat wordt betaald in één tranche die overeenkomt met 100 % van de jaarlijkse financiële bijdrage van de staat die voor het lopende jaar verschuldigd is."
+            },
             "modified": "2025-02-13T10:48:45.801Z",
+            "id": "a1c291fb-dfd7-45b9-8ce6-41a72394aa3b",
+            "title": {
+              "de": "CinEast_convention, 1. Zusatzvereinbarung 2023.pdf",
+              "fi": "CinEast_convention, 1. lisäys 2023.pdf",
+              "pt": "CinEast_convention, 1.a adenda, 2023.pdf",
+              "bg": "CinEast_convention, 1-во допълнение 2023.pdf",
+              "lt": "CinEast_convention, 2023 m. pirmasis papildymas.pdf",
+              "lv": "CinEast_convention, 2023. gada 1. papildinājums.pdf",
+              "hr": "CinEast_convention, 1. dopuna 2023.pdf",
+              "fr": "CinEast_convention - 1er avenant, 2023.pdf",
+              "hu": "CinEast_convention, 1. kiegészítés 2023.pdf",
+              "uk": "CinEast_convention, 1 додаток 2023.pdf",
+              "sk": "CinEast_convention, 1. dodatok 2023.pdf",
+              "sl": "CinEast_convention, 1. dodatek 2023.pdf",
+              "ga": "CinEast_convention, an chéad aguisín 2023.pdf",
+              "sv": "CinEast_convention, första tillägget 2023.pdf",
+              "mt": "CinEast_convention, l-ewwel addendum 2023.pdf",
+              "el": "CinEast_convention, 1η προσθήκη 2023.pdf",
+              "en": "CinEast_convention, 1st addendum 2023.pdf",
+              "it": "CinEast_convention, 1° addendum 2023.pdf",
+              "es": "CinEast_convention, 1.a adenda 2023.pdf",
+              "et": "CinEast_convention, 1. lisand 2023.pdf",
+              "cs": "CinEast_convention, 1. dodatek 2023.pdf",
+              "pl": "CinEast_convention, 1. addendum 2023.pdf",
+              "da": "CinEast_convention, 1. tillæg 2023.pdf",
+              "ro": "CinEast_convention, primul addendum 2023.pdf",
+              "nl": "CinEast_convention, 1e addendum 2023.pdf"
+            },
             "issued": "2024-06-25T08:27:14.663Z"
           },
           {
-            "id": "0d9d1025-d59b-44a9-91b9-d06e9134c15d",
-            "description": {
-              "fr": "« Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d’un montant de 53 000 euros à partir de l’exercice 2025, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés. »"
-            },
-            "issued": "2025-02-13T10:49:20.353Z",
             "license": {
               "id": "notspecified"
-            },
-            "modified": "2025-02-13T10:50:10.361Z",
-            "title": {
-              "fr": "CinEast_convention - 3e avenant, 2025.pdf"
-            },
-            "checksum": {
-              "checksum_value": "25e6af83906d2bfa1d6599ea378ac08e2294518f"
             },
             "access_url": [
               "https://download.data.public.lu/resources/cineast-convention/20250213-104919/146-cineast-3-avenant-12022025.pdf"
-            ]
-          },
-          {
-            "id": "3cd8d86f-985e-4060-8950-7c774b3fea5b",
-            "title": {
-              "ro": "CinEast_convention, al doilea addendum 2024.pdf",
-              "uk": "CinEast_convention, 2 додаток 2024.pdf",
-              "lv": "CinEast_convention, 2. papildinājums 2024.pdf",
-              "lt": "CinEast_convention, 2024 m. 2-asis papildymas.pdf",
-              "de": "CinEast_convention, 2. Zusatz 2024.pdf",
-              "fi": "CinEast_convention, 2. lisäys 2024.pdf",
-              "et": "CinEast_convention, 2024. aasta teine lisa.pdf",
-              "en": "CinEast_convention, 2nd addendum 2024.pdf",
-              "bg": "CinEast_convention, 2-ро допълнение 2024.pdf",
-              "sk": "CinEast_convention, 2. dodatok 2024.pdf",
-              "mt": "CinEast_convention, it-tieni addendum 2024.pdf",
-              "el": "CinEast_convention, 2η προσθήκη 2024.pdf",
-              "nl": "CinEast_convention, 2e addendum 2024.pdf",
-              "cs": "CinEast_convention, 2. dodatek 2024.pdf",
-              "hr": "CinEast_convention, 2. dopuna 2024.pdf",
-              "ga": "Coinbhinsiún CinEast_, an dara haguisín 2024.pdf",
-              "es": "CinEast_convention, 2.a adenda 2024.pdf",
-              "pt": "CinEast_convention, 2.a adenda 2024.pdf",
-              "fr": "CinEast_convention - 2e avenant, 2024.pdf",
-              "hu": "CinEast_convention, 2. kiegészítés 2024.pdf",
-              "pl": "CinEast_convention, 2. addendum 2024.pdf",
-              "it": "CinEast_convention, 2° addendum 2024.pdf",
-              "sl": "CinEast_convention, 2. dodatek 2024.pdf",
-              "sv": "CinEast_convention, andra tillägget 2024.pdf",
-              "da": "CinEast_convention, 2. tillæg 2024.pdf"
+            ],
+            "checksum": {
+              "checksum_value": "25e6af83906d2bfa1d6599ea378ac08e2294518f"
             },
             "description": {
-              "uk": "На підставі остаточного кошторисного бюджету, складеного об'єднанням відповідно до статті 6, держава зобов'язується надавати об'єднанню щорічний фінансовий внесок у розмірі 50000 євро з 2024 фінансового року, в межах наявних і дозволених Палатою депутатів бюджетних коштів.",
-              "hu": "A társulás által a 6. cikkel összhangban elkészített végleges becsült költségvetés alapján az állam vállalja, hogy a 2024-es pénzügyi évtől kezdődően a rendelkezésre álló és a Képviselőház által engedélyezett költségvetési eszközök keretein belül 50 000 EUR összegű éves pénzügyi hozzájárulást nyújt a társulásnak.",
-              "sv": "På grundval av den slutliga preliminära budget som utarbetats av sammanslutningen i enlighet med artikel 6 åtar sig staten att bevilja sammanslutningen ett årligt ekonomiskt bidrag på 50 000 euro från och med budgetåret 2024, inom ramen för de tillgängliga budgetmedel som godkänts av deputeradekammaren.",
-              "ga": "Ar bhonn an bhuiséid mheasta deiridh arna tharraingt suas ag an gcomhlachas i gcomhréir le hAirteagal 6, geallann an Stát ranníocaíocht airgeadais bhliantúil EUR 50 000 a dheonú don chomhlachas ón mbliain airgeadais 2024, laistigh de theorainneacha na n-acmhainní buiséadacha atá ar fáil agus atá údaraithe ag Teach na dTeachtaí.",
-              "mt": "Abbażi tal-baġit stmat finali mfassal mill-assoċjazzjoni f’konformità mal-Artikolu 6, l-Istat jimpenja ruħu li jagħti lill-assoċjazzjoni kontribuzzjoni finanzjarja annwali ta’ EUR 50 000 mis-sena finanzjarja 2024, fil-limiti tal-mezzi baġitarji disponibbli u awtorizzati mill-Kamra tad-Deputati.",
-              "ro": "Pe baza bugetului final estimat întocmit de asociație în conformitate cu articolul 6, statul se angajează să acorde asociației o contribuție financiară anuală de 50 000 EUR începând cu exercițiul financiar 2024, în limitele mijloacelor bugetare disponibile și autorizate de Camera Deputaților.",
-              "lt": "Remdamasi asociacijos pagal 6 straipsnį parengta galutine biudžeto sąmata, valstybė įsipareigoja nuo 2024 finansinių metų skirti asociacijai 50 000 EUR metinį finansinį įnašą, neviršydama turimų ir Deputatų Rūmų patvirtintų biudžeto lėšų.",
-              "de": "Auf der Grundlage des von der Vereinigung gemäß Artikel 6 erstellten endgültigen Finanzplans verpflichtet sich der Staat, der Vereinigung ab dem Haushaltsjahr 2024 im Rahmen der verfügbaren und von der Abgeordnetenkammer genehmigten Haushaltsmittel eine jährliche finanzielle Beteiligung in Höhe von 50 000 EUR zu gewähren.",
-              "nl": "Op basis van de door de vereniging overeenkomstig artikel 6 opgestelde definitieve geraamde begroting verbindt de staat zich ertoe de vereniging vanaf het begrotingsjaar 2024 een jaarlijkse financiële bijdrage van 50 000 EUR toe te kennen, binnen de grenzen van de beschikbare en door de Kamer van Afgevaardigden toegestane begrotingsmiddelen.",
-              "bg": "Въз основа на окончателния прогнозен бюджет, изготвен от сдружението в съответствие с член 6, държавата се задължава да предостави на сдружението годишна финансова вноска в размер на 50 000 EUR от финансовата 2024 година в рамките на наличните бюджетни средства и разрешени от Камарата на депутатите.",
-              "el": "Με βάση τον τελικό εκτιμώμενο προϋπολογισμό που καταρτίζει η ένωση σύμφωνα με το άρθρο 6, το κράτος αναλαμβάνει να χορηγήσει στην ένωση ετήσια χρηματοδοτική συνεισφορά ύψους 50 000 EUR από το οικονομικό έτος 2024, εντός των ορίων των διαθέσιμων δημοσιονομικών μέσων και των εγκεκριμένων από τη Βουλή των Αντιπροσώπων.",
-              "da": "På grundlag af det endelige budgetoverslag udarbejdet af sammenslutningen i overensstemmelse med artikel 6 forpligter staten sig til at yde sammenslutningen et årligt finansielt bidrag på 50 000 EUR fra regnskabsåret 2024 inden for rammerne af de budgetmidler, der er til rådighed og godkendt af deputeretkammeret.",
-              "hr": "Na temelju konačnog procijenjenog proračuna koji je udruženje izradilo u skladu s člankom 6. država se obvezuje da će udruženju dodijeliti godišnji financijski doprinos u iznosu od 50 000 EUR od financijske godine 2024., u granicama raspoloživih proračunskih sredstava koje je odobrio Zastupnički dom.",
-              "it": "Sulla base del bilancio preventivo definitivo stabilito dall'associazione ai sensi dell'articolo 6, lo Stato si impegna a concedere all'associazione un contributo finanziario annuo di 50 000 EUR a partire dall'esercizio 2024, nei limiti delle risorse di bilancio disponibili e autorizzate dalla Camera dei deputati.",
-              "es": "Sobre la base del presupuesto estimativo definitivo elaborado por la asociación de conformidad con el artículo 6, el Estado se compromete a conceder a la asociación una contribución financiera anual de 50 000 EUR a partir del ejercicio 2024, dentro de los límites de los medios presupuestarios disponibles y autorizados por la Cámara de Diputados.",
-              "sk": "Na základe konečného odhadovaného rozpočtu vypracovaného združením v súlade s článkom 6 sa štát zaväzuje poskytnúť združeniu ročný finančný príspevok vo výške 50 000 EUR od rozpočtového roku 2024 v rámci dostupných rozpočtových prostriedkov schválených Poslaneckou snemovňou.",
-              "pl": "Na podstawie ostatecznego szacunkowego budżetu sporządzonego przez stowarzyszenie zgodnie z art. 6 państwo zobowiązuje się przyznać stowarzyszeniu roczny wkład finansowy w wysokości 50 000 EUR począwszy od roku budżetowego 2024, w granicach dostępnych środków budżetowych zatwierdzonych przez Izbę Deputowanych.",
-              "et": "Riik kohustub ühingu poolt artikli 6 kohaselt koostatud lõpliku hinnangulise eelarve alusel andma ühingule alates 2024. eelarveaastast igal aastal rahalist toetust summas 50 000 eurot, mis jääb saadikutekoja poolt heaks kiidetud olemasolevate eelarvevahendite piiresse.",
-              "sl": "Država se zavezuje, da bo na podlagi končnega predvidenega proračuna, ki ga pripravi združenje v skladu s členom 6, združenju odobrila letni finančni prispevek v višini 50 000 EUR od proračunskega leta 2024 v mejah razpoložljivih proračunskih sredstev, ki jih odobri poslanska zbornica.",
-              "en": "On the basis of the final estimated budget drawn up by the association in accordance with Article 6, the State undertakes to grant the association an annual financial contribution of EUR 50 000 from the 2024 financial year, within the limits of the budgetary means available and authorised by the Chamber of Deputies.",
-              "cs": "Na základě konečného předběžného rozpočtu vypracovaného sdružením podle článku 6 se stát zavazuje poskytnout sdružení od rozpočtového roku 2024 roční finanční příspěvek ve výši 50 000 EUR v mezích rozpočtových prostředků, které jsou k dispozici a které schválila Poslanecká sněmovna.",
-              "fi": "Yhdistyksen 6 artiklan mukaisesti laatiman lopullisen alustavan talousarvion perusteella valtio sitoutuu myöntämään yhdistykselle 50 000 euron vuotuisen rahoitusosuuden varainhoitovuodesta 2024 alkaen käytettävissä olevien ja edustajainhuoneen hyväksymien talousarviovarojen rajoissa.",
-              "lv": "Pamatojoties uz galīgo budžeta tāmi, ko apvienība sagatavojusi saskaņā ar 6. pantu, valsts apņemas piešķirt apvienībai ikgadēju finansiālu ieguldījumu 50 000 EUR apmērā no 2024. finanšu gada, nepārsniedzot pieejamos un Deputātu palātas apstiprinātos budžeta līdzekļus.",
-              "pt": "Com base no orçamento previsional final elaborado pela associação em conformidade com o artigo 6.o, o Estado compromete-se a conceder à associação uma contribuição financeira anual de 50 000 EUR a partir do exercício de 2024, dentro dos limites dos meios orçamentais disponíveis e autorizados pela Câmara dos Deputados.",
-              "fr": "Sur base du budget prévisionnel définitif, élaboré par l’association conformément à l’article 6, l'État s'engage à accorder à l’association une participation financière annuelle d’un montant de 50 000 euros à partir de l’exercice 2024, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés."
+              "fr": "« Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d’un montant de 53 000 euros à partir de l’exercice 2025, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés. »"
             },
-            "issued": "2024-06-25T08:28:15.873Z",
-            "access_url": [
-              "https://download.data.public.lu/resources/cineast-convention/20240625-082815/cineast-convention-2e-avenant-2024.pdf"
-            ],
-            "modified": "2025-02-13T10:49:08.163Z",
-            "checksum": {
-              "checksum_value": "44afaa4a2dd1709a9a508b70d242b1bd76d1c1e2"
-            },
-            "license": {
-              "id": "notspecified"
+            "modified": "2025-02-13T10:50:10.361Z",
+            "id": "0d9d1025-d59b-44a9-91b9-d06e9134c15d",
+            "issued": "2025-02-13T10:49:20.353Z",
+            "title": {
+              "fr": "CinEast_convention - 3e avenant, 2025.pdf"
             }
           },
           {
-            "id": "107c9383-17ee-4216-911c-680c9cd78916",
-            "title": {
-              "ga": "Coinbhinsiún CinEast, 2023.pdf",
-              "en": "CinEast_convention, 2023.pdf",
-              "pl": "CinEast_convention, 2023.pdf",
-              "fi": "CinEast_convention, 2023.pdf",
-              "sk": "CinEast_convention, 2023.pdf",
-              "de": "CinEast_convention, 2023.pdf",
-              "el": "CinEast_convention, 2023.pdf",
-              "pt": "CinEast_convention, 2023.pdf",
-              "lt": "CinEast_convention, 2023 m.pdf",
-              "it": "CinEast_convention, 2023.pdf",
-              "et": "CinEast_convention, 2023.pdf",
-              "ro": "CinEast_convention, 2023.pdf",
-              "sl": "CinEast_convention, 2023.pdf",
-              "cs": "CinEast_convention, 2023.pdf",
-              "sv": "CinEast_convention, 2023.pdf",
-              "lv": "CinEast_convention, 2023.pdf",
-              "uk": "CinEast_convention, 2023.pdf",
-              "nl": "CinEast_convention, 2023.pdf",
-              "hu": "CinEast_convention, 2023.pdf",
-              "fr": "CinEast_convention, 2023.pdf",
-              "mt": "CinEast_convention, 2023.pdf",
-              "hr": "CinEast_convention, 2023.pdf",
-              "da": "CinEast_convention, 2023.pdf",
-              "es": "CinEast_convention, 2023.pdf",
-              "bg": "CinEast_convention, 2023.pdf"
+            "license": {
+              "id": "notspecified"
+            },
+            "access_url": [
+              "https://download.data.public.lu/resources/cineast-convention/20240625-082815/cineast-convention-2e-avenant-2024.pdf"
+            ],
+            "checksum": {
+              "checksum_value": "44afaa4a2dd1709a9a508b70d242b1bd76d1c1e2"
             },
             "description": {
-              "mt": "Ftehim bejn l-Istat u ċ-CinEast",
-              "et": "Riigi ja CinEast'i vaheline leping",
-              "uk": "Угода між державою та CinEast",
-              "lv": "Nolīgums starp valsti un CinEast",
-              "cs": "Dohoda mezi státem a CinEast",
-              "ga": "Comhaontú idir an Stát agus an tSín",
-              "nl": "Overeenkomst tussen de staat en CinEast",
-              "pl": "Umowa między państwem a regionem CinEast",
-              "fi": "Valtion ja CinEastin välinen sopimus",
-              "hr": "Sporazum između države i CinEasta",
-              "da": "Aftale mellem staten og CinEast",
-              "fr": "Convention entre l'Etat et CinEast",
-              "es": "Acuerdo entre el Estado y CinEast",
-              "el": "Συμφωνία μεταξύ του κράτους και της CinEast",
-              "it": "Accordo tra lo Stato e CinEast",
-              "pt": "Acordo entre o Estado e a CinEast",
-              "sv": "Avtal mellan staten och CinEast",
-              "hu": "Megállapodás az állam és a CinEast között",
-              "bg": "Споразумение между държавата и CinEast",
-              "lt": "Valstybės ir „CinEast“ susitarimas",
-              "ro": "Acord între stat și CinEast",
-              "sl": "Sporazum med državo in družbo CinEast",
-              "de": "Vereinbarung zwischen dem Staat und CinEast",
-              "sk": "Dohoda medzi štátom a CinEast",
-              "en": "Agreement between the State and CinEast"
+              "de": "Auf der Grundlage des von der Vereinigung gemäß Artikel 6 erstellten endgültigen Finanzplans verpflichtet sich der Staat, der Vereinigung ab dem Haushaltsjahr 2024 im Rahmen der verfügbaren und von der Abgeordnetenkammer genehmigten Haushaltsmittel eine jährliche finanzielle Beteiligung in Höhe von 50 000 EUR zu gewähren.",
+              "fi": "Yhdistyksen 6 artiklan mukaisesti laatiman lopullisen alustavan talousarvion perusteella valtio sitoutuu myöntämään yhdistykselle 50 000 euron vuotuisen rahoitusosuuden varainhoitovuodesta 2024 alkaen käytettävissä olevien ja edustajainhuoneen hyväksymien talousarviovarojen rajoissa.",
+              "pt": "Com base no orçamento previsional final elaborado pela associação em conformidade com o artigo 6.o, o Estado compromete-se a conceder à associação uma contribuição financeira anual de 50 000 EUR a partir do exercício de 2024, dentro dos limites dos meios orçamentais disponíveis e autorizados pela Câmara dos Deputados.",
+              "bg": "Въз основа на окончателния прогнозен бюджет, изготвен от сдружението в съответствие с член 6, държавата се задължава да предостави на сдружението годишна финансова вноска в размер на 50 000 EUR от финансовата 2024 година в рамките на наличните бюджетни средства и разрешени от Камарата на депутатите.",
+              "lt": "Remdamasi asociacijos pagal 6 straipsnį parengta galutine biudžeto sąmata, valstybė įsipareigoja nuo 2024 finansinių metų skirti asociacijai 50 000 EUR metinį finansinį įnašą, neviršydama turimų ir Deputatų Rūmų patvirtintų biudžeto lėšų.",
+              "hr": "Na temelju konačnog procijenjenog proračuna koji je udruženje izradilo u skladu s člankom 6. država se obvezuje da će udruženju dodijeliti godišnji financijski doprinos u iznosu od 50 000 EUR od financijske godine 2024., u granicama raspoloživih proračunskih sredstava koje je odobrio Zastupnički dom.",
+              "lv": "Pamatojoties uz galīgo budžeta tāmi, ko apvienība sagatavojusi saskaņā ar 6. pantu, valsts apņemas piešķirt apvienībai ikgadēju finansiālu ieguldījumu 50 000 EUR apmērā no 2024. finanšu gada, nepārsniedzot pieejamos un Deputātu palātas apstiprinātos budžeta līdzekļus.",
+              "fr": "Sur base du budget prévisionnel définitif, élaboré par l’association conformément à l’article 6, l'État s'engage à accorder à l’association une participation financière annuelle d’un montant de 50 000 euros à partir de l’exercice 2024, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés.",
+              "hu": "A társulás által a 6. cikkel összhangban elkészített végleges becsült költségvetés alapján az állam vállalja, hogy a 2024-es pénzügyi évtől kezdődően a rendelkezésre álló és a Képviselőház által engedélyezett költségvetési eszközök keretein belül 50 000 EUR összegű éves pénzügyi hozzájárulást nyújt a társulásnak.",
+              "uk": "На підставі остаточного кошторисного бюджету, складеного об'єднанням відповідно до статті 6, держава зобов'язується надавати об'єднанню щорічний фінансовий внесок у розмірі 50000 євро з 2024 фінансового року, в межах наявних і дозволених Палатою депутатів бюджетних коштів.",
+              "sk": "Na základe konečného odhadovaného rozpočtu vypracovaného združením v súlade s článkom 6 sa štát zaväzuje poskytnúť združeniu ročný finančný príspevok vo výške 50 000 EUR od rozpočtového roku 2024 v rámci dostupných rozpočtových prostriedkov schválených Poslaneckou snemovňou.",
+              "sl": "Država se zavezuje, da bo na podlagi končnega predvidenega proračuna, ki ga pripravi združenje v skladu s členom 6, združenju odobrila letni finančni prispevek v višini 50 000 EUR od proračunskega leta 2024 v mejah razpoložljivih proračunskih sredstev, ki jih odobri poslanska zbornica.",
+              "ga": "Ar bhonn an bhuiséid mheasta deiridh arna tharraingt suas ag an gcomhlachas i gcomhréir le hAirteagal 6, geallann an Stát ranníocaíocht airgeadais bhliantúil EUR 50 000 a dheonú don chomhlachas ón mbliain airgeadais 2024, laistigh de theorainneacha na n-acmhainní buiséadacha atá ar fáil agus atá údaraithe ag Teach na dTeachtaí.",
+              "sv": "På grundval av den slutliga preliminära budget som utarbetats av sammanslutningen i enlighet med artikel 6 åtar sig staten att bevilja sammanslutningen ett årligt ekonomiskt bidrag på 50 000 euro från och med budgetåret 2024, inom ramen för de tillgängliga budgetmedel som godkänts av deputeradekammaren.",
+              "mt": "Abbażi tal-baġit stmat finali mfassal mill-assoċjazzjoni f’konformità mal-Artikolu 6, l-Istat jimpenja ruħu li jagħti lill-assoċjazzjoni kontribuzzjoni finanzjarja annwali ta’ EUR 50 000 mis-sena finanzjarja 2024, fil-limiti tal-mezzi baġitarji disponibbli u awtorizzati mill-Kamra tad-Deputati.",
+              "el": "Με βάση τον τελικό εκτιμώμενο προϋπολογισμό που καταρτίζει η ένωση σύμφωνα με το άρθρο 6, το κράτος αναλαμβάνει να χορηγήσει στην ένωση ετήσια χρηματοδοτική συνεισφορά ύψους 50 000 EUR από το οικονομικό έτος 2024, εντός των ορίων των διαθέσιμων δημοσιονομικών μέσων και των εγκεκριμένων από τη Βουλή των Αντιπροσώπων.",
+              "en": "On the basis of the final estimated budget drawn up by the association in accordance with Article 6, the State undertakes to grant the association an annual financial contribution of EUR 50 000 from the 2024 financial year, within the limits of the budgetary means available and authorised by the Chamber of Deputies.",
+              "it": "Sulla base del bilancio preventivo definitivo stabilito dall'associazione ai sensi dell'articolo 6, lo Stato si impegna a concedere all'associazione un contributo finanziario annuo di 50 000 EUR a partire dall'esercizio 2024, nei limiti delle risorse di bilancio disponibili e autorizzate dalla Camera dei deputati.",
+              "es": "Sobre la base del presupuesto estimativo definitivo elaborado por la asociación de conformidad con el artículo 6, el Estado se compromete a conceder a la asociación una contribución financiera anual de 50 000 EUR a partir del ejercicio 2024, dentro de los límites de los medios presupuestarios disponibles y autorizados por la Cámara de Diputados.",
+              "et": "Riik kohustub ühingu poolt artikli 6 kohaselt koostatud lõpliku hinnangulise eelarve alusel andma ühingule alates 2024. eelarveaastast igal aastal rahalist toetust summas 50 000 eurot, mis jääb saadikutekoja poolt heaks kiidetud olemasolevate eelarvevahendite piiresse.",
+              "cs": "Na základě konečného předběžného rozpočtu vypracovaného sdružením podle článku 6 se stát zavazuje poskytnout sdružení od rozpočtového roku 2024 roční finanční příspěvek ve výši 50 000 EUR v mezích rozpočtových prostředků, které jsou k dispozici a které schválila Poslanecká sněmovna.",
+              "pl": "Na podstawie ostatecznego szacunkowego budżetu sporządzonego przez stowarzyszenie zgodnie z art. 6 państwo zobowiązuje się przyznać stowarzyszeniu roczny wkład finansowy w wysokości 50 000 EUR począwszy od roku budżetowego 2024, w granicach dostępnych środków budżetowych zatwierdzonych przez Izbę Deputowanych.",
+              "ro": "Pe baza bugetului final estimat întocmit de asociație în conformitate cu articolul 6, statul se angajează să acorde asociației o contribuție financiară anuală de 50 000 EUR începând cu exercițiul financiar 2024, în limitele mijloacelor bugetare disponibile și autorizate de Camera Deputaților.",
+              "da": "På grundlag af det endelige budgetoverslag udarbejdet af sammenslutningen i overensstemmelse med artikel 6 forpligter staten sig til at yde sammenslutningen et årligt finansielt bidrag på 50 000 EUR fra regnskabsåret 2024 inden for rammerne af de budgetmidler, der er til rådighed og godkendt af deputeretkammeret.",
+              "nl": "Op basis van de door de vereniging overeenkomstig artikel 6 opgestelde definitieve geraamde begroting verbindt de staat zich ertoe de vereniging vanaf het begrotingsjaar 2024 een jaarlijkse financiële bijdrage van 50 000 EUR toe te kennen, binnen de grenzen van de beschikbare en door de Kamer van Afgevaardigden toegestane begrotingsmiddelen."
+            },
+            "modified": "2025-02-13T10:49:08.163Z",
+            "id": "3cd8d86f-985e-4060-8950-7c774b3fea5b",
+            "title": {
+              "de": "CinEast_convention, 2. Zusatz 2024.pdf",
+              "fi": "CinEast_convention, 2. lisäys 2024.pdf",
+              "pt": "CinEast_convention, 2.a adenda 2024.pdf",
+              "bg": "CinEast_convention, 2-ро допълнение 2024.pdf",
+              "lt": "CinEast_convention, 2024 m. 2-asis papildymas.pdf",
+              "lv": "CinEast_convention, 2. papildinājums 2024.pdf",
+              "hr": "CinEast_convention, 2. dopuna 2024.pdf",
+              "fr": "CinEast_convention - 2e avenant, 2024.pdf",
+              "hu": "CinEast_convention, 2. kiegészítés 2024.pdf",
+              "uk": "CinEast_convention, 2 додаток 2024.pdf",
+              "sk": "CinEast_convention, 2. dodatok 2024.pdf",
+              "sl": "CinEast_convention, 2. dodatek 2024.pdf",
+              "ga": "Coinbhinsiún CinEast_, an dara haguisín 2024.pdf",
+              "sv": "CinEast_convention, andra tillägget 2024.pdf",
+              "mt": "CinEast_convention, it-tieni addendum 2024.pdf",
+              "el": "CinEast_convention, 2η προσθήκη 2024.pdf",
+              "en": "CinEast_convention, 2nd addendum 2024.pdf",
+              "it": "CinEast_convention, 2° addendum 2024.pdf",
+              "es": "CinEast_convention, 2.a adenda 2024.pdf",
+              "et": "CinEast_convention, 2024. aasta teine lisa.pdf",
+              "cs": "CinEast_convention, 2. dodatek 2024.pdf",
+              "pl": "CinEast_convention, 2. addendum 2024.pdf",
+              "ro": "CinEast_convention, al doilea addendum 2024.pdf",
+              "da": "CinEast_convention, 2. tillæg 2024.pdf",
+              "nl": "CinEast_convention, 2e addendum 2024.pdf"
+            },
+            "issued": "2024-06-25T08:28:15.873Z"
+          },
+          {
+            "license": {
+              "id": "notspecified"
             },
             "access_url": [
               "https://download.data.public.lu/resources/cineast-convention/20240625-082540/cineast-convention-2023.pdf"
             ],
-            "license": {
-              "id": "notspecified"
-            },
-            "modified": "2024-06-25T08:26:13.439Z",
-            "issued": "2024-06-25T08:25:41.669Z",
             "checksum": {
               "checksum_value": "f33eac0e1dfb6f79033469de21c779d2fd19409a"
-            }
+            },
+            "description": {
+              "de": "Vereinbarung zwischen dem Staat und CinEast",
+              "fi": "Valtion ja CinEastin välinen sopimus",
+              "pt": "Acordo entre o Estado e a CinEast",
+              "bg": "Споразумение между държавата и CinEast",
+              "lt": "Valstybės ir „CinEast“ susitarimas",
+              "lv": "Nolīgums starp valsti un CinEast",
+              "hr": "Sporazum između države i CinEasta",
+              "fr": "Convention entre l'Etat et CinEast",
+              "hu": "Megállapodás az állam és a CinEast között",
+              "uk": "Угода між державою та CinEast",
+              "sk": "Dohoda medzi štátom a CinEast",
+              "sl": "Sporazum med državo in družbo CinEast",
+              "ga": "Comhaontú idir an Stát agus an tSín",
+              "sv": "Avtal mellan staten och CinEast",
+              "mt": "Ftehim bejn l-Istat u ċ-CinEast",
+              "el": "Συμφωνία μεταξύ του κράτους και της CinEast",
+              "en": "Agreement between the State and CinEast",
+              "it": "Accordo tra lo Stato e CinEast",
+              "es": "Acuerdo entre el Estado y CinEast",
+              "et": "Riigi ja CinEast'i vaheline leping",
+              "cs": "Dohoda mezi státem a CinEast",
+              "pl": "Umowa między państwem a regionem CinEast",
+              "da": "Aftale mellem staten og CinEast",
+              "ro": "Acord între stat și CinEast",
+              "nl": "Overeenkomst tussen de staat en CinEast"
+            },
+            "modified": "2024-06-25T08:26:13.439Z",
+            "id": "107c9383-17ee-4216-911c-680c9cd78916",
+            "title": {
+              "de": "CinEast_convention, 2023.pdf",
+              "fi": "CinEast_convention, 2023.pdf",
+              "pt": "CinEast_convention, 2023.pdf",
+              "bg": "CinEast_convention, 2023.pdf",
+              "lt": "CinEast_convention, 2023 m.pdf",
+              "lv": "CinEast_convention, 2023.pdf",
+              "hr": "CinEast_convention, 2023.pdf",
+              "fr": "CinEast_convention, 2023.pdf",
+              "hu": "CinEast_convention, 2023.pdf",
+              "uk": "CinEast_convention, 2023.pdf",
+              "sk": "CinEast_convention, 2023.pdf",
+              "sl": "CinEast_convention, 2023.pdf",
+              "ga": "Coinbhinsiún CinEast, 2023.pdf",
+              "sv": "CinEast_convention, 2023.pdf",
+              "el": "CinEast_convention, 2023.pdf",
+              "mt": "CinEast_convention, 2023.pdf",
+              "en": "CinEast_convention, 2023.pdf",
+              "it": "CinEast_convention, 2023.pdf",
+              "es": "CinEast_convention, 2023.pdf",
+              "et": "CinEast_convention, 2023.pdf",
+              "cs": "CinEast_convention, 2023.pdf",
+              "pl": "CinEast_convention, 2023.pdf",
+              "ro": "CinEast_convention, 2023.pdf",
+              "da": "CinEast_convention, 2023.pdf",
+              "nl": "CinEast_convention, 2023.pdf"
+            },
+            "issued": "2024-06-25T08:25:41.669Z"
           }
         ],
         "is_hvd": false,
@@ -1938,8 +1938,8 @@
           "scoring": 90
         },
         "publisher": {
-          "type": "Organization",
-          "name": "Ministère de la Culture"
+          "name": "Ministère de la Culture",
+          "type": "Organization"
         },
         "id": "cineast-convention",
         "page": [
@@ -2481,15 +2481,15 @@
           "description": {
             "en": "Open Data Portal Switzerland"
           },
-          "source_type": "dcat-ap",
-          "title": {
-            "de": "opendata.swiss"
-          },
           "publisher": {
             "type": "Agent",
             "email": "mailto:opendata@bfs.admin.ch",
             "name": "Federal Statistical Office",
             "homepage": "https://www.bfs.admin.ch"
+          },
+          "source_type": "dcat-ap",
+          "title": {
+            "de": "opendata.swiss"
           },
           "modified": "2024-03-12T10:32:33Z",
           "homepage": "https://opendata.swiss",
@@ -3181,14 +3181,21 @@
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
+          "http://datos.santander.es/catalogo/cines"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
+        "keywords": [
+          {
+            "language": "es",
+            "id": "cine",
+            "label": "cine"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/http-datos-santander-es-catalogo-cines",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -3233,208 +3240,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "hr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "lv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "el": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "da": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "ro": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
             }
           },
           "full_available_languages": [
+            "hr",
+            "pl",
+            "fr",
             "mt",
             "lt",
-            "sl",
-            "uk",
+            "en",
             "sv",
-            "it",
-            "fi",
-            "hr",
             "da",
-            "et",
+            "es",
+            "it",
+            "cs",
+            "sl",
+            "lv",
+            "bg",
+            "de",
+            "el",
             "sk",
             "ro",
-            "cs",
-            "lv",
             "hu",
-            "es",
-            "el",
-            "fr",
-            "pt",
-            "bg",
+            "et",
+            "nl",
+            "uk",
+            "fi",
             "ga",
-            "pl",
-            "en",
-            "de",
-            "nl"
+            "pt"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
-          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
-          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
+          "de": "Dieser Datensatz enthält den Katalog der Kinos in der Stadt Santander.",
+          "fi": "Tämä aineisto sisältää luettelon Santanderin kaupungin elokuvateattereista.",
+          "pt": "Este conjunto de dados contém o catálogo dos cinemas existentes na cidade de Santander.",
+          "bg": "Този набор от данни съдържа каталога на кината, съществуващи в град Сантандер.",
+          "lt": "Šiame duomenų rinkinyje yra Santandero mieste esančių kino teatrų katalogas.",
+          "lv": "Šajā datu kopā ir iekļauts Santanderas pilsētā esošo kinoteātru katalogs.",
+          "hr": "Ovaj skup podataka sadrži katalog kina koja postoje u gradu Santanderu.",
+          "fr": "Cet ensemble de données contient le catalogue des cinémas existant dans la ville de Santander.",
+          "hu": "Ez az adatkészlet tartalmazza a Santander városában található mozik katalógusát.",
+          "uk": "Цей набір даних містить каталог кінотеатрів, що існують в місті Сантандер.",
+          "sk": "Tento súbor údajov obsahuje katalóg kín existujúcich v meste Santander.",
+          "sl": "Ta nabor podatkov vsebuje katalog kinematografov, ki obstajajo v mestu Santander.",
+          "ga": "Sa tacar sonraí seo tá catalóg na bpictiúrlann atá ann cheana i gcathair Santander.",
+          "sv": "Detta dataset innehåller katalogen över de biografer som finns i staden Santander.",
+          "mt": "Dan is-sett ta’ data fih il-katalgu tas-swali taċ-ċinema li jeżistu fil-belt ta’ Santander.",
+          "el": "Αυτό το σύνολο δεδομένων περιέχει τον κατάλογο των κινηματογράφων που υπάρχουν στην πόλη του Σανταντέρ.",
+          "en": "This dataset contains the catalogue of the cinemas existing in the city of Santander.",
+          "it": "Questo set di dati contiene il catalogo dei cinema esistenti nella città di Santander.",
+          "es": "Este dataset contiene el catálogo de los cines existentes en la ciudad de Santander.",
+          "et": "See andmekogum sisaldab Santanderi linnas olemasolevate kinode kataloogi.",
+          "cs": "Tento datový soubor obsahuje katalog kin existujících ve městě Santander.",
+          "pl": "Ten zbiór danych zawiera katalog kin istniejących w mieście Santander.",
+          "ro": "Acest set de date conține catalogul cinematografelor existente în orașul Santander.",
+          "da": "Dette datasæt indeholder kataloget over biografer, der findes i byen Santander.",
+          "nl": "Deze dataset bevat de catalogus van de bioscopen die in de stad Santander bestaan."
         },
         "index": "dataset",
         "language": [
@@ -3445,190 +3452,431 @@
           }
         ],
         "title": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
-          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
-          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
+          "de": "Kinos",
+          "fi": "Elokuvateattereita",
+          "pt": "Cinemas",
+          "bg": "Кина",
+          "lt": "Kino teatrai",
+          "hr": "Kina",
+          "lv": "Kinoteātri",
+          "fr": "Cinémas",
+          "hu": "Mozik",
+          "uk": "Кінотеатри для кінотеатрів",
+          "sk": "Kiná",
+          "sl": "Kinodvorane",
+          "ga": "Pictiúrlanna",
+          "sv": "Biografer",
+          "mt": "Swali taċ-ċinema",
+          "el": "Κινηματογράφοι",
+          "en": "Cinemas",
+          "it": "Cinematografia",
+          "es": "Cines",
+          "et": "Kinod",
+          "cs": "Kinosál",
+          "pl": "Kino",
+          "da": "Biografer",
+          "ro": "Cinematografe",
+          "nl": "Bioscopen"
         },
+        "accrual_periodicity": {},
         "distributions": [
           {
             "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
             },
-            "media_type": "application/json",
+            "media_type": "https://www.iana.org/assignments/media-types/application/ld%2Bjson",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/09033?format=json"
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.jsonld"
             ],
-            "id": "861f74e2-ddf6-41a1-b093-67d9ce9732ad",
+            "id": "1658badd-8fc2-48b1-9b68-a01b2dc3a322",
             "title": {
-              "de": "IX Wahlperiode (JSON)",
-              "fi": "IX vaalikausi (JSON)",
-              "pt": "IX legislatura (JSON)",
-              "bg": "IX парламентарен мандат (JSON)",
-              "lt": "IX Parlamento kadencija (JSON)",
-              "lv": "IX sasaukums (JSON)",
-              "hr": "IX. parlamentarni saziv (JSON)",
-              "fr": "IX législature (JSON)",
-              "hu": "IX. parlamenti ciklus (JSON)",
-              "uk": "IX парламентський термін (JSON)",
-              "sk": "IX. volebné obdobie (JSON)",
-              "sl": "IX. parlamentarno obdobje (JSON)",
-              "ga": "IX téarma parlaiminteach (JSON)",
-              "sv": "IX valperioden (JSON)",
-              "mt": "IX leġiżlatura (JSON)",
-              "el": "IX κοινοβουλευτική περίοδος (JSON)",
-              "en": "IX parliamentary term (JSON)",
-              "it": "IX legislatura (JSON)",
-              "es": "IX legislatura (JSON)",
-              "et": "IX ametiaeg (JSON)",
-              "cs": "IX. volební období (JSON)",
-              "pl": "IX kadencja parlamentarna (JSON)",
-              "ro": "A IX-a legislatură (JSON)",
-              "da": "IX valgperiode (JSON)",
-              "nl": "IX zittingsperiode (JSON)"
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
             }
           },
           {
             "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/n3",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.n3"
+            ],
+            "id": "2b137422-87d0-4d8e-bde3-791642c1a37a",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
             },
             "media_type": "text/csv",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/09033?format=csv"
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.csv%26rnd%3D1365744798"
             ],
-            "id": "dd93015c-ceab-4190-83c0-39fc007c127c",
+            "id": "39deef2d-2c19-42d4-99b8-6be41e3452e2",
             "title": {
-              "de": "IX Legislaturperiode (CSV)",
-              "fi": "IX Lainsäädäntö (CSV)",
-              "pt": "IX legislatura (CSV)",
-              "bg": "IX законодателен мандат (CSV)",
-              "lt": "IX teisės aktų leidėjas (CSV)",
-              "hr": "Zakonodavno razdoblje (CSV)",
-              "lv": "IX likumdevējs (CSV)",
-              "fr": "IX législature (CSV)",
-              "hu": "IX. törvényhozás (CSV)",
-              "uk": "IX Законодавчий орган (CSV)",
-              "sk": "IX volebné obdobie (CSV)",
-              "sl": "IX. zakonodajalec (CSV)",
-              "ga": "IX reachtas (CSV)",
-              "sv": "IX Lagstiftning (CSV)",
-              "mt": "Ix leġiżlatura (CSV)",
-              "el": "IX νομοθέτης (CSV)",
-              "en": "IX legislature (CSV)",
-              "it": "IX legislatura (CSV)",
-              "es": "IX legislatura (CSV)",
-              "et": "IX seadusandlik kogu (CSV)",
-              "cs": "IX. volební období (CSV)",
-              "pl": "IX legislacja (CSV)",
-              "da": "IX-lovgiver (CSV)",
-              "ro": "IX Legislativ (CSV)",
-              "nl": "IX legislatuur (CSV)"
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.json"
+            ],
+            "id": "00296bf8-7b9a-4dbe-ac2a-f8100fbaacc6",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/atom%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.atom"
+            ],
+            "id": "0db690f9-59c9-40ae-9edd-47b1b77278c7",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/xml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.xml"
+            ],
+            "id": "385bb9ac-c309-42e3-af59-6dfd4c5bd526",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/html",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.html"
+            ],
+            "id": "f621008c-3e49-47ff-b754-e33d3bc8c4c1",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/turtle",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.turtle"
+            ],
+            "id": "87465de4-6df9-49b8-bdb6-5f7a93c063a0",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/rdf%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.rdf"
+            ],
+            "id": "8d3455b0-c922-475f-96b9-5a70d429056d",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
             }
           }
         ],
         "is_hvd": false,
         "quality_meas": {
-          "scoring": 190
+          "scoring": 220
         },
-        "modified": "2021-05-05T00:00:00+02:00",
-        "id": "https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
+        "modified": "2015-11-05T00:00:00+01:00",
+        "id": "http-datos-santander-es-catalogo-cines",
         "categories": [
           {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
-            "id": "JUST",
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+            "id": "EDUC",
             "label": {
-              "nn": "Justis, rettssystem og allmenn tryggleik",
-              "no": "Justis, rettssystem og allmenn sikkerhet",
-              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
-              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
-              "pt": "Justiça, sistema judiciário e segurança pública",
-              "bg": "Правосъдие, съдебна система и обществена безопасност",
-              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
-              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
-              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
-              "fr": "Justice, système juridique et sécurité publique",
-              "hu": "Igazságügy, jogrendszer és közbiztonság",
-              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
-              "sl": "Pravosodje, pravni sistem in javna varnost",
-              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
-              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
-              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
-              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
-              "en": "Justice, legal system and public safety",
-              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
-              "es": "Justicia, sistema judicial y seguridad pública",
-              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
-              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
-              "nb": "Justis, rettssystem og allmenn sikkerhet",
-              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
-              "ro": "Justiție, sistem juridic și siguranță publică",
-              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
-              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
-            }
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
+              "nn": "Utdanning, kultur og sport",
+              "no": "Utdanning, kultur og sport",
+              "de": "Bildung, Kultur und Sport",
+              "fi": "Koulutus, kulttuuri ja urheilu",
+              "pt": "Educação, cultura e desporto",
+              "bg": "Образование, култура и спорт",
+              "lt": "Švietimas, kultūra ir sportas",
+              "lv": "Izglītība, kultūra un sports",
+              "hr": "Obrazovanje, kultura i sport",
+              "fr": "Éducation, culture et sport",
+              "hu": "Oktatás, kultúra és sport",
+              "sk": "Vzdelávanie, kultúra a šport",
+              "sl": "Izobraževanje, kultura in šport",
+              "ga": "Oideachas, cultúr agus spórt",
+              "sv": "Utbildning, kultur och sport",
+              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
+              "mt": "Edukazzjoni, kultura u sport",
+              "en": "Education, culture and sport",
+              "it": "Istruzione, cultura e sport",
+              "es": "Educación, cultura y deportes",
+              "et": "Haridus, kultuur ja sport",
+              "cs": "Vzdělávání, kultura a sport",
+              "nb": "Utdanning, kultur og sport",
+              "pl": "Edukacja, kultura i sport",
+              "da": "Uddannelse, kultur og sport",
+              "ro": "Educaţie, cultură şi sport",
+              "nl": "Onderwijs, cultuur en sport"
             }
           }
         ],
-        "issued": "2021-05-05T00:00:00+02:00",
+        "issued": "2015-09-28T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-02-09T23:57:57Z",
-          "issued": "2023-02-01T09:22:00Z"
+          "modified": "2026-02-11T00:01:30Z",
+          "issued": "2023-02-01T09:17:36Z"
         }
       },
       {
@@ -4537,21 +4785,14 @@
       },
       {
         "identifier": [
-          "http://datos.santander.es/catalogo/cines"
+          "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "keywords": [
-          {
-            "language": "es",
-            "id": "cine",
-            "label": "cine"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/http-datos-santander-es-catalogo-cines",
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -4596,208 +4837,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "hr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "lv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "el": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "da": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "ro": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             }
           },
           "full_available_languages": [
-            "hr",
-            "pl",
-            "fr",
             "mt",
             "lt",
-            "en",
-            "sv",
-            "da",
-            "es",
-            "it",
-            "cs",
             "sl",
-            "lv",
-            "bg",
-            "de",
-            "el",
+            "uk",
+            "sv",
+            "it",
+            "fi",
+            "hr",
+            "da",
+            "et",
             "sk",
             "ro",
+            "cs",
+            "lv",
             "hu",
-            "et",
-            "nl",
-            "uk",
-            "fi",
+            "es",
+            "el",
+            "fr",
+            "pt",
+            "bg",
             "ga",
-            "pt"
+            "pl",
+            "en",
+            "de",
+            "nl"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Dieser Datensatz enthält den Katalog der Kinos in der Stadt Santander.",
-          "fi": "Tämä aineisto sisältää luettelon Santanderin kaupungin elokuvateattereista.",
-          "pt": "Este conjunto de dados contém o catálogo dos cinemas existentes na cidade de Santander.",
-          "bg": "Този набор от данни съдържа каталога на кината, съществуващи в град Сантандер.",
-          "lt": "Šiame duomenų rinkinyje yra Santandero mieste esančių kino teatrų katalogas.",
-          "lv": "Šajā datu kopā ir iekļauts Santanderas pilsētā esošo kinoteātru katalogs.",
-          "hr": "Ovaj skup podataka sadrži katalog kina koja postoje u gradu Santanderu.",
-          "fr": "Cet ensemble de données contient le catalogue des cinémas existant dans la ville de Santander.",
-          "hu": "Ez az adatkészlet tartalmazza a Santander városában található mozik katalógusát.",
-          "uk": "Цей набір даних містить каталог кінотеатрів, що існують в місті Сантандер.",
-          "sk": "Tento súbor údajov obsahuje katalóg kín existujúcich v meste Santander.",
-          "sl": "Ta nabor podatkov vsebuje katalog kinematografov, ki obstajajo v mestu Santander.",
-          "ga": "Sa tacar sonraí seo tá catalóg na bpictiúrlann atá ann cheana i gcathair Santander.",
-          "sv": "Detta dataset innehåller katalogen över de biografer som finns i staden Santander.",
-          "mt": "Dan is-sett ta’ data fih il-katalgu tas-swali taċ-ċinema li jeżistu fil-belt ta’ Santander.",
-          "el": "Αυτό το σύνολο δεδομένων περιέχει τον κατάλογο των κινηματογράφων που υπάρχουν στην πόλη του Σανταντέρ.",
-          "en": "This dataset contains the catalogue of the cinemas existing in the city of Santander.",
-          "it": "Questo set di dati contiene il catalogo dei cinema esistenti nella città di Santander.",
-          "es": "Este dataset contiene el catálogo de los cines existentes en la ciudad de Santander.",
-          "et": "See andmekogum sisaldab Santanderi linnas olemasolevate kinode kataloogi.",
-          "cs": "Tento datový soubor obsahuje katalog kin existujících ve městě Santander.",
-          "pl": "Ten zbiór danych zawiera katalog kin istniejących w mieście Santander.",
-          "ro": "Acest set de date conține catalogul cinematografelor existente în orașul Santander.",
-          "da": "Dette datasæt indeholder kataloget over biografer, der findes i byen Santander.",
-          "nl": "Deze dataset bevat de catalogus van de bioscopen die in de stad Santander bestaan."
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
         },
         "index": "dataset",
         "language": [
@@ -4808,431 +5049,190 @@
           }
         ],
         "title": {
-          "de": "Kinos",
-          "fi": "Elokuvateattereita",
-          "pt": "Cinemas",
-          "bg": "Кина",
-          "lt": "Kino teatrai",
-          "hr": "Kina",
-          "lv": "Kinoteātri",
-          "fr": "Cinémas",
-          "hu": "Mozik",
-          "uk": "Кінотеатри для кінотеатрів",
-          "sk": "Kiná",
-          "sl": "Kinodvorane",
-          "ga": "Pictiúrlanna",
-          "sv": "Biografer",
-          "mt": "Swali taċ-ċinema",
-          "el": "Κινηματογράφοι",
-          "en": "Cinemas",
-          "it": "Cinematografia",
-          "es": "Cines",
-          "et": "Kinod",
-          "cs": "Kinosál",
-          "pl": "Kino",
-          "da": "Biografer",
-          "ro": "Cinematografe",
-          "nl": "Bioscopen"
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
         },
-        "accrual_periodicity": {},
         "distributions": [
           {
             "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/ld%2Bjson",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.jsonld"
-            ],
-            "id": "1658badd-8fc2-48b1-9b68-a01b2dc3a322",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/n3",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.n3"
-            ],
-            "id": "2b137422-87d0-4d8e-bde3-791642c1a37a",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.csv%26rnd%3D1365744798"
-            ],
-            "id": "39deef2d-2c19-42d4-99b8-6be41e3452e2",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
             },
             "media_type": "application/json",
             "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.json"
+              "https://parcan.es/api/diputado/asistencias/09033?format=json"
             ],
-            "id": "00296bf8-7b9a-4dbe-ac2a-f8100fbaacc6",
+            "id": "861f74e2-ddf6-41a1-b093-67d9ce9732ad",
             "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
+              "de": "IX Wahlperiode (JSON)",
+              "fi": "IX vaalikausi (JSON)",
+              "pt": "IX legislatura (JSON)",
+              "bg": "IX парламентарен мандат (JSON)",
+              "lt": "IX Parlamento kadencija (JSON)",
+              "lv": "IX sasaukums (JSON)",
+              "hr": "IX. parlamentarni saziv (JSON)",
+              "fr": "IX législature (JSON)",
+              "hu": "IX. parlamenti ciklus (JSON)",
+              "uk": "IX парламентський термін (JSON)",
+              "sk": "IX. volebné obdobie (JSON)",
+              "sl": "IX. parlamentarno obdobje (JSON)",
+              "ga": "IX téarma parlaiminteach (JSON)",
+              "sv": "IX valperioden (JSON)",
+              "mt": "IX leġiżlatura (JSON)",
+              "el": "IX κοινοβουλευτική περίοδος (JSON)",
+              "en": "IX parliamentary term (JSON)",
+              "it": "IX legislatura (JSON)",
+              "es": "IX legislatura (JSON)",
+              "et": "IX ametiaeg (JSON)",
+              "cs": "IX. volební období (JSON)",
+              "pl": "IX kadencja parlamentarna (JSON)",
+              "ro": "A IX-a legislatură (JSON)",
+              "da": "IX valgperiode (JSON)",
+              "nl": "IX zittingsperiode (JSON)"
             }
           },
           {
             "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
             },
-            "media_type": "https://www.iana.org/assignments/media-types/application/atom%2Bxml",
+            "media_type": "text/csv",
             "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.atom"
+              "https://parcan.es/api/diputado/asistencias/09033?format=csv"
             ],
-            "id": "0db690f9-59c9-40ae-9edd-47b1b77278c7",
+            "id": "dd93015c-ceab-4190-83c0-39fc007c127c",
             "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "application/xml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.xml"
-            ],
-            "id": "385bb9ac-c309-42e3-af59-6dfd4c5bd526",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/html",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.html"
-            ],
-            "id": "f621008c-3e49-47ff-b754-e33d3bc8c4c1",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/turtle",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.turtle"
-            ],
-            "id": "87465de4-6df9-49b8-bdb6-5f7a93c063a0",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/rdf%2Bxml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.rdf"
-            ],
-            "id": "8d3455b0-c922-475f-96b9-5a70d429056d",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
+              "de": "IX Legislaturperiode (CSV)",
+              "fi": "IX Lainsäädäntö (CSV)",
+              "pt": "IX legislatura (CSV)",
+              "bg": "IX законодателен мандат (CSV)",
+              "lt": "IX teisės aktų leidėjas (CSV)",
+              "hr": "Zakonodavno razdoblje (CSV)",
+              "lv": "IX likumdevējs (CSV)",
+              "fr": "IX législature (CSV)",
+              "hu": "IX. törvényhozás (CSV)",
+              "uk": "IX Законодавчий орган (CSV)",
+              "sk": "IX volebné obdobie (CSV)",
+              "sl": "IX. zakonodajalec (CSV)",
+              "ga": "IX reachtas (CSV)",
+              "sv": "IX Lagstiftning (CSV)",
+              "mt": "Ix leġiżlatura (CSV)",
+              "el": "IX νομοθέτης (CSV)",
+              "en": "IX legislature (CSV)",
+              "it": "IX legislatura (CSV)",
+              "es": "IX legislatura (CSV)",
+              "et": "IX seadusandlik kogu (CSV)",
+              "cs": "IX. volební období (CSV)",
+              "pl": "IX legislacja (CSV)",
+              "da": "IX-lovgiver (CSV)",
+              "ro": "IX Legislativ (CSV)",
+              "nl": "IX legislatuur (CSV)"
             }
           }
         ],
         "is_hvd": false,
         "quality_meas": {
-          "scoring": 220
+          "scoring": 190
         },
-        "modified": "2015-11-05T00:00:00+01:00",
-        "id": "http-datos-santander-es-catalogo-cines",
+        "modified": "2021-05-05T00:00:00+02:00",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
         "categories": [
           {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-            "id": "EDUC",
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
             "label": {
-              "nn": "Utdanning, kultur og sport",
-              "no": "Utdanning, kultur og sport",
-              "de": "Bildung, Kultur und Sport",
-              "fi": "Koulutus, kulttuuri ja urheilu",
-              "pt": "Educação, cultura e desporto",
-              "bg": "Образование, култура и спорт",
-              "lt": "Švietimas, kultūra ir sportas",
-              "lv": "Izglītība, kultūra un sports",
-              "hr": "Obrazovanje, kultura i sport",
-              "fr": "Éducation, culture et sport",
-              "hu": "Oktatás, kultúra és sport",
-              "sk": "Vzdelávanie, kultúra a šport",
-              "sl": "Izobraževanje, kultura in šport",
-              "ga": "Oideachas, cultúr agus spórt",
-              "sv": "Utbildning, kultur och sport",
-              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
-              "mt": "Edukazzjoni, kultura u sport",
-              "en": "Education, culture and sport",
-              "it": "Istruzione, cultura e sport",
-              "es": "Educación, cultura y deportes",
-              "et": "Haridus, kultuur ja sport",
-              "cs": "Vzdělávání, kultura a sport",
-              "nb": "Utdanning, kultur og sport",
-              "pl": "Edukacja, kultura i sport",
-              "da": "Uddannelse, kultur og sport",
-              "ro": "Educaţie, cultură şi sport",
-              "nl": "Onderwijs, cultuur en sport"
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
             }
           }
         ],
-        "issued": "2015-09-28T00:00:00+02:00",
+        "issued": "2021-05-05T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-02-11T00:01:30Z",
-          "issued": "2023-02-01T09:17:36Z"
+          "modified": "2026-02-09T23:57:57Z",
+          "issued": "2023-02-01T09:22:00Z"
         }
       }
     ]
