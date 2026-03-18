@@ -1428,13 +1428,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_title": "Comparer deux périodes",
         "period_a": "Période A",
         "period_b": "Période B",
-        "compare_caption": "Comparaison du **budget** entre deux périodes, avec lecture des écarts en euros.",
+        "compare_caption": "Compare les écarts de budget entre deux périodes sur les thèmes ou les programmes du périmètre courant.",
         "compare_normalize_annual": "Ramener à la moyenne annuelle",
         "compare_period_years": "Période A : {years_a} ans, Période B : {years_b} ans",
         "compare_period_years_normalized": "Période A : {years_a} ans, Période B : {years_b} ans · lecture ramenée à une moyenne annuelle.",
         "compare_budget_a": "Budget A",
         "compare_budget_b": "Budget B",
-        "compare_delta_budget": "Δ budget",
+        "compare_delta_budget": "Écart de budget (B - A)",
+        "compare_budget_reading": "Lecture : à droite, la période B finance davantage ; à gauche, elle finance moins. La comparaison porte sur le budget, pas sur une part relative.",
         "actor_profile": "Fiche acteur",
         "actor_group_mode_caption": "Vue groupe active: les fiches et graphes peuvent agréger plusieurs entités juridiques via mapping ou PIC.",
         "actor_profile_caption": "Choisis un acteur, puis commence par son profil, son évolution et ses projets avant d’ouvrir les lectures plus expertes.",
@@ -1571,7 +1572,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "trends_summary_abs": "Le périmètre est surtout porté par {dim} sur la période sélectionnée.",
         "trends_summary_share": "{dim} représente la plus grande part du budget sur la période sélectionnée.",
         "trends_empty_hint": "Essaie d’élargir la période, de sélectionner moins de séries, ou reviens à la vue Résultats.",
-        "compare_intro": "Compare deux périodes pour voir quels thèmes ou programmes gagnent ou perdent le plus en budget.",
+        "compare_intro": "Commence par les plus fortes hausses et baisses de budget pour repérer rapidement où l’effort financier s’est déplacé.",
         "geo_primary_reading": "La carte sert de repère. Utilise surtout le classement pour comparer précisément les pays dans le périmètre courant.",
         "geo_rank_table": "Classement pays",
         "actor_answer_title": "En bref",
@@ -1848,13 +1849,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_title": "Compare two periods",
         "period_a": "Period A",
         "period_b": "Period B",
-        "compare_caption": "Comparison of **budget** across two periods, with deltas shown in euros.",
+        "compare_caption": "Compare budget gaps across two periods for themes or programmes in the current scope.",
         "compare_normalize_annual": "Normalize to annual average",
         "compare_period_years": "Period A: {years_a} years, Period B: {years_b} years",
         "compare_period_years_normalized": "Period A: {years_a} years, Period B: {years_b} years · normalized to annual average.",
         "compare_budget_a": "Budget A",
         "compare_budget_b": "Budget B",
-        "compare_delta_budget": "Δ budget",
+        "compare_delta_budget": "Budget change (B - A)",
+        "compare_budget_reading": "Reading: bars to the right mean period B funds more; bars to the left mean it funds less. This compares budget, not relative share.",
         "actor_profile": "Actor profile",
         "actor_group_mode_caption": "Group view is active: profiles and charts may aggregate several legal entities through mapping or PIC.",
         "actor_profile_caption": "Pick an actor, then start with their profile, evolution, and projects before opening deeper expert reads.",
@@ -1991,7 +1993,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "trends_summary_abs": "The current scope is mainly driven by {dim} over the selected period.",
         "trends_summary_share": "{dim} holds the largest share of funding over the selected period.",
         "trends_empty_hint": "Try widening the time range, selecting fewer series, or go back to Results.",
-        "compare_intro": "Compare two periods to see which themes or programmes gain or lose the most budget.",
+        "compare_intro": "Start with the strongest budget gains and declines to quickly see where funding moved.",
         "geo_primary_reading": "Use the map as orientation. Use the ranking to compare countries precisely within the current scope.",
         "geo_rank_table": "Country ranking",
         "actor_answer_title": "In brief",
@@ -5666,6 +5668,7 @@ with tab_compare:
             hovertemplate="<b>%{y}</b><br>%{customdata[0]}<extra></extra>",
         )
         render_plotly_chart(fig, use_container_width=True)
+        st.caption(t(lang, "compare_budget_reading"))
         st.caption(
             t(lang, "compare_period_years_normalized" if normalize_annual else "compare_period_years").format(
                 years_a=years_a,
@@ -5678,7 +5681,7 @@ with tab_compare:
         table[t(lang, "compare_budget_b")] = table["b_B"].map(lambda x: fmt_money(float(x), lang))
         table["Δ"] = table["delta_budget"].map(lambda x: fmt_money(float(x), lang))
         table = table[["dim_disp", t(lang, "compare_budget_a"), t(lang, "compare_budget_b"), "Δ"]]
-        table = table.rename(columns={"dim_disp": "dim"})
+        table = table.rename(columns={"dim_disp": t(lang, "dim_program") if dim_col == "program" else t(lang, "dim_theme")})
         st.dataframe(table, use_container_width=True, height=520)
 
 
@@ -7372,11 +7375,12 @@ with tab_guide:
 - Absolu = volume (attention outliers).
                 """
             )
-        with st.expander("5) Comparaison : Δ points de % entre périodes", expanded=False):
+        with st.expander("5) Comparaison : écarts de budget entre périodes", expanded=False):
             st.markdown(
                 """
-- Compare A vs B en points de %.
-- Sert à détecter des bascules.
+- Compare A vs B en budget.
+- Barres à droite = plus de budget en période B.
+- Barres à gauche = moins de budget en période B.
                 """
             )
         with st.expander("6) Macro & actualités : indépendant des filtres sidebar", expanded=False):
@@ -7435,10 +7439,12 @@ with tab_guide:
 - Absolute = volume reading (watch outliers).
                 """
             )
-        with st.expander("5) Compare: Δ percentage points between periods", expanded=False):
+        with st.expander("5) Compare: budget gaps across periods", expanded=False):
             st.markdown(
                 """
-- Compares A vs B in percentage points.
+- Compares A vs B in budget.
+- Bars to the right = more funding in period B.
+- Bars to the left = less funding in period B.
                 """
             )
         with st.expander("6) Macro & news: independent from sidebar filters", expanded=False):
