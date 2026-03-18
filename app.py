@@ -5634,7 +5634,7 @@ with tab_geo:
 
         country_options = geo_rank["country_name"].astype(str).tolist()
         country_scope_token = f"{W}||{'|'.join(country_options)}"
-        preferred_geo_country = "France" if "France" in country_options else (country_options[0] if country_options else "")
+        preferred_geo_country = country_options[0] if country_options else ""
         drilldown_country = ""
         active_country_filters = [str(x) for x in st.session_state.get("f_countries", []) if str(x).strip()]
         if len(active_country_filters) == 1 and active_country_filters[0] in country_options:
@@ -5687,7 +5687,7 @@ with tab_geo:
         selected_scope_share = (selected_total_budget / float(geo["amount_eur"].sum())) if float(geo["amount_eur"].sum() or 0.0) > 0 else 0.0
 
         if selected_country:
-            st.markdown(f"## {selected_country}")
+            st.markdown(f"#### {t(lang, 'geo_selected_summary')} · {selected_country}")
             g1, g2, g3, g4 = st.columns(4)
             g1.metric(t(lang, "geo_rank"), f"{selected_rank}" if selected_rank else "—")
             g2.metric(t(lang, "budget_total"), fmt_money(selected_total_budget, lang))
