@@ -3930,7 +3930,7 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 default=[x for x in st.session_state.get("guided_countries", []) if x in meta["countries"]] or _default_countries_from_meta(meta),
             )
             st.caption(t(lang, "guided_home_countries_help"))
-            st.session_state["guided_years"] = st.slider(
+            st.slider(
                 t(lang, "period"),
                 meta["miny"],
                 meta["maxy"],
