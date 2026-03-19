@@ -1,614 +1,546 @@
-# Subsidy Intelligence Radar - Documentation technique complete
+# Subsidy Intelligence Radar — documentation technique complète
 
-Version cible: code courant du repo.
-Langue: FR (technique), sans simplification.
+Version de référence : code courant du repository.
+Langue : FR technique.
 
-## 1) Objectif du systeme
+## 1. Objet du système
 
-Le projet fournit une application Streamlit interne pour analyser des projets finances (principalement CORDIS Horizon Europe / H2020), avec:
-- exploration interactive (filtres, KPI, benchmark, geo, tendances),
-- couche "Macro & news" basee sur un fichier d'evenements,
-- mecanisme de refresh des donnees,
-- automatisation durable via GitHub Actions.
+Le projet fournit une application Streamlit d'analyse de projets CORDIS, construite sur un pipeline de préparation de données qui :
+- télécharge et normalise les bulk CSV CORDIS (`Horizon Europe` + `Horizon 2020`) ;
+- produit un dataset analytique stable ;
+- dérive des tables de support pour les vues acteurs, groupes, partenariats et sous-thèmes scientifiques ;
+- expose ces artefacts dans une interface orientée métier.
 
-Le systeme est pense pour:
-- fonctionner localement,
-- etre deployee sur Streamlit Community Cloud,
-- rester maintenable (pipeline separe, formats de donnees stables, artefacts intermediaires explicites).
+Le produit vise trois usages principaux :
+- exploration rapide par question métier ;
+- analyse structurée par domaines CORDIS, thèmes principaux et pays ;
+- lecture experte via vues détaillées, exports et diagnostics.
 
-## 2) Vue d'ensemble architecture
+## 2. Évolution du modèle produit
+
+Le produit n'est plus structuré autour d'une taxonomie métier OneTech comme axe principal.
+
+Le modèle actuel sépare explicitement :
+
+1. `cordis_domain_ui`
+   - domaine de navigation UX parmi 11 grands domaines CORDIS.
+2. `cordis_theme_primary`
+   - thème principal officiel unique, utilisé pour le comptage principal par projet.
+3. `scientific_subthemes`
+   - sous-thèmes scientifiques multi-label, utilisés pour l'exploration fine.
+4. les champs CORDIS bruts (`topic`, `topics`, `call`, `frameworkProgramme`, etc.)
+   - conservés pour l'explicabilité, les exports et les usages experts.
+
+Conséquences :
+- un projet conserve un seul thème principal officiel ;
+- un projet peut porter plusieurs sous-thèmes scientifiques ;
+- les totaux globaux restent calculés sur le dataset principal, jamais en sommant l'explosion des sous-thèmes.
+
+## 3. Vue d'ensemble d'architecture
 
 ```mermaid
 flowchart TD
-    A["Sources externes (CORDIS/RSS/SPARQL/API optionnelles)"] --> B["pipeline.py + build_events.py + connectors optionnels"]
-    B --> C["data/processed/subsidy_base.parquet"]
-    B --> D["data/external/events.csv"]
-    B --> E["data/processed/actor_master/group_master/project_actor_links"]
-    C --> F["app.py (Streamlit + DuckDB)"]
-    D --> F
-    E --> F
-    F --> G["URL Streamlit partagee"]
-    H["GitHub Action refresh-data.yml"] --> B
-    H --> I["Commit auto des artefacts versionnes"]
-    I --> G
+    A[CORDIS bulk CSV ZIP] --> B[pipeline.py]
+    B --> C[process_build.py]
+    C --> D[data/processed/subsidy_base.parquet]
+    C --> E[data/processed/actor_master.parquet]
+    C --> F[data/processed/group_master.parquet]
+    C --> G[data/processed/project_actor_links.parquet]
+    C --> H[data/processed/project_scientific_subthemes.parquet]
+    I[EC Newsroom RSS / EUR-Lex SPARQL] --> J[build_events.py]
+    J --> K[data/external/events.csv]
+    D --> L[app.py]
+    E --> L
+    F --> L
+    G --> L
+    H --> L
+    K --> L
 ```
 
-Points importants:
-- Le coeur analytics lit surtout `subsidy_base.parquet`.
-- `events.csv` alimente l'onglet Macro.
-- Les tables master acteur/groupe servent aux analyses avancees et au regroupement.
-- L'automatisation durable en Cloud passe par GitHub Actions (pas uniquement par le bouton Refresh de l'UI).
+Principes :
+- l'app lit principalement des artefacts locaux versionnés ou reconstruits hors runtime lourd ;
+- DuckDB sert de couche d'accès et de compatibilité sur `subsidy_base.parquet` ;
+- le pipeline et le build restent séparés de l'interface ;
+- le mode cloud s'appuie sur des artefacts déjà présents, pas sur un rebuild lourd au chargement.
 
-## 3) Arborescence utile
+## 4. Fichiers structurants du repository
 
-- `app.py`: application Streamlit complete.
-- `pipeline.py`: orchestration des mises a jour de donnees principales (incremental + lock + state).
-- `process_build.py`: construction/normalisation du dataset principal et tables master.
-- `build_events.py`: generation du fichier `events.csv` (RSS + SPARQL).
-- `incremental_connectors.py`: framework de connecteurs API/MCP incrementaux (optionnel).
-- `.github/workflows/refresh-data.yml`: automatisation GitHub quotidienne/manuelle.
-- `data/processed/`: artefacts analytiques.
-- `data/external/`: evenements, mapping groupes, manifests connecteurs.
+### 4.1 Application
 
-## 4) APIs et sources utilisees
+- `app.py`
+  - interface Streamlit, navigation, filtres, analytics DuckDB, exports.
+- `cordis_labels.py`
+  - humanisation des libellés visibles par l'utilisateur (`cordis_domain_ui`, `cordis_theme_primary`, sous-thèmes).
 
-## 4.1 Sources coeur (actives)
+### 4.2 Build / pipeline
 
-1. CORDIS bulk ZIP (CSV):
-- `https://cordis.europa.eu/data/cordis-HORIZONprojects-csv.zip`
-- `https://cordis.europa.eu/data/cordis-h2020projects-csv.zip`
+- `pipeline.py`
+  - orchestration incrémentale locale ;
+  - logique de lock ;
+  - vérification de schéma ;
+  - déclenchement du build principal.
+- `process_build.py`
+  - construction du dataset principal et des tables dérivées.
+- `cordis_taxonomy.py`
+  - règles CORDIS-first de dérivation du thème principal, domaine UI et sous-thèmes scientifiques.
+- `theme_classifier_v3.py`
+  - enrichissement déterministe des sous-thèmes scientifiques multi-label.
+- `build_events.py`
+  - construction de la couche macro/événements.
+- `incremental_connectors.py`
+  - connecteurs incrémentaux optionnels pour sources externes supplémentaires.
 
-2. EC Newsroom RSS:
-- `https://ec.europa.eu/newsroom/horizon2020/feed?lang=en&orderby=item_date&topic_id=615`
-- `https://ec.europa.eu/newsroom/horizon2020/feed?lang=en&orderby=item_date&topic_id=613`
+### 4.3 Données
 
-3. EUR-Lex / Cellar SPARQL:
-- `https://publications.europa.eu/webapi/rdf/sparql`
+- `data/raw/`
+  - données brutes locales (non destinées au runtime cloud direct).
+- `data/processed/`
+  - datasets analytiques et tables dérivées.
+- `data/external/`
+  - événements, mapping groupes, manifest connecteurs.
 
-## 4.2 Sources optionnelles (framework pret, configuration locale requise)
+## 5. Sources et artefacts
 
-Via `data/external/connectors_manifest.csv`:
-- CINEA API (placeholder),
-- Qlik API (placeholder),
-- EU Funding portal API (placeholder),
-- ANR API (placeholder),
-- MCP/Kaila via commande CLI (placeholder).
+### 5.1 Sources principales actives
 
-Le manifest actuel est un template de depart, pas des endpoints de production.
+1. CORDIS bulk CSV ZIP
+   - `cordis-HORIZONprojects-csv.zip`
+   - `cordis-h2020projects-csv.zip`
+2. EC Newsroom RSS
+3. EUR-Lex / Cellar SPARQL
 
-## 4.3 Comment les APIs sont utilisees dans ce projet
+### 5.2 Sources optionnelles
 
-Ce projet n'interroge pas les APIs en continu a chaque affichage de page.
+Via `data/external/connectors_manifest.csv` :
+- connecteurs API JSON / CSV ;
+- connecteurs MCP ;
+- enrichissements externes incrémentaux.
 
-Mode retenu:
-1. le pipeline appelle les APIs/connecteurs au moment du refresh,
-2. les reponses sont sauvegardees en fichiers locaux (`data/external/connectors/*`),
-3. l'app Streamlit lit surtout des artefacts preprocesses (parquet/csv).
+L'application n'appelle pas ces APIs en continu pendant la navigation. Le modèle retenu reste :
+- refresh hors affichage principal ;
+- écriture en fichiers d'artefacts ;
+- lecture rapide ensuite par l'app.
 
-Avantages:
-- app plus stable et plus rapide,
-- pas de dependance forte au reseau pendant la navigation,
-- meilleure reproductibilite (meme donnee pour tous les utilisateurs jusqu'au prochain refresh).
+## 6. Dataset principal : `subsidy_base`
 
-## 4.4 Mapping explicite API -> script -> artefact
+### 6.1 Grain de la table
 
-| Source/API | Script appele | Quand | Artefact produit |
-|---|---|---|---|
-| CORDIS bulk CSV ZIP | `pipeline.py` -> `process_build.py` | Refresh manuel UI / GitHub Action | `data/processed/subsidy_base.{csv,parquet}` |
-| EC Newsroom RSS | `build_events.py` | Refresh manuel UI / GitHub Action | `data/external/events.csv` |
-| EUR-Lex SPARQL | `build_events.py` | Refresh manuel UI / GitHub Action | `data/external/events.csv` |
-| CINEA / Qlik / EU Funding / MCP (optionnel) | `pipeline.py` -> `incremental_connectors.py` | Refresh si `connectors_manifest.csv` present + `enabled=true` | `data/external/connectors/*` |
+Le dataset principal est au grain participant/projet.
 
-Conclusion operationnelle:
-- L'app Streamlit n'appelle pas ces APIs pendant la navigation.
-- Les APIs sont appelees uniquement dans les jobs de refresh.
-- L'app lit ensuite des fichiers locaux preprocesses (parquet/csv).
+Conséquence importante :
+- un projet peut apparaître sur plusieurs lignes s'il porte plusieurs acteurs ;
+- les compteurs projet doivent donc utiliser `COUNT(DISTINCT projectID)` ;
+- les budgets lus dans un périmètre filtré correspondent au périmètre courant du dataset, pas nécessairement à une enveloppe projet abstraite détachée de tout filtre acteur/pays.
 
-## 5) Donnees et schemas
+### 6.2 Colonnes structurantes actuelles
 
-## 5.1 Dataset principal: `data/processed/subsidy_base.parquet` (+ CSV)
+Colonnes fonctionnelles majeures :
+- `source`
+- `program`
+- `section`
+- `year`
+- `projectID`
+- `acronym`
+- `title`
+- `objective`
+- `abstract`
+- `actor_id`
+- `pic`
+- `org_name`
+- `entity_type`
+- `country_alpha2`
+- `country_alpha3`
+- `country_name`
+- `amount_eur`
+- `value_chain_stage`
+- `project_status`
+- `cordis_domain_ui`
+- `cordis_theme_primary`
+- `cordis_theme_primary_source`
+- `cordis_topic_primary`
+- `cordis_topics_all`
+- `cordis_call`
+- `cordis_framework_programme`
+- `scientific_subthemes`
+- `scientific_subthemes_count`
+- `legacy_theme`
+- `legacy_sub_theme`
+- `theme`
+- `sub_theme`
 
-Colonnes principales (selon build actuel):
-- source
-- program
-- section
-- year
-- projectID
-- acronym
-- title
-- objective
-- abstract
-- actor_id
-- pic
-- org_name
-- entity_type
-- country_alpha2
-- country_alpha3
-- country_name
-- amount_eur
-- theme
-- value_chain_stage
-- project_status
+### 6.3 Champs de compatibilité
 
-Commentaires:
-- `actor_id` est normalise pour stabiliser l'identite d'acteur.
-- `pic` est derive si possible.
-- `value_chain_stage` est infere a partir du texte.
-- `project_status` est estime (`Open/Closed/Unknown`) depuis dates projet.
+Le repo garde encore des champs de compatibilité :
+- `theme`
+  - recopié à partir de `cordis_theme_primary` dans la couche analytique ;
+- `sub_theme`
+  - compatibilité courte issue du premier sous-thème scientifique disponible ;
+- `legacy_theme`
+  - ancienne valeur avant bascule CORDIS-first ;
+- `legacy_sub_theme`
+  - ancienne valeur de sous-thème.
 
-## 5.2 Tables master (generees par `process_build.py`)
+But :
+- éviter de casser les vues existantes ;
+- permettre une migration progressive ;
+- ne plus utiliser ces champs comme axe produit principal.
 
-Dans `data/processed/`:
+## 7. Tables analytiques dérivées
+
+`process_build.py` écrit en complément :
+
 - `actor_master.{csv,parquet}`
+  - synthèse par acteur.
 - `group_master.{csv,parquet}`
+  - synthèse par groupe si mapping disponible.
 - `project_actor_links.{csv,parquet}`
+  - table détaillée projet x acteur/groupe.
+- `project_scientific_subthemes.{csv,parquet}`
+  - explosion projet x sous-thème scientifique.
+
+### 7.1 Table `project_scientific_subthemes`
+
+Colonnes attendues :
+- `projectID`
+- `cordis_domain_ui`
+- `cordis_theme_primary`
+- `subtheme_level_1`
+- `subtheme_level_2`
+- `subtheme_level_3`
+- `subtheme_label`
+- `subtheme_path`
+- `source_method`
+
+Cette table sert à :
+- filtrer finement sur les sous-thèmes ;
+- alimenter les vues d'exploration multi-label ;
+- conserver l'explicabilité de la structure hiérarchique.
+
+Elle ne doit pas servir à recalculer les totaux globaux projet/budget par simple somme des lignes explosées.
+
+## 8. Logique de classification CORDIS-first
+
+### 8.1 Thème principal officiel
+
+La fonction `derive_cordis_theme_primary()` applique une cascade déterministe :
+
+1. `programmeDivisionTitle`
+2. `programmeDivision`
+3. `topic`
+4. `call`
+5. `frameworkProgramme`
+6. fallback explicite
+
+Le résultat est stocké dans :
+- `cordis_theme_primary`
+- `cordis_theme_primary_source`
+
+Objectif :
+- privilégier le label officiel le plus précis déjà disponible dans les métadonnées ;
+- éviter de réinventer un thème si CORDIS fournit déjà un champ structurant.
+
+### 8.2 Domaine UX CORDIS
+
+`cordis_domain_ui` est dérivé par règles traçables à partir de :
+- `cordis_theme_primary`
+- `topic` / `topics`
+- `call`
+- `frameworkProgramme`
+- et, en dernier recours, du texte projet si besoin.
+
+Le niveau `cordis_domain_ui` sert à :
+- la home page guidée ;
+- les filtres simples ;
+- les lectures synthétiques et macro.
+
+### 8.3 Sous-thèmes scientifiques multi-label
 
-Usage:
-- consolider la vision acteur vs groupe,
-- preparer analyses de collaboration/reseau,
-- activer agragation entreprise "groupe" plutot que par entite legale.
-
-## 5.3 Evenements macro: `data/external/events.csv`
-
-Colonnes standard:
-- date
-- theme
-- tag
-- title
-- source
-- url
-- impact_direction
-- notes
-
-Le chargement ajoute `year` et `event_id` cote app.
-Un fichier meta est aussi maintenu: `data/external/events_meta.json` (last build, cadence mini, mode).
-
-## 5.4 Mapping groupes acteurs: `data/external/actor_groups.csv`
-
-Schema attendu (flexible via alias de colonnes):
-- actor_id
-- pic
-- group_id
-- group_name
-- is_funder (true/false)
-
-Fichiers versionnes:
-- `data/external/actor_groups.csv` (fichier actif)
-- `data/external/actor_groups.template.csv`
-
-Priorite de lecture dans `app.py`:
-1. `actor_groups.csv`
-2. fallback `actor_groups.template.csv`
-
-La sidebar affiche la couverture de mapping:
-- `matched_actors / total_actors`
-- utile pour detecter un CSV present mais non aligné avec les IDs reels du dataset.
-
-## 5.5 Manifest connecteurs: `data/external/connectors_manifest.csv`
-
-Colonnes:
-- connector_id
-- enabled
-- enabled_if_env
-- required_env
-- kind (`api_json` / `api_csv` / `mcp`)
-- url
-- method
-- headers_json
-- params_json
-- output_file
-- mcp_command
-- interval_hours
-
-Support des variables d'environnement dans les champs string:
-- `${CINEA_API_TOKEN}`
-- `${QLIK_API_TOKEN}`
-- `${EU_FUNDING_API_TOKEN}`
-- `${ANR_API_TOKEN}`
-- `${KAILA_API_TOKEN}`
-
-Template:
-- `data/external/connectors_manifest.template.csv`
-
-Fichier actif versionne:
-- `data/external/connectors_manifest.csv`
-
-## 6) Flux de build et refresh
-
-## 6.1 Flux pipeline principal (`pipeline.py`)
-
-Fonctions cle:
-- `ensure_data_updated(force=False, verbose=False)`: orchestration globale.
-- `_http_stamp()`: stamp distant (ETag/Last-Modified/Content-Length).
-- `_acquire_lock()` / `_release_lock()`: verrou local.
-- `_read_state()` / `_write_state()`: persistence dans `data/processed/_state.json`.
-
-Logique:
-1. Detecte mode Streamlit Cloud (pas de gros download en cloud).
-2. Evalue si rebuild coeur requis:
-   - force,
-   - artefact manquant,
-   - changement de stamp source,
-   - ou colonnes schema requises manquantes (`pic`, `value_chain_stage`, `project_status`).
-3. Lance connecteurs incrementaux optionnels (manifest) si present.
-4. Si rebuild coeur requis:
-   - download CORDIS,
-   - rebuild via `process_build.build_processed_dataset`.
-5. Met a jour `_state.json`.
-
-## 6.2 Build dataset (`process_build.py`)
-
-Responsabilites:
-- chargement CORDIS,
-- nettoyage/normalisation,
-- enrichissements metier,
-- ecriture atomique CSV + parquet (compression zstd),
-- production tables master.
-
-Points metier importants:
-1. Classification theme:
-- regles lexicales OneTech + Generic,
-- gestion d'exclusions/negations (`not`, `without`, `sans`, etc.) pour reduire faux positifs.
-
-2. Classification chaine de valeur:
-- `VALUE_CHAIN_RULES` -> `value_chain_stage`.
-
-3. Statut projet:
-- `Open/Closed/Unknown` selon date de fin projet.
-
-4. Groupement acteur/groupe:
-- join avec `actor_groups.csv` si disponible,
-- derive `group_id`, `group_name`, `is_funder`.
-
-## 6.3 Build evenements (`build_events.py`)
-
-Responsabilites:
-- collecte RSS EC Newsroom,
-- collecte textes legaux EUR-Lex via SPARQL,
-- tagging thematique (`TAG_RULES`),
-- deduplication,
-- mode append-only (conserve l'historique local),
-- cadence mini configurable (`SUBSIDY_EVENTS_MIN_REFRESH_HOURS`, defaut 24h),
-- ecriture atomique `events.csv`.
-
-Robustesse:
-- timeout reseau,
-- isolation erreurs par source,
-- user-agent explicite.
-
-## 6.4 Connecteurs incrementaux optionnels (`incremental_connectors.py`)
-
-Responsabilites:
-- lire le manifest,
-- pour chaque connecteur actif (soit `enabled=true`, soit `enabled_if_env=true` + env presentes):
-  - API: compare stamp distant + fetch + sauvegarde,
-  - MCP: execute commande a intervalle configure,
-- stocker etat/stamps par connecteur dans `_state.json`.
-
-Caracteristiques:
-- no-op si manifest absent,
-- erreurs isolees (un connecteur KO n'arrete pas les autres),
-- expansion variables d'environnement dans URL/headers/commandes.
-
-## 7) Application Streamlit (`app.py`) - qui fait quoi
-
-## 7.1 Boot et infra
-
-- Paths globaux vers data/scripts.
-- CSS custom.
-- i18n FR/EN via dictionnaire `I18N`.
-- cache:
-  - `@st.cache_resource` pour connexion DuckDB.
-  - `@st.cache_data` pour metadata/liste/event loading/export bytes.
-- refresh protege par lock fichier (`FileLock`).
-
-## 7.2 Moteur analytics
-
-- DuckDB query sur `read_parquet(...)` (pas de full load pandas du gros dataset).
-- `where_clause(...)` construit filtres globaux.
-- `rel_analytics(...)` ajoute couche d'agragation groupe/funder + compat schema.
-- en mode grouping: fallback automatique par `PIC` si mapping groupe absent/incomplet.
-
-## 7.3 Sidebar
-
-- langue,
-- dates de derniere MAJ (mtime),
-- reset filtres,
-- bouton refresh (lance pipeline/build_events),
-- logs de refresh,
-- filtres metier (source/program/annees/section/theme/entity/country),
-- pays par defaut: perimetre Europe (puis extension manuelle possible),
-- mapping: toggles `actor grouping` + `exclude funders`,
-- `exclude funders` reste actif meme sans mapping CSV (heuristique nom d'organisation),
-- affichage `Version code` (git SHA court) pour verifier la version deploiée.
-
-Note Cloud:
-- un message explicite indique que la persistance durable passe par GitHub Action.
-
-## 7.4 Onglets UI (mode d'emploi equipe)
-
-Regle de base:
-- Tous les onglets utilisent les filtres globaux sidebar, sauf Macro quand `Use global filters` est desactive.
-- Les montants sont des agregats sur les lignes filtrees, pas des montants projet "bruts non filtres".
-
-### 1) Vue d'ensemble / Overview
-- Role: synthese immediate (KPI, concentration, structure des tickets).
-- A lire: budget total, nombre projets/acteurs, ticket moyen/median, concentration.
-- Usage type: verifier le perimetre filtre avant analyse detaillee.
-
-### 2) Geographie / Geography
-- Role: distribution territoriale.
-- Carte + top pays.
-- Metrique: `Budget total` ou `Budget / million inhabitants (€)`.
-- Valeur par defaut recommandee: normalisee population.
-
-### 3) Benchmark acteurs / Actor benchmark
-- Role: comparaison relative des acteurs.
-- Vues: scatter, treemap (Top + Others), rankings.
-- Notes: en mode "grouping", plusieurs entites legales peuvent etre consolidees sous un meme groupe.
-
-### 4) Tendances / Trends
-- Role: trajectoire temporelle des themes/sections.
-- Vues absolu vs part (%).
-- Usage: identifier acceleration, ralentissement, glissements thematiques.
-
-### 5) Comparaison / Compare
-- Role: comparer deux periodes A/B.
-- Sortie: deltas de part et de budget.
-- Usage: lecture pre/post (policy shift, nouvelle programmation, etc.).
-
-### 6) Macro & actualites / Macro & news
-- Role: contextualisation temporelle (hypotheses, pas causalite automatique).
-- Source: `data/external/events.csv` (RSS + SPARQL + eventuels connecteurs enrichissant ce fichier en amont).
-- Fonctionnement:
-  - matching par `theme` ou par `tag`,
-  - compteur d'evenements associes affiche dans l'UI,
-  - message "low coverage" si peu d'evenements.
-- Point important:
-  - le budget affiche dans cet onglet est le budget de la thématique selectionnee (et filtres macro), pas le budget global total.
-  - les lignes d'evenements sur le graphe sont affichees sur les annees presentes dans la serie budget.
-- Interprétation:
-  - si `tag=AI` retourne peu d'evenements, cela reflète la couverture actuelle du `events.csv` (pas un bug de calcul budget).
-
-### 7) Fiche acteur / Actor profile
-- Role: zoom sur un acteur (tendance, themes, geographie, partenaires).
-- Usage: analyser le profil, la specialisation et l'intensite de collaboration d'un acteur.
-
-### 8) Chaine & reseau / Value chain & network
-- Role: articulation `value_chain_stage -> acteurs` + reseau de collaboration.
-- Vues:
-  - Sankey (budget agrege),
-  - focus etape -> top acteurs -> table projets associes,
-  - graphe de co-participation autour d'un acteur focal.
-- Point robustesse:
-  - fallback SQL present pour eviter un crash UI si une requete detaillee echoue.
-
-### 9) Donnees / Data
-- Role: audit de lignes.
-- Pagination server-side DuckDB (evite `MessageSizeError` Streamlit).
-- Export page + export complet filtre.
-
-### 10) Qualite / Quality
-- Role: controles de completude/coherence (annees, montants, champs critiques).
-- Usage: verifier la fiabilite avant presentation metier.
-
-### 11) Aide / Help
-- Role: consignes de lecture fonctionnelle et limites d'interpretation.
-
-### 12) Guide
-- Role: mode d'emploi detaille (workflow utilisateur, bonnes pratiques d'analyse).
-
-## 8) Automatisation durable GitHub -> Streamlit
-
-Workflow:
-- fichier: `.github/workflows/refresh-data.yml`
-- declenchement:
-  - manuel (`workflow_dispatch`)
-  - quotidien (`cron 15 5 * * *`, soit 05:15 UTC)
-
-Pipeline Action:
-1. install deps,
-2. `python pipeline.py`,
-3. `python build_events.py`,
-4. check taille parquet (< 100 MiB),
-5. commit/push auto si changement des artefacts versionnes.
-
-Resultat:
-- le repo est mis a jour automatiquement,
-- Streamlit Cloud redeploie/relit ces artefacts versionnes.
-
-## 9) Ce qui est automatique vs ce qui est manuel
-
-Automatique:
-- refresh local via bouton (execution scripts + clear cache),
-- refresh durable via GitHub Action si activee.
-
-Manuel (configuration initiale):
-- renseigner endpoints reels dans `connectors_manifest.csv`,
-- soit activer `enabled=true`, soit laisser `enabled_if_env=true` et injecter les variables d'environnement requises,
-- definir secrets GitHub si utilisation en Action,
-- maintenir mapping `actor_groups.csv` selon gouvernance metier.
-
-## 10) Limites et points de vigilance
-
-1. Taille du parquet:
-- actuellement proche de la limite GitHub 100 MiB.
-- depassement => push impossible (workflow le bloque explicitement).
-
-2. Streamlit Cloud:
-- write runtime non garantie durable sans commit GitHub.
-
-3. Classification theme/chaine:
-- regles lexicales robustes mais pas infaillibles.
-- ambiguite semantique possible sur abstracts.
-
-4. Connecteurs externes:
-- templates placeholders,
-- necessitent endpoints/API contract reel.
-
-5. Securite:
-- tokens uniquement en variables d'environnement / GitHub Secrets.
-- ne pas committer de secrets dans CSV/README.
-
-## 11) Runbook operationnel
-
-## 11.1 Local end-to-end
+`theme_classifier_v3.py` ne décide plus du thème principal produit.
+
+Son rôle actuel est :
+- déduire des sous-thèmes scientifiques multi-label au niveau projet ;
+- sérialiser la liste dans `scientific_subthemes` ;
+- produire une vue courte de compatibilité via `sub_theme` ;
+- produire la table `project_scientific_subthemes`.
+
+Le module s'appuie sur `cordis_taxonomy.py` :
+- `infer_scientific_subtheme_records()`
+- `scientific_subtheme_labels()`
+- `first_scientific_subtheme()`
+
+Format principal :
+- `scientific_subthemes` = liste JSON sérialisée ;
+- `scientific_subthemes_count` = nombre de labels ;
+- `project_scientific_subthemes` = table annexe normalisée.
+
+## 9. Pipeline et refresh
+
+### 9.1 `pipeline.py`
+
+Rôle :
+- vérifier si un rebuild est nécessaire ;
+- comparer les stamps des sources ;
+- vérifier la présence du schéma attendu ;
+- acquérir et relâcher un lock ;
+- déclencher `process_build.py` si besoin.
+
+Logique locale :
+- si le parquet manque, si le CSV manque, si le schéma manque, si les sources ont changé ou si `force=True`, alors rebuild.
+
+Logique cloud :
+- pas de gros téléchargement CORDIS ;
+- si le parquet existe déjà, on le lit ;
+- sinon l'app doit être alimentée par un rebuild local/pipeline et un commit des artefacts.
+
+### 9.2 `process_build.py`
+
+Rôle :
+- charger les bulk CORDIS ;
+- normaliser les colonnes ;
+- calculer le statut projet et la chaîne de valeur ;
+- construire le niveau projet CORDIS-first ;
+- enrichir les sous-thèmes scientifiques ;
+- rebroadcast au grain principal ;
+- écrire CSV, parquet et tables dérivées de manière atomique.
+
+Étapes majeures :
+1. chargement des programmes CORDIS ;
+2. fusion et enforcement du schéma ;
+3. conservation des champs legacy ;
+4. dérivation du niveau projet (`cordis_theme_primary`, `cordis_domain_ui`, etc.) ;
+5. enrichissement multi-label scientifique ;
+6. réinjection des colonnes projet dans le dataset principal ;
+7. écriture des artefacts.
+
+### 9.3 `build_events.py`
+
+Rôle :
+- construire `data/external/events.csv` à partir des sources RSS et SPARQL ;
+- alimenter la lecture macro dans l'app ;
+- conserver une logique append/refresh contrôlée.
+
+## 10. Application Streamlit
+
+## 10.1 Principes UX
+
+L'application est conçue pour rester lisible par un utilisateur métier non technique.
+
+La hiérarchie d'affichage visible est désormais :
+1. `Domaines CORDIS`
+2. `Thème principal CORDIS`
+3. `Sous-thèmes scientifiques`
+4. codes CORDIS bruts en second niveau seulement (détails, tooltips, exports)
+
+`cordis_labels.py` centralise l'humanisation des libellés affichés.
+
+## 10.2 Entrée guidée
+
+La home page guidée repose sur :
+- une intention de lecture ;
+- des domaines CORDIS ;
+- une recherche libre ;
+- un choix de pays ;
+- une période.
+
+Elle applique ensuite ce cadrage à l'analyse complète.
+
+## 10.3 Deux modes d'usage
+
+### Vue d'ensemble
+
+Mode simplifié orienté lecture rapide. Onglets principaux :
+- `⌕ Recherche & résultats`
+- `◎ Géographie`
+- `↗ Tendances & événements`
+
+### Recherche avancée
+
+Mode complet avec filtres et vues expertes supplémentaires :
+- `⌕ Recherche & résultats`
+- `◈ Acteurs`
+- `◎ Géographie`
+- `↗ Tendances & événements`
+- `◇ Outils experts`
+- `⋯ Données, méthode & exports`
+
+## 10.4 Filtres principaux
+
+Filtres visibles par défaut :
+- période ;
+- domaines CORDIS ;
+- thème principal CORDIS ;
+- pays ;
+- recherche libre.
+
+Filtres avancés :
+- programme ;
+- source ;
+- type d'entité ;
+- statut projet ;
+- sous-thèmes scientifiques ;
+- options d'analyse (`OneTech`, regroupement d'acteurs, exclusion financeurs).
+
+## 10.5 Vues et usages
+
+### Recherche & résultats
+
+- porte d'entrée principale ;
+- table projet lisible ;
+- détail projet ;
+- quick actions vers acteurs, géographie et tendances.
+
+### Acteurs
+
+- classement et profil acteur ;
+- drilldowns depuis les résultats.
+
+### Géographie
+
+- distribution des financements par pays ;
+- quick actions pour filtrer ensuite les résultats ou les tendances sur un pays.
+
+### Tendances & événements
+
+- lecture temporelle par défaut sur `cordis_domain_ui` ;
+- comparaison de périodes ;
+- couche macro d'événements.
+
+### Outils experts
+
+- comparaison d'acteurs ;
+- étapes et acteurs ;
+- partenariats ;
+- concentration.
+
+### Données, méthode & exports
+
+- exports ;
+- informations de méthode ;
+- qualité ;
+- diagnostics.
+
+## 10.6 Humanisation des labels
+
+L'app ne doit pas exposer un code CORDIS brut comme lecture principale d'un graphe synthétique si un label plus lisible existe.
+
+`cordis_labels.py` gère notamment :
+- `domain_raw_to_display()`
+- `theme_raw_to_display()`
+- `scientific_subthemes_compact()`
+- `format_dimension_value()`
+- `build_dimension_hover_html()`
+
+Usage :
+- `cordis_domain_ui` comme défaut dans les vues synthétiques ;
+- `cordis_theme_primary` humanisé quand il est affiché ;
+- valeur brute conservée dans le tooltip ou le détail.
+
+## 11. Couche DuckDB et compatibilité
+
+L'app n'interroge pas directement le parquet brut tel quel partout.
+
+Elle construit une vue DuckDB `subsidy_base` qui :
+- applique les colonnes de compatibilité ;
+- reconstruit les champs dérivés si besoin ;
+- filtre certains périmètres non souhaités ;
+- expose une structure stable au reste de l'application.
+
+Une seconde vue `project_scientific_subthemes_view` alimente les filtres et lectures multi-label sur les sous-thèmes.
+
+## 12. Règles de comptage et d'interprétation
+
+Règles à respecter :
+
+1. total projets = `COUNT(DISTINCT projectID)` ;
+2. le thème principal CORDIS reste unique par projet ;
+3. les sous-thèmes scientifiques peuvent montrer plusieurs lignes pour un même projet ;
+4. on ne somme jamais l'explosion des sous-thèmes pour reconstituer le total global ;
+5. les budgets lus dans l'app doivent toujours être interprétés dans le périmètre filtré courant.
+
+En pratique :
+- une vue résultats, géographie ou acteurs travaille sur le dataset principal filtré ;
+- une vue sous-thèmes peut utiliser la table projet x sous-thème, mais à titre exploratoire uniquement.
+
+## 13. Mapping groupes et financeurs
+
+Le repo prend en charge un mapping groupes acteurs via :
+- `data/external/actor_groups.csv`
+- fallback `actor_groups.template.csv`
+
+Effets :
+- regroupement par groupe / PIC ;
+- consolidation d'acteurs ;
+- exclusion facultative de financeurs/agences.
+
+Le mapping reste partiel si le CSV ne couvre pas tous les identifiants réels présents dans les données.
+
+## 14. Déploiement et automatisation
+
+### Local
+
+Usage recommandé :
+- `python pipeline.py` pour un refresh incrémental ;
+- `python process_build.py` pour un rebuild complet ;
+- `python build_events.py` pour la couche événements.
+
+### Streamlit Community Cloud
+
+Le bouton de refresh lourd est volontairement désactivé côté cloud.
+
+Stratégie recommandée :
+- lancer les rebuilds en local ou via GitHub Actions ;
+- versionner / pousser les artefacts utiles ;
+- laisser l'app cloud lire les artefacts déjà produits.
+
+## 15. Compatibilité et migration
+
+Le dépôt est dans une logique de migration maîtrisée :
+- maintien de champs legacy ;
+- maintien de certaines vues qui lisent encore `theme` ou `sub_theme` ;
+- réorientation progressive de l'UX vers `cordis_domain_ui`, `cordis_theme_primary` et `scientific_subthemes`.
+
+Ce qu'il ne faut plus faire :
+- considérer `theme` legacy comme le cœur produit ;
+- présenter `OneTech` comme axe principal ;
+- sommer des sous-thèmes pour reconstruire le total.
+
+## 16. Limites connues
+
+- le dataset principal reste au grain participant/projet, ce qui demande de la rigueur dans l'interprétation des budgets ;
+- le mapping groupes dépend de la qualité de `actor_groups.csv` ;
+- la couche événements reste un contexte de lecture, pas une vérité causale ;
+- la qualité des sous-thèmes scientifiques peut encore nécessiter du tuning métier si l'on veut un niveau d'exigence plus fin par domaine.
+
+## 17. Commandes utiles
+
+### Compiler les fichiers principaux
 
 ```bash
-cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
-/opt/anaconda3/envs/pyshtools_env/bin/python -m pip install -r requirements.txt
-/opt/anaconda3/envs/pyshtools_env/bin/streamlit run app.py
+python3 -m py_compile app.py process_build.py pipeline.py theme_classifier_v3.py cordis_taxonomy.py cordis_labels.py
 ```
 
-Puis:
-- cliquer `Refresh` dans la sidebar.
+### Rebuild incrémental
 
-## 11.2 Activer l'automatisation durable
-
-1. Pusher le repo.
-2. Verifier que le workflow `Refresh Data` apparait dans GitHub Actions.
-3. Lancer une execution manuelle initiale.
-4. Ajouter secrets si connecteurs prives.
-
-## 11.3 Debug rapide
-
-Si refresh KO:
-- verifier logs dans l'UI,
-- verifier dependances (`requirements.txt`),
-- verifier connectivite reseau,
-- verifier format CSV mapping/groupes/connecteurs.
-
-Si onglet vide:
-- verifier filtres globaux,
-- verifier presence colonnes schema attendues,
-- faire un refresh complet pour regenerer parquet.
-
-Si push GitHub KO avec `Could not resolve host: github.com`:
-- ce n'est pas un bug applicatif,
-- c'est une panne reseau/DNS locale,
-- relancer le push une fois la connectivite retablie.
-
-Si URL Streamlit ne change pas apres push:
-1. verifier que le commit est bien sur `origin/main`,
-2. verifier que l'app Streamlit pointe sur la bonne branche,
-3. verifier la valeur `Version code` (SHA) en sidebar,
-4. forcer un redeploiement Streamlit.
-
-Si regroupement entreprise inactif:
-1. verifier `Mapping coverage`,
-2. si couverture ~0%, corriger `actor_id` / `pic` dans `actor_groups.csv`,
-3. relancer `Refresh`.
-
-Si carte geo non normalisee population:
-1. onglet `Geography`,
-2. controle `Map metric`,
-3. choisir `Budget / million inhabitants (€)`.
-
-## 12) Mapping "quel code fait quoi"
-
-### `app.py`
-- UI + i18n + analytics + refresh runtime.
-- Fonctions cles: `rel_analytics`, `where_clause`, `refresh_with_lock`, `load_events`.
-- Onglets: blocs `with tab_*`.
-
-### `pipeline.py`
-- Orchestrateur update incremental.
-- Fonctions cles: `ensure_data_updated`, `_http_stamp`, `_parquet_columns`.
-
-### `process_build.py`
-- ETL principal et normalisation.
-- Fonctions cles: `load_cordis_program`, `infer_theme`, `infer_value_chain_stage`, `build_master_actor_tables`, `build_processed_dataset`.
-
-### `build_events.py`
-- ETL evenements macro.
-- Fonctions cles: `fetch_rss_events`, `fetch_eurlex_sparql_events`, `atomic_write_events_csv`.
-
-### `incremental_connectors.py`
-- ETL connecteurs API/MCP optionnels.
-- Fonctions cles: `run_incremental_connectors`, `_run_api_connector`, `_run_mcp_connector`.
-
-### `.github/workflows/refresh-data.yml`
-- Automatisation durable des artefacts versionnes.
-
-## 13) Architecture cible entreprise (prochaine etape)
-
-Pour un usage entreprise stable, le mode cible recommande n'est pas "le dashboard interroge toutes les API directement a chaque clic". Le mode cible est:
-
-```mermaid
-flowchart LR
-    A["APIs / MCP / fichiers sources"] --> B["Pipeline d'ingestion incremental"]
-    B --> C["Modele maitre normalise"]
-    C --> D["Semantic model BI / couche analytique"]
-    D --> E["Dashboard Streamlit / Power BI"]
-    D --> F["Chatbot IA / Copilot / agent"]
+```bash
+python pipeline.py
 ```
 
-### 13.1 Modele de donnees cible
+### Rebuild complet
 
-Le modele cible doit separer clairement:
-- `fact_awards`: projets laureats / financements obtenus,
-- `fact_calls`: appels ouverts / fermes / historiques,
-- `dim_actor_legal`: entite juridique,
-- `dim_group`: groupe corporate,
-- `bridge_actor_group`: rattachement entite -> groupe dans le temps,
-- `dim_theme`: thematique normalisee,
-- `dim_value_chain_stage`: maillon de chaine de valeur,
-- `dim_project_status`: `Open` / `Closed` / `Unknown`,
-- `dim_funder`: financeur / agence / type d'organisme.
+```bash
+python process_build.py
+```
 
-### 13.2 PIC et regroupement groupe
+### Lancer l'app
 
-Le code actuel sait:
-- utiliser un mapping explicite via `actor_groups.csv`,
-- retomber sur un fallback `PIC` quand le mapping n'est pas renseigne.
+```bash
+streamlit run app.py
+```
 
-Attention:
-- le `PIC` identifie surtout une organisation/entite participante,
-- il ne suffit pas toujours pour reconstruire un groupe corporate complet,
-- un regroupement fiable "groupe" demande une table metier maintenue (`group_id`, `group_name`, historique, eventuels alias).
+## 18. Documents associés
 
-### 13.3 IA / Microsoft / Power BI
+- `README.md`
+- `AUDIT_QUALITE_CORDIS_RADAR_2026-03-19.md`
+- `AUDIT_EXECUTIVE_SUMMARY_CORDIS_RADAR_2026-03-19.md`
+- `AUDIT_TECHNIQUE_RISQUES_PREUVES_2026-03-19.md`
 
-Si l'outil doit vivre dans l'ecosysteme Microsoft, la cible recommandee est:
-- pipeline de donnees versionne,
-- semantic model propre (etoile / dimensions explicites),
-- visualisation dans Power BI ou Streamlit,
-- couche conversationnelle via Copilot / agent sur ce semantic model.
-
-Implication pratique:
-- l'IA ne doit pas interroger des CSV heterogenes bruts,
-- elle doit s'appuyer sur un modele metier stable et documente,
-- les synonymes, descriptions de colonnes, mesures et relations doivent etre formalises.
-
-### 13.4 Classification thematique et negations
-
-Le code actuel contient deja une premiere protection contre des phrases du type:
-- `not in scope`,
-- `excluded from scope`,
-- `without`,
-- `sans`,
-- `hors`.
-
-Pour une fiabilite entreprise, la prochaine etape est:
-- annotation d'un echantillon de projets,
-- evaluation faux positifs / faux negatifs,
-- regles de negation plus fines au niveau phrase,
-- eventuellement modele NLP specialise si le volume et l'enjeu le justifient.
-
-### 13.5 Ce qui est realiste a court terme
-
-Court terme:
-- consolider `laureats + calls ouverts/fermes`,
-- fiabiliser `acteur legal / groupe / PIC`,
-- documenter les mesures et definitions,
-- rendre l'UI plus simple et orientee usages.
-
-Plus tard:
-- chatbot IA branche sur modele analytique,
-- graphes de collaboration navigables,
-- analyses guidees en langage naturel,
-- vues "chaine de valeur x acteur x call x budget".
-
----
-
-Si besoin, une version "executive summary" (1 page) peut etre ajoutee en plus de ce document.

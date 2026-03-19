@@ -1,114 +1,160 @@
-# Subsidy Intelligence Radar — quick start (local + Streamlit Cloud)
+# Subsidy Intelligence Radar
 
-Project-awards data source:
-- CORDIS only (`Horizon Europe` + `Horizon 2020`)
+Application Streamlit d'exploration des projets CORDIS (`Horizon Europe` + `Horizon 2020`) avec un modèle de données CORDIS-first, une navigation guidée par question et des vues analytiques orientées métier.
 
-Documentation technique complete:
+Le projet agrège les données bulk CORDIS, les transforme en un dataset analytique stable, puis les expose dans une app de recherche, de comparaison, de géographie, de tendances et d'analyse d'acteurs.
+
+## Ce qui structure désormais le produit
+
+Le produit n'est plus organisé autour d'une taxonomie métier maison comme axe principal.
+
+Il repose désormais sur 3 niveaux explicites :
+
+1. `cordis_domain_ui`
+   - 11 grands domaines CORDIS utilisés pour la navigation, la home guidée et les lectures synthétiques.
+2. `cordis_theme_primary`
+   - thème principal officiel unique par projet, dérivé prioritairement des métadonnées CORDIS (`programmeDivisionTitle`, `programmeDivision`, `topic`, `call`, `frameworkProgramme`).
+3. `scientific_subthemes`
+   - sous-thèmes scientifiques multi-label utilisés pour l'exploration fine.
+
+Règle clé :
+- les totaux globaux de projets et de budget restent calculés sur le dataset principal et sur `COUNT(DISTINCT projectID)` ;
+- les sous-thèmes ne servent pas à recomposer les totaux globaux.
+
+## Ce que l'application permet aujourd'hui
+
+- commencer par une question métier sur une home guidée ;
+- cadrer l'analyse par domaine CORDIS, thème principal CORDIS, sous-thèmes scientifiques, pays et période ;
+- rechercher des projets et des acteurs ;
+- comparer des pays et des acteurs ;
+- suivre les tendances et les contextualiser avec une couche macro/événements ;
+- ouvrir des vues expertes sans imposer la complexité dès l'entrée.
+
+## Architecture à haut niveau
+
+```mermaid
+flowchart TD
+    A[CORDIS bulk CSV ZIP] --> B[pipeline.py]
+    B --> C[process_build.py]
+    C --> D[data/processed/subsidy_base.parquet]
+    C --> E[data/processed/actor_master.parquet]
+    C --> F[data/processed/group_master.parquet]
+    C --> G[data/processed/project_actor_links.parquet]
+    C --> H[data/processed/project_scientific_subthemes.parquet]
+    I[build_events.py] --> J[data/external/events.csv]
+    D --> K[app.py]
+    E --> K
+    F --> K
+    G --> K
+    H --> K
+    J --> K
+```
+
+## Fichiers principaux
+
+- `app.py`
+  - application Streamlit, navigation, filtres, vues analytiques, intégration DuckDB.
+- `process_build.py`
+  - build du dataset principal et des tables analytiques dérivées.
+- `pipeline.py`
+  - orchestration de refresh, logique incrémentale locale, verrouillage et contrôle de schéma.
+- `build_events.py`
+  - construction de `events.csv` pour la couche macro/actualités.
+- `cordis_taxonomy.py`
+  - fonctions de normalisation CORDIS, dérivation du thème principal officiel, domaine UI et sous-thèmes scientifiques.
+- `theme_classifier_v3.py`
+  - enrichissement déterministe des sous-thèmes scientifiques multi-label.
+- `cordis_labels.py`
+  - humanisation des labels CORDIS pour l'interface.
 - `DOCUMENTATION_TECHNIQUE_COMPLETE.md`
-- Email equipe pret a envoyer:
-  - `EMAIL_EQUIPE_SUBSIDY_RADAR.md`
+  - documentation technique détaillée.
 
-## Run now (end-to-end)
+## Installation locale
+
+### Option 1 — virtualenv
+
 ```bash
 cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
-
-# Option A: venv
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-
-# Option B: conda (if you prefer your existing env)
-# conda activate pyshtools_env
-# python -m pip install -r requirements.txt
-
-streamlit run app.py
 ```
 
-Then in the app:
-1. Click **Refresh** once (it rebuilds data + events + master actor/group tables).
-2. Check tabs:
-`Overview`, `Macro & news`, `Actor profile`, `Value chain & network`.
+### Option 2 — conda
 
-## Local run
 ```bash
-cd /path/to/subsidy_radar_fixed_v2
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-In the app, click **Refresh** to (re)build:
-- `pipeline.py` (download CORDIS + build `data/processed/subsidy_base.csv`)
-- `build_events.py` (build `data/external/events.csv`)
-
-`events.csv` now stores a dedicated `url` column (source link) in addition to notes.
-`build_events.py` also writes `data/external/events_meta.json` and enforces a minimum refresh interval (`SUBSIDY_EVENTS_MIN_REFRESH_HOURS`, default `24`).
-
-If `build_events.py` fails with `No module named feedparser`, run:
-```bash
+cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
+conda activate pyshtools_env
 python -m pip install -r requirements.txt
 ```
-with the same Python interpreter used to launch Streamlit.
 
-## Actor grouping (PIC / group)
-`data/external/actor_groups.csv` is now versioned so Streamlit Cloud can use the same mapping as local runs.
+## Lancer l'application
 
-Expected columns:
-- `actor_id` (preferred join key)
-- `pic` (optional fallback join key)
-- `group_id`
-- `group_name`
-- `is_funder` (`true/false`, optional)
-
-A template is provided in:
-- `data/external/actor_groups.template.csv`
-- App fallback: if `actor_groups.csv` is missing, the app reads `actor_groups.template.csv`.
-- The sidebar shows mapping coverage (`matched_actors / total_actors`) to verify whether mapping rows actually match your dataset IDs.
-
-## Optional incremental connectors (API / MCP)
-`data/external/connectors_manifest.csv` is versioned and can be used by local refresh and GitHub Actions refresh:
-- CINEA / Qlik / EU Funding APIs (`kind=api_json` or `api_csv`)
-- MCP command connectors (`kind=mcp`)
-
-Template:
-- `data/external/connectors_manifest.template.csv`
-- Use environment variables for credentials (`${...}`), never plain tokens in git.
-
-On each pipeline refresh:
-- connectors are checked incrementally
-- each connector keeps its own stamp in `data/processed/_state.json`
-- failures are isolated (one connector can fail without stopping others)
-- connectors can auto-enable when required env vars are available (`enabled_if_env=true`)
-
-Environment-variable placeholders are supported in the manifest:
-- `${CINEA_API_TOKEN}`
-- `${QLIK_API_TOKEN}`
-- `${EU_FUNDING_API_TOKEN}`
-- `${ANR_API_TOKEN}`
-- `${KAILA_API_TOKEN}`
-
-Example:
 ```bash
-export CINEA_API_TOKEN="xxx"
-export QLIK_API_TOKEN="xxx"
-export EU_FUNDING_API_TOKEN="xxx"
-export ANR_API_TOKEN="xxx"
-export KAILA_API_TOKEN="xxx"
+cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
+streamlit run app.py
 ```
 
-## New derived outputs
-`process_build.py` now also writes:
-- `data/processed/actor_master.{csv,parquet}`
-- `data/processed/group_master.{csv,parquet}`
-- `data/processed/project_actor_links.{csv,parquet}`
-- `data/processed/project_scientific_subthemes.{csv,parquet}`
+## Mettre à jour les données
 
-The base dataset includes additional fields:
-- `pic`
+### Recommandé en local : pipeline incrémental
+
+```bash
+cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
+python pipeline.py
+```
+
+Ce mode :
+- vérifie les stamps des sources CORDIS ;
+- reconstruit le dataset si nécessaire ;
+- vérifie aussi le schéma attendu ;
+- évite un rebuild complet si rien n'a changé.
+
+### Rebuild complet du dataset analytique
+
+```bash
+cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
+python process_build.py
+```
+
+À utiliser quand :
+- la logique de build a changé ;
+- la logique de classification CORDIS / sous-thèmes a changé ;
+- les fichiers `data/processed/` ont été supprimés ;
+- tu veux forcer une reconstruction complète.
+
+### Rebuild de la couche macro / événements
+
+```bash
+cd /Users/charlottecrocicchia/Desktop/TotalEnergies/subsidy-intelligence-radar
+python build_events.py
+```
+
+## Comportement du bouton Refresh dans l'app
+
+En local :
+- le bouton **Rafraîchir les données** peut lancer `pipeline.py`, puis `build_events.py`.
+
+Sur Streamlit Community Cloud :
+- le bouton de refresh est désactivé volontairement ;
+- les mises à jour persistantes doivent passer par GitHub Actions / un rebuild local suivi d'un commit-push des artefacts versionnés.
+
+## Modèle de données actuel
+
+### Dataset principal
+
+Fichier principal :
+- `data/processed/subsidy_base.parquet`
+
+Colonnes structurantes :
+- `projectID`
+- `actor_id`
+- `org_name`
+- `country_name`
+- `amount_eur`
+- `project_status`
 - `value_chain_stage`
-- `project_status` (`Open` / `Closed` / `Unknown`)
 - `cordis_domain_ui`
 - `cordis_theme_primary`
 - `cordis_theme_primary_source`
@@ -121,80 +167,113 @@ The base dataset includes additional fields:
 - `legacy_theme`
 - `legacy_sub_theme`
 
-## CORDIS-first classification model
-The app is no longer structured around a house OneTech theme as its primary product axis.
+### Tables dérivées
 
-The classification now separates:
-- `cordis_domain_ui`: one of the 11 high-level CORDIS navigation domains used in guided entry and simple filters
-- `cordis_theme_primary`: one unique official primary theme per project, derived from CORDIS metadata with this priority:
-  - `programmeDivisionTitle`
-  - `programmeDivision`
-  - `topic`
-  - `call`
-  - `frameworkProgramme`
-  - explicit fallback only if nothing official is available
-- `scientific_subthemes`: multi-label scientific sub-themes used for fine-grained exploration only
+`process_build.py` écrit aussi :
+- `data/processed/actor_master.{csv,parquet}`
+- `data/processed/group_master.{csv,parquet}`
+- `data/processed/project_actor_links.{csv,parquet}`
+- `data/processed/project_scientific_subthemes.{csv,parquet}`
 
-Counting rules:
-- global project totals must stay on `COUNT(DISTINCT projectID)` over the main dataset
-- main budget totals must stay grouped by project / primary theme, not by exploded sub-theme rows
-- `project_scientific_subthemes` is exploratory and can show the same project in multiple scientific sub-themes
+## Règles de comptage à retenir
 
-## Streamlit Community Cloud
-Push this repo to GitHub, then deploy with main file `app.py`.
+- total projets = `COUNT(DISTINCT projectID)` ;
+- le thème principal CORDIS est unique par projet ;
+- les sous-thèmes scientifiques sont multi-label ;
+- un projet peut donc apparaître dans plusieurs sous-thèmes scientifiques ;
+- on ne somme jamais les sous-thèmes pour reconstituer le total global ;
+- les budgets restent interprétés sur le périmètre filtré courant, au grain principal du dataset, pas sur une explosion naïve des sous-thèmes.
 
-Important:
-- A Streamlit Cloud app can recompute files at runtime, but those file writes are not guaranteed to persist forever across restarts/redeploys.
-- Durable automation is handled by GitHub Actions (`.github/workflows/refresh-data.yml`), which updates tracked data in the repo.
-- In Cloud mode, the in-app **Refresh** button is intentionally disabled to avoid non-persistent updates. Use the GitHub Actions workflow link shown in the sidebar.
+## UX actuelle de l'application
 
-### Enable full automation (recommended)
-1. Push this branch to GitHub.
-2. In GitHub, open **Actions** and verify workflow **Refresh Data** appears.
-3. Run it once with **Run workflow**.
-4. Optionally add repository secrets for connectors:
-`CINEA_API_TOKEN`, `QLIK_API_TOKEN`, `EU_FUNDING_API_TOKEN`, `ANR_API_TOKEN`, `KAILA_API_TOKEN`.
-5. Keep Streamlit linked to the same branch (or `main`) to pick up automated commits.
+### Home page
 
-### Deployment checks (important)
-1. In app sidebar, compare `Version code` (git SHA) with latest GitHub commit.
-2. In `Geography`, default map metric should be `Budget / million inhabitants (€)`.
-3. In sidebar mapping block:
-`Mapping groups loaded` + `Mapping coverage` must appear if mapping file is detected.
-4. `Exclude funders / agencies` remains available even without mapping file (heuristic mode).
-5. Country filter default should be Europe-first (you can then add non-European countries).
-6. In `Value chain & network`, use `Themes` + `Value-chain stages to display` + `Stage to explore` for actor/project drilldown.
-7. In `Macro & news`, tag mode supports `All themes (tag)` for robust event exploration when strict tag-theme mapping is unavailable.
-8. If `streamlit-plotly-events` is installed, Sankey node clicks auto-isolate stage/actor.
+La home guidée est organisée autour de :
+- une intention utilisateur ;
+- des domaines CORDIS ;
+- une recherche libre ;
+- un périmètre pays ;
+- une période.
 
-## Troubleshooting
+### Deux modes d'usage
 
-### `Failed to push` + `Could not resolve host: github.com`
-This is a local network/DNS issue, not a repository/code issue.
-- Reconnect internet / VPN.
-- Retry push when DNS is back.
+- `Vue d'ensemble`
+  - lecture simplifiée, centrée sur la réponse rapide ;
+- `Recherche avancée`
+  - accès à plus de filtres et aux vues expertes.
 
-### URL Streamlit not updated after push
-- Confirm commit exists on `origin/main`.
-- Confirm Streamlit app points to the same repository and branch.
-- Force a Streamlit redeploy.
-- Verify sidebar `Version code`.
+### Navigation principale
 
-### Grouping toggle has no visible effect
-- Check mapping coverage in sidebar.
-- If coverage is near `0%`, your `actor_id`/`pic` values in `actor_groups.csv` do not match current dataset identifiers.
-- Update mapping file, then click `Refresh`.
+En pratique, l'app s'organise autour de :
+- `⌕ Recherche & résultats`
+- `◈ Acteurs`
+- `◎ Géographie`
+- `↗ Tendances & événements`
+- `◇ Outils experts`
+- `⋯ Données, méthode & exports`
 
-## GitHub push (recommended)
-Yes, you should push to GitHub for versioning + deployment.
+Les vues synthétiques utilisent par défaut `cordis_domain_ui` comme lecture principale. Les codes CORDIS bruts sont conservés pour les détails, tooltips et exports, pas comme libellés principaux dans les graphes métier.
+
+## Compatibilité et migration
+
+Le repo conserve une compatibilité transitoire avec l'ancien modèle :
+- `theme` reste présent comme champ de compatibilité et reflète `cordis_theme_primary` dans la vue analytique ;
+- `sub_theme` reste disponible comme compatibilité courte ;
+- `legacy_theme` et `legacy_sub_theme` conservent les anciennes valeurs quand elles existent encore.
+
+Le filtre `OneTech only` est désormais un filtre avancé legacy. Il ne structure plus la home, les vues principales ni le modèle produit.
+
+## Déploiement Streamlit Cloud
+
+Pour Streamlit Community Cloud :
+- déployer `app.py` comme fichier principal ;
+- versionner les artefacts nécessaires dans `data/processed/` et `data/external/` ;
+- utiliser GitHub Actions pour les refresh durables.
+
+Points pratiques :
+- l'app en cloud lit les artefacts déjà présents ;
+- elle ne doit pas dépendre d'un gros rebuild non persistant au runtime ;
+- le code affiche la version et l'état des données côté interface pour faciliter les vérifications.
+
+## Dépannage rapide
+
+### L'app n'affiche pas les nouvelles données
+
+Vérifie dans l'ordre :
+1. que `process_build.py` ou `pipeline.py` a bien été relancé ;
+2. que `data/processed/subsidy_base.parquet` a été réécrit ;
+3. que le bon commit a été poussé sur la branche déployée ;
+4. que Streamlit Cloud a bien redéployé la dernière version.
+
+### Le refresh est lent
+
+C'est attendu pour un rebuild complet :
+- lecture des bulk CORDIS ;
+- reconstruction du dataset principal ;
+- reconstruction des tables acteurs/groupes ;
+- reconstruction de la table multi-label des sous-thèmes.
+
+Si tu veux un workflow plus léger, privilégie `pipeline.py` au lieu de `process_build.py` quand rien de structurel n'a changé.
+
+### Les sous-thèmes scientifiques semblent plus nombreux que les projets
+
+C'est normal :
+- le modèle est multi-label ;
+- un projet peut être rattaché à plusieurs sous-thèmes scientifiques ;
+- ces vues servent à l'exploration fine, pas au total global.
+
+## Documents utiles
+
+- `DOCUMENTATION_TECHNIQUE_COMPLETE.md`
+- `AUDIT_QUALITE_CORDIS_RADAR_2026-03-19.md`
+- `AUDIT_EXECUTIVE_SUMMARY_CORDIS_RADAR_2026-03-19.md`
+- `AUDIT_TECHNIQUE_RISQUES_PREUVES_2026-03-19.md`
+
+## Push GitHub
 
 ```bash
 git add .
-git commit -m "Refactor app + incremental connectors + actor/group master model"
+git commit -m "Update documentation for CORDIS-first model"
 git push origin <your-branch>
 ```
 
-Notes:
-- `data/raw/` stays ignored.
-- `data/processed/subsidy_base.parquet`, `data/processed/_state.json`, `data/external/events.csv`, `data/external/events_meta.json`, `data/external/actor_groups.csv`, `data/external/connectors_manifest.csv`, `data/external/connectors/*.json` are tracked for cloud runs.
-- If the parquet becomes too large for GitHub limits, use Git LFS or a smaller processed export.
