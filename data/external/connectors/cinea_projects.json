@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 558,
+    "count": 560,
     "results": [
       {
         "country": {
@@ -2513,7 +2513,8 @@
               "label": "German",
               "resource": "http://publications.europa.eu/resource/authority/language/DEU"
             }
-          ]
+          ],
+          "count": 13407
         },
         "translation_meta": {
           "details": {
