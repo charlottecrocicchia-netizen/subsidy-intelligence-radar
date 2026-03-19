@@ -3174,6 +3174,24 @@ def queue_tab_navigation(
     st.session_state["nav_target_advanced_sub"] = str(advanced_sub_target or "")
 
 
+def queue_filter_updates(**updates: object) -> None:
+    pending = dict(st.session_state.get("_pending_filter_updates", {}))
+    for key, value in updates.items():
+        if isinstance(value, (list, tuple, set)):
+            pending[str(key)] = list(value)
+        else:
+            pending[str(key)] = value
+    st.session_state["_pending_filter_updates"] = pending
+
+
+def apply_pending_filter_updates() -> None:
+    pending = st.session_state.pop("_pending_filter_updates", None)
+    if not isinstance(pending, dict):
+        return
+    for key, value in pending.items():
+        st.session_state[str(key)] = value
+
+
 def sync_results_table_state(scope_token: str) -> None:
     allowed_rows = [25, 50, 100, 250]
     if st.session_state.get("results_table_rows_per_page") not in allowed_rows:
@@ -4448,6 +4466,7 @@ def _scientific_subthemes_available_for_domains(meta: dict, domains: List[str]) 
 
 
 _ensure_filter_state()
+apply_pending_filter_updates()
 _normalize_country_state(meta)
 st.session_state.setdefault("app_mode", "simple")
 st.session_state.setdefault("sir_screen", "welcome")
@@ -5568,7 +5587,7 @@ with tab_results:
                             if st.button(("Ouvrir dans Géographie" if lang == "FR" else "Open in Geography"), key=f"results_geo_country_btn::{selected_project_id}"):
                                 selected_country = str(st.session_state.get(country_select_key, "")).strip()
                                 if selected_country:
-                                    st.session_state["f_countries"] = [selected_country]
+                                    queue_filter_updates(f_countries=[selected_country])
                                     queue_tab_navigation(top_target=t(lang, "tab_markets"))
                                     st.rerun()
                         else:
@@ -5577,7 +5596,7 @@ with tab_results:
                         project_theme_raw = str(detail.get("theme") or "").strip()
                         if project_theme_raw:
                             if st.button(("Filtrer ce thème" if lang == "FR" else "Filter this theme"), key=f"results_filter_theme_btn::{selected_project_id}"):
-                                st.session_state["f_themes_raw"] = [project_theme_raw]
+                                queue_filter_updates(f_themes_raw=[project_theme_raw])
                                 st.rerun()
                         else:
                             st.caption("—")
@@ -5585,7 +5604,7 @@ with tab_results:
                         project_program = str(detail.get("program") or "").strip()
                         if project_program:
                             if st.button(("Filtrer ce programme" if lang == "FR" else "Filter this programme"), key=f"results_filter_program_btn::{selected_project_id}"):
-                                st.session_state["f_programmes"] = [project_program]
+                                queue_filter_updates(f_programmes=[project_program])
                                 st.rerun()
                         else:
                             st.caption("—")
@@ -6260,12 +6279,12 @@ with tab_geo:
             gq1, gq2 = st.columns(2)
             with gq1:
                 if st.button(t(lang, "geo_open_results"), key=f"geo_open_results::{selected_country}", width="stretch"):
-                    st.session_state["f_countries"] = [selected_country]
+                    queue_filter_updates(f_countries=[selected_country])
                     queue_tab_navigation(top_target=t(lang, "tab_explorer"))
                     st.rerun()
             with gq2:
                 if st.button(t(lang, "geo_open_trends"), key=f"geo_open_trends::{selected_country}", width="stretch"):
-                    st.session_state["f_countries"] = [selected_country]
+                    queue_filter_updates(f_countries=[selected_country])
                     queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_trends"))
                     st.rerun()
 
@@ -7582,13 +7601,13 @@ if app_mode == "advanced" and tab_actor is not None:
             aq1, aq2, aq3 = st.columns(3)
             with aq1:
                 if st.button(t(lang, "actor_open_results"), key=f"actor_open_results::{picked_id}", width="stretch"):
-                    st.session_state["f_quick_search"] = selected_actor_search
+                    queue_filter_updates(f_quick_search=selected_actor_search)
                     queue_tab_navigation(top_target=t(lang, "tab_explorer"))
                     st.rerun()
             with aq2:
                 if selected_main_country and selected_main_country != "—":
                     if st.button(t(lang, "actor_open_geo"), key=f"actor_open_geo::{picked_id}", width="stretch"):
-                        st.session_state["f_countries"] = [selected_main_country]
+                        queue_filter_updates(f_countries=[selected_main_country])
                         queue_tab_navigation(top_target=t(lang, "tab_markets"))
                         st.rerun()
                 else:
@@ -7597,7 +7616,7 @@ if app_mode == "advanced" and tab_actor is not None:
                 top_theme_raw = str(mix_t.iloc[0]["theme"]) if not mix_t.empty else ""
                 if top_theme_raw.strip():
                     if st.button(t(lang, "actor_open_trends"), key=f"actor_open_trends::{picked_id}", width="stretch"):
-                        st.session_state["f_themes_raw"] = [top_theme_raw]
+                        queue_filter_updates(f_themes_raw=[top_theme_raw])
                         queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_trends"))
                         st.rerun()
                 else:
