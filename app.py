@@ -34,10 +34,19 @@ plotly_events = None
 HAS_PLOTLY_EVENTS = False
 
 WIP_SECTIONS = {
-    "free_text_search": True,
-    "actor_grouping": True,
-    "value_chain": True,
+    "free_text_search": False,
+    "actor_grouping": False,
+    "value_chain": False,
 }
+
+GUIDED_INTENT_ORDER = [
+    "projects",
+    "actors",
+    "countries",
+    "trends",
+    "value_chain",
+    "macro",
+]
 
 
 # ============================================================
@@ -1532,10 +1541,26 @@ I18N: Dict[str, Dict[str, str]] = {
         "language": "Langue",
         "title": "Subsidy Intelligence Radar",
         "subtitle": "Recherche guidée sur les subventions UE : résultats, acteurs, géographie, tendances et événements.",
-        "guided_home_title": "Commencer par un sujet",
-        "guided_home_caption": "Choisis d’abord les thèmes qui t’intéressent, puis ouvre l’analyse complète avec ce périmètre déjà prérempli.",
+        "guided_home_title": "Commencer par une question",
+        "guided_home_caption": "Choisis d’abord le type de réponse attendu, puis affine le sujet, les pays et la période avant d’ouvrir l’analyse complète.",
         "guided_home_intro_title": "Parcours guidé",
-        "guided_home_intro": "Commence ici si tu veux cadrer rapidement un sujet avant d’ouvrir tous les filtres et toutes les vues.",
+        "guided_home_intro": "Cette page sert à formuler une intention simple. L’analyse complète s’ouvrira ensuite déjà cadrée sur ta question.",
+        "guided_home_question_title": "1. Choisir une question",
+        "guided_home_question_caption": "Sélectionne le parcours qui correspond le mieux à ce que tu veux comprendre.",
+        "guided_home_intent_projects": "Trouver les projets sur un sujet",
+        "guided_home_intent_projects_desc": "Ouvre les résultats détaillés et la table de preuve sur le périmètre choisi.",
+        "guided_home_intent_actors": "Identifier les principaux acteurs",
+        "guided_home_intent_actors_desc": "Met l’accent sur les acteurs dominants du périmètre courant.",
+        "guided_home_intent_countries": "Comparer des pays",
+        "guided_home_intent_countries_desc": "Ouvre la géographie et le classement pays sur le périmètre choisi.",
+        "guided_home_intent_trends": "Voir l’évolution dans le temps",
+        "guided_home_intent_trends_desc": "Ouvre d’abord la tendance annuelle, puis la comparaison de périodes si besoin.",
+        "guided_home_intent_value_chain": "Explorer la chaîne de valeur",
+        "guided_home_intent_value_chain_desc": "Ouvre l’outil expert centré sur les étapes et les acteurs.",
+        "guided_home_intent_macro": "Comprendre le contexte macro",
+        "guided_home_intent_macro_desc": "Ouvre la lecture macro comme couche de contexte des tendances.",
+        "guided_home_selected_question": "Question retenue",
+        "guided_home_selected_question_desc": "Cette intention orientera la première vue ouverte dans l’analyse complète.",
         "guided_home_search": "Sujet ou mots-clés",
         "guided_home_search_help": "Exemples : hydrogène Allemagne, batteries France, IA industrie.",
         "guided_home_topics": "Thématiques à suivre",
@@ -1593,9 +1618,17 @@ I18N: Dict[str, Dict[str, str]] = {
         "quick_search": "Recherche rapide",
         "quick_search_hint": "Recherche dans acteur, projet, acronyme ou titre",
         "main_search_support": "Recherche libre dans les projets et acteurs. Utilise ensuite les filtres pour préciser pays, période et programme.",
+        "search_help_more": "Comment fonctionne cette recherche",
         "main_search_examples": "Exemples : « hydrogène en Allemagne depuis 2021 », « principaux acteurs IA en France », « compare les batteries entre France et Allemagne ».",
         "main_search_exploratory": "Recherche libre exploratoire : fonctionne mieux avec des mots-clés simples. Utilise les filtres pour cadrer le pays, la période et le programme.",
         "search_literal_note": "La recherche libre reste littérale. Les synonymes et exclusions servent surtout à la classification thématique, pas encore à une vraie recherche sémantique.",
+        "search_interpretation_title": "Question comprise",
+        "search_interpretation_caption": "Voici ce que l’app utilise actuellement pour construire le périmètre.",
+        "search_interpretation_intent": "Intention",
+        "search_interpretation_scope": "Lecture active",
+        "search_interpretation_search": "Recherche libre",
+        "search_interpretation_none": "Aucun terme libre",
+        "filters_advanced_hint": "Programme, source, type d’entité et options d’analyse restent disponibles en Recherche avancée.",
         "search_simplified_notice": "La recherche a été simplifiée pour éviter une erreur. Essaie un mot-clé simple puis affine avec les filtres.",
         "search_ignored_notice": "La recherche n’a pas pu être appliquée avec cette saisie. Les filtres sont conservés ; essaie un mot-clé plus simple.",
         "view_recover_hint": "Essaie une recherche plus simple ou ajuste les filtres. Les autres vues restent disponibles.",
@@ -1772,14 +1805,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "status_projects_title": "Projets par statut",
         "tab_explorer": "⌕ Recherche & résultats",
         "tab_actors_hub": "◈ Acteurs",
-        "tab_markets": "◎ Marchés & géographie",
+        "tab_markets": "◎ Géographie",
         "tab_trends_events": "↗ Tendances & événements",
-        "tab_advanced": "◇ Analyse avancée",
-        "tab_admin": "⋯ Support",
-        "admin_title": "Support & méthode",
-        "admin_caption": "Exports, qualité, diagnostic et documentation interne. Cette zone n’est pas nécessaire pour l’exploration standard.",
+        "tab_advanced": "◇ Outils experts",
+        "tab_admin": "⋯ Données, méthode & exports",
+        "admin_title": "Données, méthode & exports",
+        "admin_caption": "Exports, qualité, méthode et diagnostic. Cette zone reste secondaire pour l’exploration standard.",
         "sub_results": "Résultats",
-        "sub_overview": "Synthèse d’appui",
+        "sub_overview": "Vue d’ensemble",
         "overview_caption": "Lecture secondaire : commence par Résultats pour répondre à la question, puis utilise cette page pour un résumé compact du périmètre.",
         "overview_support_note": "Cette page sert de synthèse d’appui. Pour la lecture principale, les comparaisons et la table de preuve, reste d’abord dans Résultats.",
         "overview_more_context": "Plus de contexte",
@@ -1792,7 +1825,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_data": "Exports & données",
         "sub_quality": "Qualité & méthode",
         "sub_debug": "Diagnostic technique",
-        "advanced_title": "Analyse avancée",
+        "advanced_title": "Outils experts",
         "advanced_caption": "Vues expertes pour aller plus loin après la lecture principale. Commence d’abord par Recherche, Acteurs, Géographie ou Tendances.",
         "advanced_overview_title": "Quand ouvrir l’analyse avancée",
         "advanced_overview_1": "Comparer les acteurs quand un classement simple ne suffit plus",
@@ -1847,6 +1880,18 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_budget_year": "Budget par année",
         "results_projects_year": "Projets par année",
         "results_country_rank": "Classement pays",
+        "geo_summary_title": "Lecture rapide",
+        "geo_summary_single": "Le périmètre géographique actuel se concentre surtout sur {first}.",
+        "geo_summary_multi": "Le financement est surtout concentré en {first}, puis {second}, sur {count} pays dans le périmètre courant.",
+        "geo_open_results": "Ouvrir les résultats de ce pays",
+        "geo_open_trends": "Ouvrir les tendances de ce pays",
+        "trends_scope_summary_title": "Lecture rapide",
+        "trends_scope_summary_up": "Le budget annuel progresse entre {start_year} ({start_budget}) et {end_year} ({end_budget}).",
+        "trends_scope_summary_down": "Le budget annuel recule entre {start_year} ({start_budget}) et {end_year} ({end_budget}).",
+        "trends_scope_summary_flat": "Le budget annuel reste globalement stable entre {start_year} ({start_budget}) et {end_year} ({end_budget}).",
+        "actor_open_results": "Ouvrir les résultats de cet acteur",
+        "actor_open_geo": "Ouvrir la géographie de ce pays",
+        "actor_open_trends": "Ouvrir les tendances de ce thème",
         "docs_title": "Aide, guide et méthode",
         "download": "⬇️ Télécharger CSV (filtres actuels)",
         "download_page": "⬇️ Télécharger la page CSV",
@@ -1996,10 +2041,26 @@ I18N: Dict[str, Dict[str, str]] = {
         "language": "Language",
         "title": "Subsidy Intelligence Radar",
         "subtitle": "Guided search across EU subsidies: results, actors, geography, trends, and events.",
-        "guided_home_title": "Start with a topic",
-        "guided_home_caption": "Pick the themes that matter to you first, then open the full analysis with that scope already prefilled.",
+        "guided_home_title": "Start with a question",
+        "guided_home_caption": "Pick the kind of answer you want first, then refine the topic, countries, and period before opening the full analysis.",
         "guided_home_intro_title": "Guided start",
-        "guided_home_intro": "Use this entry screen to frame a topic quickly before opening every filter and every analytical view.",
+        "guided_home_intro": "This page is meant to capture a simple intent first. The full analysis will then open already framed around your question.",
+        "guided_home_question_title": "1. Choose a question",
+        "guided_home_question_caption": "Select the path that best matches what you want to understand.",
+        "guided_home_intent_projects": "Find projects on a topic",
+        "guided_home_intent_projects_desc": "Open detailed results and the evidence table for the chosen scope.",
+        "guided_home_intent_actors": "Identify the leading actors",
+        "guided_home_intent_actors_desc": "Focus the first reading on the leading actors in the current scope.",
+        "guided_home_intent_countries": "Compare countries",
+        "guided_home_intent_countries_desc": "Open geography and the country ranking for the chosen scope.",
+        "guided_home_intent_trends": "See how funding changes over time",
+        "guided_home_intent_trends_desc": "Start with the annual trend, then open period comparison if needed.",
+        "guided_home_intent_value_chain": "Explore the value chain",
+        "guided_home_intent_value_chain_desc": "Open the expert tool focused on stages and actors.",
+        "guided_home_intent_macro": "Understand the macro context",
+        "guided_home_intent_macro_desc": "Open the macro reading as a contextual layer for the trends.",
+        "guided_home_selected_question": "Selected question",
+        "guided_home_selected_question_desc": "This intent will steer the first view opened in the full analysis.",
         "guided_home_search": "Topic or keywords",
         "guided_home_search_help": "Examples: hydrogen Germany, batteries France, AI industry.",
         "guided_home_topics": "Themes to follow",
@@ -2057,9 +2118,17 @@ I18N: Dict[str, Dict[str, str]] = {
         "quick_search": "Quick search",
         "quick_search_hint": "Search actor, project, acronym or title",
         "main_search_support": "Free-text search across projects and actors. Then use filters to narrow country, time period, and programme.",
+        "search_help_more": "How this search works",
         "main_search_examples": "Examples: “hydrogen in Germany since 2021”, “top AI actors in France”, “compare batteries across France and Germany”.",
         "main_search_exploratory": "Exploratory free-text search works best with simple keywords. Use filters to narrow country, time period, and programme.",
         "search_literal_note": "Free-text search remains literal. Synonyms and exclusions currently feed theme classification more than true semantic search.",
+        "search_interpretation_title": "Question currently interpreted",
+        "search_interpretation_caption": "This is what the app is currently using to build the scope.",
+        "search_interpretation_intent": "Intent",
+        "search_interpretation_scope": "Active reading",
+        "search_interpretation_search": "Free-text search",
+        "search_interpretation_none": "No free-text term",
+        "filters_advanced_hint": "Programme, source, entity type, and analysis options remain available in Advanced search.",
         "search_simplified_notice": "Search was simplified to avoid an error. Try a simpler keyword, then refine with filters.",
         "search_ignored_notice": "Search could not be applied safely for this input. Filters are still active; try a simpler keyword.",
         "view_recover_hint": "Try a simpler search or adjust the filters. Other views remain available.",
@@ -2236,14 +2305,14 @@ I18N: Dict[str, Dict[str, str]] = {
         "status_projects_title": "Projects by status",
         "tab_explorer": "⌕ Search & results",
         "tab_actors_hub": "◈ Actors",
-        "tab_markets": "◎ Markets & geography",
+        "tab_markets": "◎ Geography",
         "tab_trends_events": "↗ Trends & events",
-        "tab_advanced": "◇ Advanced",
-        "tab_admin": "⋯ Support",
-        "admin_title": "Support & method",
-        "admin_caption": "Exports, quality checks, diagnostics, and internal documentation. This area is not required for standard exploration.",
+        "tab_advanced": "◇ Expert tools",
+        "tab_admin": "⋯ Data, method & exports",
+        "admin_title": "Data, method & exports",
+        "admin_caption": "Exports, quality, method, and diagnostics. This area stays secondary for standard exploration.",
         "sub_results": "Results",
-        "sub_overview": "Support summary",
+        "sub_overview": "Overview",
         "overview_caption": "Secondary read: start with Results to answer the question, then use this page for a compact scope summary.",
         "overview_support_note": "This page is a supporting summary. For the main reading flow, comparisons, and the evidence table, start with Results.",
         "overview_more_context": "More context",
@@ -2256,7 +2325,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "sub_data": "Exports & data",
         "sub_quality": "Quality & method",
         "sub_debug": "Technical diagnostics",
-        "advanced_title": "Advanced analysis",
+        "advanced_title": "Expert tools",
         "advanced_caption": "Expert views for going deeper after the main reading flow. Start with Search, Actors, Geography, or Trends first.",
         "advanced_overview_title": "When to open advanced analysis",
         "advanced_overview_1": "Compare actors when a simple ranking is no longer enough",
@@ -2311,6 +2380,18 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_budget_year": "Budget by year",
         "results_projects_year": "Projects by year",
         "results_country_rank": "Country ranking",
+        "geo_summary_title": "Quick read",
+        "geo_summary_single": "The current geographic scope is mainly concentrated in {first}.",
+        "geo_summary_multi": "Funding is mainly concentrated in {first}, then {second}, across {count} countries in the current scope.",
+        "geo_open_results": "Open results for this country",
+        "geo_open_trends": "Open trends for this country",
+        "trends_scope_summary_title": "Quick read",
+        "trends_scope_summary_up": "Annual funding rises between {start_year} ({start_budget}) and {end_year} ({end_budget}).",
+        "trends_scope_summary_down": "Annual funding falls between {start_year} ({start_budget}) and {end_year} ({end_budget}).",
+        "trends_scope_summary_flat": "Annual funding stays broadly stable between {start_year} ({start_budget}) and {end_year} ({end_budget}).",
+        "actor_open_results": "Open results for this actor",
+        "actor_open_geo": "Open geography for this country",
+        "actor_open_trends": "Open trends for this theme",
         "docs_title": "Help, guide, and method",
         "download": "⬇️ Download CSV (current filters)",
         "download_page": "⬇️ Download page CSV",
@@ -2461,6 +2542,43 @@ I18N: Dict[str, Dict[str, str]] = {
 
 def t(lang: str, key: str) -> str:
     return I18N[lang].get(key, key)
+
+
+def guided_intent_title(lang: str, intent: str) -> str:
+    return t(lang, f"guided_home_intent_{str(intent)}")
+
+
+def guided_intent_desc(lang: str, intent: str) -> str:
+    return t(lang, f"guided_home_intent_{str(intent)}_desc")
+
+
+def guided_intent_mode(intent: str) -> str:
+    return "advanced" if str(intent) == "value_chain" else "simple"
+
+
+def guided_intent_primary_view(intent: str) -> str:
+    mapping = {
+        "actors": "actors",
+        "countries": "countries",
+        "trends": "trend",
+    }
+    return mapping.get(str(intent), "")
+
+
+def apply_guided_intent_navigation(lang: str) -> None:
+    intent = str(st.session_state.get("guided_intent", "projects") or "projects")
+    st.session_state["app_mode"] = guided_intent_mode(intent)
+    st.session_state["guided_intent_active"] = intent
+    if intent == "countries":
+        queue_tab_navigation(top_target=t(lang, "tab_markets"))
+    elif intent == "trends":
+        queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_trends"))
+    elif intent == "macro":
+        queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_macro"))
+    elif intent == "value_chain":
+        queue_tab_navigation(top_target=t(lang, "tab_advanced"), advanced_sub_target=t(lang, "sub_value_chain"))
+    else:
+        queue_tab_navigation(top_target=t(lang, "tab_explorer"))
 
 
 def wip_badge(lang: str) -> str:
@@ -2723,6 +2841,32 @@ def render_active_filter_chips(meta: dict, lang: str) -> None:
         f"<div><strong>{html.escape(t(lang, 'active_filters'))}</strong></div><div class='sir-chip-row'>{chips}</div>",
         unsafe_allow_html=True,
     )
+
+
+def render_search_interpretation(meta: dict, lang: str) -> None:
+    themes = [x for x in st.session_state.get("f_themes_raw", []) if x in meta.get("themes", [])]
+    countries = [x for x in st.session_state.get("f_countries", []) if x in meta.get("countries", [])]
+    search_txt = str(st.session_state.get("f_quick_search", "")).strip()
+    intent = str(st.session_state.get("guided_intent_active", st.session_state.get("guided_intent", "projects")) or "projects")
+    all_label = "Tous" if lang == "FR" else "All"
+    scope_bits = [
+        f"{t(lang, 'period')}: {int(st.session_state['f_years'][0])}-{int(st.session_state['f_years'][1])}",
+        f"{t(lang, 'themes')}: {_compact_filter_values(themes, lambda x: theme_raw_to_display(x, lang)) or all_label}",
+        f"{t(lang, 'countries')}: {_compact_filter_values(countries, country_raw_to_display) or all_label}",
+    ]
+    if st.session_state.get("f_guided_subtopics"):
+        scope_bits.append(
+            f"{t(lang, 'guided_terms')}: {_compact_filter_values(st.session_state.get('f_guided_subtopics', []), limit=3)}"
+        )
+    with st.container(border=True):
+        st.markdown("**" + t(lang, "search_interpretation_title") + "**")
+        st.caption(t(lang, "search_interpretation_caption"))
+        st.write(f"**{t(lang, 'search_interpretation_intent')}**: {guided_intent_title(lang, intent)}")
+        st.write(f"**{t(lang, 'search_interpretation_scope')}**: " + " · ".join(scope_bits))
+        st.write(
+            f"**{t(lang, 'search_interpretation_search')}**: "
+            + (search_txt if search_txt else t(lang, "search_interpretation_none"))
+        )
 
 
 def render_empty_state(lang: str) -> None:
@@ -3040,9 +3184,16 @@ def toggle_guided_theme(theme: str) -> None:
     st.session_state["guided_subtopics"] = _selected_guided_subtopics(current)
 
 
-def queue_tab_navigation(top_target: str = "", actor_sub_target: str = "") -> None:
+def queue_tab_navigation(
+    top_target: str = "",
+    actor_sub_target: str = "",
+    trends_sub_target: str = "",
+    advanced_sub_target: str = "",
+) -> None:
     st.session_state["nav_target_top"] = str(top_target or "")
     st.session_state["nav_target_actor_sub"] = str(actor_sub_target or "")
+    st.session_state["nav_target_trends_sub"] = str(trends_sub_target or "")
+    st.session_state["nav_target_advanced_sub"] = str(advanced_sub_target or "")
 
 
 def sync_results_table_state(scope_token: str) -> None:
@@ -4056,6 +4207,8 @@ _ensure_filter_state()
 _normalize_country_state(meta)
 st.session_state.setdefault("app_mode", "simple")
 st.session_state.setdefault("sir_screen", "welcome")
+st.session_state.setdefault("guided_intent", "projects")
+st.session_state.setdefault("guided_intent_active", "projects")
 if any(k not in st.session_state for k in ["guided_search", "guided_themes_raw", "guided_countries", "guided_years"]):
     sync_guided_entry_from_filters(meta)
 _normalize_country_state(meta)
@@ -4064,6 +4217,8 @@ st.session_state.setdefault("guided_subtopics_by_theme", {})
 st.session_state.setdefault("guided_countries_widget", list(st.session_state.get("guided_countries", [])))
 st.session_state.setdefault("f_guided_subtopics", [])
 st.session_state.setdefault("f_guided_topic_terms", [])
+st.session_state.setdefault("nav_target_trends_sub", "")
+st.session_state.setdefault("nav_target_advanced_sub", "")
 
 
 def _current_filter_snapshot() -> Dict[str, object]:
@@ -4124,6 +4279,30 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
         st.markdown("**" + t(lang, "guided_home_intro_title") + "**")
         st.write(t(lang, "guided_home_intro"))
         st.caption(t(lang, "guided_home_subtopics_note"))
+
+    st.markdown(f"#### {t(lang, 'guided_home_question_title')}")
+    st.caption(t(lang, "guided_home_question_caption"))
+    question_cols = st.columns(3)
+    current_intent = str(st.session_state.get("guided_intent", "projects") or "projects")
+    for idx, intent in enumerate(GUIDED_INTENT_ORDER):
+        with question_cols[idx % 3]:
+            selected = intent == current_intent
+            with st.container(border=True):
+                st.markdown("**" + (("✓ " if selected else "") + guided_intent_title(lang, intent)) + "**")
+                st.caption(guided_intent_desc(lang, intent))
+                if st.button(
+                    t(lang, "guided_home_selected_question") if selected else guided_intent_title(lang, intent),
+                    key=f"guided_intent::{intent}",
+                    width="stretch",
+                    type="primary" if selected else "secondary",
+                ):
+                    st.session_state["guided_intent"] = intent
+                    st.session_state["guided_intent_active"] = intent
+                    st.rerun()
+    with st.container(border=True):
+        st.markdown("**" + t(lang, "guided_home_selected_question") + "**")
+        st.write(guided_intent_title(lang, current_intent))
+        st.caption(t(lang, "guided_home_selected_question_desc"))
 
     example_prompts = [
         t(lang, "guided_home_example_1"),
@@ -4283,10 +4462,10 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
     with launch_c1:
         if st.button(t(lang, "guided_home_open"), key="guided_home_open_btn", width="stretch", type="primary"):
             apply_guided_entry_to_filters(meta)
-            st.session_state["app_mode"] = "advanced"
-            st.session_state["_last_app_mode"] = "advanced"
+            st.session_state["app_mode"] = guided_intent_mode(st.session_state.get("guided_intent", "projects"))
+            st.session_state["_last_app_mode"] = st.session_state["app_mode"]
             st.session_state["sir_screen"] = "analysis"
-            queue_tab_navigation(top_target=t(lang, "tab_explorer"))
+            apply_guided_intent_navigation(lang)
             st.rerun()
     with launch_c2:
         st.caption(t(lang, "guided_home_caption"))
@@ -4337,9 +4516,10 @@ with search_c2:
     st.write("")
     st.button(t(lang, "clear_search"), key="clear_search_btn", width="stretch", on_click=clear_search)
 st.caption(t(lang, "main_search_support"))
-st.caption(t(lang, "main_search_examples"))
-st.caption(t(lang, "main_search_exploratory"))
-st.caption(t(lang, "search_literal_note"))
+with st.expander(t(lang, "search_help_more"), expanded=False):
+    st.caption(t(lang, "main_search_examples"))
+    st.caption(t(lang, "main_search_exploratory"))
+    st.caption(t(lang, "search_literal_note"))
 
 src_default = [x for x in st.session_state["f_sources"] if x in meta["sources"]]
 prg_default = [x for x in st.session_state["f_programmes"] if x in meta["programmes"]]
@@ -4348,75 +4528,75 @@ ctry_default = [x for x in st.session_state["f_countries"] if x in meta["countri
 eu_default = european_countries_present(meta["countries"])
 ctry_fallback = eu_default if eu_default else meta["countries"]
 
-if st.session_state.get("app_mode") == "advanced":
-    with st.expander(t(lang, "filters"), expanded=False):
-        st.caption(t(lang, "basic_filters"))
-        basic_c1, basic_c2, basic_c3, basic_c4 = st.columns(4)
-        with basic_c1:
-            st.session_state["f_years"] = st.slider(
-                t(lang, "period"),
-                meta["miny"],
-                meta["maxy"],
-                st.session_state["f_years"],
-            )
-        themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
-        themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
-        with basic_c2:
-            st.session_state["f_themes_raw"] = st.multiselect(
-                t(lang, "themes"),
-                themes_ui,
-                default=themes_default or themes_ui,
-                format_func=lambda x: theme_raw_to_display(str(x), lang),
-            )
-        with basic_c3:
-            eu27_present = eu27_countries_present(meta["countries"])
-            assoc_present = associated_countries_present(meta["countries"])
-            eu_plus_associated = list(dict.fromkeys(eu27_present + assoc_present))
+with st.expander(t(lang, "filters"), expanded=False):
+    st.caption(t(lang, "basic_filters"))
+    basic_c1, basic_c2, basic_c3 = st.columns(3)
+    with basic_c1:
+        st.session_state["f_years"] = st.slider(
+            t(lang, "period"),
+            meta["miny"],
+            meta["maxy"],
+            st.session_state["f_years"],
+        )
+    themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
+    themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
+    with basic_c2:
+        st.session_state["f_themes_raw"] = st.multiselect(
+            t(lang, "themes"),
+            themes_ui,
+            default=themes_default or themes_ui,
+            format_func=lambda x: theme_raw_to_display(str(x), lang),
+        )
+    with basic_c3:
+        eu27_present = eu27_countries_present(meta["countries"])
+        assoc_present = associated_countries_present(meta["countries"])
+        eu_plus_associated = list(dict.fromkeys(eu27_present + assoc_present))
 
-            def _apply_sidebar_country_preset(countries_list):
-                st.session_state["f_countries"] = list(countries_list)
+        def _apply_sidebar_country_preset(countries_list):
+            st.session_state["f_countries"] = list(countries_list)
 
-            preset_c1, preset_c2, preset_c3 = st.columns(3)
-            with preset_c1:
-                st.button(t(lang, "country_preset_eu27"), key="country_preset_eu27_btn", width="stretch",
-                          on_click=_apply_sidebar_country_preset, args=(eu27_present,))
-            with preset_c2:
-                st.button(t(lang, "country_preset_associated"), key="country_preset_associated_btn", width="stretch",
-                          on_click=_apply_sidebar_country_preset, args=(eu_plus_associated,))
-            with preset_c3:
-                st.button(t(lang, "country_preset_all"), key="country_preset_all_btn", width="stretch",
-                          on_click=_apply_sidebar_country_preset, args=(list(meta["countries"]),))
-            st.multiselect(
-                t(lang, "countries"),
-                meta["countries"],
-                key="f_countries",
-                format_func=country_raw_to_display,
-            )
-        with basic_c4:
+        preset_c1, preset_c2, preset_c3 = st.columns(3)
+        with preset_c1:
+            st.button(t(lang, "country_preset_eu27"), key="country_preset_eu27_btn", width="stretch",
+                      on_click=_apply_sidebar_country_preset, args=(eu27_present,))
+        with preset_c2:
+            st.button(t(lang, "country_preset_associated"), key="country_preset_associated_btn", width="stretch",
+                      on_click=_apply_sidebar_country_preset, args=(eu_plus_associated,))
+        with preset_c3:
+            st.button(t(lang, "country_preset_all"), key="country_preset_all_btn", width="stretch",
+                      on_click=_apply_sidebar_country_preset, args=(list(meta["countries"]),))
+        st.multiselect(
+            t(lang, "countries"),
+            meta["countries"],
+            key="f_countries",
+            format_func=country_raw_to_display,
+        )
+
+    if st.session_state.get("app_mode") == "advanced":
+        st.divider()
+        st.caption(t(lang, "advanced_filters"))
+        adv_c1, adv_c2, adv_c3, adv_c4 = st.columns(4)
+        with adv_c1:
             st.session_state["f_programmes"] = st.multiselect(
                 t(lang, "programmes"),
                 meta["programmes"],
                 default=prg_default or meta["programmes"],
             )
-
-        st.divider()
-        st.caption(t(lang, "advanced_filters"))
-        adv_c1, adv_c2, adv_c3 = st.columns(3)
-        with adv_c1:
+        with adv_c2:
             st.session_state["f_sources"] = st.multiselect(
                 t(lang, "sources"),
                 meta["sources"],
                 default=src_default or meta["sources"],
             )
         entities_default = [x for x in st.session_state["f_entity_raw"] if x in meta["entities"]]
-        with adv_c2:
+        with adv_c3:
             st.session_state["f_entity_raw"] = st.multiselect(
                 t(lang, "entity"),
                 meta["entities"],
                 default=entities_default or meta["entities"],
                 format_func=lambda x: entity_raw_to_display(str(x), lang),
             )
-        with adv_c3:
+        with adv_c4:
             st.session_state["f_statuses"] = st.multiselect(
                 t(lang, "project_status"),
                 meta["statuses"],
@@ -4433,16 +4613,15 @@ if st.session_state.get("app_mode") == "advanced":
                 value=st.session_state["f_onetech_only"],
             )
         with ana_c2:
-            if WIP_SECTIONS.get("actor_grouping", False):
-                st.markdown(f"<div class='sir-wip-badge-wrap'>{wip_badge(lang)}</div>", unsafe_allow_html=True)
             st.checkbox(t(lang, "actor_grouping"), key="f_use_actor_groups")
             st.caption(t(lang, "actor_grouping_note"))
         with ana_c3:
             st.checkbox(t(lang, "exclude_funders"), key="f_exclude_funders")
-else:
-    st.caption(t(lang, "simple_mode_filters_note"))
+    else:
+        st.caption(t(lang, "filters_advanced_hint"))
 
 render_active_filter_chips(meta, lang)
+render_search_interpretation(meta, lang)
 
 
 # ============================================================
@@ -4607,12 +4786,26 @@ if app_mode == "advanced":
     with tab_actors_hub:
         tab_actor = st.container()
 
+default_trends_tab = str(st.session_state.get("nav_target_trends_sub", "")).strip()
+trend_tab_labels = [t(lang, "tab_trends"), t(lang, "tab_compare"), t(lang, "tab_macro")]
+if default_trends_tab not in trend_tab_labels:
+    default_trends_tab = t(lang, "tab_trends")
 with tab_trends_events:
     tab_trends, tab_compare, tab_macro = st.tabs(
-        [t(lang, "tab_trends"), t(lang, "tab_compare"), t(lang, "tab_macro")]
+        trend_tab_labels,
+        default=default_trends_tab,
     )
 
 if app_mode == "advanced":
+    default_advanced_sub = str(st.session_state.get("nav_target_advanced_sub", "")).strip()
+    advanced_tab_labels = [
+        t(lang, "sub_benchmark"),
+        t(lang, "sub_value_chain"),
+        t(lang, "sub_collaboration"),
+        t(lang, "sub_concentration"),
+    ]
+    if default_advanced_sub not in advanced_tab_labels:
+        default_advanced_sub = t(lang, "sub_benchmark")
     with tab_advanced:
         st.markdown(f"### {t(lang, 'advanced_title')}")
         st.caption(t(lang, "advanced_caption"))
@@ -4630,12 +4823,8 @@ if app_mode == "advanced":
             )
             st.caption(t(lang, "advanced_overview_tip"))
         tab_comp, tab_value_chain, tab_collaboration, tab_concentration = st.tabs(
-            [
-                t(lang, "sub_benchmark"),
-                t(lang, "sub_value_chain"),
-                t(lang, "sub_collaboration"),
-                t(lang, "sub_concentration"),
-            ]
+            advanced_tab_labels,
+            default=default_advanced_sub,
         )
 
     with tab_admin:
@@ -4660,6 +4849,8 @@ tab_help = tab_docs
 tab_guide = tab_docs
 st.session_state["nav_target_top"] = ""
 st.session_state["nav_target_actor_sub"] = ""
+st.session_state["nav_target_trends_sub"] = ""
+st.session_state["nav_target_advanced_sub"] = ""
 
 
 # ============================================================
@@ -4705,6 +4896,11 @@ with tab_results:
     else:
         st.markdown("#### " + t(lang, "results_primary_visual"))
         primary_view = str(scope_summary.get("primary_view", "trend"))
+        guided_primary_override = guided_intent_primary_view(
+            st.session_state.get("guided_intent_active", st.session_state.get("guided_intent", "projects"))
+        )
+        if guided_primary_override:
+            primary_view = guided_primary_override
         if primary_view == "trend":
             st.caption(t(lang, "results_primary_trend"))
             primary_year = safe_fetch_df(f"""
@@ -5632,6 +5828,22 @@ with tab_geo:
         geo_rank = geo_rank.sort_values(color_col, ascending=False).reset_index(drop=True)
         geo_rank["rank"] = np.arange(1, len(geo_rank) + 1)
 
+        if not geo_rank.empty:
+            top_country_name = str(geo_rank.iloc[0]["country_name"])
+            second_country_name = str(geo_rank.iloc[1]["country_name"]) if len(geo_rank) > 1 else ""
+            with st.container(border=True):
+                st.markdown("**" + t(lang, "geo_summary_title") + "**")
+                if second_country_name:
+                    st.write(
+                        t(lang, "geo_summary_multi").format(
+                            first=top_country_name,
+                            second=second_country_name,
+                            count=f"{len(geo_rank):,}".replace(",", " "),
+                        )
+                    )
+                else:
+                    st.write(t(lang, "geo_summary_single").format(first=top_country_name))
+
         country_options = geo_rank["country_name"].astype(str).tolist()
         country_scope_token = f"{W}||{'|'.join(country_options)}"
         preferred_geo_country = country_options[0] if country_options else ""
@@ -5696,6 +5908,17 @@ with tab_geo:
                 "—" if pd.isna(selected_per_million) else f"{selected_per_million:,.0f} € / M".replace(",", " "),
             )
             g4.metric(t(lang, "geo_scope_share"), fmt_pct(selected_scope_share, 1))
+            gq1, gq2 = st.columns(2)
+            with gq1:
+                if st.button(t(lang, "geo_open_results"), key=f"geo_open_results::{selected_country}", width="stretch"):
+                    st.session_state["f_countries"] = [selected_country]
+                    queue_tab_navigation(top_target=t(lang, "tab_explorer"))
+                    st.rerun()
+            with gq2:
+                if st.button(t(lang, "geo_open_trends"), key=f"geo_open_trends::{selected_country}", width="stretch"):
+                    st.session_state["f_countries"] = [selected_country]
+                    queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_trends"))
+                    st.rerun()
 
         if is_per_million and geo["amount_per_million"].isna().any():
             st.caption(t(lang, "geo_pop_missing"))
@@ -6252,6 +6475,42 @@ with tab_trends:
         else "Start with the annual trend, then open period comparison or macro context only if you need a deeper read."
     )
     st.caption(t(lang, "budget_envelope_note"))
+    trend_scope = safe_fetch_df(f"""
+    SELECT year, SUM(amount_eur) AS budget_eur
+    FROM {R}
+    WHERE {W}
+    GROUP BY year
+    ORDER BY year
+    """, columns=["year", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
+    if len(trend_scope) >= 2:
+        first_year = int(trend_scope["year"].iloc[0])
+        last_year = int(trend_scope["year"].iloc[-1])
+        first_budget = float(trend_scope["budget_eur"].iloc[0] or 0.0)
+        last_budget = float(trend_scope["budget_eur"].iloc[-1] or 0.0)
+        if last_budget > first_budget * 1.05:
+            trend_summary_text = t(lang, "trends_scope_summary_up").format(
+                start_year=first_year,
+                start_budget=fmt_money(first_budget, lang),
+                end_year=last_year,
+                end_budget=fmt_money(last_budget, lang),
+            )
+        elif last_budget < first_budget * 0.95:
+            trend_summary_text = t(lang, "trends_scope_summary_down").format(
+                start_year=first_year,
+                start_budget=fmt_money(first_budget, lang),
+                end_year=last_year,
+                end_budget=fmt_money(last_budget, lang),
+            )
+        else:
+            trend_summary_text = t(lang, "trends_scope_summary_flat").format(
+                start_year=first_year,
+                start_budget=fmt_money(first_budget, lang),
+                end_year=last_year,
+                end_budget=fmt_money(last_budget, lang),
+            )
+        with st.container(border=True):
+            st.markdown("**" + t(lang, "trends_scope_summary_title") + "**")
+            st.write(trend_summary_text)
     dim_choice = st.radio(
         t(lang, "dimension"),
         [t(lang, "dim_theme"), t(lang, "dim_program")],
@@ -6926,6 +7185,7 @@ with tab_actor:
 
         actor_summary_row = actor_summary.iloc[0] if not actor_summary.empty else pd.Series(dtype="object")
         selected_actor_display = display_map.get(str(picked_id), str(picked_id))
+        selected_actor_search = str(actor_summary_row.get("org_name2") or picked_id).strip() or str(picked_id)
         selected_budget = float(actor_summary_row.get("budget_eur") or 0.0)
         selected_projects = int(actor_summary_row.get("n_projects") or 0)
         selected_country = str(actor_summary_row.get("country_name2") or "—")
@@ -6967,6 +7227,29 @@ with tab_actor:
         s2.metric(t(lang, "n_projects"), f"{selected_projects:,}".replace(",", " "))
         s3.metric(t(lang, "actor_top_theme"), selected_theme)
         s4.metric(t(lang, "actor_main_country"), selected_main_country)
+        aq1, aq2, aq3 = st.columns(3)
+        with aq1:
+            if st.button(t(lang, "actor_open_results"), key=f"actor_open_results::{picked_id}", width="stretch"):
+                st.session_state["f_quick_search"] = selected_actor_search
+                queue_tab_navigation(top_target=t(lang, "tab_explorer"))
+                st.rerun()
+        with aq2:
+            if selected_main_country and selected_main_country != "—":
+                if st.button(t(lang, "actor_open_geo"), key=f"actor_open_geo::{picked_id}", width="stretch"):
+                    st.session_state["f_countries"] = [selected_main_country]
+                    queue_tab_navigation(top_target=t(lang, "tab_markets"))
+                    st.rerun()
+            else:
+                st.caption("—")
+        with aq3:
+            top_theme_raw = str(mix_t.iloc[0]["theme"]) if not mix_t.empty else ""
+            if top_theme_raw.strip():
+                if st.button(t(lang, "actor_open_trends"), key=f"actor_open_trends::{picked_id}", width="stretch"):
+                    st.session_state["f_themes_raw"] = [top_theme_raw]
+                    queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_trends"))
+                    st.rerun()
+            else:
+                st.caption("—")
 
         actor_profile_tab, actor_partners_tab, actor_peers_tab = st.tabs(
             [t(lang, "actor_tab_profile"), t(lang, "actor_tab_partners"), t(lang, "actor_tab_peers")],
