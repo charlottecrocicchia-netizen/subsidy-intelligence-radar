@@ -103,11 +103,42 @@ export KAILA_API_TOKEN="xxx"
 - `data/processed/actor_master.{csv,parquet}`
 - `data/processed/group_master.{csv,parquet}`
 - `data/processed/project_actor_links.{csv,parquet}`
+- `data/processed/project_scientific_subthemes.{csv,parquet}`
 
 The base dataset includes additional fields:
 - `pic`
 - `value_chain_stage`
 - `project_status` (`Open` / `Closed` / `Unknown`)
+- `cordis_domain_ui`
+- `cordis_theme_primary`
+- `cordis_theme_primary_source`
+- `cordis_topic_primary`
+- `cordis_topics_all`
+- `cordis_call`
+- `cordis_framework_programme`
+- `scientific_subthemes`
+- `scientific_subthemes_count`
+- `legacy_theme`
+- `legacy_sub_theme`
+
+## CORDIS-first classification model
+The app is no longer structured around a house OneTech theme as its primary product axis.
+
+The classification now separates:
+- `cordis_domain_ui`: one of the 11 high-level CORDIS navigation domains used in guided entry and simple filters
+- `cordis_theme_primary`: one unique official primary theme per project, derived from CORDIS metadata with this priority:
+  - `programmeDivisionTitle`
+  - `programmeDivision`
+  - `topic`
+  - `call`
+  - `frameworkProgramme`
+  - explicit fallback only if nothing official is available
+- `scientific_subthemes`: multi-label scientific sub-themes used for fine-grained exploration only
+
+Counting rules:
+- global project totals must stay on `COUNT(DISTINCT projectID)` over the main dataset
+- main budget totals must stay grouped by project / primary theme, not by exploded sub-theme rows
+- `project_scientific_subthemes` is exploratory and can show the same project in multiple scientific sub-themes
 
 ## Streamlit Community Cloud
 Push this repo to GitHub, then deploy with main file `app.py`.

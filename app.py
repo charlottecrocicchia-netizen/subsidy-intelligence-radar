@@ -27,6 +27,13 @@ import plotly.io as pio
 import duckdb
 from filelock import FileLock, Timeout
 
+from cordis_taxonomy import (
+    CORDIS_DOMAIN_UI_FR,
+    CORDIS_DOMAIN_UI_ORDER,
+    LEGACY_THEME_TO_DOMAIN_UI,
+    SCIENTIFIC_SUBTHEMES_BY_DOMAIN,
+)
+
 # Interactive Sankey clicks can trigger rerun loops on Streamlit Cloud.
 # Keep click mode disabled for stability; isolation is controlled via selectors.
 ENABLE_SANKEY_CLICK = False
@@ -62,6 +69,7 @@ EVENTS_META_PATH = DATA_DIR / "external" / "events_meta.json"
 ACTOR_GROUPS_PATH = DATA_DIR / "external" / "actor_groups.csv"
 ACTOR_GROUPS_TEMPLATE_PATH = DATA_DIR / "external" / "actor_groups.template.csv"
 CONNECTORS_MANIFEST_PATH = DATA_DIR / "external" / "connectors_manifest.csv"
+SCIENTIFIC_SUBTHEMES_PARQUET_PATH = DATA_DIR / "processed" / "project_scientific_subthemes.parquet"
 PIPELINE_STATE_PATH = DATA_DIR / "processed" / "_state.json"
 REQUIREMENTS_PATH = BASE_DIR / "requirements.txt"
 
@@ -1341,6 +1349,17 @@ ONETECH_THEMES_EN = {
 }
 
 THEME_EN_TO_FR = {
+    "Climate Change and Environment": "Climat et environnement",
+    "Digital Economy": "Économie numérique",
+    "Energy": "Énergie",
+    "Food and Natural Resources": "Alimentation et ressources naturelles",
+    "Fundamental Research": "Recherche fondamentale",
+    "Health": "Santé",
+    "Industrial Technologies": "Technologies industrielles",
+    "Security": "Sécurité",
+    "Society": "Société",
+    "Space": "Espace",
+    "Transport and Mobility": "Transport et mobilité",
     "Hydrogen (H2)": "Hydrogène (H2)",
     "Solar (PV/CSP)": "Solaire (PV/CSP)",
     "Wind": "Éolien",
@@ -1361,179 +1380,7 @@ THEME_EN_TO_FR = {
     "Other": "Autres",
 }
 
-THEME_SUBCATEGORIES = {
-    "Hydrogen (H2)": [
-        "Hydrogen production",
-        "Electrolysis",
-        "Hydrogen storage",
-        "Hydrogen transport & distribution",
-        "Fuel cells",
-        "Industrial uses",
-        "Mobility applications",
-        "Catalysts, membranes & safety",
-    ],
-    "Solar (PV/CSP)": [
-        "Photovoltaic materials",
-        "PV cells & architectures",
-        "PV modules & balance of system",
-        "Concentrated solar power (CSP)",
-        "Solar thermal",
-        "Grid integration & flexibility",
-        "Recycling & sustainability",
-    ],
-    "Wind": [
-        "Onshore wind",
-        "Offshore wind",
-        "Floating wind",
-        "Turbines, blades & materials",
-        "Aerodynamics & wake effects",
-        "Operations & maintenance",
-        "Grid integration",
-    ],
-    "Bioenergy & SAF": [
-        "Biomass & feedstocks",
-        "Biofuels",
-        "Advanced biofuels",
-        "Sustainable aviation fuel (SAF)",
-        "Biochemical conversion",
-        "Thermochemical conversion",
-        "Lifecycle assessment & sustainability",
-    ],
-    "CCUS": [
-        "CO2 capture",
-        "Direct air capture (DAC)",
-        "CO2 transport",
-        "CO2 storage",
-        "CO2 utilization",
-        "Carbon mineralization",
-        "Monitoring, reporting & verification",
-    ],
-    "Nuclear & SMR": [
-        "SMR technologies",
-        "Reactor systems",
-        "Fuel cycle",
-        "Nuclear materials",
-        "Safety & licensing",
-        "Waste management",
-        "Decommissioning",
-    ],
-    "Batteries & Storage": [
-        "Battery chemistries",
-        "Electrode & electrolyte materials",
-        "Cells, modules & packs",
-        "Battery management systems",
-        "Stationary storage",
-        "Aging, diagnostics & safety",
-        "Recycling & second life",
-    ],
-    "AI & Digital": [
-        "Artificial intelligence & machine learning",
-        "Computer vision & sensing",
-        "Digital twins",
-        "Modeling & simulation",
-        "Optimization & decision support",
-        "Data platforms & software",
-        "Cybersecurity",
-    ],
-    "Advanced materials": [
-        "Catalysts",
-        "Membranes & separators",
-        "Coatings & surface engineering",
-        "Composites & structural materials",
-        "Nanomaterials",
-        "Functional materials",
-        "Recyclable & circular materials",
-    ],
-    "E-mobility": [
-        "Electric vehicles",
-        "Charging infrastructure",
-        "Power electronics",
-        "Electric drivetrains",
-        "Smart charging",
-        "Vehicle-to-grid (V2G)",
-        "Heavy-duty, maritime & aviation electrification",
-    ],
-    "Climate & Environment": [
-        "Climate adaptation",
-        "Climate mitigation",
-        "Carbon footprint & LCA",
-        "Air quality",
-        "Water resources & treatment",
-        "Pollution monitoring & remediation",
-        "Biodiversity & ecosystems",
-        "Circular economy & waste",
-    ],
-    "Industry & Manufacturing": [
-        "Advanced manufacturing",
-        "Process intensification",
-        "Industrial decarbonization",
-        "Automation & robotics",
-        "Sensors & industrial monitoring",
-        "Predictive maintenance",
-        "Supply chain & logistics",
-        "Quality control & inspection",
-    ],
-    "Transport & Aviation": [
-        "Sustainable aviation",
-        "Aeronautics systems",
-        "Rail transport",
-        "Maritime transport",
-        "Logistics & freight",
-        "Low-emission mobility systems",
-        "Transport infrastructure",
-        "Traffic optimization & operations",
-    ],
-    "Health & Biotech": [
-        "Drug discovery",
-        "Bioprocessing & biomanufacturing",
-        "Diagnostics",
-        "Medical devices",
-        "Genomics & omics",
-        "Vaccines & therapeutics",
-        "Digital health",
-        "Biomaterials & tissue engineering",
-    ],
-    "Space": [
-        "Earth observation",
-        "Satellite systems",
-        "Launch systems",
-        "Space propulsion",
-        "Space robotics",
-        "Planetary exploration",
-        "Telecommunications & navigation",
-        "Space situational awareness",
-    ],
-    "Agriculture & Food": [
-        "Precision agriculture",
-        "Agri-biotech",
-        "Soil health",
-        "Crop improvement",
-        "Food processing",
-        "Alternative proteins",
-        "Water efficiency in agriculture",
-        "Food systems sustainability",
-    ],
-    "Security & Resilience": [
-        "Cybersecurity",
-        "Critical infrastructure resilience",
-        "Energy security",
-        "Disaster risk reduction",
-        "Civil security",
-        "Defense technologies",
-        "Surveillance & detection",
-        "Emergency response systems",
-    ],
-    "Other": [
-        "Cross-disciplinary research",
-        "Policy & governance",
-        "Socio-economic analysis",
-        "Education & skills",
-        "Demonstration projects",
-        "Pilot projects",
-        "Infrastructure support",
-        "Unclassified / miscellaneous",
-    ],
-}
+GUIDED_DOMAIN_SUBCATEGORIES = dict(SCIENTIFIC_SUBTHEMES_BY_DOMAIN)
 
 SUBTOPIC_TERM_OVERRIDES = {
     "Electrolysis": ["electrolysis", "electrolyser", "electrolyzer"],
@@ -1608,8 +1455,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_selected_question_button": "Question retenue",
         "guided_home_search": "Sujet ou mots-clés",
         "guided_home_search_help": "Exemples : hydrogène Allemagne, batteries France, IA industrie.",
-        "guided_home_topics": "Thématiques à suivre",
-        "guided_home_topics_help": "Laisse vide si tu veux ouvrir l’analyse sur toutes les thématiques.",
+        "guided_home_topics": "Domaines CORDIS à suivre",
+        "guided_home_topics_help": "Laisse vide si tu veux ouvrir l’analyse sur tous les domaines CORDIS.",
         "guided_home_subtopics_note": "Les sous-thématiques détaillées ne sont pas encore structurées dans le référentiel. Cette entrée guidée travaille donc au niveau des grandes thématiques.",
         "guided_home_countries_help": "Commence par un périmètre pays simple ; tu pourras l’affiner ensuite dans les filtres complets.",
         "guided_home_period_help": "La période définit le cadrage de départ avant l’analyse détaillée.",
@@ -1624,19 +1471,19 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_topic_card_desc": "Commence par les mots-clés et les grandes thématiques qui t’intéressent vraiment.",
         "guided_home_scope_card": "2. Définir le périmètre",
         "guided_home_scope_card_desc": "Cadre ensuite le point de départ avec les pays et la période.",
-        "guided_home_metric_themes": "Thématiques",
+        "guided_home_metric_themes": "Domaines",
         "guided_home_metric_countries": "Pays",
         "guided_home_metric_period": "Période",
         "guided_home_next_title": "Ce que l’analyse complète va ouvrir",
         "guided_home_next_1": "les résultats détaillés du périmètre choisi",
         "guided_home_next_2": "les acteurs, la géographie et les tendances déjà préfiltrés",
         "guided_home_next_3": "tous les filtres avancés si tu veux aller plus loin",
-        "guided_home_theme_cards_help": "Clique sur un ou plusieurs thèmes. Tu pourras affiner ensuite.",
-        "guided_home_theme_select_note": "Coche pour inclure ce thème",
+        "guided_home_theme_cards_help": "Choisis un ou plusieurs domaines CORDIS. Tu pourras ensuite affiner avec le thème principal et les sous-thèmes scientifiques.",
+        "guided_home_theme_select_note": "Coche pour inclure ce domaine",
         "guided_home_theme_select_action": "Sélectionner",
-        "guided_home_selected_themes": "Thématiques retenues",
-        "guided_home_subtopics": "Sous-thématiques préparatoires",
-        "guided_home_subtopics_help": "Choisis des sous-thèmes si tu veux affiner. Ils seront repris dans l’analyse comme termes guidés de recherche.",
+        "guided_home_selected_themes": "Domaines retenus",
+        "guided_home_subtopics": "Sous-thèmes scientifiques",
+        "guided_home_subtopics_help": "Choisis des sous-thèmes scientifiques si tu veux affiner l’exploration. Ils filtreront ensuite l’analyse détaillée sans recomposer les totaux globaux.",
         "guided_terms": "Sous-thèmes guidés",
         "guided_terms_applied": "Sous-thèmes guidés appliqués",
         "reset": "Réinitialiser",
@@ -1656,7 +1503,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "status_open": "Ouvert",
         "status_closed": "Fermé",
         "status_unknown": "Inconnu",
-        "themes": "Thématiques",
+        "domains": "Domaines CORDIS",
+        "themes": "Thème principal CORDIS",
+        "scientific_subthemes": "Sous-thèmes scientifiques",
         "entity": "Type d’entité",
         "countries": "Pays",
         "country_preset_eu27": "UE 27",
@@ -2112,8 +1961,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_selected_question_button": "Selected question",
         "guided_home_search": "Topic or keywords",
         "guided_home_search_help": "Examples: hydrogen Germany, batteries France, AI industry.",
-        "guided_home_topics": "Themes to follow",
-        "guided_home_topics_help": "Leave empty if you want to open the analysis across all themes.",
+        "guided_home_topics": "CORDIS domains to follow",
+        "guided_home_topics_help": "Leave empty if you want to open the analysis across all CORDIS domains.",
         "guided_home_subtopics_note": "Detailed sub-themes are not structured yet in the reference model. This guided entry therefore works at the main-theme level for now.",
         "guided_home_countries_help": "Start with a simple country perimeter; you can refine it later in the full filters.",
         "guided_home_period_help": "The period sets your starting perimeter before deeper analysis.",
@@ -2128,19 +1977,19 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_topic_card_desc": "Start with the keywords and major themes you actually want to follow.",
         "guided_home_scope_card": "2. Define the perimeter",
         "guided_home_scope_card_desc": "Then set the starting geography and time range.",
-        "guided_home_metric_themes": "Themes",
+        "guided_home_metric_themes": "Domains",
         "guided_home_metric_countries": "Countries",
         "guided_home_metric_period": "Period",
         "guided_home_next_title": "What the full analysis will open",
         "guided_home_next_1": "detailed results for the chosen scope",
         "guided_home_next_2": "actors, geography, and trends already prefiltered",
         "guided_home_next_3": "all advanced filters if you want to go deeper",
-        "guided_home_theme_cards_help": "Click one or more themes. You can refine them afterwards.",
-        "guided_home_theme_select_note": "Check to include this theme",
+        "guided_home_theme_cards_help": "Choose one or more CORDIS domains first. You can then refine with primary official themes and scientific sub-themes.",
+        "guided_home_theme_select_note": "Check to include this domain",
         "guided_home_theme_select_action": "Select",
-        "guided_home_selected_themes": "Selected themes",
-        "guided_home_subtopics": "Preparatory sub-themes",
-        "guided_home_subtopics_help": "Choose sub-themes if you want to refine the topic. They will be carried into the analysis as guided search terms.",
+        "guided_home_selected_themes": "Selected domains",
+        "guided_home_subtopics": "Scientific sub-themes",
+        "guided_home_subtopics_help": "Choose scientific sub-themes to refine the exploration. They will filter the detailed analysis without redefining the global totals.",
         "guided_terms": "Guided sub-themes",
         "guided_terms_applied": "Guided sub-themes applied",
         "reset": "Reset",
@@ -2160,7 +2009,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "status_open": "Open",
         "status_closed": "Closed",
         "status_unknown": "Unknown",
-        "themes": "Themes",
+        "domains": "CORDIS domains",
+        "themes": "Primary CORDIS theme",
+        "scientific_subthemes": "Scientific sub-themes",
         "entity": "Entity type",
         "countries": "Countries",
         "country_preset_eu27": "EU 27",
@@ -2679,6 +2530,40 @@ def theme_raw_to_display(raw: str, lang: str) -> str:
     return raw
 
 
+def domain_raw_to_display(raw: str, lang: str) -> str:
+    raw = str(raw or "").strip()
+    if not raw:
+        return ""
+    if lang == "FR":
+        return CORDIS_DOMAIN_UI_FR.get(raw, THEME_EN_TO_FR.get(raw, raw))
+    return raw
+
+
+def scientific_subthemes_compact(raw: object, limit: int = 3) -> str:
+    if raw is None:
+        return ""
+    values: List[str] = []
+    if isinstance(raw, (list, tuple, set)):
+        values = [str(x).strip() for x in raw if str(x).strip()]
+    else:
+        txt = str(raw).strip()
+        if not txt or txt == "[]":
+            return ""
+        try:
+            js = json.loads(txt)
+            if isinstance(js, list):
+                values = [str(x).strip() for x in js if str(x).strip()]
+            else:
+                values = [txt]
+        except Exception:
+            values = [x.strip() for x in re.split(r"\s*(?:\||;|,)\s*", txt) if x.strip()]
+    if not values:
+        return ""
+    if len(values) <= limit:
+        return ", ".join(values)
+    return ", ".join(values[:limit]) + f" +{len(values) - limit}"
+
+
 def entity_raw_to_display(raw: str, lang: str) -> str:
     if lang == "FR":
         return ENTITY_EN_TO_FR.get(raw, raw)
@@ -2766,7 +2651,17 @@ def sql_contains_expr(column_sql: str, query: str) -> str:
 
 
 def quick_search_clause(prefix: str, query: str, columns: Optional[List[str]] = None) -> str:
-    cols = columns or ["projectID", "acronym", "title", "org_name", "actor_id"]
+    cols = columns or [
+        "projectID",
+        "acronym",
+        "title",
+        "org_name",
+        "actor_id",
+        "cordis_domain_ui",
+        "cordis_theme_primary",
+        "sub_theme",
+        "keywords",
+    ]
     return "(" + " OR ".join(sql_contains_expr(f"{prefix}{col}", query) for col in cols) + ")"
 
 
@@ -2789,6 +2684,7 @@ def build_safe_where_pair(
     use_section: bool,
     sections: List[str],
     onetech_only: bool,
+    domains: List[str],
     statuses: List[str],
     themes: List[str],
     subthemes: List[str],
@@ -2805,6 +2701,7 @@ def build_safe_where_pair(
         use_section=use_section,
         sections=sections,
         onetech_only=onetech_only,
+        domains=domains,
         statuses=statuses,
         themes=themes,
         subthemes=subthemes,
@@ -2857,9 +2754,17 @@ def active_filter_labels(meta: dict, lang: str) -> List[str]:
     if countries and len(countries) < len(meta.get("countries", [])):
         labels.append(f"{t(lang, 'countries')}: {_compact_filter_values(countries, country_raw_to_display)}")
 
+    domains = [x for x in st.session_state.get("f_domains_raw", []) if x in meta.get("domains", [])]
+    if domains and len(domains) < len(meta.get("domains", [])):
+        labels.append(f"{t(lang, 'domains')}: {_compact_filter_values(domains, lambda x: domain_raw_to_display(x, lang))}")
+
     themes = [x for x in st.session_state.get("f_themes_raw", []) if x in meta.get("themes", [])]
     if themes and len(themes) < len(meta.get("themes", [])):
         labels.append(f"{t(lang, 'themes')}: {_compact_filter_values(themes, lambda x: theme_raw_to_display(x, lang))}")
+
+    scientific_subthemes = [x for x in st.session_state.get("f_scientific_subthemes", []) if x in meta.get("scientific_subthemes", [])]
+    if scientific_subthemes and len(scientific_subthemes) < len(meta.get("scientific_subthemes", [])):
+        labels.append(f"{t(lang, 'scientific_subthemes')}: {_compact_filter_values(scientific_subthemes, limit=2)}")
 
     entities = [x for x in st.session_state.get("f_entity_raw", []) if x in meta.get("entities", [])]
     if entities and len(entities) < len(meta.get("entities", [])):
@@ -2897,16 +2802,23 @@ def render_active_filter_chips(meta: dict, lang: str) -> None:
 
 
 def render_search_interpretation(meta: dict, lang: str, *, compact: bool = False) -> None:
+    domains = [x for x in st.session_state.get("f_domains_raw", []) if x in meta.get("domains", [])]
     themes = [x for x in st.session_state.get("f_themes_raw", []) if x in meta.get("themes", [])]
     countries = [x for x in st.session_state.get("f_countries", []) if x in meta.get("countries", [])]
+    scientific_subthemes = [x for x in st.session_state.get("f_scientific_subthemes", []) if x in meta.get("scientific_subthemes", [])]
     search_txt = str(st.session_state.get("f_quick_search", "")).strip()
     intent = str(st.session_state.get("guided_intent_active", st.session_state.get("guided_intent", "projects")) or "projects")
     all_label = "Tous" if lang == "FR" else "All"
     scope_bits = [
         f"{t(lang, 'period')}: {int(st.session_state['f_years'][0])}-{int(st.session_state['f_years'][1])}",
+        f"{t(lang, 'domains')}: {_compact_filter_values(domains, lambda x: domain_raw_to_display(x, lang)) or all_label}",
         f"{t(lang, 'themes')}: {_compact_filter_values(themes, lambda x: theme_raw_to_display(x, lang)) or all_label}",
         f"{t(lang, 'countries')}: {_compact_filter_values(countries, country_raw_to_display) or all_label}",
     ]
+    if scientific_subthemes:
+        scope_bits.append(
+            f"{t(lang, 'scientific_subthemes')}: {_compact_filter_values(scientific_subthemes, limit=3)}"
+        )
     if st.session_state.get("f_guided_subtopics"):
         scope_bits.append(
             f"{t(lang, 'guided_terms')}: {_compact_filter_values(st.session_state.get('f_guided_subtopics', []), limit=3)}"
@@ -3111,6 +3023,7 @@ def _default_statuses_from_meta(meta: dict) -> List[str]:
 
 def sync_guided_entry_from_filters(meta: dict) -> None:
     default_countries = _default_countries_from_meta(meta)
+    current_domains = [x for x in st.session_state.get("f_domains_raw", []) if x in meta["domains"]]
     current_themes = [x for x in st.session_state.get("f_themes_raw", []) if x in meta["themes"]]
     current_countries = [x for x in st.session_state.get("f_countries", []) if x in meta["countries"]]
     current_years = tuple(st.session_state.get("f_years", (meta["miny"], meta["maxy"])))
@@ -3118,7 +3031,7 @@ def sync_guided_entry_from_filters(meta: dict) -> None:
         current_years = (meta["miny"], meta["maxy"])
 
     st.session_state["guided_search"] = str(st.session_state.get("f_quick_search", ""))
-    st.session_state["guided_themes_raw"] = [] if set(current_themes) == set(meta["themes"]) else current_themes
+    st.session_state["guided_themes_raw"] = [] if set(current_domains) == set(meta["domains"]) else current_domains
     st.session_state["guided_countries"] = current_countries or default_countries
     st.session_state["guided_countries_widget"] = list(st.session_state["guided_countries"])
     st.session_state["guided_years"] = current_years
@@ -3129,33 +3042,44 @@ def sync_guided_entry_from_filters(meta: dict) -> None:
     }
     st.session_state["guided_subtopics"] = _selected_guided_subtopics(st.session_state["guided_themes_raw"])
     selected_set = set(st.session_state["guided_themes_raw"])
-    for theme in meta.get("themes", []):
+    for theme in meta.get("domains", []):
         st.session_state[f"guided_theme_selected::{theme}"] = theme in selected_set
 
 
 def apply_guided_entry_to_filters(meta: dict) -> None:
     default_countries = _default_countries_from_meta(meta)
     default_statuses = _default_statuses_from_meta(meta)
-    guided_themes = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
+    guided_domains = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["domains"]]
     guided_countries = [x for x in st.session_state.get("guided_countries_widget", st.session_state.get("guided_countries", [])) if x in meta["countries"]]
     st.session_state["guided_countries"] = guided_countries
     guided_years = tuple(st.session_state.get("guided_years", (meta["miny"], meta["maxy"])))
     if len(guided_years) != 2:
         guided_years = (meta["miny"], meta["maxy"])
 
-    selected_subtopics = _selected_guided_subtopics(guided_themes)
+    selected_subtopics = _selected_guided_subtopics(guided_domains)
     guided_topic_terms: List[str] = []
     for subtopic in selected_subtopics:
         for term in _subtopic_search_terms(subtopic):
             if term not in guided_topic_terms:
                 guided_topic_terms.append(term)
 
+    selected_primary_themes: List[str] = []
+    if guided_domains:
+        for domain in guided_domains:
+            for theme in meta.get("themes_by_domain", {}).get(domain, []):
+                if theme not in selected_primary_themes:
+                    selected_primary_themes.append(theme)
+    else:
+        selected_primary_themes = list(meta["themes"])
+
     st.session_state["f_quick_search"] = str(st.session_state.get("guided_search", "")).strip()
-    st.session_state["f_themes_raw"] = guided_themes if guided_themes else list(meta["themes"])
+    st.session_state["f_domains_raw"] = guided_domains if guided_domains else list(meta["domains"])
+    st.session_state["f_themes_raw"] = selected_primary_themes if selected_primary_themes else list(meta["themes"])
     st.session_state["f_countries"] = guided_countries if guided_countries else default_countries
     st.session_state["f_years"] = guided_years
     st.session_state["f_guided_subtopics"] = selected_subtopics
     st.session_state["f_guided_topic_terms"] = guided_topic_terms
+    st.session_state["f_scientific_subthemes"] = []
     st.session_state["f_sources"] = list(meta["sources"])
     st.session_state["f_programmes"] = list(meta["programmes"])
     st.session_state["f_statuses"] = default_statuses
@@ -3176,7 +3100,7 @@ def _clean_guided_subtopics_by_theme() -> Dict[str, List[str]]:
     cleaned: Dict[str, List[str]] = {}
     for theme, subtopics in raw.items():
         theme_key = str(theme)
-        allowed = [str(x) for x in THEME_SUBCATEGORIES.get(theme_key, [])]
+        allowed = [str(x) for x in GUIDED_DOMAIN_SUBCATEGORIES.get(theme_key, [])]
         if not allowed:
             continue
         values: List[str] = []
@@ -3487,17 +3411,35 @@ def get_con() -> duckdb.DuckDBPyConnection:
     return con
 
 
+def _build_domain_case_sql(theme_expr: str) -> str:
+    cases = []
+    for legacy_theme, domain in LEGACY_THEME_TO_DOMAIN_UI.items():
+        safe_theme = str(legacy_theme).replace("'", "''")
+        safe_domain = str(domain).replace("'", "''")
+        cases.append(f"WHEN {theme_expr} = '{safe_theme}' THEN '{safe_domain}'")
+    return "CASE " + " ".join(cases) + " ELSE '' END"
+
+
 def _ensure_base_view() -> None:
     """
-    Create (or replace) a DuckDB view 'subsidy_base' that:
-    1. Reads the parquet
-    2. Maps 2-letter country codes to full English names (fixes country_name)
-    3. Maps 2-letter country codes to 3-letter ISO codes (fixes country_alpha3 for maps)
-    4. Excludes ADEME rows
-    This runs once per session. All queries use 'subsidy_base' instead of read_parquet().
+    Create (or replace) DuckDB compatibility views over the processed parquet.
+
+    subsidy_base:
+      - normalizes country labels / alpha3
+      - exposes official CORDIS columns even on older parquet versions
+      - maps `theme` to `cordis_theme_primary` for backward compatibility
+      - preserves `legacy_theme` / `legacy_sub_theme`
+
+    project_scientific_subthemes_view:
+      - official exploded project x scientific_subtheme table if available
+      - safe fallback from `sub_theme` otherwise
     """
     con = get_con()
     raw = f"read_parquet('{PARQUET_PATH.as_posix()}')"
+    raw_cols = {
+        str(c)
+        for c in con.execute(f"SELECT * FROM {raw} LIMIT 0").fetchdf().columns
+    }
 
     # Build mapping table with both full name and alpha3
     rows = []
@@ -3515,22 +3457,162 @@ def _ensure_base_view() -> None:
     con.execute("CREATE TABLE _country_map (code VARCHAR, full_name VARCHAR, alpha3 VARCHAR);")
     con.execute(f"INSERT INTO _country_map VALUES {values};")
 
-    # Create the base view: fix BOTH country_name AND country_alpha3
+    def text_col(name: str) -> str:
+        if name not in raw_cols:
+            return "''"
+        return f"TRIM(COALESCE(b.{name}, ''))"
+
+    legacy_theme_expr = f"COALESCE(NULLIF({text_col('legacy_theme')}, ''), NULLIF({text_col('theme')}, ''), '')"
+    legacy_sub_theme_expr = f"COALESCE(NULLIF({text_col('legacy_sub_theme')}, ''), NULLIF({text_col('sub_theme')}, ''), '')"
+    cordis_theme_primary_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('cordis_theme_primary')}, ''), "
+        f"NULLIF({text_col('theme')}, ''), "
+        f"NULLIF({text_col('section')}, ''), "
+        f"NULLIF({text_col('program')}, ''), "
+        "'')"
+    )
+    cordis_theme_primary_source_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('cordis_theme_primary_source')}, ''), "
+        f"CASE WHEN NULLIF({text_col('theme')}, '') IS NOT NULL THEN 'legacy_theme' ELSE 'fallback' END"
+        ")"
+    )
+    sub_theme_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('sub_theme')}, ''), "
+        f"NULLIF(json_extract_string(COALESCE({text_col('scientific_subthemes')}, '[]'), '$[0]'), ''), "
+        "''"
+        ")"
+        if "scientific_subthemes" in raw_cols
+        else f"COALESCE(NULLIF({text_col('sub_theme')}, ''), '')"
+    )
+    scientific_subthemes_expr = (
+        f"COALESCE(NULLIF({text_col('scientific_subthemes')}, ''), "
+        f"CASE WHEN {sub_theme_expr} <> '' THEN '[\"' || replace({sub_theme_expr}, '\"', '\\\\\"') || '\"]' ELSE '[]' END)"
+    )
+    scientific_subthemes_count_expr = (
+        f"COALESCE(TRY_CAST(NULLIF({text_col('scientific_subthemes_count')}, '') AS INTEGER), "
+        f"CASE WHEN {sub_theme_expr} <> '' THEN 1 ELSE 0 END)"
+        if "scientific_subthemes_count" in raw_cols
+        else f"CASE WHEN {sub_theme_expr} <> '' THEN 1 ELSE 0 END"
+    )
+    cordis_domain_ui_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('cordis_domain_ui')}, ''), "
+        f"NULLIF({_build_domain_case_sql(legacy_theme_expr)}, ''), "
+        "'')"
+    )
+    cordis_topic_primary_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('cordis_topic_primary')}, ''), "
+        f"NULLIF({text_col('topic')}, ''), "
+        "''"
+        ")"
+    )
+    cordis_topics_all_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('cordis_topics_all')}, ''), "
+        f"NULLIF({text_col('topics')}, ''), "
+        f"CASE WHEN NULLIF({text_col('topic')}, '') IS NOT NULL THEN '[\"' || replace({text_col('topic')}, '\"', '\\\\\"') || '\"]' ELSE '[]' END"
+        ")"
+    )
+    cordis_call_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('cordis_call')}, ''), "
+        f"NULLIF({text_col('call')}, ''), "
+        f"NULLIF({text_col('subCall')}, ''), "
+        f"NULLIF({text_col('masterCall')}, ''), "
+        "'')"
+    )
+    cordis_framework_programme_expr = (
+        "COALESCE("
+        f"NULLIF({text_col('cordis_framework_programme')}, ''), "
+        f"NULLIF({text_col('frameworkProgramme')}, ''), "
+        f"NULLIF({text_col('program')}, ''), "
+        "'')"
+    )
+    country_name_expr = f"COALESCE(cn.full_name, ca3.full_name, {text_col('country_name')})"
+    country_alpha3_expr = f"COALESCE(cn.alpha3, ca3.alpha3, {text_col('country_alpha3')})"
+
+    replace_exprs: List[str] = []
+    extra_exprs: List[str] = []
+
+    def upsert_expr(name: str, expr: str) -> None:
+        target = replace_exprs if name in raw_cols else extra_exprs
+        target.append(f"({expr}) AS {name}")
+
+    upsert_expr("country_name", country_name_expr)
+    upsert_expr("country_alpha3", country_alpha3_expr)
+    upsert_expr("legacy_theme", legacy_theme_expr)
+    upsert_expr("legacy_sub_theme", legacy_sub_theme_expr)
+    upsert_expr("cordis_domain_ui", cordis_domain_ui_expr)
+    upsert_expr("cordis_theme_primary", cordis_theme_primary_expr)
+    upsert_expr("cordis_theme_primary_source", cordis_theme_primary_source_expr)
+    upsert_expr("cordis_topic_primary", cordis_topic_primary_expr)
+    upsert_expr("cordis_topics_all", cordis_topics_all_expr)
+    upsert_expr("cordis_call", cordis_call_expr)
+    upsert_expr("cordis_framework_programme", cordis_framework_programme_expr)
+    upsert_expr("scientific_subthemes", scientific_subthemes_expr)
+    upsert_expr("scientific_subthemes_count", scientific_subthemes_count_expr)
+    upsert_expr("theme", cordis_theme_primary_expr)
+    upsert_expr("sub_theme", sub_theme_expr)
+
+    base_select = "b.*"
+    if replace_exprs:
+        base_select += " REPLACE(" + ", ".join(replace_exprs) + ")"
+
     con.execute("DROP VIEW IF EXISTS subsidy_base;")
     con.execute(f"""
         CREATE VIEW subsidy_base AS
         SELECT
-            b.* EXCLUDE (country_name, country_alpha3),
-            COALESCE(cn.full_name, ca3.full_name, TRIM(COALESCE(b.country_name, ''))) AS country_name,
-            COALESCE(cn.alpha3, ca3.alpha3, TRIM(COALESCE(b.country_alpha3, ''))) AS country_alpha3
+            {base_select}
+            {", " if extra_exprs else ""}{", ".join(extra_exprs)}
         FROM {raw} b
         LEFT JOIN _country_map cn
-            ON UPPER(TRIM(b.country_name)) = cn.code
+            ON UPPER({text_col('country_name')}) = cn.code
         LEFT JOIN _country_map ca3
-            ON UPPER(TRIM(b.country_alpha3)) = ca3.code
+            ON UPPER({text_col('country_alpha3')}) = ca3.code
         WHERE UPPER(COALESCE(b.source, '')) <> 'ADEME'
           AND UPPER(COALESCE(b.program, '')) NOT LIKE '%ADEME%'
     """)
+
+    con.execute("DROP VIEW IF EXISTS project_scientific_subthemes_view;")
+    if SCIENTIFIC_SUBTHEMES_PARQUET_PATH.exists():
+        subthemes_raw = f"read_parquet('{SCIENTIFIC_SUBTHEMES_PARQUET_PATH.as_posix()}')"
+        con.execute(f"""
+            CREATE VIEW project_scientific_subthemes_view AS
+            SELECT
+              TRIM(COALESCE(projectID, '')) AS projectID,
+              TRIM(COALESCE(cordis_domain_ui, '')) AS cordis_domain_ui,
+              TRIM(COALESCE(cordis_theme_primary, '')) AS cordis_theme_primary,
+              TRIM(COALESCE(subtheme_level_1, '')) AS subtheme_level_1,
+              TRIM(COALESCE(subtheme_level_2, '')) AS subtheme_level_2,
+              TRIM(COALESCE(subtheme_level_3, '')) AS subtheme_level_3,
+              TRIM(COALESCE(subtheme_label, '')) AS subtheme_label,
+              TRIM(COALESCE(subtheme_path, '')) AS subtheme_path,
+              TRIM(COALESCE(source_method, '')) AS source_method
+            FROM {subthemes_raw}
+            WHERE TRIM(COALESCE(projectID, '')) <> ''
+              AND TRIM(COALESCE(subtheme_label, '')) <> ''
+        """)
+    else:
+        con.execute("""
+            CREATE VIEW project_scientific_subthemes_view AS
+            SELECT DISTINCT
+              projectID,
+              cordis_domain_ui,
+              cordis_theme_primary,
+              cordis_domain_ui AS subtheme_level_1,
+              '' AS subtheme_level_2,
+              sub_theme AS subtheme_level_3,
+              sub_theme AS subtheme_label,
+              CASE WHEN sub_theme <> '' THEN cordis_domain_ui || ' > ' || sub_theme ELSE '' END AS subtheme_path,
+              'legacy_sub_theme' AS source_method
+            FROM subsidy_base
+            WHERE TRIM(COALESCE(projectID, '')) <> ''
+              AND TRIM(COALESCE(sub_theme, '')) <> ''
+        """)
 
 
 # Track whether the view has been created this session
@@ -3545,8 +3627,16 @@ def rel() -> str:
     return "subsidy_base"
 
 
+def scientific_subthemes_rel() -> str:
+    global _BASE_VIEW_READY
+    if not _BASE_VIEW_READY:
+        _ensure_base_view()
+        _BASE_VIEW_READY = True
+    return "project_scientific_subthemes_view"
+
+
 @st.cache_data(show_spinner=False)
-def base_schema_columns(_cache_version: str = "v6_subtheme_schema") -> List[str]:
+def base_schema_columns(_cache_version: str = "v7_cordis_schema") -> List[str]:
     df = get_con().execute(f"SELECT * FROM {rel()} LIMIT 0").fetchdf()
     return [str(c) for c in df.columns]
 
@@ -3641,7 +3731,7 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
     status_expr = "b.project_status" if "project_status" in cols else "'Unknown'"
     stage_blob_expr = (
         "lower(coalesce(b.title,'') || ' ' || coalesce(b.objective,'') || ' ' || "
-        "coalesce(b.abstract,'') || ' ' || coalesce(b.theme,'') || ' ' || coalesce(b.section,''))"
+        "coalesce(b.abstract,'') || ' ' || coalesce(b.legacy_theme,'') || ' ' || coalesce(b.section,''))"
     )
     stage_fallback_expr = (
         "CASE "
@@ -3650,9 +3740,9 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
         f"WHEN regexp_matches({stage_blob_expr}, '(grid|microgrid|pipeline|network|charging|charging station|storage system|integration|interoperability|hub|terminal|facility|plant|district heating|infrastructure|platform)') THEN 'Systems & infrastructure' "
         f"WHEN regexp_matches({stage_blob_expr}, '(pilot|demonstration|demo|deployment|operation|operations|industrialisation|industrialization|scale-up|scale up|roll-out|roll out|commissioning|field trial|validation|first-of-a-kind|foak|maintenance|trl 6|trl 7|trl 8)') THEN 'Deployment & operations' "
         f"WHEN regexp_matches({stage_blob_expr}, '(market uptake|market adoption|end-user|end user|customer|offtake|commercialisation|commercialization|procurement|go-to-market|go to market|mobility|aviation|shipping|manufacturing|trl 9)') THEN 'End-use & market' "
-        "WHEN lower(coalesce(b.theme,'')) IN ('e-mobility', 'transport & aviation') THEN 'End-use & market' "
-        "WHEN lower(coalesce(b.theme,'')) IN ('ai & digital', 'advanced materials', 'health & biotech') THEN 'Components & core technology' "
-        "WHEN lower(coalesce(b.theme,'')) IN ('hydrogen (h2)', 'solar (pv/csp)', 'wind', 'bioenergy & saf', 'ccus', 'nuclear & smr', 'batteries & storage') THEN 'Systems & infrastructure' "
+        "WHEN lower(coalesce(b.legacy_theme,'')) IN ('e-mobility', 'transport & aviation') THEN 'End-use & market' "
+        "WHEN lower(coalesce(b.legacy_theme,'')) IN ('ai & digital', 'advanced materials', 'health & biotech') THEN 'Components & core technology' "
+        "WHEN lower(coalesce(b.legacy_theme,'')) IN ('hydrogen (h2)', 'solar (pv/csp)', 'wind', 'bioenergy & saf', 'ccus', 'nuclear & smr', 'batteries & storage') THEN 'Systems & infrastructure' "
         "ELSE 'Research & concept' END"
     )
     if "value_chain_stage" in cols:
@@ -3697,6 +3787,7 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
         b.title,
         b.objective,
         b.abstract,
+        b.keywords,
         {actor_expr} AS actor_id,
         {pic_expr} AS pic,
         {org_expr} AS org_name,
@@ -3705,7 +3796,19 @@ def rel_analytics(use_actor_groups: bool, exclude_funders: bool) -> str:
         b.country_alpha3,
         b.country_name,
         b.amount_eur,
+        b.cordis_domain_ui,
+        b.cordis_theme_primary,
+        b.cordis_theme_primary_source,
+        b.cordis_topic_primary,
+        b.cordis_topics_all,
+        b.cordis_call,
+        b.cordis_framework_programme,
+        b.scientific_subthemes,
+        b.scientific_subthemes_count,
+        b.legacy_theme,
+        b.legacy_sub_theme,
         b.theme,
+        b.sub_theme,
         {stage_expr} AS value_chain_stage,
         {status_expr} AS project_status
       FROM {base} b
@@ -3896,6 +3999,7 @@ def where_clause(
     use_section: bool,
     sections: List[str],
     onetech_only: bool,
+    domains: List[str],
     statuses: List[str],
     themes: List[str],
     subthemes: List[str],
@@ -3916,13 +4020,19 @@ def where_clause(
     if use_section and sections:
         w.append(f"{prefix}section IN {in_list(sections)}")
     if onetech_only:
-        w.append(f"{prefix}theme IN {in_list(sorted(list(ONETECH_THEMES_EN)))}")
+        w.append(f"{prefix}legacy_theme IN {in_list(sorted(list(ONETECH_THEMES_EN)))}")
+    if domains:
+        w.append(f"{prefix}cordis_domain_ui IN {in_list(domains)}")
     if statuses:
         w.append(f"{prefix}project_status IN {in_list(statuses)}")
     if themes:
-        w.append(f"{prefix}theme IN {in_list(themes)}")
+        w.append(f"{prefix}cordis_theme_primary IN {in_list(themes)}")
     if subthemes:
-        w.append(f"{prefix}sub_theme IN {in_list(subthemes)}")
+        w.append(
+            f"{prefix}projectID IN ("
+            f"SELECT DISTINCT projectID FROM {scientific_subthemes_rel()} "
+            f"WHERE subtheme_label IN {in_list(subthemes)})"
+        )
     if entities:
         w.append(f"{prefix}entity_type IN {in_list(entities)}")
     if countries:
@@ -4179,14 +4289,54 @@ if not PARQUET_PATH.exists():
 # Metadata lists + ranges (cheap)
 # ============================================================
 @st.cache_data(show_spinner=False, ttl=300)
-def get_meta(_cache_buster: str = "v6_country_names") -> dict:
+def get_meta(_cache_buster: str = "v7_cordis_meta") -> dict:
     R = rel()
+    S = scientific_subthemes_rel()
     yr = fetch_df(f"SELECT MIN(year) AS miny, MAX(year) AS maxy FROM {R}")
     miny = int(yr["miny"].iloc[0])
     maxy = int(yr["maxy"].iloc[0])
     raw_countries = list_str(
         f"SELECT DISTINCT country_name FROM {R} WHERE country_name IS NOT NULL AND TRIM(country_name)<>'' ORDER BY country_name"
     )
+    domains = list_str(
+        f"SELECT DISTINCT cordis_domain_ui FROM {R} WHERE cordis_domain_ui IS NOT NULL AND TRIM(cordis_domain_ui)<>'' ORDER BY cordis_domain_ui"
+    )
+    domain_pairs_df = fetch_df(f"""
+        SELECT DISTINCT
+          cordis_domain_ui,
+          cordis_theme_primary
+        FROM {R}
+        WHERE TRIM(COALESCE(cordis_domain_ui, '')) <> ''
+          AND TRIM(COALESCE(cordis_theme_primary, '')) <> ''
+        ORDER BY cordis_domain_ui, cordis_theme_primary
+    """)
+    themes_by_domain: Dict[str, List[str]] = {domain: [] for domain in domains}
+    for _, row in domain_pairs_df.iterrows():
+        domain = str(row.get("cordis_domain_ui") or "").strip()
+        theme = str(row.get("cordis_theme_primary") or "").strip()
+        if domain and theme and theme not in themes_by_domain.setdefault(domain, []):
+            themes_by_domain[domain].append(theme)
+    scientific_subthemes = list_str(
+        f"SELECT DISTINCT subtheme_label FROM {S} WHERE subtheme_label IS NOT NULL AND TRIM(subtheme_label)<>'' ORDER BY subtheme_label"
+    )
+    subthemes_by_domain_df = fetch_df(f"""
+        SELECT DISTINCT
+          cordis_domain_ui,
+          subtheme_label
+        FROM {S}
+        WHERE TRIM(COALESCE(cordis_domain_ui, '')) <> ''
+          AND TRIM(COALESCE(subtheme_label, '')) <> ''
+        ORDER BY cordis_domain_ui, subtheme_label
+    """)
+    scientific_subthemes_by_domain: Dict[str, List[str]] = {domain: [] for domain in domains}
+    for _, row in subthemes_by_domain_df.iterrows():
+        domain = str(row.get("cordis_domain_ui") or "").strip()
+        subtheme = str(row.get("subtheme_label") or "").strip()
+        if domain and subtheme and subtheme not in scientific_subthemes_by_domain.setdefault(domain, []):
+            scientific_subthemes_by_domain[domain].append(subtheme)
+    for domain in domains:
+        if not scientific_subthemes_by_domain.get(domain):
+            scientific_subthemes_by_domain[domain] = list(GUIDED_DOMAIN_SUBCATEGORIES.get(domain, []))
 
     return {
         "miny": miny,
@@ -4195,7 +4345,11 @@ def get_meta(_cache_buster: str = "v6_country_names") -> dict:
         "programmes": list_str(f"SELECT DISTINCT program FROM {R} WHERE program IS NOT NULL AND TRIM(program)<>'' AND UPPER(TRIM(program)) NOT LIKE '%ADEME%' ORDER BY program"),
         "sections": list_str(f"SELECT DISTINCT section FROM {R} WHERE section IS NOT NULL AND TRIM(section)<>'' ORDER BY section"),
         "statuses": list_str(f"SELECT DISTINCT project_status FROM {R} WHERE project_status IS NOT NULL AND TRIM(project_status)<>'' ORDER BY project_status"),
-        "themes": list_str(f"SELECT DISTINCT theme FROM {R} WHERE theme IS NOT NULL AND TRIM(theme)<>'' ORDER BY theme"),
+        "domains": [d for d in CORDIS_DOMAIN_UI_ORDER if d in domains] + [d for d in domains if d not in CORDIS_DOMAIN_UI_ORDER],
+        "themes": list_str(f"SELECT DISTINCT cordis_theme_primary FROM {R} WHERE cordis_theme_primary IS NOT NULL AND TRIM(cordis_theme_primary)<>'' ORDER BY cordis_theme_primary"),
+        "themes_by_domain": themes_by_domain,
+        "scientific_subthemes": scientific_subthemes,
+        "scientific_subthemes_by_domain": scientific_subthemes_by_domain,
         "entities": list_str(f"SELECT DISTINCT entity_type FROM {R} WHERE entity_type IS NOT NULL AND TRIM(entity_type)<>'' ORDER BY entity_type"),
         "countries": normalized_country_options(raw_countries),
     }
@@ -4219,8 +4373,10 @@ def _ensure_filter_state() -> None:
     st.session_state.setdefault("f_use_section", False)
     st.session_state.setdefault("f_sections", [])
     st.session_state.setdefault("f_onetech_only", False)
+    st.session_state.setdefault("f_domains_raw", meta["domains"])
     st.session_state.setdefault("f_statuses", default_statuses)
     st.session_state.setdefault("f_themes_raw", meta["themes"])
+    st.session_state.setdefault("f_scientific_subthemes", [])
     st.session_state.setdefault("f_entity_raw", meta["entities"])
     st.session_state.setdefault("f_countries", default_countries)
     st.session_state.setdefault("f_quick_search", "")
@@ -4231,6 +4387,7 @@ def _ensure_filter_state() -> None:
     if not st.session_state.get("_country_default_migrated_v6", False):
         st.session_state["f_countries"] = default_countries
         st.session_state["f_statuses"] = default_statuses
+        st.session_state["f_domains_raw"] = list(meta["domains"])
         st.session_state["f_use_actor_groups"] = False
         st.session_state["f_exclude_funders"] = True
         st.session_state["_country_default_migrated_v6"] = True
@@ -4260,6 +4417,28 @@ def _normalize_country_state(meta: dict) -> None:
             st.session_state[key] = list(default_countries)
 
 
+def _themes_available_for_domains(meta: dict, domains: List[str]) -> List[str]:
+    if not domains or set(domains) == set(meta.get("domains", [])):
+        return list(meta.get("themes", []))
+    allowed: List[str] = []
+    for domain in domains:
+        for theme in meta.get("themes_by_domain", {}).get(domain, []):
+            if theme not in allowed:
+                allowed.append(theme)
+    return allowed or list(meta.get("themes", []))
+
+
+def _scientific_subthemes_available_for_domains(meta: dict, domains: List[str]) -> List[str]:
+    if not domains or set(domains) == set(meta.get("domains", [])):
+        return list(meta.get("scientific_subthemes", []))
+    allowed: List[str] = []
+    for domain in domains:
+        for subtheme in meta.get("scientific_subthemes_by_domain", {}).get(domain, []):
+            if subtheme not in allowed:
+                allowed.append(subtheme)
+    return allowed or list(meta.get("scientific_subthemes", []))
+
+
 _ensure_filter_state()
 _normalize_country_state(meta)
 st.session_state.setdefault("app_mode", "simple")
@@ -4283,8 +4462,10 @@ def _current_filter_snapshot() -> Dict[str, object]:
         "f_sources": list(st.session_state.get("f_sources", [])),
         "f_programmes": list(st.session_state.get("f_programmes", [])),
         "f_years": tuple(st.session_state.get("f_years", (meta["miny"], meta["maxy"]))),
+        "f_domains_raw": list(st.session_state.get("f_domains_raw", [])),
         "f_statuses": list(st.session_state.get("f_statuses", [])),
         "f_themes_raw": list(st.session_state.get("f_themes_raw", [])),
+        "f_scientific_subthemes": list(st.session_state.get("f_scientific_subthemes", [])),
         "f_entity_raw": list(st.session_state.get("f_entity_raw", [])),
         "f_countries": list(st.session_state.get("f_countries", [])),
         "f_onetech_only": bool(st.session_state.get("f_onetech_only", False)),
@@ -4300,11 +4481,14 @@ def _apply_filter_snapshot(snapshot: Dict[str, object]) -> None:
 
 
 def _current_universal_filter_state() -> Dict[str, object]:
-    themes_ui = [x for x in meta["themes"] if (not st.session_state.get("f_onetech_only", False)) or (x in ONETECH_THEMES_EN)]
+    current_domains = [x for x in st.session_state.get("f_domains_raw", []) if x in meta["domains"]]
+    domains_ui = current_domains or list(meta["domains"])
+    themes_ui = _themes_available_for_domains(meta, domains_ui)
     current_themes = [x for x in st.session_state.get("f_themes_raw", []) if x in themes_ui]
     current_countries = [x for x in st.session_state.get("f_countries", []) if x in meta["countries"]]
     return {
         "f_years": tuple(st.session_state.get("f_years", (meta["miny"], meta["maxy"]))),
+        "f_domains_raw": domains_ui,
         "f_themes_raw": current_themes or themes_ui,
         "f_countries": current_countries or _default_countries_from_meta(meta),
     }
@@ -4319,8 +4503,10 @@ def _simple_mode_filter_snapshot() -> Dict[str, object]:
         "f_sources": list(meta["sources"]),
         "f_programmes": list(meta["programmes"]),
         "f_years": universal_state["f_years"],
+        "f_domains_raw": list(universal_state["f_domains_raw"]),
         "f_statuses": list(default_statuses),
         "f_themes_raw": list(universal_state["f_themes_raw"]),
+        "f_scientific_subthemes": [],
         "f_entity_raw": list(meta["entities"]),
         "f_countries": list(universal_state["f_countries"]),
         "f_onetech_only": False,
@@ -4391,7 +4577,7 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
         unsafe_allow_html=True,
     )
 
-    selected_theme_count = len([x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]) or len(meta["themes"])
+    selected_theme_count = len([x for x in st.session_state.get("guided_themes_raw", []) if x in meta["domains"]]) or len(meta["domains"])
     visible_guided_countries = [x for x in st.session_state.get("guided_countries_widget", st.session_state.get("guided_countries", [])) if x in meta["countries"]]
     selected_country_count = len(visible_guided_countries) or len(_default_countries_from_meta(meta))
     guided_years_value = tuple(st.session_state.get("guided_years", (meta["miny"], meta["maxy"])))
@@ -4412,14 +4598,14 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 placeholder=t(lang, "main_search_placeholder"),
             )
             st.caption(t(lang, "guided_home_theme_cards_help"))
-            current_guided_themes = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["themes"]]
+            current_guided_themes = [x for x in st.session_state.get("guided_themes_raw", []) if x in meta["domains"]]
             theme_cols = st.columns(2)
-            for theme in meta["themes"]:
+            for theme in meta["domains"]:
                 widget_key = f"guided_theme_selected::{theme}"
                 if widget_key not in st.session_state:
                     st.session_state[widget_key] = theme in current_guided_themes
-            for idx, theme in enumerate(meta["themes"]):
-                label = theme_raw_to_display(str(theme), lang)
+            for idx, theme in enumerate(meta["domains"]):
+                label = domain_raw_to_display(str(theme), lang)
                 with theme_cols[idx % 2]:
                     with st.container(border=True):
                         st.markdown(
@@ -4431,7 +4617,7 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                         st.caption(t(lang, "guided_home_theme_select_note"))
                         st.checkbox(t(lang, "guided_home_theme_select_action"), key=f"guided_theme_selected::{theme}")
             guided_theme_choices = [
-                theme for theme in meta["themes"]
+                theme for theme in meta["domains"]
                 if bool(st.session_state.get(f"guided_theme_selected::{theme}", False))
             ]
             if guided_theme_choices != current_guided_themes:
@@ -4448,7 +4634,8 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 st.caption(t(lang, "guided_home_selected_themes"))
                 st.markdown(
                     "<div class='sir-guided-pill-row'>" + "".join(
-                        f"<span class='sir-guided-pill'>{html.escape(theme_raw_to_display(str(x), lang))}</span>" for x in guided_theme_choices
+                        f"<span class='sir-guided-pill'>{html.escape(domain_raw_to_display(str(x), lang))}</span>"
+                        for x in guided_theme_choices
                     ) + "</div>",
                     unsafe_allow_html=True,
                 )
@@ -4458,12 +4645,12 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 updated_subtopic_map: Dict[str, List[str]] = {}
                 for theme in guided_theme_choices:
                     theme_key = str(theme)
-                    available_subtopics = THEME_SUBCATEGORIES.get(theme_key, [])
+                    available_subtopics = GUIDED_DOMAIN_SUBCATEGORIES.get(theme_key, [])
                     if not available_subtopics:
                         continue
                     current_subtopics = [x for x in guided_subtopic_map.get(theme_key, []) if x in available_subtopics]
                     with st.container(border=True):
-                        st.markdown("**" + theme_raw_to_display(theme_key, lang) + "**")
+                        st.markdown("**" + domain_raw_to_display(theme_key, lang) + "**")
                         selected_subtopics = st.multiselect(
                             t(lang, "guided_home_subtopics"),
                             available_subtopics,
@@ -4609,11 +4796,16 @@ status_default = [x for x in st.session_state["f_statuses"] if x in meta["status
 ctry_default = [x for x in st.session_state["f_countries"] if x in meta["countries"]]
 eu_default = european_countries_present(meta["countries"])
 ctry_fallback = eu_default if eu_default else meta["countries"]
+domains_default = [x for x in st.session_state.get("f_domains_raw", []) if x in meta["domains"]]
+themes_ui = _themes_available_for_domains(meta, domains_default or meta["domains"])
+themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
+scientific_subthemes_ui = _scientific_subthemes_available_for_domains(meta, domains_default or meta["domains"])
+scientific_subthemes_default = [x for x in st.session_state.get("f_scientific_subthemes", []) if x in scientific_subthemes_ui]
 
 filters_expander_label = t(lang, "filters") if st.session_state.get("app_mode") == "advanced" else ("Affiner le cadrage" if lang == "FR" else "Refine scope")
 with st.expander(filters_expander_label, expanded=False):
     st.caption(t(lang, "basic_filters"))
-    basic_c1, basic_c2, basic_c3 = st.columns(3)
+    basic_c1, basic_c2, basic_c3, basic_c4 = st.columns(4)
     with basic_c1:
         st.session_state["f_years"] = st.slider(
             t(lang, "period"),
@@ -4621,16 +4813,23 @@ with st.expander(filters_expander_label, expanded=False):
             meta["maxy"],
             st.session_state["f_years"],
         )
-    themes_ui = [x for x in meta["themes"] if (not st.session_state["f_onetech_only"]) or (x in ONETECH_THEMES_EN)]
-    themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
     with basic_c2:
+        st.session_state["f_domains_raw"] = st.multiselect(
+            t(lang, "domains"),
+            meta["domains"],
+            default=domains_default or meta["domains"],
+            format_func=lambda x: domain_raw_to_display(str(x), lang),
+        )
+    themes_ui = _themes_available_for_domains(meta, st.session_state.get("f_domains_raw", []))
+    themes_default = [x for x in st.session_state["f_themes_raw"] if x in themes_ui]
+    with basic_c3:
         st.session_state["f_themes_raw"] = st.multiselect(
             t(lang, "themes"),
             themes_ui,
             default=themes_default or themes_ui,
             format_func=lambda x: theme_raw_to_display(str(x), lang),
         )
-    with basic_c3:
+    with basic_c4:
         eu27_present = eu27_countries_present(meta["countries"])
         assoc_present = associated_countries_present(meta["countries"])
         eu_plus_associated = list(dict.fromkeys(eu27_present + assoc_present))
@@ -4686,6 +4885,13 @@ with st.expander(filters_expander_label, expanded=False):
                 default=status_default or meta["statuses"],
                 format_func=lambda x: status_raw_to_display(str(x), lang),
             )
+        scientific_subthemes_ui = _scientific_subthemes_available_for_domains(meta, st.session_state.get("f_domains_raw", []))
+        scientific_subthemes_default = [x for x in st.session_state.get("f_scientific_subthemes", []) if x in scientific_subthemes_ui]
+        st.session_state["f_scientific_subthemes"] = st.multiselect(
+            t(lang, "scientific_subthemes"),
+            scientific_subthemes_ui,
+            default=scientific_subthemes_default,
+        )
 
         st.divider()
         st.caption(t(lang, "analysis_options"))
@@ -4719,9 +4925,14 @@ R = rel_analytics(
     exclude_funders=bool(st.session_state.get("f_exclude_funders", False)),
 )
 guided_subtheme_filters = [x for x in st.session_state.get("f_guided_subtopics", []) if str(x).strip()]
+advanced_subtheme_filters = [x for x in st.session_state.get("f_scientific_subthemes", []) if str(x).strip()]
+scientific_subtheme_filters: List[str] = []
+for value in guided_subtheme_filters + advanced_subtheme_filters:
+    if value not in scientific_subtheme_filters:
+        scientific_subtheme_filters.append(value)
 guided_topic_terms = list(st.session_state.get("f_guided_topic_terms", []))
-if "sub_theme" not in set(base_schema_columns()):
-    guided_subtheme_filters = []
+if "scientific_subthemes" not in set(base_schema_columns()) and "sub_theme" not in set(base_schema_columns()):
+    scientific_subtheme_filters = []
 W, W_R, search_notice_key = build_safe_where_pair(
     R,
     sources=st.session_state["f_sources"],
@@ -4730,13 +4941,14 @@ W, W_R, search_notice_key = build_safe_where_pair(
     use_section=False,
     sections=[],
     onetech_only=st.session_state["f_onetech_only"],
+    domains=st.session_state.get("f_domains_raw", []),
     statuses=st.session_state["f_statuses"],
     themes=st.session_state["f_themes_raw"],
-    subthemes=guided_subtheme_filters,
+    subthemes=scientific_subtheme_filters,
     entities=st.session_state["f_entity_raw"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
-    extra_search_terms=guided_topic_terms if not guided_subtheme_filters else [],
+    extra_search_terms=guided_topic_terms if not scientific_subtheme_filters else [],
 )
 W_partners, W_R_partners, _ = build_safe_where_pair(
     R,
@@ -4746,13 +4958,14 @@ W_partners, W_R_partners, _ = build_safe_where_pair(
     use_section=False,
     sections=[],
     onetech_only=st.session_state["f_onetech_only"],
+    domains=st.session_state.get("f_domains_raw", []),
     statuses=st.session_state["f_statuses"],
     themes=st.session_state["f_themes_raw"],
-    subthemes=guided_subtheme_filters,
+    subthemes=scientific_subtheme_filters,
     entities=meta["entities"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
-    extra_search_terms=guided_topic_terms if not guided_subtheme_filters else [],
+    extra_search_terms=guided_topic_terms if not scientific_subtheme_filters else [],
 )
 
 
@@ -4809,6 +5022,15 @@ scope_items = [
     t(lang, "scope_group_on") if st.session_state.get("f_use_actor_groups", False) else t(lang, "scope_group_off"),
     t(lang, "scope_funders_off") if st.session_state.get("f_exclude_funders", False) else t(lang, "scope_funders_on"),
 ]
+selected_domains_scope = [x for x in st.session_state.get("f_domains_raw", []) if x in meta.get("domains", [])]
+if selected_domains_scope and len(selected_domains_scope) < len(meta.get("domains", [])):
+    scope_items.append(f"{t(lang, 'domains')}: {_compact_filter_values(selected_domains_scope, lambda x: domain_raw_to_display(x, lang), limit=2)}")
+selected_themes_scope = [x for x in st.session_state.get("f_themes_raw", []) if x in meta.get("themes", [])]
+if selected_themes_scope and len(selected_themes_scope) < len(meta.get("themes", [])):
+    scope_items.append(f"{t(lang, 'themes')}: {_compact_filter_values(selected_themes_scope, lambda x: theme_raw_to_display(x, lang), limit=2)}")
+selected_scientific_subthemes_scope = [x for x in st.session_state.get("f_scientific_subthemes", []) if x in meta.get("scientific_subthemes", [])]
+if selected_scientific_subthemes_scope:
+    scope_items.append(f"{t(lang, 'scientific_subthemes')}: {_compact_filter_values(selected_scientific_subthemes_scope, limit=2)}")
 if st.session_state.get("f_statuses"):
     scope_items.append(", ".join(status_raw_to_display(x, lang) for x in st.session_state["f_statuses"]))
 if str(st.session_state.get("f_quick_search", "")).strip():
@@ -5094,7 +5316,9 @@ with tab_results:
           projectID,
           MIN(year) AS year,
           MIN(title) AS title,
-          MIN(theme) AS theme,
+          MIN(cordis_domain_ui) AS cordis_domain_ui,
+          MIN(cordis_theme_primary) AS theme,
+          MIN(scientific_subthemes) AS scientific_subthemes,
           MIN(project_status) AS project_status,
           COUNT(DISTINCT actor_id) AS n_actors,
           COUNT(DISTINCT country_name) AS n_countries,
@@ -5136,9 +5360,11 @@ with tab_results:
             {results_base_select_sql}
             ORDER BY budget_eur DESC
             LIMIT {int(rows_per_page)} OFFSET {int(offset)}
-            """, columns=["projectID", "year", "title", "theme", "project_status", "n_actors", "n_countries", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
+            """, columns=["projectID", "year", "title", "cordis_domain_ui", "theme", "scientific_subthemes", "project_status", "n_actors", "n_countries", "budget_eur"], lang=lang, warning_key="results_view_unavailable")
             results_projects = results_projects_raw.copy()
+            results_projects["cordis_domain_ui"] = results_projects["cordis_domain_ui"].map(lambda x: domain_raw_to_display(str(x), lang))
             results_projects["theme"] = results_projects["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
+            results_projects["scientific_subthemes"] = results_projects["scientific_subthemes"].map(lambda x: scientific_subthemes_compact(x, limit=2))
             results_projects["project_status"] = results_projects["project_status"].map(lambda x: status_raw_to_display(str(x), lang))
             results_projects["budget_eur"] = results_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
 
@@ -5152,10 +5378,12 @@ with tab_results:
 
             results_projects_display = results_projects.rename(
                 columns={
+                    "cordis_domain_ui": t(lang, "domains"),
                     "project_status": t(lang, "project_status"),
                     "budget_eur": t(lang, "budget_total"),
                     "n_actors": t(lang, "n_actors"),
                     "theme": t(lang, "themes"),
+                    "scientific_subthemes": t(lang, "scientific_subthemes"),
                 }
             )
             results_table_event = st.dataframe(
@@ -5219,7 +5447,9 @@ with tab_results:
                   MIN(acronym) AS acronym,
                   MIN(year) AS year,
                   MIN(program) AS program,
-                  MIN(theme) AS theme,
+                  MIN(cordis_domain_ui) AS cordis_domain_ui,
+                  MIN(cordis_theme_primary) AS theme,
+                  MIN(scientific_subthemes) AS scientific_subthemes,
                   MIN(project_status) AS project_status,
                   SUM(amount_eur) AS budget_eur,
                   COUNT(DISTINCT actor_id) AS n_actors,
@@ -5228,7 +5458,7 @@ with tab_results:
                 WHERE {W} AND projectID IN {in_list([selected_project_id])}
                 GROUP BY projectID
                 LIMIT 1
-                """, columns=["projectID", "title", "acronym", "year", "program", "theme", "project_status", "budget_eur", "n_actors", "n_countries"], lang=lang, warning_key="results_view_unavailable")
+                """, columns=["projectID", "title", "acronym", "year", "program", "cordis_domain_ui", "theme", "scientific_subthemes", "project_status", "budget_eur", "n_actors", "n_countries"], lang=lang, warning_key="results_view_unavailable")
                 if detail_df.empty:
                     st.session_state.pop("results_selected_project_id", None)
                 else:
@@ -5276,16 +5506,24 @@ with tab_results:
                     dc3.metric(t(lang, "countries"), f"{int(detail.get('n_countries') or 0):,}".replace(",", " "))
                     dc4.metric(("Année" if lang == "FR" else "Year"), str(int(detail.get("year") or 0)) if pd.notna(detail.get("year")) else "—")
 
-                    meta1, meta2, meta3 = st.columns(3)
+                    meta1, meta2, meta3, meta4 = st.columns(4)
                     with meta1:
                         st.caption(f"**{t(lang, 'programmes')}**")
                         st.write(str(detail.get("program") or "—"))
                     with meta2:
+                        st.caption(f"**{t(lang, 'domains')}**")
+                        st.write(domain_raw_to_display(str(detail.get("cordis_domain_ui") or ""), lang) if str(detail.get("cordis_domain_ui") or "").strip() else "—")
+                    with meta3:
                         st.caption(f"**{t(lang, 'themes')}**")
                         st.write(theme_raw_to_display(str(detail.get("theme") or ""), lang) if str(detail.get("theme") or "").strip() else "—")
-                    with meta3:
+                    with meta4:
                         st.caption(f"**{t(lang, 'project_status')}**")
                         st.write(status_raw_to_display(str(detail.get("project_status") or ""), lang) if str(detail.get("project_status") or "").strip() else "—")
+
+                    subthemes_compact = scientific_subthemes_compact(detail.get("scientific_subthemes"), limit=4)
+                    if subthemes_compact:
+                        st.caption(f"**{t(lang, 'scientific_subthemes')}**")
+                        st.write(subthemes_compact)
 
                     info1, info2 = st.columns([1.3, 1.7])
                     with info1:
@@ -6882,7 +7120,7 @@ if app_mode == "advanced" and tab_macro is not None:
             if macro_use_global:
                 macro_parts.append(f"({W})")
             if macro_onetech:
-                macro_parts.append(f"theme IN {in_list(sorted(list(ONETECH_THEMES_EN)))}")
+                macro_parts.append(f"legacy_theme IN {in_list(sorted(list(ONETECH_THEMES_EN)))}")
             macro_W = " AND ".join(macro_parts)
 
             themes_raw_macro = list_str(f"SELECT DISTINCT theme FROM {R} WHERE {macro_W} ORDER BY theme")

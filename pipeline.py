@@ -217,7 +217,22 @@ def ensure_data_updated(force: bool = False, verbose: bool = False) -> UpdateRes
         reasons.append("missing_processed_csv")
     if OUT_PARQUET.exists():
         cols = set(_parquet_columns(OUT_PARQUET))
-        required = {"pic", "value_chain_stage", "project_status"}
+        required = {
+            "pic",
+            "value_chain_stage",
+            "project_status",
+            "cordis_domain_ui",
+            "cordis_theme_primary",
+            "cordis_theme_primary_source",
+            "cordis_topic_primary",
+            "cordis_topics_all",
+            "cordis_call",
+            "cordis_framework_programme",
+            "scientific_subthemes",
+            "scientific_subthemes_count",
+            "legacy_theme",
+            "legacy_sub_theme",
+        }
         if not required.issubset(cols):
             need_core = True
             reasons.append("missing_schema_cols")

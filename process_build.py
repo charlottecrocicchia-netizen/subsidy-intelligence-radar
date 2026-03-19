@@ -21,6 +21,15 @@ from typing import Any, Dict, List, Optional
 import numpy as np
 import pandas as pd
 
+from cordis_taxonomy import (
+    clean_official_value,
+    derive_cordis_call,
+    derive_cordis_theme_primary,
+    derive_cordis_topics,
+    infer_cordis_domain_ui,
+    json_list,
+)
+
 BASE_DIR = Path(__file__).resolve().parent
 
 
@@ -589,6 +598,12 @@ def pick_col(df: pd.DataFrame, *candidates: str) -> Optional[str]:
     return None
 
 
+def col_or_empty(df: pd.DataFrame, col: str) -> pd.Series:
+    if col in df.columns:
+        return df[col]
+    return pd.Series([""] * len(df), index=df.index)
+
+
 # ============================================================
 # IO helpers
 # ============================================================
@@ -662,7 +677,8 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
         "objective", "abstract", "summary", "content",
         "startDate", "endDate",
         "frameworkProgramme", "programmeDivisionTitle", "programmeDivision",
-        "topic", "topics", "call"
+        "topic", "topics", "call", "masterCall", "subCall",
+        "fundingScheme", "keywords"
     ] if c in proj.columns]
     proj2 = proj[keep_proj].copy()
 
@@ -692,7 +708,10 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
     df["entity_type"] = df[at].apply(classify_entity) if at else "Unknown"
 
     # section (coalesce)
-    section_cols = [c for c in ["programmeDivisionTitle", "programmeDivision", "topic", "topics", "call", "frameworkProgramme"] if c in df.columns]
+    section_cols = [c for c in [
+        "programmeDivisionTitle", "programmeDivision", "topic", "topics",
+        "call", "subCall", "masterCall", "fundingScheme", "frameworkProgramme"
+    ] if c in df.columns]
     if section_cols:
         s = None
         for c in section_cols:
@@ -723,11 +742,11 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
         "program": label,
         "section": df["section"].astype(str),
         "year": df["year"],
-        "projectID": df.get("projectID").astype("string").fillna("").astype(str),
-        "acronym": df.get("acronym", "").astype("string").fillna("").astype(str),
-        "title": df.get("title", "").astype("string").fillna("").astype(str),
-        "objective": df.get("objective", "").astype("string").fillna("").astype(str),
-        "abstract": df.get("abstract", "").astype("string").fillna("").astype(str),
+        "projectID": col_or_empty(df, "projectID").astype("string").fillna("").astype(str),
+        "acronym": col_or_empty(df, "acronym").astype("string").fillna("").astype(str),
+        "title": col_or_empty(df, "title").astype("string").fillna("").astype(str),
+        "objective": col_or_empty(df, "objective").astype("string").fillna("").astype(str),
+        "abstract": col_or_empty(df, "abstract").astype("string").fillna("").astype(str),
         "actor_id": df["actor_id"].astype(str),
         "pic": df["pic"].astype(str),
         "org_name": df["org_name"].astype(str),
@@ -740,6 +759,16 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
         "sub_theme": "",
         "value_chain_stage": df["value_chain_stage"].astype(str),
         "project_status": df["project_status"].astype(str),
+        "frameworkProgramme": col_or_empty(df, "frameworkProgramme").astype("string").fillna("").astype(str),
+        "programmeDivisionTitle": col_or_empty(df, "programmeDivisionTitle").astype("string").fillna("").astype(str),
+        "programmeDivision": col_or_empty(df, "programmeDivision").astype("string").fillna("").astype(str),
+        "topic": col_or_empty(df, "topic").astype("string").fillna("").astype(str),
+        "topics": col_or_empty(df, "topics").astype("string").fillna("").astype(str),
+        "call": col_or_empty(df, "call").astype("string").fillna("").astype(str),
+        "masterCall": col_or_empty(df, "masterCall").astype("string").fillna("").astype(str),
+        "subCall": col_or_empty(df, "subCall").astype("string").fillna("").astype(str),
+        "fundingScheme": col_or_empty(df, "fundingScheme").astype("string").fillna("").astype(str),
+        "keywords": col_or_empty(df, "keywords").astype("string").fillna("").astype(str),
     })
 
     return out
@@ -847,6 +876,17 @@ def _connector_frame_to_schema(df: pd.DataFrame, connector_id: str) -> pd.DataFr
     value_chain_stage = np.where(pd.Series(stage_src).astype(str).str.len() > 0, stage_src, [infer_value_chain_stage(str(x)) for x in text_for_inference])
     project_status = np.where(pd.Series(status_src).astype(str).str.len() > 0, status_src, "Unknown")
 
+    framework_programme = pick_series("frameworkProgramme", "framework_programme", "program", "programme")
+    programme_division_title = pick_series("programmeDivisionTitle", "programme_division_title")
+    programme_division = pick_series("programmeDivision", "programme_division")
+    topic = pick_series("topic", "topic_primary")
+    topics = pick_series("topics", "topic_codes", "topic_list")
+    call = pick_series("call", "call_id")
+    master_call = pick_series("masterCall", "master_call")
+    sub_call = pick_series("subCall", "sub_call")
+    funding_scheme = pick_series("fundingScheme", "funding_scheme")
+    keywords = pick_series("keywords", "tags", "keyword")
+
     out = pd.DataFrame({
         "source": pd.Series(source).astype("string").fillna("").astype(str),
         "program": pd.Series(program).astype("string").fillna("").astype(str),
@@ -866,8 +906,19 @@ def _connector_frame_to_schema(df: pd.DataFrame, connector_id: str) -> pd.DataFr
         "country_name": pd.Series(country_name).astype("string").fillna("Unknown").astype(str),
         "amount_eur": amount_num,
         "theme": pd.Series(theme).astype("string").fillna("").astype(str),
+        "sub_theme": "",
         "value_chain_stage": pd.Series(value_chain_stage).astype("string").fillna("").astype(str),
         "project_status": pd.Series(project_status).astype("string").fillna("Unknown").astype(str),
+        "frameworkProgramme": framework_programme.astype("string").fillna("").astype(str),
+        "programmeDivisionTitle": programme_division_title.astype("string").fillna("").astype(str),
+        "programmeDivision": programme_division.astype("string").fillna("").astype(str),
+        "topic": topic.astype("string").fillna("").astype(str),
+        "topics": topics.astype("string").fillna("").astype(str),
+        "call": call.astype("string").fillna("").astype(str),
+        "masterCall": master_call.astype("string").fillna("").astype(str),
+        "subCall": sub_call.astype("string").fillna("").astype(str),
+        "fundingScheme": funding_scheme.astype("string").fillna("").astype(str),
+        "keywords": keywords.astype("string").fillna("").astype(str),
     })
     return out
 
@@ -914,7 +965,14 @@ def _SCHEMA_COLS() -> List[str]:
         "projectID", "acronym", "title", "objective", "abstract",
         "actor_id", "pic", "org_name", "entity_type",
         "country_alpha2", "country_alpha3", "country_name",
-        "amount_eur", "theme", "sub_theme", "value_chain_stage", "project_status",
+        "amount_eur",
+        "theme", "sub_theme", "legacy_theme", "legacy_sub_theme",
+        "cordis_domain_ui", "cordis_theme_primary", "cordis_theme_primary_source",
+        "cordis_topic_primary", "cordis_topics_all", "cordis_call", "cordis_framework_programme",
+        "scientific_subthemes", "scientific_subthemes_count",
+        "value_chain_stage", "project_status",
+        "frameworkProgramme", "programmeDivisionTitle", "programmeDivision",
+        "topic", "topics", "call", "masterCall", "subCall", "fundingScheme", "keywords",
     ]
 
 
@@ -926,11 +984,19 @@ def _enforce_schema(out: pd.DataFrame) -> pd.DataFrame:
     # types
     out["year"] = pd.to_numeric(out["year"], errors="coerce")
     out["amount_eur"] = pd.to_numeric(out["amount_eur"], errors="coerce")
+    out["scientific_subthemes_count"] = pd.to_numeric(out["scientific_subthemes_count"], errors="coerce").fillna(0).astype(int)
 
     # trim strings
-    for c in ["source", "program", "section", "projectID", "acronym", "title", "objective", "abstract",
-              "actor_id", "pic", "org_name", "entity_type", "country_alpha2", "country_alpha3", "country_name",
-              "theme", "sub_theme", "value_chain_stage", "project_status"]:
+    for c in [
+        "source", "program", "section", "projectID", "acronym", "title", "objective", "abstract",
+        "actor_id", "pic", "org_name", "entity_type", "country_alpha2", "country_alpha3", "country_name",
+        "theme", "sub_theme", "legacy_theme", "legacy_sub_theme",
+        "cordis_domain_ui", "cordis_theme_primary", "cordis_theme_primary_source",
+        "cordis_topic_primary", "cordis_topics_all", "cordis_call", "cordis_framework_programme",
+        "scientific_subthemes", "value_chain_stage", "project_status",
+        "frameworkProgramme", "programmeDivisionTitle", "programmeDivision", "topic", "topics",
+        "call", "masterCall", "subCall", "fundingScheme", "keywords",
+    ]:
         out[c] = out[c].astype("string").fillna("").astype(str).str.strip()
 
     # keep only valid rows
@@ -1011,6 +1077,55 @@ def _join_unique(series: pd.Series, sep: str = " | ", top: int = 20) -> str:
     return sep.join(uniq)
 
 
+def _first_non_empty(series: pd.Series) -> str:
+    for value in series.astype("string").fillna("").astype(str):
+        clean = value.strip()
+        if clean:
+            return clean
+    return ""
+
+
+def build_project_level_cordis_fields(base_df: pd.DataFrame) -> pd.DataFrame:
+    cols = [
+        c for c in [
+            "projectID", "program", "section", "title", "acronym", "objective", "abstract",
+            "theme", "sub_theme", "frameworkProgramme", "programmeDivisionTitle", "programmeDivision",
+            "topic", "topics", "call", "masterCall", "subCall", "fundingScheme", "keywords",
+        ] if c in base_df.columns
+    ]
+    project_df = base_df[cols].groupby("projectID", as_index=False).agg(_first_non_empty)
+    project_df["legacy_theme"] = project_df.get("theme", pd.Series([""] * len(project_df))).astype("string").fillna("").astype(str)
+    project_df["legacy_sub_theme"] = project_df.get("sub_theme", pd.Series([""] * len(project_df))).astype("string").fillna("").astype(str)
+    project_df["cordis_framework_programme"] = project_df.apply(
+        lambda row: clean_official_value(row.get("frameworkProgramme") or row.get("program")), axis=1
+    )
+    project_df["cordis_call"] = project_df.apply(lambda row: derive_cordis_call(row.to_dict()), axis=1)
+    topic_lists = project_df.apply(lambda row: derive_cordis_topics(row.to_dict()), axis=1)
+    project_df["cordis_topic_primary"] = topic_lists.apply(lambda values: values[0] if values else "")
+    project_df["cordis_topics_all"] = topic_lists.apply(json_list)
+    primary = project_df.apply(lambda row: derive_cordis_theme_primary(row.to_dict()), axis=1)
+    project_df["cordis_theme_primary"] = [item[0] for item in primary]
+    project_df["cordis_theme_primary_source"] = [item[1] for item in primary]
+    project_df["cordis_domain_ui"] = project_df.apply(lambda row: infer_cordis_domain_ui(row.to_dict()), axis=1)
+    return project_df
+
+
+def _print_classification_preview(project_df: pd.DataFrame) -> None:
+    cols = [
+        c for c in [
+            "projectID", "cordis_domain_ui", "cordis_theme_primary",
+            "cordis_theme_primary_source", "legacy_theme", "scientific_subthemes_count", "sub_theme"
+        ] if c in project_df.columns
+    ]
+    if not cols:
+        return
+    sample = project_df[cols].head(8)
+    if sample.empty:
+        return
+    print("[build] Classification preview:")
+    print(sample.to_string(index=False))
+
+
 def build_master_actor_tables(base_df: pd.DataFrame, out_dir: Path, actor_group_map_path: Path) -> None:
     """
     Builds durable master tables used for actor/group/PIC analyses and network views.
@@ -1077,8 +1192,9 @@ def build_master_actor_tables(base_df: pd.DataFrame, out_dir: Path, actor_group_
 
     _sub_theme_col = "sub_theme" if "sub_theme" in m.columns else None
     _pal_cols = [
-        "projectID", "year", "theme",
+        "projectID", "year", "cordis_domain_ui", "cordis_theme_primary", "theme",
     ] + (["sub_theme"] if _sub_theme_col else []) + [
+        "scientific_subthemes", "scientific_subthemes_count", "legacy_theme", "legacy_sub_theme",
         "value_chain_stage", "project_status",
         "actor_id", "pic", "group_id", "group_name", "is_funder",
         "org_name", "entity_type", "country_name", "amount_eur",
@@ -1125,20 +1241,51 @@ def build_processed_dataset(raw_dir: Path, out_csv: Path) -> None:
     out = pd.concat(dfs, ignore_index=True) if dfs else pd.DataFrame(columns=_SCHEMA_COLS())
     out = _enforce_schema(out)
 
-    # ---- Theme + sub_theme classification (embeddings or regex fallback) ----
+    # ---- Official CORDIS primary theme + UI domain + scientific multi-label sub-themes ----
+    out["legacy_theme"] = col_or_empty(out, "theme").astype("string").fillna("").astype(str)
+    out["legacy_sub_theme"] = col_or_empty(out, "sub_theme").astype("string").fillna("").astype(str)
+
+    project_df = build_project_level_cordis_fields(out)
     try:
-        from theme_classifier_v3 import classify_projects
-        print("[build] Running embeddings-based theme classifier...")
-        out = classify_projects(out, verbose=True)
+        from theme_classifier_v3 import classify_scientific_subthemes, build_project_scientific_subthemes_table
+
+        print("[build] Running CORDIS scientific sub-theme enrichment...")
+        project_df = classify_scientific_subthemes(project_df, verbose=True)
+        project_subthemes = build_project_scientific_subthemes_table(project_df)
     except ImportError:
-        print("[build] theme_classifier_v3 not available, using built-in regex classifier")
-        # Already classified by regex in load_cordis_program / load_external_connectors
-        if "sub_theme" not in out.columns:
-            out["sub_theme"] = ""
+        print("[build] theme_classifier_v3 not available, keeping empty scientific sub-themes")
+        project_df["scientific_subthemes"] = "[]"
+        project_df["scientific_subthemes_count"] = 0
+        project_df["sub_theme"] = ""
+        project_subthemes = pd.DataFrame(columns=[
+            "projectID", "cordis_domain_ui", "cordis_theme_primary",
+            "subtheme_level_1", "subtheme_level_2", "subtheme_level_3",
+            "subtheme_label", "subtheme_path", "source_method",
+        ])
     except Exception as e:
-        print(f"[build][WARN] Embeddings classifier failed: {e}, keeping regex themes")
-        if "sub_theme" not in out.columns:
-            out["sub_theme"] = ""
+        print(f"[build][WARN] Scientific sub-theme enrichment failed: {e}, keeping empty scientific sub-themes")
+        project_df["scientific_subthemes"] = "[]"
+        project_df["scientific_subthemes_count"] = 0
+        project_df["sub_theme"] = ""
+        project_subthemes = pd.DataFrame(columns=[
+            "projectID", "cordis_domain_ui", "cordis_theme_primary",
+            "subtheme_level_1", "subtheme_level_2", "subtheme_level_3",
+            "subtheme_label", "subtheme_path", "source_method",
+        ])
+
+    project_map_cols = [
+        "projectID", "legacy_theme", "legacy_sub_theme",
+        "cordis_domain_ui", "cordis_theme_primary", "cordis_theme_primary_source",
+        "cordis_topic_primary", "cordis_topics_all", "cordis_call", "cordis_framework_programme",
+        "scientific_subthemes", "scientific_subthemes_count", "sub_theme",
+    ]
+    out = out.drop(columns=[c for c in project_map_cols if c != "projectID" and c in out.columns], errors="ignore")
+    out = out.merge(project_df[project_map_cols], on="projectID", how="left")
+    out["theme"] = out["cordis_theme_primary"].astype("string").fillna("").astype(str)
+    out["sub_theme"] = out["sub_theme"].astype("string").fillna("").astype(str)
+    out["scientific_subthemes"] = out["scientific_subthemes"].astype("string").fillna("[]").astype(str)
+    out["scientific_subthemes_count"] = pd.to_numeric(out["scientific_subthemes_count"], errors="coerce").fillna(0).astype(int)
+    out = _enforce_schema(out)
 
     # write CSV + Parquet atomically
     out_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -1150,6 +1297,12 @@ def build_processed_dataset(raw_dir: Path, out_csv: Path) -> None:
     data_dir = out_csv.parent.parent
     actor_group_map_path = data_dir / "external" / "actor_groups.csv"
     build_master_actor_tables(out, out_csv.parent, actor_group_map_path)
+
+    subthemes_csv = out_csv.parent / "project_scientific_subthemes.csv"
+    subthemes_parquet = out_csv.parent / "project_scientific_subthemes.parquet"
+    _atomic_write_csv(project_subthemes, subthemes_csv)
+    _atomic_write_parquet(project_subthemes, subthemes_parquet)
+    _print_classification_preview(project_df)
 
     print(f"[OK] Wrote CSV: {out_csv}")
     print(f"[OK] Wrote Parquet: {out_parquet}")
