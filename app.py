@@ -1514,7 +1514,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_country_empty_hint": "Essaie un autre pays, une période plus large, ou reviens au classement global.",
         "advanced_empty_hint": "Essaie d’élargir le périmètre ou commence par la vue tableau/classement avant d’ouvrir les vues expertes.",
         "benchmark_empty_hint": "Essaie d’élargir le périmètre ou reviens au classement simple des acteurs.",
-        "value_chain_empty_hint": "Essaie d’élargir les thématiques, de réactiver toutes les étapes, ou de revenir au résumé des étapes.",
+        "value_chain_empty_hint": "Essaie d’élargir les Domaines CORDIS ou les Thèmes principaux CORDIS, de réactiver toutes les étapes, ou de revenir au résumé des étapes.",
         "partnership_empty_hint": "Choisis un acteur plus central, augmente le nombre de partenaires affichés, ou élargis le périmètre.",
         "concentration_empty_hint": "Élargis le périmètre pour comparer davantage d’acteurs ou reviens à la vue acteurs.",
         "net_no_partners": "Aucun partenaire dans le périmètre actuel.",
@@ -1724,10 +1724,10 @@ I18N: Dict[str, Dict[str, str]] = {
         "active_filters": "Filtres actifs",
         "clear_search": "Effacer la recherche",
         "no_results_title": "Aucun résultat pour ce périmètre.",
-        "no_results_hint": "Essaie d’élargir le pays, la période ou la thématique.",
+        "no_results_hint": "Essaie d’élargir le pays, la période ou le Thème principal CORDIS.",
         "no_results_reset": "Réinitialiser les filtres",
         "no_results_clear_search": "Effacer la recherche",
-        "no_results_broaden": "Essaie d’élargir le pays, la période ou la thématique, ou de simplifier la recherche.",
+        "no_results_broaden": "Essaie d’élargir le pays, la période ou le Thème principal CORDIS, ou de simplifier la recherche.",
         "results_summary_title": "Réponse synthétique",
         "results_summary_headline": "Le périmètre courant couvre {projects} projets pour {budget}, avec {actors} acteurs dans {countries} pays.",
         "results_summary_headline_single_country": "Le périmètre courant couvre {projects} projets pour {budget}, avec {actors} acteurs en {country}.",
@@ -1807,7 +1807,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "support_overview_tip": "Cette zone reste utile pour l’exploitation interne, mais elle n’est pas nécessaire pour répondre à une question métier courante.",
         "macro_match": "Correspondance des événements",
         "macro_match_theme": "Par Thème principal CORDIS",
-        "macro_match_tag": "Par tag (tag → thématiques)",
+        "macro_match_tag": "Par tag (tag → Thèmes principaux CORDIS)",
         "macro_pick_theme": "Thématique",
         "macro_theme_scope": "Portée du Thème principal CORDIS",
         "macro_all_themes": "Tous les Thèmes principaux CORDIS",
@@ -1850,7 +1850,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_detail_standard": "Standard",
         "bm_detail_detailed": "Détaillé",
         "macro_event_labels": "Afficher libellé court des événements sur le graphe",
-        "macro_scope_caption": "Les valeurs ci-dessous portent sur le périmètre thématique sélectionné dans CORDIS (et les filtres macro), pas sur le budget global total.",
+        "macro_scope_caption": "Les valeurs ci-dessous portent sur le périmètre du Thème principal CORDIS sélectionné (et les filtres macro), pas sur le budget global total.",
         "macro_event_count": "Événements associés",
         "macro_low_coverage": "Peu d'événements détectés pour ce tag/thème dans `events.csv`.",
         "macro_source_link": "Lien source",
@@ -2027,7 +2027,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_country_empty_hint": "Try another country, a wider time range, or go back to the overall country ranking.",
         "advanced_empty_hint": "Try widening the scope or start with the table/ranking view before opening expert visuals.",
         "benchmark_empty_hint": "Try widening the scope or return to the simple actor ranking.",
-        "value_chain_empty_hint": "Try broadening themes, re-enabling all stages, or returning to the stage summary.",
+        "value_chain_empty_hint": "Try widening CORDIS domains or Primary CORDIS themes, re-enabling all stages, or returning to the stage summary.",
         "partnership_empty_hint": "Choose a more central actor, show more partners, or widen the scope.",
         "concentration_empty_hint": "Widen the scope to compare more actors or return to the actors view.",
         "net_no_partners": "No partners are available in the current scope.",
@@ -2237,7 +2237,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "active_filters": "Active filters",
         "clear_search": "Clear search",
         "no_results_title": "No results for this scope.",
-        "no_results_hint": "Try widening country, time, or theme.",
+        "no_results_hint": "Try widening country, time, or the Primary CORDIS theme.",
         "no_results_reset": "Reset filters",
         "no_results_clear_search": "Clear search",
         "no_results_broaden": "Try widening country, time, or theme filters, or use a simpler search.",
@@ -2320,7 +2320,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "support_overview_tip": "This area remains useful for internal operations, but it is not needed for a standard business question.",
         "macro_match": "Event matching",
         "macro_match_theme": "By Primary CORDIS theme",
-        "macro_match_tag": "By tag (tag → themes)",
+        "macro_match_tag": "By tag (tag → Primary CORDIS themes)",
         "macro_pick_theme": "Theme",
         "macro_theme_scope": "Primary CORDIS theme scope",
         "macro_all_themes": "All Primary CORDIS themes",
@@ -2356,7 +2356,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "concentration_caption": "Simple reading: bars = budget by actor, line = cumulative share.",
         "concentration_budget": "Actor budget",
         "concentration_cum": "Cumulative share (%)",
-        "bm_treemap_help": "Treemap reading: tile size = budget, hierarchy = theme > country > actor, displayed percentage = share in parent.",
+        "bm_treemap_help": "Treemap reading: tile size = budget, hierarchy = Primary CORDIS theme > country > actor, displayed percentage = share in parent.",
         "bm_treemap_settings_help": "Reduce levels to simplify reading (fewer themes/countries/actors).",
         "bm_treemap_detail": "Detail level",
         "bm_detail_simple": "Simple",
@@ -6809,8 +6809,8 @@ with tab_comp:
         with st.expander("Paramètres treemap" if lang == "FR" else "Treemap settings", expanded=False):
             use_advanced_tm = st.checkbox("Mode avancé" if lang == "FR" else "Advanced mode", value=False)
             if use_advanced_tm:
-                tm_top_themes = st.slider("Nombre de thématiques affichées" if lang == "FR" else "Number of themes displayed", 3, 20, tm_top_themes)
-                tm_top_countries = st.slider("Nombre de pays par thématique" if lang == "FR" else "Number of countries per theme", 2, 20, tm_top_countries)
+                tm_top_themes = st.slider("Nombre de thèmes principaux CORDIS affichés" if lang == "FR" else "Number of Primary CORDIS themes displayed", 3, 20, tm_top_themes)
+                tm_top_countries = st.slider("Nombre de pays par thème principal CORDIS" if lang == "FR" else "Number of countries per Primary CORDIS theme", 2, 20, tm_top_countries)
                 tm_top_actors = st.slider("Nombre d'acteurs par pays" if lang == "FR" else "Number of actors per country", 2, 25, tm_top_actors)
                 tm_group_others = st.checkbox("Grouper le reste en « Autres »" if lang == "FR" else "Group the rest as Others", value=tm_group_others)
             st.caption(t(lang, "bm_treemap_settings_help"))
@@ -8444,7 +8444,7 @@ if app_mode == "advanced" and tab_value_chain is not None:
             else:
                 render_guided_message(
                     lang,
-                    "Sélectionne au moins une thématique." if lang == "FR" else "Select at least one theme.",
+                    "Sélectionne au moins un thème principal CORDIS." if lang == "FR" else "Select at least one Primary CORDIS theme.",
                     "value_chain_empty_hint",
                 )
 
