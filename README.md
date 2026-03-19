@@ -15,7 +15,7 @@ Il repose désormais sur 3 niveaux explicites :
 2. `cordis_theme_primary`
    - thème principal officiel unique par projet, dérivé prioritairement des métadonnées CORDIS (`programmeDivisionTitle`, `programmeDivision`, `topic`, `call`, `frameworkProgramme`).
 3. `scientific_subthemes`
-   - sous-thèmes scientifiques multi-label utilisés pour l'exploration fine.
+   - sous-thèmes scientifiques multi-label, utilisés pour l'exploration fine.
 
 Règle clé :
 - les totaux globaux de projets et de budget restent calculés sur le dataset principal et sur `COUNT(DISTINCT projectID)` ;
@@ -180,7 +180,6 @@ Colonnes structurantes :
 - total projets = `COUNT(DISTINCT projectID)` ;
 - le thème principal CORDIS est unique par projet ;
 - les sous-thèmes scientifiques sont multi-label ;
-- un projet peut donc apparaître dans plusieurs sous-thèmes scientifiques ;
 - on ne somme jamais les sous-thèmes pour reconstituer le total global ;
 - les budgets restent interprétés sur le périmètre filtré courant, au grain principal du dataset, pas sur une explosion naïve des sous-thèmes.
 
@@ -258,7 +257,7 @@ Si tu veux un workflow plus léger, privilégie `pipeline.py` au lieu de `proces
 ### Les sous-thèmes scientifiques semblent plus nombreux que les projets
 
 C'est normal :
-- le modèle est multi-label ;
+- le modèle retient une sous-catégorie scientifique unique par projet ;
 - un projet peut être rattaché à plusieurs sous-thèmes scientifiques ;
 - ces vues servent à l'exploration fine, pas au total global.
 

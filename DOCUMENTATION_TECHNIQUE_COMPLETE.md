@@ -213,7 +213,7 @@ Colonnes attendues :
 
 Cette table sert à :
 - filtrer finement sur les sous-thèmes ;
-- alimenter les vues d'exploration multi-label ;
+- alimenter les vues d'exploration fine ;
 - conserver l'explicabilité de la structure hiérarchique.
 
 Elle ne doit pas servir à recalculer les totaux globaux projet/budget par simple somme des lignes explosées.
@@ -497,7 +497,7 @@ Stratégie recommandée :
 Le dépôt est dans une logique de migration maîtrisée :
 - maintien de champs legacy ;
 - maintien de certaines vues qui lisent encore `theme` ou `sub_theme` ;
-- réorientation progressive de l'UX vers `cordis_domain_ui`, `cordis_theme_primary` et `scientific_subthemes`.
+- réorientation progressive de l'UX vers `cordis_domain_ui`, `cordis_theme_primary` et `scientific_subthemes` (une seule valeur maximum).
 
 Ce qu'il ne faut plus faire :
 - considérer `theme` legacy comme le cœur produit ;
