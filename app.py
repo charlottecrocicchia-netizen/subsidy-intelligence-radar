@@ -972,6 +972,49 @@ st.markdown(
     margin: 0 0 10px 0;
   }
 
+  .sir-guided-question-copy {
+    min-height: 7.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.35rem;
+  }
+
+  .sir-guided-question-title {
+    color: var(--sir-text);
+    font-size: 0.98rem;
+    font-weight: 650;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .sir-guided-question-desc {
+    color: var(--sir-text-secondary);
+    font-size: 0.86rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .sir-guided-theme-copy {
+    min-height: 3.7rem;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .sir-guided-theme-title {
+    color: var(--sir-text);
+    font-size: 0.94rem;
+    font-weight: 620;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .sir-guided-theme-select-note {
+    color: var(--sir-text-muted);
+    font-size: 0.76rem;
+    margin: 0.1rem 0 0.2rem 0;
+  }
+
   .sir-guided-next {
     background: linear-gradient(135deg, rgba(79, 124, 172, 0.10), rgba(20, 184, 166, 0.06));
     border: 1px solid var(--sir-border);
@@ -1561,6 +1604,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_intent_macro_desc": "Ouvre la lecture macro comme couche de contexte des tendances.",
         "guided_home_selected_question": "Question retenue",
         "guided_home_selected_question_desc": "Cette intention orientera la première vue ouverte dans l’analyse complète.",
+        "guided_home_choose_question": "Choisir cette question",
+        "guided_home_selected_question_button": "Question retenue",
         "guided_home_search": "Sujet ou mots-clés",
         "guided_home_search_help": "Exemples : hydrogène Allemagne, batteries France, IA industrie.",
         "guided_home_topics": "Thématiques à suivre",
@@ -1587,6 +1632,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_next_2": "les acteurs, la géographie et les tendances déjà préfiltrés",
         "guided_home_next_3": "tous les filtres avancés si tu veux aller plus loin",
         "guided_home_theme_cards_help": "Clique sur un ou plusieurs thèmes. Tu pourras affiner ensuite.",
+        "guided_home_theme_select_note": "Coche pour inclure ce thème",
+        "guided_home_theme_select_action": "Sélectionner",
         "guided_home_selected_themes": "Thématiques retenues",
         "guided_home_subtopics": "Sous-thématiques préparatoires",
         "guided_home_subtopics_help": "Choisis des sous-thèmes si tu veux affiner. Ils seront repris dans l’analyse comme termes guidés de recherche.",
@@ -2061,6 +2108,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_intent_macro_desc": "Open the macro reading as a contextual layer for the trends.",
         "guided_home_selected_question": "Selected question",
         "guided_home_selected_question_desc": "This intent will steer the first view opened in the full analysis.",
+        "guided_home_choose_question": "Choose this question",
+        "guided_home_selected_question_button": "Selected question",
         "guided_home_search": "Topic or keywords",
         "guided_home_search_help": "Examples: hydrogen Germany, batteries France, AI industry.",
         "guided_home_topics": "Themes to follow",
@@ -2087,6 +2136,8 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_next_2": "actors, geography, and trends already prefiltered",
         "guided_home_next_3": "all advanced filters if you want to go deeper",
         "guided_home_theme_cards_help": "Click one or more themes. You can refine them afterwards.",
+        "guided_home_theme_select_note": "Check to include this theme",
+        "guided_home_theme_select_action": "Select",
         "guided_home_selected_themes": "Selected themes",
         "guided_home_subtopics": "Preparatory sub-themes",
         "guided_home_subtopics_help": "Choose sub-themes if you want to refine the topic. They will be carried into the analysis as guided search terms.",
@@ -4238,23 +4289,34 @@ def _current_filter_snapshot() -> Dict[str, object]:
 
 def _apply_filter_snapshot(snapshot: Dict[str, object]) -> None:
     for key, value in snapshot.items():
-        st.session_state[key] = value
+        if st.session_state.get(key) != value:
+            st.session_state[key] = value
+
+
+def _current_universal_filter_state() -> Dict[str, object]:
+    themes_ui = [x for x in meta["themes"] if (not st.session_state.get("f_onetech_only", False)) or (x in ONETECH_THEMES_EN)]
+    current_themes = [x for x in st.session_state.get("f_themes_raw", []) if x in themes_ui]
+    current_countries = [x for x in st.session_state.get("f_countries", []) if x in meta["countries"]]
+    return {
+        "f_years": tuple(st.session_state.get("f_years", (meta["miny"], meta["maxy"]))),
+        "f_themes_raw": current_themes or themes_ui,
+        "f_countries": current_countries or _default_countries_from_meta(meta),
+    }
 
 
 def _simple_mode_filter_snapshot() -> Dict[str, object]:
-    eu_default = european_countries_present(meta["countries"])
-    default_countries = eu_default if eu_default else meta["countries"]
     default_statuses = [s for s in ["Open", "Closed", "Unknown"] if s in meta["statuses"]]
     if not default_statuses:
         default_statuses = meta["statuses"]
+    universal_state = _current_universal_filter_state()
     return {
         "f_sources": list(meta["sources"]),
         "f_programmes": list(meta["programmes"]),
-        "f_years": (meta["miny"], meta["maxy"]),
+        "f_years": universal_state["f_years"],
         "f_statuses": list(default_statuses),
-        "f_themes_raw": list(meta["themes"]),
+        "f_themes_raw": list(universal_state["f_themes_raw"]),
         "f_entity_raw": list(meta["entities"]),
-        "f_countries": list(default_countries),
+        "f_countries": list(universal_state["f_countries"]),
         "f_onetech_only": False,
         "f_use_actor_groups": False,
         "f_exclude_funders": True,
@@ -4269,6 +4331,8 @@ if st.session_state["app_mode"] == "simple":
 elif previous_app_mode == "simple":
     saved_snapshot = st.session_state.get("_advanced_filter_snapshot")
     if isinstance(saved_snapshot, dict):
+        saved_snapshot = dict(saved_snapshot)
+        saved_snapshot.update(_current_universal_filter_state())
         _apply_filter_snapshot(saved_snapshot)
 st.session_state["_last_app_mode"] = st.session_state["app_mode"]
 
@@ -4288,10 +4352,15 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
         with question_cols[idx % 3]:
             selected = intent == current_intent
             with st.container(border=True):
-                st.markdown("**" + (("✓ " if selected else "") + guided_intent_title(lang, intent)) + "**")
-                st.caption(guided_intent_desc(lang, intent))
+                st.markdown(
+                    "<div class='sir-guided-question-copy'>"
+                    f"<p class='sir-guided-question-title'>{html.escape((('✓ ' if selected else '') + guided_intent_title(lang, intent)))}</p>"
+                    f"<p class='sir-guided-question-desc'>{html.escape(guided_intent_desc(lang, intent))}</p>"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
                 if st.button(
-                    t(lang, "guided_home_selected_question") if selected else guided_intent_title(lang, intent),
+                    t(lang, "guided_home_selected_question_button") if selected else t(lang, "guided_home_choose_question"),
                     key=f"guided_intent::{intent}",
                     width="stretch",
                     type="primary" if selected else "secondary",
@@ -4348,7 +4417,14 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
                 label = theme_raw_to_display(str(theme), lang)
                 with theme_cols[idx % 2]:
                     with st.container(border=True):
-                        st.checkbox(label, key=f"guided_theme_selected::{theme}")
+                        st.markdown(
+                            "<div class='sir-guided-theme-copy'>"
+                            f"<p class='sir-guided-theme-title'>{html.escape(label)}</p>"
+                            "</div>",
+                            unsafe_allow_html=True,
+                        )
+                        st.caption(t(lang, "guided_home_theme_select_note"))
+                        st.checkbox(t(lang, "guided_home_theme_select_action"), key=f"guided_theme_selected::{theme}")
             guided_theme_choices = [
                 theme for theme in meta["themes"]
                 if bool(st.session_state.get(f"guided_theme_selected::{theme}", False))
@@ -4462,6 +4538,7 @@ if st.session_state.get("sir_screen", "welcome") == "welcome":
     with launch_c1:
         if st.button(t(lang, "guided_home_open"), key="guided_home_open_btn", width="stretch", type="primary"):
             apply_guided_entry_to_filters(meta)
+            st.session_state["_advanced_filter_snapshot"] = _current_filter_snapshot()
             st.session_state["app_mode"] = guided_intent_mode(st.session_state.get("guided_intent", "projects"))
             st.session_state["_last_app_mode"] = st.session_state["app_mode"]
             st.session_state["sir_screen"] = "analysis"
