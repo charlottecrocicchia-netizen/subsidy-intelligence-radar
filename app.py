@@ -1755,9 +1755,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_summary_title": "Lecture rapide",
         "geo_summary_single": "Le périmètre géographique actuel se concentre surtout sur {first}.",
         "geo_summary_multi": "Le financement est surtout concentré en {first}, puis {second}, sur {count} pays dans le périmètre courant.",
-        "geo_open_results": "Ouvrir les résultats filtrés sur ce pays",
-        "geo_open_results_notice": "Filtre appliqué depuis Géographie : pays = {country}.",
-        "geo_open_trends": "Ouvrir les tendances filtrées sur ce pays",
+        "geo_open_results": "Ouvrir les résultats de ce pays",
+        "geo_open_results_notice": "Résultats ouverts sur {country} sans modifier le filtre pays global.",
+        "geo_open_trends": "Ouvrir les tendances de ce pays",
+        "geo_open_trends_notice": "Tendances ouvertes sur {country} sans modifier le filtre pays global.",
+        "results_country_focus_notice": "Résultats temporairement centrés sur {country}. Le filtre pays global reste inchangé.",
+        "trends_country_focus_notice": "Tendances temporairement centrées sur {country}. Le filtre pays global reste inchangé.",
+        "local_country_focus_clear": "Revenir au périmètre pays initial",
         "trends_scope_summary_title": "Lecture rapide",
         "trends_scope_summary_up": "Le budget annuel progresse entre {start_year} ({start_budget}) et {end_year} ({end_budget}).",
         "trends_scope_summary_down": "Le budget annuel recule entre {start_year} ({start_budget}) et {end_year} ({end_budget}).",
@@ -2264,9 +2268,13 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_summary_title": "Quick read",
         "geo_summary_single": "The current geographic scope is mainly concentrated in {first}.",
         "geo_summary_multi": "Funding is mainly concentrated in {first}, then {second}, across {count} countries in the current scope.",
-        "geo_open_results": "Open results filtered to this country",
-        "geo_open_results_notice": "Filter applied from Geography: country = {country}.",
-        "geo_open_trends": "Open trends filtered to this country",
+        "geo_open_results": "Open results for this country",
+        "geo_open_results_notice": "Results opened on {country} without changing the global country filter.",
+        "geo_open_trends": "Open trends for this country",
+        "geo_open_trends_notice": "Trends opened on {country} without changing the global country filter.",
+        "results_country_focus_notice": "Results are temporarily focused on {country}. The global country filter is unchanged.",
+        "trends_country_focus_notice": "Trends are temporarily focused on {country}. The global country filter is unchanged.",
+        "local_country_focus_clear": "Return to the initial country scope",
         "trends_scope_summary_title": "Quick read",
         "trends_scope_summary_up": "Annual funding rises between {start_year} ({start_budget}) and {end_year} ({end_budget}).",
         "trends_scope_summary_down": "Annual funding falls between {start_year} ({start_budget}) and {end_year} ({end_budget}).",
@@ -2981,6 +2989,8 @@ def reset_filters() -> None:
     for k in list(st.session_state.keys()):
         if k.startswith("f_") or k.startswith("macro_"):
             del st.session_state[k]
+    for k in ["results_focus_country", "trends_focus_country"]:
+        st.session_state.pop(k, None)
 
 
 def _default_countries_from_meta(meta: dict) -> List[str]:
@@ -3059,6 +3069,8 @@ def apply_guided_entry_to_filters(meta: dict) -> None:
     st.session_state["f_onetech_only"] = False
     st.session_state["f_use_actor_groups"] = False
     st.session_state["f_exclude_funders"] = True
+    st.session_state["results_focus_country"] = ""
+    st.session_state["trends_focus_country"] = ""
 
 
 def clear_search() -> None:
@@ -3163,6 +3175,15 @@ def apply_pending_filter_updates() -> None:
         return
     for key, value in pending.items():
         st.session_state[str(key)] = value
+
+
+def append_country_focus(where_sql: str, country: str, *, table_alias: str = "") -> str:
+    focus_country = str(country or "").strip()
+    if not focus_country:
+        return where_sql
+    prefix = str(table_alias or "").strip()
+    col = f"{prefix}.country_name" if prefix else "country_name"
+    return f"({where_sql}) AND {col} IN {in_list([focus_country])}"
 
 
 def queue_flash_notice(message: str, level: str = "info") -> None:
@@ -4872,6 +4893,7 @@ with st.expander(filters_expander_label, expanded=False):
                 t(lang, "programmes"),
                 meta["programmes"],
                 default=prg_default or meta["programmes"],
+                format_func=lambda x: display_dimension_value("program", x, lang),
             )
         with adv_c2:
             st.session_state["f_sources"] = st.multiselect(
@@ -5191,6 +5213,71 @@ st.session_state["nav_target_actor_sub"] = ""
 st.session_state["nav_target_trends_sub"] = ""
 st.session_state["nav_target_advanced_sub"] = ""
 
+_results_scope_items_base = list(scope_items)
+_results_focus_country = str(st.session_state.get("results_focus_country", "") or "").strip()
+if _results_focus_country and _results_focus_country not in meta.get("countries", []):
+    st.session_state["results_focus_country"] = ""
+    _results_focus_country = ""
+
+_RESULTS_W_ORIG = W
+_RESULTS_TOTAL_BUDGET_ORIG = total_budget
+_RESULTS_NB_PROJECTS_ORIG = nb_projects
+_RESULTS_NB_ACTORS_ORIG = nb_actors
+_RESULTS_AVG_TICKET_ORIG = avg_ticket
+_RESULTS_MEDIAN_TICKET_ORIG = median_ticket
+_RESULTS_TOP10_SHARE_ORIG = top10_share
+_RESULTS_HHI_ORIG = hhi
+_RESULTS_SCOPE_ITEMS_ORIG = scope_items
+_RESULTS_MAIN_SCOPE_FAILED_ORIG = main_scope_metrics_failed
+
+if _results_focus_country:
+    W = append_country_focus(W, _results_focus_country)
+    _results_kpi, _results_kpi_failed = safe_fetch_df_quiet(f"""
+    SELECT
+      SUM(amount_eur) AS total_budget,
+      COUNT(DISTINCT projectID) AS n_projects,
+      COUNT(DISTINCT actor_id) FILTER (WHERE actor_id IS NOT NULL AND TRIM(actor_id) <> '') AS n_actors
+    FROM {R}
+    WHERE {W}
+    """, columns=["total_budget", "n_projects", "n_actors"])
+    total_budget = float(_results_kpi["total_budget"].iloc[0] or 0.0) if not _results_kpi.empty else 0.0
+    nb_projects = int(_results_kpi["n_projects"].iloc[0] or 0) if not _results_kpi.empty else 0
+    nb_actors = int(_results_kpi["n_actors"].iloc[0] or 0) if not _results_kpi.empty else 0
+
+    _results_proj_stats, _results_proj_stats_failed = safe_fetch_df_quiet(f"""
+    SELECT
+      AVG(proj_budget) AS avg_ticket,
+      MEDIAN(proj_budget) AS median_ticket
+    FROM (
+      SELECT projectID, SUM(amount_eur) AS proj_budget
+      FROM {R}
+      WHERE {W}
+      GROUP BY projectID
+    ) t
+    """, columns=["avg_ticket", "median_ticket"])
+    avg_ticket = float(_results_proj_stats["avg_ticket"].iloc[0] or 0.0) if not _results_proj_stats.empty else 0.0
+    median_ticket = float(_results_proj_stats["median_ticket"].iloc[0] or 0.0) if not _results_proj_stats.empty else 0.0
+
+    _results_actor_b, _results_actor_b_failed = safe_fetch_df_quiet(f"""
+    SELECT actor_id, SUM(amount_eur) AS b
+    FROM {R}
+    WHERE {W} AND actor_id IS NOT NULL AND TRIM(actor_id) <> ''
+    GROUP BY actor_id
+    """, columns=["actor_id", "b"])
+    top10_share = 0.0
+    hhi = 0.0
+    if not _results_actor_b.empty and float(_results_actor_b["b"].sum()) > 0:
+        _b = _results_actor_b["b"].astype(float)
+        _tot = float(_b.sum())
+        _shares = (_b / _tot).to_numpy()
+        hhi = float(np.sum(_shares**2))
+        top10_share = float(_b.sort_values(ascending=False).head(10).sum() / _tot)
+
+    main_scope_metrics_failed = bool(_results_kpi_failed or _results_proj_stats_failed or _results_actor_b_failed)
+    scope_items = list(_results_scope_items_base) + [
+        (f"Focus pays : {_results_focus_country}" if lang == "FR" else f"Country focus: {_results_focus_country}")
+    ]
+
 
 # ============================================================
 # TAB RESULTS (result-first)
@@ -5211,6 +5298,14 @@ with tab_results:
     if main_scope_metrics_failed:
         st.warning(t(lang, "results_scope_partial_warning"))
         st.caption(t(lang, "view_recover_hint"))
+    if _results_focus_country:
+        rf1, rf2 = st.columns([4.5, 1.5])
+        with rf1:
+            st.info(t(lang, "results_country_focus_notice").format(country=_results_focus_country))
+        with rf2:
+            if st.button(t(lang, "local_country_focus_clear"), key="results_focus_country_clear_btn", width="stretch"):
+                queue_filter_updates(results_focus_country="")
+                st.rerun()
 
     scope_summary = build_results_scope_summary(
         R,
@@ -5533,7 +5628,7 @@ with tab_results:
                     meta1, meta2, meta3, meta4 = st.columns(4)
                     with meta1:
                         st.caption(f"**{t(lang, 'programmes')}**")
-                        st.write(str(detail.get("program") or "—"))
+                        st.write(display_dimension_value("program", detail.get("program"), lang) if str(detail.get("program") or "").strip() else "—")
                     with meta2:
                         st.caption(f"**{t(lang, 'domains')}**")
                         st.write(domain_raw_to_display(str(detail.get("cordis_domain_ui") or ""), lang) if str(detail.get("cordis_domain_ui") or "").strip() else "—")
@@ -5584,7 +5679,7 @@ with tab_results:
                             if st.button(("Ouvrir dans Géographie" if lang == "FR" else "Open in Geography"), key=f"results_geo_country_btn::{selected_project_id}"):
                                 selected_country = str(st.session_state.get(country_select_key, "")).strip()
                                 if selected_country:
-                                    queue_filter_updates(f_countries=[selected_country])
+                                    queue_filter_updates(geo_selected_country=selected_country)
                                     queue_tab_navigation(top_target=t(lang, "tab_markets"))
                                     st.rerun()
                         else:
@@ -5890,6 +5985,17 @@ with tab_results:
                         height=360,
                     )
 
+
+W = _RESULTS_W_ORIG
+total_budget = _RESULTS_TOTAL_BUDGET_ORIG
+nb_projects = _RESULTS_NB_PROJECTS_ORIG
+nb_actors = _RESULTS_NB_ACTORS_ORIG
+avg_ticket = _RESULTS_AVG_TICKET_ORIG
+median_ticket = _RESULTS_MEDIAN_TICKET_ORIG
+top10_share = _RESULTS_TOP10_SHARE_ORIG
+hhi = _RESULTS_HHI_ORIG
+scope_items = _RESULTS_SCOPE_ITEMS_ORIG
+main_scope_metrics_failed = _RESULTS_MAIN_SCOPE_FAILED_ORIG
 
 # ============================================================
 # TAB OVERVIEW (DuckDB)
@@ -6276,14 +6382,14 @@ with tab_geo:
             gq1, gq2 = st.columns(2)
             with gq1:
                 if st.button(t(lang, "geo_open_results"), key=f"geo_open_results::{selected_country}", width="stretch"):
-                    queue_filter_updates(f_countries=[selected_country])
+                    queue_filter_updates(results_focus_country=selected_country)
                     queue_flash_notice(t(lang, "geo_open_results_notice").format(country=selected_country))
                     queue_tab_navigation(top_target=t(lang, "tab_explorer"))
                     st.rerun()
             with gq2:
                 if st.button(t(lang, "geo_open_trends"), key=f"geo_open_trends::{selected_country}", width="stretch"):
-                    queue_filter_updates(f_countries=[selected_country])
-                    queue_flash_notice(t(lang, "geo_open_results_notice").format(country=selected_country))
+                    queue_filter_updates(trends_focus_country=selected_country)
+                    queue_flash_notice(t(lang, "geo_open_trends_notice").format(country=selected_country))
                     queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_trends"))
                     st.rerun()
 
@@ -6519,18 +6625,32 @@ with tab_geo:
                 render_guided_empty_state(lang, "geo_country_empty_hint")
             else:
                 country_projects["budget"] = country_projects["budget_eur"].apply(lambda v: fmt_money(float(v), lang))
+                country_projects["program_display"] = country_projects["program"].map(
+                    lambda x: display_dimension_value("program", x, lang) if str(x).strip() else "—"
+                )
                 country_projects["theme_display"] = country_projects["theme"].map(
                     lambda x: theme_raw_to_display(str(x), lang) if str(x).strip() else "—"
                 )
                 st.dataframe(
-                    country_projects[["year", "projectID", "title", "program", "theme_display", "budget"]].rename(
-                        columns={"theme_display": t(lang, "themes")}
+                    country_projects[["year", "projectID", "title", "program_display", "theme_display", "budget"]].rename(
+                        columns={"program_display": t(lang, "programmes"), "theme_display": t(lang, "themes")}
                     ),
                     use_container_width=True,
                     height=420,
                     hide_index=True,
                 )
 
+
+W = _RESULTS_W_ORIG
+total_budget = _RESULTS_TOTAL_BUDGET_ORIG
+nb_projects = _RESULTS_NB_PROJECTS_ORIG
+nb_actors = _RESULTS_NB_ACTORS_ORIG
+avg_ticket = _RESULTS_AVG_TICKET_ORIG
+median_ticket = _RESULTS_MEDIAN_TICKET_ORIG
+top10_share = _RESULTS_TOP10_SHARE_ORIG
+hhi = _RESULTS_HHI_ORIG
+scope_items = _RESULTS_SCOPE_ITEMS_ORIG
+main_scope_metrics_failed = _RESULTS_MAIN_SCOPE_FAILED_ORIG
 
 # ============================================================
 # TAB COMP (Benchmark) — scatter, treemap, top (DuckDB)
@@ -6831,6 +6951,14 @@ if app_mode == "simple":
     hidden_comp_placeholder.empty()
 
 
+_TRENDS_W_ORIG = W
+_trends_focus_country = str(st.session_state.get("trends_focus_country", "") or "").strip()
+if _trends_focus_country and _trends_focus_country not in meta.get("countries", []):
+    st.session_state["trends_focus_country"] = ""
+    _trends_focus_country = ""
+if _trends_focus_country:
+    W = append_country_focus(W, _trends_focus_country)
+
 # ============================================================
 # TAB TRENDS (DuckDB)
 # ============================================================
@@ -6842,6 +6970,14 @@ with tab_trends:
         else "Start with the annual trend, then open period comparison or macro context only if you need a deeper read."
     )
     st.caption(t(lang, "budget_envelope_note"))
+    if _trends_focus_country:
+        tf1, tf2 = st.columns([4.5, 1.5])
+        with tf1:
+            st.info(t(lang, "trends_country_focus_notice").format(country=_trends_focus_country))
+        with tf2:
+            if st.button(t(lang, "local_country_focus_clear"), key="trends_focus_country_clear_btn", width="stretch"):
+                queue_filter_updates(trends_focus_country="")
+                st.rerun()
     trend_scope = safe_fetch_df(f"""
     SELECT year, SUM(amount_eur) AS budget_eur
     FROM {R}
@@ -7028,6 +7164,8 @@ with tab_trends:
                 fig_drv.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
                 render_plotly_chart(fig_drv, use_container_width=True)
 
+
+W = _TRENDS_W_ORIG
 
 # ============================================================
 # TAB COMPARE (DuckDB)
@@ -7665,7 +7803,7 @@ if app_mode == "advanced" and tab_actor is not None:
             with aq2:
                 if selected_main_country and selected_main_country != "—":
                     if st.button(t(lang, "actor_open_geo"), key=f"actor_open_geo::{picked_id}", width="stretch"):
-                        queue_filter_updates(f_countries=[selected_main_country])
+                        queue_filter_updates(geo_selected_country=selected_main_country)
                         queue_tab_navigation(top_target=t(lang, "tab_markets"))
                         st.rerun()
                 else:
@@ -7759,12 +7897,15 @@ if app_mode == "advanced" and tab_actor is not None:
                     render_guided_empty_state(lang, "actor_empty_hint")
                 else:
                     actor_projects["budget"] = actor_projects["budget_eur"].map(lambda x: fmt_money(float(x), lang))
+                    actor_projects["program_display"] = actor_projects["program"].map(
+                        lambda x: display_dimension_value("program", x, lang) if str(x).strip() else "—"
+                    )
                     actor_projects["theme_display"] = actor_projects["theme"].map(
                         lambda x: theme_raw_to_display(str(x), lang) if str(x).strip() else "—"
                     )
                     st.dataframe(
-                        actor_projects[["year", "projectID", "title", "program", "theme_display", "budget"]].rename(
-                            columns={"theme_display": t(lang, "themes")}
+                        actor_projects[["year", "projectID", "title", "program_display", "theme_display", "budget"]].rename(
+                            columns={"program_display": t(lang, "programmes"), "theme_display": t(lang, "themes")}
                         ),
                         use_container_width=True,
                         height=360,
@@ -8645,6 +8786,10 @@ if app_mode == "advanced" and tab_data is not None:
         page_df = page_df_raw.copy()
 
         # Pretty display
+        if "program" in page_df.columns:
+            page_df["program"] = page_df["program"].map(lambda x: display_dimension_value("program", x, lang) if str(x).strip() else "")
+        if "section" in page_df.columns:
+            page_df["section"] = page_df["section"].map(lambda x: display_dimension_value("section", x, lang) if str(x).strip() else "")
         if "theme" in page_df.columns:
             page_df["theme"] = page_df["theme"].map(lambda x: theme_raw_to_display(str(x), lang))
         if "entity_type" in page_df.columns:
