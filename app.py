@@ -1659,7 +1659,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_delta_budget": "Écart de budget (B - A)",
         "compare_budget_reading": "Lecture : à droite, la période B finance davantage ; à gauche, elle finance moins. La comparaison porte sur le budget, pas sur une part relative.",
         "budget_envelope_note": "Les budgets sont lus comme des enveloppes de projet rattachées à l’année de démarrage. Ce ne sont pas des montants effectivement versés chaque année.",
-        "theme_method_note": "Les thématiques sont inférées par règles de mots-clés FR/EN avec gestion de quelques exclusions. Chaque projet reçoit aujourd’hui un thème principal.",
+        "theme_method_note": "Les thématiques affichées ici correspondent au thème principal officiel CORDIS du projet, le plus souvent le topic. Les sous-thèmes scientifiques restent multi-label et servent à l’exploration fine.",
         "theme_review_label": "Multithématique",
         "theme_review_note": "« Multithématique » regroupe les projets transversaux sans correspondance unique dans le référentiel thématique actuel.",
         "actor_grouping_note": "Le regroupement d’entités dépend d’un mapping groupes et d’un fallback PIC. Il reste partiel pour certaines filiales et structures corporate.",
@@ -1758,7 +1758,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_summary_country_lead": "Le budget le plus élevé se situe en {country}.",
         "results_summary_actor_lead": "L’acteur le plus financé est {actor}.",
         "results_summary_theme_lead": "La thématique dominante est {theme}.",
-        "theme_counting_note": "Note : dans le build actuel, chaque ligne reçoit une seule thématique inférée. Un projet n’apparaît donc pas dans plusieurs thèmes ici.",
+        "theme_counting_note": "Note : ici, le comptage principal repose sur un thème principal CORDIS unique par projet. Les sous-thèmes scientifiques peuvent être multiples, mais ne servent pas à reconstituer le total global.",
         "results_summary_fallback": "Le périmètre courant couvre {projects} projets pour {budget} et {actors} acteurs uniques.",
         "results_primary_visual": "Lecture principale",
         "results_primary_trend": "Budget annuel",
@@ -1779,8 +1779,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_summary_title": "Lecture rapide",
         "geo_summary_single": "Le périmètre géographique actuel se concentre surtout sur {first}.",
         "geo_summary_multi": "Le financement est surtout concentré en {first}, puis {second}, sur {count} pays dans le périmètre courant.",
-        "geo_open_results": "Ouvrir les résultats de ce pays",
-        "geo_open_trends": "Ouvrir les tendances de ce pays",
+        "geo_open_results": "Ouvrir les résultats filtrés sur ce pays",
+        "geo_open_results_notice": "Filtre appliqué depuis Géographie : pays = {country}.",
+        "geo_open_trends": "Ouvrir les tendances filtrées sur ce pays",
         "trends_scope_summary_title": "Lecture rapide",
         "trends_scope_summary_up": "Le budget annuel progresse entre {start_year} ({start_budget}) et {end_year} ({end_budget}).",
         "trends_scope_summary_down": "Le budget annuel recule entre {start_year} ({start_budget}) et {end_year} ({end_budget}).",
@@ -2165,7 +2166,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_delta_budget": "Budget change (B - A)",
         "compare_budget_reading": "Reading: bars to the right mean period B funds more; bars to the left mean it funds less. This compares budget, not relative share.",
         "budget_envelope_note": "Budgets are read as total project envelopes attached to the project start year. They are not actual yearly disbursements.",
-        "theme_method_note": "Themes are inferred from controlled FR/EN keyword rules with a few exclusion patterns. Each project currently receives one main theme.",
+        "theme_method_note": "Themes shown here correspond to the official CORDIS primary theme of the project, most often the topic. Scientific sub-themes remain multi-label and are meant for deeper exploration.",
         "theme_review_label": "Multi-domain",
         "theme_review_note": "“Multi-domain” groups cross-disciplinary projects without a single dominant theme in the current reference set.",
         "actor_grouping_note": "Entity grouping depends on a group mapping plus PIC fallback. It remains partial for some subsidiaries and corporate structures.",
@@ -2264,7 +2265,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_summary_country_lead": "The largest budget is in {country}.",
         "results_summary_actor_lead": "The leading funded actor is {actor}.",
         "results_summary_theme_lead": "The leading theme is {theme}.",
-        "theme_counting_note": "Note: in the current build, each row receives a single inferred theme. A project therefore does not appear in multiple themes here.",
+        "theme_counting_note": "Note: the main counting here relies on one unique CORDIS primary theme per project. Scientific sub-themes can be multiple, but they are not used to rebuild the global total.",
         "results_summary_fallback": "The current scope contains {projects} projects worth {budget} and {actors} unique actors.",
         "results_primary_visual": "Primary reading",
         "results_primary_trend": "Annual budget",
@@ -2285,8 +2286,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_summary_title": "Quick read",
         "geo_summary_single": "The current geographic scope is mainly concentrated in {first}.",
         "geo_summary_multi": "Funding is mainly concentrated in {first}, then {second}, across {count} countries in the current scope.",
-        "geo_open_results": "Open results for this country",
-        "geo_open_trends": "Open trends for this country",
+        "geo_open_results": "Open results filtered to this country",
+        "geo_open_results_notice": "Filter applied from Geography: country = {country}.",
+        "geo_open_trends": "Open trends filtered to this country",
         "trends_scope_summary_title": "Quick read",
         "trends_scope_summary_up": "Annual funding rises between {start_year} ({start_budget}) and {end_year} ({end_budget}).",
         "trends_scope_summary_down": "Annual funding falls between {start_year} ({start_budget}) and {end_year} ({end_budget}).",
@@ -2521,13 +2523,52 @@ def fmt_pp(delta_share: float, digits: int = 2, lang: str = "FR") -> str:
 # ============================================================
 # UI mapping
 # ============================================================
+CORDIS_THEME_PREFIX_LABELS = [
+    ("HORIZON-JU-EUROHPC-", ("EuroHPC JU", "EuroHPC JU")),
+    ("HORIZON-JTI-CLEANH2-", ("Clean Hydrogen JU", "Clean Hydrogen JU")),
+    ("HORIZON-JU-CLEANH2-", ("Clean Hydrogen JU", "Clean Hydrogen JU")),
+    ("HORIZON-MSCA-", ("Actions Marie Sklodowska-Curie", "Marie Sklodowska-Curie Actions")),
+    ("MSCA-IF-", ("Actions Marie Sklodowska-Curie", "Marie Sklodowska-Curie Actions")),
+    ("ERC-", ("Conseil europeen de la recherche", "European Research Council")),
+    ("EIC-SMEINST-", ("EIC SME Instrument", "EIC SME Instrument")),
+    ("HORIZON-EIC-", ("Conseil europeen de l'innovation", "European Innovation Council")),
+    ("HORIZON-HLTH-", ("Sante", "Health")),
+    ("HORIZON-CL4-", ("Numerique et industrie", "Digital and industry")),
+    ("HORIZON-CL5-", ("Climat, energie et mobilite", "Climate, energy and mobility")),
+    ("HORIZON-CL6-", ("Alimentation, bioeconomie et environnement", "Food, bioeconomy and environment")),
+    ("HORIZON-CL3-", ("Securite civile", "Civil security")),
+    ("INNOSUP-", ("Soutien a l'innovation", "Innovation support")),
+    ("ICT-", ("ICT", "ICT")),
+    ("NMBP-", ("Materiaux et production", "Materials and production")),
+]
+
+
+def _prettify_cordis_theme(raw: str, lang: str) -> str:
+    value = str(raw or "").strip()
+    if not value:
+        return ""
+    upper = value.upper()
+    for prefix, labels in CORDIS_THEME_PREFIX_LABELS:
+        if upper.startswith(prefix):
+            label = labels[0] if lang == "FR" else labels[1]
+            rest = value[len(prefix):].strip("-_")
+            if rest:
+                rest = re.sub(r"[_-]+", " · ", rest)
+                return f"{label} · {rest}"
+            return label
+    if re.fullmatch(r"[A-Z0-9]+(?:[-_][A-Z0-9]+){2,}", upper):
+        return re.sub(r"[_-]+", " · ", value)
+    return value
+
+
 def theme_raw_to_display(raw: str, lang: str) -> str:
-    raw = str(raw)
+    raw = str(raw or "").strip()
     if raw == "Other":
         return t(lang, "theme_review_label")
-    if lang == "FR":
-        return THEME_EN_TO_FR.get(raw, raw)
-    return raw
+    mapped = THEME_EN_TO_FR.get(raw, raw) if lang == "FR" else raw
+    if mapped != raw or raw in THEME_EN_TO_FR:
+        return mapped
+    return _prettify_cordis_theme(raw, lang)
 
 
 def domain_raw_to_display(raw: str, lang: str) -> str:
@@ -3172,6 +3213,7 @@ def queue_tab_navigation(
     st.session_state["nav_target_actor_sub"] = str(actor_sub_target or "")
     st.session_state["nav_target_trends_sub"] = str(trends_sub_target or "")
     st.session_state["nav_target_advanced_sub"] = str(advanced_sub_target or "")
+    st.session_state["nav_tabs_nonce"] = int(st.session_state.get("nav_tabs_nonce", 0)) + 1
 
 
 def queue_filter_updates(**updates: object) -> None:
@@ -3190,6 +3232,15 @@ def apply_pending_filter_updates() -> None:
         return
     for key, value in pending.items():
         st.session_state[str(key)] = value
+
+
+def queue_flash_notice(message: str, level: str = "info") -> None:
+    st.session_state["_flash_notice"] = {"message": str(message or "").strip(), "level": str(level or "info").strip() or "info"}
+
+
+def pop_flash_notice() -> dict | None:
+    notice = st.session_state.pop("_flash_notice", None)
+    return notice if isinstance(notice, dict) else None
 
 
 def sync_results_table_state(scope_token: str) -> None:
@@ -5089,37 +5140,43 @@ else:
 default_top_tab = str(st.session_state.get("nav_target_top", "")).strip()
 if default_top_tab not in top_tab_labels:
     default_top_tab = t(lang, "tab_explorer")
-if app_mode == "simple":
-    tab_explorer, tab_markets, tab_trends_events = st.tabs(
-        top_tab_labels,
-        default=default_top_tab,
-    )
-    tab_actors_hub = None
-    tab_advanced = None
-    tab_admin = None
-    hidden_actor_placeholder = st.empty()
-    hidden_comp_placeholder = st.empty()
-    hidden_value_chain_placeholder = st.empty()
-    hidden_collaboration_placeholder = st.empty()
-    hidden_concentration_placeholder = st.empty()
-    hidden_data_placeholder = st.empty()
-    hidden_quality_placeholder = st.empty()
-    hidden_debug_placeholder = st.empty()
-    hidden_docs_placeholder = st.empty()
-    tab_actor = hidden_actor_placeholder.container()
-    tab_comp = hidden_comp_placeholder.container()
-    tab_value_chain = hidden_value_chain_placeholder.container()
-    tab_collaboration = hidden_collaboration_placeholder.container()
-    tab_concentration = hidden_concentration_placeholder.container()
-    tab_data = hidden_data_placeholder.container()
-    tab_quality = hidden_quality_placeholder.container()
-    tab_debug = hidden_debug_placeholder.container()
-    tab_docs = hidden_docs_placeholder.container()
-else:
-    tab_explorer, tab_actors_hub, tab_markets, tab_trends_events, tab_advanced, tab_admin = st.tabs(
-        top_tab_labels,
-        default=default_top_tab,
-    )
+nav_tabs_nonce = int(st.session_state.get("nav_tabs_nonce", 0))
+_top_tabs_host_a = st.empty()
+_top_tabs_host_b = st.empty()
+_top_tabs_host = _top_tabs_host_a if nav_tabs_nonce % 2 == 0 else _top_tabs_host_b
+(_top_tabs_host_b if nav_tabs_nonce % 2 == 0 else _top_tabs_host_a).empty()
+with _top_tabs_host.container():
+    if app_mode == "simple":
+        tab_explorer, tab_markets, tab_trends_events = st.tabs(
+            top_tab_labels,
+            default=default_top_tab,
+        )
+        tab_actors_hub = None
+        tab_advanced = None
+        tab_admin = None
+        hidden_actor_placeholder = st.empty()
+        hidden_comp_placeholder = st.empty()
+        hidden_value_chain_placeholder = st.empty()
+        hidden_collaboration_placeholder = st.empty()
+        hidden_concentration_placeholder = st.empty()
+        hidden_data_placeholder = st.empty()
+        hidden_quality_placeholder = st.empty()
+        hidden_debug_placeholder = st.empty()
+        hidden_docs_placeholder = st.empty()
+        tab_actor = hidden_actor_placeholder.container()
+        tab_comp = hidden_comp_placeholder.container()
+        tab_value_chain = hidden_value_chain_placeholder.container()
+        tab_collaboration = hidden_collaboration_placeholder.container()
+        tab_concentration = hidden_concentration_placeholder.container()
+        tab_data = hidden_data_placeholder.container()
+        tab_quality = hidden_quality_placeholder.container()
+        tab_debug = hidden_debug_placeholder.container()
+        tab_docs = hidden_docs_placeholder.container()
+    else:
+        tab_explorer, tab_actors_hub, tab_markets, tab_trends_events, tab_advanced, tab_admin = st.tabs(
+            top_tab_labels,
+            default=default_top_tab,
+        )
 
 with tab_explorer:
     if app_mode == "advanced":
@@ -5211,6 +5268,15 @@ with tab_results:
     render_section_header("⌕", t(lang, "results_title"), t(lang, "results_caption"), t(lang, "tab_explorer"))
     if search_notice_key:
         st.warning(t(lang, search_notice_key))
+    flash_notice = pop_flash_notice()
+    if flash_notice and str(flash_notice.get("message") or "").strip():
+        level = str(flash_notice.get("level") or "info").strip().lower()
+        if level == "warning":
+            st.warning(str(flash_notice.get("message")))
+        elif level == "success":
+            st.success(str(flash_notice.get("message")))
+        else:
+            st.info(str(flash_notice.get("message")))
     if main_scope_metrics_failed:
         st.warning(t(lang, "results_scope_partial_warning"))
         st.caption(t(lang, "view_recover_hint"))
@@ -6280,11 +6346,13 @@ with tab_geo:
             with gq1:
                 if st.button(t(lang, "geo_open_results"), key=f"geo_open_results::{selected_country}", width="stretch"):
                     queue_filter_updates(f_countries=[selected_country])
+                    queue_flash_notice(t(lang, "geo_open_results_notice").format(country=selected_country))
                     queue_tab_navigation(top_target=t(lang, "tab_explorer"))
                     st.rerun()
             with gq2:
                 if st.button(t(lang, "geo_open_trends"), key=f"geo_open_trends::{selected_country}", width="stretch"):
                     queue_filter_updates(f_countries=[selected_country])
+                    queue_flash_notice(t(lang, "geo_open_results_notice").format(country=selected_country))
                     queue_tab_navigation(top_target=t(lang, "tab_trends_events"), trends_sub_target=t(lang, "tab_trends"))
                     st.rerun()
 
