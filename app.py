@@ -3460,7 +3460,7 @@ def _ensure_base_view() -> None:
     def text_col(name: str) -> str:
         if name not in raw_cols:
             return "''"
-        return f"TRIM(COALESCE(b.{name}, ''))"
+        return f"TRIM(COALESCE(CAST(b.{name} AS VARCHAR), ''))"
 
     legacy_theme_expr = f"COALESCE(NULLIF({text_col('legacy_theme')}, ''), NULLIF({text_col('theme')}, ''), '')"
     legacy_sub_theme_expr = f"COALESCE(NULLIF({text_col('legacy_sub_theme')}, ''), NULLIF({text_col('sub_theme')}, ''), '')"
@@ -3535,12 +3535,18 @@ def _ensure_base_view() -> None:
     country_name_expr = f"COALESCE(cn.full_name, ca3.full_name, {text_col('country_name')})"
     country_alpha3_expr = f"COALESCE(cn.alpha3, ca3.alpha3, {text_col('country_alpha3')})"
 
-    replace_exprs: List[str] = []
-    extra_exprs: List[str] = []
+    replace_exprs: Dict[str, str] = {}
+    extra_exprs: Dict[str, str] = {}
+
+    def sql_ident(name: str) -> str:
+        return '"' + str(name).replace('"', '""') + '"'
+
+    def raw_ref(name: str) -> str:
+        return f"b.{sql_ident(name)}"
 
     def upsert_expr(name: str, expr: str) -> None:
         target = replace_exprs if name in raw_cols else extra_exprs
-        target.append(f"({expr}) AS {name}")
+        target[name] = expr
 
     upsert_expr("country_name", country_name_expr)
     upsert_expr("country_alpha3", country_alpha3_expr)
@@ -3558,23 +3564,25 @@ def _ensure_base_view() -> None:
     upsert_expr("theme", cordis_theme_primary_expr)
     upsert_expr("sub_theme", sub_theme_expr)
 
-    base_select = "b.*"
-    if replace_exprs:
-        base_select += " REPLACE(" + ", ".join(replace_exprs) + ")"
+    select_exprs: List[str] = []
+    for col in sorted(raw_cols):
+        expr = replace_exprs.get(col, raw_ref(col))
+        select_exprs.append(f"({expr}) AS {sql_ident(col)}")
+    for name, expr in extra_exprs.items():
+        select_exprs.append(f"({expr}) AS {sql_ident(name)}")
 
     con.execute("DROP VIEW IF EXISTS subsidy_base;")
     con.execute(f"""
         CREATE VIEW subsidy_base AS
         SELECT
-            {base_select}
-            {", " if extra_exprs else ""}{", ".join(extra_exprs)}
+            {", ".join(select_exprs)}
         FROM {raw} b
         LEFT JOIN _country_map cn
             ON UPPER({text_col('country_name')}) = cn.code
         LEFT JOIN _country_map ca3
             ON UPPER({text_col('country_alpha3')}) = ca3.code
-        WHERE UPPER(COALESCE(b.source, '')) <> 'ADEME'
-          AND UPPER(COALESCE(b.program, '')) NOT LIKE '%ADEME%'
+        WHERE UPPER(COALESCE(CAST(b.source AS VARCHAR), '')) <> 'ADEME'
+          AND UPPER(COALESCE(CAST(b.program AS VARCHAR), '')) NOT LIKE '%ADEME%'
     """)
 
     con.execute("DROP VIEW IF EXISTS project_scientific_subthemes_view;")
@@ -3636,7 +3644,7 @@ def scientific_subthemes_rel() -> str:
 
 
 @st.cache_data(show_spinner=False)
-def base_schema_columns(_cache_version: str = "v7_cordis_schema") -> List[str]:
+def base_schema_columns(_cache_version: str = "v8_cordis_schema") -> List[str]:
     df = get_con().execute(f"SELECT * FROM {rel()} LIMIT 0").fetchdf()
     return [str(c) for c in df.columns]
 
