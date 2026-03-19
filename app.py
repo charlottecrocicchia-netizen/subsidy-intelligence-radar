@@ -27,8 +27,14 @@ import plotly.io as pio
 import duckdb
 from filelock import FileLock, Timeout
 
+from cordis_labels import (
+    build_dimension_hover_html,
+    domain_raw_to_display,
+    format_dimension_value,
+    scientific_subthemes_compact,
+    theme_raw_to_display,
+)
 from cordis_taxonomy import (
-    CORDIS_DOMAIN_UI_FR,
     CORDIS_DOMAIN_UI_ORDER,
     LEGACY_THEME_TO_DOMAIN_UI,
     SCIENTIFIC_SUBTHEMES_BY_DOMAIN,
@@ -1348,38 +1354,6 @@ ONETECH_THEMES_EN = {
     "E-mobility",
 }
 
-THEME_EN_TO_FR = {
-    "Climate Change and Environment": "Climat et environnement",
-    "Digital Economy": "Économie numérique",
-    "Energy": "Énergie",
-    "Food and Natural Resources": "Alimentation et ressources naturelles",
-    "Fundamental Research": "Recherche fondamentale",
-    "Health": "Santé",
-    "Industrial Technologies": "Technologies industrielles",
-    "Security": "Sécurité",
-    "Society": "Société",
-    "Space": "Espace",
-    "Transport and Mobility": "Transport et mobilité",
-    "Hydrogen (H2)": "Hydrogène (H2)",
-    "Solar (PV/CSP)": "Solaire (PV/CSP)",
-    "Wind": "Éolien",
-    "Bioenergy & SAF": "Bioénergies & SAF",
-    "CCUS": "CCUS (carbone)",
-    "Nuclear & SMR": "Nucléaire & SMR",
-    "Batteries & Storage": "Batteries & stockage",
-    "AI & Digital": "IA & numérique",
-    "Advanced materials": "Matériaux avancés",
-    "E-mobility": "Mobilité électrique",
-    "Climate & Environment": "Climat & environnement",
-    "Industry & Manufacturing": "Industrie & production",
-    "Transport & Aviation": "Transport & aviation",
-    "Health & Biotech": "Santé & biotechnologies",
-    "Space": "Espace",
-    "Agriculture & Food": "Agriculture & alimentation",
-    "Security & Resilience": "Sécurité & résilience",
-    "Other": "Autres",
-}
-
 GUIDED_DOMAIN_SUBCATEGORIES = dict(SCIENTIFIC_SUBTHEMES_BY_DOMAIN)
 
 SUBTOPIC_TERM_OVERRIDES = {
@@ -1457,7 +1431,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_search_help": "Exemples : hydrogène Allemagne, batteries France, IA industrie.",
         "guided_home_topics": "Domaines CORDIS à suivre",
         "guided_home_topics_help": "Laisse vide si tu veux ouvrir l’analyse sur tous les domaines CORDIS.",
-        "guided_home_subtopics_note": "Les sous-thématiques détaillées ne sont pas encore structurées dans le référentiel. Cette entrée guidée travaille donc au niveau des grandes thématiques.",
+        "guided_home_subtopics_note": "Les sous-thèmes scientifiques sont désormais multi-label. Ils servent à affiner l'exploration sans recomposer les totaux globaux.",
         "guided_home_countries_help": "Commence par un périmètre pays simple ; tu pourras l’affiner ensuite dans les filtres complets.",
         "guided_home_period_help": "La période définit le cadrage de départ avant l’analyse détaillée.",
         "guided_home_open": "Ouvrir l’analyse complète",
@@ -1468,7 +1442,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_example_2": "Acteurs batteries en France",
         "guided_home_example_3": "IA & numérique en Europe",
         "guided_home_topic_card": "1. Définir le sujet",
-        "guided_home_topic_card_desc": "Commence par les mots-clés et les grandes thématiques qui t’intéressent vraiment.",
+        "guided_home_topic_card_desc": "Commence par les mots-clés et les Domaines CORDIS qui t’intéressent vraiment.",
         "guided_home_scope_card": "2. Définir le périmètre",
         "guided_home_scope_card_desc": "Cadre ensuite le point de départ avec les pays et la période.",
         "guided_home_metric_themes": "Domaines",
@@ -1517,7 +1491,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "search_help_more": "Comment fonctionne cette recherche",
         "main_search_examples": "Exemples : « hydrogène en Allemagne depuis 2021 », « principaux acteurs IA en France », « compare les batteries entre France et Allemagne ».",
         "main_search_exploratory": "Recherche libre exploratoire : fonctionne mieux avec des mots-clés simples. Utilise les filtres pour cadrer le pays, la période et le programme.",
-        "search_literal_note": "La recherche libre reste littérale. Les synonymes et exclusions servent surtout à la classification thématique, pas encore à une vraie recherche sémantique.",
+        "search_literal_note": "La recherche libre reste littérale. Elle lit surtout les champs projet et acteur ; utilise Domaines CORDIS, Thème principal CORDIS et Sous-thèmes scientifiques pour cadrer précisément.",
         "search_interpretation_title": "Question comprise",
         "search_interpretation_caption": "Voici ce que l’app utilise actuellement pour construire le périmètre.",
         "search_interpretation_intent": "Intention",
@@ -1545,7 +1519,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "concentration_empty_hint": "Élargis le périmètre pour comparer davantage d’acteurs ou reviens à la vue acteurs.",
         "net_no_partners": "Aucun partenaire dans le périmètre actuel.",
         "explore_overview_title": "Ce que vous pouvez faire ici",
-        "explore_overview_1": "Trouver des projets par thématique, pays et période",
+        "explore_overview_1": "Trouver des projets par domaine CORDIS, pays et période",
         "explore_overview_2": "Comparer les principaux acteurs d’un domaine",
         "explore_overview_3": "Voir quels pays reçoivent le plus de financement",
         "explore_overview_4": "Relier tendances de financement et événements macro",
@@ -1615,7 +1589,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_scope_share": "Part du périmètre",
         "geo_country_detail": "Détail pays",
         "geo_country_actors": "Acteurs principaux",
-        "geo_country_themes": "Thèmes principaux",
+        "geo_country_themes": "Thèmes principaux CORDIS",
         "geo_country_projects": "Projets principaux",
         "benchmark_mode": "Vue de comparaison",
         "bm_scatter": "Comparer volume et budget",
@@ -1641,16 +1615,18 @@ I18N: Dict[str, Dict[str, str]] = {
             "Un projet a plusieurs participants : il est compté pour **chaque** acteur participant.\n"
         ),
         "dimension": "Regrouper par",
-        "dim_theme": "Thématique",
+        "dim_domain": "Domaines CORDIS",
+        "dim_theme": "Thème principal CORDIS",
         "dim_program": "Programme",
         "mode": "Mode",
         "mode_abs": "Budget (absolu)",
         "mode_share": "Part (% par année)",
+        "macro_grouping_note": "Par défaut, cette lecture regroupe le périmètre par Domaines CORDIS. Passe au Thème principal CORDIS ou au Programme seulement si tu veux une lecture plus fine.",
         "drivers": "Principaux moteurs",
         "compare_title": "Comparer deux périodes",
         "period_a": "Période A",
         "period_b": "Période B",
-        "compare_caption": "Compare les écarts de budget entre deux périodes sur les thèmes ou les programmes du périmètre courant.",
+        "compare_caption": "Compare les écarts de budget entre deux périodes, d'abord par Domaine CORDIS, puis au besoin par Thème principal CORDIS ou Programme.",
         "compare_normalize_annual": "Ramener à la moyenne annuelle",
         "compare_period_years": "Période A : {years_a} ans, Période B : {years_b} ans",
         "compare_period_years_normalized": "Période A : {years_a} ans, Période B : {years_b} ans · lecture ramenée à une moyenne annuelle.",
@@ -1659,7 +1635,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_delta_budget": "Écart de budget (B - A)",
         "compare_budget_reading": "Lecture : à droite, la période B finance davantage ; à gauche, elle finance moins. La comparaison porte sur le budget, pas sur une part relative.",
         "budget_envelope_note": "Les budgets sont lus comme des enveloppes de projet rattachées à l’année de démarrage. Ce ne sont pas des montants effectivement versés chaque année.",
-        "theme_method_note": "Les thématiques affichées ici correspondent au thème principal officiel CORDIS du projet, le plus souvent le topic. Les sous-thèmes scientifiques restent multi-label et servent à l’exploration fine.",
+        "theme_method_note": "Le Thème principal CORDIS correspond au libellé officiel le plus précis disponible dans les métadonnées du projet : programme division, topic, call ou framework selon les cas. Les sous-thèmes scientifiques restent multi-label et servent à l'exploration fine.",
         "theme_review_label": "Multithématique",
         "theme_review_note": "« Multithématique » regroupe les projets transversaux sans correspondance unique dans le référentiel thématique actuel.",
         "actor_grouping_note": "Le regroupement d’entités dépend d’un mapping groupes et d’un fallback PIC. Il reste partiel pour certaines filiales et structures corporate.",
@@ -1670,7 +1646,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_profile_caption": "Choisis un acteur, puis commence par son profil, son évolution et ses projets avant d’ouvrir les lectures plus expertes.",
         "actor_opened_from_results": "Ouvert depuis un projet sélectionné dans Résultats.",
         "actor_trend": "Évolution (budget & projets)",
-        "actor_mix_theme": "Mix thématique",
+        "actor_mix_theme": "Mix par thème principal CORDIS",
         "actor_mix_country": "Mix géographique",
         "actor_partners": "Partenaires principaux",
         "actor_partners_caption": "Lis d’abord le tableau des partenaires. Le réseau détaillé reste dans Analyse avancée.",
@@ -1684,7 +1660,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_tab_profile": "Profil",
         "actor_tab_partners": "Partenaires",
         "actor_tab_peers": "Acteurs comparables",
-        "actor_top_theme": "Thème principal",
+        "actor_top_theme": "Thème principal CORDIS",
         "actor_entity_type": "Type d'entité",
         "actor_rank_overall": "Rang global",
         "actor_rank_peer": "Rang dans le groupe",
@@ -1757,7 +1733,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_summary_headline_single_country": "Le périmètre courant couvre {projects} projets pour {budget}, avec {actors} acteurs en {country}.",
         "results_summary_country_lead": "Le budget le plus élevé se situe en {country}.",
         "results_summary_actor_lead": "L’acteur le plus financé est {actor}.",
-        "results_summary_theme_lead": "La thématique dominante est {theme}.",
+        "results_summary_theme_lead": "Le thème principal CORDIS dominant est {theme}.",
         "theme_counting_note": "Note : ici, le comptage principal repose sur un thème principal CORDIS unique par projet. Les sous-thèmes scientifiques peuvent être multiples, mais ne servent pas à reconstituer le total global.",
         "results_summary_fallback": "Le périmètre courant couvre {projects} projets pour {budget} et {actors} acteurs uniques.",
         "results_primary_visual": "Lecture principale",
@@ -1809,7 +1785,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_subtitle": "Commence par les tendances, puis utilise cette vue pour ajouter du contexte événementiel si utile.",
         "macro_exploratory_note": "Lecture exploratoire : les événements servent de contexte indicatif et ne couvrent pas nécessairement tous les signaux pertinents.",
         "trends_title": "Tendances du périmètre",
-        "trends_caption": "Lis d’abord l’évolution annuelle et les principaux moteurs. Les réglages plus denses restent secondaires.",
+        "trends_caption": "Lis d'abord l'évolution annuelle et les principaux moteurs par Domaine CORDIS. Passe au Thème principal CORDIS ou au Programme seulement si tu as besoin de plus de détail.",
         "trends_summary_title": "En bref",
         "trends_summary_abs": "Le périmètre est surtout porté par {dim} sur la période sélectionnée.",
         "trends_summary_share": "{dim} représente la plus grande part du budget sur la période sélectionnée.",
@@ -1826,12 +1802,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "support_overview_3": "Ouvrir les diagnostics techniques si besoin",
         "support_overview_tip": "Cette zone reste utile pour l’exploitation interne, mais elle n’est pas nécessaire pour répondre à une question métier courante.",
         "macro_match": "Correspondance des événements",
-        "macro_match_theme": "Par thématique (theme)",
+        "macro_match_theme": "Par Thème principal CORDIS",
         "macro_match_tag": "Par tag (tag → thématiques)",
         "macro_pick_theme": "Thématique",
-        "macro_theme_scope": "Portée thématique",
-        "macro_all_themes": "Toutes les thématiques (tag)",
-        "macro_theme_not_mapped": "Ce tag n'a pas de mapping thématique strict: affichage multi-thèmes.",
+        "macro_theme_scope": "Portée du Thème principal CORDIS",
+        "macro_all_themes": "Tous les Thèmes principaux CORDIS",
+        "macro_theme_not_mapped": "Ce tag n'a pas de mapping strict vers les Thèmes principaux CORDIS : affichage multi-thèmes.",
         "macro_pick_tag": "Tag",
         "macro_metric": "Indicateur",
         "macro_overlay": "Afficher les événements sur le graphe",
@@ -1870,7 +1846,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_detail_standard": "Standard",
         "bm_detail_detailed": "Détaillé",
         "macro_event_labels": "Afficher libellé court des événements sur le graphe",
-        "macro_scope_caption": "Les valeurs ci-dessous portent sur la thématique sélectionnée (et les filtres macro), pas sur le budget global total.",
+        "macro_scope_caption": "Les valeurs ci-dessous portent sur le périmètre thématique sélectionné dans CORDIS (et les filtres macro), pas sur le budget global total.",
         "macro_event_count": "Événements associés",
         "macro_low_coverage": "Peu d'événements détectés pour ce tag/thème dans `events.csv`.",
         "macro_source_link": "Lien source",
@@ -1883,7 +1859,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_projects_focus": "Projets liés (étape + acteur)",
         "vc_top_actors_stage": "Top acteurs (étape)",
         "vc_single_stage_warn": "La sélection ne contient qu'une étape de chaîne de valeur. Lance un refresh pour recalculer la classification si besoin.",
-        "vc_flow_help": "Choisis des thématiques puis des étapes pour voir quels acteurs opèrent à chaque maillon.",
+        "vc_flow_help": "Choisis des Domaines CORDIS ou des Thèmes principaux CORDIS, puis des étapes pour voir quels acteurs opèrent à chaque maillon.",
         "vc_default_caption": "Commence par les étapes et les top acteurs ; la vue Sankey reste disponible plus bas.",
         "vc_expert_caption": "Vue experte : explore les flux et l’isolation visuelle entre étapes et acteurs.",
         "vc_stage_summary": "Résumé des étapes",
@@ -1964,7 +1940,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_search_help": "Examples: hydrogen Germany, batteries France, AI industry.",
         "guided_home_topics": "CORDIS domains to follow",
         "guided_home_topics_help": "Leave empty if you want to open the analysis across all CORDIS domains.",
-        "guided_home_subtopics_note": "Detailed sub-themes are not structured yet in the reference model. This guided entry therefore works at the main-theme level for now.",
+        "guided_home_subtopics_note": "Scientific sub-themes are now multi-label. They refine exploration without rebuilding the global totals.",
         "guided_home_countries_help": "Start with a simple country perimeter; you can refine it later in the full filters.",
         "guided_home_period_help": "The period sets your starting perimeter before deeper analysis.",
         "guided_home_open": "Open full analysis",
@@ -1975,7 +1951,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "guided_home_example_2": "Battery actors in France",
         "guided_home_example_3": "AI & digital in Europe",
         "guided_home_topic_card": "1. Define the topic",
-        "guided_home_topic_card_desc": "Start with the keywords and major themes you actually want to follow.",
+        "guided_home_topic_card_desc": "Start with the keywords and CORDIS domains you actually want to follow.",
         "guided_home_scope_card": "2. Define the perimeter",
         "guided_home_scope_card_desc": "Then set the starting geography and time range.",
         "guided_home_metric_themes": "Domains",
@@ -2024,7 +2000,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "search_help_more": "How this search works",
         "main_search_examples": "Examples: “hydrogen in Germany since 2021”, “top AI actors in France”, “compare batteries across France and Germany”.",
         "main_search_exploratory": "Exploratory free-text search works best with simple keywords. Use filters to narrow country, time period, and programme.",
-        "search_literal_note": "Free-text search remains literal. Synonyms and exclusions currently feed theme classification more than true semantic search.",
+        "search_literal_note": "Free-text search remains literal. It mostly reads project and actor fields; use CORDIS domains, the Primary CORDIS theme, and Scientific sub-themes to frame the scope precisely.",
         "search_interpretation_title": "Question currently interpreted",
         "search_interpretation_caption": "This is what the app is currently using to build the scope.",
         "search_interpretation_intent": "Intent",
@@ -2052,7 +2028,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "concentration_empty_hint": "Widen the scope to compare more actors or return to the actors view.",
         "net_no_partners": "No partners are available in the current scope.",
         "explore_overview_title": "What you can do here",
-        "explore_overview_1": "Find projects by theme, country, and time period",
+        "explore_overview_1": "Find projects by CORDIS domain, country, and time period",
         "explore_overview_2": "Compare the main actors in a domain",
         "explore_overview_3": "See which countries receive the most funding",
         "explore_overview_4": "Relate funding trends to macro events",
@@ -2122,7 +2098,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_scope_share": "Share of scope",
         "geo_country_detail": "Country detail",
         "geo_country_actors": "Leading actors",
-        "geo_country_themes": "Leading themes",
+        "geo_country_themes": "Leading Primary CORDIS themes",
         "geo_country_projects": "Leading projects",
         "benchmark_mode": "Comparison view",
         "bm_scatter": "Compare volume and budget",
@@ -2148,16 +2124,18 @@ I18N: Dict[str, Dict[str, str]] = {
             "A project has multiple participants: it is counted for **each** participating actor.\n"
         ),
         "dimension": "Group by",
-        "dim_theme": "Theme",
+        "dim_domain": "CORDIS domains",
+        "dim_theme": "Primary CORDIS theme",
         "dim_program": "Programme",
         "mode": "Mode",
         "mode_abs": "Budget (absolute)",
         "mode_share": "Share (% per year)",
+        "macro_grouping_note": "By default, this reading groups the scope by CORDIS domains. Switch to the Primary CORDIS theme or Programme only when you need finer detail.",
         "drivers": "Main drivers",
         "compare_title": "Compare two periods",
         "period_a": "Period A",
         "period_b": "Period B",
-        "compare_caption": "Compare budget gaps across two periods for themes or programmes in the current scope.",
+        "compare_caption": "Compare budget gaps across two periods, first by CORDIS domain, then by Primary CORDIS theme or Programme when you need more detail.",
         "compare_normalize_annual": "Normalize to annual average",
         "compare_period_years": "Period A: {years_a} years, Period B: {years_b} years",
         "compare_period_years_normalized": "Period A: {years_a} years, Period B: {years_b} years · normalized to annual average.",
@@ -2166,7 +2144,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "compare_delta_budget": "Budget change (B - A)",
         "compare_budget_reading": "Reading: bars to the right mean period B funds more; bars to the left mean it funds less. This compares budget, not relative share.",
         "budget_envelope_note": "Budgets are read as total project envelopes attached to the project start year. They are not actual yearly disbursements.",
-        "theme_method_note": "Themes shown here correspond to the official CORDIS primary theme of the project, most often the topic. Scientific sub-themes remain multi-label and are meant for deeper exploration.",
+        "theme_method_note": "The Primary CORDIS theme corresponds to the most precise official label available in the project metadata: programme division, topic, call, or framework depending on the case. Scientific sub-themes remain multi-label and support deeper exploration.",
         "theme_review_label": "Multi-domain",
         "theme_review_note": "“Multi-domain” groups cross-disciplinary projects without a single dominant theme in the current reference set.",
         "actor_grouping_note": "Entity grouping depends on a group mapping plus PIC fallback. It remains partial for some subsidiaries and corporate structures.",
@@ -2177,7 +2155,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_profile_caption": "Pick an actor, then start with their profile, evolution, and projects before opening deeper expert reads.",
         "actor_opened_from_results": "Opened from a selected project in Results.",
         "actor_trend": "Trend (budget & projects)",
-        "actor_mix_theme": "Theme mix",
+        "actor_mix_theme": "Primary CORDIS theme mix",
         "actor_mix_country": "Geography mix",
         "actor_partners": "Leading partners",
         "actor_partners_caption": "Start with the partner table. The detailed network remains in Advanced.",
@@ -2191,7 +2169,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_tab_profile": "Profile",
         "actor_tab_partners": "Partners",
         "actor_tab_peers": "Comparable actors",
-        "actor_top_theme": "Main theme",
+        "actor_top_theme": "Primary CORDIS theme",
         "actor_entity_type": "Entity type",
         "actor_rank_overall": "Overall rank",
         "actor_rank_peer": "Rank in peer group",
@@ -2264,7 +2242,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "results_summary_headline_single_country": "The current scope contains {projects} projects worth {budget}, with {actors} actors in {country}.",
         "results_summary_country_lead": "The largest budget is in {country}.",
         "results_summary_actor_lead": "The leading funded actor is {actor}.",
-        "results_summary_theme_lead": "The leading theme is {theme}.",
+        "results_summary_theme_lead": "The leading Primary CORDIS theme is {theme}.",
         "theme_counting_note": "Note: the main counting here relies on one unique CORDIS primary theme per project. Scientific sub-themes can be multiple, but they are not used to rebuild the global total.",
         "results_summary_fallback": "The current scope contains {projects} projects worth {budget} and {actors} unique actors.",
         "results_primary_visual": "Primary reading",
@@ -2316,7 +2294,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "macro_subtitle": "Start with trends, then use this view to add event context when useful.",
         "macro_exploratory_note": "Exploratory read: events are indicative context and may not cover every relevant macro signal.",
         "trends_title": "Scope trends",
-        "trends_caption": "Start with annual evolution and key drivers. Denser controls stay secondary.",
+        "trends_caption": "Start with annual evolution and key drivers by CORDIS domain. Switch to the Primary CORDIS theme or Programme only when you need more detail.",
         "trends_summary_title": "In brief",
         "trends_summary_abs": "The current scope is mainly driven by {dim} over the selected period.",
         "trends_summary_share": "{dim} holds the largest share of funding over the selected period.",
@@ -2333,12 +2311,12 @@ I18N: Dict[str, Dict[str, str]] = {
         "support_overview_3": "Open technical diagnostics when needed",
         "support_overview_tip": "This area remains useful for internal operations, but it is not needed for a standard business question.",
         "macro_match": "Event matching",
-        "macro_match_theme": "By theme (theme)",
+        "macro_match_theme": "By Primary CORDIS theme",
         "macro_match_tag": "By tag (tag → themes)",
         "macro_pick_theme": "Theme",
-        "macro_theme_scope": "Theme scope",
-        "macro_all_themes": "All themes (tag)",
-        "macro_theme_not_mapped": "This tag has no strict theme mapping: multi-theme display is used.",
+        "macro_theme_scope": "Primary CORDIS theme scope",
+        "macro_all_themes": "All Primary CORDIS themes",
+        "macro_theme_not_mapped": "This tag has no strict mapping to Primary CORDIS themes: multi-theme display is used.",
         "macro_pick_tag": "Tag",
         "macro_metric": "Metric",
         "macro_overlay": "Show events on chart",
@@ -2377,7 +2355,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "bm_detail_standard": "Standard",
         "bm_detail_detailed": "Detailed",
         "macro_event_labels": "Show short event labels on chart",
-        "macro_scope_caption": "Values below apply to the selected theme (and macro filters), not to the global total budget.",
+        "macro_scope_caption": "Values below apply to the selected Primary CORDIS theme scope (and macro filters), not to the global total budget.",
         "macro_event_count": "Matched events",
         "macro_low_coverage": "Few events detected for this tag/theme in `events.csv`.",
         "macro_source_link": "Source link",
@@ -2390,7 +2368,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "vc_projects_focus": "Related projects (stage + actor)",
         "vc_top_actors_stage": "Top actors (stage)",
         "vc_single_stage_warn": "This selection contains a single value-chain stage. Run refresh to recompute stage classification if needed.",
-        "vc_flow_help": "Pick themes then stages to see which actors operate on each link of the chain.",
+        "vc_flow_help": "Pick CORDIS domains or Primary CORDIS themes, then stages to see which actors operate on each link of the chain.",
         "vc_default_caption": "Start with stages and top actors; the Sankey view stays available lower on the page.",
         "vc_expert_caption": "Expert view: explore flow patterns and visual isolation between stages and actors.",
         "vc_stage_summary": "Stage summary",
@@ -2523,86 +2501,39 @@ def fmt_pp(delta_share: float, digits: int = 2, lang: str = "FR") -> str:
 # ============================================================
 # UI mapping
 # ============================================================
-CORDIS_THEME_PREFIX_LABELS = [
-    ("HORIZON-JU-EUROHPC-", ("EuroHPC JU", "EuroHPC JU")),
-    ("HORIZON-JTI-CLEANH2-", ("Clean Hydrogen JU", "Clean Hydrogen JU")),
-    ("HORIZON-JU-CLEANH2-", ("Clean Hydrogen JU", "Clean Hydrogen JU")),
-    ("HORIZON-MSCA-", ("Actions Marie Sklodowska-Curie", "Marie Sklodowska-Curie Actions")),
-    ("MSCA-IF-", ("Actions Marie Sklodowska-Curie", "Marie Sklodowska-Curie Actions")),
-    ("ERC-", ("Conseil europeen de la recherche", "European Research Council")),
-    ("EIC-SMEINST-", ("EIC SME Instrument", "EIC SME Instrument")),
-    ("HORIZON-EIC-", ("Conseil europeen de l'innovation", "European Innovation Council")),
-    ("HORIZON-HLTH-", ("Sante", "Health")),
-    ("HORIZON-CL4-", ("Numerique et industrie", "Digital and industry")),
-    ("HORIZON-CL5-", ("Climat, energie et mobilite", "Climate, energy and mobility")),
-    ("HORIZON-CL6-", ("Alimentation, bioeconomie et environnement", "Food, bioeconomy and environment")),
-    ("HORIZON-CL3-", ("Securite civile", "Civil security")),
-    ("INNOSUP-", ("Soutien a l'innovation", "Innovation support")),
-    ("ICT-", ("ICT", "ICT")),
-    ("NMBP-", ("Materiaux et production", "Materials and production")),
-]
+def display_dimension_value(dim_col: str, raw: object, lang: str) -> str:
+    return format_dimension_value(dim_col, raw, lang=lang, review_label=t(lang, "theme_review_label"))
 
 
-def _prettify_cordis_theme(raw: str, lang: str) -> str:
-    value = str(raw or "").strip()
-    if not value:
-        return ""
-    upper = value.upper()
-    for prefix, labels in CORDIS_THEME_PREFIX_LABELS:
-        if upper.startswith(prefix):
-            label = labels[0] if lang == "FR" else labels[1]
-            rest = value[len(prefix):].strip("-_")
-            if rest:
-                rest = re.sub(r"[_-]+", " · ", rest)
-                return f"{label} · {rest}"
-            return label
-    if re.fullmatch(r"[A-Z0-9]+(?:[-_][A-Z0-9]+){2,}", upper):
-        return re.sub(r"[_-]+", " · ", value)
-    return value
+def dimension_ui_label(dim_col: str, lang: str) -> str:
+    return t(
+        lang,
+        {
+            "cordis_domain_ui": "dim_domain",
+            "theme": "dim_theme",
+            "cordis_theme_primary": "dim_theme",
+            "program": "dim_program",
+        }.get(dim_col, "dim_theme"),
+    )
 
 
-def theme_raw_to_display(raw: str, lang: str) -> str:
-    raw = str(raw or "").strip()
-    if raw == "Other":
-        return t(lang, "theme_review_label")
-    mapped = THEME_EN_TO_FR.get(raw, raw) if lang == "FR" else raw
-    if mapped != raw or raw in THEME_EN_TO_FR:
-        return mapped
-    return _prettify_cordis_theme(raw, lang)
-
-
-def domain_raw_to_display(raw: str, lang: str) -> str:
-    raw = str(raw or "").strip()
-    if not raw:
-        return ""
-    if lang == "FR":
-        return CORDIS_DOMAIN_UI_FR.get(raw, THEME_EN_TO_FR.get(raw, raw))
-    return raw
-
-
-def scientific_subthemes_compact(raw: object, limit: int = 3) -> str:
-    if raw is None:
-        return ""
-    values: List[str] = []
-    if isinstance(raw, (list, tuple, set)):
-        values = [str(x).strip() for x in raw if str(x).strip()]
-    else:
-        txt = str(raw).strip()
-        if not txt or txt == "[]":
-            return ""
-        try:
-            js = json.loads(txt)
-            if isinstance(js, list):
-                values = [str(x).strip() for x in js if str(x).strip()]
-            else:
-                values = [txt]
-        except Exception:
-            values = [x.strip() for x in re.split(r"\s*(?:\||;|,)\s*", txt) if x.strip()]
-    if not values:
-        return ""
-    if len(values) <= limit:
-        return ", ".join(values)
-    return ", ".join(values[:limit]) + f" +{len(values) - limit}"
+def dimension_hover_html(
+    dim_col: str,
+    raw: object,
+    lang: str,
+    value_line: Optional[str] = None,
+    source: Optional[str] = None,
+    extra_lines: Optional[List[str]] = None,
+) -> str:
+    return build_dimension_hover_html(
+        dim_col,
+        raw,
+        lang=lang,
+        value_line=value_line,
+        source=source,
+        review_label=t(lang, "theme_review_label"),
+        extra_lines=extra_lines,
+    )
 
 
 def entity_raw_to_display(raw: str, lang: str) -> str:
@@ -3324,7 +3255,7 @@ def build_results_scope_summary(
             top_actor = str(top_actor_df["actor_label"].iloc[0] or "").strip()
 
         top_theme_df = fetch_df(f"""
-        -- Current build stores one inferred theme label per row/project view.
+        -- Compatibility view exposes one primary CORDIS theme label per row/project view.
         SELECT theme, SUM(amount_eur) AS budget_eur
         FROM {relation_sql}
         WHERE {where_sql} AND theme IS NOT NULL AND TRIM(theme) <> ''
@@ -6044,7 +5975,7 @@ if app_mode == "advanced" and tab_overview is not None:
             insights: List[str] = []
             try:
                 top_theme = fetch_df(f"""
-                -- Current build stores one inferred theme label per row/project view.
+                -- Compatibility view exposes one primary CORDIS theme label per row/project view.
                 SELECT theme, SUM(amount_eur) AS b
                 FROM {R}
                 WHERE {W}
@@ -6518,7 +6449,7 @@ with tab_geo:
             """, columns=["actor_id", "actor_label", "budget_eur", "n_projects"], lang=lang, warning_key="geo_view_unavailable")
             country_themes = safe_fetch_df(f"""
             SELECT
-              -- Current build stores one inferred theme label per row/project view.
+              -- Compatibility view exposes one primary CORDIS theme label per row/project view.
               theme,
               SUM(amount_eur) AS budget_eur,
               COUNT(DISTINCT projectID) AS n_projects
@@ -6947,16 +6878,18 @@ with tab_trends:
         with st.container(border=True):
             st.markdown("**" + t(lang, "trends_scope_summary_title") + "**")
             st.write(trend_summary_text)
+    st.caption(t(lang, "macro_grouping_note"))
     dim_choice = st.radio(
         t(lang, "dimension"),
-        [t(lang, "dim_theme"), t(lang, "dim_program")],
+        ["cordis_domain_ui", "theme", "program"],
         index=0,
         horizontal=True,
+        format_func=lambda x: dimension_ui_label(str(x), lang),
     )
-    dim_col = "program" if dim_choice == t(lang, "dim_program") else "theme"
+    dim_col = dim_choice
 
     dim_budget = fetch_df(f"""
-    -- Current build stores one inferred theme label per row/project view.
+    -- Compatibility view exposes one primary CORDIS theme label per row/project view.
     SELECT {dim_col} AS dim, SUM(amount_eur) AS amount_eur
     FROM {R}
     WHERE {W}
@@ -6967,99 +6900,133 @@ with tab_trends:
         render_guided_empty_state(lang, "trends_empty_hint")
     else:
         dims_all_raw = [str(x) for x in dim_budget["dim"].tolist() if str(x).strip()]
-        dims_all_disp = [theme_raw_to_display(x, lang) if dim_col == "theme" else x for x in dims_all_raw]
-        top_default = dims_all_disp[: min(8, len(dims_all_disp))]
+        top_default_raw = dims_all_raw[: min(8, len(dims_all_raw))]
 
-        selected_dims = st.multiselect("Séries" if lang == "FR" else "Series", dims_all_disp, default=top_default)
-        if not selected_dims:
+        selected_raw = st.multiselect(
+            "Séries" if lang == "FR" else "Series",
+            dims_all_raw,
+            default=top_default_raw,
+            format_func=lambda x: display_dimension_value(dim_col, x, lang),
+        )
+        if not selected_raw:
             render_guided_empty_state(lang, "trends_empty_hint")
         else:
-            # translate back to raw if needed
-            if dim_col == "theme":
-                disp_to_raw = {theme_raw_to_display(x, lang): x for x in dims_all_raw}
-                selected_raw = [disp_to_raw.get(d, d) for d in selected_dims]
-            else:
-                selected_raw = selected_dims
-
             mode = st.radio(t(lang, "mode"), [t(lang, "mode_abs"), t(lang, "mode_share")], index=0, horizontal=True, key="tr_mode")
+            source_select = ", MIN(cordis_theme_primary_source) AS dim_source" if dim_col == "theme" else ", '' AS dim_source"
 
             tdf = fetch_df(f"""
-            -- Current build stores one inferred theme label per row/project view.
-            SELECT year, {dim_col} AS dim, SUM(amount_eur) AS amount_eur
+            -- Compatibility view exposes one primary CORDIS theme label per row/project view.
+            SELECT year, {dim_col} AS dim_raw, SUM(amount_eur) AS amount_eur{source_select}
             FROM {R}
             WHERE {W} AND {dim_col} IN {in_list(selected_raw)}
-            GROUP BY year, dim
+            GROUP BY year, dim_raw
             ORDER BY year
             """)
 
-            if dim_col == "theme":
-                tdf["dim"] = tdf["dim"].map(lambda x: theme_raw_to_display(str(x), lang))
-
-            if mode == t(lang, "mode_share"):
-                yearly = tdf.groupby("year")["amount_eur"].transform("sum").replace(0, np.nan)
-                tdf["value"] = (tdf["amount_eur"] / yearly).fillna(0.0) * 100.0
-                ylab = "Part (%)" if lang == "FR" else "Share (%)"
-                hover = lambda v: f"{v:.1f}%"
+            if tdf.empty:
+                render_guided_empty_state(lang, "trends_empty_hint")
             else:
-                tdf["value"] = tdf["amount_eur"]
-                ylab = "Budget (€)"
-                hover = lambda v: fmt_money(float(v), lang)
+                tdf["dim_raw"] = tdf["dim_raw"].astype(str)
+                tdf["dim_source"] = tdf.get("dim_source", "").fillna("").astype(str)
+                tdf["dim_display"] = tdf["dim_raw"].map(lambda x: display_dimension_value(dim_col, x, lang))
 
-            leading_dim = (
-                tdf.groupby("dim", as_index=False)["amount_eur"]
-                .sum()
-                .sort_values("amount_eur", ascending=False)
-                .head(1)
-            )
-            if not leading_dim.empty:
-                lead_name = str(leading_dim["dim"].iloc[0])
-                with st.container(border=True):
-                    st.markdown("**" + t(lang, "trends_summary_title") + "**")
-                    st.write(
-                        t(lang, "trends_summary_share" if mode == t(lang, "mode_share") else "trends_summary_abs").format(
-                            dim=lead_name
+                if mode == t(lang, "mode_share"):
+                    yearly = tdf.groupby("year")["amount_eur"].transform("sum").replace(0, np.nan)
+                    tdf["value"] = (tdf["amount_eur"] / yearly).fillna(0.0) * 100.0
+                    ylab = "Part (%)" if lang == "FR" else "Share (%)"
+                    hover_value = lambda v: f"{v:.1f}%"
+                else:
+                    tdf["value"] = tdf["amount_eur"]
+                    ylab = "Budget (€)"
+                    hover_value = lambda v: fmt_money(float(v), lang)
+
+                tdf["hover_html"] = tdf.apply(
+                    lambda row: dimension_hover_html(
+                        dim_col,
+                        row["dim_raw"],
+                        lang,
+                        value_line=f"{int(row['year'])} · {hover_value(row['value'])}",
+                        source=row.get("dim_source", ""),
+                    ),
+                    axis=1,
+                )
+
+                leading_dim = (
+                    tdf.groupby(["dim_raw", "dim_display"], as_index=False)["amount_eur"]
+                    .sum()
+                    .sort_values("amount_eur", ascending=False)
+                    .head(1)
+                )
+                if not leading_dim.empty:
+                    lead_name = str(leading_dim["dim_display"].iloc[0])
+                    with st.container(border=True):
+                        st.markdown("**" + t(lang, "trends_summary_title") + "**")
+                        st.write(
+                            t(lang, "trends_summary_share" if mode == t(lang, "mode_share") else "trends_summary_abs").format(
+                                dim=lead_name
+                            )
                         )
+
+                fig_area = px.area(
+                    tdf.sort_values(["year", "dim_display"]),
+                    x="year",
+                    y="value",
+                    color="dim_raw",
+                    markers=True,
+                    height=520,
+                    labels={"value": ylab, "year": "Année" if lang == "FR" else "Year", "dim_raw": ""},
+                )
+                rename_map = {raw: display_dimension_value(dim_col, raw, lang) for raw in selected_raw}
+                fig_area.update_traces(
+                    customdata=np.stack([tdf["hover_html"]], axis=-1),
+                    hovertemplate="%{customdata[0]}<extra></extra>",
+                )
+                for trace in fig_area.data:
+                    trace.name = rename_map.get(str(trace.name), str(trace.name))
+                render_plotly_chart(fig_area, use_container_width=True)
+                if dim_col == "theme":
+                    st.caption(t(lang, "theme_counting_note"))
+                    st.caption(t(lang, "theme_method_note"))
+                    if "Other" in [str(x) for x in selected_raw]:
+                        st.caption(t(lang, "theme_review_note"))
+
+                st.divider()
+                st.markdown(f"#### {t(lang, 'drivers')}")
+                drivers = (
+                    tdf.groupby(["dim_raw", "dim_display"], as_index=False)
+                    .agg(
+                        amount_eur=("amount_eur", "sum"),
+                        dim_source=("dim_source", lambda s: next((str(x).strip() for x in s if str(x).strip()), "")),
                     )
-
-            fig_area = px.area(
-                tdf.sort_values("year"),
-                x="year",
-                y="value",
-                color="dim",
-                markers=True,
-                height=520,
-                labels={"value": ylab, "year": "Année" if lang == "FR" else "Year", "dim": ""},
-            )
-            fig_area.update_traces(
-                customdata=np.stack([tdf["value"].apply(hover)], axis=-1),
-                hovertemplate="<b>%{fullData.name}</b><br>%{x}<br>%{customdata[0]}<extra></extra>",
-            )
-            render_plotly_chart(fig_area, use_container_width=True)
-            if dim_col == "theme":
-                st.caption(t(lang, "theme_counting_note"))
-                st.caption(t(lang, "theme_method_note"))
-                if "Other" in [str(x) for x in selected_raw]:
-                    st.caption(t(lang, "theme_review_note"))
-
-            st.divider()
-            st.markdown(f"#### {t(lang, 'drivers')}")
-            drivers = tdf.groupby("dim", as_index=False)["amount_eur"].sum().sort_values("amount_eur", ascending=False).head(20)
-            fig_drv = px.bar(
-                drivers.iloc[::-1],
-                x="amount_eur",
-                y="dim",
-                orientation="h",
-                color="amount_eur",
-                color_continuous_scale=R2G,
-                height=520,
-                labels={"amount_eur": "Budget (€)", "dim": ""},
-            )
-            fig_drv.update_traces(
-                customdata=np.stack([drivers["amount_eur"].apply(lambda v: fmt_money(float(v), lang)).iloc[::-1]], axis=-1),
-                hovertemplate="<b>%{y}</b><br>Budget: %{customdata[0]}<extra></extra>",
-            )
-            fig_drv.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
-            render_plotly_chart(fig_drv, use_container_width=True)
+                    .sort_values("amount_eur", ascending=False)
+                    .head(20)
+                )
+                drivers["hover_html"] = drivers.apply(
+                    lambda row: dimension_hover_html(
+                        dim_col,
+                        row["dim_raw"],
+                        lang,
+                        value_line=("Budget : " if lang == "FR" else "Budget: ") + fmt_money(float(row["amount_eur"]), lang),
+                        source=row.get("dim_source", ""),
+                    ),
+                    axis=1,
+                )
+                fig_drv = px.bar(
+                    drivers.iloc[::-1],
+                    x="amount_eur",
+                    y="dim_display",
+                    orientation="h",
+                    color="amount_eur",
+                    color_continuous_scale=R2G,
+                    height=520,
+                    labels={"amount_eur": "Budget (€)", "dim_display": ""},
+                )
+                fig_drv.update_traces(
+                    customdata=np.stack([drivers.iloc[::-1]["hover_html"]], axis=-1),
+                    hovertemplate="%{customdata[0]}<extra></extra>",
+                )
+                fig_drv.update_layout(showlegend=False, yaxis_title=None, coloraxis_showscale=False)
+                render_plotly_chart(fig_drv, use_container_width=True)
 
 
 # ============================================================
@@ -7101,8 +7068,16 @@ if app_mode == "advanced" and tab_compare is not None:
         with a2:
             period_b = st.slider(t(lang, "period_b"), min_year, max_year, value=st.session_state["cmp_period_b"], key="cmp_period_b")
 
-        dim_choice = st.radio(t(lang, "dimension"), [t(lang, "dim_theme"), t(lang, "dim_program")], index=0, horizontal=True, key="cmp_dim")
-        dim_col = "program" if dim_choice == t(lang, "dim_program") else "theme"
+        st.caption(t(lang, "macro_grouping_note"))
+        dim_choice = st.radio(
+            t(lang, "dimension"),
+            ["cordis_domain_ui", "theme", "program"],
+            index=0,
+            horizontal=True,
+            key="cmp_dim",
+            format_func=lambda x: dimension_ui_label(str(x), lang),
+        )
+        dim_col = dim_choice
         normalize_annual = st.checkbox(t(lang, "compare_normalize_annual"), value=False, key="cmp_normalize_annual")
 
         years_a = max(1, int(period_a[1]) - int(period_a[0]) + 1)
@@ -7110,35 +7085,50 @@ if app_mode == "advanced" and tab_compare is not None:
 
         def budget_df(y0: int, y1: int, years_count: int) -> pd.DataFrame:
             amount_expr = f"SUM(amount_eur) / {float(max(1, years_count))}" if normalize_annual else "SUM(amount_eur)"
+            source_select = ", MIN(cordis_theme_primary_source) AS dim_source" if dim_col == "theme" else ", '' AS dim_source"
             return fetch_df(f"""
             WITH g AS (
-              -- Current build stores one inferred theme label per row/project view.
-              SELECT {dim_col} AS dim, {amount_expr} AS b
+              -- Compatibility view exposes one primary CORDIS theme label per row/project view.
+              SELECT {dim_col} AS dim, {amount_expr} AS b{source_select}
               FROM {R}
               WHERE {W} AND year BETWEEN {int(y0)} AND {int(y1)}
               GROUP BY dim
             )
-            SELECT dim, b
+            SELECT dim, b, dim_source
             FROM g
             """)
 
         sA = budget_df(period_a[0], period_a[1], years_a)
         sB = budget_df(period_b[0], period_b[1], years_b)
-        view = pd.merge(sA, sB, on="dim", how="outer", suffixes=("_A", "_B")).fillna(0.0)
+        view = pd.merge(sA, sB, on="dim", how="outer", suffixes=("_A", "_B"))
+        view[["b_A", "b_B"]] = view[["b_A", "b_B"]].fillna(0.0)
+        view[["dim_source_A", "dim_source_B"]] = view[["dim_source_A", "dim_source_B"]].fillna("")
+        view["dim_source"] = view["dim_source_A"].where(view["dim_source_A"].astype(str).str.strip() != "", view["dim_source_B"])
         view["delta_budget"] = view["b_B"] - view["b_A"]
         view = view.sort_values("delta_budget", ascending=False)
 
         if view.empty:
             render_guided_empty_state(lang, "trends_empty_hint")
         else:
-            if dim_col == "theme":
-                view["dim_disp"] = view["dim"].map(lambda x: theme_raw_to_display(str(x), lang))
-            else:
-                view["dim_disp"] = view["dim"].astype(str)
+            view["dim_disp"] = view["dim"].map(lambda x: display_dimension_value(dim_col, x, lang))
 
             topk = st.slider("Plus fortes évolutions" if lang == "FR" else "Strongest shifts", 10, 60, 20)
             view2 = pd.concat([view.head(topk), view.tail(topk)]).drop_duplicates().sort_values("delta_budget")
             view2["delta_budget_fmt"] = view2["delta_budget"].apply(lambda x: fmt_money(float(x), lang))
+            view2["hover_html"] = view2.apply(
+                lambda row: dimension_hover_html(
+                    dim_col,
+                    row["dim"],
+                    lang,
+                    value_line=("Delta : " if lang == "FR" else "Delta: ") + fmt_money(float(row["delta_budget"]), lang),
+                    source=row.get("dim_source", ""),
+                    extra_lines=[
+                        f"{t(lang, 'compare_budget_a')}: {fmt_money(float(row['b_A']), lang)}",
+                        f"{t(lang, 'compare_budget_b')}: {fmt_money(float(row['b_B']), lang)}",
+                    ],
+                ),
+                axis=1,
+            )
 
             fig = px.bar(
                 view2,
@@ -7148,7 +7138,7 @@ if app_mode == "advanced" and tab_compare is not None:
                 height=680,
                 labels={
                     "delta_budget": t(lang, "compare_delta_budget"),
-                    "dim_disp": t(lang, "dim_program") if dim_col == "program" else t(lang, "dim_theme"),
+                    "dim_disp": dimension_ui_label(dim_col, lang),
                 },
             )
             fig.update_layout(
@@ -7156,8 +7146,8 @@ if app_mode == "advanced" and tab_compare is not None:
                 yaxis_title=None,
             )
             fig.update_traces(
-                customdata=np.stack([view2["delta_budget_fmt"]], axis=-1),
-                hovertemplate="<b>%{y}</b><br>%{customdata[0]}<extra></extra>",
+                customdata=np.stack([view2["hover_html"]], axis=-1),
+                hovertemplate="%{customdata[0]}<extra></extra>",
             )
             render_plotly_chart(fig, use_container_width=True)
             st.caption(t(lang, "compare_budget_reading"))
@@ -7173,7 +7163,7 @@ if app_mode == "advanced" and tab_compare is not None:
             table[t(lang, "compare_budget_b")] = table["b_B"].map(lambda x: fmt_money(float(x), lang))
             table["Δ"] = table["delta_budget"].map(lambda x: fmt_money(float(x), lang))
             table = table[["dim_disp", t(lang, "compare_budget_a"), t(lang, "compare_budget_b"), "Δ"]]
-            table = table.rename(columns={"dim_disp": t(lang, "dim_program") if dim_col == "program" else t(lang, "dim_theme")})
+            table = table.rename(columns={"dim_disp": dimension_ui_label(dim_col, lang)})
             st.dataframe(table, use_container_width=True, height=520)
 
 
@@ -7528,7 +7518,7 @@ if app_mode == "advanced" and tab_actor is not None:
             ORDER BY year
             """)
             mix_t = fetch_df(f"""
-            -- Current build stores one inferred theme label per row/project view.
+            -- Compatibility view exposes one primary CORDIS theme label per row/project view.
             SELECT theme, SUM(amount_eur) AS budget_eur
             FROM {R}
             WHERE {W} AND actor_id IN {picked_sql_list}
@@ -7898,7 +7888,7 @@ if app_mode == "advanced" and tab_value_chain is not None:
 
         st.markdown("#### " + ("Étapes et acteurs (budget -> acteurs)" if lang == "FR" else "Stages and actors (budget -> actors)"))
         vc_dim = safe_fetch_df(f"""
-        -- Current build stores one inferred theme label per row/project view.
+        -- Compatibility view exposes one primary CORDIS theme label per row/project view.
         SELECT theme, value_chain_stage, SUM(amount_eur) AS budget_eur
         FROM {R}
         WHERE {W}
