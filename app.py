@@ -2791,6 +2791,7 @@ def build_safe_where_pair(
     onetech_only: bool,
     statuses: List[str],
     themes: List[str],
+    subthemes: List[str],
     entities: List[str],
     countries: List[str],
     quick_search: str,
@@ -2806,6 +2807,7 @@ def build_safe_where_pair(
         onetech_only=onetech_only,
         statuses=statuses,
         themes=themes,
+        subthemes=subthemes,
         entities=entities,
         countries=countries,
         extra_search_terms=extra_search_terms,
@@ -3544,7 +3546,7 @@ def rel() -> str:
 
 
 @st.cache_data(show_spinner=False)
-def base_schema_columns(_cache_version: str = "v5_view_mapping") -> List[str]:
+def base_schema_columns(_cache_version: str = "v6_subtheme_schema") -> List[str]:
     df = get_con().execute(f"SELECT * FROM {rel()} LIMIT 0").fetchdf()
     return [str(c) for c in df.columns]
 
@@ -3896,6 +3898,7 @@ def where_clause(
     onetech_only: bool,
     statuses: List[str],
     themes: List[str],
+    subthemes: List[str],
     entities: List[str],
     countries: List[str],
     quick_search: str,
@@ -3918,6 +3921,8 @@ def where_clause(
         w.append(f"{prefix}project_status IN {in_list(statuses)}")
     if themes:
         w.append(f"{prefix}theme IN {in_list(themes)}")
+    if subthemes:
+        w.append(f"{prefix}sub_theme IN {in_list(subthemes)}")
     if entities:
         w.append(f"{prefix}entity_type IN {in_list(entities)}")
     if countries:
@@ -4713,6 +4718,10 @@ R = rel_analytics(
     use_actor_groups=bool(st.session_state.get("f_use_actor_groups", False)),
     exclude_funders=bool(st.session_state.get("f_exclude_funders", False)),
 )
+guided_subtheme_filters = [x for x in st.session_state.get("f_guided_subtopics", []) if str(x).strip()]
+guided_topic_terms = list(st.session_state.get("f_guided_topic_terms", []))
+if "sub_theme" not in set(base_schema_columns()):
+    guided_subtheme_filters = []
 W, W_R, search_notice_key = build_safe_where_pair(
     R,
     sources=st.session_state["f_sources"],
@@ -4723,10 +4732,11 @@ W, W_R, search_notice_key = build_safe_where_pair(
     onetech_only=st.session_state["f_onetech_only"],
     statuses=st.session_state["f_statuses"],
     themes=st.session_state["f_themes_raw"],
+    subthemes=guided_subtheme_filters,
     entities=st.session_state["f_entity_raw"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
-    extra_search_terms=st.session_state.get("f_guided_topic_terms", []),
+    extra_search_terms=guided_topic_terms if not guided_subtheme_filters else [],
 )
 W_partners, W_R_partners, _ = build_safe_where_pair(
     R,
@@ -4738,10 +4748,11 @@ W_partners, W_R_partners, _ = build_safe_where_pair(
     onetech_only=st.session_state["f_onetech_only"],
     statuses=st.session_state["f_statuses"],
     themes=st.session_state["f_themes_raw"],
+    subthemes=guided_subtheme_filters,
     entities=meta["entities"],
     countries=st.session_state["f_countries"],
     quick_search=st.session_state["f_quick_search"],
-    extra_search_terms=st.session_state.get("f_guided_topic_terms", []),
+    extra_search_terms=guided_topic_terms if not guided_subtheme_filters else [],
 )
 
 
