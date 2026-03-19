@@ -1,0 +1,6 @@
+# requirements-local.txt
+# Install on your Mac ONLY (not needed on Streamlit Cloud)
+# Usage: pip install -r requirements-local.txt
+
+-r requirements.txt
+sentence-transformers

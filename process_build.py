@@ -65,10 +65,11 @@ THEME_KEYWORDS_WEIGHTED: Dict[str, List[tuple]] = {
     ],
 
     "Wind": [
-        ("wind turbine", 2), ("wind energy", 2), ("wind power", 2),
-        ("wind farm", 2), ("offshore wind", 2), ("onshore wind", 2),
-        ("floating wind", 2), ("wind blade", 2), ("wind rotor", 2),
-        ("wind tower", 1), ("wake effect", 1),
+        ("wind turbine", 2), ("wind turbines", 2), ("wind energy", 2),
+        ("wind power", 2), ("wind farm", 2), ("offshore wind", 2),
+        ("onshore wind", 2), ("floating wind", 2), ("wind blade", 2),
+        ("wind rotor", 2), ("wind tower", 1), ("wake effect", 1),
+        ("turbine blade", 2), ("rotor blade", 1),
     ],
 
     "Bioenergy & SAF": [
@@ -134,7 +135,7 @@ THEME_KEYWORDS_WEIGHTED: Dict[str, List[tuple]] = {
         ("polymer composite", 1), ("membrane technology", 1),
         ("separator material", 1), ("rare earth", 1),
         ("raw materials", 1), ("nanotech", 1),
-        ("coating", 1), ("composite", 1),
+        ("coating", 2), ("coatings", 2), ("composite", 1),
     ],
 
     "E-mobility": [
@@ -181,26 +182,28 @@ THEME_KEYWORDS_WEIGHTED: Dict[str, List[tuple]] = {
         ("maritime", 1), ("shipping", 1), ("logistics", 1),
         ("sustainable aviation", 2), ("aircraft design", 2),
         ("aircraft demonstrator", 2), ("passenger aircraft", 2),
-        ("rail transport", 2), ("maritime transport", 2),
+        ("rail transport", 2), ("maritime transport", 2), ("maritime shipping", 2),
         ("freight logistics", 1), ("low-emission transport", 2),
         ("urban mobility", 1), ("autonomous vehicle", 1),
-        ("unmanned aerial", 1), ("air traffic", 1),
+        ("unmanned aerial", 1), ("air traffic", 1), ("air mobility", 2),
         ("clean aviation", 2), ("rolling stock", 2),
         ("mobility", 1), ("transport", 1),
     ],
 
     "Health & Biotech": [
         ("health", 2), ("medical", 2), ("clinical", 2),
-        ("vaccine", 2), ("biotech", 2), ("diagnostic", 1),
-        ("drug discovery", 2), ("pharmaceutical", 1),
+        ("vaccine", 2), ("biotech", 2), ("diagnostic", 2),
+        ("drug discovery", 2), ("pharmaceutical", 2),
         ("bioprocessing", 2), ("biomanufacturing", 2),
-        ("medical device", 2), ("genomic", 1), ("genomics", 1),
-        ("proteomics", 1), ("therapeutic", 1),
+        ("medical device", 2), ("genomic", 2), ("genomics", 2),
+        ("proteomics", 2), ("therapeutic", 2),
         ("digital health", 2), ("tissue engineering", 2),
-        ("clinical trial", 1), ("personalised medicine", 2),
+        ("clinical trial", 2), ("personalised medicine", 2),
         ("personalized medicine", 2), ("drug delivery", 2),
-        ("disease", 1), ("patient", 1), ("cancer", 2),
-        ("biomarker", 2), ("infection", 1), ("pathogen", 1),
+        ("disease", 2), ("patient", 1), ("cancer", 2),
+        ("biomarker", 2), ("infection", 2), ("pathogen", 2),
+        ("gene therapy", 2), ("CRISPR", 2), ("surgery", 1),
+        ("hospital", 1), ("epidemiology", 2), ("therapy", 1),
     ],
 
     "Space": [
@@ -223,7 +226,8 @@ THEME_KEYWORDS_WEIGHTED: Dict[str, List[tuple]] = {
     ],
 
     "Security & Resilience": [
-        ("security", 1), ("cyber", 1), ("defence", 1), ("defense", 1),
+        ("security", 2), ("cyber", 2), ("defence", 2), ("defense", 2),
+        ("cybersecurity", 2), ("critical infrastructure", 2),
         ("critical infrastructure protection", 2), ("cyber resilience", 2),
         ("energy security", 1), ("disaster risk reduction", 2),
         ("civil security", 2), ("border security", 2),
@@ -304,13 +308,13 @@ def infer_themes_vectorized(text_series: pd.Series) -> pd.Series:
         if theme in _THEME_EXCL_RE:
             excluded[:, j] = s.str.contains(_THEME_EXCL_RE[theme], na=False).values
 
-        # Weight-2 keywords: count how many distinct groups match
+        # Weight-2 keywords: any match → score 2
         if theme in _THEME_W2_RE:
             score_w2[:, j] = s.str.contains(_THEME_W2_RE[theme], na=False).astype(np.int16).values * 2
 
-        # Weight-1 keywords
+        # Weight-1 keywords: count distinct matches (so 2 x w1 = score 2)
         if theme in _THEME_W1_RE:
-            score_w1[:, j] = s.str.contains(_THEME_W1_RE[theme], na=False).astype(np.int16).values
+            score_w1[:, j] = s.str.findall(_THEME_W1_RE[theme]).str.len().astype(np.int16).clip(upper=4).values
 
     # Total score (zero out excluded themes)
     total = score_w2 + score_w1
@@ -733,6 +737,7 @@ def load_cordis_program(label: str, folder: Path) -> pd.DataFrame:
         "country_name": df["country_name"].astype(str),
         "amount_eur": df["ecContribution"],
         "theme": df["theme"].astype(str),
+        "sub_theme": "",
         "value_chain_stage": df["value_chain_stage"].astype(str),
         "project_status": df["project_status"].astype(str),
     })
@@ -909,7 +914,7 @@ def _SCHEMA_COLS() -> List[str]:
         "projectID", "acronym", "title", "objective", "abstract",
         "actor_id", "pic", "org_name", "entity_type",
         "country_alpha2", "country_alpha3", "country_name",
-        "amount_eur", "theme", "value_chain_stage", "project_status",
+        "amount_eur", "theme", "sub_theme", "value_chain_stage", "project_status",
     ]
 
 
@@ -925,7 +930,7 @@ def _enforce_schema(out: pd.DataFrame) -> pd.DataFrame:
     # trim strings
     for c in ["source", "program", "section", "projectID", "acronym", "title", "objective", "abstract",
               "actor_id", "pic", "org_name", "entity_type", "country_alpha2", "country_alpha3", "country_name",
-              "theme", "value_chain_stage", "project_status"]:
+              "theme", "sub_theme", "value_chain_stage", "project_status"]:
         out[c] = out[c].astype("string").fillna("").astype(str).str.strip()
 
     # keep only valid rows
@@ -1070,14 +1075,16 @@ def build_master_actor_tables(base_df: pd.DataFrame, out_dir: Path, actor_group_
         .sort_values(["budget_eur", "n_projects"], ascending=False)
     )
 
+    _sub_theme_col = "sub_theme" if "sub_theme" in m.columns else None
+    _pal_cols = [
+        "projectID", "year", "theme",
+    ] + (["sub_theme"] if _sub_theme_col else []) + [
+        "value_chain_stage", "project_status",
+        "actor_id", "pic", "group_id", "group_name", "is_funder",
+        "org_name", "entity_type", "country_name", "amount_eur",
+    ]
     project_actor_links = (
-        m[
-            [
-                "projectID", "year", "theme", "value_chain_stage", "project_status",
-                "actor_id", "pic", "group_id", "group_name", "is_funder",
-                "org_name", "entity_type", "country_name", "amount_eur",
-            ]
-        ]
+        m[_pal_cols]
         .copy()
         .sort_values(["year", "projectID", "group_id", "actor_id"])
         .reset_index(drop=True)
@@ -1117,6 +1124,21 @@ def build_processed_dataset(raw_dir: Path, out_csv: Path) -> None:
 
     out = pd.concat(dfs, ignore_index=True) if dfs else pd.DataFrame(columns=_SCHEMA_COLS())
     out = _enforce_schema(out)
+
+    # ---- Theme + sub_theme classification (embeddings or regex fallback) ----
+    try:
+        from theme_classifier_v3 import classify_projects
+        print("[build] Running embeddings-based theme classifier...")
+        out = classify_projects(out, verbose=True)
+    except ImportError:
+        print("[build] theme_classifier_v3 not available, using built-in regex classifier")
+        # Already classified by regex in load_cordis_program / load_external_connectors
+        if "sub_theme" not in out.columns:
+            out["sub_theme"] = ""
+    except Exception as e:
+        print(f"[build][WARN] Embeddings classifier failed: {e}, keeping regex themes")
+        if "sub_theme" not in out.columns:
+            out["sub_theme"] = ""
 
     # write CSV + Parquet atomically
     out_csv.parent.mkdir(parents=True, exist_ok=True)
