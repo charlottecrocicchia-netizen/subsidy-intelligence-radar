@@ -42,6 +42,14 @@ CORDIS_THEME_PREFIX_LABELS = [
     ("HORIZON-JU-EUROHPC-", ("EuroHPC JU", "EuroHPC JU")),
     ("HORIZON-JTI-CLEANH2-", ("Clean Hydrogen JU", "Clean Hydrogen JU")),
     ("HORIZON-JU-CLEANH2-", ("Clean Hydrogen JU", "Clean Hydrogen JU")),
+    ("HORIZON-EUROHPC-JU-", ("EuroHPC JU", "EuroHPC JU")),
+    ("EUROHPC-", ("EuroHPC", "EuroHPC")),
+    ("HORIZON-KDT-JU-", ("Technologies numériques clés JU", "Key Digital Technologies JU")),
+    ("HORIZON-JU-CHIPS-", ("Chips JU", "Chips JU")),
+    ("HORIZON-CHIPS-", ("Chips", "Chips")),
+    ("HORIZON-JU-CBE-", ("Europe biosourcée circulaire JU", "Circular Bio-based Europe JU")),
+    ("SESAR-", ("SESAR", "SESAR")),
+    ("IMI2-", ("Initiative médicaments innovants 2", "Innovative Medicines Initiative 2")),
     ("HORIZON-MSCA-", ("Actions Marie Sklodowska-Curie", "Marie Sklodowska-Curie Actions")),
     ("MSCA-IF-", ("Actions Marie Sklodowska-Curie", "Marie Sklodowska-Curie Actions")),
     ("ERC-", ("Conseil européen de la recherche", "European Research Council")),
@@ -68,6 +76,17 @@ TOKEN_LABELS = {
     "SMEINST": ("Instrument PME", "SME Instrument"),
     "EUROHPC": ("EuroHPC", "EuroHPC"),
     "CLEANH2": ("Hydrogène propre", "Clean Hydrogen"),
+    "IMI2": ("Initiative médicaments innovants 2", "Innovative Medicines Initiative 2"),
+    "KDT": ("Technologies numériques clés", "Key Digital Technologies"),
+    "CHIPS": ("Chips", "Chips"),
+    "CBE": ("Europe biosourcée circulaire", "Circular Bio-based Europe"),
+    "SESAR": ("SESAR", "SESAR"),
+    "PF": ("Bourses postdoctorales", "Postdoctoral Fellowships"),
+    "HUMAN": ("Humain", "Human"),
+    "DIGITAL": ("Numérique", "Digital"),
+    "EMERGING": ("Technologies émergentes", "Emerging technologies"),
+    "TWIN": ("Jumeau numérique", "Digital twin"),
+    "TRANSITION": ("Transition", "Transition"),
     "HLTH": ("Santé", "Health"),
     "ICT": ("ICT", "ICT"),
     "NMBP": ("Matériaux et production", "Materials and production"),
@@ -97,6 +116,17 @@ def _pick(labels: tuple[str, str], lang: str) -> str:
 
 def _clean_spaces(value: str) -> str:
     return re.sub(r"\s+", " ", str(value or "").strip())
+
+
+def _apply_display_mode(display_value: str, raw_value: str, display_mode: str = "friendly") -> str:
+    mode = str(display_mode or "friendly").strip().lower()
+    display = _clean_spaces(display_value)
+    raw = _clean_spaces(raw_value)
+    if mode == "code":
+        return raw or display
+    if mode == "both" and raw and display and raw != display:
+        return f"{display} [{raw}]"
+    return display or raw
 
 
 def _title_token(token: str) -> str:
@@ -202,25 +232,26 @@ def _humanize_code_like(value: str, lang: str) -> str:
     return value
 
 
-def domain_raw_to_display(raw: str, lang: str = "FR") -> str:
+def domain_raw_to_display(raw: str, lang: str = "FR", display_mode: str = "friendly") -> str:
     value = _clean_spaces(raw)
     if not value:
         return ""
-    if lang == "FR":
-        return CORDIS_DOMAIN_UI_FR.get(value, THEME_EN_TO_FR.get(value, value))
-    return value
+    display = CORDIS_DOMAIN_UI_FR.get(value, THEME_EN_TO_FR.get(value, value)) if lang == "FR" else value
+    return _apply_display_mode(display, value, display_mode=display_mode)
 
 
-def theme_raw_to_display(raw: str, lang: str = "FR", review_label: Optional[str] = None) -> str:
+def theme_raw_to_display(raw: str, lang: str = "FR", review_label: Optional[str] = None, display_mode: str = "friendly") -> str:
     value = _clean_spaces(raw)
     if not value:
         return ""
     if value in {"Other", "Multidisciplinary", "Multi-domain"}:
-        return review_label or ("Multithématique" if lang == "FR" else "Multi-domain")
+        display = review_label or ("Multithématique" if lang == "FR" else "Multi-domain")
+        return _apply_display_mode(display, value, display_mode=display_mode)
     if lang == "FR" and value in THEME_EN_TO_FR:
-        return THEME_EN_TO_FR[value]
+        display = THEME_EN_TO_FR[value]
+        return _apply_display_mode(display, value, display_mode=display_mode)
     human = _humanize_code_like(value, lang)
-    return human or value
+    return _apply_display_mode(human or value, value, display_mode=display_mode)
 
 
 def scientific_subthemes_compact(raw: object, limit: int = 3) -> str:
@@ -248,15 +279,15 @@ def scientific_subthemes_compact(raw: object, limit: int = 3) -> str:
     return ", ".join(values[:limit]) + f" +{len(values) - limit}"
 
 
-def format_dimension_value(dimension: str, raw: object, lang: str = "FR", review_label: Optional[str] = None) -> str:
+def format_dimension_value(dimension: str, raw: object, lang: str = "FR", review_label: Optional[str] = None, display_mode: str = "friendly") -> str:
     value = _clean_spaces(raw)
     if not value:
         return ""
     dim = str(dimension or "").strip()
     if dim in {"cordis_domain_ui", "domain"}:
-        return domain_raw_to_display(value, lang)
+        return domain_raw_to_display(value, lang, display_mode=display_mode)
     if dim in {"cordis_theme_primary", "theme", "section", "program"}:
-        return theme_raw_to_display(value, lang, review_label=review_label)
+        return theme_raw_to_display(value, lang, review_label=review_label, display_mode=display_mode)
     if dim in {"scientific_subthemes", "sub_theme"}:
         return scientific_subthemes_compact(value, limit=3)
     return value
@@ -270,9 +301,10 @@ def build_dimension_hover_html(
     source: Optional[str] = None,
     review_label: Optional[str] = None,
     extra_lines: Optional[Iterable[str]] = None,
+    display_mode: str = "friendly",
 ) -> str:
     raw_value = _clean_spaces(raw)
-    display_value = format_dimension_value(dimension, raw_value, lang=lang, review_label=review_label)
+    display_value = format_dimension_value(dimension, raw_value, lang=lang, review_label=review_label, display_mode=display_mode)
     raw_label = "Code CORDIS" if lang == "FR" else "CORDIS code"
     source_label = "Source du thème principal" if lang == "FR" else "Primary theme source"
     parts = [f"<b>{html.escape(display_value or raw_value)}</b>"]
@@ -282,7 +314,7 @@ def build_dimension_hover_html(
         for line in extra_lines:
             if str(line or "").strip():
                 parts.append(html.escape(str(line)))
-    if raw_value and raw_value != (display_value or raw_value):
+    if str(display_mode or "friendly").strip().lower() == "friendly" and raw_value and raw_value != (display_value or raw_value):
         parts.append(f"{html.escape(raw_label)}: {html.escape(raw_value)}")
     if source and str(source).strip() and str(dimension) in {"theme", "cordis_theme_primary"}:
         parts.append(f"{html.escape(source_label)}: {html.escape(str(source).strip())}")

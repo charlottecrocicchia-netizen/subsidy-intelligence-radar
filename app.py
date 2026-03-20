@@ -28,11 +28,11 @@ import duckdb
 from filelock import FileLock, Timeout
 
 from cordis_labels import (
-    build_dimension_hover_html,
-    domain_raw_to_display,
-    format_dimension_value,
+    build_dimension_hover_html as _build_dimension_hover_html,
+    domain_raw_to_display as _domain_raw_to_display,
+    format_dimension_value as _format_dimension_value,
     scientific_subthemes_compact,
-    theme_raw_to_display,
+    theme_raw_to_display as _theme_raw_to_display,
 )
 from cordis_taxonomy import (
     CORDIS_DOMAIN_UI_ORDER,
@@ -1467,6 +1467,11 @@ I18N: Dict[str, Dict[str, str]] = {
         "basic_filters": "Filtres métier",
         "advanced_filters": "Plus de filtres métier",
         "analysis_options": "Comportement d'analyse",
+        "label_mode": "Affichage des libellés",
+        "label_mode_help": "Choisis si l'app affiche surtout des libellés lisibles, les codes CORDIS, ou les deux.",
+        "label_mode_friendly": "Lisible",
+        "label_mode_both": "Lisible + code",
+        "label_mode_code": "Code CORDIS",
         "sources": "Sources",
         "onetech_only": "Limiter au périmètre OneTech",
         "programmes": "Programmes",
@@ -1980,6 +1985,11 @@ I18N: Dict[str, Dict[str, str]] = {
         "basic_filters": "Business filters",
         "advanced_filters": "More business filters",
         "analysis_options": "Analysis behavior",
+        "label_mode": "Label display",
+        "label_mode_help": "Choose whether the app shows readable labels, raw CORDIS codes, or both.",
+        "label_mode_friendly": "Readable",
+        "label_mode_both": "Readable + code",
+        "label_mode_code": "CORDIS code",
         "sources": "Sources",
         "onetech_only": "Restrict to OneTech scope",
         "programmes": "Programmes",
@@ -2509,8 +2519,25 @@ def fmt_pp(delta_share: float, digits: int = 2, lang: str = "FR") -> str:
 # ============================================================
 # UI mapping
 # ============================================================
+def current_label_display_mode() -> str:
+    mode = str(st.session_state.get("label_display_mode", "friendly") or "friendly").strip().lower()
+    return mode if mode in {"friendly", "both", "code"} else "friendly"
+
+
+def domain_raw_to_display(raw: str, lang: str) -> str:
+    return _domain_raw_to_display(raw, lang=lang, display_mode=current_label_display_mode())
+
+
+def theme_raw_to_friendly(raw: str, lang: str) -> str:
+    return _theme_raw_to_display(raw, lang=lang, review_label=t(lang, "theme_review_label"), display_mode="friendly")
+
+
+def theme_raw_to_display(raw: str, lang: str) -> str:
+    return _theme_raw_to_display(raw, lang=lang, review_label=t(lang, "theme_review_label"), display_mode=current_label_display_mode())
+
+
 def display_dimension_value(dim_col: str, raw: object, lang: str) -> str:
-    return format_dimension_value(dim_col, raw, lang=lang, review_label=t(lang, "theme_review_label"))
+    return _format_dimension_value(dim_col, raw, lang=lang, review_label=t(lang, "theme_review_label"), display_mode=current_label_display_mode())
 
 
 def dimension_ui_label(dim_col: str, lang: str) -> str:
@@ -2533,7 +2560,7 @@ def dimension_hover_html(
     source: Optional[str] = None,
     extra_lines: Optional[List[str]] = None,
 ) -> str:
-    return build_dimension_hover_html(
+    return _build_dimension_hover_html(
         dim_col,
         raw,
         lang=lang,
@@ -2541,6 +2568,7 @@ def dimension_hover_html(
         source=source,
         review_label=t(lang, "theme_review_label"),
         extra_lines=extra_lines,
+        display_mode=current_label_display_mode(),
     )
 
 
@@ -4411,6 +4439,7 @@ def _ensure_filter_state() -> None:
     st.session_state.setdefault("f_quick_search", "")
     st.session_state.setdefault("f_use_actor_groups", False)
     st.session_state.setdefault("f_exclude_funders", True)
+    st.session_state.setdefault("label_display_mode", "friendly")
 
     # One-time migration: switch old "all countries by default" sessions to Europe default.
     if not st.session_state.get("_country_default_migrated_v6", False):
@@ -4834,6 +4863,17 @@ scientific_subthemes_default = [x for x in st.session_state.get("f_scientific_su
 
 filters_expander_label = t(lang, "filters") if st.session_state.get("app_mode") == "advanced" else ("Affiner le cadrage" if lang == "FR" else "Refine scope")
 with st.expander(filters_expander_label, expanded=False):
+    st.caption(t(lang, "label_mode"))
+    st.session_state["label_display_mode"] = st.radio(
+        t(lang, "label_mode"),
+        ["friendly", "both", "code"],
+        index=["friendly", "both", "code"].index(current_label_display_mode()),
+        horizontal=True,
+        key="label_display_mode_radio",
+        format_func=lambda x: t(lang, f"label_mode_{x}"),
+        label_visibility="collapsed",
+    )
+    st.caption(t(lang, "label_mode_help"))
     st.caption(t(lang, "basic_filters"))
     basic_c1, basic_c2, basic_c3, basic_c4 = st.columns(4)
     with basic_c1:
@@ -7365,13 +7405,13 @@ if app_mode == "advanced" and tab_macro is not None:
                         themes_candidates = [
                             raw
                             for raw in themes_raw_macro
-                            if (raw in candidate_themes) or (theme_raw_to_display(raw, lang) in candidate_themes)
+                            if (raw in candidate_themes) or (theme_raw_to_friendly(raw, lang) in candidate_themes)
                         ]
                     else:
                         themes_candidates = [
                             raw
                             for raw in themes_raw_macro
-                            if (raw in event_themes) or (theme_raw_to_display(raw, lang) in event_themes)
+                            if (raw in event_themes) or (theme_raw_to_friendly(raw, lang) in event_themes)
                         ]
                     if not themes_candidates and not themes_raw_macro:
                         st.info(t(lang, "no_data"))
@@ -7395,7 +7435,7 @@ if app_mode == "advanced" and tab_macro is not None:
                                 theme_filter_sql = " AND 1=0"
                         else:
                             chosen_theme_raw = str(chosen_scope)
-                            th_disp = theme_raw_to_display(str(chosen_theme_raw), lang)
+                            th_disp = theme_raw_to_friendly(str(chosen_theme_raw), lang)
                             ev_sel = ev_tag[
                                 (ev_tag["theme"].astype(str) == str(chosen_theme_raw))
                                 | (ev_tag["theme"].astype(str) == th_disp)
@@ -7413,7 +7453,7 @@ if app_mode == "advanced" and tab_macro is not None:
                         index=0,
                         format_func=lambda x: theme_raw_to_display(str(x), lang),
                     )
-                    th_disp = theme_raw_to_display(str(chosen_theme_raw), lang)
+                    th_disp = theme_raw_to_friendly(str(chosen_theme_raw), lang)
                     ev_sel = ev[
                         (ev["theme"].astype(str) == str(chosen_theme_raw))
                         | (ev["theme"].astype(str) == th_disp)
