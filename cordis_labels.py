@@ -63,6 +63,9 @@ CORDIS_THEME_PREFIX_LABELS = [
     ("INNOSUP-", ("Soutien à l'innovation", "Innovation support")),
     ("ICT-", ("ICT", "ICT")),
     ("NMBP-", ("Matériaux et production", "Materials and production")),
+    ("INFRIA-", ("Infrastructures de recherche", "Research infrastructures")),
+    ("SGA-FETFLAG-HBP-", ("Human Brain Project", "Human Brain Project")),
+    ("FETFLAG-", ("FET Flagships", "FET Flagships")),
 ]
 
 TOKEN_LABELS = {
@@ -87,6 +90,12 @@ TOKEN_LABELS = {
     "EMERGING": ("Technologies émergentes", "Emerging technologies"),
     "TWIN": ("Jumeau numérique", "Digital twin"),
     "TRANSITION": ("Transition", "Transition"),
+    "DN": ("Réseaux doctoraux", "Doctoral Networks"),
+    "COFUND": ("Cofinancement", "Co-funding"),
+    "INFRAIA": ("Infrastructures de recherche", "Research infrastructures"),
+    "FETFLAG": ("FET Flagships", "FET Flagships"),
+    "HBP": ("Human Brain Project", "Human Brain Project"),
+    "SGA": ("Accord spécifique", "Specific grant agreement"),
     "HLTH": ("Santé", "Health"),
     "ICT": ("ICT", "ICT"),
     "NMBP": ("Matériaux et production", "Materials and production"),
@@ -94,9 +103,9 @@ TOKEN_LABELS = {
     "CL4": ("Cluster 4", "Cluster 4"),
     "CL5": ("Cluster 5", "Cluster 5"),
     "CL6": ("Cluster 6", "Cluster 6"),
-    "RIA": ("RIA", "RIA"),
+    "RIA": ("Recherche et innovation", "Research and innovation"),
     "IA": ("IA", "IA"),
-    "CSA": ("CSA", "CSA"),
+    "CSA": ("Coordination et soutien", "Coordination and support"),
 }
 
 DROP_TOKENS = {
@@ -159,8 +168,14 @@ def _token_label(token: str, lang: str) -> str:
     return _title_token(token)
 
 
+def _is_administrative_label(label: str) -> bool:
+    value = _clean_spaces(label)
+    return (not value) or bool(re.fullmatch(r"(?:19|20)\d{2}(?:-(?:19|20)\d{2})?", value)) or bool(re.fullmatch(r"(?:Appel|Call)\s+\d+", value))
+
+
 def _tail_labels(tokens: List[str], lang: str) -> List[str]:
     labels: List[str] = []
+    years: List[str] = []
     seen = set()
     pending_short_numbers: List[str] = []
     for token in tokens:
@@ -168,10 +183,8 @@ def _tail_labels(tokens: List[str], lang: str) -> List[str]:
         if not token:
             continue
         if _YEAR_RE.fullmatch(token):
-            key = ("year", token)
-            if key not in seen:
-                labels.append(token)
-                seen.add(key)
+            if token not in years:
+                years.append(token)
             continue
         if re.fullmatch(r"\d{1,2}", token):
             pending_short_numbers.append(token)
@@ -183,6 +196,10 @@ def _tail_labels(tokens: List[str], lang: str) -> List[str]:
         if key not in seen:
             labels.append(label)
             seen.add(key)
+    if years and labels:
+        labels = [years[0], *labels]
+    elif years and not labels:
+        labels = [years[0] if len(years) == 1 else f"{years[0]}-{years[-1]}"]
     if not labels and pending_short_numbers:
         call_label = f"Appel {pending_short_numbers[0]}" if lang == "FR" else f"Call {pending_short_numbers[0]}"
         labels.append(call_label)
@@ -193,12 +210,9 @@ def _erc_label(value: str, lang: str) -> str:
     parts = _SPLIT_RE.split(value)
     base = "Conseil européen de la recherche" if lang == "FR" else "European Research Council"
     scheme = next((_pick(TOKEN_LABELS[p.upper()], lang) for p in parts if p.upper() in {"ADG", "COG", "STG", "SYG", "POC"}), "")
-    year = next((p for p in parts if _YEAR_RE.fullmatch(p)), "")
     kept = [base]
     if scheme:
         kept.append(scheme)
-    if year:
-        kept.append(year)
     return " · ".join(kept)
 
 
@@ -209,7 +223,10 @@ def _prefix_label(value: str, lang: str) -> str:
             base = _pick(labels, lang)
             rest = value[len(prefix):]
             tails = _tail_labels(_SPLIT_RE.split(rest), lang)
-            return base if not tails else f"{base} · {' · '.join(tails)}"
+            semantic_tails = [t for t in tails if not _is_administrative_label(str(t))]
+            if semantic_tails:
+                return f"{base} · {' · '.join(semantic_tails[:2])}"
+            return base
     return ""
 
 
@@ -227,8 +244,9 @@ def _humanize_code_like(value: str, lang: str) -> str:
         tokens = _SPLIT_RE.split(value)
         lead = _token_label(tokens[0], lang)
         tails = _tail_labels(tokens[1:], lang)
-        kept = [x for x in [lead, *tails] if x]
-        return " · ".join(kept) if kept else value.replace('_', ' · ').replace('-', ' · ')
+        semantic_tails = [t for t in tails if not _is_administrative_label(str(t))]
+        kept = [x for x in [lead, *(semantic_tails[:2] if semantic_tails else [])] if x]
+        return " · ".join(kept) if kept else (lead or value.replace('_', ' · ').replace('-', ' · '))
     return value
 
 

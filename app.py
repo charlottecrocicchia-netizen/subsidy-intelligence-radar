@@ -1594,7 +1594,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_scope_share": "Part du périmètre",
         "geo_country_detail": "Détail pays",
         "geo_country_actors": "Acteurs principaux",
+        "geo_country_domains": "Domaines CORDIS",
         "geo_country_themes": "Thèmes principaux CORDIS",
+        "geo_country_themes_detail": "Détail par thème principal CORDIS",
         "geo_country_projects": "Projets principaux",
         "benchmark_mode": "Vue de comparaison",
         "bm_scatter": "Comparer volume et budget",
@@ -1651,7 +1653,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_profile_caption": "Choisis un acteur, puis commence par son profil, son évolution et ses projets avant d’ouvrir les lectures plus expertes.",
         "actor_opened_from_results": "Ouvert depuis un projet sélectionné dans Résultats.",
         "actor_trend": "Évolution (budget & projets)",
+        "actor_mix_domain": "Mix par domaine CORDIS",
         "actor_mix_theme": "Mix par thème principal CORDIS",
+        "actor_mix_theme_detail": "Détail par thème principal CORDIS",
         "actor_mix_country": "Mix géographique",
         "actor_partners": "Partenaires principaux",
         "actor_partners_caption": "Lis d’abord le tableau des partenaires. Le réseau détaillé reste dans Analyse avancée.",
@@ -1665,6 +1669,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_tab_profile": "Profil",
         "actor_tab_partners": "Partenaires",
         "actor_tab_peers": "Acteurs comparables",
+        "actor_top_domain": "Domaine CORDIS principal",
         "actor_top_theme": "Thème principal CORDIS",
         "actor_entity_type": "Type d'entité",
         "actor_rank_overall": "Rang global",
@@ -2112,7 +2117,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "geo_scope_share": "Share of scope",
         "geo_country_detail": "Country detail",
         "geo_country_actors": "Leading actors",
+        "geo_country_domains": "CORDIS domains",
         "geo_country_themes": "Leading Primary CORDIS themes",
+        "geo_country_themes_detail": "Primary CORDIS theme detail",
         "geo_country_projects": "Leading projects",
         "benchmark_mode": "Comparison view",
         "bm_scatter": "Compare volume and budget",
@@ -2169,7 +2176,9 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_profile_caption": "Pick an actor, then start with their profile, evolution, and projects before opening deeper expert reads.",
         "actor_opened_from_results": "Opened from a selected project in Results.",
         "actor_trend": "Trend (budget & projects)",
+        "actor_mix_domain": "CORDIS domain mix",
         "actor_mix_theme": "Primary CORDIS theme mix",
+        "actor_mix_theme_detail": "Primary CORDIS theme detail",
         "actor_mix_country": "Geography mix",
         "actor_partners": "Leading partners",
         "actor_partners_caption": "Start with the partner table. The detailed network remains in Advanced.",
@@ -2183,6 +2192,7 @@ I18N: Dict[str, Dict[str, str]] = {
         "actor_tab_profile": "Profile",
         "actor_tab_partners": "Partners",
         "actor_tab_peers": "Comparable actors",
+        "actor_top_domain": "Main CORDIS domain",
         "actor_top_theme": "Primary CORDIS theme",
         "actor_entity_type": "Entity type",
         "actor_rank_overall": "Overall rank",
@@ -6593,6 +6603,18 @@ with tab_geo:
             ORDER BY budget_eur DESC
             LIMIT 12
             """, columns=["actor_id", "actor_label", "budget_eur", "n_projects"], lang=lang, warning_key="geo_view_unavailable")
+            country_domains = safe_fetch_df(f"""
+            SELECT
+              cordis_domain_ui,
+              SUM(amount_eur) AS budget_eur,
+              COUNT(DISTINCT projectID) AS n_projects
+            FROM {R}
+            WHERE {W} AND country_name IN {country_sql}
+              AND cordis_domain_ui IS NOT NULL AND TRIM(cordis_domain_ui) <> ''
+            GROUP BY cordis_domain_ui
+            ORDER BY budget_eur DESC
+            LIMIT 12
+            """, columns=["cordis_domain_ui", "budget_eur", "n_projects"], lang=lang, warning_key="geo_view_unavailable")
             country_themes = safe_fetch_df(f"""
             SELECT
               -- Compatibility view exposes one primary CORDIS theme label per row/project view.
@@ -6642,7 +6664,25 @@ with tab_geo:
                     fig_country_actors.update_layout(coloraxis_showscale=False, yaxis_title=None)
                     render_plotly_chart(fig_country_actors, use_container_width=True)
             with d2:
-                st.markdown(f"##### {t(lang, 'geo_country_themes')}")
+                st.markdown(f"##### {t(lang, 'geo_country_domains')}")
+                if country_domains.empty:
+                    render_guided_empty_state(lang, "geo_country_empty_hint")
+                else:
+                    country_domains["domain_display"] = country_domains["cordis_domain_ui"].map(lambda x: domain_raw_to_display(str(x), lang))
+                    fig_country_domains = px.bar(
+                        country_domains.iloc[::-1],
+                        x="budget_eur",
+                        y="domain_display",
+                        orientation="h",
+                        color="budget_eur",
+                        color_continuous_scale=R2G,
+                        height=440,
+                        labels={"budget_eur": "Budget (€)", "domain_display": ""},
+                    )
+                    fig_country_domains.update_layout(coloraxis_showscale=False, yaxis_title=None)
+                    render_plotly_chart(fig_country_domains, use_container_width=True)
+
+            with st.expander(t(lang, 'geo_country_themes_detail')):
                 if country_themes.empty:
                     render_guided_empty_state(lang, "geo_country_empty_hint")
                 else:
@@ -7695,6 +7735,16 @@ if app_mode == "advanced" and tab_actor is not None:
             GROUP BY year
             ORDER BY year
             """)
+            mix_d = fetch_df(f"""
+            SELECT cordis_domain_ui, SUM(amount_eur) AS budget_eur
+            FROM {R}
+            WHERE {W} AND actor_id IN {picked_sql_list}
+              AND cordis_domain_ui IS NOT NULL AND TRIM(cordis_domain_ui) <> ''
+            GROUP BY cordis_domain_ui
+            ORDER BY budget_eur DESC
+            LIMIT 12
+            """)
+            mix_d["domain_display"] = mix_d["cordis_domain_ui"].map(lambda x: domain_raw_to_display(str(x), lang))
             mix_t = fetch_df(f"""
             -- Compatibility view exposes one primary CORDIS theme label per row/project view.
             SELECT theme, SUM(amount_eur) AS budget_eur
@@ -7797,6 +7847,11 @@ if app_mode == "advanced" and tab_actor is not None:
             selected_projects = int(actor_summary_row.get("n_projects") or 0)
             selected_country = str(actor_summary_row.get("country_name2") or "—")
             selected_entity_type = str(actor_summary_row.get("entity_type") or "—")
+            selected_domain = (
+                domain_raw_to_display(str(mix_d.iloc[0]["cordis_domain_ui"]), lang)
+                if not mix_d.empty and str(mix_d.iloc[0]["cordis_domain_ui"]).strip()
+                else "—"
+            )
             selected_theme = (
                 theme_raw_to_display(str(mix_t.iloc[0]["theme"]), lang)
                 if not mix_t.empty and str(mix_t.iloc[0]["theme"]).strip()
@@ -7818,9 +7873,9 @@ if app_mode == "advanced" and tab_actor is not None:
                 st.markdown("**" + t(lang, "actor_answer_title") + "**")
                 st.write(
                     (
-                        f"Cet acteur capte {fmt_money(selected_budget, lang)} via {selected_projects:,} projets, surtout sur {selected_theme} et principalement en {selected_main_country}."
+                        f"Cet acteur capte {fmt_money(selected_budget, lang)} via {selected_projects:,} projets, surtout dans le domaine {selected_domain}, avec comme thème principal dominant {selected_theme}, et principalement en {selected_main_country}."
                         if lang == "FR"
-                        else f"This actor captures {fmt_money(selected_budget, lang)} across {selected_projects:,} projects, mainly in {selected_theme} and primarily in {selected_main_country}."
+                        else f"This actor captures {fmt_money(selected_budget, lang)} across {selected_projects:,} projects, mainly in the {selected_domain} domain, with {selected_theme} as the leading primary theme, and primarily in {selected_main_country}."
                     ).replace(",", " ")
                 )
             st.caption(
@@ -7832,8 +7887,10 @@ if app_mode == "advanced" and tab_actor is not None:
             s1, s2, s3, s4 = st.columns(4)
             s1.metric(t(lang, "budget_total"), fmt_money(selected_budget, lang))
             s2.metric(t(lang, "n_projects"), f"{selected_projects:,}".replace(",", " "))
-            s3.metric(t(lang, "actor_top_theme"), selected_theme)
+            s3.metric(t(lang, "actor_top_domain"), selected_domain)
             s4.metric(t(lang, "actor_main_country"), selected_main_country)
+            if selected_theme and selected_theme != "—":
+                st.caption((f"Thème principal CORDIS dominant : {selected_theme}" if lang == "FR" else f"Leading Primary CORDIS theme: {selected_theme}"))
             aq1, aq2, aq3 = st.columns(3)
             with aq1:
                 if st.button(t(lang, "actor_open_results"), key=f"actor_open_results::{picked_id}", width="stretch"):
@@ -7875,30 +7932,60 @@ if app_mode == "advanced" and tab_actor is not None:
                     render_plotly_chart(fign, use_container_width=True)
 
                 st.divider()
-                st.markdown(f"#### {t(lang, 'actor_mix_theme')}")
-                if len(mix_t) <= 1:
-                    figt = px.bar(
-                        mix_t.iloc[::-1],
+                st.markdown(f"#### {t(lang, 'actor_mix_domain')}")
+                if mix_d.empty:
+                    render_guided_empty_state(lang, "actor_empty_hint")
+                elif len(mix_d) <= 1:
+                    figd = px.bar(
+                        mix_d.iloc[::-1],
                         x="budget_eur",
-                        y="theme_display",
+                        y="domain_display",
                         orientation="h",
                         height=420,
                         color_discrete_sequence=["rgba(37,99,235,0.92)"],
-                        labels={"budget_eur": "Budget (€)", "theme_display": ""},
+                        labels={"budget_eur": "Budget (€)", "domain_display": ""},
                     )
+                    render_plotly_chart(figd, use_container_width=True)
                 else:
-                    figt = px.bar(
-                        mix_t.iloc[::-1],
+                    figd = px.bar(
+                        mix_d.iloc[::-1],
                         x="budget_eur",
-                        y="theme_display",
+                        y="domain_display",
                         orientation="h",
                         height=420,
                         color="budget_eur",
                         color_continuous_scale=R2G,
-                        labels={"budget_eur": "Budget (€)", "theme_display": ""},
+                        labels={"budget_eur": "Budget (€)", "domain_display": ""},
                     )
-                    figt.update_layout(coloraxis_showscale=False)
-                render_plotly_chart(figt, use_container_width=True)
+                    figd.update_layout(coloraxis_showscale=False)
+                    render_plotly_chart(figd, use_container_width=True)
+
+                with st.expander(t(lang, 'actor_mix_theme_detail')):
+                    if mix_t.empty:
+                        render_guided_empty_state(lang, "actor_empty_hint")
+                    elif len(mix_t) <= 1:
+                        figt = px.bar(
+                            mix_t.iloc[::-1],
+                            x="budget_eur",
+                            y="theme_display",
+                            orientation="h",
+                            height=420,
+                            color_discrete_sequence=["rgba(37,99,235,0.92)"],
+                            labels={"budget_eur": "Budget (€)", "theme_display": ""},
+                        )
+                    else:
+                        figt = px.bar(
+                            mix_t.iloc[::-1],
+                            x="budget_eur",
+                            y="theme_display",
+                            orientation="h",
+                            height=420,
+                            color="budget_eur",
+                            color_continuous_scale=R2G,
+                            labels={"budget_eur": "Budget (€)", "theme_display": ""},
+                        )
+                        figt.update_layout(coloraxis_showscale=False)
+                    render_plotly_chart(figt, use_container_width=True)
 
                 st.markdown(f"#### {t(lang, 'actor_mix_country')}")
                 if mix_c.empty:
