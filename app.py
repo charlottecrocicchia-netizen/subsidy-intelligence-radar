@@ -4834,6 +4834,28 @@ with nav_back_c2:
     if st.session_state.get("f_guided_subtopics"):
         st.caption(t(lang, "guided_terms_applied") + ": " + ", ".join(st.session_state.get("f_guided_subtopics", [])))
 
+_results_focus_country_global = str(st.session_state.get("results_focus_country", "") or "").strip()
+_trends_focus_country_global = str(st.session_state.get("trends_focus_country", "") or "").strip()
+if _results_focus_country_global or _trends_focus_country_global:
+    with st.container(border=True):
+        st.markdown("**" + ("Focus pays temporaire" if lang == "FR" else "Temporary country focus") + "**")
+        if _results_focus_country_global:
+            gc1, gc2 = st.columns([4.5, 1.5])
+            with gc1:
+                st.info(t(lang, "results_country_focus_notice").format(country=_results_focus_country_global))
+            with gc2:
+                if st.button(t(lang, "local_country_focus_clear"), key="global_results_focus_country_clear_btn", width="stretch"):
+                    queue_filter_updates(results_focus_country="")
+                    st.rerun()
+        if _trends_focus_country_global:
+            gc3, gc4 = st.columns([4.5, 1.5])
+            with gc3:
+                st.info(t(lang, "trends_country_focus_notice").format(country=_trends_focus_country_global))
+            with gc4:
+                if st.button(t(lang, "local_country_focus_clear"), key="global_trends_focus_country_clear_btn", width="stretch"):
+                    queue_filter_updates(trends_focus_country="")
+                    st.rerun()
+
 
 # ============================================================
 # Main search entry

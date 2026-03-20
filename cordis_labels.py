@@ -114,9 +114,152 @@ DROP_TOKENS = {
     "IBA", "FPA", "PCP", "PPI",
 }
 
-_CODE_RE = re.compile(r"[A-Z0-9]+(?:[-_][A-Z0-9]+){2,}")
+_CODE_RE = re.compile(r"[A-Z0-9]+(?:[-_.][A-Z0-9]+){2,}")
 _YEAR_RE = re.compile(r"(?:19|20)\d{2}")
 _SPLIT_RE = re.compile(r"[-_/]+")
+_DOT_SPLIT_RE = re.compile(r"[-_/.]+")
+
+# ── Programme hierarchy codes → friendly names (FR, EN) ──
+# Handles dot-separated codes (HORIZON.2.5) and H2020 hierarchy codes.
+# Looked up by exact match first, then longest-prefix match.
+PROGRAMME_HIERARCHY_LABELS: dict[str, tuple[str, str]] = {
+    # Horizon Europe — Pillars
+    "HORIZON.1":     ("Excellence scientifique", "Excellent Science"),
+    "HORIZON.1.1":   ("ERC – Conseil européen de la recherche", "ERC – European Research Council"),
+    "HORIZON.1.2":   ("Actions Marie Skłodowska-Curie", "Marie Skłodowska-Curie Actions"),
+    "HORIZON.1.3":   ("Infrastructures de recherche", "Research Infrastructures"),
+    "HORIZON.1.4":   ("Excellence scientifique – Autre", "Excellent Science – Other"),
+    "HORIZON.2":     ("Défis mondiaux & compétitivité", "Global Challenges & Competitiveness"),
+    "HORIZON.2.1":   ("Santé", "Health"),
+    "HORIZON.2.2":   ("Culture, créativité & société inclusive", "Culture, Creativity & Inclusive Society"),
+    "HORIZON.2.3":   ("Sécurité civile", "Civil Security for Society"),
+    "HORIZON.2.4":   ("Numérique, industrie & espace", "Digital, Industry & Space"),
+    "HORIZON.2.5":   ("Climat, énergie & mobilité", "Climate, Energy & Mobility"),
+    "HORIZON.2.6":   ("Alimentation, bioéconomie & environnement", "Food, Bioeconomy & Environment"),
+    "HORIZON.3":     ("Europe innovante", "Innovative Europe"),
+    "HORIZON.3.1":   ("Conseil européen de l'innovation (EIC)", "European Innovation Council (EIC)"),
+    "HORIZON.3.2":   ("Écosystèmes d'innovation européens", "European Innovation Ecosystems"),
+    "HORIZON.3.3":   ("Institut européen d'innovation (EIT)", "European Institute of Innovation & Technology (EIT)"),
+    "HORIZON.4":     ("Élargissement & renforcement de l'EER", "Widening & Strengthening ERA"),
+    "HORIZON.4.1":   ("Élargissement de la participation", "Widening Participation"),
+    "HORIZON.4.2":   ("Renforcement de l'EER", "Strengthening ERA"),
+    # H2020 — Pillars & priorities
+    "H2020-EU.1":    ("Excellence scientifique", "Excellent Science"),
+    "H2020-EU.1.1":  ("ERC – Conseil européen de la recherche", "ERC – European Research Council"),
+    "H2020-EU.1.2":  ("Technologies futures & émergentes (FET)", "Future & Emerging Technologies (FET)"),
+    "H2020-EU.1.3":  ("Actions Marie Skłodowska-Curie", "Marie Skłodowska-Curie Actions"),
+    "H2020-EU.1.4":  ("Infrastructures de recherche", "Research Infrastructures"),
+    "H2020-EU.2":    ("Primauté industrielle", "Industrial Leadership"),
+    "H2020-EU.2.1":  ("Technologies clés génériques (LEIT)", "Leadership in Enabling Technologies (LEIT)"),
+    "H2020-EU.2.1.1": ("TIC – Technologies de l'information", "ICT – Information & Communication Technologies"),
+    "H2020-EU.2.1.2": ("Nanotechnologies & matériaux avancés", "Nanotechnologies & Advanced Materials"),
+    "H2020-EU.2.1.3": ("Fabrication & transformation avancées", "Advanced Manufacturing & Processing"),
+    "H2020-EU.2.1.4": ("Biotechnologie", "Biotechnology"),
+    "H2020-EU.2.1.5": ("Espace", "Space"),
+    "H2020-EU.2.1.6": ("Technologies énergétiques bas-carbone", "Low-Carbon Energy Technologies"),
+    "H2020-EU.2.3":  ("Innovation dans les PME", "Innovation in SMEs"),
+    "H2020-EU.3":    ("Défis de société", "Societal Challenges"),
+    "H2020-EU.3.1":  ("Santé & bien-être", "Health & Wellbeing"),
+    "H2020-EU.3.2":  ("Sécurité alimentaire & bioéconomie", "Food Security & Bioeconomy"),
+    "H2020-EU.3.3":  ("Énergie sûre, propre & efficace", "Secure, Clean & Efficient Energy"),
+    "H2020-EU.3.4":  ("Transports intelligents & intégrés", "Smart, Green & Integrated Transport"),
+    "H2020-EU.3.5":  ("Climat, environnement & ressources", "Climate, Environment & Resources"),
+    "H2020-EU.3.6":  ("Sociétés inclusives & innovantes", "Inclusive & Innovative Societies"),
+    "H2020-EU.3.7":  ("Sociétés sûres", "Secure Societies"),
+    "H2020-EU.4":    ("Diffusion de l'excellence & élargissement", "Spreading Excellence & Widening"),
+    "H2020-EU.5":    ("Science avec & pour la société", "Science with and for Society"),
+    # H2020 — specific programmes
+    "H2020-Euratom":  ("Recherche & formation Euratom", "Euratom Research & Training"),
+    "H2020-EC":       ("Commission européenne – H2020", "European Commission – H2020"),
+    "H2020-SEWP":     ("Diffusion de l'excellence", "Spreading Excellence & Widening Participation"),
+    # Framework / instrument short codes
+    "ERC":            ("ERC – Conseil européen de la recherche", "ERC – European Research Council"),
+    "MSCA":           ("Actions Marie Skłodowska-Curie", "Marie Skłodowska-Curie Actions"),
+    "FET":            ("Technologies futures & émergentes", "Future & Emerging Technologies"),
+    "SMEInst":        ("Instrument PME", "SME Instrument"),
+    "EIC":            ("Conseil européen de l'innovation (EIC)", "European Innovation Council (EIC)"),
+    "EIT":            ("Institut européen d'innovation (EIT)", "European Institute of Innovation & Technology (EIT)"),
+    "FCH":            ("Piles à combustible & hydrogène", "Fuel Cells & Hydrogen"),
+    "FCH2":           ("Piles à combustible & hydrogène 2", "Fuel Cells & Hydrogen 2"),
+    "CleanSky":       ("Aviation propre – Clean Sky", "Clean Sky"),
+    "CleanSky2":      ("Aviation propre – Clean Sky 2", "Clean Sky 2"),
+    "CleanH2":        ("Hydrogène propre", "Clean Hydrogen"),
+    "CleanAviation":  ("Aviation propre", "Clean Aviation"),
+    "SESAR":          ("SESAR – Gestion du trafic aérien", "SESAR – Air Traffic Management"),
+    "S2R":            ("Shift2Rail – Innovation ferroviaire", "Shift2Rail – Railway Innovation"),
+    "ERSR":           ("Europe's Rail", "Europe's Rail"),
+    "ECSEL":          ("ECSEL – Composants & systèmes électroniques", "ECSEL – Electronic Components & Systems"),
+    "KDT":            ("Technologies numériques clés", "Key Digital Technologies"),
+    "BBI":            ("Industries biosourcées", "Bio-Based Industries"),
+    "CBE":            ("Europe biosourcée circulaire", "Circular Bio-based Europe"),
+    "IMI":            ("Initiative médicaments innovants", "Innovative Medicines Initiative"),
+    "IMI2":           ("Initiative médicaments innovants 2", "Innovative Medicines Initiative 2"),
+    "IHI":            ("Initiative pour la santé innovante", "Innovative Health Initiative"),
+    "EDCTP":          ("EDCTP – Partenariat essais cliniques", "EDCTP – Clinical Trials Partnership"),
+    "EDCTP3":         ("Santé mondiale EDCTP3", "Global Health EDCTP3"),
+    "EuroHPC":        ("Calcul haute performance européen", "European High Performance Computing"),
+    "SNS":            ("Réseaux & services intelligents", "Smart Networks & Services"),
+    "LIFE":           ("Programme LIFE – Environnement & climat", "LIFE Programme – Environment & Climate"),
+    "CEF":            ("Mécanisme pour l'interconnexion en Europe", "Connecting Europe Facility"),
+    "DEP":            ("Programme Europe numérique", "Digital Europe Programme"),
+    "RFCS":           ("Fonds de recherche charbon & acier", "Research Fund for Coal & Steel"),
+    "Euratom":        ("Recherche & formation Euratom", "Euratom Research & Training"),
+    "InnovFund":      ("Fonds pour l'innovation", "Innovation Fund"),
+    # FP7
+    "FP7":            ("7e programme-cadre (FP7)", "Framework Programme 7 (FP7)"),
+    "FP7-ENERGY":     ("FP7 – Énergie", "FP7 – Energy"),
+    "FP7-NMP":        ("FP7 – Nanosciences & nouveaux matériaux", "FP7 – Nanosciences & New Materials"),
+    "FP7-TRANSPORT":  ("FP7 – Transport", "FP7 – Transport"),
+    "FP7-ENV":        ("FP7 – Environnement", "FP7 – Environment"),
+    "FP7-HEALTH":     ("FP7 – Santé", "FP7 – Health"),
+    "FP7-ICT":        ("FP7 – TIC", "FP7 – ICT"),
+    "FP7-KBBE":       ("FP7 – Alimentation & biotechnologie", "FP7 – Food & Biotechnology"),
+    "FP7-PEOPLE":     ("FP7 – Marie Curie", "FP7 – People (Marie Curie)"),
+    "FP7-IDEAS":      ("FP7 – Idées (ERC)", "FP7 – Ideas (ERC)"),
+    "FP7-SPA":        ("FP7 – Espace", "FP7 – Space"),
+    "FP7-SEC":        ("FP7 – Sécurité", "FP7 – Security"),
+    "FP7-SSH":        ("FP7 – Sciences sociales & humaines", "FP7 – Social Sciences & Humanities"),
+    "FP7-INFRASTRUCTURES": ("FP7 – Infrastructures", "FP7 – Infrastructures"),
+    "FP7-JTI":        ("FP7 – Initiatives technologiques conjointes", "FP7 – Joint Technology Initiatives"),
+    "FP7-EURATOM":    ("FP7 – Euratom", "FP7 – Euratom"),
+    # Horizon Europe topic-level prefixes
+    "HORIZON-CL1":    ("Santé", "Health"),
+    "HORIZON-CL2":    ("Culture, créativité & société inclusive", "Culture, Creativity & Inclusive Society"),
+    "HORIZON-CL3":    ("Sécurité civile", "Civil Security for Society"),
+    "HORIZON-CL4":    ("Numérique, industrie & espace", "Digital, Industry & Space"),
+    "HORIZON-CL5":    ("Climat, énergie & mobilité", "Climate, Energy & Mobility"),
+    "HORIZON-CL6":    ("Alimentation, bioéconomie & environnement", "Food, Bioeconomy & Environment"),
+    "HORIZON-ERC":    ("ERC – Conseil européen de la recherche", "ERC – European Research Council"),
+    "HORIZON-MSCA":   ("Actions Marie Skłodowska-Curie", "Marie Skłodowska-Curie Actions"),
+    "HORIZON-INFRA":  ("Infrastructures de recherche", "Research Infrastructures"),
+    "HORIZON-EIC":    ("Conseil européen de l'innovation (EIC)", "European Innovation Council (EIC)"),
+    "HORIZON-EIE":    ("Écosystèmes d'innovation européens", "European Innovation Ecosystems"),
+    "HORIZON-WIDERA": ("Élargissement de la participation", "Widening Participation"),
+    "HORIZON-JU":     ("Entreprises communes", "Joint Undertakings"),
+    "HORIZON-MISS":   ("Missions de l'UE", "EU Missions"),
+    "HORIZON-AG":     ("Autres actions Horizon Europe", "Other Horizon Europe Actions"),
+}
+
+
+def _programme_hierarchy_lookup(value: str, lang: str) -> str:
+    """Look up a programme code in the hierarchy mapping.
+    Tries exact match first, then longest prefix match."""
+    if not value:
+        return ""
+    # exact match
+    entry = PROGRAMME_HIERARCHY_LABELS.get(value)
+    if entry:
+        return _pick(entry, lang)
+    # longest-prefix match (must be at least 3 chars)
+    best_prefix = ""
+    best_entry: tuple[str, str] | None = None
+    for code, labels in PROGRAMME_HIERARCHY_LABELS.items():
+        if value.startswith(code) and len(code) > len(best_prefix):
+            best_prefix = code
+            best_entry = labels
+    if best_entry and len(best_prefix) >= 3:
+        return _pick(best_entry, lang)
+    return ""
 
 
 def _pick(labels: tuple[str, str], lang: str) -> str:
@@ -234,6 +377,10 @@ def _humanize_code_like(value: str, lang: str) -> str:
     value = _clean_spaces(value)
     if not value:
         return ""
+    # 1) Try programme hierarchy lookup (handles HORIZON.2.5, H2020-EU.3.3, etc.)
+    hierarchy_label = _programme_hierarchy_lookup(value, lang)
+    if hierarchy_label:
+        return hierarchy_label
     upper = value.upper()
     if upper.startswith("ERC-"):
         return _erc_label(value, lang)
@@ -241,7 +388,7 @@ def _humanize_code_like(value: str, lang: str) -> str:
     if prefixed:
         return prefixed
     if _CODE_RE.fullmatch(upper):
-        tokens = _SPLIT_RE.split(value)
+        tokens = _DOT_SPLIT_RE.split(value)
         lead = _token_label(tokens[0], lang)
         tails = _tail_labels(tokens[1:], lang)
         semantic_tails = [t for t in tails if not _is_administrative_label(str(t))]
@@ -323,8 +470,8 @@ def build_dimension_hover_html(
 ) -> str:
     raw_value = _clean_spaces(raw)
     display_value = format_dimension_value(dimension, raw_value, lang=lang, review_label=review_label, display_mode=display_mode)
-    raw_label = "Code CORDIS" if lang == "FR" else "CORDIS code"
-    source_label = "Source du thème principal" if lang == "FR" else "Primary theme source"
+    raw_label = "Code programme" if lang == "FR" else "Programme code"
+    source_label = "Source du thème" if lang == "FR" else "Theme source"
     parts = [f"<b>{html.escape(display_value or raw_value)}</b>"]
     if value_line:
         parts.append(html.escape(str(value_line)))
