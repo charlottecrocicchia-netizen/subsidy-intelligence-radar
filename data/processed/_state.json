@@ -1,8 +1,8 @@
 {
   "external_connectors": {
     "cinea_api": {
-      "stamp": "sha256=8ee15e08c2784cf8ab33c4342921296c64d321949a8d3a902a5f06a422e30eb8",
-      "last_run_ts": 1774339357.2373788,
+      "stamp": "sha256=3e647f16e29bb078fe844482de2fca480aa13a0c8bfe789ad3dd6c6d0c5a8a50",
+      "last_run_ts": 1774425618.7200432,
       "last_reason": "updated",
       "last_ok": true,
       "output_file": "/home/runner/work/subsidy-intelligence-radar/subsidy-intelligence-radar/data/external/connectors/cinea_projects.json",
@@ -23,8 +23,8 @@
       "enabled_if_env": true
     },
     "eu_funding_portal": {
-      "stamp": "sha256=2f74938aa2daf9871f3ae9c906acef279aeb6f703aa79df24b8b8b830c127589",
-      "last_run_ts": 1774339359.8612642,
+      "stamp": "sha256=29c1e2a632c89d218fd08ae3da98de056611145041edc3c641f80d080793adf3",
+      "last_run_ts": 1774425620.6846328,
       "last_reason": "updated",
       "last_ok": true,
       "output_file": "/home/runner/work/subsidy-intelligence-radar/subsidy-intelligence-radar/data/external/connectors/eu_funding_projects.json",
@@ -35,7 +35,7 @@
     },
     "anr_api": {
       "stamp": "etag=|lm=|cl=",
-      "last_run_ts": 1774339360.555508,
+      "last_run_ts": 1774425621.843552,
       "last_reason": "up_to_date",
       "last_ok": true,
       "output_file": "/home/runner/work/subsidy-intelligence-radar/subsidy-intelligence-radar/data/external/connectors/anr_projects.json",
@@ -60,5 +60,5 @@
     "cordis_horizon_europe": "etag=\"69a591ee-1dabcbe\"|lm=Mon, 02 Mar 2026 13:34:38 GMT|cl=31112382",
     "cordis_h2020": "etag=\"69a591d1-35ecec1\"|lm=Mon, 02 Mar 2026 13:34:09 GMT|cl=56544961"
   },
-  "last_build_ts": 1774342399.5949671
+  "last_build_ts": 1774428275.3971956
 }
