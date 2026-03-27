@@ -5027,947 +5027,14 @@
       },
       {
         "identifier": [
-          "31950878@bundesamt-fur-statistik-bfs"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/CHE",
-          "label": "Switzerland",
-          "id": "ch"
-        },
-        "keywords": [
-          {
-            "language": "de",
-            "id": "kultur-medien-informationsgesellschaft-sport",
-            "label": "kultur-medien-informationsgesellschaft-sport"
-          },
-          {
-            "language": "it",
-            "id": "cultura-media-societa-dellinformazione-sport",
-            "label": "cultura-media-societa-dellinformazione-sport"
-          },
-          {
-            "language": "en",
-            "id": "culture-media-information-society-sports",
-            "label": "culture-media-information-society-sports"
-          },
-          {
-            "language": "fr",
-            "id": "culture-medias-societe-de-linformation-sport",
-            "label": "culture-medias-societe-de-linformation-sport"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/31950878-bundesamt-fur-statistik-bfs",
-        "catalog": {
-          "id": "opendata-swiss",
-          "description": {
-            "en": "Open Data Portal Switzerland"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:opendata@bfs.admin.ch",
-            "name": "Federal Statistical Office",
-            "homepage": "https://www.bfs.admin.ch"
-          },
-          "source_type": "dcat-ap",
-          "title": {
-            "de": "opendata.swiss"
-          },
-          "modified": "2024-03-12T10:32:33Z",
-          "homepage": "https://opendata.swiss",
-          "issued": "2024-03-12T10:32:33Z",
-          "country": {
-            "label": "Switzerland",
-            "id": "ch",
-            "resource": "http://publications.europa.eu/resource/authority/country/CHE"
-          },
-          "spatial_resource": [
-            {
-              "label": "Switzerland",
-              "id": "ch",
-              "resource": "http://publications.europa.eu/resource/authority/country/CHE"
-            }
-          ],
-          "spatial": [],
-          "language": [
-            {
-              "id": "de",
-              "label": "German",
-              "resource": "http://publications.europa.eu/resource/authority/language/DEU"
-            }
-          ]
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": false,
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "fr": {
-              "machine_translated": false,
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "en": {
-              "machine_translated": false,
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "it": {
-              "machine_translated": false,
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "es": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "de",
-              "received": "2024-09-08T05:03:56Z",
-              "issued": "2024-06-11T20:17:07Z"
-            }
-          },
-          "full_available_languages": [
-            "mt",
-            "es",
-            "cs",
-            "en",
-            "sl",
-            "pl",
-            "nl",
-            "ga",
-            "hu",
-            "da",
-            "el",
-            "uk",
-            "bg",
-            "lv",
-            "de",
-            "it",
-            "et",
-            "ro",
-            "sv",
-            "sk",
-            "fr",
-            "fi",
-            "pt",
-            "hr",
-            "lt"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Diese Tabelle präsentiert die monatlichen Ergebnisse der Film- und Kinostatistik nach Kinowochen (Anzahl Eintritte, Filme, Vorführungen, aktive Kinos, aktive Kinosäle) nach Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und Status (neu oder alle), ab 2019. Die Beschreibungen der Variablen in der CSV-Datei sind im Anhang verfügbar.",
-          "fi": "Tässä taulukossa esitetään elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikkojen mukaan (katsojamäärät, elokuvat, näytökset, aktiiviset elokuvateatterit, aktiiviset elokuvateatterit) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja aseman (uudet tai kaikki) mukaan vuodesta 2019 alkaen. CSV-tiedoston muuttujien kuvaukset löytyvät liitteestä.",
-          "pt": "Este quadro apresenta os resultados mensais das estatísticas de cinema e cinema por semanas de cinema (número de entradas, filmes, projeções, cinemas ativos, cinemas ativos) por origem do filme (todos os países, Suíça, Europa, outros países, EUA) e estatuto (novo ou todos), a partir de 2019. As descrições das variáveis no ficheiro CSV estão disponíveis no apêndice.",
-          "bg": "Тази таблица представя месечните резултати от статистиката на филмите и киното по кинематографични седмици (брой на входовете, филми, прожекции, активни кина, активни кина) по произход на филма (всички държави, Швейцария, Европа, други държави, САЩ) и статус (нов или всички), считано от 2019 г. Описанията на променливите в CSV файла са налични в допълнението.",
-          "lt": "Šioje lentelėje pateikiami mėnesiniai kino ir kino statistikos rezultatai pagal kino savaites (žiūrovų skaičius, filmai, peržiūros, aktyvūs kino teatrai, aktyvūs kino teatrai) pagal filmo kilmę (visos šalys, Šveicarija, Europa, kitos šalys, JAV) ir statusą (naujas arba visas) 2019 m. Kintamųjų aprašymai CSV rinkmenoje pateikiami priedėlyje.",
-          "lv": "Šajā tabulā atspoguļoti filmu un kino statistikas ikmēneša rezultāti pa kinoteātru nedēļām (ieejas reižu skaits, filmas, seansi, aktīvie kinoteātri, aktīvie kinoteātri) pēc filmas izcelsmes (visas valstis, Šveice, Eiropa, citas valstis, ASV) un statusa (jaunas vai visas), sākot no 2019. gada.\nMainīgo apraksti CSV datnē ir pieejami pielikumā.",
-          "hr": "Ova tablica prikazuje mjesečne rezultate filmske i kino statistike po kino tjednima (broj ulaznica, filmova, projekcija, aktivnih kina, aktivnih kina) prema podrijetlu filma (sve zemlje, Švicarska, Europa, druge zemlje, SAD) i statusu (novi ili svi), od 2019. godine. Opisi varijabli u datoteci CSV dostupni su u Dodatku.",
-          "fr": "Ce tableau présente les résultats mensuels de la statistique du film et du cinéma par semaine cinématographique (nombre d'entrées, films, projections, cinémas actifs, salles actives) selon l'origine du film (tous les pays, Suisse, Europe, autres pays, Etats-Unis) et leur statut (récent ou pas), depuis 2019. Les descriptions des variables du fichier CSV sont disponibles dans l’annexe.",
-          "hu": "Ez a táblázat a film- és mozistatisztikák havi eredményeit mutatja be mozihetek (belépők, filmek, vetítések, aktív mozik, aktív mozik) szerint, a film eredete (valamennyi ország, Svájc, Európa, más országok, USA) és státusza (új vagy összes) szerint, 2019-től kezdődően. A CSV-fájl változóinak leírása a függelékben található.",
-          "uk": "У цій таблиці представлені щомісячні результати кіно та кіностатистики за тижнями кіно (кількість прийомів, фільмів, показів, активних кінотеатрів, активних кінотеатрів) за походженням фільму (всі країни, Швейцарія, Європа, інші країни, США) та статус (новий або всі), станом на 2019 рік. Опис змінних у файлі CSV доступні в додатку.",
-          "sk": "V tejto tabuľke sa uvádzajú mesačné výsledky filmovej a kinematografickej štatistiky podľa týždňov kín (počet vstupov, filmov, premietaní, aktívnych kín, aktívnych kín) podľa pôvodu filmu (všetky krajiny, Švajčiarsko, Európa, ostatné krajiny, USA) a stavu (nový alebo celý) k roku 2019. Opisy premenných v súbore CSV sú k dispozícii v dodatku.",
-          "sl": "Ta preglednica prikazuje mesečne rezultate filmske in kinematografske statistike po tednih kinematografije (število vstopnin, filmov, projekcij, aktivnih kinematografov, aktivnih kinematografov) po izvoru filma (vse države, Švica, Evropa, druge države, ZDA) in statusu (novi ali vsi) od leta 2019. Opisi spremenljivk v datoteki CSV so na voljo v dodatku.",
-          "ga": "Cuirtear i láthair sa tábla seo torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne de réir seachtainí pictiúrlainne (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach, na bpictiúrlann gníomhach) de réir thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, SAM) agus de réir stádais (nua nó uile), ó 2019 ar aghaidh. Tá na tuairiscí ar na hathróga sa chomhad CSV ar fáil san aguisín.",
-          "sv": "I denna tabell visas månadsresultaten för film- och biografstatistik per biografvecka (antal inträden, filmer, visningar, aktiva biografer, aktiva biografer) efter filmens ursprung (alla länder, Schweiz, Europa, andra länder, USA) och status (ny eller alla) från och med 2019. Beskrivningarna av variablerna i CSV-filen finns i bilagan.",
-          "el": "Ο πίνακας αυτός παρουσιάζει τα μηνιαία αποτελέσματα των στατιστικών ταινιών και κινηματογράφων ανά κινηματογραφικές εβδομάδες (αριθμός εισαγωγών, ταινιών, προβολών, ενεργών κινηματογράφων, ενεργητικών κινηματογράφων) ανά προέλευση της ταινίας (όλες οι χώρες, Ελβετία, Ευρώπη, άλλες χώρες, ΗΠΑ) και καθεστώς (νέες ή όλες), από το 2019. Οι περιγραφές των μεταβλητών στο αρχείο CSV είναι διαθέσιμες στο προσάρτημα.",
-          "mt": "Din it-tabella tippreżenta r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema skont il-ġimgħat taċ-ċinema (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi, ċinemas attivi) skont l-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti tal-Amerka) u l-istatus (ġdid jew kollu), mill-2019. Id-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-appendiċi.",
-          "en": "This table contains the monthly results of film and cinema statistics by cinema week (number of admissions, films, screenings, active cinemas) according to the origin of the film (all countries, Switzerland, Europe, other countries, United States) and their status (recent or not), since 2019. Descriptions of the variables in the CSV file are available in the appendix.",
-          "it": "Questa tabella presenta i risultati mensili delle statistiche sui film e sui cinema per settimana cinematografica (numero di ingressi, film, proiezioni, cinema attivi) in base all'origine del film (tutti i Paesi, Svizzera, Europa, altri Paesi, Stati Uniti) e al loro stato (recente o meno), dal 2019. Le descrizioni delle variabili nel file CSV sono disponibili in appendice.",
-          "es": "Esta tabla presenta los resultados mensuales de las estadísticas de cine y cine por semanas de cine (número de entradas, películas, proyecciones, cines activos, cines activos) por origen de la película (todos los países, Suiza, Europa, otros países, Estados Unidos) y estado (nuevo o todos), a partir de 2019.\nLas descripciones de las variables en el archivo CSV están disponibles en el apéndice.",
-          "et": "Tabelis on esitatud filmi- ja kinostatistika kuutulemused kinonädalate kaupa (sissepääsude arv, filmid, linastused, aktiivsed kinod, aktiivsed kinod) filmi päritolu (kõik riigid, Šveits, Euroopa, muud riigid, USA) ja staatuse (uus või kõik) järgi alates 2019. aastast. CSV-faili muutujate kirjeldused on esitatud lisas.",
-          "cs": "Tato tabulka uvádí měsíční výsledky filmových a kinematografických statistik podle týdnů kinematografie (počet vstupů, filmů, projekcí, aktivních kin, aktivních kin) podle původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, USA) a stavu (nové nebo všechny) k roku 2019.\nPopisy proměnných v CSV souboru jsou k dispozici v příloze.",
-          "pl": "W tabeli przedstawiono miesięczne wyniki statystyk dotyczących filmów i kin według tygodni kinowych (liczba widzów, filmy, projekcje, kina aktywne, kina aktywne) według pochodzenia filmu (wszystkie kraje, Szwajcaria, Europa, inne kraje, USA) i statusu (nowy lub wszystkie), począwszy od 2019 r. Opisy zmiennych w pliku CSV są dostępne w załączniku.",
-          "ro": "Acest tabel prezintă rezultatele lunare ale statisticilor cinematografice pe săptămâni de cinematografie (număr de intrări, filme, proiecții, cinematografe active, cinematografe active) în funcție de originea filmului (toate țările, Elveția, Europa, alte țări, SUA) și statutul (nou sau total), începând din 2019. Descrierile variabilelor din fișierul CSV sunt disponibile în anexă.",
-          "da": "Denne tabel viser de månedlige resultater af film- og biografstatistikker efter biografuger (antal biografgængere, film, forevisninger, aktive biografer, aktive biografer) efter filmens oprindelse (alle lande, Schweiz, Europa, andre lande, USA) og status (ny eller alle) fra 2019. Beskrivelserne af variablerne i CSV-filen findes i tillægget.",
-          "nl": "Deze tabel geeft de maandelijkse resultaten weer van film- en bioscoopstatistieken per bioscoopweek (aantal opnames, films, vertoningen, actieve bioscopen, actieve bioscopen) naar oorsprong van de film (alle landen, Zwitserland, Europa, andere landen, VS) en status (nieuw of alle), vanaf 2019. De beschrijvingen van de variabelen in het CSV-bestand zijn beschikbaar in de bijlage."
-        },
-        "landing_page": [
-          {
-            "resource": "https://www.bfs.admin.ch/asset/de/ts-x-16.02.01-01"
-          }
-        ],
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/ITA",
-            "id": "it",
-            "label": "Italian"
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/ENG",
-            "id": "en",
-            "label": "English"
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/FRA",
-            "id": "fr",
-            "label": "French"
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/DEU",
-            "id": "de",
-            "label": "German"
-          }
-        ],
-        "title": {
-          "de": "Kinostatistik - Ergebnisse nach Kinowochen",
-          "fi": "Elokuvatilastot - tulokset elokuvaviikkojen mukaan",
-          "pt": "Estatísticas do Cinema - Resultados por Semanas do Cinema",
-          "bg": "Кино Статистика — Резултати по Седмици на киното",
-          "lt": "Kino statistika - Kino savaitės rezultatai",
-          "lv": "Kino statistika - Kino nedēļu rezultāti",
-          "hr": "Statistika kina - rezultati po tjednima kina",
-          "fr": "Statistique du cinéma - Résultats par semaine cinématographique",
-          "hu": "Mozistatisztika - Mozihetek eredményei",
-          "uk": "Статистика кінотеатрів — результати за Кіно тижнями",
-          "sk": "Kinematografické štatistiky - výsledky podľa kinematografických týždňov",
-          "sl": "Kinematografska statistika - rezultati po filmskih tednih",
-          "ga": "Staitisticí na bPictiúrlann - Torthaí de réir Seachtaine na bPictiúrlann",
-          "sv": "Filmstatistik - Resultat per filmvecka",
-          "mt": "Statistika dwar iċ-Ċinema - Riżultati skont il-Ġimgħat taċ-Ċinema",
-          "el": "Στατιστικά Κινηματογράφου — Αποτελέσματα ανά Εβδομάδα Κινηματογράφου",
-          "en": "Cinema statistics - Results by cinema week",
-          "it": "Statistica del cinema - Risultati per settimana cinematografica",
-          "es": "Estadísticas de Cine - Resultados por Semanas de Cine",
-          "et": "Kinostatistika - Tulemused kinonädalate lõikes",
-          "cs": "Statistiky kinematografie - Výsledky podle Týdnů kinematografie",
-          "pl": "Statystyki Kino - Wyniki przez Cinema Weeks",
-          "da": "Biograf Statistik - Resultater af Biograf Uger",
-          "ro": "Statistici cinematografice - Rezultate după Săptămânile Cinematografiei",
-          "nl": "Cinema Statistieken - Resultaten door Cinema Weken"
-        },
-        "accrual_periodicity": {
-          "resource": "http://publications.europa.eu/resource/authority/frequency/MONTHLY",
-          "label": "monthly"
-        },
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "id": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "label": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "media_type": "text/html",
-            "rights": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "access_url": [
-              "https://www.bfs.admin.ch/asset/en/ts-x-16.02.01-01"
-            ],
-            "format": {
-              "resource": "http://publications.europa.eu/resource/authority/file-type/HTML",
-              "id": "HTML",
-              "label": "HTML"
-            },
-            "description": {
-              "de": "Diese Tabelle enthält die monatlichen Ergebnisse der Film- und Kinostatistiken nach Kinowoche (Anzahl der Kinobesucher, Filme, Vorführungen, aktive Kinos) nach Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und ihrem Status (letzter oder nicht letzter) seit 2019. Beschreibungen der Variablen in der CSV-Datei sind im Anhang verfügbar.",
-              "fi": "Tämä taulukko sisältää elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikoittain (katsojien, elokuvien, esitysten ja aktiivisten elokuvateattereiden määrä) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja niiden aseman (viimeaikainen tai ei) mukaan vuodesta 2019 lähtien. CSV-tiedoston muuttujien kuvaukset löytyvät liitteestä.",
-              "pt": "Este quadro contém os resultados mensais das estatísticas cinematográficas por semana de cinema (número de entradas, filmes, projeções, cinemas ativos) de acordo com a origem do filme (todos os países, Suíça, Europa, outros países, Estados Unidos) e o seu estatuto (recente ou não), desde 2019. As descrições das variáveis no ficheiro CSV estão disponíveis no apêndice.",
-              "bg": "Тази таблица съдържа месечните резултати от статистиката на филмите и киното по седмица на киното (брой на входовете, филмите, прожекциите, активните кина) според произхода на филма (всички държави, Швейцария, Европа, други държави, САЩ) и техния статут (в последно време или не), от 2019 г. насам. Описанията на променливите в CSV файла са налични в допълнението.",
-              "lt": "Šioje lentelėje pateikiami mėnesiniai kino ir kino statistikos rezultatai pagal kino savaitę (žiūrovų, filmų, peržiūrų, aktyvių kino teatrų skaičius) pagal filmo kilmę (visose šalyse, Šveicarijoje, Europoje, kitose šalyse, Jungtinėse Amerikos Valstijose) ir statusą (neseniai arba ne) nuo 2019 m. CSV rinkmenos kintamųjų aprašymai pateikiami priedėlyje.",
-              "lv": "Šajā tabulā ir iekļauti filmu un kino statistikas ikmēneša rezultāti pa kinoteātru nedēļām (ieeju skaits, filmas, seansi, aktīvie kinoteātri) pēc filmas izcelsmes (visas valstis, Šveice, Eiropa, citas valstis, Amerikas Savienotās Valstis) un statusa (nesen vai nesen) kopš 2019. gada. Mainīgo apraksti CSV datnē ir pieejami pielikumā.",
-              "hr": "Ova tablica sadrži mjesečne rezultate filmske i kino statistike po tjednu kina (broj ulaznica, filmova, projekcija, aktivnih kina) prema podrijetlu filma (sve zemlje, Švicarska, Europa, druge zemlje, Sjedinjene Američke Države) i njihovom statusu (nedavno ili ne), od 2019. godine. Opisi varijabli u datoteci CSV dostupni su u Dodatku.",
-              "fr": "Ce tableau contient les résultats mensuels des statistiques cinématographiques et cinématographiques par semaine de cinéma (nombre d'entrées, films, projections, cinémas actifs) en fonction de l'origine du film (tous pays, Suisse, Europe, autres pays, États-Unis) et de leur statut (récent ou non), depuis 2019. Les descriptions des variables dans le fichier CSV sont disponibles en annexe.",
-              "hu": "Ez a táblázat a film- és mozistatisztikák havi eredményeit tartalmazza mozihétenként (belépők, filmek, vetítések, aktív mozik száma) a film eredete (valamennyi ország, Svájc, Európa, más országok, Egyesült Államok) és státusza (legutóbbi vagy nem) szerint, 2019 óta. A CSV-fájl változóinak leírása a függelékben található.",
-              "uk": "Ця таблиця містить щомісячні результати кіно та кіностатистики за тиждень кіно (кількість допусків, фільмів, показів, активних кінотеатрів) за походженням фільму (всі країни, Швейцарія, Європа, інші країни, США) та їх статус (нещодавні чи ні), з 2019 року. Опис змінних у файлі CSV доступні в додатку.",
-              "sk": "Táto tabuľka obsahuje mesačné výsledky filmových a kinematografických štatistík podľa týždňa kín (počet vstupov, filmov, premietaní, aktívnych kín) podľa pôvodu filmu (všetky krajiny, Švajčiarsko, Európa, ostatné krajiny, Spojené štáty) a ich statusu (nedávny alebo nie) od roku 2019. Popisy premenných v súbore CSV sú k dispozícii v prílohe.",
-              "sl": "Ta preglednica vsebuje mesečne rezultate filmske in kinematografske statistike po tednih kinematografije (število vstopnin, filmov, projekcij, aktivnih kinematografov) glede na izvor filma (vse države, Švica, Evropa, druge države, Združene države) in njihov status (nedavni ali ne) od leta 2019. Opisi spremenljivk v datoteki CSV so na voljo v dodatku.",
-              "ga": "Sa tábla seo tá torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne de réir sheachtain na bpictiúrlann (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach) de réir thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, na Stáit Aontaithe) agus a stádas (le déanaí nó nach ea), ó 2019. Tá tuairiscí ar na hathróga sa chomhad CSV ar fáil san fhoscríbhinn.",
-              "sv": "Denna tabell innehåller de månatliga resultaten av film- och biografstatistik per biografvecka (antal inträden, filmer, visningar, aktiva biografer) enligt filmens ursprung (alla länder, Schweiz, Europa, andra länder, Förenta staterna) och deras status (nyligen eller inte), sedan 2019. Beskrivningar av variablerna i CSV-filen finns i bilagan.",
-              "el": "Ο πίνακας αυτός περιέχει τα μηνιαία αποτελέσματα των στατιστικών ταινιών και κινηματογράφων ανά εβδομάδα κινηματογράφου (αριθμός εισαγωγικών, ταινιών, προβολών, ενεργών κινηματογράφων) ανάλογα με την προέλευση της ταινίας (όλες τις χώρες, την Ελβετία, την Ευρώπη, άλλες χώρες, τις Ηνωμένες Πολιτείες) και την κατάστασή τους (πρόσφατη ή μη), από το 2019. Οι περιγραφές των μεταβλητών στο αρχείο CSV είναι διαθέσιμες στο προσάρτημα.",
-              "mt": "Din it-tabella fiha r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema skont il-ġimgħa taċ-ċinema (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi) skont l-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti) u l-istatus tagħhom (reċenti jew le), mill-2019. Id-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-appendiċi.",
-              "en": "This table contains the monthly results of film and cinema statistics by cinema week (number of admissions, films, screenings, active cinemas) according to the origin of the film (all countries, Switzerland, Europe, other countries, United States) and their status (recent or not), since 2019. Descriptions of the variables in the CSV file are available in the appendix.",
-              "it": "Questa tabella contiene i risultati mensili delle statistiche cinematografiche per settimana del cinema (numero di ingressi, film, proiezioni, cinema attivi) in base all'origine del film (tutti i paesi, Svizzera, Europa, altri paesi, Stati Uniti) e al loro status (recente o meno), dal 2019. Le descrizioni delle variabili nel file CSV sono disponibili in appendice.",
-              "es": "Esta tabla contiene los resultados mensuales de las estadísticas de cine y cine por semana de cine (número de entradas, películas, proyecciones, cines activos) según el origen de la película (todos los países, Suiza, Europa, otros países, Estados Unidos) y su estado (reciente o no), desde 2019. Las descripciones de las variables en el archivo CSV están disponibles en el apéndice.",
-              "et": "Tabelis on esitatud filmi- ja kinostatistika igakuised tulemused kinonädalate kaupa (vastuvõttude, filmide, linastuste, aktiivsete kinode arv) vastavalt filmi päritolule (kõik riigid, Šveits, Euroopa, muud riigid, Ameerika Ühendriigid) ja staatusele (hiljutine või mitte) alates 2019. aastast. CSV-faili muutujate kirjeldused on esitatud lisas.",
-              "cs": "Tato tabulka obsahuje měsíční výsledky filmových a kinematografických statistik podle týdne kinematografie (počet vstupů, filmů, projekcí, aktivních kin) podle původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, Spojené státy) a jejich stavu (nedávné či nikoli) od roku 2019. Popisy proměnných v CSV souboru jsou k dispozici v příloze.",
-              "pl": "Tabela zawiera miesięczne wyniki statystyk dotyczących filmów i kin według tygodnia kinowego (liczba widzów, filmy, projekcje, kina aktywne) w zależności od pochodzenia filmu (wszystkie kraje, Szwajcaria, Europa, inne kraje, Stany Zjednoczone) i ich statusu (ostatnie lub nie), od 2019 r. Opisy zmiennych w pliku CSV są dostępne w dodatku.",
-              "ro": "Acest tabel conține rezultatele lunare ale statisticilor cinematografice pe săptămâni de cinematografie (număr de intrări, filme, proiecții, cinematografe active) în funcție de originea filmului (toate țările, Elveția, Europa, alte țări, Statele Unite) și de statutul acestora (recent sau nu), începând din 2019. Descrierile variabilelor din fișierul CSV sunt disponibile în anexă.",
-              "da": "Denne tabel indeholder de månedlige resultater af film- og biografstatistikker efter biografuge (antal biografgængere, film, forevisninger, aktive biografer) efter filmens oprindelse (alle lande, Schweiz, Europa, andre lande, USA) og deres status (nylig eller ej) siden 2019. Beskrivelser af variablerne i CSV-filen findes i tillægget.",
-              "nl": "Deze tabel bevat de maandelijkse resultaten van film- en bioscoopstatistieken per filmweek (aantal opnames, films, vertoningen, actieve bioscopen) op basis van de oorsprong van de film (alle landen, Zwitserland, Europa, andere landen, Verenigde Staten) en hun status (recent of niet), sinds 2019. Beschrijvingen van de variabelen in het CSV-bestand zijn beschikbaar in de bijlage."
-            },
-            "language": [
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/ENG",
-                "id": "en",
-                "label": "English"
-              }
-            ],
-            "id": "a251a9f8-a617-46d2-a3e8-5de6c2e578b5",
-            "title": {
-              "de": "Kinostatistik - Ergebnisse nach Kinowoche",
-              "fi": "Elokuvatilastot - Tulokset elokuvaviikoittain",
-              "pt": "Estatísticas do cinema - Resultados por semana de cinema",
-              "bg": "Статистика на киното — резултати по седмица на киното",
-              "lt": "Kino statistika - Rezultatai pagal kino savaitę",
-              "hr": "Statistika kina - Rezultati po tjednu kina",
-              "lv": "Kino statistika - Rezultāti pēc kino nedēļas",
-              "fr": "Statistiques du cinéma - Résultats par semaine du cinéma",
-              "hu": "Mozistatisztika - Eredmények mozihét szerint",
-              "uk": "Статистика кіно — результати за тиждень кіно",
-              "sk": "Kinematografické štatistiky - Výsledky podľa týždňa kín",
-              "sl": "Statistični podatki o kinematografiji - rezultati po tednih kinematografije",
-              "ga": "Staitisticí na bpictiúrlann - Torthaí de réir sheachtain na bpictiúrlann",
-              "sv": "Biostatistik - Resultat per biovecka",
-              "mt": "Statistika dwar iċ-ċinema - Riżultati skont il-ġimgħa taċ-ċinema",
-              "el": "Στατιστικά Κινηματογράφου — Αποτελέσματα ανά Εβδομάδα Κινηματογράφου",
-              "en": "Cinema statistics - Results by cinema week",
-              "it": "Statistiche cinema - Risultati per settimana del cinema",
-              "es": "Estadísticas de cine - Resultados por semana de cine",
-              "et": "Kinostatistika - Tulemused kinonädala järgi",
-              "cs": "Statistiky kinematografie - Výsledky podle týdne kinematografie",
-              "pl": "Statystyki kinematografii - Wyniki według tygodnia kinowego",
-              "ro": "Statistici cinematografice - Rezultate după săptămâna cinematografică",
-              "da": "Biografstatistik - Resultater efter biografuge",
-              "nl": "Bioscoopstatistieken - Resultaten per filmweek"
-            },
-            "issued": "2024-05-07T06:30:00Z"
-          },
-          {
-            "license": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "id": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "label": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "media_type": "text/html",
-            "rights": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "access_url": [
-              "https://www.bfs.admin.ch/asset/fr/ts-x-16.02.01-01"
-            ],
-            "format": {
-              "resource": "http://publications.europa.eu/resource/authority/file-type/HTML",
-              "id": "HTML",
-              "label": "HTML"
-            },
-            "description": {
-              "de": "Diese Tabelle zeigt die monatlichen Ergebnisse der Film- und Kinostatistik pro Filmwoche (Anzahl der Vorführungen, Filme, Vorführungen, aktive Kinos, aktive Kinosäle) nach Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und Status (neu oder nicht), seit 2019.\nDie Beschreibungen der Variablen in der CSV-Datei sind im Anhang enthalten.",
-              "fi": "Tässä taulukossa esitetään elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikkoa kohden (katsojien, elokuvien, esitysten, aktiivisten elokuvateattereiden ja aktiivisten elokuvateattereiden määrä) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja aseman (viimeaikainen tai ei) mukaan vuodesta 2019 lähtien. CSV-tiedoston muuttujien kuvaukset ovat liitteessä.",
-              "pt": "Este quadro apresenta os resultados mensais das estatísticas cinematográficas por semana cinematográfica (número de entradas, filmes, projeções, cinemas ativos, cinemas ativos) de acordo com a origem do filme (todos os países, Suíça, Europa, outros países, Estados Unidos) e o seu estatuto (recente ou não), desde 2019. As descrições das variáveis no ficheiro CSV estão disponíveis no anexo.",
-              "bg": "Тази таблица представя месечните резултати от статистиката на филмите и киното за всяка филмова седмица (брой на входовете, филмите, прожекциите, активните кина, активните кина) според произхода на филма (всички държави, Швейцария, Европа, други държави, САЩ) и техния статут (в последно време или не) от 2019 г. насам. Описанията на променливите в CSV файла са на разположение в приложението.",
-              "lt": "Šioje lentelėje pateikiami mėnesiniai kino ir kino statistikos rezultatai pagal filmų savaitę (prisistatymų, filmų, peržiūrų, aktyvių kino teatrų, aktyvių kino teatrų skaičius) pagal filmo kilmę (visose šalyse, Šveicarijoje, Europoje, kitose šalyse, Jungtinėse Amerikos Valstijose) ir statusą (neseniai arba ne) nuo 2019 m.\nKintamųjų aprašymai CSV rinkmenoje pateikiami priede.",
-              "lv": "Šajā tabulā atspoguļoti filmu un kino statistikas mēneša rezultāti par katru filmu nedēļu (uzņemšanas reižu, filmu, demonstrējumu, aktīvo kinoteātru, aktīvo kinoteātru skaits) pēc filmas izcelsmes (visas valstis, Šveice, Eiropa, citas valstis, Amerikas Savienotās Valstis) un statusa (nesen vai nesen) kopš 2019. gada. Mainīgo lielumu apraksti CSV datnē ir pieejami pielikumā.",
-              "hr": "U ovoj tablici prikazani su mjesečni rezultati filmske i kinematografske statistike po tjednu prikazivanja (broj ulaznica, filmova, projekcija, aktivnih kina, aktivnih kina) prema podrijetlu filma (sve zemlje, Švicarska, Europa, druge zemlje, Sjedinjene Američke Države) i njihovom statusu (nedavno ili ne) od 2019. Opisi varijabli u datoteci CSV dostupni su u Prilogu.",
-              "fr": "Ce tableau présente les résultats mensuels de la statistique du film et du cinéma par semaine cinématographique (nombre d'entrées, films, projections, cinémas actifs, salles actives) selon l'origine du film (tous les pays, Suisse, Europe, autres pays, Etats-Unis) et leur statut (récent ou pas), depuis 2019. Les descriptions des variables du fichier CSV sont disponibles dans l’annexe.",
-              "hu": "Ez a táblázat a film- és mozistatisztikák havi eredményeit mutatja be filmhetenként (belépők, filmek, vetítések, aktív mozik, aktív mozik száma) a film eredete (valamennyi ország, Svájc, Európa, más országok, Egyesült Államok) és státusza (legutóbbi vagy nem) szerint, 2019 óta.\nA CSV-fájlban szereplő változók leírása a mellékletben található.",
-              "uk": "У цій таблиці представлені щомісячні результати кіно та кіностатистики за тиждень кіно (кількість допусків, фільмів, показів, активних кінотеатрів, активних кінотеатрів) за походженням фільму (всі країни, Швейцарія, Європа, інші країни, США) та їх статус (нещодавні чи ні) з 2019 року. Опис змінних у файлі CSV доступні в Додатку.",
-              "sk": "V tejto tabuľke sa uvádzajú mesačné výsledky filmových a kinematografických štatistík za týždeň premietania (počet vstupov, filmov, premietaní, aktívnych kín, aktívnych kín) podľa pôvodu filmu (všetky krajiny, Švajčiarsko, Európa, ostatné krajiny, Spojené štáty) a ich statusu (nedávny alebo nie) od roku 2019. Opisy premenných v súbore CSV sú k dispozícii v prílohe.",
-              "sl": "Ta tabela prikazuje mesečne rezultate filmske in kinematografske statistike na filmski teden (število vstopnin, filmov, projekcij, aktivnih kinematografov, aktivnih kinematografov) glede na izvor filma (vse države, Švica, Evropa, druge države, Združene države) in njihov status (nedavni ali ne) od leta 2019. Opisi spremenljivk v datoteki CSV so na voljo v Prilogi.",
-              "ga": "Cuirtear i láthair sa tábla seo torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne in aghaidh na seachtaine scannánaíochta (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach, na bpictiúrlann gníomhach) de réir thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, na Stáit Aontaithe) agus a stádas (le déanaí nó nach ea), ó 2019 i leith. Tá na tuairiscí ar na hathróga sa chomhad CSV ar fáil san Iarscríbhinn.",
-              "sv": "I denna tabell visas de månatliga resultaten av film- och biografstatistik per filmvecka (antal inträden, filmer, visningar, aktiva biografer, aktiva biografer) enligt filmens ursprung (alla länder, Schweiz, Europa, andra länder, Förenta staterna) och deras status (nyligen eller inte) sedan 2019. Beskrivningarna av variablerna i CSV-filen finns i bilagan.",
-              "el": "Ο πίνακας αυτός παρουσιάζει τα μηνιαία αποτελέσματα των στατιστικών ταινιών και κινηματογράφων ανά εβδομάδα ταινίας (αριθμός εισαγωγικών, ταινιών, προβολών, ενεργητικών κινηματογράφων, ενεργητικών κινηματογράφων) ανάλογα με την προέλευση της ταινίας (όλες τις χώρες, την Ελβετία, την Ευρώπη, άλλες χώρες, τις Ηνωμένες Πολιτείες) και το καθεστώς τους (πρόσφατα ή μη), από το 2019. Οι περιγραφές των μεταβλητών στο αρχείο CSV είναι διαθέσιμες στο παράρτημα.",
-              "mt": "Din it-tabella tippreżenta r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema għal kull ġimgħa tal-films (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi, ċinemas attivi) skont l-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti) u l-istatus tagħhom (reċenti jew le), mill-2019.\nId-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-Anness.",
-              "en": "This table presents the monthly results of film and cinema statistics per film week (number of admissions, films, screenings, active cinemas, active cinemas) according to the origin of the film (all countries, Switzerland, Europe, other countries, United States) and their status (recent or not), since 2019. The descriptions of the variables in the CSV file are available in the Annex.",
-              "it": "Questa tabella presenta i risultati mensili delle statistiche cinematografiche per settimana cinematografica (numero di ingressi, film, proiezioni, cinema attivi, cinema attivi) in base all'origine del film (tutti i paesi, Svizzera, Europa, altri paesi, Stati Uniti) e al loro status (recente o meno), dal 2019. Le descrizioni delle variabili nel file CSV sono disponibili nell'allegato.",
-              "es": "Esta tabla presenta los resultados mensuales de las estadísticas de cine y cine por semana de cine (número de entradas, películas, proyecciones, cines activos, cines activos) según el origen de la película (todos los países, Suiza, Europa, otros países, Estados Unidos) y su estado (reciente o no), desde 2019. Las descripciones de las variables en el archivo CSV están disponibles en el anexo.",
-              "et": "Tabelis on esitatud filmi- ja kinostatistika igakuised tulemused filminädala kohta (sissepääsude arv, filmid, linastused, aktiivsed kinod, aktiivsed kinod) vastavalt filmi päritolule (kõik riigid, Šveits, Euroopa, muud riigid, Ameerika Ühendriigid) ja staatusele (hiljutine või mitte) alates 2019. aastast.\nCSV-failis sisalduvate muutujate kirjeldused on esitatud lisas.",
-              "cs": "V této tabulce jsou uvedeny měsíční výsledky filmových a kinematografických statistik za filmový týden (počet vstupů, filmů, projekcí, aktivních kin, aktivních kin) podle původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, Spojené státy) a jejich stavu (nedávné či nikoli) od roku 2019. Popisy proměnných v souboru CSV jsou k dispozici v příloze.",
-              "pl": "W tabeli przedstawiono miesięczne wyniki statystyk dotyczących filmów i kin na tydzień filmowy (liczba widzów, filmy, projekcje, kina aktywne, kina aktywne) w zależności od pochodzenia filmu (wszystkie kraje, Szwajcaria, Europa, inne kraje, Stany Zjednoczone) i ich statusu (ostatnie lub nie), od 2019 r.\nOpisy zmiennych w pliku CSV są dostępne w załączniku.",
-              "ro": "Acest tabel prezintă rezultatele lunare ale statisticilor privind filmele și cinematografele pe săptămână (numărul de intrări, filme, proiecții, cinematografe active, cinematografe active) în funcție de originea filmului (toate țările, Elveția, Europa, alte țări, Statele Unite) și de statutul acestora (recent sau nu), începând din 2019. Descrierile variabilelor din fișierul CSV sunt disponibile în anexă.",
-              "da": "Denne tabel viser de månedlige resultater af film- og biografstatistikker pr. filmuge (antal biografgængere, film, forevisninger, aktive biografer, aktive biografer) efter filmens oprindelse (alle lande, Schweiz, Europa, andre lande, USA) og deres status (seneste eller ej) siden 2019. Beskrivelserne af variablerne i CSV-filen findes i bilaget.",
-              "nl": "Deze tabel geeft de maandelijkse resultaten weer van film- en bioscoopstatistieken per filmweek (aantal opnames, films, vertoningen, actieve bioscopen, actieve bioscopen) op basis van de oorsprong van de film (alle landen, Zwitserland, Europa, andere landen, Verenigde Staten) en hun status (recent of niet), sinds 2019. De beschrijvingen van de variabelen in het CSV-bestand zijn beschikbaar in de bijlage."
-            },
-            "language": [
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
-                "id": "fr",
-                "label": "French"
-              }
-            ],
-            "id": "8fc83d23-8b02-46f1-bdeb-102eafbb1fe0",
-            "title": {
-              "de": "Filmstatistik - Ergebnisse pro Filmwoche",
-              "fi": "Elokuvatilastot - tulokset elokuvaviikoittain",
-              "pt": "Estatísticas do Cinema - Resultados por Semana do Cinema",
-              "bg": "Филмова статистика — резултати по филмова седмица",
-              "lt": "Filmų statistika - Filmų savaitės rezultatai",
-              "lv": "Filmu statistika - rezultāti pēc filmu nedēļas",
-              "hr": "Filmska statistika - rezultati po tjednu filma",
-              "fr": "Statistique du cinéma - Résultats par semaine cinématographique",
-              "hu": "Filmstatisztika - Eredmények a Filmhéten",
-              "uk": "Статистика фільмів — результати тижня фільмів",
-              "sk": "Filmové štatistiky - Výsledky podľa filmového týždňa",
-              "sl": "Filmska statistika - rezultati filmskega tedna",
-              "ga": "Staitisticí Scannánaíochta - Torthaí de réir Sheachtain na Scannánaíochta",
-              "sv": "Filmstatistik - Resultat per filmvecka",
-              "mt": "Statistika tal-Films - Riżultati skont il-Ġimgħa tal-Films",
-              "el": "Στατιστικά Κινηματογράφου — Αποτελέσματα της Εβδομάδας Κινηματογράφου",
-              "en": "Film Statistics - Results by Film Week",
-              "it": "Film Statistics - Risultati per Film Week",
-              "es": "Estadísticas Cinematográficas - Resultados por Film Week",
-              "et": "Filmistatistika - tulemused filminädalal",
-              "cs": "Filmová statistika - Výsledky podle filmového týdne",
-              "pl": "Statystyki filmowe - Wyniki według Tygodnia Filmowego",
-              "da": "Filmstatistik - Resultater efter filmuge",
-              "ro": "Statistici de film - Rezultatele Săptămânii Filmului",
-              "nl": "Film Statistieken - Resultaten door Film Week"
-            },
-            "issued": "2024-05-07T06:30:00Z"
-          },
-          {
-            "license": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "id": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "label": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "https://dam-api.bfs.admin.ch/hub/api/dam/assets/31950886/master"
-            ],
-            "rights": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "download_url": [
-              "https://dam-api.bfs.admin.ch/hub/api/dam/assets/31950886/master"
-            ],
-            "format": {
-              "resource": "http://publications.europa.eu/resource/authority/file-type/CSV",
-              "id": "CSV",
-              "label": "CSV"
-            },
-            "description": {
-              "de": "Diese Tabelle präsentiert die monatlichen Ergebnisse der Film- und Kinostatistik nach Kinowochen (Anzahl Eintritte, Filme, Vorführungen, aktive Kinos, aktive Kinosäle) nach Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und Status (neu oder alle), ab 2019. Die Beschreibungen der Variablen in der CSV-Datei sind im Anhang verfügbar.",
-              "fi": "Tässä taulukossa esitetään elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikkojen mukaan (katsojamäärät, elokuvat, näytökset, aktiiviset elokuvateatterit, aktiiviset elokuvateatterit) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja aseman (uudet tai kaikki) mukaan vuodesta 2019 alkaen. CSV-tiedoston muuttujien kuvaukset löytyvät liitteestä.",
-              "pt": "Este quadro apresenta os resultados mensais das estatísticas de cinema e cinema por semanas de cinema (número de entradas, filmes, projeções, cinemas ativos, cinemas ativos) por origem do filme (todos os países, Suíça, Europa, outros países, EUA) e estatuto (novo ou todos), a partir de 2019. As descrições das variáveis no ficheiro CSV estão disponíveis no apêndice.",
-              "bg": "Тази таблица представя месечните резултати от статистиката на филмите и киното по кинематографични седмици (брой на входовете, филми, прожекции, активни кина, активни кина) по произход на филма (всички държави, Швейцария, Европа, други държави, САЩ) и статус (нов или всички), считано от 2019 г. Описанията на променливите в CSV файла са налични в допълнението.",
-              "lt": "Šioje lentelėje pateikiami mėnesiniai kino ir kino statistikos rezultatai pagal kino savaites (žiūrovų skaičius, filmai, peržiūros, aktyvūs kino teatrai, aktyvūs kino teatrai) pagal filmo kilmę (visos šalys, Šveicarija, Europa, kitos šalys, JAV) ir statusą (naujas arba visas) 2019 m. Kintamųjų aprašymai CSV rinkmenoje pateikiami priedėlyje.",
-              "lv": "Šajā tabulā atspoguļoti filmu un kino statistikas ikmēneša rezultāti pa kinoteātru nedēļām (ieejas reižu skaits, filmas, seansi, aktīvie kinoteātri, aktīvie kinoteātri) pēc filmas izcelsmes (visas valstis, Šveice, Eiropa, citas valstis, ASV) un statusa (jaunas vai visas), sākot no 2019. gada. Mainīgo apraksti CSV datnē ir pieejami pielikumā.",
-              "hr": "Ova tablica prikazuje mjesečne rezultate filmske i kino statistike po kino tjednima (broj ulaznica, filmova, projekcija, aktivnih kina, aktivnih kina) prema podrijetlu filma (sve zemlje, Švicarska, Europa, druge zemlje, SAD) i statusu (novi ili svi), od 2019. godine. Opisi varijabli u datoteci CSV dostupni su u Dodatku.",
-              "fr": "Ce tableau présente les résultats mensuels de la statistique du film et du cinéma par semaine cinématographique (nombre d'entrées, films, projections, cinémas actifs, salles actives) selon l'origine du film (tous les pays, Suisse, Europe, autres pays, Etats-Unis) et leur statut (récent ou pas), depuis 2019. Les descriptions des variables du fichier CSV sont disponibles dans l’annexe.",
-              "hu": "Ez a táblázat a film- és mozistatisztikák havi eredményeit mutatja be mozihetek (belépők, filmek, vetítések, aktív mozik, aktív mozik) szerint, a film eredete (valamennyi ország, Svájc, Európa, más országok, USA) és státusza (új vagy összes) szerint, 2019-től kezdődően. A CSV-fájl változóinak leírása a függelékben található.",
-              "uk": "У цій таблиці представлені щомісячні результати кіно та кіностатистики за тижнями кіно (кількість прийомів, фільмів, показів, активних кінотеатрів, активних кінотеатрів) за походженням фільму (всі країни, Швейцарія, Європа, інші країни, США) та статус (новий або всі), станом на 2019 рік. Опис змінних у файлі CSV доступні в додатку.",
-              "sk": "V tejto tabuľke sa uvádzajú mesačné výsledky filmovej a kinematografickej štatistiky podľa týždňov kín (počet vstupov, filmov, premietaní, aktívnych kín, aktívnych kín) podľa pôvodu filmu (všetky krajiny, Švajčiarsko, Európa, ostatné krajiny, USA) a stavu (nový alebo celý) k roku 2019. Opisy premenných v súbore CSV sú k dispozícii v dodatku.",
-              "sl": "Ta preglednica prikazuje mesečne rezultate filmske in kinematografske statistike po tednih kinematografije (število vstopnin, filmov, projekcij, aktivnih kinematografov, aktivnih kinematografov) po izvoru filma (vse države, Švica, Evropa, druge države, ZDA) in statusu (novi ali vsi) od leta 2019. Opisi spremenljivk v datoteki CSV so na voljo v dodatku.",
-              "ga": "Cuirtear i láthair sa tábla seo torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne de réir seachtainí pictiúrlainne (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach, na bpictiúrlann gníomhach) de réir thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, SAM) agus de réir stádais (nua nó uile), ó 2019 ar aghaidh. Tá na tuairiscí ar na hathróga sa chomhad CSV ar fáil san aguisín.",
-              "sv": "I denna tabell visas månadsresultaten för film- och biografstatistik per biografvecka (antal inträden, filmer, visningar, aktiva biografer, aktiva biografer) efter filmens ursprung (alla länder, Schweiz, Europa, andra länder, USA) och status (ny eller alla) från och med 2019. Beskrivningarna av variablerna i CSV-filen finns i bilagan.",
-              "mt": "Din it-tabella tippreżenta r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema skont il-ġimgħat taċ-ċinema (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi, ċinemas attivi) skont l-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti tal-Amerka) u l-istatus (ġdid jew kollu), mill-2019. Id-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-appendiċi.",
-              "el": "Ο πίνακας αυτός παρουσιάζει τα μηνιαία αποτελέσματα των στατιστικών ταινιών και κινηματογράφων ανά κινηματογραφικές εβδομάδες (αριθμός εισαγωγών, ταινιών, προβολών, ενεργών κινηματογράφων, ενεργητικών κινηματογράφων) ανά προέλευση της ταινίας (όλες οι χώρες, Ελβετία, Ευρώπη, άλλες χώρες, ΗΠΑ) και καθεστώς (νέες ή όλες), από το 2019. Οι περιγραφές των μεταβλητών στο αρχείο CSV είναι διαθέσιμες στο προσάρτημα.",
-              "en": "This table contains the monthly results of film and cinema statistics by cinema week (number of admissions, films, screenings, active cinemas) according to the origin of the film (all countries, Switzerland, Europe, other countries, United States) and their status (recent or not), since 2019. Descriptions of the variables in the CSV file are available in the appendix.",
-              "it": "Questa tabella presenta i risultati mensili delle statistiche sui film e sui cinema per settimana cinematografica (numero di ingressi, film, proiezioni, cinema attivi) in base all'origine del film (tutti i Paesi, Svizzera, Europa, altri Paesi, Stati Uniti) e al loro stato (recente o meno), dal 2019. Le descrizioni delle variabili nel file CSV sono disponibili in appendice.",
-              "es": "Esta tabla presenta los resultados mensuales de las estadísticas de cine y cine por semanas de cine (número de entradas, películas, proyecciones, cines activos, cines activos) por origen de la película (todos los países, Suiza, Europa, otros países, Estados Unidos) y estado (nuevo o todos), a partir de 2019. Las descripciones de las variables en el archivo CSV están disponibles en el apéndice.",
-              "et": "Tabelis on esitatud filmi- ja kinostatistika kuutulemused kinonädalate kaupa (sissepääsude arv, filmid, linastused, aktiivsed kinod, aktiivsed kinod) filmi päritolu (kõik riigid, Šveits, Euroopa, muud riigid, USA) ja staatuse (uus või kõik) järgi alates 2019. aastast. CSV-faili muutujate kirjeldused on esitatud lisas.",
-              "cs": "Tato tabulka uvádí měsíční výsledky filmových a kinematografických statistik podle týdnů kinematografie (počet vstupů, filmů, projekcí, aktivních kin, aktivních kin) podle původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, USA) a stavu (nové nebo všechny) k roku 2019. Popisy proměnných v CSV souboru jsou k dispozici v příloze.",
-              "pl": "W tabeli przedstawiono miesięczne wyniki statystyk dotyczących filmów i kin według tygodni kinowych (liczba widzów, filmy, projekcje, kina aktywne, kina aktywne) według pochodzenia filmu (wszystkie kraje, Szwajcaria, Europa, inne kraje, USA) i statusu (nowy lub wszystkie), począwszy od 2019 r. Opisy zmiennych w pliku CSV są dostępne w załączniku.",
-              "ro": "Acest tabel prezintă rezultatele lunare ale statisticilor cinematografice pe săptămâni de cinematografie (număr de intrări, filme, proiecții, cinematografe active, cinematografe active) în funcție de originea filmului (toate țările, Elveția, Europa, alte țări, SUA) și statutul (nou sau total), începând din 2019. Descrierile variabilelor din fișierul CSV sunt disponibile în anexă.",
-              "da": "Denne tabel viser de månedlige resultater af film- og biografstatistikker efter biografuger (antal biografgængere, film, forevisninger, aktive biografer, aktive biografer) efter filmens oprindelse (alle lande, Schweiz, Europa, andre lande, USA) og status (ny eller alle) fra 2019. Beskrivelserne af variablerne i CSV-filen findes i tillægget.",
-              "nl": "Deze tabel geeft de maandelijkse resultaten weer van film- en bioscoopstatistieken per bioscoopweek (aantal opnames, films, vertoningen, actieve bioscopen, actieve bioscopen) naar oorsprong van de film (alle landen, Zwitserland, Europa, andere landen, VS) en status (nieuw of alle), vanaf 2019. De beschrijvingen van de variabelen in het CSV-bestand zijn beschikbaar in de bijlage."
-            },
-            "modified": "2024-05-06T12:55:35.954Z",
-            "language": [
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
-                "id": "fr",
-                "label": "French"
-              },
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/ENG",
-                "id": "en",
-                "label": "English"
-              },
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/DEU",
-                "id": "de",
-                "label": "German"
-              },
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/ITA",
-                "id": "it",
-                "label": "Italian"
-              }
-            ],
-            "id": "3054ba99-d8c4-4481-906a-9607e2b34371",
-            "title": {
-              "de": "Kinostatistik - Ergebnisse nach Kinowochen",
-              "fi": "Elokuvatilastot - tulokset elokuvaviikkojen mukaan",
-              "pt": "Estatísticas do Cinema - Resultados por Semanas do Cinema",
-              "bg": "Кино Статистика — Резултати по Седмици на киното",
-              "lt": "Kino statistika - Kino savaitės rezultatai",
-              "lv": "Kino statistika - Kino nedēļu rezultāti",
-              "hr": "Statistika kina - rezultati po tjednima kina",
-              "fr": "Statistique du cinéma - Résultats par semaine cinématographique",
-              "hu": "Mozistatisztika - Mozihetek eredményei",
-              "uk": "Статистика кінотеатрів — результати за Кіно тижнями",
-              "sk": "Kinematografické štatistiky - výsledky podľa kinematografických týždňov",
-              "sl": "Kinematografska statistika - rezultati po filmskih tednih",
-              "ga": "Staitisticí na bPictiúrlann - Torthaí de réir Seachtaine na bPictiúrlann",
-              "sv": "Filmstatistik - Resultat per filmvecka",
-              "mt": "Statistika dwar iċ-Ċinema - Riżultati skont il-Ġimgħat taċ-Ċinema",
-              "el": "Στατιστικά Κινηματογράφου — Αποτελέσματα ανά Εβδομάδα Κινηματογράφου",
-              "en": "Cinema statistics - Results by cinema week",
-              "it": "Statistica del cinema - Risultati per settimana cinematografica",
-              "es": "Estadísticas de Cine - Resultados por Semanas de Cine",
-              "et": "Kinostatistika - Tulemused kinonädalate lõikes",
-              "cs": "Statistiky kinematografie - Výsledky podle Týdnů kinematografie",
-              "pl": "Statystyki Kino - Wyniki przez Cinema Weeks",
-              "ro": "Statistici cinematografice - Rezultate după Săptămânile Cinematografiei",
-              "da": "Biograf Statistik - Resultater af Biograf Uger",
-              "nl": "Cinema Statistieken - Resultaten door Cinema Weken"
-            },
-            "issued": "2024-05-07T06:30:00Z"
-          },
-          {
-            "license": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "id": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "label": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "media_type": "text/html",
-            "rights": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "access_url": [
-              "https://www.bfs.admin.ch/asset/de/ts-x-16.02.01-01"
-            ],
-            "format": {
-              "resource": "http://publications.europa.eu/resource/authority/file-type/HTML",
-              "id": "HTML",
-              "label": "HTML"
-            },
-            "description": {
-              "de": "Diese Tabelle präsentiert die monatlichen Ergebnisse der Film- und Kinostatistik nach Kinowochen (Anzahl Eintritte, Filme, Vorführungen, aktive Kinos, aktive Kinosäle) nach Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und Status (neu oder alle), ab 2019. Die Beschreibungen der Variablen in der CSV-Datei sind im Anhang verfügbar.",
-              "fi": "Tässä taulukossa esitetään elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikkojen mukaan (katsojamäärät, elokuvat, näytökset, aktiiviset elokuvateatterit, aktiiviset elokuvateatterit) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja aseman (uudet tai kaikki) mukaan vuodesta 2019 alkaen. CSV-tiedoston muuttujien kuvaukset löytyvät liitteestä.",
-              "pt": "Este quadro apresenta os resultados mensais das estatísticas de cinema e cinema por semanas de cinema (número de entradas, filmes, projeções, cinemas ativos, cinemas ativos) por origem do filme (todos os países, Suíça, Europa, outros países, EUA) e estatuto (novo ou todos), a partir de 2019.\nAs descrições das variáveis no ficheiro CSV estão disponíveis no apêndice.",
-              "bg": "Тази таблица представя месечните резултати от статистиката на филмите и киното по кинематографични седмици (брой на входовете, филми, прожекции, активни кина, активни кина) по произход на филма (всички държави, Швейцария, Европа, други държави, САЩ) и статус (нов или всички), считано от 2019 г. Описанията на променливите в CSV файла са налични в допълнението.",
-              "lt": "Šioje lentelėje pateikiami mėnesiniai kino ir kino statistikos rezultatai pagal kino savaites (žiūrovų skaičius, filmai, peržiūros, aktyvūs kino teatrai, aktyvūs kino teatrai) pagal filmo kilmę (visos šalys, Šveicarija, Europa, kitos šalys, JAV) ir statusą (naujas arba visas) 2019 m. Kintamųjų aprašymai CSV rinkmenoje pateikiami priedėlyje.",
-              "lv": "Šajā tabulā atspoguļoti filmu un kino statistikas ikmēneša rezultāti pa kinoteātru nedēļām (ieejas reižu skaits, filmas, seansi, aktīvie kinoteātri, aktīvie kinoteātri) pēc filmas izcelsmes (visas valstis, Šveice, Eiropa, citas valstis, ASV) un statusa (jaunas vai visas), sākot no 2019. gada. Mainīgo apraksti CSV datnē ir pieejami pielikumā.",
-              "hr": "Ova tablica prikazuje mjesečne rezultate filmske i kino statistike po kino tjednima (broj ulaznica, filmova, projekcija, aktivnih kina, aktivnih kina) prema podrijetlu filma (sve zemlje, Švicarska, Europa, druge zemlje, SAD) i statusu (novi ili svi), od 2019. godine. Opisi varijabli u datoteci CSV dostupni su u Dodatku.",
-              "fr": "Ce tableau présente les résultats mensuels des statistiques cinématographiques et cinématographiques par semaine de cinéma (nombre d'entrées, de films, de projections, de cinémas actifs, de salles de cinéma actives) par origine du film (tous les pays, la Suisse, l'Europe, d'autres pays, les États-Unis) et statut (nouveaux ou tous), à partir de 2019. Les descriptions des variables dans le fichier CSV sont disponibles en annexe.",
-              "hu": "Ez a táblázat a film- és mozistatisztikák havi eredményeit mutatja be mozihetek (belépők, filmek, vetítések, aktív mozik, aktív mozik) szerint, a film eredete (valamennyi ország, Svájc, Európa, más országok, USA) és státusza (új vagy összes) szerint, 2019-től kezdődően. A CSV-fájl változóinak leírása a függelékben található.",
-              "uk": "У цій таблиці представлені щомісячні результати кіно та кіностатистики за тижнями кіно (кількість прийомів, фільмів, показів, активних кінотеатрів, активних кінотеатрів) за походженням фільму (всі країни, Швейцарія, Європа, інші країни, США) та статус (новий або всі), станом на 2019 рік. Опис змінних у файлі CSV доступні в додатку.",
-              "sk": "V tejto tabuľke sa uvádzajú mesačné výsledky filmovej a kinematografickej štatistiky podľa týždňov kín (počet vstupov, filmov, premietaní, aktívnych kín, aktívnych kín) podľa pôvodu filmu (všetky krajiny, Švajčiarsko, Európa, ostatné krajiny, USA) a stavu (nový alebo celý) k roku 2019. Opisy premenných v súbore CSV sú k dispozícii v dodatku.",
-              "sl": "Ta preglednica prikazuje mesečne rezultate filmske in kinematografske statistike po tednih kinematografije (število vstopnin, filmov, projekcij, aktivnih kinematografov, aktivnih kinematografov) po izvoru filma (vse države, Švica, Evropa, druge države, ZDA) in statusu (novi ali vsi) od leta 2019. Opisi spremenljivk v datoteki CSV so na voljo v dodatku.",
-              "ga": "Cuirtear i láthair sa tábla seo torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne de réir seachtainí pictiúrlainne (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach, na bpictiúrlann gníomhach) de réir thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, SAM) agus de réir stádais (nua nó uile), ó 2019 ar aghaidh. Tá na tuairiscí ar na hathróga sa chomhad CSV ar fáil san aguisín.",
-              "sv": "I denna tabell visas månadsresultaten för film- och biografstatistik per biografvecka (antal inträden, filmer, visningar, aktiva biografer, aktiva biografer) efter filmens ursprung (alla länder, Schweiz, Europa, andra länder, USA) och status (ny eller alla) från och med 2019. Beskrivningarna av variablerna i CSV-filen finns i bilagan.",
-              "mt": "Din it-tabella tippreżenta r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema skont il-ġimgħat taċ-ċinema (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi, ċinemas attivi) skont l-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti tal-Amerka) u l-istatus (ġdid jew kollu), mill-2019. Id-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-appendiċi.",
-              "el": "Ο πίνακας αυτός παρουσιάζει τα μηνιαία αποτελέσματα των στατιστικών ταινιών και κινηματογράφων ανά κινηματογραφικές εβδομάδες (αριθμός εισαγωγών, ταινιών, προβολών, ενεργών κινηματογράφων, ενεργητικών κινηματογράφων) ανά προέλευση της ταινίας (όλες οι χώρες, Ελβετία, Ευρώπη, άλλες χώρες, ΗΠΑ) και καθεστώς (νέες ή όλες), από το 2019. Οι περιγραφές των μεταβλητών στο αρχείο CSV είναι διαθέσιμες στο προσάρτημα.",
-              "en": "This table presents the monthly results of film and cinema statistics by cinema weeks (number of admissions, films, screenings, active cinemas, active cinemas) by origin of the film (all countries, Switzerland, Europe, other countries, USA) and status (new or all), as of 2019. The descriptions of the variables in the CSV file are available in the appendix.",
-              "it": "Questa tabella presenta i risultati mensili delle statistiche cinematografiche per settimane cinematografiche (numero di ingressi, film, proiezioni, cinema attivi, cinema attivi) per origine del film (tutti i paesi, Svizzera, Europa, altri paesi, Stati Uniti) e status (nuovo o tutto), a partire dal 2019.\nLe descrizioni delle variabili nel file CSV sono disponibili in appendice.",
-              "es": "Esta tabla presenta los resultados mensuales de las estadísticas de cine y cine por semanas de cine (número de entradas, películas, proyecciones, cines activos, cines activos) por origen de la película (todos los países, Suiza, Europa, otros países, Estados Unidos) y estado (nuevo o todos), a partir de 2019. Las descripciones de las variables en el archivo CSV están disponibles en el apéndice.",
-              "et": "Tabelis on esitatud filmi- ja kinostatistika kuutulemused kinonädalate kaupa (sissepääsude arv, filmid, linastused, aktiivsed kinod, aktiivsed kinod) filmi päritolu (kõik riigid, Šveits, Euroopa, muud riigid, USA) ja staatuse (uus või kõik) järgi alates 2019. aastast. CSV-faili muutujate kirjeldused on esitatud lisas.",
-              "cs": "Tato tabulka uvádí měsíční výsledky filmových a kinematografických statistik podle týdnů kinematografie (počet vstupů, filmů, projekcí, aktivních kin, aktivních kin) podle původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, USA) a stavu (nové nebo všechny) k roku 2019.\nPopisy proměnných v CSV souboru jsou k dispozici v příloze.",
-              "pl": "W tabeli przedstawiono miesięczne wyniki statystyk dotyczących filmów i kin według tygodni kinowych (liczba widzów, filmy, projekcje, kina aktywne, kina aktywne) według pochodzenia filmu (wszystkie kraje, Szwajcaria, Europa, inne kraje, USA) i statusu (nowy lub wszystkie), począwszy od 2019 r. Opisy zmiennych w pliku CSV są dostępne w załączniku.",
-              "ro": "Acest tabel prezintă rezultatele lunare ale statisticilor cinematografice pe săptămâni de cinematografie (număr de intrări, filme, proiecții, cinematografe active, cinematografe active) în funcție de originea filmului (toate țările, Elveția, Europa, alte țări, SUA) și statutul (nou sau total), începând din 2019. Descrierile variabilelor din fișierul CSV sunt disponibile în anexă.",
-              "da": "Denne tabel viser de månedlige resultater af film- og biografstatistikker efter biografuger (antal biografgængere, film, forevisninger, aktive biografer, aktive biografer) efter filmens oprindelse (alle lande, Schweiz, Europa, andre lande, USA) og status (ny eller alle) fra 2019. Beskrivelserne af variablerne i CSV-filen findes i tillægget.",
-              "nl": "Deze tabel geeft de maandelijkse resultaten weer van film- en bioscoopstatistieken per bioscoopweek (aantal opnames, films, vertoningen, actieve bioscopen, actieve bioscopen) naar oorsprong van de film (alle landen, Zwitserland, Europa, andere landen, VS) en status (nieuw of alle), vanaf 2019.\nDe beschrijvingen van de variabelen in het CSV-bestand zijn beschikbaar in de bijlage."
-            },
-            "language": [
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/DEU",
-                "id": "de",
-                "label": "German"
-              }
-            ],
-            "id": "7fffbcf6-ef3a-4b26-ba11-a4f978f1dd38",
-            "title": {
-              "de": "Kinostatistik - Ergebnisse nach Kinowochen",
-              "fi": "Elokuvatilastot - tulokset elokuvaviikkojen mukaan",
-              "pt": "Estatísticas do Cinema - Resultados por Semanas do Cinema",
-              "bg": "Кино Статистика — Резултати по Седмици на киното",
-              "lt": "Kino statistika - Kino savaitės rezultatai",
-              "hr": "Statistika kina - rezultati po tjednima kina",
-              "lv": "Kino statistika - Kino nedēļu rezultāti",
-              "fr": "Statistiques cinématographiques - Résultats par semaine cinématographique",
-              "hu": "Mozistatisztika - Mozihetek eredményei",
-              "uk": "Статистика кінотеатрів — результати за Кіно тижнями",
-              "sk": "Kinematografické štatistiky - výsledky podľa kinematografických týždňov",
-              "sl": "Kinematografska statistika - rezultati po filmskih tednih",
-              "ga": "Staitisticí na bPictiúrlann - Torthaí de réir Seachtaine na bPictiúrlann",
-              "sv": "Filmstatistik - Resultat per filmvecka",
-              "mt": "Statistika dwar iċ-Ċinema - Riżultati skont il-Ġimgħat taċ-Ċinema",
-              "el": "Στατιστικά Κινηματογράφου — Αποτελέσματα ανά Εβδομάδα Κινηματογράφου",
-              "en": "Cinema Statistics - Results by Cinema Weeks",
-              "it": "Statistiche Cinema - Risultati per Settimane Cinema",
-              "es": "Estadísticas de Cine - Resultados por Semanas de Cine",
-              "et": "Kinostatistika - Tulemused kinonädalate lõikes",
-              "cs": "Statistiky kinematografie - Výsledky podle Týdnů kinematografie",
-              "pl": "Statystyki Kino - Wyniki przez Cinema Weeks",
-              "ro": "Statistici cinematografice - Rezultate după Săptămânile Cinematografiei",
-              "da": "Biograf Statistik - Resultater af Biograf Uger",
-              "nl": "Cinema Statistieken - Resultaten door Cinema Weken"
-            },
-            "issued": "2024-05-07T06:30:00Z"
-          },
-          {
-            "license": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "id": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "label": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "media_type": "application/vnd.oasis.opendocument.spreadsheet",
-            "access_url": [
-              "https://dam-api.bfs.admin.ch/hub/api/dam/assets/31950886/appendix"
-            ],
-            "rights": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "format": {
-              "resource": "http://publications.europa.eu/resource/authority/file-type/ODS",
-              "id": "ODS",
-              "label": "ODS"
-            },
-            "download_url": [
-              "https://dam-api.bfs.admin.ch/hub/api/dam/assets/31950886/appendix"
-            ],
-            "description": {
-              "de": "Diese Tabelle präsentiert die monatlichen Ergebnisse der Film- und Kinostatistik nach Kinowochen (Anzahl Eintritte, Filme, Vorführungen, aktive Kinos, aktive Kinosäle) nach Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und Status (neu oder alle), ab 2019. Die Beschreibungen der Variablen in der CSV-Datei sind im Anhang verfügbar.",
-              "fi": "Tässä taulukossa esitetään elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikkojen mukaan (katsojamäärät, elokuvat, näytökset, aktiiviset elokuvateatterit, aktiiviset elokuvateatterit) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja aseman (uudet tai kaikki) mukaan vuodesta 2019 alkaen.\nCSV-tiedoston muuttujien kuvaukset löytyvät liitteestä.",
-              "pt": "Este quadro apresenta os resultados mensais das estatísticas de cinema e cinema por semanas de cinema (número de entradas, filmes, projeções, cinemas ativos, cinemas ativos) por origem do filme (todos os países, Suíça, Europa, outros países, EUA) e estatuto (novo ou todos), a partir de 2019. As descrições das variáveis no ficheiro CSV estão disponíveis no apêndice.",
-              "bg": "Тази таблица представя месечните резултати от статистиката на филмите и киното по кинематографични седмици (брой на входовете, филми, прожекции, активни кина, активни кина) по произход на филма (всички държави, Швейцария, Европа, други държави, САЩ) и статус (нов или всички), считано от 2019 г. Описанията на променливите в CSV файла са налични в допълнението.",
-              "lt": "Šioje lentelėje pateikiami mėnesiniai kino ir kino statistikos rezultatai pagal kino savaites (žiūrovų skaičius, filmai, peržiūros, aktyvūs kino teatrai, aktyvūs kino teatrai) pagal filmo kilmę (visos šalys, Šveicarija, Europa, kitos šalys, JAV) ir statusą (naujas arba visas) 2019 m. Kintamųjų aprašymai CSV rinkmenoje pateikiami priedėlyje.",
-              "hr": "Ova tablica prikazuje mjesečne rezultate filmske i kino statistike po kino tjednima (broj ulaznica, filmova, projekcija, aktivnih kina, aktivnih kina) prema podrijetlu filma (sve zemlje, Švicarska, Europa, druge zemlje, SAD) i statusu (novi ili svi), od 2019. godine. Opisi varijabli u datoteci CSV dostupni su u Dodatku.",
-              "lv": "Šajā tabulā atspoguļoti filmu un kino statistikas ikmēneša rezultāti pa kinoteātru nedēļām (ieejas reižu skaits, filmas, seansi, aktīvie kinoteātri, aktīvie kinoteātri) pēc filmas izcelsmes (visas valstis, Šveice, Eiropa, citas valstis, ASV) un statusa (jaunas vai visas), sākot no 2019. gada.\nMainīgo apraksti CSV datnē ir pieejami pielikumā.",
-              "fr": "Ce tableau présente les résultats mensuels de la statistique du film et du cinéma par semaine cinématographique (nombre d'entrées, films, projections, cinémas actifs, salles actives) selon l'origine du film (tous les pays, Suisse, Europe, autres pays, Etats-Unis) et leur statut (récent ou pas), depuis 2019. Les descriptions des variables du fichier CSV sont disponibles dans l’annexe.",
-              "hu": "Ez a táblázat a film- és mozistatisztikák havi eredményeit mutatja be mozihetek (belépők, filmek, vetítések, aktív mozik, aktív mozik) szerint, a film eredete (valamennyi ország, Svájc, Európa, más országok, USA) és státusza (új vagy összes) szerint, 2019-től kezdődően.\nA CSV-fájl változóinak leírása a függelékben található.",
-              "uk": "У цій таблиці представлені щомісячні результати кіно та кіностатистики за тижнями кіно (кількість прийомів, фільмів, показів, активних кінотеатрів, активних кінотеатрів) за походженням фільму (всі країни, Швейцарія, Європа, інші країни, США) та статус (новий або всі), станом на 2019 рік. Опис змінних у файлі CSV доступні в додатку.",
-              "sk": "V tejto tabuľke sa uvádzajú mesačné výsledky filmovej a kinematografickej štatistiky podľa týždňov kín (počet vstupov, filmov, premietaní, aktívnych kín, aktívnych kín) podľa pôvodu filmu (všetky krajiny, Švajčiarsko, Európa, ostatné krajiny, USA) a stavu (nový alebo celý) k roku 2019. Opisy premenných v súbore CSV sú k dispozícii v dodatku.",
-              "sl": "Ta preglednica prikazuje mesečne rezultate filmske in kinematografske statistike po tednih kinematografije (število vstopnin, filmov, projekcij, aktivnih kinematografov, aktivnih kinematografov) po izvoru filma (vse države, Švica, Evropa, druge države, ZDA) in statusu (novi ali vsi) od leta 2019. Opisi spremenljivk v datoteki CSV so na voljo v dodatku.",
-              "ga": "Cuirtear i láthair sa tábla seo torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne de réir seachtainí pictiúrlainne (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach, na bpictiúrlann gníomhach) de réir thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, SAM) agus de réir stádais (nua nó uile), ó 2019 ar aghaidh. Tá na tuairiscí ar na hathróga sa chomhad CSV ar fáil san aguisín.",
-              "sv": "I denna tabell visas månadsresultaten för film- och biografstatistik per biografvecka (antal inträden, filmer, visningar, aktiva biografer, aktiva biografer) efter filmens ursprung (alla länder, Schweiz, Europa, andra länder, USA) och status (ny eller alla) från och med 2019. Beskrivningarna av variablerna i CSV-filen finns i bilagan.",
-              "mt": "Din it-tabella tippreżenta r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema skont il-ġimgħat taċ-ċinema (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi, ċinemas attivi) skont l-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti tal-Amerka) u l-istatus (ġdid jew kollu), mill-2019. Id-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-appendiċi.",
-              "el": "Ο πίνακας αυτός παρουσιάζει τα μηνιαία αποτελέσματα των στατιστικών ταινιών και κινηματογράφων ανά κινηματογραφικές εβδομάδες (αριθμός εισαγωγών, ταινιών, προβολών, ενεργών κινηματογράφων, ενεργητικών κινηματογράφων) ανά προέλευση της ταινίας (όλες οι χώρες, Ελβετία, Ευρώπη, άλλες χώρες, ΗΠΑ) και καθεστώς (νέες ή όλες), από το 2019. Οι περιγραφές των μεταβλητών στο αρχείο CSV είναι διαθέσιμες στο προσάρτημα.",
-              "en": "This table contains the monthly results of film and cinema statistics by cinema week (number of admissions, films, screenings, active cinemas) according to the origin of the film (all countries, Switzerland, Europe, other countries, United States) and their status (recent or not), since 2019. Descriptions of the variables in the CSV file are available in the appendix.",
-              "it": "Questa tabella presenta i risultati mensili delle statistiche sui film e sui cinema per settimana cinematografica (numero di ingressi, film, proiezioni, cinema attivi) in base all'origine del film (tutti i Paesi, Svizzera, Europa, altri Paesi, Stati Uniti) e al loro stato (recente o meno), dal 2019. Le descrizioni delle variabili nel file CSV sono disponibili in appendice.",
-              "es": "Esta tabla presenta los resultados mensuales de las estadísticas de cine y cine por semanas de cine (número de entradas, películas, proyecciones, cines activos, cines activos) por origen de la película (todos los países, Suiza, Europa, otros países, Estados Unidos) y estado (nuevo o todos), a partir de 2019. Las descripciones de las variables en el archivo CSV están disponibles en el apéndice.",
-              "et": "Tabelis on esitatud filmi- ja kinostatistika kuutulemused kinonädalate kaupa (sissepääsude arv, filmid, linastused, aktiivsed kinod, aktiivsed kinod) filmi päritolu (kõik riigid, Šveits, Euroopa, muud riigid, USA) ja staatuse (uus või kõik) järgi alates 2019. aastast. CSV-faili muutujate kirjeldused on esitatud lisas.",
-              "cs": "Tato tabulka uvádí měsíční výsledky filmových a kinematografických statistik podle týdnů kinematografie (počet vstupů, filmů, projekcí, aktivních kin, aktivních kin) podle původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, USA) a stavu (nové nebo všechny) k roku 2019.\nPopisy proměnných v CSV souboru jsou k dispozici v příloze.",
-              "pl": "W tabeli przedstawiono miesięczne wyniki statystyk dotyczących filmów i kin według tygodni kinowych (liczba widzów, filmy, projekcje, kina aktywne, kina aktywne) według pochodzenia filmu (wszystkie kraje, Szwajcaria, Europa, inne kraje, USA) i statusu (nowy lub wszystkie), począwszy od 2019 r.\nOpisy zmiennych w pliku CSV są dostępne w załączniku.",
-              "ro": "Acest tabel prezintă rezultatele lunare ale statisticilor cinematografice pe săptămâni de cinematografie (număr de intrări, filme, proiecții, cinematografe active, cinematografe active) în funcție de originea filmului (toate țările, Elveția, Europa, alte țări, SUA) și statutul (nou sau total), începând din 2019. Descrierile variabilelor din fișierul CSV sunt disponibile în anexă.",
-              "da": "Denne tabel viser de månedlige resultater af film- og biografstatistikker efter biografuger (antal biografgængere, film, forevisninger, aktive biografer, aktive biografer) efter filmens oprindelse (alle lande, Schweiz, Europa, andre lande, USA) og status (ny eller alle) fra 2019.\nBeskrivelserne af variablerne i CSV-filen findes i tillægget.",
-              "nl": "Deze tabel geeft de maandelijkse resultaten weer van film- en bioscoopstatistieken per bioscoopweek (aantal opnames, films, vertoningen, actieve bioscopen, actieve bioscopen) naar oorsprong van de film (alle landen, Zwitserland, Europa, andere landen, VS) en status (nieuw of alle), vanaf 2019. De beschrijvingen van de variabelen in het CSV-bestand zijn beschikbaar in de bijlage."
-            },
-            "modified": "2024-05-06T12:55:35.397Z",
-            "language": [
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/ENG",
-                "id": "en",
-                "label": "English"
-              },
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/DEU",
-                "id": "de",
-                "label": "German"
-              },
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/ITA",
-                "id": "it",
-                "label": "Italian"
-              },
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
-                "id": "fr",
-                "label": "French"
-              }
-            ],
-            "id": "85574b9b-c5f4-481b-bfcd-969ee0f552f7",
-            "title": {
-              "de": "Kinostatistik - Ergebnisse nach Kinowochen",
-              "fi": "Elokuvatilastot - tulokset elokuvaviikkojen mukaan",
-              "pt": "Estatísticas do Cinema - Resultados por Semanas do Cinema",
-              "bg": "Кино Статистика — Резултати по Седмици на киното",
-              "lt": "Kino statistika - Kino savaitės rezultatai",
-              "hr": "Statistika kina - rezultati po tjednima kina",
-              "lv": "Kino statistika - Kino nedēļu rezultāti",
-              "fr": "Statistique du cinéma - Résultats par semaine cinématographique",
-              "hu": "Mozistatisztika - Mozihetek eredményei",
-              "uk": "Статистика кінотеатрів — результати за Кіно тижнями",
-              "sk": "Kinematografické štatistiky - výsledky podľa kinematografických týždňov",
-              "sl": "Kinematografska statistika - rezultati po filmskih tednih",
-              "ga": "Staitisticí na bPictiúrlann - Torthaí de réir Seachtaine na bPictiúrlann",
-              "sv": "Filmstatistik - Resultat per filmvecka",
-              "el": "Στατιστικά Κινηματογράφου — Αποτελέσματα ανά Εβδομάδα Κινηματογράφου",
-              "mt": "Statistika dwar iċ-Ċinema - Riżultati skont il-Ġimgħat taċ-Ċinema",
-              "en": "Cinema statistics - Results by cinema week",
-              "it": "Statistica del cinema - Risultati per settimana cinematografica",
-              "es": "Estadísticas de Cine - Resultados por Semanas de Cine",
-              "et": "Kinostatistika - Tulemused kinonädalate lõikes",
-              "cs": "Statistiky kinematografie - Výsledky podle Týdnů kinematografie",
-              "pl": "Statystyki Kino - Wyniki przez Cinema Weeks",
-              "da": "Biograf Statistik - Resultater af Biograf Uger",
-              "ro": "Statistici cinematografice - Rezultate după Săptămânile Cinematografiei",
-              "nl": "Cinema Statistieken - Resultaten door Cinema Weken"
-            },
-            "issued": "2024-05-07T06:30:00Z"
-          },
-          {
-            "license": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "id": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask",
-              "label": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "media_type": "text/html",
-            "rights": {
-              "resource": "http://dcat-ap.ch/vocabulary/licenses/terms_by_ask"
-            },
-            "access_url": [
-              "https://www.bfs.admin.ch/asset/it/ts-x-16.02.01-01"
-            ],
-            "format": {
-              "resource": "http://publications.europa.eu/resource/authority/file-type/HTML",
-              "id": "HTML",
-              "label": "HTML"
-            },
-            "description": {
-              "de": "Diese Tabelle zeigt die monatlichen Ergebnisse der Film- und Kinostatistiken pro Kinowoche (Anzahl der Kinobesucher, Filme, Vorführungen, aktive Kinos) auf der Grundlage der Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und ihres Status (letzter oder nicht letzter) seit 2019. Die Beschreibungen der Variablen in der CSV-Datei finden Sie im Anhang. Diese Tabelle zeigt die monatlichen Ergebnisse der Film- und Kinostatistiken pro Kinowoche (Anzahl der Kinobesucher, Filme, Vorführungen, aktive Kinos) auf der Grundlage der Herkunft des Films (alle Länder, Schweiz, Europa, andere Länder, USA) und ihres Status (letzter oder nicht letzter) seit 2019.\nDie Beschreibungen der Variablen in der CSV-Datei finden Sie im Anhang.",
-              "fi": "Tässä taulukossa esitetään elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikkoa kohden (katsojien, elokuvien, esitysten ja aktiivisten elokuvateattereiden määrä) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja niiden aseman (viimeaikainen tai ei) perusteella vuodesta 2019 lähtien. CSV-tiedoston muuttujien kuvaukset löytyvät liitteestä. Tässä taulukossa esitetään elokuva- ja elokuvatilastojen kuukausittaiset tulokset elokuvaviikkoa kohden (katsojien, elokuvien, esitysten ja aktiivisten elokuvateattereiden määrä) elokuvan alkuperän (kaikki maat, Sveitsi, Eurooppa, muut maat, Yhdysvallat) ja niiden aseman (viimeaikainen tai ei) perusteella vuodesta 2019 lähtien.\nCSV-tiedoston muuttujien kuvaukset löytyvät liitteestä.",
-              "pt": "Este quadro apresenta os resultados mensais das estatísticas cinematográficas por semana de cinema (número de entradas, filmes, projeções, cinemas ativos) com base na origem do filme (todos os países, Suíça, Europa, outros países, Estados Unidos) e no seu estatuto (recente ou não), desde 2019. As descrições das variáveis no ficheiro CSV estão disponíveis no apêndice.",
-              "bg": "Тази таблица представя месечните резултати от статистиката на филмите и киното за седмица на кино (брой на входовете, филмите, прожекциите, активните кина) въз основа на произхода на филма (всички държави, Швейцария, Европа, други държави, САЩ) и техния статут (в последно време или не), от 2019 г. насам. Описанията на променливите в CSV файла са налични в допълнението.",
-              "lt": "Šioje lentelėje pateikiami mėnesiniai kino ir kino statistikos rezultatai pagal kino savaitę (žiūrovų skaičius, filmai, peržiūros, aktyvūs kino teatrai), remiantis filmo kilme (visose šalyse, Šveicarijoje, Europoje, kitose šalyse, Jungtinėse Amerikos Valstijose) ir statusu (neseniai arba ne) nuo 2019 m. Kintamųjų aprašymai CSV rinkmenoje pateikiami priedėlyje.",
-              "lv": "Šajā tabulā sniegti filmu un kino statistikas ikmēneša rezultāti par katru kino nedēļu (ieeju, filmu, demonstrējumu, aktīvo kinoteātru skaits), pamatojoties uz filmas izcelsmi (visas valstis, Šveice, Eiropa, citas valstis, Amerikas Savienotās Valstis) un statusu (nesen vai nesen), kopš 2019. gada. Mainīgo apraksti CSV datnē ir pieejami pielikumā. Šajā tabulā sniegti filmu un kino statistikas ikmēneša rezultāti par katru kino nedēļu (ieeju, filmu, demonstrējumu, aktīvo kinoteātru skaits), pamatojoties uz filmas izcelsmi (visas valstis, Šveice, Eiropa, citas valstis, Amerikas Savienotās Valstis) un statusu (nesen vai nesen), kopš 2019. gada.\nMainīgo apraksti CSV datnē ir pieejami pielikumā.",
-              "hr": "U ovoj su tablici prikazani mjesečni rezultati statistike o filmovima i kinima po tjednu kina (broj ulaznica, filmova, projekcija, aktivnih kina) na temelju podrijetla filma (sve zemlje, Švicarska, Europa, druge zemlje, Sjedinjene Američke Države) i njihova statusa (nedavno ili ne) od 2019. Opisi varijabli u datoteci CSV dostupni su u Dodatku. U ovoj su tablici prikazani mjesečni rezultati statistike o filmovima i kinima po tjednu kina (broj ulaznica, filmova, projekcija, aktivnih kina) na temelju podrijetla filma (sve zemlje, Švicarska, Europa, druge zemlje, Sjedinjene Američke Države) i njihova statusa (nedavno ili ne) od 2019.\nOpisi varijabli u datoteci CSV dostupni su u Dodatku.",
-              "fr": "Ce tableau présente les résultats mensuels des statistiques cinématographiques et cinématographiques par semaine de cinéma (nombre d'entrées, de films, de projections, de cinémas actifs) en fonction de l'origine du film (tous les pays, Suisse, Europe, autres pays, États-Unis) et de leur statut (récent ou non), depuis 2019. Les descriptions des variables dans le fichier CSV sont disponibles en annexe. Ce tableau présente les résultats mensuels des statistiques cinématographiques et cinématographiques par semaine de cinéma (nombre d'entrées, de films, de projections, de cinémas actifs) en fonction de l'origine du film (tous les pays, Suisse, Europe, autres pays, États-Unis) et de leur statut (récent ou non), depuis 2019.\nLes descriptions des variables dans le fichier CSV sont disponibles en annexe.",
-              "hu": "Ez a táblázat a film- és mozistatisztikák havi eredményeit mutatja be mozihetenként (belépők, filmek, vetítések, aktív mozik száma), a film eredete (valamennyi ország, Svájc, Európa, más országok, Egyesült Államok) és státusza (legutóbbi vagy nem legutóbbi) alapján, 2019 óta. A CSV-fájl változóinak leírása a függelékben található. Ez a táblázat a film- és mozistatisztikák havi eredményeit mutatja be mozihetenként (belépők, filmek, vetítések, aktív mozik száma), a film eredete (valamennyi ország, Svájc, Európa, más országok, Egyesült Államok) és státusza (legutóbbi vagy nem legutóbbi) alapján, 2019 óta.\nA CSV-fájl változóinak leírása a függelékben található.",
-              "uk": "У цій таблиці представлені щомісячні результати кіно та кіностатистики за тиждень кіно (кількість прийомів, фільмів, показів, активних кінотеатрів) за походженням фільму (всі країни, Швейцарія, Європа, інші країни, США) та їх статус (нещодавні чи ні) з 2019 року. Опис змінних у файлі CSV доступні в додатку.",
-              "sk": "V tejto tabuľke sa uvádzajú mesačné výsledky filmových a kinematografických štatistík za týždeň kina (počet vstupov, filmov, premietaní, aktívnych kín) na základe pôvodu filmu (všetky krajiny, Švajčiarsko, Európa, ostatné krajiny, Spojené štáty) a ich statusu (nedávny alebo nie) od roku 2019. Opisy premenných v súbore CSV sú k dispozícii v dodatku.",
-              "sl": "Ta preglednica prikazuje mesečne rezultate filmske in kinematografske statistike na teden kinematografov (število vstopnin, filmov, projekcij, aktivnih kinematografov) na podlagi izvora filma (vse države, Švica, Evropa, druge države, Združene države) in njegovega statusa (nedavno ali ne) od leta 2019. Opisi spremenljivk v datoteki CSV so na voljo v dodatku.",
-              "ga": "Cuirtear i láthair sa tábla seo torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne in aghaidh na seachtaine pictiúrlainne (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach) bunaithe ar thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, na Stáit Aontaithe) agus a stádas (le déanaí nó nach ea), ó 2019 i leith. Tá na tuairiscí ar na hathróga sa chomhad CSV ar fáil san aguisín. Cuirtear i láthair sa tábla seo torthaí míosúla na staitisticí scannánaíochta agus pictiúrlainne in aghaidh na seachtaine pictiúrlainne (líon na n-iontrálacha, na scannán, na léirithe, na bpictiúrlann gníomhach) bunaithe ar thionscnamh an scannáin (gach tír, an Eilvéis, an Eoraip, tíortha eile, na Stáit Aontaithe) agus a stádas (le déanaí nó nach ea), ó 2019 i leith.\nTá na tuairiscí ar na hathróga sa chomhad CSV ar fáil san aguisín.",
-              "sv": "I denna tabell visas de månatliga resultaten av film- och biografstatistik per biografvecka (antal inträden, filmer, visningar, aktiva biografer) baserat på filmens ursprung (alla länder, Schweiz, Europa, andra länder, Förenta staterna) och deras status (nyligen eller inte) sedan 2019. Beskrivningarna av variablerna i CSV-filen finns i bilagan. I denna tabell visas de månatliga resultaten av film- och biografstatistik per biografvecka (antal inträden, filmer, visningar, aktiva biografer) baserat på filmens ursprung (alla länder, Schweiz, Europa, andra länder, Förenta staterna) och deras status (nyligen eller inte) sedan 2019.\nBeskrivningarna av variablerna i CSV-filen finns i bilagan.",
-              "el": "Ο πίνακας αυτός παρουσιάζει τα μηνιαία αποτελέσματα των στατιστικών ταινιών και κινηματογράφων ανά εβδομάδα κινηματογράφου (αριθμός εισαγωγικών, ταινιών, προβολών, ενεργών κινηματογράφων) με βάση την προέλευση της ταινίας (όλες τις χώρες, την Ελβετία, την Ευρώπη, άλλες χώρες, τις Ηνωμένες Πολιτείες) και την κατάστασή τους (πρόσφατη ή μη), από το 2019. Οι περιγραφές των μεταβλητών στο αρχείο CSV είναι διαθέσιμες στο προσάρτημα.",
-              "mt": "Din it-tabella tippreżenta r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema għal kull ġimgħa taċ-ċinema (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi) abbażi tal-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti) u l-istatus tagħhom (reċenti jew le), mill-2019. Id-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-appendiċi. Din it-tabella tippreżenta r-riżultati ta’ kull xahar tal-istatistika tal-films u taċ-ċinema għal kull ġimgħa taċ-ċinema (l-għadd ta’ ammissjonijiet, films, wiri, ċinemas attivi) abbażi tal-oriġini tal-film (il-pajjiżi kollha, l-Iżvizzera, l-Ewropa, pajjiżi oħra, l-Istati Uniti) u l-istatus tagħhom (reċenti jew le), mill-2019.\nId-deskrizzjonijiet tal-varjabbli fil-fajl CSV huma disponibbli fl-appendiċi.",
-              "en": "This table presents the monthly results of film and cinema statistics per cinema week (number of admissions, films, screenings, active cinemas) based on the origin of the film (all countries, Switzerland, Europe, other countries, United States) and their status (recent or not), since 2019. The descriptions of the variables in the CSV file are available in the appendix.",
-              "it": "Questa tabella presenta i risultati mensili delle statistiche sui film e sui cinema per settimana cinematografica (numero di ingressi, film, proiezioni, cinema attivi) in base all'origine del film (tutti i Paesi, Svizzera, Europa, altri Paesi, Stati Uniti) e al loro stato (recente o meno), dal 2019. Le descrizioni delle variabili nel file CSV sono disponibili in appendice.",
-              "es": "Esta tabla presenta los resultados mensuales de las estadísticas de cine y cine por semana de cine (número de entradas, películas, proyecciones, cines activos) en función del origen de la película (todos los países, Suiza, Europa, otros países, Estados Unidos) y su estado (reciente o no), desde 2019. Las descripciones de las variables en el archivo CSV están disponibles en el apéndice.",
-              "et": "Tabelis on esitatud filmi- ja kinostatistika igakuised tulemused kinonädala kohta (vastuvõttude, filmide, linastuste, aktiivsete kinode arv) lähtuvalt filmi päritolust (kõik riigid, Šveits, Euroopa, muud riigid, Ameerika Ühendriigid) ja staatusest (hiljutine või mitte) alates 2019. aastast. CSV-faili muutujate kirjeldused on esitatud lisas.",
-              "cs": "Tato tabulka uvádí měsíční výsledky filmových a kinematografických statistik za kinotýden (počet vstupů, filmů, projekcí, aktivních kin) na základě původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, Spojené státy) a jejich stavu (nedávné či nikoli) od roku 2019. Popisy proměnných v CSV souboru jsou k dispozici v příloze. Tato tabulka uvádí měsíční výsledky filmových a kinematografických statistik za kinotýden (počet vstupů, filmů, projekcí, aktivních kin) na základě původu filmu (všechny země, Švýcarsko, Evropa, ostatní země, Spojené státy) a jejich stavu (nedávné či nikoli) od roku 2019.\nPopisy proměnných v CSV souboru jsou k dispozici v příloze.",
-              "pl": "W tabeli przedstawiono miesięczne wyniki statystyk dotyczących filmów i kin na tydzień kinowy (liczba widzów, filmy, projekcje, kina aktywne) w oparciu o pochodzenie filmu (wszystkie kraje, Szwajcaria, Europa, inne kraje, Stany Zjednoczone) i ich status (ostatni lub nie), od 2019 r. Opisy zmiennych w pliku CSV są dostępne w załączniku.",
-              "ro": "Acest tabel prezintă rezultatele lunare ale statisticilor privind filmele și cinematografele pe săptămână (numărul de intrări, filme, proiecții, cinematografe active) pe baza originii filmului (toate țările, Elveția, Europa, alte țări, Statele Unite) și a statutului acestora (recent sau nu), începând din 2019. Descrierile variabilelor din fișierul CSV sunt disponibile în anexă.",
-              "da": "Denne tabel viser de månedlige resultater af film- og biografstatistikker pr. biografuge (antal biografgængere, film, forevisninger, aktive biografer) baseret på filmens oprindelse (alle lande, Schweiz, Europa, andre lande, USA) og deres status (nylig eller ej) siden 2019. Beskrivelserne af variablerne i CSV-filen findes i tillægget.",
-              "nl": "Deze tabel bevat de maandelijkse resultaten van film- en bioscoopstatistieken per bioscoopweek (aantal opnames, films, vertoningen, actieve bioscopen) op basis van de oorsprong van de film (alle landen, Zwitserland, Europa, andere landen, Verenigde Staten) en hun status (recent of niet), sinds 2019. De beschrijvingen van de variabelen in het CSV-bestand zijn beschikbaar in de bijlage."
-            },
-            "language": [
-              {
-                "resource": "http://publications.europa.eu/resource/authority/language/ITA",
-                "id": "it",
-                "label": "Italian"
-              }
-            ],
-            "id": "02734bed-8d7b-4ade-90ff-4c24476e179a",
-            "title": {
-              "de": "Kinostatistik - Ergebnisse pro Filmwoche",
-              "fi": "Elokuvatilastot - Tulokset per elokuvaviikko",
-              "pt": "Estatísticas do cinema - Resultados por semana de cinema",
-              "bg": "Статистика на киното — Резултати на филмовата седмица",
-              "lt": "Kino statistika - Filmų savaitės rezultatai",
-              "hr": "Statistika kina - Rezultati po tjednu filma",
-              "lv": "Kino statistika - Rezultāti filmu nedēļā",
-              "fr": "Statistiques du cinéma - Résultats par semaine de cinéma",
-              "hu": "Mozistatisztika - Eredmények egy filmhéten",
-              "uk": "Статистика кіно — результати за тиждень фільму",
-              "sk": "Kinematografické štatistiky - Výsledky za týždeň filmu",
-              "sl": "Kinematografska statistika - rezultati po filmskih tednih",
-              "ga": "Staitisticí cineama - Torthaí in aghaidh na seachtaine scannánaíochta",
-              "sv": "Biostatistik - Resultat per filmvecka",
-              "mt": "Statistika dwar iċ-ċinema - Riżultati għal kull ġimgħa tal-films",
-              "el": "Στατιστικά Κινηματογράφου — Αποτελέσματα ανά κινηματογραφική εβδομάδα",
-              "en": "Cinema statistics - Results per film week",
-              "it": "Statistica del cinema - Risultati per settimana cinematografica",
-              "es": "Estadísticas de cine - Resultados por semana de cine",
-              "et": "Kinostatistika - Tulemused filminädala kohta",
-              "cs": "Statistiky kin - Výsledky za filmový týden",
-              "pl": "Statystyki kina - Wyniki na tydzień filmowy",
-              "da": "Biografstatistik - Resultater pr. filmuge",
-              "ro": "Statistici cinematografice - Rezultate pe săptămână de film",
-              "nl": "Bioscoopstatistieken - Resultaten per filmweek"
-            },
-            "issued": "2024-05-07T06:30:00Z"
-          }
-        ],
-        "relation": [
-          "https://www.admin.ch/opc/de/classified-compilation/19920252/index.html"
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 345
-        },
-        "spatial_resource": [
-          {}
-        ],
-        "id": "31950878-bundesamt-fur-statistik-bfs",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-            "id": "EDUC",
-            "label": {
-              "nn": "Utdanning, kultur og sport",
-              "no": "Utdanning, kultur og sport",
-              "de": "Bildung, Kultur und Sport",
-              "fi": "Koulutus, kulttuuri ja urheilu",
-              "pt": "Educação, cultura e desporto",
-              "bg": "Образование, култура и спорт",
-              "lt": "Švietimas, kultūra ir sportas",
-              "lv": "Izglītība, kultūra un sports",
-              "hr": "Obrazovanje, kultura i sport",
-              "fr": "Éducation, culture et sport",
-              "hu": "Oktatás, kultúra és sport",
-              "sk": "Vzdelávanie, kultúra a šport",
-              "sl": "Izobraževanje, kultura in šport",
-              "ga": "Oideachas, cultúr agus spórt",
-              "sv": "Utbildning, kultur och sport",
-              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
-              "mt": "Edukazzjoni, kultura u sport",
-              "en": "Education, culture and sport",
-              "it": "Istruzione, cultura e sport",
-              "es": "Educación, cultura y deportes",
-              "et": "Haridus, kultuur ja sport",
-              "cs": "Vzdělávání, kultura a sport",
-              "nb": "Utdanning, kultur og sport",
-              "pl": "Edukacja, kultura i sport",
-              "da": "Uddannelse, kultur og sport",
-              "ro": "Educaţie, cultură şi sport",
-              "nl": "Onderwijs, cultuur en sport"
-            }
-          }
-        ],
-        "spatial": [],
-        "issued": "2024-05-07T06:30:00Z",
-        "temporal": [
-          {
-            "gte": "2019-01-01T00:00:00Z",
-            "lte": "2024-04-24T23:59:59.999999Z"
-          }
-        ],
-        "catalog_record": {
-          "modified": "2026-02-07T20:15:36Z",
-          "issued": "2024-05-07T20:16:52Z"
-        },
-        "contact_point": [
-          {
-            "name": "info@bfs.admin.ch",
-            "type": "Organization",
-            "email": "mailto:auskunftsdienst@bfs.admin.ch"
-          }
-        ]
-      },
-      {
-        "identifier": [
-          "https://datos.parcan.es/dataset/diputado_iniciativas_11003id_miembro"
+          "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_11003id_miembro",
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -6012,208 +5079,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "hr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "lv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "el": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "da": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-12-13T01:31:48Z",
-              "issued": "2023-12-12T23:20:05Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             }
           },
           "full_available_languages": [
             "mt",
-            "hr",
-            "ro",
-            "nl",
-            "bg",
-            "lv",
-            "pl",
-            "uk",
-            "fi",
-            "pt",
-            "de",
-            "et",
-            "sv",
-            "da",
-            "el",
-            "es",
-            "sk",
-            "en",
-            "hu",
-            "ga",
-            "sl",
             "lt",
+            "sl",
+            "uk",
+            "sv",
             "it",
+            "fi",
+            "hr",
+            "da",
+            "et",
+            "sk",
+            "ro",
+            "cs",
+            "lv",
+            "hu",
+            "es",
+            "el",
             "fr",
-            "cs"
+            "pt",
+            "bg",
+            "ga",
+            "pl",
+            "en",
+            "de",
+            "nl"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Initiativen von Jesus Ramón Ramos Chinea – XI. Legislaturperiode",
-          "fi": "Jeesuksen Ramón Ramos Chinean aloitteet – XI vaalikausi",
-          "pt": "Iniciativas de Jesus Ramón Ramos Chinea — XI legislatura",
-          "bg": "Инициативи на Исус Рамон Рамос Чинеа — XI законодателен мандат",
-          "lt": "Jėzaus Ramón Ramos Chinea iniciatyvos – XI įstatymų leidžiamoji valdžia",
-          "lv": "Jēzus Ramón Ramos Chinea iniciatīvas — XI sasaukums",
-          "hr": "Inicijative Isusa Ramona Ramosa Chineje – XI. zakonodavna vlast",
-          "fr": "Initiatives de Jésus Ramón Ramos Chinea — XI législature",
-          "hu": "Jézus Ramón Ramos Chinea kezdeményezései – XI. törvényhozás",
-          "uk": "Ініціативи Ісуса Рамона Рамос Чинеа — XI законодавчий орган",
-          "sk": "Iniciatívy Ježiša Ramóna Ramosa Chineu – XI. zákonodarný zbor",
-          "sl": "Pobude Jezusa Ramóna Ramosa Chineje – XI. zakonodajalec",
-          "ga": "Tionscnaimh Íosa Ramón Ramos Chinea — XI reachtas",
-          "sv": "Initiativ av Jesus Ramón Ramos Chinea – XI lagstiftande församling",
-          "el": "Πρωτοβουλίες του Ιησού Ramón Ramos Chinea — ΧΙ νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Ġesù Ramón Ramos Chinea — leġiżlatura XI",
-          "en": "Initiatives of Jesus Ramón Ramos Chinea – XI legislature",
-          "it": "Iniziative di Jesus Ramón Ramos Chinea — XI legislatura",
-          "es": "Iniciativas de Jesús Ramón Ramos Chinea - XI legislatura",
-          "et": "Jeesuse Ramón Ramos Chinea algatused – XI seadusandlik kogu",
-          "cs": "Iniciativy Ježíše Ramóna Ramose Chinea – XI. volební období",
-          "pl": "Inicjatywy Jezusa Ramona Ramosa Chinei – XI legislacja",
-          "ro": "Inițiativele lui Isus Ramón Ramos Chinea – legislatură a XI-a",
-          "da": "Initiativer af Jesus Ramón Ramos Chinea — XI lovgivende forsamling",
-          "nl": "Initiatieven van Jezus Ramón Ramos Chinea — XI wetgever"
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
         },
         "index": "dataset",
         "language": [
@@ -6224,31 +5291,31 @@
           }
         ],
         "title": {
-          "de": "Initiativen von Jesus Ramón Ramos Chinea – XI. Legislaturperiode",
-          "fi": "Jeesuksen Ramón Ramos Chinean aloitteet – XI vaalikausi",
-          "pt": "Iniciativas de Jesus Ramón Ramos Chinea — XI legislatura",
-          "bg": "Инициативи на Исус Рамон Рамос Чинеа — XI законодателен мандат",
-          "lt": "Jėzaus Ramón Ramos Chinea iniciatyvos – XI įstatymų leidžiamoji valdžia",
-          "hr": "Inicijative Isusa Ramona Ramosa Chineje – XI. zakonodavna vlast",
-          "lv": "Jēzus Ramón Ramos Chinea iniciatīvas — XI sasaukums",
-          "fr": "Initiatives de Jésus Ramón Ramos Chinea — XI législature",
-          "hu": "Jézus Ramón Ramos Chinea kezdeményezései – XI. törvényhozás",
-          "uk": "Ініціативи Ісуса Рамона Рамос Чинеа — XI законодавчий орган",
-          "sk": "Iniciatívy Ježiša Ramóna Ramosa Chineu – XI. zákonodarný zbor",
-          "sl": "Pobude Jezusa Ramóna Ramosa Chineje – XI. zakonodajalec",
-          "ga": "Tionscnaimh Íosa Ramón Ramos Chinea — XI reachtas",
-          "sv": "Initiativ av Jesus Ramón Ramos Chinea – XI lagstiftande församling",
-          "mt": "Inizjattivi ta’ Ġesù Ramón Ramos Chinea — leġiżlatura XI",
-          "el": "Πρωτοβουλίες του Ιησού Ramón Ramos Chinea — ΧΙ νομοθετικό σώμα",
-          "en": "Initiatives of Jesus Ramón Ramos Chinea – XI legislature",
-          "it": "Iniziative di Jesus Ramón Ramos Chinea — XI legislatura",
-          "es": "Iniciativas de Jesús Ramón Ramos Chinea - XI legislatura",
-          "et": "Jeesuse Ramón Ramos Chinea algatused – XI seadusandlik kogu",
-          "cs": "Iniciativy Ježíše Ramóna Ramose Chinea – XI. volební období",
-          "pl": "Inicjatywy Jezusa Ramona Ramosa Chinei – XI legislacja",
-          "ro": "Inițiativele lui Isus Ramón Ramos Chinea – legislatură a XI-a",
-          "da": "Initiativer af Jesus Ramón Ramos Chinea — XI lovgivende forsamling",
-          "nl": "Initiatieven van Jezus Ramón Ramos Chinea — XI wetgever"
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
         },
         "distributions": [
           {
@@ -6257,37 +5324,37 @@
               "id": "http://www.opendefinition.org/licenses/odc-pddl",
               "label": "http://www.opendefinition.org/licenses/odc-pddl"
             },
-            "media_type": "text/csv",
+            "media_type": "application/json",
             "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/11003?format=csv"
+              "https://parcan.es/api/diputado/asistencias/09033?format=json"
             ],
-            "id": "522ca966-308e-45ea-baf4-4d94f56d3b66",
+            "id": "861f74e2-ddf6-41a1-b093-67d9ce9732ad",
             "title": {
-              "de": "XI. Wahlperiode (CSV)",
-              "fi": "XI vaalikausi (CSV)",
-              "pt": "XI legislatura (CSV)",
-              "bg": "XI парламентарен мандат (CSV)",
-              "lt": "XI Parlamento kadencija (CSV)",
-              "lv": "XI Parlamenta sasaukums (CSV)",
-              "hr": "XI. parlamentarni saziv (CSV)",
-              "fr": "XIe législature (CSV)",
-              "hu": "XI. parlamenti ciklus (CSV)",
-              "uk": "XI парламентський термін (CSV)",
-              "sk": "XI. volebné obdobie (CSV)",
-              "sl": "XI parlamentarno obdobje (CSV)",
-              "ga": "XI téarma parlaiminteach (CSV)",
-              "sv": "XI valperiod (CSV)",
-              "mt": "Xi leġiżlatura (CSV)",
-              "el": "ΧΙ κοινοβουλευτική περίοδος (CSV)",
-              "en": "XI parliamentary term (CSV)",
-              "it": "XI legislatura (CSV)",
-              "es": "XI legislatura (CSV)",
-              "et": "XI koosseisu ametiaeg (CSV)",
-              "cs": "XI. volební období (CSV)",
-              "pl": "XI kadencja parlamentarna (CSV)",
-              "da": "XI valgperiode (CSV)",
-              "ro": "XI legislatură (CSV)",
-              "nl": "XI zittingsperiode (CSV)"
+              "de": "IX Wahlperiode (JSON)",
+              "fi": "IX vaalikausi (JSON)",
+              "pt": "IX legislatura (JSON)",
+              "bg": "IX парламентарен мандат (JSON)",
+              "lt": "IX Parlamento kadencija (JSON)",
+              "lv": "IX sasaukums (JSON)",
+              "hr": "IX. parlamentarni saziv (JSON)",
+              "fr": "IX législature (JSON)",
+              "hu": "IX. parlamenti ciklus (JSON)",
+              "uk": "IX парламентський термін (JSON)",
+              "sk": "IX. volebné obdobie (JSON)",
+              "sl": "IX. parlamentarno obdobje (JSON)",
+              "ga": "IX téarma parlaiminteach (JSON)",
+              "sv": "IX valperioden (JSON)",
+              "mt": "IX leġiżlatura (JSON)",
+              "el": "IX κοινοβουλευτική περίοδος (JSON)",
+              "en": "IX parliamentary term (JSON)",
+              "it": "IX legislatura (JSON)",
+              "es": "IX legislatura (JSON)",
+              "et": "IX ametiaeg (JSON)",
+              "cs": "IX. volební období (JSON)",
+              "pl": "IX kadencja parlamentarna (JSON)",
+              "ro": "A IX-a legislatură (JSON)",
+              "da": "IX valgperiode (JSON)",
+              "nl": "IX zittingsperiode (JSON)"
             }
           },
           {
@@ -6296,37 +5363,37 @@
               "id": "http://www.opendefinition.org/licenses/odc-pddl",
               "label": "http://www.opendefinition.org/licenses/odc-pddl"
             },
-            "media_type": "application/json",
+            "media_type": "text/csv",
             "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/11003?format=json"
+              "https://parcan.es/api/diputado/asistencias/09033?format=csv"
             ],
-            "id": "5856b77b-abe5-4bed-9718-1886d35155f1",
+            "id": "dd93015c-ceab-4190-83c0-39fc007c127c",
             "title": {
-              "de": "XI. Wahlperiode (JSON)",
-              "fi": "XI vaalikausi (JSON)",
-              "pt": "XI legislatura (JSON)",
-              "bg": "XI парламентарен мандат (JSON)",
-              "lt": "XI Parlamento kadencija (JSON)",
-              "hr": "XI. parlamentarni saziv (JSON)",
-              "lv": "XI sasaukums (JSON)",
-              "fr": "XIe législature (JSON)",
-              "hu": "XI. parlamenti ciklus (JSON)",
-              "uk": "XI парламентський термін (JSON)",
-              "sk": "XI. volebné obdobie (JSON)",
-              "sl": "XI parlamentarno obdobje (JSON)",
-              "ga": "XI téarma parlaiminteach (JSON)",
-              "sv": "XI valperiod (JSON)",
-              "el": "ΧΙ κοινοβουλευτική περίοδος (JSON)",
-              "mt": "Xi leġiżlatura (JSON)",
-              "en": "XI parliamentary term (JSON)",
-              "it": "XI legislatura (JSON)",
-              "es": "XI legislatura (JSON)",
-              "et": "XI ametiaeg (JSON)",
-              "cs": "XI. volební období (JSON)",
-              "pl": "XI kadencja parlamentarna (JSON)",
-              "ro": "XI legislatură (JSON)",
-              "da": "XI valgperiode (JSON)",
-              "nl": "XI zittingsperiode (JSON)"
+              "de": "IX Legislaturperiode (CSV)",
+              "fi": "IX Lainsäädäntö (CSV)",
+              "pt": "IX legislatura (CSV)",
+              "bg": "IX законодателен мандат (CSV)",
+              "lt": "IX teisės aktų leidėjas (CSV)",
+              "hr": "Zakonodavno razdoblje (CSV)",
+              "lv": "IX likumdevējs (CSV)",
+              "fr": "IX législature (CSV)",
+              "hu": "IX. törvényhozás (CSV)",
+              "uk": "IX Законодавчий орган (CSV)",
+              "sk": "IX volebné obdobie (CSV)",
+              "sl": "IX. zakonodajalec (CSV)",
+              "ga": "IX reachtas (CSV)",
+              "sv": "IX Lagstiftning (CSV)",
+              "mt": "Ix leġiżlatura (CSV)",
+              "el": "IX νομοθέτης (CSV)",
+              "en": "IX legislature (CSV)",
+              "it": "IX legislatura (CSV)",
+              "es": "IX legislatura (CSV)",
+              "et": "IX seadusandlik kogu (CSV)",
+              "cs": "IX. volební období (CSV)",
+              "pl": "IX legislacja (CSV)",
+              "da": "IX-lovgiver (CSV)",
+              "ro": "IX Legislativ (CSV)",
+              "nl": "IX legislatuur (CSV)"
             }
           }
         ],
@@ -6334,13 +5401,13 @@
         "quality_meas": {
           "scoring": 140
         },
+        "modified": "2021-05-05T00:00:00+02:00",
         "publisher": {
           "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
           "name": "Parlamento de Canarias",
           "type": "Agent"
         },
-        "modified": "2023-12-02T00:00:00+01:00",
-        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_11003id_miembro",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
         "categories": [
           {
             "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
@@ -6409,10 +5476,467 @@
             }
           }
         ],
-        "issued": "2023-12-02T00:00:00+01:00",
+        "issued": "2021-05-05T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-03-20T00:07:31Z",
-          "issued": "2023-12-12T23:20:05Z"
+          "modified": "2026-03-19T23:52:26Z",
+          "issued": "2023-02-01T09:22:00Z"
+        }
+      },
+      {
+        "identifier": [
+          "https://datos.parcan.es/dataset/diputado_iniciativas_10047id_miembro"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            }
+          },
+          "full_available_languages": [
+            "el",
+            "pt",
+            "da",
+            "uk",
+            "lv",
+            "pl",
+            "lt",
+            "et",
+            "ro",
+            "it",
+            "en",
+            "hu",
+            "hr",
+            "sl",
+            "ga",
+            "sk",
+            "fi",
+            "fr",
+            "nl",
+            "bg",
+            "cs",
+            "de",
+            "mt",
+            "es",
+            "sv"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
+          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
+          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
+          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
+          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
+          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
+          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
+          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
+          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
+          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
+          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
+          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
+          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
+          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
+          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
+          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
+          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
+          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
+          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
+          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
+          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
+          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
+          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
+          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
+          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
+          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
+          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
+        },
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://parcan.es/api/diputado/iniciativas/10047?format=json"
+            ],
+            "id": "b16cf9f2-1138-479c-8abd-28352db1f8af",
+            "title": {
+              "de": "X Legislaturperiode (JSON)",
+              "fi": "X Lainsäädäntö (JSON)",
+              "pt": "X legislatura (JSON)",
+              "bg": "X законодателен мандат (JSON)",
+              "lt": "X įstatymų leidėjas (JSON)",
+              "lv": "X sasaukums (JSON)",
+              "hr": "X zakonodavno tijelo (JSON)",
+              "fr": "X législature (JSON)",
+              "hu": "X jogalkotó (JSON)",
+              "uk": "X Законодавчий орган (JSON)",
+              "sk": "X volebné obdobie (JSON)",
+              "sl": "X zakonodajalec (JSON)",
+              "ga": "X reachtas (JSON)",
+              "sv": "X Lagstiftning (JSON)",
+              "mt": "Leġiżlatura x (JSON)",
+              "el": "X νομοθετικό σώμα (JSON)",
+              "en": "X legislature (JSON)",
+              "it": "X Legislativo (JSON)",
+              "es": "X legislatura (JSON)",
+              "et": "X Seadusandlik koosseis (JSON)",
+              "cs": "X volební období (JSON)",
+              "pl": "X Ustawodawstwo (JSON)",
+              "ro": "X Legislație (JSON)",
+              "da": "X lovgivende forsamling (JSON)",
+              "nl": "X Wetgeving (JSON)"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "https://parcan.es/api/diputado/iniciativas/10047?format=csv"
+            ],
+            "id": "3b67a29e-0ac6-41a5-8637-01ddedc66a4c",
+            "title": {
+              "de": "X Legislaturperiode (CSV)",
+              "fi": "X Lainsäädäntö (CSV)",
+              "pt": "X legislatura (CSV)",
+              "bg": "X законодателен мандат (CSV)",
+              "lt": "X teisės aktų leidėjas (CSV)",
+              "hr": "X zakonodavno tijelo (CSV)",
+              "lv": "X likumdevējs (CSV)",
+              "fr": "X Législation (CSV)",
+              "hu": "X jogalkotó (CSV)",
+              "uk": "X Законодавчий орган (CSV)",
+              "sk": "X volebné obdobie (CSV)",
+              "sl": "X zakonodajalec (CSV)",
+              "ga": "X reachtas (CSV)",
+              "sv": "X Lagstiftning (CSV)",
+              "mt": "Leġiżlatura x (CSV)",
+              "el": "X νομοθέτης (CSV)",
+              "en": "X legislature (CSV)",
+              "it": "X Legislativo (CSV)",
+              "es": "X legislatura (CSV)",
+              "et": "X Seadusandlik koosseis (CSV)",
+              "cs": "X volební období (CSV)",
+              "pl": "X prawodawstwo (CSV)",
+              "da": "X lovgiver (CSV)",
+              "ro": "X legislatură (CSV)",
+              "nl": "X Wetgeving (CSV)"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 140
+        },
+        "modified": "2021-05-07T00:00:00+02:00",
+        "publisher": {
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
+          "name": "Parlamento de Canarias",
+          "type": "Agent"
+        },
+        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
+            "label": {
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
+          }
+        ],
+        "issued": "2021-05-07T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-19T23:57:44Z",
+          "issued": "2023-02-01T09:26:09Z"
         }
       }
     ]
