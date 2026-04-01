@@ -1335,7 +1335,8 @@
           },
           "title": {
             "en": "EU Open Research Repository"
-          }
+          },
+          "count": 25635
         },
         "translation_meta": {
           "details": {
@@ -1475,8 +1476,7 @@
               "label": "French",
               "resource": "http://publications.europa.eu/resource/authority/language/FRA"
             }
-          ],
-          "count": 2518
+          ]
         },
         "translation_meta": {
           "details": {
@@ -2393,711 +2393,6 @@
         "catalog_record": {
           "modified": "2026-03-20T00:02:48Z",
           "issued": "2023-02-01T09:01:15Z"
-        }
-      },
-      {
-        "identifier": [
-          "http://datos.santander.es/catalogo/cines"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
-          "label": "Spain",
-          "id": "es"
-        },
-        "keywords": [
-          {
-            "language": "es",
-            "id": "cine",
-            "label": "cine"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/http-datos-santander-es-catalogo-cines",
-        "catalog": {
-          "id": "datos-gob-es",
-          "language": [
-            {
-              "id": "es",
-              "label": "Spanish",
-              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
-            }
-          ],
-          "homepage": "https://datos.gob.es",
-          "issued": "2022-11-21T05:37:01Z",
-          "country": {
-            "label": "Spain",
-            "id": "es",
-            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-          },
-          "spatial_resource": [
-            {
-              "label": "Spain",
-              "id": "es",
-              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-            }
-          ],
-          "spatial": [],
-          "source_type": "dcat-ap",
-          "description": {
-            "en": "Open Data Portal Spain"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:soporte@datos.gob.es",
-            "homepage": "https://www.hacienda.gob.es",
-            "name": "Ministerio de Hacienda y Administraciones Públicas"
-          },
-          "modified": "2023-02-02T23:43:40.086753",
-          "title": {
-            "es": "datos.gob.es"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "es": {
-              "machine_translated": false,
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            }
-          },
-          "full_available_languages": [
-            "hr",
-            "pl",
-            "fr",
-            "mt",
-            "lt",
-            "en",
-            "sv",
-            "da",
-            "es",
-            "it",
-            "cs",
-            "sl",
-            "lv",
-            "bg",
-            "de",
-            "el",
-            "sk",
-            "ro",
-            "hu",
-            "et",
-            "nl",
-            "uk",
-            "fi",
-            "ga",
-            "pt"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Dieser Datensatz enthält den Katalog der Kinos in der Stadt Santander.",
-          "fi": "Tämä aineisto sisältää luettelon Santanderin kaupungin elokuvateattereista.",
-          "pt": "Este conjunto de dados contém o catálogo dos cinemas existentes na cidade de Santander.",
-          "bg": "Този набор от данни съдържа каталога на кината, съществуващи в град Сантандер.",
-          "lt": "Šiame duomenų rinkinyje yra Santandero mieste esančių kino teatrų katalogas.",
-          "lv": "Šajā datu kopā ir iekļauts Santanderas pilsētā esošo kinoteātru katalogs.",
-          "hr": "Ovaj skup podataka sadrži katalog kina koja postoje u gradu Santanderu.",
-          "fr": "Cet ensemble de données contient le catalogue des cinémas existant dans la ville de Santander.",
-          "hu": "Ez az adatkészlet tartalmazza a Santander városában található mozik katalógusát.",
-          "uk": "Цей набір даних містить каталог кінотеатрів, що існують в місті Сантандер.",
-          "sk": "Tento súbor údajov obsahuje katalóg kín existujúcich v meste Santander.",
-          "sl": "Ta nabor podatkov vsebuje katalog kinematografov, ki obstajajo v mestu Santander.",
-          "ga": "Sa tacar sonraí seo tá catalóg na bpictiúrlann atá ann cheana i gcathair Santander.",
-          "sv": "Detta dataset innehåller katalogen över de biografer som finns i staden Santander.",
-          "mt": "Dan is-sett ta’ data fih il-katalgu tas-swali taċ-ċinema li jeżistu fil-belt ta’ Santander.",
-          "el": "Αυτό το σύνολο δεδομένων περιέχει τον κατάλογο των κινηματογράφων που υπάρχουν στην πόλη του Σανταντέρ.",
-          "en": "This dataset contains the catalogue of the cinemas existing in the city of Santander.",
-          "it": "Questo set di dati contiene il catalogo dei cinema esistenti nella città di Santander.",
-          "es": "Este dataset contiene el catálogo de los cines existentes en la ciudad de Santander.",
-          "et": "See andmekogum sisaldab Santanderi linnas olemasolevate kinode kataloogi.",
-          "cs": "Tento datový soubor obsahuje katalog kin existujících ve městě Santander.",
-          "pl": "Ten zbiór danych zawiera katalog kin istniejących w mieście Santander.",
-          "ro": "Acest set de date conține catalogul cinematografelor existente în orașul Santander.",
-          "da": "Dette datasæt indeholder kataloget over biografer, der findes i byen Santander.",
-          "nl": "Deze dataset bevat de catalogus van de bioscopen die in de stad Santander bestaan."
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
-            "id": "es",
-            "label": "Spanish"
-          }
-        ],
-        "title": {
-          "de": "Kinos",
-          "fi": "Elokuvateattereita",
-          "pt": "Cinemas",
-          "bg": "Кина",
-          "lt": "Kino teatrai",
-          "hr": "Kina",
-          "lv": "Kinoteātri",
-          "fr": "Cinémas",
-          "hu": "Mozik",
-          "uk": "Кінотеатри для кінотеатрів",
-          "sk": "Kiná",
-          "sl": "Kinodvorane",
-          "ga": "Pictiúrlanna",
-          "sv": "Biografer",
-          "mt": "Swali taċ-ċinema",
-          "el": "Κινηματογράφοι",
-          "en": "Cinemas",
-          "it": "Cinematografia",
-          "es": "Cines",
-          "et": "Kinod",
-          "cs": "Kinosál",
-          "pl": "Kino",
-          "da": "Biografer",
-          "ro": "Cinematografe",
-          "nl": "Bioscopen"
-        },
-        "accrual_periodicity": {},
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/ld%2Bjson",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.jsonld"
-            ],
-            "id": "1658badd-8fc2-48b1-9b68-a01b2dc3a322",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/n3",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.n3"
-            ],
-            "id": "2b137422-87d0-4d8e-bde3-791642c1a37a",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.csv%26rnd%3D1365744798"
-            ],
-            "id": "39deef2d-2c19-42d4-99b8-6be41e3452e2",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.json"
-            ],
-            "id": "00296bf8-7b9a-4dbe-ac2a-f8100fbaacc6",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/atom%2Bxml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.atom"
-            ],
-            "id": "0db690f9-59c9-40ae-9edd-47b1b77278c7",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "application/xml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.xml"
-            ],
-            "id": "385bb9ac-c309-42e3-af59-6dfd4c5bd526",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/html",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.html"
-            ],
-            "id": "f621008c-3e49-47ff-b754-e33d3bc8c4c1",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/turtle",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.turtle"
-            ],
-            "id": "87465de4-6df9-49b8-bdb6-5f7a93c063a0",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/rdf%2Bxml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.rdf"
-            ],
-            "id": "8d3455b0-c922-475f-96b9-5a70d429056d",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 220
-        },
-        "modified": "2015-11-05T00:00:00+01:00",
-        "publisher": {
-          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/L01390759",
-          "name": "Ayuntamiento de Santander",
-          "type": "Agent"
-        },
-        "id": "http-datos-santander-es-catalogo-cines",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-            "id": "EDUC",
-            "label": {
-              "nn": "Utdanning, kultur og sport",
-              "no": "Utdanning, kultur og sport",
-              "de": "Bildung, Kultur und Sport",
-              "fi": "Koulutus, kulttuuri ja urheilu",
-              "pt": "Educação, cultura e desporto",
-              "bg": "Образование, култура и спорт",
-              "lt": "Švietimas, kultūra ir sportas",
-              "lv": "Izglītība, kultūra un sports",
-              "hr": "Obrazovanje, kultura i sport",
-              "fr": "Éducation, culture et sport",
-              "hu": "Oktatás, kultúra és sport",
-              "sk": "Vzdelávanie, kultúra a šport",
-              "sl": "Izobraževanje, kultura in šport",
-              "ga": "Oideachas, cultúr agus spórt",
-              "sv": "Utbildning, kultur och sport",
-              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
-              "mt": "Edukazzjoni, kultura u sport",
-              "en": "Education, culture and sport",
-              "it": "Istruzione, cultura e sport",
-              "es": "Educación, cultura y deportes",
-              "et": "Haridus, kultuur ja sport",
-              "cs": "Vzdělávání, kultura a sport",
-              "nb": "Utdanning, kultur og sport",
-              "pl": "Edukacja, kultura i sport",
-              "da": "Uddannelse, kultur og sport",
-              "ro": "Educaţie, cultură şi sport",
-              "nl": "Onderwijs, cultuur en sport"
-            }
-          }
-        ],
-        "issued": "2015-09-28T00:00:00+02:00",
-        "catalog_record": {
-          "modified": "2026-03-20T00:01:40Z",
-          "issued": "2023-02-01T09:17:36Z"
         }
       },
       {
@@ -4233,6 +3528,711 @@
         ]
       },
       {
+        "identifier": [
+          "http://datos.santander.es/catalogo/cines"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "keywords": [
+          {
+            "language": "es",
+            "id": "cine",
+            "label": "cine"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/http-datos-santander-es-catalogo-cines",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            }
+          },
+          "full_available_languages": [
+            "hr",
+            "pl",
+            "fr",
+            "mt",
+            "lt",
+            "en",
+            "sv",
+            "da",
+            "es",
+            "it",
+            "cs",
+            "sl",
+            "lv",
+            "bg",
+            "de",
+            "el",
+            "sk",
+            "ro",
+            "hu",
+            "et",
+            "nl",
+            "uk",
+            "fi",
+            "ga",
+            "pt"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Dieser Datensatz enthält den Katalog der Kinos in der Stadt Santander.",
+          "fi": "Tämä aineisto sisältää luettelon Santanderin kaupungin elokuvateattereista.",
+          "pt": "Este conjunto de dados contém o catálogo dos cinemas existentes na cidade de Santander.",
+          "bg": "Този набор от данни съдържа каталога на кината, съществуващи в град Сантандер.",
+          "lt": "Šiame duomenų rinkinyje yra Santandero mieste esančių kino teatrų katalogas.",
+          "lv": "Šajā datu kopā ir iekļauts Santanderas pilsētā esošo kinoteātru katalogs.",
+          "hr": "Ovaj skup podataka sadrži katalog kina koja postoje u gradu Santanderu.",
+          "fr": "Cet ensemble de données contient le catalogue des cinémas existant dans la ville de Santander.",
+          "hu": "Ez az adatkészlet tartalmazza a Santander városában található mozik katalógusát.",
+          "uk": "Цей набір даних містить каталог кінотеатрів, що існують в місті Сантандер.",
+          "sk": "Tento súbor údajov obsahuje katalóg kín existujúcich v meste Santander.",
+          "sl": "Ta nabor podatkov vsebuje katalog kinematografov, ki obstajajo v mestu Santander.",
+          "ga": "Sa tacar sonraí seo tá catalóg na bpictiúrlann atá ann cheana i gcathair Santander.",
+          "sv": "Detta dataset innehåller katalogen över de biografer som finns i staden Santander.",
+          "mt": "Dan is-sett ta’ data fih il-katalgu tas-swali taċ-ċinema li jeżistu fil-belt ta’ Santander.",
+          "el": "Αυτό το σύνολο δεδομένων περιέχει τον κατάλογο των κινηματογράφων που υπάρχουν στην πόλη του Σανταντέρ.",
+          "en": "This dataset contains the catalogue of the cinemas existing in the city of Santander.",
+          "it": "Questo set di dati contiene il catalogo dei cinema esistenti nella città di Santander.",
+          "es": "Este dataset contiene el catálogo de los cines existentes en la ciudad de Santander.",
+          "et": "See andmekogum sisaldab Santanderi linnas olemasolevate kinode kataloogi.",
+          "cs": "Tento datový soubor obsahuje katalog kin existujících ve městě Santander.",
+          "pl": "Ten zbiór danych zawiera katalog kin istniejących w mieście Santander.",
+          "ro": "Acest set de date conține catalogul cinematografelor existente în orașul Santander.",
+          "da": "Dette datasæt indeholder kataloget over biografer, der findes i byen Santander.",
+          "nl": "Deze dataset bevat de catalogus van de bioscopen die in de stad Santander bestaan."
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Kinos",
+          "fi": "Elokuvateattereita",
+          "pt": "Cinemas",
+          "bg": "Кина",
+          "lt": "Kino teatrai",
+          "hr": "Kina",
+          "lv": "Kinoteātri",
+          "fr": "Cinémas",
+          "hu": "Mozik",
+          "uk": "Кінотеатри для кінотеатрів",
+          "sk": "Kiná",
+          "sl": "Kinodvorane",
+          "ga": "Pictiúrlanna",
+          "sv": "Biografer",
+          "mt": "Swali taċ-ċinema",
+          "el": "Κινηματογράφοι",
+          "en": "Cinemas",
+          "it": "Cinematografia",
+          "es": "Cines",
+          "et": "Kinod",
+          "cs": "Kinosál",
+          "pl": "Kino",
+          "da": "Biografer",
+          "ro": "Cinematografe",
+          "nl": "Bioscopen"
+        },
+        "accrual_periodicity": {},
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/ld%2Bjson",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.jsonld"
+            ],
+            "id": "1658badd-8fc2-48b1-9b68-a01b2dc3a322",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/n3",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.n3"
+            ],
+            "id": "2b137422-87d0-4d8e-bde3-791642c1a37a",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.csv%26rnd%3D1365744798"
+            ],
+            "id": "39deef2d-2c19-42d4-99b8-6be41e3452e2",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.json"
+            ],
+            "id": "00296bf8-7b9a-4dbe-ac2a-f8100fbaacc6",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/atom%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.atom"
+            ],
+            "id": "0db690f9-59c9-40ae-9edd-47b1b77278c7",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/xml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.xml"
+            ],
+            "id": "385bb9ac-c309-42e3-af59-6dfd4c5bd526",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/html",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.html"
+            ],
+            "id": "f621008c-3e49-47ff-b754-e33d3bc8c4c1",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/turtle",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.turtle"
+            ],
+            "id": "87465de4-6df9-49b8-bdb6-5f7a93c063a0",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/rdf%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.rdf"
+            ],
+            "id": "8d3455b0-c922-475f-96b9-5a70d429056d",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 220
+        },
+        "modified": "2015-11-05T00:00:00+01:00",
+        "publisher": {
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/L01390759",
+          "name": "Ayuntamiento de Santander",
+          "type": "Agent"
+        },
+        "id": "http-datos-santander-es-catalogo-cines",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+            "id": "EDUC",
+            "label": {
+              "nn": "Utdanning, kultur og sport",
+              "no": "Utdanning, kultur og sport",
+              "de": "Bildung, Kultur und Sport",
+              "fi": "Koulutus, kulttuuri ja urheilu",
+              "pt": "Educação, cultura e desporto",
+              "bg": "Образование, култура и спорт",
+              "lt": "Švietimas, kultūra ir sportas",
+              "lv": "Izglītība, kultūra un sports",
+              "hr": "Obrazovanje, kultura i sport",
+              "fr": "Éducation, culture et sport",
+              "hu": "Oktatás, kultúra és sport",
+              "sk": "Vzdelávanie, kultúra a šport",
+              "sl": "Izobraževanje, kultura in šport",
+              "ga": "Oideachas, cultúr agus spórt",
+              "sv": "Utbildning, kultur och sport",
+              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
+              "mt": "Edukazzjoni, kultura u sport",
+              "en": "Education, culture and sport",
+              "it": "Istruzione, cultura e sport",
+              "es": "Educación, cultura y deportes",
+              "et": "Haridus, kultuur ja sport",
+              "cs": "Vzdělávání, kultura a sport",
+              "nb": "Utdanning, kultur og sport",
+              "pl": "Edukacja, kultura i sport",
+              "da": "Uddannelse, kultur og sport",
+              "ro": "Educaţie, cultură şi sport",
+              "nl": "Onderwijs, cultuur en sport"
+            }
+          }
+        ],
+        "issued": "2015-09-28T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-20T00:01:40Z",
+          "issued": "2023-02-01T09:17:36Z"
+        }
+      },
+      {
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
           "label": "EU institutions",
@@ -4779,6 +4779,1671 @@
         ]
       },
       {
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/BEL",
+          "label": "Belgium",
+          "id": "be"
+        },
+        "keywords": [
+          {
+            "language": "fr",
+            "id": "audiovisuel",
+            "label": "audiovisuel"
+          },
+          {
+            "language": "fr",
+            "id": "cinéma",
+            "label": "cinéma"
+          }
+        ],
+        "catalog": {
+          "id": "data-gov-be",
+          "description": {
+            "en": "Belgian open data portal, harvesting data from federal, regional and local portals in Belgium"
+          },
+          "language": [
+            {
+              "id": "fr",
+              "label": "French",
+              "resource": "http://publications.europa.eu/resource/authority/language/FRA"
+            }
+          ],
+          "title": {
+            "fr": "data.gov.be"
+          },
+          "publisher": {
+            "type": "Agent",
+            "name": "FPS BOSA",
+            "email": "mailto:opendata@bosa.belgium.be",
+            "homepage": "https://bosa.belgium.be"
+          },
+          "modified": "2024-08-30T08:43:47Z",
+          "country": {
+            "label": "Belgium",
+            "id": "be",
+            "resource": "http://publications.europa.eu/resource/authority/country/BEL"
+          },
+          "spatial_resource": [
+            {
+              "label": "Belgium",
+              "id": "be",
+              "resource": "http://publications.europa.eu/resource/authority/country/BEL"
+            }
+          ],
+          "spatial": [],
+          "issued": "2024-08-30T08:43:47Z",
+          "homepage": "https://data.gov.be",
+          "source_type": "dcat-ap",
+          "count": 19089
+        },
+        "subject": [],
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": false,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "fr": {
+              "machine_translated": false,
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "en": {
+              "machine_translated": false,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "es": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2024-01-24T23:17:20Z",
+              "issued": "2024-01-24T22:04:02Z"
+            }
+          },
+          "full_available_languages": [
+            "cs",
+            "ro",
+            "sk",
+            "hr",
+            "pl",
+            "bg",
+            "fi",
+            "da",
+            "nl",
+            "hu",
+            "it",
+            "lt",
+            "en",
+            "ga",
+            "lv",
+            "et",
+            "sv",
+            "uk",
+            "el",
+            "fr",
+            "de",
+            "mt",
+            "es",
+            "sl",
+            "pt"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Kinos, Kulturzentren und Filmclubs, deren Vorführungen wiederkehrende und für die Öffentlichkeit zugänglich sind, in der Föderation Wallonie-Brüssel.",
+          "fi": "Elokuvateattereita, kulttuurikeskuksia ja elokuvakerhoja, joiden esitykset ovat toistuvia ja yleisölle avoimia, Vallonia-Brysselin liitossa.",
+          "pt": "Cinemas, centros culturais e clubes de cinema cujas exibições são recorrentes e abertas ao público, na Federação Valónia-Bruxelas.",
+          "bg": "Кина, културни центрове и филмови клубове, чиито прожекции са повтарящи се и отворени за обществеността, във Валония-Брюкселската федерация.",
+          "lt": "Kino teatrai, kultūros centrai ir kino klubai, kurių peržiūros yra pasikartojančios ir atviros visuomenei, Valonijos ir Briuselio federacijoje.",
+          "hr": "Kina, kulturnih centara i filmskih klubova čije se projekcije ponavljaju i otvorene su za javnost u Savezu Valonije-Bruxelles.",
+          "lv": "Valonijas-Briseles Federācijā — kinoteātri, kultūras centri un kinematogrāfijas klubi, kuru seansi ir atkārtoti un publiski pieejami.",
+          "fr": "Salles de cinéma, centres culturels et ciné-clubs dont les projections sont récurrentes et ouvertes au public, en Fédération Wallonie-Bruxelles.",
+          "hu": "Mozik, kulturális központok és filmklubok, amelyek vetítései visszatérők és nyilvánosak a Vallónia-Brüsszeli Föderációban.",
+          "uk": "Кінотеатри, культурні центри та кіноклуби, покази яких періодичні та відкриті для публіки, у Федерації Валлонії-Брюссель.",
+          "sk": "Kiná, kultúrne centrá a filmové kluby, ktorých premietania sa opakujú a sú prístupné verejnosti, vo Valónsko-Bruselskej federácii.",
+          "sl": "Kinematografi, kulturni centri in filmski klubi, katerih projekcije se ponavljajo in so odprte za javnost, v federaciji Valonija-Bruselj.",
+          "ga": "Pictiúrlanna, ionaid chultúrtha agus clubanna scannán a bhfuil a dtaispeáint athfhillteach agus oscailte don phobal, i gCónaidhm na Vallúine-na Bruiséile.",
+          "sv": "Biografer, kulturcentrum och filmklubbar vars visningar är återkommande och öppna för allmänheten i Vallonien-Bryssel.",
+          "mt": "Is-swali taċ-ċinema, iċ-ċentri kulturali u l-klabbs tal-films li l-wiri tagħhom huwa rikorrenti u miftuħ għall-pubbliku, fil-Federazzjoni tal-Vallonja-Brussell.",
+          "el": "Κινηματογράφοι, πολιτιστικά κέντρα και κινηματογραφικές λέσχες των οποίων οι προβολές είναι επαναλαμβανόμενες και ανοικτές στο κοινό, στην Ομοσπονδία Βαλονίας-Βρυξέλλων.",
+          "en": "Cinemas, cultural centres and film clubs whose screenings are recurrent and open to the public, in the Wallonia-Brussels Federation.",
+          "it": "Cinema, centri culturali e club cinematografici le cui proiezioni sono ricorrenti e aperte al pubblico, nella Federazione Vallonia-Bruxelles.",
+          "es": "Cines, centros culturales y clubes de cine cuyas proyecciones son recurrentes y abiertas al público, en la Federación Valonia-Bruselas.",
+          "et": "Valloonia-Brüsseli föderatsiooni kinod, kultuurikeskused ja filmiklubid, mille linastused on korduvad ja üldsusele avatud.",
+          "cs": "Kina, kulturní centra a filmové kluby, jejichž projekce jsou opakované a přístupné veřejnosti, ve Valonsko-Bruselské federaci.",
+          "pl": "Kina, ośrodki kultury i kluby filmowe, których pokazy są powtarzalne i otwarte dla publiczności, w Federacji Walonii-Bruksela.",
+          "da": "Biografer, kulturcentre og filmklubber, hvis forevisninger er tilbagevendende og åbne for offentligheden, i sammenslutningen Vallonien-Bruxelles.",
+          "ro": "Cinematografe, centre culturale și cluburi de film ale căror proiecții sunt recurente și deschise publicului, în Federația Valonia-Bruxelles.",
+          "nl": "Bioscopen, culturele centra en filmclubs waarvan de vertoningen terugkerend en open zijn voor het publiek, in de Federatie Wallonië-Brussel."
+        },
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+            "id": "fr",
+            "label": "French"
+          }
+        ],
+        "title": {
+          "de": "Kinos und Filmklubs in der Föderation Wallonien-Brüssel",
+          "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin liitossa",
+          "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas",
+          "bg": "Кина и филмови клубове във Валония-Брюкселската федерация",
+          "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje",
+          "hr": "Kina i filmski klubovi u Valoniji-Bruxelles",
+          "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā",
+          "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles",
+          "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban",
+          "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель",
+          "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii",
+          "sl": "Kinematografi in filmski klubi v Valoniji-Bruselj",
+          "ga": "Pictiúrlanna agus clubanna scannán sa Vallúin-Cónaidhm na Bruiséile",
+          "sv": "Biografer och filmklubbar i Vallonien-Bryssel",
+          "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων",
+          "mt": "Is-swali taċ-ċinema u l-klabbs tal-films fil-Federazzjoni ta’ Wallonia-Brussell",
+          "en": "Cinema projection rooms and cinema clubs in the Wallonia-Brussels Federation",
+          "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles",
+          "es": "Cines y clubes de cine en la Federación Valonia-Bruselas",
+          "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid",
+          "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci",
+          "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela",
+          "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles",
+          "da": "Biografer og filmklubber i Føderationen Vallonien-Bruxelles",
+          "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel"
+        },
+        "accrual_periodicity": {
+          "resource": "http://publications.europa.eu/resource/authority/frequency/ANNUAL",
+          "label": "annual"
+        },
+        "access_right": {
+          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+          "label": "public"
+        },
+        "spatial_resource": [
+          {}
+        ],
+        "modified": "2024-10-21T12:02:07.627000+00:00",
+        "id": "https-www-odwb-be-explore-dataset-salles-de-projections-cinema-",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/REGI",
+            "id": "REGI",
+            "label": {
+              "nn": "Regionar og byar",
+              "de": "Regionen und Städte",
+              "no": "Regioner og byer",
+              "fi": "Alueet ja kaupungit",
+              "pt": "Regiões e cidades",
+              "bg": "Региони и градове",
+              "lt": "Regionai ir miestai",
+              "lv": "Reģioni un pilsētas",
+              "hr": "Regije i gradovi",
+              "fr": "Régions et villes",
+              "hu": "Régiók és városok",
+              "sk": "Regióny a mestá",
+              "sl": "Regije in mesta",
+              "ga": "Réigiúin agus cathracha",
+              "sv": "Regioner och städer",
+              "el": "Περιφέρειες και πόλεις",
+              "mt": "Reġjuni u bliet",
+              "en": "Regions and cities",
+              "it": "Regioni e città",
+              "es": "Regiones y ciudades",
+              "et": "Piirkonnad ja linnad",
+              "cs": "Regiony a města",
+              "nb": "Regioner og byer",
+              "pl": "Regiony i miasta",
+              "da": "Regioner og byer",
+              "ro": "Regiuni şi orașe",
+              "nl": "Regio's en steden"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+            "id": "EDUC",
+            "label": {
+              "nn": "Utdanning, kultur og sport",
+              "no": "Utdanning, kultur og sport",
+              "de": "Bildung, Kultur und Sport",
+              "fi": "Koulutus, kulttuuri ja urheilu",
+              "pt": "Educação, cultura e desporto",
+              "bg": "Образование, култура и спорт",
+              "lt": "Švietimas, kultūra ir sportas",
+              "lv": "Izglītība, kultūra un sports",
+              "hr": "Obrazovanje, kultura i sport",
+              "fr": "Éducation, culture et sport",
+              "hu": "Oktatás, kultúra és sport",
+              "sk": "Vzdelávanie, kultúra a šport",
+              "sl": "Izobraževanje, kultura in šport",
+              "ga": "Oideachas, cultúr agus spórt",
+              "sv": "Utbildning, kultur och sport",
+              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
+              "mt": "Edukazzjoni, kultura u sport",
+              "en": "Education, culture and sport",
+              "it": "Istruzione, cultura e sport",
+              "es": "Educación, cultura y deportes",
+              "et": "Haridus, kultuur ja sport",
+              "cs": "Vzdělávání, kultura a sport",
+              "nb": "Utdanning, kultur og sport",
+              "pl": "Edukacja, kultura i sport",
+              "da": "Uddannelse, kultur og sport",
+              "ro": "Educaţie, cultură şi sport",
+              "nl": "Onderwijs, cultuur en sport"
+            }
+          }
+        ],
+        "spatial": [
+          {
+            "coordinates": [
+              [
+                [
+                  2.54,
+                  50.85
+                ],
+                [
+                  6.41,
+                  50.85
+                ],
+                [
+                  6.41,
+                  49.49
+                ],
+                [
+                  2.54,
+                  49.49
+                ],
+                [
+                  2.54,
+                  50.85
+                ]
+              ]
+            ],
+            "type": "Polygon"
+          }
+        ],
+        "issued": "2024-10-21T12:02:07.627000+00:00",
+        "identifier": [
+          "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/"
+        ],
+        "creator": [
+          {
+            "resource": "https://org.belgif.be/id/CbeRegisteredEntity/0316380940",
+            "name": "Ministerie van de Franse Gemeenschap",
+            "type": "Organization"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/https-www-odwb-be-explore-dataset-salles-de-projections-cinema-",
+        "landing_page": [
+          {
+            "resource": "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+          }
+        ],
+        "index": "dataset",
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/jsonl#"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/JSON",
+              "id": "JSON",
+              "label": "JSON"
+            },
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (jsonl)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin federaatiossa (jsonl)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (jsonl)",
+              "bg": "Кина и филмови клубове във Валония-Брюкселската федерация (jsonl)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (jsonl)",
+              "hr": "Kina i filmski klubovi u Savezu Valonije-Bruxelles (jsonl)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (jsonl)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (jsonl)",
+              "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban (jsonl)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (Jsonl)",
+              "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii (jsonl)",
+              "sl": "Kinematografi in filmski klubi v Valoniji-Bruselj (jsonl)",
+              "ga": "Pictiúrlanna agus clubanna scannán i gCónaidhm na Vallúine-na Bruiséile (jsonl)",
+              "sv": "Biografer och filmklubbar i Vallonien-Bryssel (jsonl)",
+              "mt": "Ċinema u klabbs tal-films fil-Federazzjoni ta’ Wallonia-Brussell (jsonl)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (jsonl)",
+              "en": "Cinemas and film clubs in the Wallonia-Brussels Federation (jsonl)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (jsonl)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (jsonl)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid (jsonl)",
+              "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci (jsonl)",
+              "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela (jsonl)",
+              "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles (jsonl)",
+              "da": "Biografer og filmklubber i sammenslutningen Vallonien-Bruxelles (jsonl)",
+              "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel (jsonl)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "423bcfa4-b69f-46bc-acce-42c138450a05",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionssäle-cinema.jsonl",
+              "fi": "projektiohuoneet-cinema.jsonl",
+              "pt": "salas de projeção-cinema.jsonl",
+              "bg": "прожекционни стаи-cinema.jsonl",
+              "lt": "projekciniai kambariai-cinema.jsonl",
+              "lv": "projekcijas telpas-cinema.jsonl",
+              "hr": "projekcijska soba – cinema.jsonl",
+              "fr": "salles-de-projections-cinema.jsonl",
+              "hu": "vetítőtermek-cinema.jsonl",
+              "uk": "проекційні кімнати-cinema.jsonl",
+              "sk": "projekčné miestnosti-cinema.jsonl",
+              "sl": "projekcijske sobe-cinema.jsonl",
+              "ga": "seomraí teilgean-cinema.jsonl",
+              "sv": "projektionsrum-cinema.jsonl",
+              "mt": "kmamar tal-projezzjoni-cinema.jsonl",
+              "el": "δωμάτια προβολής-cinema.jsonl",
+              "en": "projection rooms-cinema.jsonl",
+              "it": "sale di proiezione-cinema.jsonl",
+              "es": "salas de proyección-cinema.jsonl",
+              "et": "projektsiooniruumid-cinema.jsonl",
+              "cs": "promítací místnosti-cinema.jsonl",
+              "pl": "pokoje projekcyjne-cinema.jsonl",
+              "da": "projektionsrum-cinema.jsonl",
+              "ro": "săli de proiecție-cinema.jsonl",
+              "nl": "projectiezalen-cinema.jsonl"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/vnd.google-earth.kml+xml",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/kml#"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/KML",
+              "id": "KML",
+              "label": "KML"
+            },
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (kml)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin liitossa (kml)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (kml)",
+              "bg": "Кина и киноклубове във Валония-Брюкселската федерация (kml)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (kml)",
+              "hr": "Kina i kina u Savezu Valonije-Bruxelles (kml)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (kml)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (kml)",
+              "hu": "Mozik és moziklubok a Vallónia-Brüsszeli Föderációban (kml)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (kml)",
+              "sk": "Kiná a kiná vo Valónsko-Bruselskej federácii (kml)",
+              "sl": "Kinematografi in kinematografi v federaciji Valonija-Bruselj (kml)",
+              "ga": "Pictiúrlanna agus clubanna pictiúrlainne i gCónaidhm na Vallúine-na Bruiséile (kml)",
+              "sv": "Biografer och biografklubbar i Vallonien-Bryssel (kml)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (kml)",
+              "mt": "Ċinema u klabbs taċ-ċinema fil-Federazzjoni ta’ Wallonia-Brussell (kml)",
+              "en": "Cinemas and cinema clubs in the Wallonia-Brussels Federation (kml)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (kml)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (kml)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja kinoklubid (kml)",
+              "cs": "Kina a kino kluby ve Valonsko-Bruselské federaci (kml)",
+              "pl": "Kina i kluby kinowe w Federacji Walonia-Bruksela (kml)",
+              "ro": "Cinematografe și cluburi de cinema din Federația Valonia-Bruxelles (kml)",
+              "da": "Biografer og biografklubber i sammenslutningen Vallonien-Bruxelles (kml)",
+              "nl": "Bioscopen en bioscopen in de Federatie Wallonië-Brussel (kml)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "38c4dbd7-0efd-4b1d-bca7-45c3e0fe41bb",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionsräume-cinema.kml",
+              "fi": "projektiohuoneet-cinema.kml",
+              "pt": "salas de projeção-cinema.kml",
+              "bg": "прожекционни стаи-cinema.kml",
+              "lt": "projekciniai kambariai-cinema.kml",
+              "lv": "projekcijas telpas-cinema.kml",
+              "hr": "projekcijska soba-cinema.kml",
+              "fr": "salles-de-projections-cinema.kml",
+              "hu": "vetítőtermek-cinema.kml",
+              "uk": "проекційні кімнати-кінема.кмл",
+              "sk": "projekčné miestnosti-cinema.kml",
+              "sl": "projekcijske sobe-cinema.kml",
+              "ga": "seomraí teilgean-cinema.kml",
+              "sv": "projektionsrum-cinema.kml",
+              "mt": "kmamar tal-projezzjoni-cinema.kml",
+              "el": "δωμάτια προβολής-cinema.kml",
+              "en": "projection rooms-cinema.kml",
+              "it": "sale di proiezione-cinema.kml",
+              "es": "salas de proyección-cinema.kml",
+              "et": "projektsiooniruumid-cinema.kml",
+              "cs": "promítací místnosti-cinema.kml",
+              "pl": "pokoje projekcyjne-cinema.kml",
+              "ro": "săli de proiecție-cinema.kml",
+              "da": "projektionsrum-cinema.kml",
+              "nl": "projectiekamers-cinema.kml"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "text/turtle",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE",
+              "id": "RDF_TURTLE",
+              "label": "RDF Turtle"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/turtle#"
+            ],
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (Turtle)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin liitossa (kilpikonna)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (tartaruga)",
+              "bg": "Кина и киноклубове във Валония-Брюкселската федерация (костенурка)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (vėžlys)",
+              "hr": "Kina i kino klubovi u Valoniji-Bruxelles federaciji (turtle)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (bruņurupucis)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (turtle)",
+              "hu": "Mozik és moziklubok a Vallónia-Brüsszeli Föderációban (teknős)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (черепаха)",
+              "sk": "Kiná a kiná vo Valónsko-Bruselskej federácii (korytnačka)",
+              "sl": "Kinematografi in kinematografi v federaciji Valonija-Bruselj (želtle)",
+              "ga": "Pictiúrlanna agus clubanna pictiúrlainne i gCónaidhm na Vallúine-na Bruiséile (turtle)",
+              "sv": "Biografer och biografklubbar i Vallonien-Bryssel (sköldpadda)",
+              "mt": "Is-swali taċ-ċinema u l-klabbs taċ-ċinema fil-Federazzjoni tal-Vallonja-Brussell (fekruna)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (χελώνα)",
+              "en": "Cinemas and cinema clubs in the Wallonia-Brussels Federation (turtle)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (torta)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (tortuga)",
+              "et": "Valloonia-Brüsseli föderatsiooni kinod ja kinoklubid (kilpkonn)",
+              "cs": "Kina a kino kluby ve Valonsko-Bruselské federaci (želva)",
+              "pl": "Kina i kluby kinowe w Federacji Walonia-Bruksela (żółw)",
+              "ro": "Cinematografe și cluburi de cinema din Federația Valonia-Bruxelles (țestoasă)",
+              "da": "Biografer og biografklubber i sammenslutningen Vallonien-Bruxelles (skildpadde)",
+              "nl": "Bioscopen en bioscoopclubs in de Federatie Wallonië-Brussel (schildpad)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "b7c3d7bd-df05-460d-be93-32886bbab2d7",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionsräume-cinema.ttl",
+              "fi": "projektiohuoneet-cinema.ttl",
+              "pt": "salas de projeção-cinema.ttl",
+              "bg": "прожекционни стаи-cinema.ttl",
+              "lt": "projekciniai kambariai-cinema.ttl",
+              "lv": "projekcijas telpas-cinema.ttl",
+              "hr": "projekcijska soba-cinema.ttl",
+              "fr": "salles-de-projections-cinema.ttl",
+              "hu": "vetítőtermek-cinema.ttl",
+              "uk": "проекційні кімнати-cinema.ttl",
+              "sk": "projekčné miestnosti-cinema.ttl",
+              "sl": "projekcijske sobe-cinema.ttl",
+              "ga": "seomraí teilgean-cinema.ttl",
+              "sv": "projektionsrum-cinema.ttl",
+              "mt": "kmamar ta’ projezzjoni-cinema.ttl",
+              "el": "δωμάτια προβολής-cinema.ttl",
+              "en": "projection rooms-cinema.ttl",
+              "it": "sale di proiezione-cinema.ttl",
+              "es": "salas de proyección-cinema.ttl",
+              "et": "projektsiooniruumid-cinema.ttl",
+              "cs": "promítací místnosti-cinema.ttl",
+              "pl": "pokoje projekcyjne-cinema.ttl",
+              "da": "projektionsrum-cinema.ttl",
+              "ro": "săli de proiecție-cinema.ttl",
+              "nl": "projectiezalen-cinema.ttl"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/text/plain",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/TXT",
+              "id": "TXT",
+              "label": "Plain text"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/ov2#"
+            ],
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (ov2)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin federaatiossa (ov2)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (ov2)",
+              "bg": "Кина и филмови клубове във Валония-Брюкселската федерация (ov2)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (ov2)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (ov2)",
+              "hr": "Kina i filmski klubovi u Savezu Valonije-Bruxelles (ov2)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (ov2)",
+              "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban (ov2)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (ov2)",
+              "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii (ov2)",
+              "sl": "Kinematografi in filmski klubi v Valoniji-Bruselj federaciji (ov2)",
+              "ga": "Pictiúrlanna agus clubanna scannán i gCónaidhm na Vallúine-na Bruiséile (ov2)",
+              "sv": "Biografer och filmklubbar i Vallonien-Bryssel (ov2)",
+              "mt": "Ċinema u klabbs tal-films fil-Federazzjoni tal-Vallonja-Brussell (ov2)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (ov2)",
+              "en": "Cinemas and film clubs in the Wallonia-Brussels Federation (ov2)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (ov2)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (ov2)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid (ov2)",
+              "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci (ov2)",
+              "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela (ov2)",
+              "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles (ov2)",
+              "da": "Biografer og filmklubber i Føderationen Vallonien-Bruxelles (ov2)",
+              "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel (ov2)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "592f462d-93d8-4deb-a2bb-290e55380db5",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionsräume-cinema.ov2",
+              "fi": "projektiohuoneet-cinema.ov2",
+              "pt": "salas de projeção-cinema.ov2",
+              "bg": "прожекционни стаи-cinema.ov2",
+              "lt": "projekciniai kambariai-cinema.ov2",
+              "hr": "projekcijska soba-cinema.ov2",
+              "lv": "projekcijas telpas-cinema.ov2",
+              "fr": "salles-de-projections-cinema.ov2",
+              "hu": "vetítőtermek-cinema.ov2",
+              "uk": "проекційні кімнати-кінема.ов2",
+              "sk": "projekčné miestnosti-cinema.ov2",
+              "sl": "projekcijske sobe-cinema.ov2",
+              "ga": "seomraí teilgean-cinema.ov2",
+              "sv": "projektion rum-cinema.ov2",
+              "el": "δωμάτια προβολής-cinema.ov2",
+              "mt": "kmamar ta’ projezzjoni-cinema.ov2",
+              "en": "projection rooms-cinema.ov2",
+              "it": "sale di proiezione-cinema.ov2",
+              "es": "salas de proyección-cinema.ov2",
+              "et": "projektsiooniruumid-cinema.ov2",
+              "cs": "promítací místnosti-cinema.ov2",
+              "pl": "pokoje projekcyjne-cinema.ov2",
+              "ro": "săli de proiecție-cinema.ov2",
+              "da": "projektionsrum-cinema.ov2",
+              "nl": "projectiezalen-cinema.ov2"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "text/n3",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/N3",
+              "id": "N3",
+              "label": "N3"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/n3#"
+            ],
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (n3)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin federaatiossa (n3)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (n3)",
+              "bg": "Кина и филмови клубове във Валония-Брюкселската федерация (n3)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (n3)",
+              "hr": "Kina i filmskih klubova u Savezu Valonije-Bruxelles (n3)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (n3)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (n3)",
+              "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban (n3)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (n3)",
+              "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii (n3)",
+              "sl": "Kinematografi in filmski klubi v Valoniji-Bruselj (n3)",
+              "ga": "Pictiúrlanna agus clubanna scannán i gCónaidhm na Vallúine-na Bruiséile (n3)",
+              "sv": "Biografer och filmklubbar i Vallonien-Bryssel (n3)",
+              "mt": "Is-swali taċ-ċinema u l-klabbs tal-films fil-Federazzjoni tal-Vallonja-Brussell (n3)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (n3)",
+              "en": "Cinemas and film clubs in the Wallonia-Brussels Federation (n3)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (n3)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (n3)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid (n3)",
+              "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci (n3)",
+              "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela (n3)",
+              "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles (n3)",
+              "da": "Biografer og filmklubber i sammenslutningen Vallonien-Bruxelles (n3)",
+              "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel (n3)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "be56dc73-d469-4733-9c21-bbb5ea0f32d9",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionssäle-cinema.n3",
+              "fi": "projektiohuoneet-cinema.n3",
+              "pt": "salas de projeção-cinema.n3",
+              "bg": "прожекционни стаи-cinema.n3",
+              "lt": "projekciniai kambariai-cinema.n3",
+              "lv": "projekcijas telpas-cinema.n3",
+              "hr": "projekcijska soba-cinema.n3",
+              "fr": "salles-de-projections-cinema.n3",
+              "hu": "vetítőtermek-cinema.n3",
+              "uk": "проекційні кімнати-кінема.н3",
+              "sk": "projekčné miestnosti-cinema.n3",
+              "sl": "projekcijske sobe-cinema.n3",
+              "ga": "seomraí teilgean-cinema.n3",
+              "sv": "projektionsrum-cinema.n3",
+              "mt": "kmamar tal-projezzjoni-cinema.n3",
+              "el": "δωμάτια προβολής-cinema.n3",
+              "en": "projection rooms-cinema.n3",
+              "it": "sale di proiezione-cinema.n3",
+              "es": "salas de proyección-cine.n3",
+              "et": "projektsiooniruumid-cinema.n3",
+              "cs": "promítací místnosti-cinema.n3",
+              "pl": "pokoje projekcyjne-cinema.n3",
+              "da": "projektionsrum-cinema.n3",
+              "ro": "săli de proiecție-cinema.n3",
+              "nl": "projectiezalen-cinema.n3"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/xlsx?use_labels=true#"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/XLSX",
+              "id": "XLSX",
+              "label": "Excel XLSX"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "description": {
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (xlsx)"
+            },
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "e3b4e0c3-6e6b-47a3-92e1-a996eba69ea0",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00",
+            "title": {
+              "fr": "salles-de-projections-cinema.xlsx"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/JSON",
+              "id": "JSON",
+              "label": "JSON"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/geojson#"
+            ],
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (geojson)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin federaatiossa (geojson)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (geojson)",
+              "bg": "Кина и филмови клубове във Валония-Брюкселската федерация (geojson)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (geojson)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (geojson)",
+              "hr": "Kina i filmski klubovi u Savezu Valonije-Bruxelles (geojson)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (geojson)",
+              "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban (geojson)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (геойсон)",
+              "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii (geojson)",
+              "sl": "Kinematografi in filmski klubi v federaciji Valonija-Bruselj (geojson)",
+              "ga": "Pictiúrlanna agus clubanna scannán i gCónaidhm na Vallúine-na Bruiséile (geojson)",
+              "sv": "Biografer och filmklubbar i Vallonien-Bryssel (geojson)",
+              "mt": "Ċinema u klabbs tal-films fil-Federazzjoni ta’ Wallonia-Brussell (geojson)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (geojson)",
+              "en": "Cinemas and film clubs in the Wallonia-Brussels Federation (geojson)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (geojson)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (geojson)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid (geojson)",
+              "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci (geojson)",
+              "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela (geojson)",
+              "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles (geojson)",
+              "da": "Biografer og filmklubber i sammenslutningen Vallonien-Bruxelles (geojson)",
+              "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel (geojson)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "91d02dc8-ab66-4a02-b65c-05d6ba246dc0",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionsräume-cinema.geojson",
+              "fi": "projektiohuoneet-cinema.geojson",
+              "pt": "salas de projeção-cinema.geojson",
+              "bg": "прожекционни стаи-cinema.geojson",
+              "lt": "projekciniai kambariai-cinema.geojson",
+              "lv": "projekcijas telpas-cinema.geojson",
+              "hr": "projekcijska soba-cinema.geojson",
+              "fr": "salles-de-projections-cinema.geojson",
+              "hu": "vetítőtermek-cinema.geojson",
+              "uk": "проекційні кімнати-cinema.geojson",
+              "sk": "projekčné miestnosti-cinema.geojson",
+              "sl": "projekcijske sobe-cinema.geojson",
+              "ga": "seomraí teilgean-cinema.geojson",
+              "sv": "projektionsrum-cinema.geojson",
+              "el": "δωμάτια προβολής-cinema.geojson",
+              "mt": "kmamar ta’ projezzjoni-cinema.geojson",
+              "en": "projection rooms-cinema.geojson",
+              "it": "sale di proiezione-cinema.geojson",
+              "es": "salas de proyección-cinema.geojson",
+              "et": "projektsiooniruumid-cinema.geojson",
+              "cs": "promítací místnosti-cinema.geojson",
+              "pl": "pokoje projekcyjne-cinema.geojson",
+              "ro": "săli de proiecție-cinema.geojson",
+              "da": "projektionsrum-cinema.geojson",
+              "nl": "projectiezalen-cinema.geojson"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/json#"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/JSON",
+              "id": "JSON",
+              "label": "JSON"
+            },
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (json)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin federaatiossa (json)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (json)",
+              "bg": "Кина и филмови клубове във Валония-Брюкселската федерация (йсън)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (Json)",
+              "hr": "Kina i filmski klubovi u Savezu Valonije-Bruxelles (json)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (json)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (json)",
+              "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban (json)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (Джсон)",
+              "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii (json)",
+              "sl": "Kinematografi in filmski klubi v Valoniji-Bruselj (json)",
+              "ga": "Pictiúrlanna agus clubanna scannán i gCónaidhm na Vallúine-na Bruiséile (json)",
+              "sv": "Biografer och filmklubbar i Vallonien-Bryssel (json)",
+              "mt": "Ċinemas u klabbs tal-films fil-Federazzjoni ta’ Wallonia-Brussell (json)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (json)",
+              "en": "Cinemas and film clubs in the Wallonia-Brussels Federation (json)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (Json)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (json)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid (json)",
+              "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci (json)",
+              "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela (Json)",
+              "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles (json)",
+              "da": "Biografer og filmklubber i sammenslutningen Vallonien-Bruxelles (json)",
+              "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel (json)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "8c9ba0b4-2021-4200-b1e6-8c531538897c",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionsräume-cinema.json",
+              "fi": "projektiohuoneet-cinema.json",
+              "pt": "salas de projeção-cinema.json",
+              "bg": "прожекционни стаи-cinema.json",
+              "lt": "projekciniai kambariai-cinema.json",
+              "hr": "projekcijska soba – cinema.json",
+              "lv": "projekcijas telpas-cinema.json",
+              "fr": "salles-de-projections-cinema.json",
+              "hu": "vetítőtermek-cinema.json",
+              "uk": "проекційні кімнати-cinema.json",
+              "sk": "projekčné miestnosti-cinema.json",
+              "sl": "projekcijske sobe-cinema.json",
+              "ga": "seomraí teilgean-cinema.json",
+              "sv": "projektionsrum-cinema.json",
+              "mt": "kmamar tal-projezzjoni-cinema.json",
+              "el": "δωμάτια προβολής-cinema.json",
+              "en": "projection rooms-cinema.json",
+              "it": "sale di proiezione-cinema.json",
+              "es": "salas de proyección-cinema.json",
+              "et": "projektsiooniruumid-cinema.json",
+              "cs": "promítací místnosti-cinema.json",
+              "pl": "pokoje projekcyjne-cinema.json",
+              "ro": "săli de proiecție-cinema.json",
+              "da": "projektionsrum-cinema.json",
+              "nl": "projectiezalen-cinema.json"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/csv?use_labels=true#"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/CSV",
+              "id": "CSV",
+              "label": "CSV"
+            },
+            "description": {
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (csv)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "c3946e53-7773-427b-a248-3b87b6097df4",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "fr": "salles-de-projections-cinema.csv"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "text/xml",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "id": "XML",
+              "label": "XML"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/gpx#"
+            ],
+            "description": {
+              "de": "Kinosäle und Kinoclubs in der Föderation Wallonie-Brüssel (gpx)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin liitossa (gpx)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (gpx)",
+              "bg": "Кина и киноклубове във Валония-Брюкселската федерация (gpx)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (gpx)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (gpx)",
+              "hr": "Kina i kina u Savezu Valonije-Bruxelles (gpx)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (gpx)",
+              "hu": "Mozik és moziklubok a Vallónia-Brüsszeli Föderációban (gpx)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (gpx)",
+              "sk": "Kiná a kiná vo Valónsko-Bruselskej federácii (gpx)",
+              "sl": "Kinematografi in kinematografi v federaciji Valonija-Bruselj (gpx)",
+              "ga": "Pictiúrlanna agus clubanna pictiúrlainne i gCónaidhm na Vallúine-na Bruiséile (gpx)",
+              "sv": "Biografer och biografklubbar i Vallonien-Bryssel (gpx)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (gpx)",
+              "mt": "Ċinema u klabbs taċ-ċinema fil-Federazzjoni ta’ Wallonia-Brussell (gpx)",
+              "en": "Cinemas and cinema clubs in the Wallonia-Brussels Federation (gpx)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (gpx)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (gpx)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja kinoklubid (gpx)",
+              "cs": "Kina a kino kluby ve Valonsko-Bruselské federaci (gpx)",
+              "pl": "Kina i kluby kinowe w Federacji Walonia-Bruksela (gpx)",
+              "da": "Biografer og biografklubber i sammenslutningen Vallonien-Bruxelles (gpx)",
+              "ro": "Cinematografe și cluburi de cinema din Federația Valonia-Bruxelles (gpx)",
+              "nl": "Bioscopen en bioscopen in de Federatie Wallonië-Brussel (gpx)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "e433f130-e9c4-4dc1-ae2f-a1fe942854fe",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionsräume-cinema.gpx",
+              "fi": "projektiohuoneet-cinema.gpx",
+              "pt": "salas de projeção-cinema.gpx",
+              "bg": "прожекционни стаи-кино.gpx",
+              "lt": "projekciniai kambariai-cinema.gpx",
+              "lv": "projekcijas telpas-cinema.gpx",
+              "hr": "projekcijska soba-cinema.gpx",
+              "fr": "salles-de-projections-cinema.gpx",
+              "hu": "vetítőtermek-cinema.gpx",
+              "uk": "проекційні кімнати-cinema.gpx",
+              "sk": "projekčné miestnosti-cinema.gpx",
+              "sl": "projekcijske sobe-cinema.gpx",
+              "ga": "seomraí teilgean-cinema.gpx",
+              "sv": "projektionsrum-cinema.gpx",
+              "mt": "kmamar ta’ projezzjoni-cinema.gpx",
+              "el": "δωμάτια προβολής-cinema.gpx",
+              "en": "projection rooms-cinema.gpx",
+              "it": "sale di proiezione-cinema.gpx",
+              "es": "salas de proyección-cinema.gpx",
+              "et": "projektsiooniruumid-cinema.gpx",
+              "cs": "promítací místnosti-cinema.gpx",
+              "pl": "pokoje projekcyjne-cinema.gpx",
+              "da": "projektionsrum-cinema.gpx",
+              "ro": "săli de proiecție-cinema.gpx",
+              "nl": "projectiezalen-cinema.gpx"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/ld+json",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/JSON_LD",
+              "id": "JSON_LD",
+              "label": "JSON-LD"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/jsonld#"
+            ],
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (jsonld)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin federaatiossa (jsonld)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (jsonld)",
+              "bg": "Кина и филмови клубове във Валония-Брюкселската федерация (jsonld)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (Jsonld)",
+              "hr": "Kina i filmski klubovi u Savezu Valonije-Bruxelles (jsonld)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (jsonld)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (jsonld)",
+              "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban (jsonld)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (Jsonld)",
+              "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii (jsonld)",
+              "sl": "Kinematografi in filmski klubi v Valoniji-Bruselj (jsonld)",
+              "ga": "Pictiúrlanna agus clubanna scannán i gCónaidhm na Vallúine-na Bruiséile (jsonld)",
+              "sv": "Biografer och filmklubbar i Vallonien-Bryssel (jsonld)",
+              "mt": "Ċinema u klabbs tal-films fil-Federazzjoni ta’ Wallonia-Brussell (jsonld)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (jsonld)",
+              "en": "Cinemas and film clubs in the Wallonia-Brussels Federation (jsonld)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (jsonld)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (jsonld)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid (jsonld)",
+              "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci (jsonld)",
+              "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela (Jsonld)",
+              "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles (jsonld)",
+              "da": "Biografer og filmklubber i sammenslutningen Vallonien-Bruxelles (jsonld)",
+              "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel (jsonld)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "5b8aa6c7-155a-4611-8f53-e90ef28148e0",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00",
+            "title": {
+              "de": "Projektionsräume-cinema.jsonld",
+              "fi": "projektiohuoneet-cinema.jsonld",
+              "pt": "salas de projeção-cinema.jsonld",
+              "bg": "прожекционни стаи-cinema.jsonld",
+              "lt": "projekciniai kambariai-cinema.jsonld",
+              "lv": "projekcijas telpas-cinema.jsonld",
+              "hr": "projekcijska soba – cinema.jsonld",
+              "fr": "salles-de-projections-cinema.jsonld",
+              "hu": "vetítőtermek-cinema.jsonld",
+              "uk": "проекційні кімнати-cinema.jsonld",
+              "sk": "projekčné miestnosti-cinema.jsonld",
+              "sl": "projekcijske sobe-cinema.jsonld",
+              "ga": "seomraí teilgean-cinema.jsonld",
+              "sv": "projektionsrum-cinema.jsonld",
+              "mt": "kmamar tal-projezzjoni-cinema.jsonld",
+              "el": "δωμάτια προβολής-cinema.jsonld",
+              "en": "projection rooms-cinema.jsonld",
+              "it": "sale di proiezione-cinema.jsonld",
+              "es": "salas de proyección-cinema.jsonld",
+              "et": "projektsiooniruumid-cinema.jsonld",
+              "cs": "promítací místnosti-cinema.jsonld",
+              "pl": "pokoje projekcyjne-cinema.jsonld",
+              "ro": "săli de proiecție-cinema.jsonld",
+              "da": "projektionsrum-cinema.jsonld",
+              "nl": "projectiekamers-cinema.jsonld"
+            }
+          },
+          {
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/SHP",
+              "id": "SHP",
+              "label": "Esri Shape"
+            },
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (shp)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin liitossa (shp)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (shp)",
+              "bg": "Кина и киноклубове във Валония-Брюкселската федерация (shp)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (shp)",
+              "hr": "Kina i kino klubova u Valoniji-Bruxelles federaciji (shp)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (shp)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (shp)",
+              "hu": "Mozik és moziklubok a Vallónia-Brüsszeli Föderációban (shp)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (шп)",
+              "sk": "Kiná a kiná vo Valónsko-Bruselskej federácii (shp)",
+              "sl": "Kinematografi in kinematografi v federaciji Valonija-Bruselj (shp)",
+              "ga": "Pictiúrlanna agus clubanna pictiúrlainne i gCónaidhm na Vallúine-na Bruiséile (shp)",
+              "sv": "Biografer och biografklubbar i Vallonien-Bryssel (shp)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (shp)",
+              "mt": "Ċinema u klabbs taċ-ċinema fil-Federazzjoni ta’ Wallonia-Brussell (shp)",
+              "en": "Cinemas and cinema clubs in the Wallonia-Brussels Federation (shp)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (shp)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (shp)",
+              "et": "Valloonia-Brüsseli föderatsiooni kinod ja kinoklubid (shp)",
+              "cs": "Kina a kino kluby ve Valonsko-Bruselské federaci (shp)",
+              "pl": "Kina i kluby kinowe w Federacji Walonia-Bruksela (shp)",
+              "ro": "Cinematografe și cluburi de cinema din Federația Valonia-Bruxelles (shp)",
+              "da": "Biografer og biografklubber i sammenslutningen Vallonien-Bruxelles (shp)",
+              "nl": "Bioscopen en bioscopen in de Federatie Wallonië-Brussel (shp)"
+            },
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionsräume-cinema.zip",
+              "fi": "projektiohuoneet-cinema.zip",
+              "pt": "salas de projeção-cinema.zip",
+              "bg": "прожекционни стаи-cinema.zip",
+              "lt": "projekciniai kambariai-cinema.zip",
+              "hr": "projekcijska soba-cinema.zip",
+              "lv": "projekcijas telpas-cinema.zip",
+              "fr": "salles-de-projections-cinema.zip",
+              "hu": "vetítőtermek-cinema.zip",
+              "uk": "проекційні кімнати-cinema.zip",
+              "sk": "projekčné miestnosti-cinema.zip",
+              "sl": "projekcijske sobe-cinema.zip",
+              "ga": "seomraí teilgean-cinema.zip",
+              "sv": "projektionsrum-cinema.zip",
+              "mt": "kmamar tal-projezzjoni-cinema.zip",
+              "el": "δωμάτια προβολής-cinema.zip",
+              "en": "projection rooms-cinema.zip",
+              "it": "sale di proiezione-cinema.zip",
+              "es": "salas de proyección-cinema.zip",
+              "et": "projektsiooniruumid-cinema.zip",
+              "cs": "promítací místnosti-cinema.zip",
+              "pl": "pokoje projekcyjne-cinema.zip",
+              "ro": "săli de proiecție-cinema.zip",
+              "da": "projektionsrum-cinema.zip",
+              "nl": "projectiezalen-cinema.zip"
+            },
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/vnd.shp",
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/shp#"
+            ],
+            "compress_format": {
+              "resource": "https://www.iana.org/assignments/media-types/application/zip",
+              "label": "application/zip"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "id": "7c29f11a-b7f2-4f17-a352-c9fb73a74054",
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/octet-stream",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/BIN",
+              "id": "BIN",
+              "label": "Binary Data"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/fgb#"
+            ],
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (fgb)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin liitossa (fgb)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (fgb)",
+              "bg": "Кина и филмови клубове във Валония-Брюкселската федерация (fgb)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (fgb)",
+              "hr": "Kina i filmski klubovi u Savezu Valonije-Bruxelles (fgb)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (fgb)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (fgb)",
+              "hu": "Mozik és filmklubok a Vallónia-Brüsszeli Föderációban (fgb)",
+              "uk": "Кінотеатри та кіноклуби Федерації Валлонії-Брюссель (fgb)",
+              "sk": "Kiná a filmové kluby vo Valónsko-Bruselskej federácii (fgb)",
+              "sl": "Kinematografi in filmski klubi v Valoniji-Bruselj (fgb)",
+              "ga": "Pictiúrlanna agus clubanna scannán i gCónaidhm na Vallúine-na Bruiséile (FGB)",
+              "sv": "Biografer och filmklubbar i Vallonien-Bryssel (fgb)",
+              "mt": "Ċinema u klabbs tal-films fil-Federazzjoni ta’ Wallonia-Brussell (fgb)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (fgb)",
+              "en": "Cinemas and film clubs in the Wallonia-Brussels Federation (fgb)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (fgb)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (fgb)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja filmiklubid (fgb)",
+              "cs": "Kina a filmové kluby ve Valonsko-Bruselské federaci (fgb)",
+              "pl": "Kina i kluby filmowe w Federacji Walonia-Bruksela (fgb)",
+              "ro": "Cinematografe și cluburi de film din Federația Valonia-Bruxelles (fgb)",
+              "da": "Biografer og filmklubber i sammenslutningen Vallonien-Bruxelles (fgb)",
+              "nl": "Bioscopen en filmclubs in de Federatie Wallonië-Brussel (fgb)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "287d277e-e85c-44d9-a1f5-9fc73d802dbd",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionssäle-cinema.fgb",
+              "fi": "projektiohuoneet-cinema.fgb",
+              "pt": "salas de projeção-cinema.fgb",
+              "bg": "прожекционни стаи-cinema.fgb",
+              "lt": "projekciniai kambariai-cinema.fgb",
+              "hr": "projekcijska soba-cinema.fgb",
+              "lv": "projekcijas telpas-cinema.fgb",
+              "fr": "salles-de-projections-cinema.fgb",
+              "hu": "vetítőtermek-cinema.fgb",
+              "uk": "проекційні кімнати-cinema.fgb",
+              "sk": "projekčné miestnosti-cinema.fgb",
+              "sl": "projekcijske sobe-cinema.fgb",
+              "ga": "seomraí teilgean-cinema.fgb",
+              "sv": "projektionsrum-cinema.fgb",
+              "el": "δωμάτια προβολής-cinema.fgb",
+              "mt": "kmamar ta’ projezzjoni-cinema.fgb",
+              "en": "projection rooms-cinema.fgb",
+              "it": "sale di proiezione-cinema.fgb",
+              "es": "salas de proyección-cinema.fgb",
+              "et": "projektsiooniruumid-cinema.fgb",
+              "cs": "promítací místnosti-cinema.fgb",
+              "pl": "pokoje projekcyjne-cinema.fgb",
+              "da": "projektionsrum-cinema.fgb",
+              "ro": "săli de proiecție-cinema.fgb",
+              "nl": "projectiezalen-cinema.fgb"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/parquet",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/PARQUET",
+              "id": "PARQUET",
+              "label": "Parquet"
+            },
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/parquet#"
+            ],
+            "description": {
+              "de": "Kinosäle und Kinoclubs in der Föderation Wallonie-Brüssel (Parkett)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin liitossa (parquet)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (parquet)",
+              "bg": "Кина и киноклубове във Валония-Брюкселската федерация (паркет)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (parquet)",
+              "hr": "Kina i kina u Savezu Valonije-Bruxelles (parket)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (parkets)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (parquet)",
+              "hu": "Mozik és moziklubok a Vallónia-Brüsszeli Föderációban (parketta)",
+              "uk": "Кінотеатри та кіноклуби в Валлонії-Брюссельській федерації (паркет)",
+              "sk": "Kiná a kiná vo Valónsko-Bruselskej federácii (parkety)",
+              "sl": "Kinematografi in kinematografi v federaciji Valonija-Bruselj (parket)",
+              "ga": "Pictiúrlanna agus clubanna pictiúrlainne sa Vallúin-Cónaidhm na Bruiséile (parquet)",
+              "sv": "Biografer och biografklubbar i Vallonien-Bryssel (parkett)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (παρκέ)",
+              "mt": "Ċinema u klabbs taċ-ċinema fil-Federazzjoni ta’ Wallonia-Brussell (parquet)",
+              "en": "Cinemas and cinema clubs in the Wallonia-Brussels Federation (parquet)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (parquet)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (parquet)",
+              "et": "Valloonia-Brüsseli Föderatsiooni kinod ja kinoklubid (parkett)",
+              "cs": "Kina a kino kluby ve Valonsko-Bruselské federaci (parket)",
+              "pl": "Kina i kluby kinowe w Federacji Walonia-Bruksela (parkiet)",
+              "ro": "Cinematografe și cluburi de cinema din Federația Valonia-Bruxelles (parchet)",
+              "da": "Biografer og biografklubber i sammenslutningen Vallonien-Bruxelles (parket)",
+              "nl": "Bioscopen en bioscoopclubs in de Federatie Wallonië-Brussel (parket)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "73bfda9d-65af-4774-bf0b-45e5c7b31e6c",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionssäle-cinema.Parkett",
+              "fi": "projektorihuoneet-cinema.parquet",
+              "pt": "salões do projetor-cinema.parquet",
+              "bg": "проектор стаи-cinema.parquet",
+              "lt": "projektorių kambariai-cinema.parquet",
+              "hr": "projektorske sobe-cinema.parquet",
+              "lv": "projektoru istabas-cinema.parkets",
+              "fr": "salles-de-projections-cinema.parquet",
+              "hu": "projektor szobák-cinema.parquet",
+              "uk": "проекторні кімнати-cinema.parquet",
+              "sk": "projektorové miestnosti-cinema.parquet",
+              "sl": "projektor sobe-cinema.parquet",
+              "ga": "seomraí teilgeora-cinema.parquet",
+              "sv": "projektorrum-cinema.parquet",
+              "mt": "kmamar tal-projettur-cinema.parquet",
+              "el": "βιντεοπροβολείς-cinema.parquet",
+              "en": "projector rooms-cinema.parquet",
+              "it": "videoproiettori room-cinema.parquet",
+              "es": "salas de proyector-cinema.parquet",
+              "et": "projektori toad-cinema.parquet",
+              "cs": "projektorové místnosti-cinema.parquet",
+              "pl": "pokoje projektorowe-cinema.parquet",
+              "ro": "săli de proiectoare-cinema.parchet",
+              "da": "projektorrum-cinema.parquet",
+              "nl": "projectorkamers-cinema.parket"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          },
+          {
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "media_type": "application/rdf+xml",
+            "access_url": [
+              "https://www.odwb.be/explore/dataset/salles-de-projections-cinema/information/"
+            ],
+            "download_url": [
+              "https://www.odwb.be/api/explore/v2.1/catalog/datasets/salles-de-projections-cinema/exports/rdfxml#"
+            ],
+            "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/RDF_XML",
+              "id": "RDF_XML",
+              "label": "RDF XML"
+            },
+            "description": {
+              "de": "Kinosäle und Filmclubs in der Föderation Wallonie-Brüssel (RDFXML)",
+              "fi": "Elokuvateattereita ja elokuvakerhoja Vallonia-Brysselin federaatiossa (RDFXML)",
+              "pt": "Cinemas e clubes de cinema na Federação Valónia-Bruxelas (RDFXML)",
+              "bg": "Кина и киноклубове във Валония-Брюкселската федерация (RDFXML)",
+              "lt": "Kino teatrai ir kino klubai Valonijos-Briuselio federacijoje (RDFXML)",
+              "lv": "Kinoteātri un kino klubi Valonijas-Briseles Federācijā (RDFXML)",
+              "hr": "Kina i kina u Savezu Valonije-Bruxelles (RDFXML)",
+              "fr": "Salles de projection cinéma et ciné-clubs en Fédération Wallonie-Bruxelles (rdfxml)",
+              "hu": "Mozik és moziklubok a Vallónia-Brüsszeli Föderációban (RDFXML)",
+              "uk": "Кіно і кіноклуби Федерації Валлонії-Брюссель (RDFXML)",
+              "sk": "Kiná a kiná vo Valónsko-Bruselskej federácii (RDFXML)",
+              "sl": "Kinematografi in kinematografi v federaciji Valonija-Bruselj (RDFXML)",
+              "ga": "Pictiúrlanna agus clubanna pictiúrlainne i gCónaidhm na Vallúine-na Bruiséile (RDFXML)",
+              "sv": "Biografer och biografklubbar i Vallonien-Bryssel (RDFXML)",
+              "mt": "Is-swali taċ-ċinema u l-klabbs taċ-ċinema fil-Federazzjoni tal-Vallonja-Brussell (RDFXML)",
+              "el": "Κινηματογράφοι και κινηματογραφικοί σύλλογοι στην Ομοσπονδία Βαλονίας-Βρυξέλλων (RDFXML)",
+              "en": "Cinemas and cinema clubs in the Wallonia-Brussels Federation (RDFXML)",
+              "it": "Cinema e club cinematografici della Federazione Vallonia-Bruxelles (RDFXML)",
+              "es": "Cines y clubes de cine en la Federación Valonia-Bruselas (RDFXML)",
+              "et": "Valloonia-Brüsseli föderatsiooni kinod ja kinoklubid (RDFXML)",
+              "cs": "Kina a kino kluby ve Valonsko-Bruselské federaci (RDFXML)",
+              "pl": "Kina i kluby kinowe w Federacji Walonia-Bruksela (RDFXML)",
+              "ro": "Cinematografe și cluburi de cinema din Federația Valonia-Bruxelles (RDFXML)",
+              "da": "Biografer og biografklubber i sammenslutningen Vallonien-Bruxelles (RDFXML)",
+              "nl": "Bioscopen en bioscopen in de Federatie Wallonië-Brussel (RDFXML)"
+            },
+            "modified": "2024-10-21T12:02:07.627000+00:00",
+            "language": [
+              {
+                "resource": "http://publications.europa.eu/resource/authority/language/FRA",
+                "id": "fr",
+                "label": "French"
+              }
+            ],
+            "id": "17900c9f-7f28-494f-bf8f-6ec6dfdb0efb",
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
+            },
+            "title": {
+              "de": "Projektionssäle-cinema.rdf",
+              "fi": "projektiohuoneet-cinema.rdf",
+              "pt": "salas de projeção-cinema.rdf",
+              "bg": "прожекционни стаи-cinema.rdf",
+              "lt": "projekciniai kambariai-cinema.rdf",
+              "lv": "projekcijas telpas-cinema.rdf",
+              "hr": "projekcijska soba-cinema.rdf",
+              "fr": "salles-de-projections-cinema.rdf",
+              "hu": "vetítőtermek-cinema.rdf",
+              "uk": "проекційні кімнати-cinema.rdf",
+              "sk": "projekčné miestnosti-cinema.rdf",
+              "sl": "projekcijske sobe-cinema.rdf",
+              "ga": "seomraí teilgean-cinema.rdf",
+              "sv": "projektion rum-cinema.rdf",
+              "mt": "kmamar ta’ projezzjoni-cinema.rdf",
+              "el": "δωμάτια προβολής-cinema.rdf",
+              "en": "projection rooms-cinema.rdf",
+              "it": "sale di proiezione-cinema.rdf",
+              "es": "salas de proyección-cinema.rdf",
+              "et": "projektsiooniruumid-cinema.rdf",
+              "cs": "projekční místnosti-cinema.rdf",
+              "pl": "pokoje projekcyjne-cinema.rdf",
+              "ro": "săli de proiecție-cinema.rdf",
+              "da": "projektionsrum-cinema.rdf",
+              "nl": "projectiezalen-cinema.rdf"
+            },
+            "issued": "2024-10-21T12:02:07.627000+00:00"
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 265
+        },
+        "publisher": {
+          "resource": "https://org.belgif.be/id/CbeRegisteredEntity/0220916609",
+          "name": "Fédération Wallonie-Bruxelles",
+          "type": "Organization"
+        },
+        "catalog_record": {
+          "modified": "2026-03-19T22:06:51Z",
+          "issued": "2023-09-20T22:00:56Z"
+        },
+        "contact_point": [
+          {
+            "name": "Sylvie Di Meo",
+            "type": "Kind",
+            "email": "mailto:dataculture@cfwb.be"
+          }
+        ]
+      },
+      {
         "identifier": [
           "https://datos.parcan.es/dataset/diputado_iniciativas_11003id_miembro"
         ],
@@ -5233,463 +6898,6 @@
         "catalog_record": {
           "modified": "2026-03-20T00:07:31Z",
           "issued": "2023-12-12T23:20:05Z"
-        }
-      },
-      {
-        "identifier": [
-          "https://datos.parcan.es/dataset/diputado_asistencias_08006id_miembro"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
-          "label": "Spain",
-          "id": "es"
-        },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
-        "catalog": {
-          "id": "datos-gob-es",
-          "language": [
-            {
-              "id": "es",
-              "label": "Spanish",
-              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
-            }
-          ],
-          "homepage": "https://datos.gob.es",
-          "issued": "2022-11-21T05:37:01Z",
-          "country": {
-            "label": "Spain",
-            "id": "es",
-            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-          },
-          "spatial_resource": [
-            {
-              "label": "Spain",
-              "id": "es",
-              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-            }
-          ],
-          "spatial": [],
-          "source_type": "dcat-ap",
-          "description": {
-            "en": "Open Data Portal Spain"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:soporte@datos.gob.es",
-            "homepage": "https://www.hacienda.gob.es",
-            "name": "Ministerio de Hacienda y Administraciones Públicas"
-          },
-          "modified": "2023-02-02T23:43:40.086753",
-          "title": {
-            "es": "datos.gob.es"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "es": {
-              "machine_translated": false,
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            }
-          },
-          "full_available_languages": [
-            "lv",
-            "hr",
-            "hu",
-            "pl",
-            "fi",
-            "ro",
-            "cs",
-            "en",
-            "sv",
-            "it",
-            "pt",
-            "es",
-            "uk",
-            "de",
-            "et",
-            "nl",
-            "lt",
-            "ga",
-            "bg",
-            "fr",
-            "sk",
-            "sl",
-            "el",
-            "mt",
-            "da"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
-          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
-          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
-          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
-          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
-          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
-          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
-          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
-          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
-          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
-          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
-            "id": "es",
-            "label": "Spanish"
-          }
-        ],
-        "title": {
-          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
-          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
-          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
-          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
-          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
-          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
-          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
-          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
-          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
-          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
-          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
-        },
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "https://parcan.es/api/diputado/asistencias/08006?format=json"
-            ],
-            "id": "d02450b5-f126-430b-9e9a-c3a66945f6c0",
-            "title": {
-              "de": "VIII Wahlperiode (JSON)",
-              "fi": "VIII vaalikausi (JSON)",
-              "pt": "VIII legislatura (JSON)",
-              "bg": "VIII парламентарен мандат (JSON)",
-              "lt": "VIII Parlamento kadencija (JSON)",
-              "hr": "VIII. parlamentarni saziv (JSON)",
-              "lv": "VIII Parlamenta sasaukums (JSON)",
-              "fr": "VIIIe législature (JSON)",
-              "hu": "VIII. parlamenti ciklus (JSON)",
-              "uk": "VIII парламентський термін (JSON)",
-              "sk": "VIII volebné obdobie (JSON)",
-              "sl": "VIII. parlamentarno obdobje (JSON)",
-              "ga": "VIII téarma parlaiminteach (JSON)",
-              "sv": "VIII:s valperiod (JSON)",
-              "el": "VIII κοινοβουλευτική περίοδος (JSON)",
-              "mt": "VIII leġiżlatura (JSON)",
-              "en": "VIII parliamentary term (JSON)",
-              "it": "VIII legislatura (JSON)",
-              "es": "VIII legislatura (JSON)",
-              "et": "Parlamendi VIII ametiaeg (JSON)",
-              "cs": "VIII. volební období (JSON)",
-              "pl": "VIII kadencja parlamentarna (JSON)",
-              "ro": "A VIII-a legislatură (JSON)",
-              "da": "VIII valgperiode (JSON)",
-              "nl": "VIII zittingsperiode (JSON)"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "https://parcan.es/api/diputado/asistencias/08006?format=csv"
-            ],
-            "id": "bbde95ab-d0e9-4f6d-b8a4-2981d1e95896",
-            "title": {
-              "de": "VIII Legislaturperiode (CSV)",
-              "fi": "VIII Lainsäädäntö (CSV)",
-              "pt": "VIII legislatura (CSV)",
-              "bg": "VIII законодателен мандат (CSV)",
-              "lt": "VIII įstatymų leidėjas (CSV)",
-              "hr": "Zakonodavna vlast (CSV)",
-              "lv": "VIII likumdevējs (CSV)",
-              "fr": "VIII législature (CSV)",
-              "hu": "VIII. törvényhozás (CSV)",
-              "uk": "VIII Законодавчий орган (CSV)",
-              "sk": "VIII zákonodarca (CSV)",
-              "sl": "VIII. zakonodajalec (CSV)",
-              "ga": "VIII reachtas (CSV)",
-              "sv": "VIII Lagstiftning (CSV)",
-              "el": "VIII νομοθέτης (CSV)",
-              "mt": "VIII leġiżlatura (CSV)",
-              "en": "VIII legislature (CSV)",
-              "it": "VIII Legislativo (CSV)",
-              "es": "VIII legislatura (CSV)",
-              "et": "VIII seadusandlik kogu (CSV)",
-              "cs": "VIII. volební období (CSV)",
-              "pl": "VIII legislacja (CSV)",
-              "da": "VIII lovgiver (CSV)",
-              "ro": "VIII Legislativ (CSV)",
-              "nl": "VIII legislatuur (CSV)"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 190
-        },
-        "publisher": {
-          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
-          "name": "Parlamento de Canarias",
-          "type": "Agent"
-        },
-        "modified": "2021-05-05T00:00:00+02:00",
-        "id": "https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
-            "id": "JUST",
-            "label": {
-              "nn": "Justis, rettssystem og allmenn tryggleik",
-              "no": "Justis, rettssystem og allmenn sikkerhet",
-              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
-              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
-              "pt": "Justiça, sistema judiciário e segurança pública",
-              "bg": "Правосъдие, съдебна система и обществена безопасност",
-              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
-              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
-              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
-              "fr": "Justice, système juridique et sécurité publique",
-              "hu": "Igazságügy, jogrendszer és közbiztonság",
-              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
-              "sl": "Pravosodje, pravni sistem in javna varnost",
-              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
-              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
-              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
-              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
-              "en": "Justice, legal system and public safety",
-              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
-              "es": "Justicia, sistema judicial y seguridad pública",
-              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
-              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
-              "nb": "Justis, rettssystem og allmenn sikkerhet",
-              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
-              "ro": "Justiție, sistem juridic și siguranță publică",
-              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
-              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
-            }
-          }
-        ],
-        "issued": "2021-05-05T00:00:00+02:00",
-        "catalog_record": {
-          "modified": "2026-03-20T00:25:08Z",
-          "issued": "2023-02-01T09:26:25Z"
         }
       }
     ]
