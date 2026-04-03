@@ -1,8 +1,8 @@
 {
-  "apiVersion": "2.145.3",
+  "apiVersion": "2.146",
   "terms": "*",
-  "responseTime": 113,
-  "totalResults": 635986,
+  "responseTime": 98,
+  "totalResults": 636170,
   "pageNumber": 1,
   "pageSize": 20,
   "sort": "relevance",
@@ -15,7 +15,7 @@
   "bestBets": [],
   "results": [
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "43046674ResearchandInnovationaction1589846400000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SC1-PHE-CORONAVIRUS-2020-2D.json",
       "title": null,
@@ -201,10 +201,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Pan-European COVID-19 cohorts. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SC1-PHE-CORONAVIRUS-2020-2D.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31071089ResearchandInnovationaction1475539200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/ENG-GLOBALLY-01-2017.json",
       "title": null,
@@ -403,10 +405,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Strengthening Europe's position in the global context: science diplomacy and intercultural relations. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/ENG-GLOBALLY-01-2017.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31073002ResearchandInnovationaction1450310400000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/S2R-CFM-IP5-03-2015.json",
       "title": null,
@@ -576,10 +580,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Freight Propulsion concepts. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/S2R-CFM-IP5-03-2015.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "44617121HORIZONResearchandInnovationActions1640131200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-MISS-2021-OCEAN-05-02.json",
       "title": null,
@@ -777,10 +783,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "The relation of young generations with the sea and water: values, expectations, and engagement. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-MISS-2021-OCEAN-05-02.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31115962ResearchandInnovationaction1575331200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/MG-BG-03-2020.json",
       "title": null,
@@ -952,10 +960,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Under water noise mitigation and environmental impact. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/MG-BG-03-2020.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31115950ResearchandInnovationaction1575331200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/MG-3-4-2020.json",
       "title": null,
@@ -1128,10 +1138,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Innovative electric network architectures and systems, optimising global energy, electrical power, data and communication for aviation. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/MG-3-4-2020.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31073986ResearchandInnovationaction1453161600000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FCH-02-6-2016.json",
       "title": null,
@@ -1299,10 +1311,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Development of cost effective manufacturing technologies for key components or fuel cell systems for industrial applications. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FCH-02-6-2016.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "44131589HORIZONFrameworkPartnerships1635811200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2021-DIGITAL-EMERGING-02-15.json",
       "title": null,
@@ -1474,10 +1488,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Framework Partnership Agreement for developing the first large-scale quantum computers (FPA). Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2021-DIGITAL-EMERGING-02-15.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31052962SMEinstrumentphase21418860800000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BG-12-2015.json",
       "title": null,
@@ -1662,10 +1678,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Supporting SMEs efforts for the development - deployment and market replication of innovative solutions for blue growth. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BG-12-2015.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "45640472HORIZONCoordinationandSupportActions1670284800000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-WIDERA-2023-ERA-01-04.json",
       "title": null,
@@ -1831,10 +1849,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Development of new approaches to the macroeconomic modelling of research and innovation. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-WIDERA-2023-ERA-01-04.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "45704485HORIZONCoordinationandSupportActions1700006400000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2024-DIGITAL-EMERGING-01-34.json",
       "title": null,
@@ -2031,10 +2051,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Synergy with national and regional initiatives in Europe (CSA). Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2024-DIGITAL-EMERGING-01-34.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "42793969ResearchandInnovationaction1578960000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FCH-04-2-2020.json",
       "title": null,
@@ -2210,10 +2232,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "PNR on hydrogen-based fuels solutions for passenger ships. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FCH-04-2-2020.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31090038Innovationaction1583971200000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SU-FCT04-2020.json",
       "title": null,
@@ -2411,10 +2435,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Chemicals: intelligence, detection, forensics. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SU-FCT04-2020.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31062495Coordinationandsupportaction1413936000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/NMP-40-2015.json",
       "title": null,
@@ -2575,10 +2601,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Support for clustering and networking in the micro- & nanofluidics community. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/NMP-40-2015.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "42963137Bio-basedIndustriesCoordinationandSupportaction1586908800000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BBI-2020-SO4-S2.json",
       "title": null,
@@ -2782,10 +2810,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Provide insight on emerging technologies for bio-based value chains. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BBI-2020-SO4-S2.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31052286Coordinationandsupportaction1386720000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SC5-19a-2014.json",
       "title": null,
@@ -2979,10 +3009,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Facilitating transnational cooperation between NCPs in Societal Challenge 5. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/SC5-19a-2014.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31116234ResearchandInnovationaction1571097600000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FNR-12-2020.json",
       "title": null,
@@ -3155,10 +3187,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Industrial microbiomes – learning from nature. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/FNR-12-2020.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31110762Bio-basedIndustriesInnovationaction-Flagship1554336000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BBI-2019-SO3-F3.json",
       "title": null,
@@ -3359,10 +3393,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Produce high-performance bio-based alternatives to harmful products or processes to protect and enhance human health and the environment. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/BBI-2019-SO3-F3.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "31100676Coordinationandsupportaction1548288000000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/LC-BAT-7-2019.json",
       "title": null,
@@ -3531,10 +3567,12 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Network of Li-ion cell pilot lines. Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/LC-BAT-7-2019.json",
+      "score": 1.0
     },
     {
-      "apiVersion": "2.145.3",
+      "apiVersion": "2.146",
       "reference": "44131435HORIZONInnovationActions1655337600000bg",
       "url": "https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2022-DIGITAL-EMERGING-02-07.json",
       "title": null,
@@ -3743,7 +3781,9 @@
       },
       "enrichedMetadata": {},
       "children": [],
-      "highlightedFragments": []
+      "highlightedFragments": [],
+      "citation": "Increased robotics capabilities demonstrated in key sectors (AI, Data and Robotics Partnership) (IA). Available at: https://ec.europa.eu/info/funding-tenders/opportunities/data/topicDetails/HORIZON-CL4-2022-DIGITAL-EMERGING-02-07.json",
+      "score": 1.0
     }
   ],
   "warnings": []
