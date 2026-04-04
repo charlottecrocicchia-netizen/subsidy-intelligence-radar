@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 597,
+    "count": 602,
     "results": [
       {
         "country": {
@@ -1288,677 +1288,6 @@
         }
       },
       {
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
-          "label": "EU institutions",
-          "id": "eu"
-        },
-        "keywords": [
-          {
-            "language": "en",
-            "id": "italian-film-industry,-gender-data,-gender-inequality-in-the-film-industry,-film-data,-director,-producer,-screenwriter,-editor,-director-of-photography,-set-designer,-production-designer,-makeup,-costume,-special-effects,-music,-head-of-department,-cinema,-audiovisual-media,-women",
-            "label": "Italian film industry, gender data, gender inequality in the film industry, film data, director, producer, screenwriter, editor, director of photography, set designer, production designer, makeup, costume, special effects, music, head of department, cinema, audiovisual media, women"
-          }
-        ],
-        "catalog": {
-          "id": "zenodo",
-          "source_type": "dcat-ap",
-          "issued": "2025-07-03T07:23:00Z",
-          "description": {
-            "en": "Open repository for EU-funded research outputs from Horizon Europe, Euratom, and earlier Framework Programmes."
-          },
-          "homepage": "https://zenodo.org",
-          "country": {
-            "label": "EU institutions",
-            "id": "eu",
-            "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
-          },
-          "spatial_resource": [
-            {
-              "label": "EU institutions",
-              "id": "eu",
-              "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
-            }
-          ],
-          "spatial": [],
-          "language": [
-            {
-              "id": "en",
-              "label": "English",
-              "resource": "http://publications.europa.eu/resource/authority/language/ENG"
-            }
-          ],
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:support@zenodo.org",
-            "name": "CERN - European Organization for Nuclear Research and European Commission"
-          },
-          "title": {
-            "en": "EU Open Research Repository"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "en": {
-              "machine_translated": false,
-              "issued": "2025-07-03T08:10:22Z"
-            }
-          },
-          "full_available_languages": [
-            "en"
-          ],
-          "status": "processing"
-        },
-        "description": {
-          "en": "This file includes a selection of the data from the CineAF/CENTRICwebi database created in the context of the EU Marie Skłodowska-Curie Actions-funded project CineAF: Women's film in Italy, 1965-2015, Grant agreement No 891966. CENTRICWebi gathers information on more than 11,000 film titles, which correspond to all feature-length films with Italian nationality that received permission for distribution between 1964 and 2020. The dataset includes information on 10 creative roles and department heads, including director, producer, screenwriter, editor, director of photography, composer, production designer, costume designer, makeup supervisor, and special effects supervisor with the purpose of assessing the presence of women film professionals in film production. The dataset includes data on the following: film professional (anonymised); film title (anonymised); binary gender assigned by the system; profession; year of film's \"nulla osta\". Each film title and each film professional are assigned a unique code. The dataset contains a list of 145.292 individual entries. Each entry corresponds to a film professional who worked on one film."
-        },
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/ENG",
-            "id": "en",
-            "label": "English"
-          }
-        ],
-        "title": {
-          "en": "CineAF_27072022_v1"
-        },
-        "type": {
-          "resource": "http://purl.org/dc/dcmitype/Dataset"
-        },
-        "access_right": {
-          "resource": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
-          "label": "restricted"
-        },
-        "modified": "2023-06-20T00:00:00Z",
-        "id": "oai-zenodo-org-6365647",
-        "adms_identifier": [
-          {
-            "identifier": "https://zenodo.org/records/6365647",
-            "scheme": "http://www.w3.org/2001/XMLSchema#anyURI"
-          },
-          {
-            "identifier": "oai:zenodo.org:6365647",
-            "scheme": "http://www.w3.org/2001/XMLSchema#string"
-          }
-        ],
-        "issued": "2022-08-11T00:00:00Z",
-        "identifier": [
-          "https://doi.org/10.5281/zenodo.6365647"
-        ],
-        "is_version_of": [
-          "https://doi.org/10.5281/zenodo.6365646"
-        ],
-        "creator": [
-          {
-            "name": "Tarantino, Matteo",
-            "type": "Person"
-          },
-          {
-            "name": "Fanchi, Mariagrazia",
-            "type": "Person"
-          },
-          {
-            "name": "Rosa Barotsi",
-            "type": "Person"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647",
-        "index": "dataset",
-        "version_info": "01",
-        "distributions": [
-          {
-            "access_url": [
-              "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647"
-            ],
-            "id": "00561817-f720-4618-ad7e-c1267039ac2f"
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 110
-        },
-        "publisher": {
-          "name": "Zenodo",
-          "type": "Agent"
-        },
-        "page": [
-          {
-            "resource": "https://doi.org/10.5281/zenodo.6365647"
-          }
-        ],
-        "catalog_record": {
-          "modified": "2026-02-20T14:49:25Z",
-          "issued": "2025-07-03T08:10:22Z"
-        }
-      },
-      {
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/LUX",
-          "label": "Luxembourg",
-          "id": "lu"
-        },
-        "resource": "http://data.europa.eu/88u/dataset/cineast-convention",
-        "catalog": {
-          "id": "la-plateforme-de-donnees-luxembourgeoise",
-          "country": {
-            "label": "Luxembourg",
-            "id": "lu",
-            "resource": "http://publications.europa.eu/resource/authority/country/LUX"
-          },
-          "spatial_resource": [
-            {
-              "label": "Luxembourg",
-              "id": "lu",
-              "resource": "http://publications.europa.eu/resource/authority/country/LUX"
-            }
-          ],
-          "spatial": [],
-          "title": {
-            "fr": "La plateforme de données luxembourgeoise"
-          },
-          "issued": "2022-06-24T12:30:29Z",
-          "description": {
-            "en": "Open Data Portal Luxembourg"
-          },
-          "homepage": "https://data.public.lu",
-          "source_type": "udata",
-          "publisher": {
-            "type": "Agent",
-            "homepage": "https://gouvernement.lu",
-            "name": "Le Gouvernement du Grand-Duché de Luxembourg",
-            "email": "mailto:info@data.public.lu"
-          },
-          "modified": "2023-02-10T18:15:01.883580",
-          "language": [
-            {
-              "id": "fr",
-              "label": "French",
-              "resource": "http://publications.europa.eu/resource/authority/language/FRA"
-            }
-          ]
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "fr": {
-              "machine_translated": false,
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "es": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "fr",
-              "issued": "2025-09-05T18:20:34Z"
-            }
-          },
-          "full_available_languages": [
-            "da",
-            "fr",
-            "hu",
-            "es",
-            "el",
-            "lv",
-            "pt",
-            "sv",
-            "et",
-            "ga",
-            "mt",
-            "sl",
-            "pl",
-            "nl",
-            "fi",
-            "cs",
-            "en",
-            "de",
-            "lt",
-            "uk",
-            "ro",
-            "it",
-            "hr",
-            "sk",
-            "bg"
-          ],
-          "status": "processing"
-        },
-        "description": {
-          "de": "Vereinbarung zwischen dem Staat und dem gemeinnützigen Busverband CineEast.",
-          "fi": "Valtion ja voittoa tavoittelemattoman linja-autoyhdistyksen CineEastin välinen sopimus.",
-          "pt": "Acordo entre o Estado e a associação sem fins lucrativos de autocarros CineEast.",
-          "bg": "Споразумение между държавата и сдружението за автобусни превози с нестопанска цел CineEast.",
-          "lt": "Valstybės ir pelno nesiekiančios autobusų asociacijos „CineEast“ susitarimas.",
-          "lv": "Nolīgums starp valsti un bezpeļņas autobusu asociāciju CineEast.",
-          "hr": "Ugovor između države i neprofitne autobusne udruge CineEast.",
-          "fr": "Convention entre l'Etat ez l'association sans bus lucratif CineEast.",
-          "hu": "Megállapodás az állam és a CineEast nonprofit buszszövetség között.",
-          "uk": "Угода між державою та некомерційною автобусною асоціацією CineEast.",
-          "sk": "Dohoda medzi štátom a neziskovým autobusovým združením CineEast.",
-          "sl": "Sporazum med državo in neprofitnim avtobusnim združenjem CineEast.",
-          "ga": "Comhaontú idir an Stát agus an comhlachas bus neamhbhrabúis CineEast.",
-          "sv": "Överenskommelse mellan staten och den ideella bussföreningen CineEast.",
-          "el": "Συμφωνία μεταξύ του κράτους και της μη κερδοσκοπικής ένωσης λεωφορείων CineEast.",
-          "mt": "Ftehim bejn l-Istat u l-assoċjazzjoni tal-karozzi tal-linja mingħajr skop ta’ qligħ CineEast.",
-          "en": "Agreement between the State and the non-profit bus association CineEast.",
-          "it": "Accordo tra lo Stato e l'associazione di autobus senza scopo di lucro CineEast.",
-          "es": "Convenio entre el Estado y la asociación de autobuses sin ánimo de lucro CineEast.",
-          "et": "Riigi ja mittetulundusühingu CineEast vaheline leping.",
-          "cs": "Dohoda mezi státem a neziskovým sdružením autobusové dopravy CineEast.",
-          "pl": "Umowa między państwem a nienastawionym na zysk stowarzyszeniem autobusowym CineEast.",
-          "ro": "Acord între stat și asociația non-profit de autobuze CineEast.",
-          "da": "Aftale mellem staten og den almennyttige bussammenslutning CineEast.",
-          "nl": "Overeenkomst tussen de staat en de non-profit busvereniging CineEast."
-        },
-        "index": "dataset",
-        "title": {
-          "de": "Cineast_Konvention",
-          "fi": "Cineast_convention",
-          "pt": "Cineast_convention",
-          "bg": "Cineast_Convention",
-          "lt": "Cineast_convention",
-          "lv": "Cineast_convention",
-          "hr": "Cineast_konvencija",
-          "fr": "CinEast_convention",
-          "hu": "Cineast_convention",
-          "uk": "Cineast_convention",
-          "sk": "Cineast_convention",
-          "sl": "Cineast_konvencija",
-          "ga": "Coinbhinsiún Cineast_",
-          "sv": "Cineast-konventionen",
-          "el": "Cineast_σύμβαση",
-          "mt": "Konvenzjoni ta' Cineast",
-          "en": "Cineast_convention",
-          "it": "Cineast_convenzione",
-          "es": "Cineast_convention",
-          "et": "Cineast_convention",
-          "cs": "Cineast_convention",
-          "pl": "Cineast_konwencja",
-          "da": "Cineast_convention",
-          "ro": "Convenția Cineast",
-          "nl": "Cineast_convention"
-        },
-        "accrual_periodicity": {
-          "resource": "http://publications.europa.eu/resource/authority/frequency/UNKNOWN",
-          "label": "unknown"
-        },
-        "distributions": [
-          {
-            "license": {
-              "id": "notspecified"
-            },
-            "access_url": [
-              "https://download.data.public.lu/resources/cineast-convention/20260224-075529/146-cineast-4-avenant-23022026.pdf"
-            ],
-            "checksum": {
-              "checksum_value": "5383794024858fa245b3c9f2b33ff3ad"
-            },
-            "description": {
-              "fr": " Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d'un montant de 60 000 euros à partir de l’exercice 2026, dans la limite des moyens budgétairés disponibles et autorisés par la Chambre des Députés."
-            },
-            "modified": "2026-02-24T07:56:28.934Z",
-            "id": "eb91487f-294d-4acb-bc65-25bd190acaf9",
-            "issued": "2026-02-24T07:55:29.420Z",
-            "title": {
-              "fr": "CinEast_convention - 4e avenant, 2026.pdf"
-            }
-          },
-          {
-            "license": {
-              "id": "notspecified"
-            },
-            "access_url": [
-              "https://download.data.public.lu/resources/cineast-convention/20240625-082714/cineast-convention-1er-avenant-2023.pdf"
-            ],
-            "checksum": {
-              "checksum_value": "7953e1268314bd43a53619348912c6d0dd8522bc"
-            },
-            "description": {
-              "de": "Die finanzielle Beteiligung des Staates wird in einer einzigen Tranche in Höhe von 100 % der jährlichen finanziellen Beteiligung des Staates für das laufende Jahr festgesetzt.",
-              "fi": "Valtion rahoitusosuus maksetaan yhtenä eränä, joka vastaa 100:aa prosenttia kyseisenä vuonna maksettavasta valtion vuotuisesta rahoitusosuudesta.",
-              "pt": "A contribuição financeira do Estado é paga numa prestação única correspondente a 100 % da contribuição financeira anual do Estado devida para o ano em curso.",
-              "bg": "Финансовото участие на държавата се изплаща на една вноска, съответстваща на 100 % от годишната финансова вноска на държавата, дължима за текущата година.",
-              "lt": "Valstybės finansinis įnašas mokamas kaip vienkartinė įmoka, atitinkanti 100 % einamiesiems metams mokėtino valstybės metinio finansinio įnašo.",
-              "lv": "Valsts finansiālo ieguldījumu izmaksā vienā maksājumā, kas atbilst 100 % no valsts ikgadējā finansiālā ieguldījuma, kurš jāmaksā par kārtējo gadu.",
-              "hr": "Financijski doprinos države isplaćuje se u jednom obroku koji odgovara 100 % godišnjeg financijskog doprinosa države za tekuću godinu.",
-              "fr": "La participation financière de l'État est liquidée en une seule tranche correspondant à 100 % de la participation financière annuelle de l'État redue pour l'année en cours.",
-              "hu": "Az állam pénzügyi hozzájárulását egyetlen részletben kell kifizetni, amely az állam folyó évre esedékes éves pénzügyi hozzájárulása 100 %-ának felel meg.",
-              "uk": "Фінансовий внесок держави сплачується в єдиному розстрочку, що відповідає 100 % річного фінансового внеску держави за поточний рік.",
-              "sk": "Finančný príspevok štátu sa vyplatí v jednej splátke, ktorá zodpovedá 100 % ročného finančného príspevku štátu splatného za bežný rok.",
-              "sl": "Finančni prispevek države se plača v enkratnem znesku, ki ustreza 100 % letnega finančnega prispevka države za tekoče leto.",
-              "ga": "Íocfar ranníocaíocht airgeadais an Stáit in aon tráthchuid amháin a chomhfhreagraíonn do 100 % de ranníocaíocht bhliantúil airgeadais an Stáit atá dlite don bhliain reatha.",
-              "sv": "Statens ekonomiska bidrag ska betalas i en enda delbetalning som motsvarar 100 % av statens årliga ekonomiska bidrag för det innevarande året.",
-              "el": "Η χρηματοδοτική συνεισφορά του κράτους καταβάλλεται σε μία μόνο δόση που αντιστοιχεί στο 100 % της ετήσιας χρηματοδοτικής συνεισφοράς του κράτους που οφείλεται για το τρέχον έτος.",
-              "mt": "Il-kontribuzzjoni finanzjarja tal-Istat għandha titħallas f'pagament wieħed li jikkorrispondi għal 100 % tal-kontribuzzjoni finanzjarja annwali tal-Istat dovuta għas-sena attwali.",
-              "en": "The State's financial contribution shall be paid in a single instalment corresponding to 100 % of the State's annual financial contribution due for the current year.",
-              "it": "Il contributo finanziario dello Stato è versato in un'unica rata corrispondente al 100 % del contributo finanziario annuale dello Stato dovuto per l'anno in corso.",
-              "es": "La contribución financiera del Estado se abonará en un único tramo correspondiente al 100 % de la contribución financiera anual del Estado adeudada para el año en curso.",
-              "et": "Riigi rahaline toetus makstakse ühekordse maksena, mis vastab 100 %-le jooksval aastal tasumisele kuuluvast riigi iga-aastasest rahalisest toetusest.",
-              "cs": "Finanční příspěvek státu se vyplácí v jediné splátce, která odpovídá 100 % ročního finančního příspěvku státu splatného pro běžný rok.",
-              "pl": "Wkład finansowy państwa jest wypłacany w jednej racie odpowiadającej 100 % rocznego wkładu finansowego państwa należnego za bieżący rok.",
-              "da": "Statens finansielle bidrag udbetales i en enkelt rate svarende til 100 % af statens årlige finansielle bidrag for det indeværende år.",
-              "ro": "Contribuția financiară a statului se plătește într-o singură tranșă, reprezentând 100 % din contribuția financiară anuală a statului datorată pentru anul în curs.",
-              "nl": "De financiële bijdrage van de staat wordt betaald in één tranche die overeenkomt met 100 % van de jaarlijkse financiële bijdrage van de staat die voor het lopende jaar verschuldigd is."
-            },
-            "modified": "2025-02-13T10:48:45.801Z",
-            "id": "a1c291fb-dfd7-45b9-8ce6-41a72394aa3b",
-            "title": {
-              "de": "CinEast_convention, 1. Zusatzvereinbarung 2023.pdf",
-              "fi": "CinEast_convention, 1. lisäys 2023.pdf",
-              "pt": "CinEast_convention, 1.a adenda, 2023.pdf",
-              "bg": "CinEast_convention, 1-во допълнение 2023.pdf",
-              "lt": "CinEast_convention, 2023 m. pirmasis papildymas.pdf",
-              "lv": "CinEast_convention, 2023. gada 1. papildinājums.pdf",
-              "hr": "CinEast_convention, 1. dopuna 2023.pdf",
-              "fr": "CinEast_convention - 1er avenant, 2023.pdf",
-              "hu": "CinEast_convention, 1. kiegészítés 2023.pdf",
-              "uk": "CinEast_convention, 1 додаток 2023.pdf",
-              "sk": "CinEast_convention, 1. dodatok 2023.pdf",
-              "sl": "CinEast_convention, 1. dodatek 2023.pdf",
-              "ga": "CinEast_convention, an chéad aguisín 2023.pdf",
-              "sv": "CinEast_convention, första tillägget 2023.pdf",
-              "mt": "CinEast_convention, l-ewwel addendum 2023.pdf",
-              "el": "CinEast_convention, 1η προσθήκη 2023.pdf",
-              "en": "CinEast_convention, 1st addendum 2023.pdf",
-              "it": "CinEast_convention, 1° addendum 2023.pdf",
-              "es": "CinEast_convention, 1.a adenda 2023.pdf",
-              "et": "CinEast_convention, 1. lisand 2023.pdf",
-              "cs": "CinEast_convention, 1. dodatek 2023.pdf",
-              "pl": "CinEast_convention, 1. addendum 2023.pdf",
-              "da": "CinEast_convention, 1. tillæg 2023.pdf",
-              "ro": "CinEast_convention, primul addendum 2023.pdf",
-              "nl": "CinEast_convention, 1e addendum 2023.pdf"
-            },
-            "issued": "2024-06-25T08:27:14.663Z"
-          },
-          {
-            "license": {
-              "id": "notspecified"
-            },
-            "access_url": [
-              "https://download.data.public.lu/resources/cineast-convention/20250213-104919/146-cineast-3-avenant-12022025.pdf"
-            ],
-            "checksum": {
-              "checksum_value": "25e6af83906d2bfa1d6599ea378ac08e2294518f"
-            },
-            "description": {
-              "fr": "« Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d’un montant de 53 000 euros à partir de l’exercice 2025, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés. »"
-            },
-            "modified": "2025-02-13T10:50:10.361Z",
-            "id": "0d9d1025-d59b-44a9-91b9-d06e9134c15d",
-            "issued": "2025-02-13T10:49:20.353Z",
-            "title": {
-              "fr": "CinEast_convention - 3e avenant, 2025.pdf"
-            }
-          },
-          {
-            "license": {
-              "id": "notspecified"
-            },
-            "access_url": [
-              "https://download.data.public.lu/resources/cineast-convention/20240625-082815/cineast-convention-2e-avenant-2024.pdf"
-            ],
-            "checksum": {
-              "checksum_value": "44afaa4a2dd1709a9a508b70d242b1bd76d1c1e2"
-            },
-            "description": {
-              "de": "Auf der Grundlage des von der Vereinigung gemäß Artikel 6 erstellten endgültigen Finanzplans verpflichtet sich der Staat, der Vereinigung ab dem Haushaltsjahr 2024 im Rahmen der verfügbaren und von der Abgeordnetenkammer genehmigten Haushaltsmittel eine jährliche finanzielle Beteiligung in Höhe von 50 000 EUR zu gewähren.",
-              "fi": "Yhdistyksen 6 artiklan mukaisesti laatiman lopullisen alustavan talousarvion perusteella valtio sitoutuu myöntämään yhdistykselle 50 000 euron vuotuisen rahoitusosuuden varainhoitovuodesta 2024 alkaen käytettävissä olevien ja edustajainhuoneen hyväksymien talousarviovarojen rajoissa.",
-              "pt": "Com base no orçamento previsional final elaborado pela associação em conformidade com o artigo 6.o, o Estado compromete-se a conceder à associação uma contribuição financeira anual de 50 000 EUR a partir do exercício de 2024, dentro dos limites dos meios orçamentais disponíveis e autorizados pela Câmara dos Deputados.",
-              "bg": "Въз основа на окончателния прогнозен бюджет, изготвен от сдружението в съответствие с член 6, държавата се задължава да предостави на сдружението годишна финансова вноска в размер на 50 000 EUR от финансовата 2024 година в рамките на наличните бюджетни средства и разрешени от Камарата на депутатите.",
-              "lt": "Remdamasi asociacijos pagal 6 straipsnį parengta galutine biudžeto sąmata, valstybė įsipareigoja nuo 2024 finansinių metų skirti asociacijai 50 000 EUR metinį finansinį įnašą, neviršydama turimų ir Deputatų Rūmų patvirtintų biudžeto lėšų.",
-              "hr": "Na temelju konačnog procijenjenog proračuna koji je udruženje izradilo u skladu s člankom 6. država se obvezuje da će udruženju dodijeliti godišnji financijski doprinos u iznosu od 50 000 EUR od financijske godine 2024., u granicama raspoloživih proračunskih sredstava koje je odobrio Zastupnički dom.",
-              "lv": "Pamatojoties uz galīgo budžeta tāmi, ko apvienība sagatavojusi saskaņā ar 6. pantu, valsts apņemas piešķirt apvienībai ikgadēju finansiālu ieguldījumu 50 000 EUR apmērā no 2024. finanšu gada, nepārsniedzot pieejamos un Deputātu palātas apstiprinātos budžeta līdzekļus.",
-              "fr": "Sur base du budget prévisionnel définitif, élaboré par l’association conformément à l’article 6, l'État s'engage à accorder à l’association une participation financière annuelle d’un montant de 50 000 euros à partir de l’exercice 2024, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés.",
-              "hu": "A társulás által a 6. cikkel összhangban elkészített végleges becsült költségvetés alapján az állam vállalja, hogy a 2024-es pénzügyi évtől kezdődően a rendelkezésre álló és a Képviselőház által engedélyezett költségvetési eszközök keretein belül 50 000 EUR összegű éves pénzügyi hozzájárulást nyújt a társulásnak.",
-              "uk": "На підставі остаточного кошторисного бюджету, складеного об'єднанням відповідно до статті 6, держава зобов'язується надавати об'єднанню щорічний фінансовий внесок у розмірі 50000 євро з 2024 фінансового року, в межах наявних і дозволених Палатою депутатів бюджетних коштів.",
-              "sk": "Na základe konečného odhadovaného rozpočtu vypracovaného združením v súlade s článkom 6 sa štát zaväzuje poskytnúť združeniu ročný finančný príspevok vo výške 50 000 EUR od rozpočtového roku 2024 v rámci dostupných rozpočtových prostriedkov schválených Poslaneckou snemovňou.",
-              "sl": "Država se zavezuje, da bo na podlagi končnega predvidenega proračuna, ki ga pripravi združenje v skladu s členom 6, združenju odobrila letni finančni prispevek v višini 50 000 EUR od proračunskega leta 2024 v mejah razpoložljivih proračunskih sredstev, ki jih odobri poslanska zbornica.",
-              "ga": "Ar bhonn an bhuiséid mheasta deiridh arna tharraingt suas ag an gcomhlachas i gcomhréir le hAirteagal 6, geallann an Stát ranníocaíocht airgeadais bhliantúil EUR 50 000 a dheonú don chomhlachas ón mbliain airgeadais 2024, laistigh de theorainneacha na n-acmhainní buiséadacha atá ar fáil agus atá údaraithe ag Teach na dTeachtaí.",
-              "sv": "På grundval av den slutliga preliminära budget som utarbetats av sammanslutningen i enlighet med artikel 6 åtar sig staten att bevilja sammanslutningen ett årligt ekonomiskt bidrag på 50 000 euro från och med budgetåret 2024, inom ramen för de tillgängliga budgetmedel som godkänts av deputeradekammaren.",
-              "mt": "Abbażi tal-baġit stmat finali mfassal mill-assoċjazzjoni f’konformità mal-Artikolu 6, l-Istat jimpenja ruħu li jagħti lill-assoċjazzjoni kontribuzzjoni finanzjarja annwali ta’ EUR 50 000 mis-sena finanzjarja 2024, fil-limiti tal-mezzi baġitarji disponibbli u awtorizzati mill-Kamra tad-Deputati.",
-              "el": "Με βάση τον τελικό εκτιμώμενο προϋπολογισμό που καταρτίζει η ένωση σύμφωνα με το άρθρο 6, το κράτος αναλαμβάνει να χορηγήσει στην ένωση ετήσια χρηματοδοτική συνεισφορά ύψους 50 000 EUR από το οικονομικό έτος 2024, εντός των ορίων των διαθέσιμων δημοσιονομικών μέσων και των εγκεκριμένων από τη Βουλή των Αντιπροσώπων.",
-              "en": "On the basis of the final estimated budget drawn up by the association in accordance with Article 6, the State undertakes to grant the association an annual financial contribution of EUR 50 000 from the 2024 financial year, within the limits of the budgetary means available and authorised by the Chamber of Deputies.",
-              "it": "Sulla base del bilancio preventivo definitivo stabilito dall'associazione ai sensi dell'articolo 6, lo Stato si impegna a concedere all'associazione un contributo finanziario annuo di 50 000 EUR a partire dall'esercizio 2024, nei limiti delle risorse di bilancio disponibili e autorizzate dalla Camera dei deputati.",
-              "es": "Sobre la base del presupuesto estimativo definitivo elaborado por la asociación de conformidad con el artículo 6, el Estado se compromete a conceder a la asociación una contribución financiera anual de 50 000 EUR a partir del ejercicio 2024, dentro de los límites de los medios presupuestarios disponibles y autorizados por la Cámara de Diputados.",
-              "et": "Riik kohustub ühingu poolt artikli 6 kohaselt koostatud lõpliku hinnangulise eelarve alusel andma ühingule alates 2024. eelarveaastast igal aastal rahalist toetust summas 50 000 eurot, mis jääb saadikutekoja poolt heaks kiidetud olemasolevate eelarvevahendite piiresse.",
-              "cs": "Na základě konečného předběžného rozpočtu vypracovaného sdružením podle článku 6 se stát zavazuje poskytnout sdružení od rozpočtového roku 2024 roční finanční příspěvek ve výši 50 000 EUR v mezích rozpočtových prostředků, které jsou k dispozici a které schválila Poslanecká sněmovna.",
-              "pl": "Na podstawie ostatecznego szacunkowego budżetu sporządzonego przez stowarzyszenie zgodnie z art. 6 państwo zobowiązuje się przyznać stowarzyszeniu roczny wkład finansowy w wysokości 50 000 EUR począwszy od roku budżetowego 2024, w granicach dostępnych środków budżetowych zatwierdzonych przez Izbę Deputowanych.",
-              "ro": "Pe baza bugetului final estimat întocmit de asociație în conformitate cu articolul 6, statul se angajează să acorde asociației o contribuție financiară anuală de 50 000 EUR începând cu exercițiul financiar 2024, în limitele mijloacelor bugetare disponibile și autorizate de Camera Deputaților.",
-              "da": "På grundlag af det endelige budgetoverslag udarbejdet af sammenslutningen i overensstemmelse med artikel 6 forpligter staten sig til at yde sammenslutningen et årligt finansielt bidrag på 50 000 EUR fra regnskabsåret 2024 inden for rammerne af de budgetmidler, der er til rådighed og godkendt af deputeretkammeret.",
-              "nl": "Op basis van de door de vereniging overeenkomstig artikel 6 opgestelde definitieve geraamde begroting verbindt de staat zich ertoe de vereniging vanaf het begrotingsjaar 2024 een jaarlijkse financiële bijdrage van 50 000 EUR toe te kennen, binnen de grenzen van de beschikbare en door de Kamer van Afgevaardigden toegestane begrotingsmiddelen."
-            },
-            "modified": "2025-02-13T10:49:08.163Z",
-            "id": "3cd8d86f-985e-4060-8950-7c774b3fea5b",
-            "title": {
-              "de": "CinEast_convention, 2. Zusatz 2024.pdf",
-              "fi": "CinEast_convention, 2. lisäys 2024.pdf",
-              "pt": "CinEast_convention, 2.a adenda 2024.pdf",
-              "bg": "CinEast_convention, 2-ро допълнение 2024.pdf",
-              "lt": "CinEast_convention, 2024 m. 2-asis papildymas.pdf",
-              "lv": "CinEast_convention, 2. papildinājums 2024.pdf",
-              "hr": "CinEast_convention, 2. dopuna 2024.pdf",
-              "fr": "CinEast_convention - 2e avenant, 2024.pdf",
-              "hu": "CinEast_convention, 2. kiegészítés 2024.pdf",
-              "uk": "CinEast_convention, 2 додаток 2024.pdf",
-              "sk": "CinEast_convention, 2. dodatok 2024.pdf",
-              "sl": "CinEast_convention, 2. dodatek 2024.pdf",
-              "ga": "Coinbhinsiún CinEast_, an dara haguisín 2024.pdf",
-              "sv": "CinEast_convention, andra tillägget 2024.pdf",
-              "mt": "CinEast_convention, it-tieni addendum 2024.pdf",
-              "el": "CinEast_convention, 2η προσθήκη 2024.pdf",
-              "en": "CinEast_convention, 2nd addendum 2024.pdf",
-              "it": "CinEast_convention, 2° addendum 2024.pdf",
-              "es": "CinEast_convention, 2.a adenda 2024.pdf",
-              "et": "CinEast_convention, 2024. aasta teine lisa.pdf",
-              "cs": "CinEast_convention, 2. dodatek 2024.pdf",
-              "pl": "CinEast_convention, 2. addendum 2024.pdf",
-              "ro": "CinEast_convention, al doilea addendum 2024.pdf",
-              "da": "CinEast_convention, 2. tillæg 2024.pdf",
-              "nl": "CinEast_convention, 2e addendum 2024.pdf"
-            },
-            "issued": "2024-06-25T08:28:15.873Z"
-          },
-          {
-            "license": {
-              "id": "notspecified"
-            },
-            "access_url": [
-              "https://download.data.public.lu/resources/cineast-convention/20240625-082540/cineast-convention-2023.pdf"
-            ],
-            "checksum": {
-              "checksum_value": "f33eac0e1dfb6f79033469de21c779d2fd19409a"
-            },
-            "description": {
-              "de": "Vereinbarung zwischen dem Staat und CinEast",
-              "fi": "Valtion ja CinEastin välinen sopimus",
-              "pt": "Acordo entre o Estado e a CinEast",
-              "bg": "Споразумение между държавата и CinEast",
-              "lt": "Valstybės ir „CinEast“ susitarimas",
-              "lv": "Nolīgums starp valsti un CinEast",
-              "hr": "Sporazum između države i CinEasta",
-              "fr": "Convention entre l'Etat et CinEast",
-              "hu": "Megállapodás az állam és a CinEast között",
-              "uk": "Угода між державою та CinEast",
-              "sk": "Dohoda medzi štátom a CinEast",
-              "sl": "Sporazum med državo in družbo CinEast",
-              "ga": "Comhaontú idir an Stát agus an tSín",
-              "sv": "Avtal mellan staten och CinEast",
-              "mt": "Ftehim bejn l-Istat u ċ-CinEast",
-              "el": "Συμφωνία μεταξύ του κράτους και της CinEast",
-              "en": "Agreement between the State and CinEast",
-              "it": "Accordo tra lo Stato e CinEast",
-              "es": "Acuerdo entre el Estado y CinEast",
-              "et": "Riigi ja CinEast'i vaheline leping",
-              "cs": "Dohoda mezi státem a CinEast",
-              "pl": "Umowa między państwem a regionem CinEast",
-              "da": "Aftale mellem staten og CinEast",
-              "ro": "Acord între stat și CinEast",
-              "nl": "Overeenkomst tussen de staat en CinEast"
-            },
-            "modified": "2024-06-25T08:26:13.439Z",
-            "id": "107c9383-17ee-4216-911c-680c9cd78916",
-            "title": {
-              "de": "CinEast_convention, 2023.pdf",
-              "fi": "CinEast_convention, 2023.pdf",
-              "pt": "CinEast_convention, 2023.pdf",
-              "bg": "CinEast_convention, 2023.pdf",
-              "lt": "CinEast_convention, 2023 m.pdf",
-              "lv": "CinEast_convention, 2023.pdf",
-              "hr": "CinEast_convention, 2023.pdf",
-              "fr": "CinEast_convention, 2023.pdf",
-              "hu": "CinEast_convention, 2023.pdf",
-              "uk": "CinEast_convention, 2023.pdf",
-              "sk": "CinEast_convention, 2023.pdf",
-              "sl": "CinEast_convention, 2023.pdf",
-              "ga": "Coinbhinsiún CinEast, 2023.pdf",
-              "sv": "CinEast_convention, 2023.pdf",
-              "el": "CinEast_convention, 2023.pdf",
-              "mt": "CinEast_convention, 2023.pdf",
-              "en": "CinEast_convention, 2023.pdf",
-              "it": "CinEast_convention, 2023.pdf",
-              "es": "CinEast_convention, 2023.pdf",
-              "et": "CinEast_convention, 2023.pdf",
-              "cs": "CinEast_convention, 2023.pdf",
-              "pl": "CinEast_convention, 2023.pdf",
-              "ro": "CinEast_convention, 2023.pdf",
-              "da": "CinEast_convention, 2023.pdf",
-              "nl": "CinEast_convention, 2023.pdf"
-            },
-            "issued": "2024-06-25T08:25:41.669Z"
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 90
-        },
-        "publisher": {
-          "name": "Ministère de la Culture",
-          "type": "Organization"
-        },
-        "id": "cineast-convention",
-        "page": [
-          {
-            "resource": "https://data.public.lu/fr/datasets/cineast-convention/"
-          }
-        ],
-        "issued": "2024-06-25T08:25:03.646Z",
-        "catalog_record": {
-          "modified": "2026-02-24T18:15:03Z",
-          "issued": "2024-06-25T18:15:00Z"
-        }
-      },
-      {
         "identifier": [
           "http://opendata.caceres.es/federator/cines-caceres"
         ],
@@ -2392,6 +1721,798 @@
         "catalog_record": {
           "modified": "2026-03-20T00:02:48Z",
           "issued": "2023-02-01T09:01:15Z"
+        }
+      },
+      {
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
+          "label": "EU institutions",
+          "id": "eu"
+        },
+        "keywords": [
+          {
+            "language": "en",
+            "id": "italian-film-industry,-gender-data,-gender-inequality-in-the-film-industry,-film-data,-director,-producer,-screenwriter,-editor,-director-of-photography,-set-designer,-production-designer,-makeup,-costume,-special-effects,-music,-head-of-department,-cinema,-audiovisual-media,-women",
+            "label": "Italian film industry, gender data, gender inequality in the film industry, film data, director, producer, screenwriter, editor, director of photography, set designer, production designer, makeup, costume, special effects, music, head of department, cinema, audiovisual media, women"
+          }
+        ],
+        "catalog": {
+          "id": "zenodo",
+          "source_type": "dcat-ap",
+          "issued": "2025-07-03T07:23:00Z",
+          "description": {
+            "en": "Open repository for EU-funded research outputs from Horizon Europe, Euratom, and earlier Framework Programmes."
+          },
+          "homepage": "https://zenodo.org",
+          "country": {
+            "label": "EU institutions",
+            "id": "eu",
+            "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
+          },
+          "spatial_resource": [
+            {
+              "label": "EU institutions",
+              "id": "eu",
+              "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
+            }
+          ],
+          "spatial": [],
+          "language": [
+            {
+              "id": "en",
+              "label": "English",
+              "resource": "http://publications.europa.eu/resource/authority/language/ENG"
+            }
+          ],
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:support@zenodo.org",
+            "name": "CERN - European Organization for Nuclear Research and European Commission"
+          },
+          "title": {
+            "en": "EU Open Research Repository"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "en": {
+              "machine_translated": false,
+              "issued": "2025-07-03T08:10:22Z"
+            }
+          },
+          "full_available_languages": [
+            "en"
+          ],
+          "status": "processing"
+        },
+        "description": {
+          "en": "This file includes a selection of the data from the CineAF/CENTRICwebi database created in the context of the EU Marie Skłodowska-Curie Actions-funded project CineAF: Women's film in Italy, 1965-2015, Grant agreement No 891966. CENTRICWebi gathers information on more than 11,000 film titles, which correspond to all feature-length films with Italian nationality that received permission for distribution between 1964 and 2020. The dataset includes information on 10 creative roles and department heads, including director, producer, screenwriter, editor, director of photography, composer, production designer, costume designer, makeup supervisor, and special effects supervisor with the purpose of assessing the presence of women film professionals in film production. The dataset includes data on the following: film professional (anonymised); film title (anonymised); binary gender assigned by the system; profession; year of film's \"nulla osta\". Each film title and each film professional are assigned a unique code. The dataset contains a list of 145.292 individual entries. Each entry corresponds to a film professional who worked on one film."
+        },
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/ENG",
+            "id": "en",
+            "label": "English"
+          }
+        ],
+        "title": {
+          "en": "CineAF_27072022_v1"
+        },
+        "type": {
+          "resource": "http://purl.org/dc/dcmitype/Dataset"
+        },
+        "access_right": {
+          "resource": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
+          "label": "restricted"
+        },
+        "modified": "2023-06-20T00:00:00Z",
+        "id": "oai-zenodo-org-6365647",
+        "adms_identifier": [
+          {
+            "identifier": "https://zenodo.org/records/6365647",
+            "scheme": "http://www.w3.org/2001/XMLSchema#anyURI"
+          },
+          {
+            "identifier": "oai:zenodo.org:6365647",
+            "scheme": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ],
+        "issued": "2022-08-11T00:00:00Z",
+        "identifier": [
+          "https://doi.org/10.5281/zenodo.6365647"
+        ],
+        "is_version_of": [
+          "https://doi.org/10.5281/zenodo.6365646"
+        ],
+        "creator": [
+          {
+            "name": "Tarantino, Matteo",
+            "type": "Person"
+          },
+          {
+            "name": "Fanchi, Mariagrazia",
+            "type": "Person"
+          },
+          {
+            "name": "Rosa Barotsi",
+            "type": "Person"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647",
+        "index": "dataset",
+        "version_info": "01",
+        "distributions": [
+          {
+            "access_url": [
+              "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647"
+            ],
+            "id": "00561817-f720-4618-ad7e-c1267039ac2f"
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 110
+        },
+        "publisher": {
+          "name": "Zenodo",
+          "type": "Agent"
+        },
+        "page": [
+          {
+            "resource": "https://doi.org/10.5281/zenodo.6365647"
+          }
+        ],
+        "catalog_record": {
+          "modified": "2026-02-20T14:49:25Z",
+          "issued": "2025-07-03T08:10:22Z"
+        }
+      },
+      {
+        "country": {
+          "label": "Luxembourg",
+          "id": "lu",
+          "resource": "http://publications.europa.eu/resource/authority/country/LUX"
+        },
+        "resource": "http://data.europa.eu/88u/dataset/cineast-convention",
+        "catalog": {
+          "id": "la-plateforme-de-donnees-luxembourgeoise",
+          "country": {
+            "label": "Luxembourg",
+            "id": "lu",
+            "resource": "http://publications.europa.eu/resource/authority/country/LUX"
+          },
+          "spatial_resource": [
+            {
+              "label": "Luxembourg",
+              "id": "lu",
+              "resource": "http://publications.europa.eu/resource/authority/country/LUX"
+            }
+          ],
+          "spatial": [],
+          "title": {
+            "fr": "La plateforme de données luxembourgeoise"
+          },
+          "issued": "2022-06-24T12:30:29Z",
+          "description": {
+            "en": "Open Data Portal Luxembourg"
+          },
+          "homepage": "https://data.public.lu",
+          "source_type": "udata",
+          "publisher": {
+            "type": "Agent",
+            "homepage": "https://gouvernement.lu",
+            "name": "Le Gouvernement du Grand-Duché de Luxembourg",
+            "email": "mailto:info@data.public.lu"
+          },
+          "modified": "2023-02-10T18:15:01.883580",
+          "language": [
+            {
+              "id": "fr",
+              "label": "French",
+              "resource": "http://publications.europa.eu/resource/authority/language/FRA"
+            }
+          ]
+        },
+        "translation_meta": {
+          "details": {
+            "fr": {
+              "machine_translated": false,
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "es": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            },
+            "de": {
+              "machine_translated": true,
+              "original_language": "fr",
+              "received": "2026-04-03T14:52:47Z",
+              "issued": "2025-09-05T18:20:34Z"
+            }
+          },
+          "full_available_languages": [
+            "fr",
+            "en",
+            "bg",
+            "lt",
+            "cs",
+            "ro",
+            "fi",
+            "sk",
+            "sl",
+            "et",
+            "nl",
+            "lv",
+            "sv",
+            "pt",
+            "ga",
+            "hu",
+            "pl",
+            "hr",
+            "es",
+            "it",
+            "el",
+            "da",
+            "uk",
+            "mt",
+            "de"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "pl": "Umowa między państwem a stowarzyszeniem autobusowym CineEast nienastawionym na zysk.",
+          "sv": "Konvention mellan staten och den ideella bussföreningen CineEast.",
+          "mt": "Il-Konvenzjoni bejn l-Istat u l-assoċjazzjoni tal-karozzi tal-linja mingħajr skop ta’ qligħ CineEast.",
+          "fr": "Convention entre l'Etat ez l'association sans bus lucratif CineEast.",
+          "fi": "Valtion ja voittoa tavoittelemattoman linja-autoyhdistyksen CineEastin välinen sopimus.",
+          "pt": "Convenção entre o Estado e a associação sem fins lucrativos de autocarros CineEast.",
+          "lt": "Valstybės ir pelno nesiekiančios autobusų asociacijos „CineEast“ konvencija.",
+          "el": "Σύμβαση μεταξύ του κράτους και της μη κερδοσκοπικής ένωσης λεωφορείων CineEast.",
+          "nl": "Overeenkomst tussen de Staat en de vzw CineEast.",
+          "en": "Convention between the State and the non-profit bus association CineEast.",
+          "hu": "Egyezmény az állam és a CineEast nonprofit autóbusz-szövetség között.",
+          "et": "Riigi ja mittetulundusliku bussiühingu CineEast vaheline leping.",
+          "sl": "Konvencija med državo in nepridobitnim avtobusnim združenjem CineEast.",
+          "uk": "Конвенція між державою та некомерційною автобусною асоціацією CineEast.",
+          "cs": "Úmluva mezi státem a neziskovým sdružením autobusů CineEast.",
+          "ga": "An Coinbhinsiún idir an Stát agus an comhlachas bus neamhbhrabúis CineEast.",
+          "ro": "Convenție între stat și asociația non-profit de autobuze CineEast.",
+          "lv": "Konvencija starp valsti un bezpeļņas autobusu asociāciju CineEast.",
+          "da": "Konvention mellem staten og den almennyttige bussammenslutning CineEast.",
+          "sk": "Dohovor medzi štátom a neziskovým autobusovým združením CineEast.",
+          "it": "Convenzione tra lo Stato e l'associazione di autobus senza scopo di lucro CineEast.",
+          "hr": "Konvencija između države i neprofitnog autobusnog udruženja CineEast.",
+          "es": "Convenio entre el Estado y la asociación de autobuses sin ánimo de lucro CineEast.",
+          "bg": "Споразумение между държавата и автобусната асоциация с нестопанска цел CineEast.",
+          "de": "Vereinbarung zwischen dem Staat ez der Non-Profit-Bus-Vereinigung CineEast."
+        },
+        "index": "dataset",
+        "title": {
+          "fr": "CinEast_convention",
+          "en": "CinEast_convention",
+          "bg": "Конвенция CinEast_",
+          "lt": "CinEast_konvencija",
+          "cs": "Úmluva CinEast_",
+          "ro": "CinEast_convention",
+          "fi": "CinEast_ -yleissopimus",
+          "sk": "Dohovor CinEast_",
+          "sl": "CinEast_konvencija",
+          "et": "CinEast_konventsioon",
+          "nl": "Verdrag van CinEast_",
+          "lv": "CinEast_konvencija",
+          "sv": "CinEast_-konventionen",
+          "pt": "Convenção de CinEast_",
+          "ga": "· Coinbhinsiúin CinEast_",
+          "hu": "CinEast_konvenció",
+          "pl": "Konwencja CinEast_",
+          "hr": "CinEast_konvencija",
+          "es": "Convención CinEast_",
+          "it": "CinEast _convenzione",
+          "el": "Σύμβαση CinEast_",
+          "da": "CinEast_konventionen",
+          "uk": "CinEast_convention",
+          "mt": "Konvenzjoni ta' CinEast_",
+          "de": "CinEast_Konvention"
+        },
+        "accrual_periodicity": {
+          "label": "unknown",
+          "resource": "http://publications.europa.eu/resource/authority/frequency/UNKNOWN"
+        },
+        "distributions": [
+          {
+            "id": "eb91487f-294d-4acb-bc65-25bd190acaf9",
+            "title": {
+              "en": "CinEast_convention - 4th amendment, 2026.pdf",
+              "sv": "CinEast_-konventionen - 4:e ändringen, 2026.pdf",
+              "hu": "CinEast_konvenció - 4. módosítás, 2026.pdf",
+              "el": "CinEast_convention - 4η τροποποίηση, 2026.pdf",
+              "nl": "Verdrag van CinEast_ - 4e wijziging, 2026.pdf",
+              "fr": "CinEast_convention - 4e avenant, 2026.pdf",
+              "it": "CinEast _convention - 4° emendamento, 2026.pdf",
+              "cs": "CinEast_convention - 4. dodatek, 2026.pdf",
+              "et": "CinEast_Convention - 4. muudatusettepanek, 2026.pdf",
+              "uk": "CinEast_convention - 4-та поправка, 2026.pdf",
+              "de": "CinEast_convention - 4. Zusatzvereinbarung, 2026.pdf",
+              "da": "CinEast_konventionen - 4. ændring, 2026.pdf",
+              "ga": "CinEast_convention - 4ú leasú, 2026.pdf",
+              "fi": "CinEast_convention - 4. muutos, 2026.pdf",
+              "lv": "CinEast_konvencija - 4. grozījums, 2026.pdf",
+              "hr": "Konvencija CinEast_ - 4. amandman, 2026.pdf",
+              "bg": "CinEast_convention - 4-то изменение, 2026.pdf",
+              "sk": "Dohovor CinEast_ - 4. zmena, 2026.pdf",
+              "pl": "CinEast_convention – 4. poprawka, 2026.pdf",
+              "sl": "CinEast_convention - 4. amandma, 2026.pdf",
+              "pt": "CinEast_convention - 4a emenda, 2026.pdf",
+              "lt": "CinEast_konvencija - 4-asis pakeitimas, 2026.pdf",
+              "ro": "CinEast_convention - a 4-a modificare, 2026.pdf",
+              "mt": "CinEast_convention - ir-raba' emenda, 2026.pdf",
+              "es": "CinEast_convention - 4a enmienda, 2026.pdf"
+            },
+            "access_url": [
+              "https://download.data.public.lu/resources/cineast-convention/20260224-075529/146-cineast-4-avenant-23022026.pdf"
+            ],
+            "description": {
+              "sl": "Na podlagi končnega načrta proračuna, ki ga pripravi združenje v skladu s členom 6, se država zavezuje, da bo združenju od proračunskega leta 2026 dodelila letni finančni prispevek v višini 60 000 EUR v mejah proračunskih sredstev, ki so na voljo in jih je odobrila poslanska zbornica.",
+              "hu": "Az egyesület által a 6. cikkel összhangban elkészített végleges becsült költségvetés alapján az állam vállalja, hogy a 2026-os pénzügyi évtől kezdődően 60 000 EUR összegű éves pénzügyi hozzájárulást nyújt az egyesületnek a rendelkezésre álló és a képviselőház által engedélyezett költségvetési források keretein belül.",
+              "de": "Auf der Grundlage des endgültigen Haushaltsvoranschlags, der vom Verein gemäß Artikel 6 aufgestellt wird, verpflichtet sich der Staat, dem Verein im Rahmen der verfügbaren und von der Abgeordnetenkammer genehmigten Haushaltsmittel eine jährliche finanzielle Beteiligung in Höhe von 60 000 Euro ab dem Haushaltsjahr 2026 zu gewähren.",
+              "cs": "Na základě konečného předběžného rozpočtu sestaveného sdružením podle článku 6 se stát zavazuje poskytnout sdružení od rozpočtového roku 2026 roční finanční příspěvek ve výši 60 000 EUR, a to v mezích dostupných rozpočtových prostředků schválených Poslaneckou sněmovnou.",
+              "uk": "На підставі остаточного кошторисного бюджету, складеного асоціацією відповідно до статті 6, держава зобов'язується надати асоціації річний фінансовий внесок у розмірі 60 000 євро з 2026 фінансового року в межах бюджетних ресурсів, доступних і уповноважених Палатою депутатів.",
+              "en": "On the basis of the final estimated budget, drawn up by the association in accordance with Article 6, the State undertakes to grant the association an annual financial contribution of EUR 60 000 from the financial year 2026, within the limits of the budgeted resources available and authorised by the Chamber of Deputies.",
+              "el": "Βάσει του τελικού εκτιμώμενου προϋπολογισμού, που καταρτίζεται από την ένωση σύμφωνα με το άρθρο 6, το κράτος αναλαμβάνει να χορηγήσει στην ένωση ετήσια χρηματοδοτική συνεισφορά ύψους 60 000 EUR από το οικονομικό έτος 2026, εντός των ορίων των προϋπολογισθέντων πόρων που είναι διαθέσιμοι και εγκεκριμένοι από τη Βουλή των Αντιπροσώπων.",
+              "it": "Sulla base del bilancio di previsione definitivo, redatto dall'associazione a norma dell'articolo 6, lo Stato si impegna a concedere all'associazione un contributo finanziario annuo di 60 000 EUR a decorrere dall'esercizio 2026, nei limiti delle risorse iscritte in bilancio disponibili e autorizzate dalla Camera dei deputati.",
+              "bg": "Въз основа на окончателния прогнозен бюджет, изготвен от сдружението в съответствие с член 6, държавата се задължава да предостави на сдружението годишна финансова вноска в размер на 60 000 EUR от финансовата 2026 година в рамките на предвидените в бюджета налични ресурси, разрешени от Камарата на депутатите.",
+              "hr": "Na temelju konačnog procijenjenog proračuna koji je udruga izradila u skladu s člankom 6. država se obvezuje dodijeliti joj godišnji financijski doprinos od 60 000 EUR od financijske godine 2026., u granicama raspoloživih proračunskih sredstava koje je odobrio Zastupnički dom.",
+              "sk": "Na základe konečného odhadovaného rozpočtu vypracovaného združením v súlade s článkom 6 sa štát zaväzuje poskytnúť združeniu od rozpočtového roku 2026 ročný finančný príspevok vo výške 60 000 EUR v rámci dostupných rozpočtových zdrojov schválených Poslaneckou snemovňou.",
+              "pt": "Com base no orçamento previsional definitivo, elaborado pela associação em conformidade com o artigo 6.o, o Estado compromete-se a conceder à associação uma contribuição financeira anual de 60 000 EUR a partir do exercício de 2026, dentro dos limites dos recursos orçamentados disponíveis e autorizados pela Câmara dos Deputados.",
+              "fr": " Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d'un montant de 60 000 euros à partir de l’exercice 2026, dans la limite des moyens budgétairés disponibles et autorisés par la Chambre des Députés.",
+              "mt": "Abbażi tal-baġit stmat finali, imfassal mill-assoċjazzjoni f’konformità mal-Artikolu 6, l-Istat jimpenja ruħu li jagħti lill-assoċjazzjoni kontribuzzjoni finanzjarja annwali ta’ EUR 60 000 mis-sena finanzjarja 2026, fil-limiti tar-riżorsi bbaġitjati disponibbli u awtorizzati mill-Kamra tad-Deputati.",
+              "pl": "Na podstawie ostatecznego szacunkowego budżetu sporządzonego przez stowarzyszenie zgodnie z art. 6 państwo zobowiązuje się przyznać stowarzyszeniu roczny wkład finansowy w wysokości 60 000 EUR począwszy od roku budżetowego 2026, w granicach dostępnych zasobów budżetowych zatwierdzonych przez Izbę Poselską.",
+              "sv": "På grundval av den slutliga preliminära budget som utarbetats av sammanslutningen i enlighet med artikel 6 åtar sig staten att bevilja sammanslutningen ett årligt ekonomiskt bidrag på 60 000 euro från och med budgetåret 2026, inom ramen för de budgeterade medel som finns tillgängliga och som godkänts av deputeradekammaren.",
+              "et": "Lõpliku hinnangulise eelarve alusel, mille ühendus on koostanud vastavalt artiklile 6, kohustub riik andma alates 2026. eelarveaastast liidule iga-aastast rahalist toetust 60 000 eurot olemasolevate eelarveliste vahendite piires, mille on heaks kiitnud Saadikutekoda.",
+              "ro": "Pe baza bugetului final estimat, întocmit de asociație în conformitate cu articolul 6, statul se angajează să acorde asociației o contribuție financiară anuală de 60 000 EUR începând cu exercițiul financiar 2026, în limitele resurselor bugetare disponibile și autorizate de Camera Deputaților.",
+              "fi": "Yhdistyksen 6 artiklan mukaisesti laatiman lopullisen alustavan talousarvion perusteella valtio sitoutuu myöntämään yhdistykselle 60 000 euron vuotuisen rahoitusosuuden varainhoitovuodelta 2026 käytettävissä olevien ja edustajainhuoneen hyväksymien budjetoitujen varojen rajoissa.",
+              "lv": "Pamatojoties uz galīgo budžeta tāmi, ko apvienība sagatavojusi saskaņā ar 6. pantu, valsts apņemas no 2026. finanšu gada piešķirt apvienībai ikgadēju finansiālu ieguldījumu 60 000 EUR apmērā, nepārsniedzot pieejamos budžeta līdzekļus, ko apstiprinājusi Deputātu palāta.",
+              "da": "På grundlag af det endelige anslåede budget, der er udarbejdet af sammenslutningen i overensstemmelse med artikel 6, forpligter staten sig til at yde sammenslutningen et årligt finansielt bidrag på 60 000 EUR fra regnskabsåret 2026 inden for rammerne af de budgetmidler, der er til rådighed, og som er godkendt af deputeretkammeret.",
+              "nl": "Op basis van de overeenkomstig artikel 6 door de vereniging opgestelde definitieve geraamde begroting verbindt de staat zich ertoe de vereniging met ingang van het begrotingsjaar 2026 een jaarlijkse financiële bijdrage van 60 000 EUR toe te kennen, binnen de grenzen van de begrote middelen die beschikbaar zijn en die door de Kamer van Afgevaardigden zijn goedgekeurd.",
+              "es": "Sobre la base del presupuesto estimativo definitivo, elaborado por la asociación de conformidad con el artículo 6, el Estado se compromete a conceder a la asociación una contribución financiera anual de 60 000 EUR a partir del ejercicio 2026, dentro de los límites de los recursos presupuestados disponibles y autorizados por la Cámara de Diputados.",
+              "lt": "Remdamasi asociacijos pagal 6 straipsnį parengta galutine biudžeto sąmata, valstybė įsipareigoja nuo 2026 finansinių metų asociacijai skirti 60 000 EUR metinį finansinį įnašą, neviršydama turimų ir Deputatų Rūmų patvirtintų biudžete numatytų išteklių.",
+              "ga": "Ar bhonn an bhuiséid mheasta chríochnaithigh, arna tharraingt suas ag an gcomhlachas i gcomhréir le hAirteagal 6, geallann an Stát ranníocaíocht airgeadais bhliantúil EUR 60 000 a dheonú don chomhlachas ón mbliain airgeadais 2026, laistigh de theorainneacha na n-acmhainní buiséadaithe atá ar fáil agus arna n-údarú ag Teach na dTeachtaí."
+            },
+            "issued": "2026-02-24T07:55:29.420Z",
+            "checksum": {
+              "checksum_value": "5383794024858fa245b3c9f2b33ff3ad"
+            },
+            "modified": "2026-02-24T07:56:28.934Z",
+            "license": {
+              "id": "notspecified"
+            }
+          },
+          {
+            "id": "a1c291fb-dfd7-45b9-8ce6-41a72394aa3b",
+            "access_url": [
+              "https://download.data.public.lu/resources/cineast-convention/20240625-082714/cineast-convention-1er-avenant-2023.pdf"
+            ],
+            "title": {
+              "it": "CinEast_convention - 1a modifica, 2023.pdf",
+              "pt": "CinEast_convention - 1.a alteração, 2023.pdf",
+              "el": "CinEast_convention - 1η τροποποίηση, 2023.pdf",
+              "en": "CinEast_convention - 1st amendment, 2023.pdf",
+              "sl": "CinEast_convention – 1. sprememba, 2023.pdf",
+              "fr": "CinEast_convention - 1er avenant, 2023.pdf",
+              "lt": "CinEast_konvencija, 1-asis pakeitimas, 2023 m.pdf",
+              "es": "Convención CinEast_ - 1a enmienda, 2023.pdf",
+              "ga": "· Coinbhinsiún CinEast_ - an chéad leasú, 2023.pdf",
+              "de": "CinEast_convention - 1. Zusatzvertrag, 2023.pdf",
+              "lv": "CinEast_konvencija - 1. grozījums, 2023.pdf",
+              "bg": "CinEast_convention — 1-во изменение, 2023 г.pdf",
+              "nl": "Verdrag van CinEast_ - 1e wijziging, 2023.pdf",
+              "et": "CinEast_convention – 1. muudatusettepanek, 2023.pdf",
+              "pl": "CinEast_convention – 1. poprawka, 2023.pdf",
+              "mt": "CinEast_convention - l-ewwel emenda, 2023.pdf",
+              "fi": "CinEast_convention - 1. muutos, 2023.pdf",
+              "sv": "CinEast_-konventionen – första ändringen, 2023.pdf",
+              "ro": "CinEast_convention - 1st amendment, 2023.pdf",
+              "uk": "CinEast_convention - 1-а поправка, 2023.pdf",
+              "hr": "1. amandman konferencije CinEast_, 2023.pdf",
+              "cs": "CinEast_convention - 1. dodatek, 2023.pdf",
+              "da": "CinEast_konventionen – 1. ændring, 2023.pdf",
+              "hu": "CinEast_konvenció - 1. módosítás, 2023.pdf",
+              "sk": "Dohovor CinEast_ – 1. zmena, 2023.pdf"
+            },
+            "description": {
+              "fr": "La participation financière de l'État est liquidée en une seule tranche correspondant à 100 % de la participation financière annuelle de l'État redue pour l'année en cours.",
+              "de": "Die finanzielle Beteiligung des Staates wird in einer einzigen Tranche in Höhe von 100 % der jährlichen finanziellen Beteiligung des Staates für das laufende Jahr festgesetzt.",
+              "sk": "Finančný príspevok štátu sa zlikviduje v jednej splátke zodpovedajúcej 100 % ročného finančného príspevku štátu splatného za bežný rok.",
+              "et": "Riigi rahaline toetus lõpetatakse ühe osamaksena, mis vastab 100 %-le jooksval aastal tasumisele kuuluvast riigi aastasest rahalisest toetusest.",
+              "cs": "Finanční příspěvek státu je likvidován v jediné splátce odpovídající 100 % ročního finančního příspěvku státu splatného za běžný rok.",
+              "uk": "Фінансовий внесок держави зараховується в єдиний внесок, що відповідає 100 % річного фінансового внеску держави, що підлягає сплаті за поточний рік.",
+              "pl": "Wkład finansowy państwa jest likwidowany w jednej racie odpowiadającej 100 % rocznego wkładu finansowego państwa należnego za bieżący rok.",
+              "hu": "Az állam pénzügyi hozzájárulását egyetlen részletben számolják fel, amely az állam folyó évre esedékes éves pénzügyi hozzájárulása 100 %-ának felel meg.",
+              "bg": "Финансовата вноска на държавата се прекратява на един транш, съответстващ на 100 % от годишната финансова вноска на държавата, дължима за текущата година.",
+              "fi": "Valtion rahoitusosuus puretaan yhtenä eränä, joka vastaa 100:aa prosenttia kuluvan vuoden valtion vuotuisesta rahoitusosuudesta.",
+              "en": "The financial contribution of the State shall be wound up in a single instalment corresponding to 100 % of the annual financial contribution of the State due for the current year.",
+              "el": "Η χρηματοδοτική συνεισφορά του κράτους εκκαθαρίζεται σε μία δόση που αντιστοιχεί στο 100 % της ετήσιας χρηματοδοτικής συνεισφοράς του κράτους που οφείλεται για το τρέχον έτος.",
+              "it": "Il contributo finanziario dello Stato è liquidato in un'unica rata corrispondente al 100 % del contributo finanziario annuo dello Stato dovuto per l'anno in corso.",
+              "es": "La contribución financiera del Estado se liquidará en un único tramo correspondiente al 100 % de la contribución financiera anual del Estado adeudada para el año en curso.",
+              "ga": "Déanfar ranníocaíocht airgeadais an Stáit a fhoirceannadh in aon tráthchuid amháin a chomhfhreagraíonn do 100 % de ranníocaíocht airgeadais bhliantúil an Stáit atá dlite don bhliain reatha.",
+              "sl": "Finančni prispevek države se likvidira v enem obroku, ki ustreza 100 % letnega finančnega prispevka države za tekoče leto.",
+              "nl": "De financiële bijdrage van de staat wordt geliquideerd in één tranche die overeenkomt met 100 % van de jaarlijkse financiële bijdrage van de staat die voor het lopende jaar verschuldigd is.",
+              "lv": "Valsts finansiālo ieguldījumu likvidē vienā maksājumā, kas atbilst 100 % no valsts ikgadējā finansiālā ieguldījuma par kārtējo gadu.",
+              "hr": "Financijski doprinos države likvidira se u jednom obroku koji odgovara 100 % godišnjeg financijskog doprinosa države za tekuću godinu.",
+              "pt": "A contribuição financeira do Estado é dissolvida numa única parcela correspondente a 100 % da contribuição financeira anual do Estado devida para o ano em curso.",
+              "da": "Statens finansielle bidrag afvikles i en enkelt rate svarende til 100 % af statens årlige finansielle bidrag for det indeværende år.",
+              "lt": "Valstybės finansinis įnašas likviduojamas viena dalimi, atitinkančia 100 % einamųjų metų valstybės metinio finansinio įnašo.",
+              "sv": "Statens ekonomiska bidrag ska avvecklas i en enda delbetalning motsvarande 100 % av statens årliga ekonomiska bidrag för det innevarande året.",
+              "ro": "Contribuția financiară a statului se lichidează într-o singură tranșă, reprezentând 100 % din contribuția financiară anuală a statului datorată pentru anul în curs.",
+              "mt": "Il-kontribuzzjoni finanzjarja tal-Istat għandha tiġi stralċjata f’pagament wieħed li jikkorrispondi għal 100 % tal-kontribuzzjoni finanzjarja annwali tal-Istat dovuta għas-sena kurrenti."
+            },
+            "checksum": {
+              "checksum_value": "7953e1268314bd43a53619348912c6d0dd8522bc"
+            },
+            "license": {
+              "id": "notspecified"
+            },
+            "modified": "2025-02-13T10:48:45.801Z",
+            "issued": "2024-06-25T08:27:14.663Z"
+          },
+          {
+            "id": "0d9d1025-d59b-44a9-91b9-d06e9134c15d",
+            "description": {
+              "sl": "„Država se na podlagi končnega načrta proračuna, ki ga pripravi združenje v skladu s členom 6, zavezuje, da bo združenju od proračunskega leta 2025 dodelila letni finančni prispevek v višini 53.000 EUR v mejah proračunskih sredstev, ki so na voljo in jih je odobrila poslanska zbornica. »",
+              "hr": "„Na temelju konačnog procijenjenog proračuna koji je udruga izradila u skladu s člankom 6. država se obvezuje dodijeliti joj godišnji financijski doprinos u iznosu od 53 000 EUR od financijske godine 2025., u granicama raspoloživih proračunskih sredstava koje je odobrio Zastupnički dom. »",
+              "fi": "”Valtio sitoutuu yhdistyksen 6 §:n mukaisesti laatiman lopullisen alustavan talousarvion perusteella myöntämään yhdistykselle 53 000 euron vuotuisen rahoitusosuuden varainhoitovuodelta 2025 käytettävissä olevien ja edustajainhuoneen hyväksymien talousarviovarojen rajoissa. »",
+              "sv": "”På grundval av den slutliga beräknade budget som upprättats av sammanslutningen i enlighet med artikel 6 åtar sig staten att bevilja sammanslutningen ett årligt ekonomiskt bidrag på 53 000 euro från och med budgetåret 2025, inom ramen för de budgetmedel som finns tillgängliga och som godkänts av deputeradekammaren. »",
+              "en": "‘On the basis of the final estimated budget, drawn up by the association in accordance with Article 6, the State undertakes to grant the association an annual financial contribution of EUR 53 000 from the financial year 2025, within the limits of the budgetary means available and authorised by the Chamber of Deputies. »",
+              "uk": "* ‘ На підставі остаточного кошторисного бюджету, складеного асоціацією відповідно до статті 6, держава зобов'язується надати асоціації річний фінансовий внесок у розмірі 53 000 євро з 2025 фінансового року в межах бюджетних коштів, доступних і уповноважених Палатою депутатів. » Протипоказання",
+              "el": "«Με βάση τον τελικό εκτιμώμενο προϋπολογισμό, ο οποίος καταρτίζεται από την ένωση σύμφωνα με το άρθρο 6, το κράτος αναλαμβάνει να χορηγήσει στην ένωση ετήσια χρηματοδοτική συνεισφορά ύψους 53 000 EUR από το οικονομικό έτος 2025, εντός των ορίων των διαθέσιμων δημοσιονομικών μέσων που εγκρίνονται από τη Βουλή των Αντιπροσώπων. »",
+              "hu": "„Az egyesület által a 6. cikkel összhangban elkészített végleges előzetes költségvetés alapján az állam vállalja, hogy a rendelkezésre álló és a képviselőház által engedélyezett költségvetési eszközök keretein belül a 2025-ös pénzügyi évtől kezdődően 53 000 EUR összegű éves pénzügyi hozzájárulást nyújt az egyesületnek. »",
+              "cs": "„Na základě konečného předběžného rozpočtu sdružení sestaveného podle článku 6 se stát zavazuje poskytnout sdružení od rozpočtového roku 2025 roční finanční příspěvek ve výši 53 000 eur v mezích rozpočtových prostředků, které má k dispozici a které schválila Poslanecká sněmovna. »",
+              "da": "»På grundlag af det endelige budgetoverslag, der udarbejdes af sammenslutningen i overensstemmelse med artikel 6, forpligter staten sig til at yde sammenslutningen et årligt finansielt bidrag på 53 000 EUR fra regnskabsåret 2025 inden for rammerne af de budgetmidler, der er til rådighed, og som er godkendt af Deputeretkammeret. »",
+              "ga": "‘Ar bhonn an bhuiséid mheasta chríochnaithigh, arna tharraingt suas ag an gcomhlachas i gcomhréir le hAirteagal 6, geallann an Stát ranníocaíocht airgeadais bhliantúil EUR 53 000 a dheonú don chomhlachas ón mbliain airgeadais 2025, laistigh de theorainneacha na n-acmhainní buiséadacha atá ar fáil agus údaraithe ag Teach na dTeachtaí. »",
+              "fr": "« Sur base du budget prévisionnel définitif, élaboré par l'association conformément à l’article 6, l'État s'engage à accorder à l'association une participation financière annuelle d’un montant de 53 000 euros à partir de l’exercice 2025, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés. »",
+              "bg": "„Въз основа на окончателния прогнозен бюджет, изготвен от сдружението в съответствие с член 6, държавата се задължава да предостави на сдружението годишно финансово участие в размер на 53 000 EUR, считано от финансовата 2025 година, в рамките на наличните бюджетни средства, разрешени от Камарата на депутатите. »",
+              "de": "„Auf der Grundlage des endgültigen Haushaltsvoranschlags, der vom Verein gemäß Artikel 6 erstellt wird, verpflichtet sich der Staat, dem Verein ab dem Haushaltsjahr 2025 eine jährliche finanzielle Beteiligung in Höhe von 53 000 Euro im Rahmen der verfügbaren und von der Abgeordnetenkammer genehmigten Haushaltsmittel zu gewähren. »",
+              "nl": "“Op basis van de overeenkomstig artikel 6 door de vereniging opgestelde definitieve geraamde begroting verbindt de staat zich ertoe de vereniging met ingang van het begrotingsjaar 2025 een jaarlijkse financiële bijdrage van 53 000 EUR toe te kennen, binnen de grenzen van de beschikbare en door de Kamer van Afgevaardigden goedgekeurde begrotingsmiddelen. »",
+              "mt": "“Abbażi tal-baġit stmat finali, imfassal mill-assoċjazzjoni f’konformità mal-Artikolu 6, l-Istat jimpenja ruħu li jagħti lill-assoċjazzjoni kontribuzzjoni finanzjarja annwali ta’ EUR 53 000 mis-sena finanzjarja 2025, fil-limiti tal-mezzi baġitarji disponibbli u awtorizzati mill-Kamra tad-Deputati. »",
+              "pl": "„Na podstawie ostatecznego szacunkowego budżetu, sporządzonego przez stowarzyszenie zgodnie z art. 6, państwo zobowiązuje się przyznać stowarzyszeniu roczny wkład finansowy w wysokości 53 000 EUR począwszy od roku budżetowego 2025, w granicach dostępnych środków budżetowych zatwierdzonych przez Izbę Poselską. »",
+              "es": "«Sobre la base del presupuesto estimativo definitivo, elaborado por la asociación de conformidad con el artículo 6, el Estado se compromete a conceder a la asociación una contribución financiera anual de 53 000 EUR a partir del ejercicio 2025, dentro de los límites de los medios presupuestarios disponibles y autorizados por la Cámara de Diputados. »",
+              "lt": "„Remdamasi asociacijos pagal 6 straipsnį parengta galutine biudžeto sąmata, valstybė įsipareigoja nuo 2025 finansinių metų asociacijai skirti 53 000 EUR metinį finansinį įnašą, neviršydama turimų ir Deputatų Rūmų patvirtintų biudžeto išteklių. »",
+              "pt": "«Com base no orçamento previsional definitivo, elaborado pela associação em conformidade com o artigo 6.o, o Estado compromete-se a conceder à associação uma contribuição financeira anual de 53 000 EUR a partir do exercício de 2025, dentro dos limites dos meios orçamentais disponíveis e autorizados pela Câmara dos Deputados. »",
+              "sk": "„Na základe konečného predbežného rozpočtu vypracovaného združením v súlade s článkom 6 sa štát zaväzuje poskytnúť združeniu od rozpočtového roku 2025 ročný finančný príspevok vo výške 53 000 EUR v rámci dostupných rozpočtových prostriedkov schválených Poslaneckou snemovňou. »",
+              "lv": "“Pamatojoties uz galīgo budžeta tāmi, ko apvienība sagatavojusi saskaņā ar 6. pantu, valsts apņemas no 2025. finanšu gada piešķirt apvienībai ikgadēju finansiālu ieguldījumu 53 000 EUR apmērā, nepārsniedzot pieejamos budžeta līdzekļus, ko apstiprinājusi Deputātu palāta. »",
+              "it": "\"Sulla base del bilancio di previsione definitivo, redatto dall'associazione a norma dell'articolo 6, lo Stato si impegna a concedere all'associazione un contributo finanziario annuo di 53 000 EUR a decorrere dall'esercizio 2025, nei limiti dei mezzi di bilancio disponibili e autorizzati dalla Camera dei deputati. »",
+              "et": "„Lõpliku hinnangulise eelarve alusel, mille ühendus on koostanud vastavalt artiklile 6, kohustub riik andma alates 2025. eelarveaastast liidule igal aastal 53 000 eurot rahalist toetust olemasolevate eelarvevahendite piires, mille on heaks kiitnud Saadikutekoda. »",
+              "ro": "„Pe baza bugetului estimativ final, întocmit de asociație în conformitate cu articolul 6, statul se angajează să acorde asociației o contribuție financiară anuală de 53 000 EUR începând cu exercițiul financiar 2025, în limitele mijloacelor bugetare disponibile și autorizate de Camera Deputaților. »"
+            },
+            "title": {
+              "bg": "CinEast_convention — 3-то изменение, 2025 г.pdf",
+              "ga": "CinEast_convention - 3ú leasú, 2025.pdf",
+              "el": "CinEast_convention - 3η τροποποίηση, 2025.pdf",
+              "sl": "CinEast_convention - 3. sprememba, 2025.pdf",
+              "da": "CinEast_konventionen - 3. ændring, 2025.pdf",
+              "ro": "CinEast_convention - a 3-a modificare, 2025.pdf",
+              "pl": "CinEast_convention – 3. poprawka, 2025.pdf",
+              "uk": "CinEast_convention - 3-тя поправка, 2025.pdf",
+              "es": "CinEast_convention - 3a enmienda, 2025.pdf",
+              "hu": "CinEast_konvenció - 3. módosítás, 2025.pdf",
+              "hr": "CinEast_convention - 3. amandman, 2025.pdf",
+              "pt": "CinEast_convention - 3.a alteração, 2025.pdf",
+              "fr": "CinEast_convention - 3e avenant, 2025.pdf",
+              "en": "CinEast_convention - 3rd amendment, 2025.pdf",
+              "lv": "CinEast_konvencija - 3. grozījums, 2025.pdf",
+              "sk": "Dohovor CinEast_ - 3. zmena, 2025.pdf",
+              "it": "CinEast _convention - 3° emendamento, 2025.pdf",
+              "de": "CinEast_convention - 3. Zusatzvertrag, 2025.pdf",
+              "fi": "CinEast_convention - 3. muutos, 2025.pdf",
+              "et": "CinEast_convention - 3. muudatusettepanek, 2025.pdf",
+              "cs": "CinEast_convention - 3. dodatek, 2025.pdf",
+              "nl": "Verdrag van CinEast_ - 3e wijziging, 2025.pdf",
+              "lt": "CinEast_konvencija - 3 pakeitimas, 2025.pdf",
+              "sv": "CinEast_-konventionen – 3:e ändringen, 2025.pdf",
+              "mt": "CinEast_convention - it-tielet emenda, 2025.pdf"
+            },
+            "modified": "2025-02-13T10:50:10.361Z",
+            "access_url": [
+              "https://download.data.public.lu/resources/cineast-convention/20250213-104919/146-cineast-3-avenant-12022025.pdf"
+            ],
+            "license": {
+              "id": "notspecified"
+            },
+            "issued": "2025-02-13T10:49:20.353Z",
+            "checksum": {
+              "checksum_value": "25e6af83906d2bfa1d6599ea378ac08e2294518f"
+            }
+          },
+          {
+            "id": "3cd8d86f-985e-4060-8950-7c774b3fea5b",
+            "title": {
+              "uk": "CinEast_convention - 2-а поправка, 2024.pdf",
+              "nl": "Verdrag van CinEast_ - 2e wijziging, 2024.pdf",
+              "ga": "· Coinbhinsiún CinEast_ - an dara leasú, 2024.pdf",
+              "lt": "CinEast_konvencija - 2-asis pakeitimas, 2024.pdf",
+              "pl": "CinEast_convention – 2. poprawka, 2024.pdf",
+              "es": "Convención CinEast_ - 2a enmienda, 2024.pdf",
+              "en": "CinEast_convention - 2nd amendment, 2024.pdf",
+              "bg": "CinEast_convention — 2-ро изменение, 2024 г.pdf",
+              "de": "CinEast_convention – 2. Zusatzvereinbarung, 2024.pdf",
+              "da": "CinEast_konventionen – 2. ændring, 2024.pdf",
+              "lv": "CinEast_konvencija - 2. grozījums, 2024.pdf",
+              "mt": "CinEast_convention - it-tieni emenda, 2024.pdf",
+              "sk": "Dohovor CinEast_ – 2. zmena, 2024.pdf",
+              "sv": "CinEast_-konventionen – andra ändringen, 2024.pdf",
+              "fr": "CinEast_convention - 2e avenant, 2024.pdf",
+              "sl": "CinEast_convention – 2. sprememba, 2024.pdf",
+              "hr": "Konvencija CinEast_ – 2. amandman, 2024.pdf",
+              "fi": "CinEast_convention - 2. muutos, 2024.pdf",
+              "cs": "CinEast_convention - 2. dodatek, 2024.pdf",
+              "it": "CinEast _convention - 2a modifica, 2024.pdf",
+              "et": "CinEast_convention – 2. muudatusettepanek, 2024.pdf",
+              "el": "CinEast_convention - 2η τροποποίηση, 2024.pdf",
+              "hu": "CinEast_konvenció - 2. módosítás, 2024.pdf",
+              "ro": "CinEast_convention – a doua modificare, 2024.pdf",
+              "pt": "CinEast_convention - 2.a alteração, 2024.pdf"
+            },
+            "description": {
+              "cs": "Na základě konečného předběžného rozpočtu sestaveného sdružením podle článku 6 se stát zavazuje poskytnout sdružení od rozpočtového roku 2024 roční finanční příspěvek ve výši 50 000 EUR v mezích rozpočtových prostředků, které má k dispozici a které schválila Poslanecká sněmovna.",
+              "de": "Auf der Grundlage des endgültigen Haushaltsvoranschlags, der vom Verein gemäß Artikel 6 erstellt wird, verpflichtet sich der Staat, dem Verein ab dem Haushaltsjahr 2024 eine jährliche finanzielle Beteiligung in Höhe von 50 000 Euro im Rahmen der verfügbaren und von der Abgeordnetenkammer genehmigten Haushaltsmittel zu gewähren.",
+              "bg": "Въз основа на окончателния прогнозен бюджет, изготвен от сдружението в съответствие с член 6, държавата се задължава да предостави на сдружението годишна финансова вноска в размер на 50 000 EUR от финансовата 2024 година в рамките на наличните бюджетни средства, разрешени от Камарата на депутатите.",
+              "da": "På grundlag af det endelige budgetoverslag, der udarbejdes af sammenslutningen i overensstemmelse med artikel 6, forpligter staten sig til at yde sammenslutningen et årligt finansielt bidrag på 50 000 EUR fra regnskabsåret 2024 inden for rammerne af de budgetmidler, der er til rådighed, og som er godkendt af deputeretkammeret.",
+              "el": "Βάσει του τελικού εκτιμώμενου προϋπολογισμού, που καταρτίζεται από την ένωση σύμφωνα με το άρθρο 6, το κράτος δεσμεύεται να χορηγήσει στην ένωση ετήσια χρηματοδοτική συνεισφορά ύψους 50 000 EUR από το οικονομικό έτος 2024, εντός των ορίων των διαθέσιμων δημοσιονομικών μέσων που εγκρίνονται από τη Βουλή των Αντιπροσώπων.",
+              "sl": "Na podlagi končnega načrta proračuna, ki ga pripravi združenje v skladu s členom 6, se država zavezuje, da bo združenju od proračunskega leta 2024 dodelila letni finančni prispevek v višini 50 000 EUR v mejah proračunskih sredstev, ki so na voljo in jih je odobrila poslanska zbornica.",
+              "pl": "Na podstawie ostatecznego szacunkowego budżetu sporządzonego przez stowarzyszenie zgodnie z art. 6 państwo zobowiązuje się przyznać stowarzyszeniu roczny wkład finansowy w wysokości 50 000 EUR począwszy od roku budżetowego 2024, w granicach dostępnych środków budżetowych zatwierdzonych przez Izbę Poselską.",
+              "nl": "Op basis van de overeenkomstig artikel 6 door de vereniging opgestelde definitieve geraamde begroting verbindt de staat zich ertoe de vereniging met ingang van het begrotingsjaar 2024 een jaarlijkse financiële bijdrage van 50 000 EUR toe te kennen, binnen de grenzen van de beschikbare en door de Kamer van Afgevaardigden goedgekeurde begrotingsmiddelen.",
+              "ro": "Pe baza bugetului final estimat, întocmit de asociație în conformitate cu articolul 6, statul se angajează să acorde asociației o contribuție financiară anuală de 50 000 EUR începând cu exercițiul financiar 2024, în limitele mijloacelor bugetare disponibile și autorizate de Camera Deputaților.",
+              "hu": "Az egyesület által a 6. cikkel összhangban elkészített végleges becsült költségvetés alapján az állam vállalja, hogy a rendelkezésre álló és a képviselőház által engedélyezett költségvetési eszközök keretein belül a 2024-es pénzügyi évtől kezdődően 50 000 EUR összegű éves pénzügyi hozzájárulást nyújt az egyesületnek.",
+              "it": "Sulla base del bilancio di previsione definitivo, redatto dall'associazione a norma dell'articolo 6, lo Stato si impegna a concedere all'associazione un contributo finanziario annuo di 50 000 EUR a decorrere dall'esercizio 2024, nei limiti dei mezzi di bilancio disponibili e autorizzati dalla Camera dei deputati.",
+              "en": "On the basis of the final estimated budget, drawn up by the association in accordance with Article 6, the State undertakes to grant the association an annual financial contribution of EUR 50 000 from the financial year 2024, within the limits of the budgetary means available and authorised by the Chamber of Deputies.",
+              "es": "Sobre la base del presupuesto estimativo definitivo, elaborado por la asociación de conformidad con el artículo 6, el Estado se compromete a conceder a la asociación una contribución financiera anual de 50 000 EUR a partir del ejercicio 2024, dentro de los límites de los medios presupuestarios disponibles y autorizados por la Cámara de Diputados.",
+              "lv": "Pamatojoties uz galīgo budžeta tāmi, ko apvienība sagatavojusi saskaņā ar 6. pantu, valsts apņemas no 2024. finanšu gada piešķirt apvienībai ikgadēju finansiālu ieguldījumu 50 000 EUR apmērā, nepārsniedzot pieejamos budžeta līdzekļus, ko apstiprinājusi Deputātu palāta.",
+              "pt": "Com base no orçamento previsional definitivo, elaborado pela associação em conformidade com o artigo 6.o, o Estado compromete-se a conceder à associação uma contribuição financeira anual de 50 000 EUR a partir do exercício de 2024, dentro dos limites dos meios orçamentais disponíveis e autorizados pela Câmara dos Deputados.",
+              "sk": "Na základe konečného predbežného rozpočtu vypracovaného združením v súlade s článkom 6 sa štát zaväzuje poskytnúť združeniu od rozpočtového roku 2024 ročný finančný príspevok vo výške 50 000 EUR v rámci dostupných rozpočtových prostriedkov schválených Poslaneckou snemovňou.",
+              "mt": "Abbażi tal-baġit stmat finali, imfassal mill-assoċjazzjoni f’konformità mal-Artikolu 6, l-Istat jimpenja ruħu li jagħti lill-assoċjazzjoni kontribuzzjoni finanzjarja annwali ta’ EUR 50 000 mis-sena finanzjarja 2024, fil-limiti tal-mezzi baġitarji disponibbli u awtorizzati mill-Kamra tad-Deputati.",
+              "uk": "На підставі остаточного кошторисного бюджету, складеного асоціацією відповідно до статті 6, держава зобов'язується надати асоціації річний фінансовий внесок у розмірі 50 000 євро з 2024 фінансового року в межах бюджетних коштів, доступних і уповноважених Палатою депутатів.",
+              "fi": "Yhdistyksen 6 artiklan mukaisesti laatiman lopullisen alustavan talousarvion perusteella valtio sitoutuu myöntämään yhdistykselle 50 000 euron vuotuisen rahoitusosuuden varainhoitovuodelta 2024 käytettävissä olevien ja edustajainhuoneen hyväksymien talousarviovarojen rajoissa.",
+              "ga": "Ar bhonn an bhuiséid mheasta chríochnaithigh, arna tharraingt suas ag an gcomhlachas i gcomhréir le hAirteagal 6, geallann an Stát ranníocaíocht airgeadais bhliantúil EUR 50 000 a dheonú don chomhlachas ón mbliain airgeadais 2024, laistigh de theorainneacha na n-acmhainní buiséadacha atá ar fáil agus údaraithe ag Teach na dTeachtaí.",
+              "et": "Lõpliku hinnangulise eelarve alusel, mille ühendus on koostanud vastavalt artiklile 6, kohustub riik andma alates 2024. eelarveaastast liidule iga-aastast rahalist toetust 50 000 eurot olemasolevate eelarvevahendite piires, mille on heaks kiitnud saadikutekoda.",
+              "lt": "Remdamasi asociacijos pagal 6 straipsnį parengta galutine biudžeto sąmata, valstybė įsipareigoja nuo 2024 finansinių metų asociacijai skirti 50 000 EUR metinį finansinį įnašą, neviršydama turimų ir Deputatų Rūmų patvirtintų biudžeto išteklių.",
+              "sv": "På grundval av den slutliga beräknade budget som utarbetats av sammanslutningen i enlighet med artikel 6 åtar sig staten att bevilja sammanslutningen ett årligt ekonomiskt bidrag på 50 000 euro från budgetåret 2024, inom ramen för de budgetmedel som finns tillgängliga och som godkänts av deputeradekammaren.",
+              "hr": "Na temelju konačnog procijenjenog proračuna koji je udruga izradila u skladu s člankom 6. država se obvezuje dodijeliti joj godišnji financijski doprinos u iznosu od 50 000 EUR od financijske godine 2024., u granicama raspoloživih proračunskih sredstava koje je odobrio Zastupnički dom.",
+              "fr": "Sur base du budget prévisionnel définitif, élaboré par l’association conformément à l’article 6, l'État s'engage à accorder à l’association une participation financière annuelle d’un montant de 50 000 euros à partir de l’exercice 2024, dans la limite des moyens budgétaires disponibles et autorisés par la Chambre des Députés."
+            },
+            "issued": "2024-06-25T08:28:15.873Z",
+            "access_url": [
+              "https://download.data.public.lu/resources/cineast-convention/20240625-082815/cineast-convention-2e-avenant-2024.pdf"
+            ],
+            "modified": "2025-02-13T10:49:08.163Z",
+            "license": {
+              "id": "notspecified"
+            },
+            "checksum": {
+              "checksum_value": "44afaa4a2dd1709a9a508b70d242b1bd76d1c1e2"
+            }
+          },
+          {
+            "id": "107c9383-17ee-4216-911c-680c9cd78916",
+            "title": {
+              "hu": "CinEast_konvenció, 2023.pdf",
+              "cs": "CinEast_konvence, 2023.pdf",
+              "en": "CinEast_convention, 2023.pdf",
+              "el": "Σύμβαση CinEast_, 2023.pdf",
+              "it": "CinEast _convention, 2023.pdf",
+              "bg": "Конвенция CinEast_, 2023 г.pdf",
+              "pl": "Konferencja CinEast_, 2023.pdf",
+              "de": "CinEast_convention, 2023.pdf",
+              "pt": "CinEast_convention, 2023.pdf",
+              "et": "CinEast_convention, 2023.pdf",
+              "fi": "CinEast_-yleissopimus, 2023.pdf",
+              "ro": "CinEast_convention, 2023.pdf",
+              "sl": "CinEast_convention, 2023.pdf",
+              "sk": "Dohovor CinEast_, 2023.pdf",
+              "sv": "CinEast_-konventionen, 2023.pdf",
+              "uk": "CinEast_convention, 2023.pdf",
+              "nl": "CinEast_conventie, 2023.pdf",
+              "fr": "CinEast_convention, 2023.pdf",
+              "mt": "CinEast_convention, 2023.pdf",
+              "hr": "CinEast_convention, 2023.pdf",
+              "da": "CinEast_konvention, 2023.pdf",
+              "es": "CinEast_convention, 2023.pdf",
+              "ga": "· Coinbhinsiún CinEast_, 2023.pdf",
+              "lt": "CinEast_konvencija, 2023 m.pdf",
+              "lv": "CinEast_konvencija, 2023.pdf"
+            },
+            "access_url": [
+              "https://download.data.public.lu/resources/cineast-convention/20240625-082540/cineast-convention-2023.pdf"
+            ],
+            "license": {
+              "id": "notspecified"
+            },
+            "description": {
+              "lt": "Valstybės ir CinEast konvencija",
+              "uk": "Конвенція між державою і CinEast",
+              "hr": "Konvencija između države i CinEasta",
+              "ro": "Convenția dintre stat și CinEast",
+              "pl": "Konwencja między państwem a CinEast",
+              "bg": "Конвенция между държавата и CinEast",
+              "cs": "Úmluva mezi státem a CinEast",
+              "de": "Abkommen zwischen dem Staat und CinEast",
+              "lv": "Konvencija starp valsti un CinEast",
+              "mt": "Konvenzjoni bejn l-Istat u CinEast",
+              "et": "Riigi ja CinEast'i vaheline konventsioon",
+              "fi": "Valtion ja CinEastin välinen sopimus",
+              "da": "Konvention mellem staten og CinEast",
+              "hu": "Egyezmény az állam és a CinEast között",
+              "fr": "Convention entre l'Etat et CinEast",
+              "nl": "Verdrag tussen de Staat en CinEast",
+              "es": "Convención entre el Estado y CinEast",
+              "sl": "Konvencija med državo in CinEastom",
+              "sv": "Konventionen mellan staten och CinEast",
+              "pt": "Convenção entre o Estado e o CinEast",
+              "it": "Convenzione tra lo Stato e CinEast",
+              "en": "Convention between the State and CinEast",
+              "sk": "Dohovor medzi štátom a CinEast",
+              "el": "Σύμβαση μεταξύ του κράτους και της CinEast",
+              "ga": "An Coinbhinsiún idir an Stát agus an Meánoirthear"
+            },
+            "modified": "2024-06-25T08:26:13.439Z",
+            "issued": "2024-06-25T08:25:41.669Z",
+            "checksum": {
+              "checksum_value": "f33eac0e1dfb6f79033469de21c779d2fd19409a"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 90
+        },
+        "publisher": {
+          "type": "Organization",
+          "name": "Ministère de la Culture"
+        },
+        "id": "cineast-convention",
+        "page": [
+          {
+            "resource": "https://data.public.lu/fr/datasets/cineast-convention/"
+          }
+        ],
+        "issued": "2024-06-25T08:25:03.646Z",
+        "catalog_record": {
+          "modified": "2026-04-03T14:52:47Z",
+          "issued": "2024-06-25T18:15:00Z"
         }
       },
       {
