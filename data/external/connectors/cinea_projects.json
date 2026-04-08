@@ -2516,711 +2516,6 @@
         }
       },
       {
-        "identifier": [
-          "http://datos.santander.es/catalogo/cines"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
-          "label": "Spain",
-          "id": "es"
-        },
-        "keywords": [
-          {
-            "language": "es",
-            "id": "cine",
-            "label": "cine"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/http-datos-santander-es-catalogo-cines",
-        "catalog": {
-          "id": "datos-gob-es",
-          "language": [
-            {
-              "id": "es",
-              "label": "Spanish",
-              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
-            }
-          ],
-          "homepage": "https://datos.gob.es",
-          "issued": "2022-11-21T05:37:01Z",
-          "country": {
-            "label": "Spain",
-            "id": "es",
-            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-          },
-          "spatial_resource": [
-            {
-              "label": "Spain",
-              "id": "es",
-              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-            }
-          ],
-          "spatial": [],
-          "source_type": "dcat-ap",
-          "description": {
-            "en": "Open Data Portal Spain"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:soporte@datos.gob.es",
-            "homepage": "https://www.hacienda.gob.es",
-            "name": "Ministerio de Hacienda y Administraciones Públicas"
-          },
-          "modified": "2023-02-02T23:43:40.086753",
-          "title": {
-            "es": "datos.gob.es"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "es": {
-              "machine_translated": false,
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T03:06:00Z",
-              "issued": "2023-02-01T09:17:36Z"
-            }
-          },
-          "full_available_languages": [
-            "hr",
-            "pl",
-            "fr",
-            "mt",
-            "lt",
-            "en",
-            "sv",
-            "da",
-            "es",
-            "it",
-            "cs",
-            "sl",
-            "lv",
-            "bg",
-            "de",
-            "el",
-            "sk",
-            "ro",
-            "hu",
-            "et",
-            "nl",
-            "uk",
-            "fi",
-            "ga",
-            "pt"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Dieser Datensatz enthält den Katalog der Kinos in der Stadt Santander.",
-          "fi": "Tämä aineisto sisältää luettelon Santanderin kaupungin elokuvateattereista.",
-          "pt": "Este conjunto de dados contém o catálogo dos cinemas existentes na cidade de Santander.",
-          "bg": "Този набор от данни съдържа каталога на кината, съществуващи в град Сантандер.",
-          "lt": "Šiame duomenų rinkinyje yra Santandero mieste esančių kino teatrų katalogas.",
-          "lv": "Šajā datu kopā ir iekļauts Santanderas pilsētā esošo kinoteātru katalogs.",
-          "hr": "Ovaj skup podataka sadrži katalog kina koja postoje u gradu Santanderu.",
-          "fr": "Cet ensemble de données contient le catalogue des cinémas existant dans la ville de Santander.",
-          "hu": "Ez az adatkészlet tartalmazza a Santander városában található mozik katalógusát.",
-          "uk": "Цей набір даних містить каталог кінотеатрів, що існують в місті Сантандер.",
-          "sk": "Tento súbor údajov obsahuje katalóg kín existujúcich v meste Santander.",
-          "sl": "Ta nabor podatkov vsebuje katalog kinematografov, ki obstajajo v mestu Santander.",
-          "ga": "Sa tacar sonraí seo tá catalóg na bpictiúrlann atá ann cheana i gcathair Santander.",
-          "sv": "Detta dataset innehåller katalogen över de biografer som finns i staden Santander.",
-          "mt": "Dan is-sett ta’ data fih il-katalgu tas-swali taċ-ċinema li jeżistu fil-belt ta’ Santander.",
-          "el": "Αυτό το σύνολο δεδομένων περιέχει τον κατάλογο των κινηματογράφων που υπάρχουν στην πόλη του Σανταντέρ.",
-          "en": "This dataset contains the catalogue of the cinemas existing in the city of Santander.",
-          "it": "Questo set di dati contiene il catalogo dei cinema esistenti nella città di Santander.",
-          "es": "Este dataset contiene el catálogo de los cines existentes en la ciudad de Santander.",
-          "et": "See andmekogum sisaldab Santanderi linnas olemasolevate kinode kataloogi.",
-          "cs": "Tento datový soubor obsahuje katalog kin existujících ve městě Santander.",
-          "pl": "Ten zbiór danych zawiera katalog kin istniejących w mieście Santander.",
-          "ro": "Acest set de date conține catalogul cinematografelor existente în orașul Santander.",
-          "da": "Dette datasæt indeholder kataloget over biografer, der findes i byen Santander.",
-          "nl": "Deze dataset bevat de catalogus van de bioscopen die in de stad Santander bestaan."
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
-            "id": "es",
-            "label": "Spanish"
-          }
-        ],
-        "title": {
-          "de": "Kinos",
-          "fi": "Elokuvateattereita",
-          "pt": "Cinemas",
-          "bg": "Кина",
-          "lt": "Kino teatrai",
-          "hr": "Kina",
-          "lv": "Kinoteātri",
-          "fr": "Cinémas",
-          "hu": "Mozik",
-          "uk": "Кінотеатри для кінотеатрів",
-          "sk": "Kiná",
-          "sl": "Kinodvorane",
-          "ga": "Pictiúrlanna",
-          "sv": "Biografer",
-          "mt": "Swali taċ-ċinema",
-          "el": "Κινηματογράφοι",
-          "en": "Cinemas",
-          "it": "Cinematografia",
-          "es": "Cines",
-          "et": "Kinod",
-          "cs": "Kinosál",
-          "pl": "Kino",
-          "da": "Biografer",
-          "ro": "Cinematografe",
-          "nl": "Bioscopen"
-        },
-        "accrual_periodicity": {},
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/ld%2Bjson",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.jsonld"
-            ],
-            "id": "1658badd-8fc2-48b1-9b68-a01b2dc3a322",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/n3",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.n3"
-            ],
-            "id": "2b137422-87d0-4d8e-bde3-791642c1a37a",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.csv%26rnd%3D1365744798"
-            ],
-            "id": "39deef2d-2c19-42d4-99b8-6be41e3452e2",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.json"
-            ],
-            "id": "00296bf8-7b9a-4dbe-ac2a-f8100fbaacc6",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/atom%2Bxml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.atom"
-            ],
-            "id": "0db690f9-59c9-40ae-9edd-47b1b77278c7",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "application/xml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.xml"
-            ],
-            "id": "385bb9ac-c309-42e3-af59-6dfd4c5bd526",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "da": "Seværdigheder — Cinema",
-              "ro": "Puncte de interes – Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/html",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.html"
-            ],
-            "id": "f621008c-3e49-47ff-b754-e33d3bc8c4c1",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "hr": "Zanimljivosti – Kino",
-              "lv": "Interešu punkti — kinoteātris",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "text/turtle",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.turtle"
-            ],
-            "id": "87465de4-6df9-49b8-bdb6-5f7a93c063a0",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
-              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
-            },
-            "media_type": "https://www.iana.org/assignments/media-types/application/rdf%2Bxml",
-            "access_url": [
-              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.rdf"
-            ],
-            "id": "8d3455b0-c922-475f-96b9-5a70d429056d",
-            "title": {
-              "de": "Sehenswürdigkeiten – Kino",
-              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
-              "pt": "Pontos de Interesse — Cinema",
-              "bg": "Интересни точки — Кино",
-              "lt": "Lankytinos vietos – Kinas",
-              "lv": "Interešu punkti — kinoteātris",
-              "hr": "Zanimljivosti – Kino",
-              "fr": "Points d’intérêt — Cinéma",
-              "hu": "Érdekességek – Mozi",
-              "uk": "Цікаві місця - Кінотеатр",
-              "sk": "Zaujímavé miesta – kino",
-              "sl": "Zanimive točke – kino",
-              "ga": "Pointí Spéise — Pictiúrlann",
-              "sv": "Intressanta platser – Cinema",
-              "mt": "Punti ta’ Interess — Ċinema",
-              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
-              "en": "Points of Interest — Cinema",
-              "it": "Punti di interesse — Cinema",
-              "es": "Puntos de interés - Cine",
-              "et": "Huviväärsused – kino",
-              "cs": "Zajímavá místa – Kino",
-              "pl": "Ciekawe miejsca – kino",
-              "ro": "Puncte de interes – Cinema",
-              "da": "Seværdigheder — Cinema",
-              "nl": "Bezienswaardigheden — Cinema"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 220
-        },
-        "modified": "2015-11-05T00:00:00+01:00",
-        "publisher": {
-          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/L01390759",
-          "name": "Ayuntamiento de Santander",
-          "type": "Agent"
-        },
-        "id": "http-datos-santander-es-catalogo-cines",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-            "id": "EDUC",
-            "label": {
-              "nn": "Utdanning, kultur og sport",
-              "no": "Utdanning, kultur og sport",
-              "de": "Bildung, Kultur und Sport",
-              "fi": "Koulutus, kulttuuri ja urheilu",
-              "pt": "Educação, cultura e desporto",
-              "bg": "Образование, култура и спорт",
-              "lt": "Švietimas, kultūra ir sportas",
-              "lv": "Izglītība, kultūra un sports",
-              "hr": "Obrazovanje, kultura i sport",
-              "fr": "Éducation, culture et sport",
-              "hu": "Oktatás, kultúra és sport",
-              "sk": "Vzdelávanie, kultúra a šport",
-              "sl": "Izobraževanje, kultura in šport",
-              "ga": "Oideachas, cultúr agus spórt",
-              "sv": "Utbildning, kultur och sport",
-              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
-              "mt": "Edukazzjoni, kultura u sport",
-              "en": "Education, culture and sport",
-              "it": "Istruzione, cultura e sport",
-              "es": "Educación, cultura y deportes",
-              "et": "Haridus, kultuur ja sport",
-              "cs": "Vzdělávání, kultura a sport",
-              "nb": "Utdanning, kultur og sport",
-              "pl": "Edukacja, kultura i sport",
-              "da": "Uddannelse, kultur og sport",
-              "ro": "Educaţie, cultură şi sport",
-              "nl": "Onderwijs, cultuur en sport"
-            }
-          }
-        ],
-        "issued": "2015-09-28T00:00:00+02:00",
-        "catalog_record": {
-          "modified": "2026-03-20T00:01:40Z",
-          "issued": "2023-02-01T09:17:36Z"
-        }
-      },
-      {
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/BEL",
           "label": "Belgium",
@@ -4353,6 +3648,711 @@
       },
       {
         "identifier": [
+          "http://datos.santander.es/catalogo/cines"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "keywords": [
+          {
+            "language": "es",
+            "id": "cine",
+            "label": "cine"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/http-datos-santander-es-catalogo-cines",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            }
+          },
+          "full_available_languages": [
+            "hr",
+            "pl",
+            "fr",
+            "mt",
+            "lt",
+            "en",
+            "sv",
+            "da",
+            "es",
+            "it",
+            "cs",
+            "sl",
+            "lv",
+            "bg",
+            "de",
+            "el",
+            "sk",
+            "ro",
+            "hu",
+            "et",
+            "nl",
+            "uk",
+            "fi",
+            "ga",
+            "pt"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Dieser Datensatz enthält den Katalog der Kinos in der Stadt Santander.",
+          "fi": "Tämä aineisto sisältää luettelon Santanderin kaupungin elokuvateattereista.",
+          "pt": "Este conjunto de dados contém o catálogo dos cinemas existentes na cidade de Santander.",
+          "bg": "Този набор от данни съдържа каталога на кината, съществуващи в град Сантандер.",
+          "lt": "Šiame duomenų rinkinyje yra Santandero mieste esančių kino teatrų katalogas.",
+          "lv": "Šajā datu kopā ir iekļauts Santanderas pilsētā esošo kinoteātru katalogs.",
+          "hr": "Ovaj skup podataka sadrži katalog kina koja postoje u gradu Santanderu.",
+          "fr": "Cet ensemble de données contient le catalogue des cinémas existant dans la ville de Santander.",
+          "hu": "Ez az adatkészlet tartalmazza a Santander városában található mozik katalógusát.",
+          "uk": "Цей набір даних містить каталог кінотеатрів, що існують в місті Сантандер.",
+          "sk": "Tento súbor údajov obsahuje katalóg kín existujúcich v meste Santander.",
+          "sl": "Ta nabor podatkov vsebuje katalog kinematografov, ki obstajajo v mestu Santander.",
+          "ga": "Sa tacar sonraí seo tá catalóg na bpictiúrlann atá ann cheana i gcathair Santander.",
+          "sv": "Detta dataset innehåller katalogen över de biografer som finns i staden Santander.",
+          "mt": "Dan is-sett ta’ data fih il-katalgu tas-swali taċ-ċinema li jeżistu fil-belt ta’ Santander.",
+          "el": "Αυτό το σύνολο δεδομένων περιέχει τον κατάλογο των κινηματογράφων που υπάρχουν στην πόλη του Σανταντέρ.",
+          "en": "This dataset contains the catalogue of the cinemas existing in the city of Santander.",
+          "it": "Questo set di dati contiene il catalogo dei cinema esistenti nella città di Santander.",
+          "es": "Este dataset contiene el catálogo de los cines existentes en la ciudad de Santander.",
+          "et": "See andmekogum sisaldab Santanderi linnas olemasolevate kinode kataloogi.",
+          "cs": "Tento datový soubor obsahuje katalog kin existujících ve městě Santander.",
+          "pl": "Ten zbiór danych zawiera katalog kin istniejących w mieście Santander.",
+          "ro": "Acest set de date conține catalogul cinematografelor existente în orașul Santander.",
+          "da": "Dette datasæt indeholder kataloget over biografer, der findes i byen Santander.",
+          "nl": "Deze dataset bevat de catalogus van de bioscopen die in de stad Santander bestaan."
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Kinos",
+          "fi": "Elokuvateattereita",
+          "pt": "Cinemas",
+          "bg": "Кина",
+          "lt": "Kino teatrai",
+          "hr": "Kina",
+          "lv": "Kinoteātri",
+          "fr": "Cinémas",
+          "hu": "Mozik",
+          "uk": "Кінотеатри для кінотеатрів",
+          "sk": "Kiná",
+          "sl": "Kinodvorane",
+          "ga": "Pictiúrlanna",
+          "sv": "Biografer",
+          "mt": "Swali taċ-ċinema",
+          "el": "Κινηματογράφοι",
+          "en": "Cinemas",
+          "it": "Cinematografia",
+          "es": "Cines",
+          "et": "Kinod",
+          "cs": "Kinosál",
+          "pl": "Kino",
+          "da": "Biografer",
+          "ro": "Cinematografe",
+          "nl": "Bioscopen"
+        },
+        "accrual_periodicity": {},
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/ld%2Bjson",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.jsonld"
+            ],
+            "id": "1658badd-8fc2-48b1-9b68-a01b2dc3a322",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/n3",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.n3"
+            ],
+            "id": "2b137422-87d0-4d8e-bde3-791642c1a37a",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.csv%26rnd%3D1365744798"
+            ],
+            "id": "39deef2d-2c19-42d4-99b8-6be41e3452e2",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.json"
+            ],
+            "id": "00296bf8-7b9a-4dbe-ac2a-f8100fbaacc6",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/atom%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.atom"
+            ],
+            "id": "0db690f9-59c9-40ae-9edd-47b1b77278c7",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/xml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.xml"
+            ],
+            "id": "385bb9ac-c309-42e3-af59-6dfd4c5bd526",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/html",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.html"
+            ],
+            "id": "f621008c-3e49-47ff-b754-e33d3bc8c4c1",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/turtle",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.turtle"
+            ],
+            "id": "87465de4-6df9-49b8-bdb6-5f7a93c063a0",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/rdf%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.rdf"
+            ],
+            "id": "8d3455b0-c922-475f-96b9-5a70d429056d",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 220
+        },
+        "modified": "2015-11-05T00:00:00+01:00",
+        "publisher": {
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/L01390759",
+          "name": "Ayuntamiento de Santander",
+          "type": "Agent"
+        },
+        "id": "http-datos-santander-es-catalogo-cines",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+            "id": "EDUC",
+            "label": {
+              "nn": "Utdanning, kultur og sport",
+              "no": "Utdanning, kultur og sport",
+              "de": "Bildung, Kultur und Sport",
+              "fi": "Koulutus, kulttuuri ja urheilu",
+              "pt": "Educação, cultura e desporto",
+              "bg": "Образование, култура и спорт",
+              "lt": "Švietimas, kultūra ir sportas",
+              "lv": "Izglītība, kultūra un sports",
+              "hr": "Obrazovanje, kultura i sport",
+              "fr": "Éducation, culture et sport",
+              "hu": "Oktatás, kultúra és sport",
+              "sk": "Vzdelávanie, kultúra a šport",
+              "sl": "Izobraževanje, kultura in šport",
+              "ga": "Oideachas, cultúr agus spórt",
+              "sv": "Utbildning, kultur och sport",
+              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
+              "mt": "Edukazzjoni, kultura u sport",
+              "en": "Education, culture and sport",
+              "it": "Istruzione, cultura e sport",
+              "es": "Educación, cultura y deportes",
+              "et": "Haridus, kultuur ja sport",
+              "cs": "Vzdělávání, kultura a sport",
+              "nb": "Utdanning, kultur og sport",
+              "pl": "Edukacja, kultura i sport",
+              "da": "Uddannelse, kultur og sport",
+              "ro": "Educaţie, cultură şi sport",
+              "nl": "Onderwijs, cultuur en sport"
+            }
+          }
+        ],
+        "issued": "2015-09-28T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-20T00:01:40Z",
+          "issued": "2023-02-01T09:17:36Z"
+        }
+      },
+      {
+        "identifier": [
           "https://datos.parcan.es/dataset/diputado_iniciativas_10047id_miembro"
         ],
         "country": {
@@ -4810,463 +4810,6 @@
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
-          "label": "Spain",
-          "id": "es"
-        },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
-        "catalog": {
-          "id": "datos-gob-es",
-          "language": [
-            {
-              "id": "es",
-              "label": "Spanish",
-              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
-            }
-          ],
-          "homepage": "https://datos.gob.es",
-          "issued": "2022-11-21T05:37:01Z",
-          "country": {
-            "label": "Spain",
-            "id": "es",
-            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-          },
-          "spatial_resource": [
-            {
-              "label": "Spain",
-              "id": "es",
-              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-            }
-          ],
-          "spatial": [],
-          "source_type": "dcat-ap",
-          "description": {
-            "en": "Open Data Portal Spain"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:soporte@datos.gob.es",
-            "homepage": "https://www.hacienda.gob.es",
-            "name": "Ministerio de Hacienda y Administraciones Públicas"
-          },
-          "modified": "2023-02-02T23:43:40.086753",
-          "title": {
-            "es": "datos.gob.es"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "es": {
-              "machine_translated": false,
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            }
-          },
-          "full_available_languages": [
-            "mt",
-            "lt",
-            "sl",
-            "uk",
-            "sv",
-            "it",
-            "fi",
-            "hr",
-            "da",
-            "et",
-            "sk",
-            "ro",
-            "cs",
-            "lv",
-            "hu",
-            "es",
-            "el",
-            "fr",
-            "pt",
-            "bg",
-            "ga",
-            "pl",
-            "en",
-            "de",
-            "nl"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
-          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
-          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
-            "id": "es",
-            "label": "Spanish"
-          }
-        ],
-        "title": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
-          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
-          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
-        },
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "https://parcan.es/api/diputado/asistencias/09033?format=json"
-            ],
-            "id": "861f74e2-ddf6-41a1-b093-67d9ce9732ad",
-            "title": {
-              "de": "IX Wahlperiode (JSON)",
-              "fi": "IX vaalikausi (JSON)",
-              "pt": "IX legislatura (JSON)",
-              "bg": "IX парламентарен мандат (JSON)",
-              "lt": "IX Parlamento kadencija (JSON)",
-              "lv": "IX sasaukums (JSON)",
-              "hr": "IX. parlamentarni saziv (JSON)",
-              "fr": "IX législature (JSON)",
-              "hu": "IX. parlamenti ciklus (JSON)",
-              "uk": "IX парламентський термін (JSON)",
-              "sk": "IX. volebné obdobie (JSON)",
-              "sl": "IX. parlamentarno obdobje (JSON)",
-              "ga": "IX téarma parlaiminteach (JSON)",
-              "sv": "IX valperioden (JSON)",
-              "mt": "IX leġiżlatura (JSON)",
-              "el": "IX κοινοβουλευτική περίοδος (JSON)",
-              "en": "IX parliamentary term (JSON)",
-              "it": "IX legislatura (JSON)",
-              "es": "IX legislatura (JSON)",
-              "et": "IX ametiaeg (JSON)",
-              "cs": "IX. volební období (JSON)",
-              "pl": "IX kadencja parlamentarna (JSON)",
-              "ro": "A IX-a legislatură (JSON)",
-              "da": "IX valgperiode (JSON)",
-              "nl": "IX zittingsperiode (JSON)"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "https://parcan.es/api/diputado/asistencias/09033?format=csv"
-            ],
-            "id": "dd93015c-ceab-4190-83c0-39fc007c127c",
-            "title": {
-              "de": "IX Legislaturperiode (CSV)",
-              "fi": "IX Lainsäädäntö (CSV)",
-              "pt": "IX legislatura (CSV)",
-              "bg": "IX законодателен мандат (CSV)",
-              "lt": "IX teisės aktų leidėjas (CSV)",
-              "hr": "Zakonodavno razdoblje (CSV)",
-              "lv": "IX likumdevējs (CSV)",
-              "fr": "IX législature (CSV)",
-              "hu": "IX. törvényhozás (CSV)",
-              "uk": "IX Законодавчий орган (CSV)",
-              "sk": "IX volebné obdobie (CSV)",
-              "sl": "IX. zakonodajalec (CSV)",
-              "ga": "IX reachtas (CSV)",
-              "sv": "IX Lagstiftning (CSV)",
-              "mt": "Ix leġiżlatura (CSV)",
-              "el": "IX νομοθέτης (CSV)",
-              "en": "IX legislature (CSV)",
-              "it": "IX legislatura (CSV)",
-              "es": "IX legislatura (CSV)",
-              "et": "IX seadusandlik kogu (CSV)",
-              "cs": "IX. volební období (CSV)",
-              "pl": "IX legislacja (CSV)",
-              "da": "IX-lovgiver (CSV)",
-              "ro": "IX Legislativ (CSV)",
-              "nl": "IX legislatuur (CSV)"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 140
-        },
-        "modified": "2021-05-05T00:00:00+02:00",
-        "publisher": {
-          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
-          "name": "Parlamento de Canarias",
-          "type": "Agent"
-        },
-        "id": "https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
-            "id": "JUST",
-            "label": {
-              "nn": "Justis, rettssystem og allmenn tryggleik",
-              "no": "Justis, rettssystem og allmenn sikkerhet",
-              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
-              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
-              "pt": "Justiça, sistema judiciário e segurança pública",
-              "bg": "Правосъдие, съдебна система и обществена безопасност",
-              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
-              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
-              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
-              "fr": "Justice, système juridique et sécurité publique",
-              "hu": "Igazságügy, jogrendszer és közbiztonság",
-              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
-              "sl": "Pravosodje, pravni sistem in javna varnost",
-              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
-              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
-              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
-              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
-              "en": "Justice, legal system and public safety",
-              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
-              "es": "Justicia, sistema judicial y seguridad pública",
-              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
-              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
-              "nb": "Justis, rettssystem og allmenn sikkerhet",
-              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
-              "ro": "Justiție, sistem juridic și siguranță publică",
-              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
-              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
-            }
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          }
-        ],
-        "issued": "2021-05-05T00:00:00+02:00",
-        "catalog_record": {
-          "modified": "2026-03-19T23:52:26Z",
-          "issued": "2023-02-01T09:22:00Z"
-        }
-      },
-      {
-        "identifier": [
           "https://datos.parcan.es/dataset/diputado_iniciativas_08006id_miembro"
         ],
         "country": {
@@ -5720,6 +5263,463 @@
         "catalog_record": {
           "modified": "2026-03-20T00:09:30Z",
           "issued": "2023-02-01T09:30:08Z"
+        }
+      },
+      {
+        "identifier": [
+          "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            }
+          },
+          "full_available_languages": [
+            "mt",
+            "lt",
+            "sl",
+            "uk",
+            "sv",
+            "it",
+            "fi",
+            "hr",
+            "da",
+            "et",
+            "sk",
+            "ro",
+            "cs",
+            "lv",
+            "hu",
+            "es",
+            "el",
+            "fr",
+            "pt",
+            "bg",
+            "ga",
+            "pl",
+            "en",
+            "de",
+            "nl"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
+        },
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://parcan.es/api/diputado/asistencias/09033?format=json"
+            ],
+            "id": "861f74e2-ddf6-41a1-b093-67d9ce9732ad",
+            "title": {
+              "de": "IX Wahlperiode (JSON)",
+              "fi": "IX vaalikausi (JSON)",
+              "pt": "IX legislatura (JSON)",
+              "bg": "IX парламентарен мандат (JSON)",
+              "lt": "IX Parlamento kadencija (JSON)",
+              "lv": "IX sasaukums (JSON)",
+              "hr": "IX. parlamentarni saziv (JSON)",
+              "fr": "IX législature (JSON)",
+              "hu": "IX. parlamenti ciklus (JSON)",
+              "uk": "IX парламентський термін (JSON)",
+              "sk": "IX. volebné obdobie (JSON)",
+              "sl": "IX. parlamentarno obdobje (JSON)",
+              "ga": "IX téarma parlaiminteach (JSON)",
+              "sv": "IX valperioden (JSON)",
+              "mt": "IX leġiżlatura (JSON)",
+              "el": "IX κοινοβουλευτική περίοδος (JSON)",
+              "en": "IX parliamentary term (JSON)",
+              "it": "IX legislatura (JSON)",
+              "es": "IX legislatura (JSON)",
+              "et": "IX ametiaeg (JSON)",
+              "cs": "IX. volební období (JSON)",
+              "pl": "IX kadencja parlamentarna (JSON)",
+              "ro": "A IX-a legislatură (JSON)",
+              "da": "IX valgperiode (JSON)",
+              "nl": "IX zittingsperiode (JSON)"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "https://parcan.es/api/diputado/asistencias/09033?format=csv"
+            ],
+            "id": "dd93015c-ceab-4190-83c0-39fc007c127c",
+            "title": {
+              "de": "IX Legislaturperiode (CSV)",
+              "fi": "IX Lainsäädäntö (CSV)",
+              "pt": "IX legislatura (CSV)",
+              "bg": "IX законодателен мандат (CSV)",
+              "lt": "IX teisės aktų leidėjas (CSV)",
+              "hr": "Zakonodavno razdoblje (CSV)",
+              "lv": "IX likumdevējs (CSV)",
+              "fr": "IX législature (CSV)",
+              "hu": "IX. törvényhozás (CSV)",
+              "uk": "IX Законодавчий орган (CSV)",
+              "sk": "IX volebné obdobie (CSV)",
+              "sl": "IX. zakonodajalec (CSV)",
+              "ga": "IX reachtas (CSV)",
+              "sv": "IX Lagstiftning (CSV)",
+              "mt": "Ix leġiżlatura (CSV)",
+              "el": "IX νομοθέτης (CSV)",
+              "en": "IX legislature (CSV)",
+              "it": "IX legislatura (CSV)",
+              "es": "IX legislatura (CSV)",
+              "et": "IX seadusandlik kogu (CSV)",
+              "cs": "IX. volební období (CSV)",
+              "pl": "IX legislacja (CSV)",
+              "da": "IX-lovgiver (CSV)",
+              "ro": "IX Legislativ (CSV)",
+              "nl": "IX legislatuur (CSV)"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 140
+        },
+        "modified": "2021-05-05T00:00:00+02:00",
+        "publisher": {
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
+          "name": "Parlamento de Canarias",
+          "type": "Agent"
+        },
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
+            "label": {
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
+          }
+        ],
+        "issued": "2021-05-05T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-19T23:52:26Z",
+          "issued": "2023-02-01T09:22:00Z"
         }
       }
     ]
