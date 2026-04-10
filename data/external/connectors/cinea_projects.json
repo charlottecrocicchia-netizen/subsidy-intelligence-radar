@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 606,
+    "count": 607,
     "results": [
       {
         "country": {
@@ -760,8 +760,7 @@
           "modified": "2023-02-02T23:43:40.086753",
           "title": {
             "es": "datos.gob.es"
-          },
-          "count": 113298
+          }
         },
         "translation_meta": {
           "details": {
@@ -2134,8 +2133,7 @@
           "modified": "2023-02-02T23:43:40.086753",
           "title": {
             "es": "datos.gob.es"
-          },
-          "count": 113298
+          }
         },
         "translation_meta": {
           "details": {
@@ -2602,7 +2600,8 @@
           "spatial": [],
           "issued": "2024-08-30T08:43:47Z",
           "homepage": "https://data.gov.be",
-          "source_type": "dcat-ap"
+          "source_type": "dcat-ap",
+          "count": 19104
         },
         "subject": [],
         "translation_meta": {
@@ -3702,8 +3701,7 @@
           "modified": "2023-02-02T23:43:40.086753",
           "title": {
             "es": "datos.gob.es"
-          },
-          "count": 113298
+          }
         },
         "translation_meta": {
           "details": {
@@ -4401,8 +4399,7 @@
           "modified": "2023-02-02T23:43:40.086753",
           "title": {
             "es": "datos.gob.es"
-          },
-          "count": 113298
+          }
         },
         "translation_meta": {
           "details": {
@@ -4859,8 +4856,7 @@
           "modified": "2023-02-02T23:43:40.086753",
           "title": {
             "es": "datos.gob.es"
-          },
-          "count": 113298
+          }
         },
         "translation_meta": {
           "details": {
@@ -5317,8 +5313,7 @@
           "modified": "2023-02-02T23:43:40.086753",
           "title": {
             "es": "datos.gob.es"
-          },
-          "count": 113298
+          }
         },
         "translation_meta": {
           "details": {
