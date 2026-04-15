@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 614,
+    "count": 616,
     "results": [
       {
         "country": {
@@ -1936,6 +1936,150 @@
         }
       },
       {
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
+          "label": "EU institutions",
+          "id": "eu"
+        },
+        "keywords": [
+          {
+            "language": "en",
+            "id": "italian-film-industry,-gender-data,-gender-inequality-in-the-film-industry,-film-data,-director,-producer,-screenwriter,-editor,-director-of-photography,-set-designer,-production-designer,-makeup,-costume,-special-effects,-music,-head-of-department,-cinema,-audiovisual-media,-women",
+            "label": "Italian film industry, gender data, gender inequality in the film industry, film data, director, producer, screenwriter, editor, director of photography, set designer, production designer, makeup, costume, special effects, music, head of department, cinema, audiovisual media, women"
+          }
+        ],
+        "catalog": {
+          "id": "zenodo",
+          "source_type": "dcat-ap",
+          "issued": "2025-07-03T07:23:00Z",
+          "description": {
+            "en": "Open repository for EU-funded research outputs from Horizon Europe, Euratom, and earlier Framework Programmes."
+          },
+          "homepage": "https://zenodo.org",
+          "country": {
+            "label": "EU institutions",
+            "id": "eu",
+            "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
+          },
+          "spatial_resource": [
+            {
+              "label": "EU institutions",
+              "id": "eu",
+              "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
+            }
+          ],
+          "spatial": [],
+          "language": [
+            {
+              "id": "en",
+              "label": "English",
+              "resource": "http://publications.europa.eu/resource/authority/language/ENG"
+            }
+          ],
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:support@zenodo.org",
+            "name": "CERN - European Organization for Nuclear Research and European Commission"
+          },
+          "title": {
+            "en": "EU Open Research Repository"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "en": {
+              "machine_translated": false,
+              "issued": "2025-07-03T08:10:22Z"
+            }
+          },
+          "full_available_languages": [
+            "en"
+          ],
+          "status": "processing"
+        },
+        "description": {
+          "en": "This file includes a selection of the data from the CineAF/CENTRICwebi database created in the context of the EU Marie Skłodowska-Curie Actions-funded project CineAF: Women's film in Italy, 1965-2015, Grant agreement No 891966. CENTRICWebi gathers information on more than 11,000 film titles, which correspond to all feature-length films with Italian nationality that received permission for distribution between 1964 and 2020. The dataset includes information on 10 creative roles and department heads, including director, producer, screenwriter, editor, director of photography, composer, production designer, costume designer, makeup supervisor, and special effects supervisor with the purpose of assessing the presence of women film professionals in film production. The dataset includes data on the following: film professional (anonymised); film title (anonymised); binary gender assigned by the system; profession; year of film's \"nulla osta\". Each film title and each film professional are assigned a unique code. The dataset contains a list of 145.292 individual entries. Each entry corresponds to a film professional who worked on one film."
+        },
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/ENG",
+            "id": "en",
+            "label": "English"
+          }
+        ],
+        "title": {
+          "en": "CineAF_27072022_v1"
+        },
+        "type": {
+          "resource": "http://purl.org/dc/dcmitype/Dataset"
+        },
+        "access_right": {
+          "resource": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
+          "label": "restricted"
+        },
+        "modified": "2023-06-20T00:00:00Z",
+        "id": "oai-zenodo-org-6365647",
+        "adms_identifier": [
+          {
+            "identifier": "https://zenodo.org/records/6365647",
+            "scheme": "http://www.w3.org/2001/XMLSchema#anyURI"
+          },
+          {
+            "identifier": "oai:zenodo.org:6365647",
+            "scheme": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ],
+        "issued": "2022-08-11T00:00:00Z",
+        "identifier": [
+          "https://doi.org/10.5281/zenodo.6365647"
+        ],
+        "is_version_of": [
+          "https://doi.org/10.5281/zenodo.6365646"
+        ],
+        "creator": [
+          {
+            "name": "Tarantino, Matteo",
+            "type": "Person"
+          },
+          {
+            "name": "Fanchi, Mariagrazia",
+            "type": "Person"
+          },
+          {
+            "name": "Rosa Barotsi",
+            "type": "Person"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647",
+        "index": "dataset",
+        "version_info": "01",
+        "distributions": [
+          {
+            "access_url": [
+              "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647"
+            ],
+            "id": "00561817-f720-4618-ad7e-c1267039ac2f"
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 110
+        },
+        "publisher": {
+          "name": "Zenodo",
+          "type": "Agent"
+        },
+        "page": [
+          {
+            "resource": "https://doi.org/10.5281/zenodo.6365647"
+          }
+        ],
+        "catalog_record": {
+          "modified": "2026-02-20T14:49:25Z",
+          "issued": "2025-07-03T08:10:22Z"
+        }
+      },
+      {
         "identifier": [
           "http://opendata.caceres.es/federator/cines-caceres"
         ],
@@ -2369,150 +2513,6 @@
         "catalog_record": {
           "modified": "2026-03-20T00:02:48Z",
           "issued": "2023-02-01T09:01:15Z"
-        }
-      },
-      {
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
-          "label": "EU institutions",
-          "id": "eu"
-        },
-        "keywords": [
-          {
-            "language": "en",
-            "id": "italian-film-industry,-gender-data,-gender-inequality-in-the-film-industry,-film-data,-director,-producer,-screenwriter,-editor,-director-of-photography,-set-designer,-production-designer,-makeup,-costume,-special-effects,-music,-head-of-department,-cinema,-audiovisual-media,-women",
-            "label": "Italian film industry, gender data, gender inequality in the film industry, film data, director, producer, screenwriter, editor, director of photography, set designer, production designer, makeup, costume, special effects, music, head of department, cinema, audiovisual media, women"
-          }
-        ],
-        "catalog": {
-          "id": "zenodo",
-          "source_type": "dcat-ap",
-          "issued": "2025-07-03T07:23:00Z",
-          "description": {
-            "en": "Open repository for EU-funded research outputs from Horizon Europe, Euratom, and earlier Framework Programmes."
-          },
-          "homepage": "https://zenodo.org",
-          "country": {
-            "label": "EU institutions",
-            "id": "eu",
-            "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
-          },
-          "spatial_resource": [
-            {
-              "label": "EU institutions",
-              "id": "eu",
-              "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
-            }
-          ],
-          "spatial": [],
-          "language": [
-            {
-              "id": "en",
-              "label": "English",
-              "resource": "http://publications.europa.eu/resource/authority/language/ENG"
-            }
-          ],
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:support@zenodo.org",
-            "name": "CERN - European Organization for Nuclear Research and European Commission"
-          },
-          "title": {
-            "en": "EU Open Research Repository"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "en": {
-              "machine_translated": false,
-              "issued": "2025-07-03T08:10:22Z"
-            }
-          },
-          "full_available_languages": [
-            "en"
-          ],
-          "status": "processing"
-        },
-        "description": {
-          "en": "This file includes a selection of the data from the CineAF/CENTRICwebi database created in the context of the EU Marie Skłodowska-Curie Actions-funded project CineAF: Women's film in Italy, 1965-2015, Grant agreement No 891966. CENTRICWebi gathers information on more than 11,000 film titles, which correspond to all feature-length films with Italian nationality that received permission for distribution between 1964 and 2020. The dataset includes information on 10 creative roles and department heads, including director, producer, screenwriter, editor, director of photography, composer, production designer, costume designer, makeup supervisor, and special effects supervisor with the purpose of assessing the presence of women film professionals in film production. The dataset includes data on the following: film professional (anonymised); film title (anonymised); binary gender assigned by the system; profession; year of film's \"nulla osta\". Each film title and each film professional are assigned a unique code. The dataset contains a list of 145.292 individual entries. Each entry corresponds to a film professional who worked on one film."
-        },
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/ENG",
-            "id": "en",
-            "label": "English"
-          }
-        ],
-        "title": {
-          "en": "CineAF_27072022_v1"
-        },
-        "type": {
-          "resource": "http://purl.org/dc/dcmitype/Dataset"
-        },
-        "access_right": {
-          "resource": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
-          "label": "restricted"
-        },
-        "modified": "2023-06-20T00:00:00Z",
-        "id": "oai-zenodo-org-6365647",
-        "adms_identifier": [
-          {
-            "identifier": "https://zenodo.org/records/6365647",
-            "scheme": "http://www.w3.org/2001/XMLSchema#anyURI"
-          },
-          {
-            "identifier": "oai:zenodo.org:6365647",
-            "scheme": "http://www.w3.org/2001/XMLSchema#string"
-          }
-        ],
-        "issued": "2022-08-11T00:00:00Z",
-        "identifier": [
-          "https://doi.org/10.5281/zenodo.6365647"
-        ],
-        "is_version_of": [
-          "https://doi.org/10.5281/zenodo.6365646"
-        ],
-        "creator": [
-          {
-            "name": "Tarantino, Matteo",
-            "type": "Person"
-          },
-          {
-            "name": "Fanchi, Mariagrazia",
-            "type": "Person"
-          },
-          {
-            "name": "Rosa Barotsi",
-            "type": "Person"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647",
-        "index": "dataset",
-        "version_info": "01",
-        "distributions": [
-          {
-            "access_url": [
-              "http://data.europa.eu/88u/dataset/oai-zenodo-org-6365647"
-            ],
-            "id": "00561817-f720-4618-ad7e-c1267039ac2f"
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 110
-        },
-        "publisher": {
-          "name": "Zenodo",
-          "type": "Agent"
-        },
-        "page": [
-          {
-            "resource": "https://doi.org/10.5281/zenodo.6365647"
-          }
-        ],
-        "catalog_record": {
-          "modified": "2026-02-20T14:49:25Z",
-          "issued": "2025-07-03T08:10:22Z"
         }
       },
       {
