@@ -1,8 +1,8 @@
 {
   "apiVersion": "2.146",
   "terms": "*",
-  "responseTime": 101,
-  "totalResults": 638367,
+  "responseTime": 110,
+  "totalResults": 639379,
   "pageNumber": 1,
   "pageSize": 20,
   "sort": "relevance",
