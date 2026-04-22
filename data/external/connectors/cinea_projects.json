@@ -4592,509 +4592,461 @@
         }
       },
       {
-        "country": {
-          "label": "Italy",
-          "id": "it",
-          "resource": "http://publications.europa.eu/resource/authority/country/ITA"
-        },
-        "keywords": [
-          {
-            "id": "servizi",
-            "label": "servizi",
-            "language": "it"
-          },
-          {
-            "id": "cinema",
-            "label": "cinema",
-            "language": "it"
-          },
-          {
-            "id": "dati-georeferenziati",
-            "label": "dati-georeferenziati",
-            "language": "it"
-          },
-          {
-            "id": "cultura",
-            "label": "cultura",
-            "language": "it"
-          },
-          {
-            "id": "intrattenimento",
-            "label": "intrattenimento",
-            "language": "it"
-          },
-          {
-            "id": "territorio",
-            "label": "territorio",
-            "language": "it"
-          }
+        "identifier": [
+          "https://datos.parcan.es/dataset/diputado_asistencias_08006id_miembro"
         ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
         "catalog": {
-          "id": "dati-gov-it",
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
           "country": {
-            "label": "Italy",
-            "id": "it",
-            "resource": "http://publications.europa.eu/resource/authority/country/ITA"
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
           },
           "spatial_resource": [
             {
-              "label": "Italy",
-              "id": "it",
-              "resource": "http://publications.europa.eu/resource/authority/country/ITA"
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
             }
           ],
           "spatial": [],
-          "language": [
-            {
-              "id": "it",
-              "label": "Italian",
-              "resource": "http://publications.europa.eu/resource/authority/language/ITA"
-            }
-          ],
+          "source_type": "dcat-ap",
           "description": {
-            "en": "Open Data Portal Italy"
+            "en": "Open Data Portal Spain"
           },
-          "title": {
-            "it": "dati.gov.it"
-          },
-          "modified": "2025-01-22T07:50:06Z",
-          "issued": "2025-01-22T07:50:06Z",
-          "homepage": "https://www.dati.gov.it",
           "publisher": {
             "type": "Agent",
-            "homepage": "https://www.agid.gov.it",
-            "email": "mailto:info@dati.gov.it",
-            "name": "Agenzia per l'Italia Digitale"
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
           },
-          "source_type": "dcat-ap"
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
         },
         "translation_meta": {
           "details": {
-            "da": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "it": {
-              "machine_translated": false,
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "es": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
             "de": {
               "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "fi": {
               "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-03-18T04:24:27Z",
-              "issued": "2025-11-24T03:02:29Z"
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             }
           },
           "full_available_languages": [
-            "da",
-            "ga",
-            "it",
-            "en",
             "lv",
-            "sv",
-            "uk",
-            "es",
-            "mt",
-            "sl",
-            "pt",
-            "lt",
-            "fr",
-            "pl",
-            "hu",
-            "cs",
-            "sk",
-            "nl",
-            "bg",
-            "el",
-            "et",
             "hr",
-            "de",
+            "hu",
+            "pl",
+            "fi",
             "ro",
-            "fi"
+            "cs",
+            "en",
+            "sv",
+            "it",
+            "pt",
+            "es",
+            "uk",
+            "de",
+            "et",
+            "nl",
+            "lt",
+            "ga",
+            "bg",
+            "fr",
+            "sk",
+            "sl",
+            "el",
+            "mt",
+            "da"
           ],
           "status": "completed"
         },
         "description": {
-          "el": "Το σύνολο δεδομένων περιέχει πληροφορίες σχετικά με τους κινηματογράφους που βρίσκονται στο έδαφος της πόλης του Τορίνο. Το σύνολο δεδομένων αναφέρεται στις πληροφορίες περιοχής που προσδιορίζουν το κτίριο και το πεδίο εφαρμογής της συνάφειας των κινηματογράφων, επιπλέον των εμπρόθεσμων προσβάσεων που αντιστοιχούν στις κύριες και δευτερεύουσες προσβάσεις.",
-          "hr": "Skup podataka sadrži informacije o kinima koja se nalaze na području Grada Torina. Skup podataka odnosi se na informacije o području kojima se identificiraju zgrada i opseg relevantnosti kina uz točne pristupe koji odgovaraju glavnim i sekundarnim pristupima.",
-          "it": "Il dataset contiene le informazioni relative ai Cinema presenti sul territorio della Città di Torino. Il dataset fa riferimento alle informazioni areali che identificano l'edificato e l'ambito di pertinenza dei Cinema oltre agli accessi puntuali corrispondenti agli accessi principali e secondari.",
-          "lt": "Duomenų rinkinyje pateikiama informacija apie Turino miesto teritorijoje esančius kino teatrus. Duomenų rinkinys – tai informacija apie plotą, pagal kurią identifikuojamas pastatas ir kino teatrų aktualumo sritis, taip pat tiksli prieiga, atitinkanti pagrindinę ir antrinę prieigą.",
-          "ro": "Setul de date conține informații privind cinematografele prezente pe teritoriul orașului Torino. Setul de date se referă la informațiile privind zona care identifică clădirea și domeniul de aplicare al relevanței cinematografelor, pe lângă accesările punctuale corespunzătoare accesărilor principale și secundare.",
-          "hu": "Az adatkészlet a Torinó városának területén található mozikra vonatkozó információkat tartalmaz. Az adatkészlet azokra a területi információkra vonatkozik, amelyek a fő- és másodlagos hozzáféréseknek megfelelő pontos hozzáférések mellett azonosítják a mozik épületét és relevanciájának körét.",
-          "bg": "Наборът от данни съдържа информация за кината, намиращи се на територията на град Торино. Наборът от данни се отнася до информацията за района, която идентифицира сградата и обхвата на значимост на кината, в допълнение към точния достъп, съответстващ на основния и вторичния достъп.",
-          "ga": "Tá faisnéis sa tacar sonraí maidir leis na Pictiúrlanna atá i gcríoch Chathair Torino. Tagraíonn an tacar sonraí don fhaisnéis limistéir lena sainaithnítear an foirgneamh agus raon feidhme ábharthachta na bPictiúrlann i dteannta na rochtana poncúla a chomhfhreagraíonn don phríomhrochtain agus don rochtain thánaisteach.",
-          "pl": "Zbiór danych zawiera informacje o kinach znajdujących się na terytorium miasta Turyn. Zbiór danych odnosi się do informacji o obszarze, które identyfikują budynek i zakres istotności kin, a także do punktualnego dostępu odpowiadającego dostępowi głównemu i wtórnemu.",
-          "uk": "Набір даних містить інформацію про кінотеатри, присутні на території міста Турин. Набір даних відноситься до інформації про область, яка ідентифікує будівлю та сферу актуальності Кінотеатрів на додаток до пунктуальних доступів, що відповідають основному та вторинному доступам.",
-          "cs": "Soubor údajů obsahuje informace o kinech nacházejících se na území města Turín. Datový soubor odkazuje na informace o ploše, které identifikují budovu a rozsah relevantnosti kin, kromě přesných přístupů odpovídajících hlavnímu a sekundárnímu přístupu.",
-          "et": "Andmestik sisaldab teavet Torino linna territooriumil asuvate kinode kohta. Andmekogum viitab alateabele, mis identifitseerib hoone ja kinode asjakohasuse ulatuse lisaks peamistele ja teisestele juurdepääsudele vastavatele täpsetele juurdepääsudele.",
-          "es": "El conjunto de datos contiene información sobre los cines presentes en el territorio de la ciudad de Turín. El conjunto de datos se refiere a la información del área que identifica el edificio y el alcance de relevancia de los cines, además de los accesos puntuales correspondientes a los accesos principales y secundarios.",
-          "en": "The dataset contains information on the Cinemas present in the territory of the City of Turin. The dataset refers to the area information that identifies the building and the scope of relevance of the Cinemas in addition to the punctual accesses corresponding to the main and secondary accesses.",
-          "sl": "Podatkovni niz vsebuje informacije o kinematografih na ozemlju mesta Torino. Nabor podatkov se nanaša na območne informacije, ki opredeljujejo stavbo in obseg ustreznosti kinematografov, poleg točnih dostopov, ki ustrezajo glavnim in sekundarnim dostopom.",
-          "fi": "Aineisto sisältää tietoja Torinon kaupungin alueella olevista elokuvateattereista. Aineistolla tarkoitetaan aluetietoja, jotka yksilöivät elokuvateattereiden rakennuksen ja merkityksellisyyden pää- ja toissijaisia käyttöoikeuksia vastaavien täsmällisten käyttöoikeuksien lisäksi.",
-          "da": "Datasættet indeholder oplysninger om biograferne i Torino. Datasættet henviser til de områdeoplysninger, der identificerer bygningen og biografernes relevans, ud over de punktlige adgange, der svarer til de primære og sekundære adgange.",
-          "nl": "De dataset bevat informatie over de bioscopen die aanwezig zijn op het grondgebied van de stad Turijn. De dataset verwijst naar de gebiedsinformatie die het gebouw en de relevantie van de bioscopen identificeert, naast de punctuele toegangen die overeenkomen met de hoofd- en secundaire toegangen.",
-          "lv": "Datu kopa satur informāciju par kinoteātriem, kas atrodas Turīnas pilsētas teritorijā. Datu kopa attiecas uz apgabala informāciju, kas identificē ēku un kinoteātru relevantumu papildus punktuālajai piekļuvei, kas atbilst galvenajai un sekundārajai piekļuvei.",
-          "pt": "O conjunto de dados contém informações sobre os cinemas presentes no território da cidade de Turim. O conjunto de dados refere-se às informações de área que identificam o edifício e o escopo de relevância dos Cinemas, além dos acessos pontuais correspondentes aos acessos principal e secundário.",
-          "sv": "Datasetet innehåller information om de biografer som finns på Turins stads territorium. Datasetet avser den områdesinformation som identifierar byggnaden och omfattningen av biografernas relevans utöver de punktliga åtkomster som motsvarar de huvudsakliga och sekundära åtkomsterna.",
-          "fr": "Le jeu de données contient des informations sur les cinémas présents sur le territoire de la ville de Turin. L’ensemble de données fait référence aux informations relatives à la zone qui identifient le bâtiment et l’étendue de la pertinence des cinémas, en plus des accès ponctuels correspondant aux accès principaux et secondaires.",
-          "sk": "Súbor údajov obsahuje informácie o kinách prítomných na území mesta Turín. Súbor údajov sa vzťahuje na informácie o oblasti, ktoré identifikujú budovu a rozsah relevantnosti kín okrem presných prístupov zodpovedajúcich hlavným a sekundárnym prístupom.",
-          "de": "Der Datensatz enthält Informationen über die Kinos auf dem Gebiet der Stadt Turin. Der Datensatz bezieht sich auf die Gebietsinformationen, die das Gebäude und den Umfang der Relevanz der Kinos zusätzlich zu den pünktlichen Zugängen, die den Haupt- und Nebenzugängen entsprechen, identifizieren.",
-          "mt": "Is-sett tad-data fih informazzjoni dwar iċ-Ċinemas preżenti fit-territorju tal-Belt ta’ Turin. Is-sett tad-data jirreferi għall-informazzjoni dwar iż-żona li tidentifika l-bini u l-ambitu tar-rilevanza taċ-Ċinema flimkien mal-aċċessi puntwali li jikkorrispondu għall-aċċessi ewlenin u sekondarji."
+          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
+          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
+          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
+          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
+          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
+          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
+          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
+          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
+          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
+          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
+          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
+          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
+          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
+          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
+          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
+          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
+          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
+          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
+          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
+          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
+          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
+          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
+          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
         },
+        "index": "dataset",
         "language": [
           {
-            "id": "it",
-            "label": "Italian",
-            "resource": "http://publications.europa.eu/resource/authority/language/ITA"
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
           }
         ],
         "title": {
-          "da": "Biograf",
-          "ga": "Pictiúrlann",
-          "it": "Cinema",
-          "en": "Cinema",
-          "lv": "kinoteātris",
-          "sv": "Biograf",
-          "uk": "Кінотеатр «",
-          "es": "Cine",
-          "mt": "Ċinema",
-          "sl": "Kino",
-          "pt": "Cinema",
-          "lt": "Kino teatras",
-          "fr": "Cinéma",
-          "pl": "Kino",
-          "hu": "Mozi",
-          "cs": "Kino",
-          "sk": "kino",
-          "nl": "Bioscoop",
-          "bg": "Кино",
-          "el": "Κινηματογράφος",
-          "et": "Kino",
-          "hr": "Kino",
-          "de": "Kino",
-          "ro": "Cinematograful",
-          "fi": "Elokuvateatteri"
+          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
+          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
+          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
+          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
+          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
+          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
+          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
+          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
+          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
+          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
+          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
+          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
+          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
+          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
+          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
+          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
+          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
+          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
+          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
+          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
+          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
+          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
+          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
         },
-        "accrual_periodicity": {
-          "label": "irregular",
-          "resource": "http://publications.europa.eu/resource/authority/frequency/IRREG"
-        },
-        "access_right": {
-          "label": "public",
-          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-        },
-        "spatial_resource": [
-          {},
-          {}
-        ],
-        "modified": "2014-01-01T00:00:00",
-        "id": "0000628",
-        "categories": [
-          {
-            "id": "GOVE",
-            "label": {
-              "fr": "Gouvernement et secteur public",
-              "mt": "Gvern u settur pubbliku",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "bg": "Правителство и публичен сектор",
-              "nb": "Forvaltning og offentlig sektor",
-              "da": "Regeringen og den offentlige sektor",
-              "sv": "Regeringen och den offentliga sektorn",
-              "ro": "Guvern şi sector public",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "cs": "Vláda a veřejný sektor",
-              "sl": "Vlada in javni sektor",
-              "hu": "Kormányzat és közszféra",
-              "de": "Regierung und öffentlicher Sektor",
-              "sk": "Vláda a verejný sektor",
-              "pt": "Governo e setor público",
-              "nl": "Overheid en publieke sector",
-              "no": "Forvaltning og offentlig sektor",
-              "nn": "Forvaltning og offentleg sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "hr": "Vlada i javni sektor",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "pl": "Rząd i sektor publiczny",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "et": "Valitsus ja avalik sektor",
-              "es": "Gobierno y sector público",
-              "lv": "Valdība un sabiedriskais sektors"
-            },
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE"
-          }
-        ],
-        "issued": "2014-01-01T00:00:00",
-        "spatial": [],
-        "temporal": [
-          {
-            "gte": "2014-01-01T00:00:00Z"
-          }
-        ],
-        "identifier": [
-          "0000628"
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/0000628",
-        "landing_page": [
-          {
-            "resource": "http://aperto.comune.torino.it/dataset/cinema#"
-          }
-        ],
-        "index": "dataset",
         "distributions": [
           {
-            "id": "cac20424-c323-41c7-b439-d2b2adad652e",
-            "title": {
-              "ro": "Cinematograful",
-              "cs": "Kino",
-              "da": "Biograf",
-              "en": "Cinema",
-              "uk": "Кінотеатр «",
-              "lt": "Kino teatras",
-              "sk": "kino",
-              "fi": "Elokuvateatteri",
-              "mt": "Ċinema",
-              "bg": "Кино",
-              "sv": "Biograf",
-              "nl": "Bioscoop",
-              "es": "Cine",
-              "sl": "Kino",
-              "it": "Cinema",
-              "ga": "Pictiúrlann",
-              "pl": "Kino",
-              "et": "Kino",
-              "lv": "kinoteātris",
-              "fr": "Cinéma",
-              "de": "Kino",
-              "pt": "Cinema",
-              "hr": "Kino",
-              "hu": "Mozi",
-              "el": "Κινηματογράφος"
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
             },
-            "modified": "2025-04-20T10:47:39.351786",
-            "issued": "2019-05-10T12:39:39.131809",
-            "rights": {
-              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-            },
-            "media_type": "application/zip",
-            "download_url": [
-              "https://geoportale.comune.torino.it/geodati/zip/cinema_csv.zip"
-            ],
-            "format": {
-              "id": "CSV",
-              "label": "CSV",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/CSV"
-            },
+            "media_type": "application/json",
             "access_url": [
-              "https://geoportale.comune.torino.it/geodati/zip/cinema_csv.zip"
-            ]
+              "https://parcan.es/api/diputado/asistencias/08006?format=json"
+            ],
+            "id": "d02450b5-f126-430b-9e9a-c3a66945f6c0",
+            "title": {
+              "de": "VIII Wahlperiode (JSON)",
+              "fi": "VIII vaalikausi (JSON)",
+              "pt": "VIII legislatura (JSON)",
+              "bg": "VIII парламентарен мандат (JSON)",
+              "lt": "VIII Parlamento kadencija (JSON)",
+              "hr": "VIII. parlamentarni saziv (JSON)",
+              "lv": "VIII Parlamenta sasaukums (JSON)",
+              "fr": "VIIIe législature (JSON)",
+              "hu": "VIII. parlamenti ciklus (JSON)",
+              "uk": "VIII парламентський термін (JSON)",
+              "sk": "VIII volebné obdobie (JSON)",
+              "sl": "VIII. parlamentarno obdobje (JSON)",
+              "ga": "VIII téarma parlaiminteach (JSON)",
+              "sv": "VIII:s valperiod (JSON)",
+              "el": "VIII κοινοβουλευτική περίοδος (JSON)",
+              "mt": "VIII leġiżlatura (JSON)",
+              "en": "VIII parliamentary term (JSON)",
+              "it": "VIII legislatura (JSON)",
+              "es": "VIII legislatura (JSON)",
+              "et": "Parlamendi VIII ametiaeg (JSON)",
+              "cs": "VIII. volební období (JSON)",
+              "pl": "VIII kadencja parlamentarna (JSON)",
+              "ro": "A VIII-a legislatură (JSON)",
+              "da": "VIII valgperiode (JSON)",
+              "nl": "VIII zittingsperiode (JSON)"
+            }
           },
           {
-            "id": "c97b98a2-23a3-4488-8380-099292beb600",
-            "title": {
-              "bg": "Кино",
-              "el": "Κινηματογράφος",
-              "pt": "Cinema",
-              "es": "Cine",
-              "fi": "Elokuvateatteri",
-              "ro": "Cinematograful",
-              "sk": "kino",
-              "en": "Cinema",
-              "sl": "Kino",
-              "it": "Cinema",
-              "pl": "Kino",
-              "da": "Biograf",
-              "cs": "Kino",
-              "de": "Kino",
-              "lv": "kinoteātris",
-              "ga": "Pictiúrlann",
-              "uk": "Кінотеатр «",
-              "nl": "Bioscoop",
-              "hu": "Mozi",
-              "hr": "Kino",
-              "lt": "Kino teatras",
-              "fr": "Cinéma",
-              "et": "Kino",
-              "sv": "Biograf",
-              "mt": "Ċinema"
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
             },
-            "modified": "2025-04-20T10:47:39.353523",
-            "download_url": [
-              "https://geoportale.comune.torino.it/geodati/zip/cinema_geo.zip"
-            ],
-            "issued": "2019-05-10T12:39:54.917617",
-            "format": {
-              "id": "ZIP",
-              "label": "ZIP",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/ZIP"
-            },
+            "media_type": "text/csv",
             "access_url": [
-              "https://geoportale.comune.torino.it/geodati/zip/cinema_geo.zip"
+              "https://parcan.es/api/diputado/asistencias/08006?format=csv"
             ],
-            "rights": {
-              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-            },
-            "media_type": "application/zip"
+            "id": "bbde95ab-d0e9-4f6d-b8a4-2981d1e95896",
+            "title": {
+              "de": "VIII Legislaturperiode (CSV)",
+              "fi": "VIII Lainsäädäntö (CSV)",
+              "pt": "VIII legislatura (CSV)",
+              "bg": "VIII законодателен мандат (CSV)",
+              "lt": "VIII įstatymų leidėjas (CSV)",
+              "hr": "Zakonodavna vlast (CSV)",
+              "lv": "VIII likumdevējs (CSV)",
+              "fr": "VIII législature (CSV)",
+              "hu": "VIII. törvényhozás (CSV)",
+              "uk": "VIII Законодавчий орган (CSV)",
+              "sk": "VIII zákonodarca (CSV)",
+              "sl": "VIII. zakonodajalec (CSV)",
+              "ga": "VIII reachtas (CSV)",
+              "sv": "VIII Lagstiftning (CSV)",
+              "el": "VIII νομοθέτης (CSV)",
+              "mt": "VIII leġiżlatura (CSV)",
+              "en": "VIII legislature (CSV)",
+              "it": "VIII Legislativo (CSV)",
+              "es": "VIII legislatura (CSV)",
+              "et": "VIII seadusandlik kogu (CSV)",
+              "cs": "VIII. volební období (CSV)",
+              "pl": "VIII legislacja (CSV)",
+              "da": "VIII lovgiver (CSV)",
+              "ro": "VIII Legislativ (CSV)",
+              "nl": "VIII legislatuur (CSV)"
+            }
           }
         ],
         "is_hvd": false,
         "quality_meas": {
-          "scoring": 295
+          "scoring": 190
         },
         "publisher": {
-          "type": "Agent",
-          "name": "Comune di Torino"
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
+          "name": "Parlamento de Canarias",
+          "type": "Agent"
         },
-        "catalog_record": {
-          "issued": "2025-04-26T01:36:10Z",
-          "modified": "2026-04-20T04:09:48Z"
-        },
-        "contact_point": [
+        "modified": "2021-05-05T00:00:00+02:00",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
+        "categories": [
           {
-            "type": "Organization",
-            "url": [
-              "http://aperto.comune.torino.it/"
-            ],
-            "email": "mailto:protocollogenerale@cert.comune.torino.it",
-            "name": "comune-di-torino",
-            "resource": "https://www.dati.gov.it/organization/f804b34c-a5f7-42ca-bde2-82a0bcadd55e"
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
+            "label": {
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
           }
-        ]
+        ],
+        "issued": "2021-05-05T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-20T00:25:08Z",
+          "issued": "2023-02-01T09:26:25Z"
+        }
       }
     ]
   }
