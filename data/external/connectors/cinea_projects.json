@@ -4593,14 +4593,14 @@
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_asistencias_08006id_miembro"
+          "https://datos.parcan.es/dataset/diputado_asistencias_10047id_miembro"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -4645,208 +4645,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "hr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "el": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "ro": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "da": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:31:37Z",
-              "issued": "2023-02-01T09:26:25Z"
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
             }
           },
           "full_available_languages": [
-            "lv",
-            "hr",
-            "hu",
-            "pl",
-            "fi",
-            "ro",
-            "cs",
-            "en",
-            "sv",
-            "it",
-            "pt",
-            "es",
-            "uk",
-            "de",
-            "et",
-            "nl",
-            "lt",
             "ga",
-            "bg",
-            "fr",
+            "en",
             "sk",
-            "sl",
             "el",
+            "uk",
+            "sv",
+            "hr",
+            "pl",
+            "bg",
             "mt",
-            "da"
+            "es",
+            "nl",
+            "hu",
+            "fi",
+            "pt",
+            "cs",
+            "et",
+            "lt",
+            "it",
+            "sl",
+            "ro",
+            "de",
+            "fr",
+            "da",
+            "lv"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
-          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
-          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
-          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
-          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
-          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
-          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
-          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
-          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
-          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
-          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
+          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
+          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
         },
         "index": "dataset",
         "language": [
@@ -4857,31 +4857,31 @@
           }
         ],
         "title": {
-          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
-          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
-          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
-          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
-          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
-          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
-          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
-          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
-          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
-          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
-          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
+          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
+          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
         },
         "distributions": [
           {
@@ -4892,35 +4892,35 @@
             },
             "media_type": "application/json",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/08006?format=json"
+              "https://parcan.es/api/diputado/asistencias/10047?format=json"
             ],
-            "id": "d02450b5-f126-430b-9e9a-c3a66945f6c0",
+            "id": "f94fe974-166a-485e-8fdf-bc9c278b30f5",
             "title": {
-              "de": "VIII Wahlperiode (JSON)",
-              "fi": "VIII vaalikausi (JSON)",
-              "pt": "VIII legislatura (JSON)",
-              "bg": "VIII парламентарен мандат (JSON)",
-              "lt": "VIII Parlamento kadencija (JSON)",
-              "hr": "VIII. parlamentarni saziv (JSON)",
-              "lv": "VIII Parlamenta sasaukums (JSON)",
-              "fr": "VIIIe législature (JSON)",
-              "hu": "VIII. parlamenti ciklus (JSON)",
-              "uk": "VIII парламентський термін (JSON)",
-              "sk": "VIII volebné obdobie (JSON)",
-              "sl": "VIII. parlamentarno obdobje (JSON)",
-              "ga": "VIII téarma parlaiminteach (JSON)",
-              "sv": "VIII:s valperiod (JSON)",
-              "el": "VIII κοινοβουλευτική περίοδος (JSON)",
-              "mt": "VIII leġiżlatura (JSON)",
-              "en": "VIII parliamentary term (JSON)",
-              "it": "VIII legislatura (JSON)",
-              "es": "VIII legislatura (JSON)",
-              "et": "Parlamendi VIII ametiaeg (JSON)",
-              "cs": "VIII. volební období (JSON)",
-              "pl": "VIII kadencja parlamentarna (JSON)",
-              "ro": "A VIII-a legislatură (JSON)",
-              "da": "VIII valgperiode (JSON)",
-              "nl": "VIII zittingsperiode (JSON)"
+              "de": "X Legislaturperiode (JSON)",
+              "fi": "X Lainsäädäntö (JSON)",
+              "pt": "X legislatura (JSON)",
+              "bg": "X законодателен мандат (JSON)",
+              "lt": "X įstatymų leidėjas (JSON)",
+              "hr": "X zakonodavno tijelo (JSON)",
+              "lv": "X sasaukums (JSON)",
+              "fr": "X législature (JSON)",
+              "hu": "X jogalkotó (JSON)",
+              "uk": "X Законодавчий орган (JSON)",
+              "sk": "X volebné obdobie (JSON)",
+              "sl": "X zakonodajalec (JSON)",
+              "ga": "X reachtas (JSON)",
+              "sv": "X Lagstiftning (JSON)",
+              "mt": "Leġiżlatura x (JSON)",
+              "el": "X νομοθετικό σώμα (JSON)",
+              "en": "X legislature (JSON)",
+              "it": "X Legislativo (JSON)",
+              "es": "X legislatura (JSON)",
+              "et": "X Seadusandlik koosseis (JSON)",
+              "cs": "X volební období (JSON)",
+              "pl": "X Ustawodawstwo (JSON)",
+              "da": "X lovgivende forsamling (JSON)",
+              "ro": "X Legislație (JSON)",
+              "nl": "X Wetgeving (JSON)"
             }
           },
           {
@@ -4931,41 +4931,41 @@
             },
             "media_type": "text/csv",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/08006?format=csv"
+              "https://parcan.es/api/diputado/asistencias/10047?format=csv"
             ],
-            "id": "bbde95ab-d0e9-4f6d-b8a4-2981d1e95896",
+            "id": "2f228fdb-f4cf-4ddd-b60f-edd8df431e79",
             "title": {
-              "de": "VIII Legislaturperiode (CSV)",
-              "fi": "VIII Lainsäädäntö (CSV)",
-              "pt": "VIII legislatura (CSV)",
-              "bg": "VIII законодателен мандат (CSV)",
-              "lt": "VIII įstatymų leidėjas (CSV)",
-              "hr": "Zakonodavna vlast (CSV)",
-              "lv": "VIII likumdevējs (CSV)",
-              "fr": "VIII législature (CSV)",
-              "hu": "VIII. törvényhozás (CSV)",
-              "uk": "VIII Законодавчий орган (CSV)",
-              "sk": "VIII zákonodarca (CSV)",
-              "sl": "VIII. zakonodajalec (CSV)",
-              "ga": "VIII reachtas (CSV)",
-              "sv": "VIII Lagstiftning (CSV)",
-              "el": "VIII νομοθέτης (CSV)",
-              "mt": "VIII leġiżlatura (CSV)",
-              "en": "VIII legislature (CSV)",
-              "it": "VIII Legislativo (CSV)",
-              "es": "VIII legislatura (CSV)",
-              "et": "VIII seadusandlik kogu (CSV)",
-              "cs": "VIII. volební období (CSV)",
-              "pl": "VIII legislacja (CSV)",
-              "da": "VIII lovgiver (CSV)",
-              "ro": "VIII Legislativ (CSV)",
-              "nl": "VIII legislatuur (CSV)"
+              "de": "X Legislaturperiode (CSV)",
+              "fi": "X Lainsäädäntö (CSV)",
+              "pt": "X legislatura (CSV)",
+              "bg": "X законодателен мандат (CSV)",
+              "lt": "X teisės aktų leidėjas (CSV)",
+              "hr": "X zakonodavno tijelo (CSV)",
+              "lv": "X likumdevējs (CSV)",
+              "fr": "X Législation (CSV)",
+              "hu": "X jogalkotó (CSV)",
+              "uk": "X Законодавчий орган (CSV)",
+              "sk": "X volebné obdobie (CSV)",
+              "sl": "X zakonodajalec (CSV)",
+              "ga": "X reachtas (CSV)",
+              "sv": "X Lagstiftning (CSV)",
+              "el": "X νομοθέτης (CSV)",
+              "mt": "Leġiżlatura x (CSV)",
+              "en": "X legislature (CSV)",
+              "it": "X Legislativo (CSV)",
+              "es": "X legislatura (CSV)",
+              "et": "X Seadusandlik koosseis (CSV)",
+              "cs": "X volební období (CSV)",
+              "pl": "X prawodawstwo (CSV)",
+              "da": "X lovgiver (CSV)",
+              "ro": "X legislatură (CSV)",
+              "nl": "X Wetgeving (CSV)"
             }
           }
         ],
         "is_hvd": false,
         "quality_meas": {
-          "scoring": 190
+          "scoring": 140
         },
         "publisher": {
           "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
@@ -4973,7 +4973,7 @@
           "type": "Agent"
         },
         "modified": "2021-05-05T00:00:00+02:00",
-        "id": "https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
         "categories": [
           {
             "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
@@ -5044,8 +5044,8 @@
         ],
         "issued": "2021-05-05T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-03-20T00:25:08Z",
-          "issued": "2023-02-01T09:26:25Z"
+          "modified": "2026-03-20T00:09:39Z",
+          "issued": "2023-02-01T09:07:51Z"
         }
       }
     ]
