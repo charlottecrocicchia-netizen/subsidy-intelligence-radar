@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 723,
+    "count": 706,
     "results": [
       {
         "country": {
@@ -2786,552 +2786,6 @@
       },
       {
         "country": {
-          "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
-          "label": "EU institutions",
-          "id": "eu"
-        },
-        "creator": [
-          {
-            "name": "CINEA",
-            "type": "Organization",
-            "homepage": "https://cinea.ec.europa.eu/index_en"
-          }
-        ],
-        "keywords": [
-          {
-            "language": "en",
-            "id": "tool",
-            "label": "Tool"
-          },
-          {
-            "language": "en",
-            "id": "mapafish",
-            "label": "MAPAFISH"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/mapafish-tool",
-        "catalog": {
-          "id": "cinea",
-          "publisher": {
-            "type": "Organization",
-            "name": "European Climate, Infrastructure and Environment Executive Agency",
-            "homepage": "https://commission.europa.eu/about/departments-and-executive-agencies/european-climate-infrastructure-and-environment-executive-agency",
-            "resource": "http://publications.europa.eu/resource/authority/corporate-body/CINEA"
-          },
-          "country": {
-            "label": "EU institutions",
-            "id": "eu",
-            "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
-          },
-          "spatial_resource": [
-            {
-              "label": "EU institutions",
-              "id": "eu",
-              "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE"
-            }
-          ],
-          "spatial": [],
-          "title": {
-            "en": "European Climate, Infrastructure and Environment Executive Agency"
-          },
-          "language": [
-            {
-              "id": "en",
-              "label": "English",
-              "resource": "http://publications.europa.eu/resource/authority/language/ENG"
-            }
-          ],
-          "modified": "2025-02-20T08:36:07Z",
-          "issued": "2025-02-20T08:36:07Z",
-          "description": {
-            "en": "European Climate, Infrastructure and Environment Executive Agency"
-          },
-          "source_type": "dcat-ap"
-        },
-        "subject": [
-          {
-            "resource": "http://eurovoc.europa.eu/2869",
-            "id": "2869",
-            "label": {
-              "de": "Umweltqualität",
-              "fi": "ympäristön laatu",
-              "pt": "qualidade do ambiente",
-              "bg": "качество на околната среда",
-              "lt": "aplinkos kokybė",
-              "lv": "vides kvalitāte",
-              "hr": "kakvoća okoliša",
-              "fr": "qualité de l'environnement",
-              "hu": "környezetminőség",
-              "sk": "kvalita životného prostredia",
-              "sl": "kakovost okolja",
-              "ga": "mianach an chomhshaoil",
-              "sq": "cilësi e mjedisit",
-              "mk": "квалитет на животната средина",
-              "sr": "квалитет животне средине",
-              "sv": "miljökvalitet",
-              "el": "ποιότητα του περιβάλλοντος",
-              "mt": "kwalità tal-ambjent",
-              "en": "quality of the environment",
-              "it": "qualità dell'ambiente",
-              "es": "calidad del medio ambiente",
-              "et": "keskkonnakvaliteet",
-              "cs": "kvalita životního prostředí",
-              "pl": "stan środowiska naturalnego",
-              "ro": "calitatea mediului",
-              "da": "miljøkvalitet",
-              "nl": "milieukwaliteit"
-            }
-          },
-          {
-            "resource": "http://eurovoc.europa.eu/3992",
-            "id": "3992",
-            "label": {
-              "de": "maritimer Raum",
-              "fi": "merialue",
-              "pt": "espaço marítimo",
-              "bg": "морска зона",
-              "lt": "jūros zona",
-              "hr": "morsko područje",
-              "lv": "kuģojama teritorija",
-              "fr": "espace maritime",
-              "hu": "tengeri terület",
-              "sk": "morská oblasť",
-              "sl": "pomorsko območje",
-              "ga": "limistéar muirí",
-              "sq": "zonë detare",
-              "mk": "морско подрачје",
-              "sr": "морско подручје",
-              "sv": "havsområde",
-              "mt": "żona marittima",
-              "el": "θαλάσσιες εκτάσεις",
-              "en": "maritime area",
-              "it": "spazio marittimo",
-              "es": "espacio marítimo",
-              "et": "merepiirkond",
-              "cs": "mořská oblast",
-              "pl": "obszar morski",
-              "da": "havområde",
-              "ro": "zonă maritimă",
-              "nl": "zeeruim"
-            }
-          }
-        ],
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "en": {
-              "machine_translated": false,
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "es": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "en",
-              "received": "2026-03-22T10:12:53Z",
-              "issued": "2025-12-10T19:30:36Z"
-            }
-          },
-          "full_available_languages": [
-            "bg",
-            "lv",
-            "ga",
-            "hu",
-            "en",
-            "de",
-            "fr",
-            "fi",
-            "uk",
-            "et",
-            "sv",
-            "pt",
-            "pl",
-            "da",
-            "mt",
-            "el",
-            "nl",
-            "cs",
-            "it",
-            "sl",
-            "lt",
-            "es",
-            "ro",
-            "hr",
-            "sk"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Ziel dieses Tools ist es, durch eine Reihe von semi-qualitativen Fragen in Form eines Fragebogens Diskussionen über die Merkmale eines betrachteten Meeresschutzgebiets (Entscheidungsprozess) zu beginnen. Auf der Grundlage der Antworten auf den Fragebogen wird dieses Instrument halbqualitative Werte zu den zu erwartenden Auswirkungen auf eine Reihe von Outputindikatoren, wie z. B. Biodiversität, Einnahmen oder Gemeinschaft, darstellen. \nMit dem Instrument sollen die Auswirkungen auf die Natur und die gewerbliche Fischerei bewertet werden. \n\nWeitere Informationen zum Hintergrund des Mapafish-Tools finden Sie in Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Kartierung von Meeresschutzgebieten und damit verbundenen Fangtätigkeiten: Ostsee und Nordsee, Atlantik, Westliche Gewässer und Gebiete in äußerster Randlage der EU (MAPAFISH), Abschlussbericht, Amt für Veröffentlichungen der Europäischen Union, 2025, doi: 10.2926/9703241.",
-          "fi": "Tämän välineen tavoitteena on käynnistää kyselyn muodossa olevien puolilaadullisten kysymysten avulla keskustelut tietyn suojellun merialueen ominaisuuksista (päätösprosessista). Kyselylomakkeeseen annettujen vastausten perusteella tässä välineessä esitetään puolikvalitatiiviset arvot riskeistä, joita on odotettavissa tiettyihin tuotosindikaattoreihin, kuten biologiseen monimuotoisuuteen, tuloihin tai yhteisöön, kohdistuvista vaikutuksista. \nVälineen tarkoituksena on arvioida vaikutuksia luontoon ja kaupalliseen kalastukseen. \n\nLisätietoja Mapafish-työkalun taustasta on julkaisussa Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C., Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Suojeltujen merialueiden ja niihin liittyvän kalastustoiminnan kartoitus: Baltic and North Seas, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), loppuraportti, Euroopan unionin julkaisutoimisto, 2025, doi: 10.2926/9703241.",
-          "pt": "O objetivo desta ferramenta é, através de uma série de perguntas semiqualitativas sob a forma de um questionário, iniciar discussões sobre as características de (processo de decisão) uma Área Marinha Protegida considerada. Com base nas respostas dadas ao questionário, esta ferramenta apresentará valores semiqualitativos sobre os riscos de impacto esperados num conjunto de indicadores de realizações, como, por exemplo, Biodiversidade, Receitas ou Comunidade. \nO instrumento destina-se a avaliar os efeitos na natureza e na pesca comercial. \n\nMais informações sobre o fundo da Ferramenta Mapafish podem ser encontradas em Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapeamento das zonas marinhas protegidas e das atividades de pesca associadas: Baltic and North Seas, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), Final Report (não traduzido para português), Serviço das Publicações da União Europeia, 2025, doi: 10.2926/9703241.",
-          "bg": "Целта на този инструмент е чрез поредица от полукачествени въпроси под формата на въпросник да започне обсъждане на характеристиките на (процеса на вземане на решение относно) считаната за защитена морска зона. Въз основа на отговорите, дадени на въпросника, този инструмент ще представи полукачествени стойности за рисковете от въздействие, които могат да се очакват върху набор от показатели за крайни продукти, като например биологично разнообразие, приходи или общност. \nИнструментът има за цел да оцени въздействието върху природата и върху търговския риболов. \n\nПовече информация за фона на инструмента Mapafish може да бъде намерена в Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C., Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Картографиране на морските защитени зони и свързаните с тях риболовни дейности: Baltic and North Seas, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), окончателен доклад, Служба за публикации на Европейския съюз, 2025 г., doi: 10.2926/9703241.",
-          "lt": "Šios priemonės tikslas – pateikiant klausimyno formos pusiau kokybinius klausimus pradėti diskusijas apie saugomos jūrų teritorijos savybes (sprendimo dėl jos priėmimo procesą). Remiantis klausimyno atsakymais, šioje priemonėje bus pateiktos pusiau kokybinės vertės, susijusios su tikėtino poveikio tam tikriems produkto rodikliams, pavyzdžiui, biologinės įvairovės, pajamų ar Bendrijos rodikliams, rizika. \nŠia priemone siekiama įvertinti poveikį gamtai ir verslinei žvejybai. \n\nDaugiau informacijos apie Mapafish įrankis fone galima rasti Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O., van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K.; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Saugomų jūrų teritorijų ir su jomis susijusios žvejybos veiklos kartografavimas: Baltijos ir Šiaurės jūros, Atlanto vandenyno ES vakarų vandenys ir atokiausi regionai (MAPAFISH), galutinė ataskaita, Europos Sąjungos leidinių biuras, 2025 m., doi: 10.2926/9703241.",
-          "lv": "Šā rīka mērķis ir, izmantojot virkni daļēji kvalitatīvu jautājumu anketas veidā, sākt diskusijas par tādas aizsargājamās jūras teritorijas iezīmēm (lēmuma pieņemšanas procesu), kas tiek uzskatīta par aizsargājamu jūras teritoriju. Pamatojoties uz atbildēm, kas sniegtas uz anketas jautājumiem, šis rīks sniegs puskvalitatīvas vērtības par ietekmes riskiem, kas sagaidāmi attiecībā uz iznākuma rādītāju kopumu, piemēram, bioloģisko daudzveidību, ieņēmumiem vai Kopienu. \nŠis rīks ir paredzēts, lai novērtētu ietekmi uz dabu un komerciālo zveju. \n\nPlašāka informācija par Mapafish rīka fonu ir atrodama Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K.; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Aizsargājamo jūras teritoriju kartēšana un ar to saistītās zvejas darbības: Baltijas jūra un Ziemeļjūra, Atlantijas okeāna ES rietumu ūdeņi un tālākie reģioni (MAPAFISH), galīgais ziņojums, Eiropas Savienības Publikāciju birojs, 2025, doi: 10.2926/9703241.",
-          "hr": "Cilj ovog alata je, kroz niz polukvalitativnih pitanja u obliku upitnika, započeti rasprave o karakteristikama (postupku odlučivanja) razmatranog zaštićenog morskog područja. Na temelju odgovora danih na upitnik, ovaj će alat predstaviti polukvalitativne vrijednosti o rizicima učinka koji se očekuju na skup pokazatelja ostvarenja, kao što su na primjer bioraznolikost, prihodi ili Zajednica. \nSvrha je alata ocijeniti učinke na prirodu i na gospodarski ribolov. \n\nViše informacija o pozadini alata Mapafish dostupno je u Feary et al (2025.).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapiranje zaštićenih morskih područja i s njima povezanih ribolovnih aktivnosti: Baltičko i Sjeverno more, Atlantske zapadne vode i najudaljenije regije EU-a (MAPAFISH), završno izvješće, Ured za publikacije Europske unije, 2025., doi: 10.2926/9703241.",
-          "fr": "L'objectif de cet outil est, à travers une série de questions semi-qualitatives sous la forme d'un questionnaire, d'entamer des discussions sur les caractéristiques (processus de décision) d'une aire marine protégée considérée. Sur la base des réponses données au questionnaire, cet outil présentera des valeurs semi-qualitatives sur les risques d’impact à prévoir sur un ensemble d’indicateurs de réalisation, tels que, par exemple, la biodiversité, les recettes ou la communauté. \nL'outil est destiné à évaluer les effets sur la nature et sur la pêche commerciale. \n\nPlus d'informations sur le contexte de l'outil Mapafish peuvent être trouvées dans Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Cartographie des zones marines protégées et de leurs activités de pêche associées: Baltic and North Seas, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), rapport final, Office des publications de l’Union européenne, 2025, doi: 10.2926/9703241.",
-          "hu": "Ennek az eszköznek az a célja, hogy egy kérdőív formájában, félkvalitatív kérdések sorozatán keresztül megbeszéléseket kezdjen egy védett tengeri terület jellemzőiről (a döntési folyamatról). A kérdőívre adott válaszok alapján ez az eszköz félkvalitatív értékeket fog bemutatni a kimeneti mutatók – például a biológiai sokféleség, a bevételek vagy a Közösség – tekintetében várható hatáskockázatokról. \nAz eszköz célja a természetre és a kereskedelmi halászatra gyakorolt hatások értékelése. \n\nA Mapafish eszköz hátteréről további információk találhatók Feary et al (2025) című művében.\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K.; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. A védett tengeri területek feltérképezése és az azokhoz kapcsolódó halászati tevékenységek: Balti-tenger és Északi-tenger, Atlanti-óceán, az EU nyugati vizei és legkülső régiói (MAPAFISH), zárójelentés, az Európai Unió Kiadóhivatala, 2025, doi: 10.2926/9703241.",
-          "uk": "Мета цього інструменту полягає в тому, щоб через серію напівякісних питань у формі анкети розпочати обговорення характеристик (процесу прийняття рішення) розглянутої морської заповідної території. На основі відповідей, наданих на анкету, цей інструмент представить напівякісні значення щодо ризиків впливу, які слід очікувати на набір вихідних показників, таких як, наприклад, біорізноманіття, дохід або співтовариство. \nІнструмент призначений для оцінки впливу на природу та комерційне рибальство. \n\nБільш детальну інформацію про фон Mapafish Tool можна знайти в Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Балтійське та Північне моря, Атлантичні західні води ЄС та крайні регіони (MAPAFISH), Заключний звіт, Публікації Офісу Європейського Союзу, 2025, доі: 10.2926/9703241.",
-          "sk": "Cieľom tohto nástroja je prostredníctvom série polokvalitatívnych otázok vo forme dotazníka začať diskusie o charakteristikách (procese rozhodovania o) zvažovanej chránenej morskej oblasti. Na základe odpovedí na dotazník bude tento nástroj predstavovať polokvalitatívne hodnoty týkajúce sa rizík vplyvu, ktoré možno očakávať na súbor ukazovateľov výstupov, ako je napríklad biodiverzita, príjmy alebo Spoločenstvo. \nCieľom tohto nástroja je vyhodnotiť účinky na prírodu a na komerčný rybolov. \n\nViac informácií o pozadí nástroja Mapafish možno nájsť v publikácii Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapovanie chránených morských oblastí a s nimi súvisiacich rybolovných činností: Baltské a Severné more, Atlantické západné vody EÚ a najvzdialenejšie regióny (MAPAFISH), záverečná správa, Úrad pre vydávanie publikácií Európskej únie, 2025, doi: 10.2926/9703241.",
-          "sl": "Cilj tega orodja je z vrsto polkvalitativnih vprašanj v obliki vprašalnika začeti razprave o značilnostih (postopku odločanja o) obravnavanega morskega zavarovanega območja. Na podlagi odgovorov na vprašalnik bo to orodje predstavilo delno kvalitativne vrednosti o tveganjih učinka, ki se pričakujejo za niz kazalnikov učinka, kot so na primer biotska raznovrstnost, prihodki ali Skupnost. \nNamen orodja je oceniti učinke na naravo in gospodarski ribolov. \n\nVeč informacij o ozadju orodja Mapafish je na voljo v Feary idr. (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K.; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Kartiranje zaščitenih morskih območij in z njimi povezanih ribolovnih dejavnosti: Baltsko in Severno morje, Atlantske zahodne vode in najbolj oddaljene regije EU (MAPAFISH), končno poročilo, Urad za publikacije Evropske unije, 2025, doi: 10.2926/9703241.",
-          "ga": "Is é is aidhm don uirlis seo, trí shraith ceisteanna leathcháilíochtúla i bhfoirm ceistneora, tús a chur le plé ar shaintréithe Limistéir Mhuirí faoi Chosaint a mheastar a bheith ann (an próiseas chun cinneadh a dhéanamh ina leith). Bunaithe ar na freagraí a tugadh ar an gceistneoir, cuirfidh an uirlis seo luachanna leathcháilíochta i láthair maidir leis na rioscaí tionchair a mbeifí ag súil leo ar thacar táscairí aschuir, mar shampla Bithéagsúlacht, Ioncam, nó Pobal. \nIs é is aidhm don uirlis meastóireacht a dhéanamh ar na héifeachtaí ar an dúlra agus ar iascaigh thráchtála. \n\nTá tuilleadh eolais faoi chúlra na hUirlise Mapafish le fáil in Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C., Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapáil ar limistéir mhuirí faoi chosaint agus na gníomhaíochtaí iascaireachta a bhaineann leo: Muir Bhailt agus an Mhuir Thuaidh, Uiscí Thiar an Aontais san Atlantach agus na Réigiúin is Forimeallaí (MAPAFISH), Tuarascáil Chríochnaitheach, Oifig Foilseachán an Aontais Eorpaigh, 2025, doi: 10.2926/9703241.",
-          "sv": "Målet med detta verktyg är att genom en serie semikvalitativa frågor i form av ett frågeformulär inleda diskussioner om egenskaperna hos (processen för att besluta om) ett ansett marint skyddat område. På grundval av svaren på frågeformuläret kommer detta verktyg att presentera halvkvalitativa värden på de risker för effekter som kan förväntas på en uppsättning outputindikatorer, t.ex. biologisk mångfald, inkomster eller gemenskapen. \nSyftet med verktyget är att utvärdera effekterna på naturen och på det kommersiella fisket. \n\nMer information om bakgrunden till Mapafish Tool finns i Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K. IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Kartläggning av marina skyddsområden och tillhörande fiskeverksamhet: Östersjön och Nordsjön, Atlanten, EU:s västliga vatten och yttersta randområden (MAPAFISH), slutrapport, Europeiska unionens publikationsbyrå, 2025, doi: 10.2926/9703241.",
-          "mt": "L-għan ta’ din l-għodda huwa li, permezz ta’ serje ta’ mistoqsijiet semikwalitattivi fil-forma ta’ kwestjonarju, tibda diskussjonijiet dwar il-karatteristiċi ta’ (proċess ta’ deċiżjoni dwar) Żona Marina Protetta kkunsidrata. Abbażi tat-tweġibiet mogħtija għall-kwestjonarju, din l-għodda se tippreżenta valuri semikwalitattivi dwar ir-riskji tal-impatt li għandhom ikunu mistennija fuq sett ta’ indikaturi tal-output, bħal pereżempju l-Bijodiversità, id-Dħul, jew il-Komunità. \nL-għodda hija maħsuba biex tevalwa l-effetti fuq in-natura u fuq is-sajd kummerċjali. \n\nAktar informazzjoni dwar l-isfond tal-Għodda tal-Mapafish tista’ tinstab f’Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Immappjar ta’ żoni protetti tal-baħar u l-attivitajiet tas-sajd assoċjati tagħhom: Il-Baħar Baltiku u l-Baħar tat-Tramuntana, l-Atlantiku, l-Ilmijiet tal-Punent u r-Reġjuni Ultraperiferiċi tal-UE (MAPAFISH), Rapport Finali, l-Uffiċċju tal-Pubblikazzjonijiet tal-Unjoni Ewropea, 2025, doi: 10.2926/9703241.",
-          "el": "Στόχος αυτού του εργαλείου είναι, μέσω μιας σειράς ημιποιοτικών ερωτήσεων με τη μορφή ερωτηματολογίου, να ξεκινήσουν συζητήσεις σχετικά με τα χαρακτηριστικά (της διαδικασίας λήψης απόφασης) μιας θεωρούμενης θαλάσσιας προστατευόμενης περιοχής. Με βάση τις απαντήσεις που δόθηκαν στο ερωτηματολόγιο, το εργαλείο αυτό θα παρουσιάζει ημιποιοτικές τιμές σχετικά με τους αναμενόμενους κινδύνους αντικτύπου σε ένα σύνολο δεικτών εκροών, όπως για παράδειγμα η βιοποικιλότητα, τα έσοδα ή η κοινότητα. \nΤο εργαλείο αποσκοπεί στην αξιολόγηση των επιπτώσεων στη φύση και στην εμπορική αλιεία. \n\nΠερισσότερες πληροφορίες σχετικά με το υπόβαθρο του εργαλείου Mapafish διατίθενται στο Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K· IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Χαρτογράφηση θαλάσσιων προστατευόμενων περιοχών και των συναφών αλιευτικών δραστηριοτήτων τους: Baltic and North Seas, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), Final Report, Υπηρεσία Εκδόσεων της Ευρωπαϊκής Ένωσης, 2025, doi: 10.2926/9703241.",
-          "en": "The goal of this tool is to, through a series of semi-qualitative questions in the form of a questionnaire, start discussions on the characteristics of (process of deciding on) a considered Marine Protected Area. Based on the answers given to the questionnaire, this tool will present semi-qualitative values on the risks of impact to be expected on a set of output indicators, such as for example Biodiversity, Revenue, or Community. \nThe tool is meant to evaluate the effects on nature and on commercial fisheries. \n\nMore information about the background of the Mapafish Tool can be found in Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D.,  Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapping of marine protected areas and their associated fishing activities: Baltic and North Seas, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), Final Report, Publications Office of the European Union, 2025, doi: 10.2926/9703241.",
-          "it": "L'obiettivo di questo strumento è, attraverso una serie di domande semi-qualitative sotto forma di questionario, avviare discussioni sulle caratteristiche di (processo di decisione su) un'Area Marina Protetta considerata. Sulla base delle risposte fornite al questionario, questo strumento presenterà valori semiqualitativi sui rischi di impatto attesi su una serie di indicatori di output, come ad esempio la biodiversità, le entrate o la Comunità. \nLo strumento ha lo scopo di valutare gli effetti sulla natura e sulla pesca commerciale. \n\nMaggiori informazioni sullo sfondo dello strumento Mapafish sono disponibili in Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mappatura delle zone marine protette e delle relative attività di pesca: Baltico e Mare del Nord, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), relazione finale, Ufficio delle pubblicazioni dell'Unione europea, 2025, doi: 10.2926/9703241.",
-          "es": "El objetivo de esta herramienta es, a través de una serie de preguntas semicualitativas en forma de cuestionario, iniciar discusiones sobre las características (proceso de decisión) de un Área Marina Protegida considerada. Sobre la base de las respuestas dadas al cuestionario, esta herramienta presentará valores semicualitativos sobre los riesgos de impacto que cabe esperar en un conjunto de indicadores de realización, como por ejemplo Biodiversidad, Ingresos o Comunidad. \nLa herramienta está destinada a evaluar los efectos en la naturaleza y en la pesca comercial. \n\nMás información sobre los antecedentes de la herramienta Mapafish se puede encontrar en Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Cartografía de zonas marinas protegidas y sus actividades pesqueras asociadas: Mares Báltico y del Norte, aguas occidentales y regiones ultraperiféricas del Atlántico de la UE (MAPAFISH), informe final, Oficina de Publicaciones de la Unión Europea, 2025, doi: 10.2926/9703241.",
-          "et": "Selle vahendi eesmärk on alustada küsimustiku vormis esitatud poolkvalitatiivsete küsimuste kaudu arutelusid merekaitsealaks peetava ala omaduste (selle üle otsustamise protsessi) üle. Küsimustikule antud vastuste põhjal esitatakse selles vahendis poolkvalitatiivsed väärtused mõjuriskide kohta, mida võib oodata selliste väljundnäitajate kogumi puhul nagu bioloogiline mitmekesisus, tulud või ühendus. \nVahendi eesmärk on hinnata mõju loodusele ja töönduslikule kalapüügile. \n\nLisateavet Mapafish Tooli tausta kohta leiate väljaandest Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Merekaitsealade kaardistamine ja sellega seotud püügitegevus: Lääne- ja Põhjameri, Atlandi ookeani ELi läänepiirkonna veed ja äärepoolseimad piirkonnad (MAPAFISH), lõpparuanne, Euroopa Liidu Väljaannete Talitus, 2025, doi: 10.2926/9703241.",
-          "cs": "Cílem tohoto nástroje je prostřednictvím řady polokvalitativních otázek ve formě dotazníku zahájit diskuse o charakteristikách (procesu rozhodování o) uvažované chráněné mořské oblasti. Na základě odpovědí na dotazník bude tento nástroj prezentovat polokvalitativní hodnoty rizik dopadu, která lze očekávat u souboru ukazatelů výstupů, jako je například biologická rozmanitost, příjmy nebo Společenství. \nNástroj je určen k vyhodnocení účinků na přírodu a na komerční rybolov. \n\nVíce informací o pozadí nástroje Mapafish Tool lze nalézt v Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O., van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K.; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapování chráněných mořských oblastí a s nimi souvisejících rybolovných činností: Baltské a Severní moře, Atlantik, západní vody EU a nejvzdálenější regiony (MAPAFISH), závěrečná zpráva, Úřad pro publikace Evropské unie, 2025, doi: 10.2926/9703241.",
-          "pl": "Celem tego narzędzia jest, poprzez serię pytań półjakościowych w formie kwestionariusza, rozpoczęcie dyskusji na temat cech (procesu podejmowania decyzji) uznanego morskiego obszaru chronionego. Na podstawie odpowiedzi udzielonych na pytania zawarte w kwestionariuszu narzędzie to przedstawi półjakościowe wartości dotyczące oczekiwanego ryzyka wpływu na zestaw wskaźników produktu, takich jak na przykład różnorodność biologiczna, dochody lub Wspólnota. \nNarzędzie to ma na celu ocenę wpływu na przyrodę i rybołówstwo komercyjne. \n\nWięcej informacji na temat tła narzędzia Mapafish można znaleźć w Feary i in. (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C., Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapowanie morskich obszarów chronionych i związanej z nimi działalności połowowej: Baltic and North Seas, Atlantic EU Western Waters and Outermost Regions (MAPAFISH), sprawozdanie końcowe, Urząd Publikacji Unii Europejskiej, 2025, doi: 10.2926/9703241.",
-          "da": "Målet med dette værktøj er gennem en række semikvalitative spørgsmål i form af et spørgeskema at indlede drøftelser om kendetegnene ved (processen med at træffe afgørelse om) et anset beskyttet havområde. På grundlag af besvarelserne af spørgeskemaet vil dette værktøj præsentere semikvalitative værdier for de risici for virkninger, der kan forventes for en række outputindikatorer, f.eks. biodiversitet, indtægter eller Fællesskabet. \nVærktøjet er beregnet til at evaluere virkningerne på naturen og på erhvervsfiskeriet. \n\nYderligere oplysninger om baggrunden for Mapafish Tool findes i Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Kortlægning af beskyttede havområder og dertil knyttede fiskeriaktiviteter: Østersøen og Nordsøen, Atlanterhavet, EU's vestlige farvande og regionerne i den yderste periferi (MAPAFISH), endelig rapport, Den Europæiske Unions Publikationskontor, 2025, doi: 10.2926/9703241.",
-          "ro": "Scopul acestui instrument este de a iniția, printr-o serie de întrebări semicalitative sub forma unui chestionar, discuții cu privire la caracteristicile (procesul de decizie) unei zone marine protejate considerate. Pe baza răspunsurilor la chestionar, acest instrument va prezenta valori semicalitative privind riscurile de impact preconizate pentru un set de indicatori de realizare, cum ar fi, de exemplu, biodiversitatea, veniturile sau comunitatea. \nInstrumentul este menit să evalueze efectele asupra naturii și asupra pescuitului comercial. \n\nMai multe informații despre contextul Instrumentului Mapafish pot fi găsite în Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Cartografierea zonelor marine protejate și a activităților de pescuit asociate acestora: Marea Baltică și Marea Nordului, Oceanul Atlantic, apele occidentale ale UE și regiunile ultraperiferice (MAPAFISH), raport final, Oficiul pentru Publicații al Uniunii Europene, 2025, doi: 10.2926/9703241.",
-          "nl": "Het doel van dit instrument is om, door middel van een reeks semi-kwalitatieve vragen in de vorm van een vragenlijst, discussies op gang te brengen over de kenmerken van (het besluitvormingsproces over) een beschouwd marien beschermd gebied. Op basis van de antwoorden op de vragenlijst zal dit instrument semi-kwalitatieve waarden presenteren over de te verwachten effecten op een reeks outputindicatoren, zoals biodiversiteit, inkomsten of de Gemeenschap. \nHet instrument is bedoeld om de effecten op de natuur en op de commerciële visserij te evalueren. \n\nMeer informatie over de achtergrond van de Mapafish Tool is te vinden in Feary et al (2025).\nFeary, D.A., van Hoey G., Aranda, M., Brown, E.J., Metz, S., Reid, D., van der Valk, O, van Kooten, T., Abreu, S., Bergman, J., Castro, N., Carvalho, G., Eggertssen, M., Emerit, A., Fetterplace, L., Folhas, H., Hamon, K; IJntema, G., Jiménez-Navarro, S., Mangi S.C, Martín-Sosa, P., Mendoza, J.C., Mommens, M-P., Pecceu E., Pereira, R., Putnis, I., Quirijns, F.J., Robert, M., Sköld, M., Sys K., Tully, O., Ustups, D., Valentinsson, D., Vallina, T., van der Reijden, K.J., Verlé K., Wakeford, R.C. Mapping of marine protected areas and their associated fishing activities: Oostzee en Noordzee, Atlantische westelijke wateren en ultraperifere gebieden van de EU (MAPAFISH), eindverslag, Bureau voor publicaties van de Europese Unie, 2025, doi: 10.2926/9703241."
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/ENG",
-            "id": "en",
-            "label": "English"
-          }
-        ],
-        "title": {
-          "de": "MAPAFISH Werkzeug",
-          "fi": "MAPAFISH-työkalu",
-          "pt": "Ferramenta MAPAFISH",
-          "bg": "Инструмент MAPAFISH",
-          "lt": "MAPAFISH priemonė",
-          "lv": "MAPAFISH rīks",
-          "hr": "MAPAFISH alat",
-          "fr": "Outil MAPAFISH",
-          "hu": "MAPAFISH eszköz",
-          "uk": "Інструмент MAPAFISH",
-          "sk": "MAPAFISH nástroj",
-          "sl": "Orodje MAPAFISH",
-          "ga": "Uirlis MAPAFISH",
-          "sv": "MAPAFISH-verktyget",
-          "mt": "Għodda MAPAFISH",
-          "el": "Εργαλείο MAPAFISH",
-          "en": "MAPAFISH tool",
-          "it": "Strumento MAPAFISH",
-          "es": "Herramienta MAPAFISH",
-          "et": "MAPAFISH tööriist",
-          "cs": "Nástroj MAPAFISH",
-          "pl": "Narzędzie MAPAFISH",
-          "da": "MAPAFISH værktøj",
-          "ro": "Instrumentul MAPAFISH",
-          "nl": "MAPAFISH-tool"
-        },
-        "distributions": [
-          {
-            "access_url": [
-              "https://data.europa.eu/api/hub/store/data/67caf20d2afdfc34ac3ebde0"
-            ],
-            "download_url": [
-              "https://data.europa.eu/api/hub/store/data/67caf20d2afdfc34ac3ebde0"
-            ],
-            "format": {
-              "resource": "http://publications.europa.eu/resource/authority/file-type/XLSX",
-              "id": "XLSX",
-              "label": "Excel XLSX"
-            },
-            "description": {
-              "de": "MAPAFISH_tool",
-              "fi": "MAPAFISH _tool",
-              "pt": "MAPAFISH_tool",
-              "bg": "MAPAFISH_инструмент",
-              "lt": "MAPAFISH_tool",
-              "lv": "MAPAFISH_rīks",
-              "hr": "MAPAFISH_tool",
-              "fr": "MAPAFISH_tool",
-              "hu": "MAPAFISH_eszköz",
-              "uk": "MAPAFISH_tool",
-              "sk": "MAPAFISH_nástroj",
-              "sl": "MAPAFISH_orodje",
-              "ga": "MAPAFISH_tool",
-              "sv": "MAPAFISH_tool",
-              "el": "MAPAFISH_εργαλείο",
-              "mt": "MAPAFISH_tool",
-              "en": "MAPAFISH_tool",
-              "it": "MAPAFISH _tool",
-              "es": "MAPAFISH_herramienta",
-              "et": "MAPAFISH _tool",
-              "cs": "MAPAFISH_nástroj",
-              "pl": "MAPAFISH_tool",
-              "ro": "MAPAFISH_tool",
-              "da": "MAPAFISH_tool",
-              "nl": "MAPAFISH_tool"
-            },
-            "id": "7d459835-951a-4083-94ce-67507d5e6599",
-            "title": {
-              "de": "MAPAFISH_tool",
-              "fi": "MAPAFISH _tool",
-              "pt": "MAPAFISH_tool",
-              "bg": "MAPAFISH_инструмент",
-              "lt": "MAPAFISH_tool",
-              "lv": "MAPAFISH_rīks",
-              "hr": "MAPAFISH_tool",
-              "fr": "MAPAFISH_tool",
-              "hu": "MAPAFISH_eszköz",
-              "uk": "MAPAFISH_tool",
-              "sk": "MAPAFISH_nástroj",
-              "sl": "MAPAFISH_orodje",
-              "ga": "MAPAFISH_tool",
-              "sv": "MAPAFISH_tool",
-              "mt": "MAPAFISH_tool",
-              "el": "MAPAFISH_εργαλείο",
-              "en": "MAPAFISH_tool",
-              "it": "MAPAFISH _tool",
-              "es": "MAPAFISH_herramienta",
-              "et": "MAPAFISH _tool",
-              "cs": "MAPAFISH_nástroj",
-              "pl": "MAPAFISH_tool",
-              "da": "MAPAFISH_tool",
-              "ro": "MAPAFISH_tool",
-              "nl": "MAPAFISH_tool"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 275
-        },
-        "publisher": {
-          "resource": "http://publications.europa.eu/resource/authority/corporate-body/CINEA",
-          "name": "European Climate, Infrastructure and Environment Executive Agency",
-          "type": "Organization",
-          "homepage": "https://commission.europa.eu/about/departments-and-executive-agencies/european-climate-infrastructure-and-environment-executive-agency"
-        },
-        "id": "mapafish-tool",
-        "adms_identifier": [
-          {
-            "identifier": "10.2906/426738080123188",
-            "scheme": "http://publications.europa.eu/resource/authority/notation-type/DOI",
-            "resource": "https://doi.org/10.2906/426738080123188"
-          }
-        ],
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/AGRI",
-            "id": "AGRI",
-            "label": {
-              "nn": "Jordbruk, fiskeri, skogbruk og mat",
-              "no": "Jordbruk, fiskeri, skogbruk og mat",
-              "de": "Landwirtschaft, Fischerei, Forstwirtschaft und Nahrungsmittel",
-              "fi": "Maatalous, kalastus, metsätalous ja elintarvikkeet",
-              "pt": "Agricultura, pesca, silvicultura e alimentação",
-              "bg": "Селско стопанство, рибарство, горско стопанство и храни",
-              "lt": "Žemės ūkis, žuvininkystė, miškininkystė ir maistas",
-              "hr": "Poljoprivreda, ribarstvo, šumarstvo i hrana",
-              "lv": "Lauksaimniecība, zivsaimniecība, mežsaimniecība un pārtika",
-              "fr": "Agriculture, pêche, sylviculture et alimentation",
-              "hu": "Mezőgazdaság, halászat, erdészet és élelmiszer",
-              "sk": "Poľnohospodárstvo, rybné hospodárstvo, lesníctvo a potravinárstvo",
-              "sl": "Kmetijstvo, ribištvo, gozdarstvo in prehrana",
-              "ga": "Talmhaíocht, iascach, foraoiseacht agus bia",
-              "sv": "Jordbruk, fiske, skogsbruk och livsmedel",
-              "mt": "Agrikoltura, sajd, forestrija u ikel",
-              "el": "Γεωργία, αλιεία, δασοκομία και τρόφιμα",
-              "en": "Agriculture, fisheries, forestry and food",
-              "it": "Agricoltura, pesca, silvicoltura e prodotti alimentari",
-              "es": "Agricultura, pesca, silvicultura y alimentación",
-              "et": "Põllumajandus, kalandus, metsandus ja toiduained",
-              "cs": "Zemědělství, rybolov, lesnictví a výživa",
-              "nb": "Jordbruk, fiskeri, skogbruk og mat",
-              "pl": "Rolnictwo, rybołówstwo, leśnictwo i żywność",
-              "ro": "Agricultură, pescuit, silvicultură şi hrană",
-              "da": "Landbrug, fiskeri, skovbrug og fødevarer",
-              "nl": "Landbouw, visserij, bosbouw en voeding"
-            }
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/ENVI",
-            "id": "ENVI",
-            "label": {
-              "nn": "Miljø",
-              "no": "Miljø",
-              "de": "Umwelt",
-              "fi": "Ympäristö",
-              "pt": "Ambiente",
-              "bg": "Околна среда",
-              "lt": "Aplinka",
-              "hr": "Okoliš",
-              "lv": "Vide",
-              "fr": "Environnement",
-              "hu": "Környezet",
-              "sk": "Životné prostredie",
-              "sl": "Okolje",
-              "ga": "Comhshaol",
-              "sv": "Miljö",
-              "mt": "Ambjent",
-              "el": "Περιβάλλον",
-              "en": "Environment",
-              "it": "Ambiente",
-              "es": "Medio ambiente",
-              "et": "Keskkond",
-              "cs": "Životní prostředí",
-              "nb": "Miljø",
-              "pl": "Środowisko",
-              "ro": "Mediu",
-              "da": "Miljø",
-              "nl": "Milieu"
-            }
-          }
-        ],
-        "issued": "2025-03-04T11:22:00",
-        "catalog_record": {
-          "modified": "2026-03-22T10:12:53Z",
-          "issued": "2025-03-07T13:48:25Z"
-        },
-        "contact_point": [
-          {
-            "name": "European Climate, Infrastructure and Environment Executive Agency",
-            "type": "Organization",
-            "url": [
-              "https://cinea.ec.europa.eu/contact-0_en"
-            ]
-          }
-        ]
-      },
-      {
-        "country": {
           "label": "Italy",
           "id": "it",
           "resource": "http://publications.europa.eu/resource/authority/country/ITA"
@@ -5216,6 +4670,463 @@
         "catalog_record": {
           "modified": "2026-03-19T23:29:03Z",
           "issued": "2023-02-01T09:30:36Z"
+        }
+      },
+      {
+        "identifier": [
+          "https://datos.parcan.es/dataset/diputado_asistencias_10047id_miembro"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            }
+          },
+          "full_available_languages": [
+            "ga",
+            "en",
+            "sk",
+            "el",
+            "uk",
+            "sv",
+            "hr",
+            "pl",
+            "bg",
+            "mt",
+            "es",
+            "nl",
+            "hu",
+            "fi",
+            "pt",
+            "cs",
+            "et",
+            "lt",
+            "it",
+            "sl",
+            "ro",
+            "de",
+            "fr",
+            "da",
+            "lv"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
+          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
+          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
+          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
+          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+        },
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://parcan.es/api/diputado/asistencias/10047?format=json"
+            ],
+            "id": "f94fe974-166a-485e-8fdf-bc9c278b30f5",
+            "title": {
+              "de": "X Legislaturperiode (JSON)",
+              "fi": "X Lainsäädäntö (JSON)",
+              "pt": "X legislatura (JSON)",
+              "bg": "X законодателен мандат (JSON)",
+              "lt": "X įstatymų leidėjas (JSON)",
+              "hr": "X zakonodavno tijelo (JSON)",
+              "lv": "X sasaukums (JSON)",
+              "fr": "X législature (JSON)",
+              "hu": "X jogalkotó (JSON)",
+              "uk": "X Законодавчий орган (JSON)",
+              "sk": "X volebné obdobie (JSON)",
+              "sl": "X zakonodajalec (JSON)",
+              "ga": "X reachtas (JSON)",
+              "sv": "X Lagstiftning (JSON)",
+              "mt": "Leġiżlatura x (JSON)",
+              "el": "X νομοθετικό σώμα (JSON)",
+              "en": "X legislature (JSON)",
+              "it": "X Legislativo (JSON)",
+              "es": "X legislatura (JSON)",
+              "et": "X Seadusandlik koosseis (JSON)",
+              "cs": "X volební období (JSON)",
+              "pl": "X Ustawodawstwo (JSON)",
+              "da": "X lovgivende forsamling (JSON)",
+              "ro": "X Legislație (JSON)",
+              "nl": "X Wetgeving (JSON)"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "https://parcan.es/api/diputado/asistencias/10047?format=csv"
+            ],
+            "id": "2f228fdb-f4cf-4ddd-b60f-edd8df431e79",
+            "title": {
+              "de": "X Legislaturperiode (CSV)",
+              "fi": "X Lainsäädäntö (CSV)",
+              "pt": "X legislatura (CSV)",
+              "bg": "X законодателен мандат (CSV)",
+              "lt": "X teisės aktų leidėjas (CSV)",
+              "hr": "X zakonodavno tijelo (CSV)",
+              "lv": "X likumdevējs (CSV)",
+              "fr": "X Législation (CSV)",
+              "hu": "X jogalkotó (CSV)",
+              "uk": "X Законодавчий орган (CSV)",
+              "sk": "X volebné obdobie (CSV)",
+              "sl": "X zakonodajalec (CSV)",
+              "ga": "X reachtas (CSV)",
+              "sv": "X Lagstiftning (CSV)",
+              "el": "X νομοθέτης (CSV)",
+              "mt": "Leġiżlatura x (CSV)",
+              "en": "X legislature (CSV)",
+              "it": "X Legislativo (CSV)",
+              "es": "X legislatura (CSV)",
+              "et": "X Seadusandlik koosseis (CSV)",
+              "cs": "X volební období (CSV)",
+              "pl": "X prawodawstwo (CSV)",
+              "da": "X lovgiver (CSV)",
+              "ro": "X legislatură (CSV)",
+              "nl": "X Wetgeving (CSV)"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 140
+        },
+        "publisher": {
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
+          "name": "Parlamento de Canarias",
+          "type": "Agent"
+        },
+        "modified": "2021-05-05T00:00:00+02:00",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
+            "label": {
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
+          }
+        ],
+        "issued": "2021-05-05T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-20T00:09:39Z",
+          "issued": "2023-02-01T09:07:51Z"
         }
       }
     ]
