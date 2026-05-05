@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 914,
+    "count": 953,
     "results": [
       {
         "country": {
@@ -2536,8 +2536,7 @@
           },
           "title": {
             "en": "EU Open Research Repository"
-          },
-          "count": 26275
+          }
         },
         "translation_meta": {
           "details": {
