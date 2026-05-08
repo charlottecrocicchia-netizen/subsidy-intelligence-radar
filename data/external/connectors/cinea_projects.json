@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 983,
+    "count": 984,
     "results": [
       {
         "country": {
@@ -1884,7 +1884,8 @@
               "label": "French",
               "resource": "http://publications.europa.eu/resource/authority/language/FRA"
             }
-          ]
+          ],
+          "count": 2569
         },
         "translation_meta": {
           "details": {
@@ -2536,8 +2537,7 @@
           },
           "title": {
             "en": "EU Open Research Repository"
-          },
-          "count": 26393
+          }
         },
         "translation_meta": {
           "details": {
@@ -2632,6 +2632,645 @@
           "modified": "2026-02-20T14:49:25Z",
           "issued": "2025-07-03T08:10:22Z"
         }
+      },
+      {
+        "country": {
+          "label": "Italy",
+          "id": "it",
+          "resource": "http://publications.europa.eu/resource/authority/country/ITA"
+        },
+        "keywords": [
+          {
+            "id": "istruzione-cultura-e-sport",
+            "label": "istruzione--cultura-e-sport",
+            "language": "it"
+          },
+          {
+            "id": "comune-di-prato",
+            "label": "comune-di-prato",
+            "language": "it"
+          },
+          {
+            "id": "svago",
+            "label": "svago",
+            "language": "it"
+          }
+        ],
+        "catalog": {
+          "id": "dati-gov-it",
+          "country": {
+            "label": "Italy",
+            "id": "it",
+            "resource": "http://publications.europa.eu/resource/authority/country/ITA"
+          },
+          "spatial_resource": [
+            {
+              "label": "Italy",
+              "id": "it",
+              "resource": "http://publications.europa.eu/resource/authority/country/ITA"
+            }
+          ],
+          "spatial": [],
+          "language": [
+            {
+              "id": "it",
+              "label": "Italian",
+              "resource": "http://publications.europa.eu/resource/authority/language/ITA"
+            }
+          ],
+          "description": {
+            "en": "Open Data Portal Italy"
+          },
+          "title": {
+            "it": "dati.gov.it"
+          },
+          "modified": "2025-01-22T07:50:06Z",
+          "issued": "2025-01-22T07:50:06Z",
+          "homepage": "https://www.dati.gov.it",
+          "publisher": {
+            "type": "Agent",
+            "homepage": "https://www.agid.gov.it",
+            "email": "mailto:info@dati.gov.it",
+            "name": "Agenzia per l'Italia Digitale"
+          },
+          "source_type": "dcat-ap"
+        },
+        "translation_meta": {
+          "details": {
+            "uk": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "es": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "de": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "it": {
+              "machine_translated": false,
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:35:07Z",
+              "issued": "2026-02-03T01:52:34Z"
+            }
+          },
+          "full_available_languages": [
+            "uk",
+            "cs",
+            "fi",
+            "lt",
+            "es",
+            "mt",
+            "pl",
+            "en",
+            "sl",
+            "sv",
+            "de",
+            "hr",
+            "pt",
+            "ga",
+            "bg",
+            "lv",
+            "it",
+            "el",
+            "et",
+            "da",
+            "hu",
+            "ro",
+            "nl",
+            "sk",
+            "fr"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "pl": "Kategoria: Kina w prowincji Prato",
+          "bg": "Киносалони в Прато и провинцията",
+          "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
+          "da": "Kategori: Biografer i Prato",
+          "ga": "Seomra príobháideach in Prato and province",
+          "fi": "Luokka: Praton maakunnan elokuvateatterit",
+          "et": "Kinod Pratos ja provintsis",
+          "mt": "Ċinemi fi Prato u l-provinċja",
+          "nl": "Bioscopen in Prato en provincie",
+          "es": "Cines en Prato y provincia",
+          "hu": "Kategória: Prato megye filmjei",
+          "de": "Kinos in Prato und Provinz",
+          "it": "Sale cinematografiche in Prato e provincia",
+          "cs": "Kina v provincii Prato",
+          "sk": "Kinosály v štvrti Prato a v provincii",
+          "uk": "Кінотеатри в Прато і провінції",
+          "sl": "Kinematografi v mestu Prato in provinci",
+          "sv": "Biografer i Prato och provinsen",
+          "fr": "Cinémas dans Prato et la province",
+          "lt": "Prato ir provincijos kino teatrai",
+          "en": "Cinemas in Prato and province",
+          "pt": "Categoria: Cinemas de Prato",
+          "lv": "Kinoteātri Prato un provincē",
+          "hr": "Kino u Pratu i pokrajini",
+          "ro": "Cinematografe în Prato și provincie"
+        },
+        "language": [
+          {
+            "id": "it",
+            "label": "Italian",
+            "resource": "http://publications.europa.eu/resource/authority/language/ITA"
+          }
+        ],
+        "title": {
+          "uk": "Кінотеатр «",
+          "cs": "Kino",
+          "fi": "Elokuvateatteri",
+          "lt": "Kino teatras",
+          "es": "Cine",
+          "mt": "Ċinema",
+          "pl": "Kino",
+          "en": "Cinema",
+          "sl": "Kino",
+          "sv": "Biograf",
+          "de": "Kino",
+          "hr": "Kino",
+          "pt": "Cinema",
+          "ga": "Pictiúrlann",
+          "bg": "Кино",
+          "lv": "kinoteātris",
+          "it": "Cinema",
+          "el": "Κινηματογράφος",
+          "et": "Kino",
+          "da": "Biograf",
+          "hu": "Mozi",
+          "ro": "Cinematograful",
+          "nl": "Bioscoop",
+          "sk": "kino",
+          "fr": "Cinéma"
+        },
+        "accrual_periodicity": {
+          "label": "irregular",
+          "resource": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+        },
+        "access_right": {
+          "label": "public",
+          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+        },
+        "spatial_resource": [
+          {}
+        ],
+        "modified": "2020-10-22T00:00:00",
+        "id": "stradario_indirizzario_cinema",
+        "categories": [
+          {
+            "id": "EDUC",
+            "label": {
+              "da": "Uddannelse, kultur og sport",
+              "cs": "Vzdělávání, kultura a sport",
+              "fi": "Koulutus, kulttuuri ja urheilu",
+              "no": "Utdanning, kultur og sport",
+              "de": "Bildung, Kultur und Sport",
+              "fr": "Éducation, culture et sport",
+              "et": "Haridus, kultuur ja sport",
+              "nn": "Utdanning, kultur og sport",
+              "en": "Education, culture and sport",
+              "hu": "Oktatás, kultúra és sport",
+              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
+              "ga": "Oideachas, cultúr agus spórt",
+              "lv": "Izglītība, kultūra un sports",
+              "hr": "Obrazovanje, kultura i sport",
+              "pt": "Educação, cultura e desporto",
+              "es": "Educación, cultura y deportes",
+              "bg": "Образование, култура и спорт",
+              "lt": "Švietimas, kultūra ir sportas",
+              "sv": "Utbildning, kultur och sport",
+              "ro": "Educaţie, cultură şi sport",
+              "mt": "Edukazzjoni, kultura u sport",
+              "sk": "Vzdelávanie, kultúra a šport",
+              "nl": "Onderwijs, cultuur en sport",
+              "sl": "Izobraževanje, kultura in šport",
+              "pl": "Edukacja, kultura i sport",
+              "nb": "Utdanning, kultur og sport",
+              "it": "Istruzione, cultura e sport"
+            },
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC"
+          }
+        ],
+        "spatial": [],
+        "issued": "2020-09-30T00:00:00",
+        "temporal": [
+          {
+            "gte": "2020-10-22T00:00:00Z"
+          }
+        ],
+        "identifier": [
+          "stradario_indirizzario_cinema"
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/stradario_indirizzario_cinema",
+        "landing_page": [
+          {
+            "resource": "https://dati.toscana.it/dataset/cinema##"
+          }
+        ],
+        "index": "dataset",
+        "distributions": [
+          {
+            "id": "d7394ff3-766f-415e-beae-0f5bcb1de25e",
+            "title": {
+              "bg": "Кино (csv)",
+              "pl": "Kino (csv)",
+              "lt": "Kinas (csv)",
+              "sk": "Kino (csv)",
+              "it": "Cinema (csv)",
+              "pt": "Cinema (csv)",
+              "hu": "Mozi (csv)",
+              "el": "Κινηματογράφος (csv)",
+              "ro": "Cinematograful (csv)",
+              "fr": "Cinéma (csv)",
+              "nl": "Bioscoop (csv)",
+              "uk": "Кінотеатр (csv)",
+              "hr": "Kino (csv)",
+              "lv": "Kino (csv)",
+              "cs": "Kino (csv)",
+              "de": "Kino (csv)",
+              "ga": "Pictiúrlann (csv)",
+              "sv": "Film och TV (csv)",
+              "fi": "Elokuva (csv)",
+              "mt": "Ċinema (csv)",
+              "da": "Biograf (csv)",
+              "en": "Cinema (csv)",
+              "et": "Kino (csv)",
+              "es": "Cine (csv)",
+              "sl": "Kino (csv)"
+            },
+            "description": {
+              "mt": "Ċinemi fi Prato u l-provinċja",
+              "it": "Sale cinematografiche in Prato e provincia",
+              "lv": "Kinoteātri Prato un provincē",
+              "ro": "Cinematografe în Prato și provincie",
+              "hr": "Kino u Pratu i pokrajini",
+              "et": "Kinod Pratos ja provintsis",
+              "pl": "Kategoria: Kina w prowincji Prato",
+              "da": "Kategori: Biografer i Prato",
+              "lt": "Prato ir provincijos kino teatrai",
+              "en": "Cinemas in Prato and province",
+              "sv": "Biografer i Prato och provinsen",
+              "hu": "Kategória: Prato megye filmjei",
+              "de": "Kinos in Prato und Provinz",
+              "pt": "Categoria: Cinemas de Prato",
+              "fr": "Cinémas dans Prato et la province",
+              "nl": "Bioscopen in Prato en provincie",
+              "ga": "Seomra príobháideach in Prato and province",
+              "sk": "Kinosály v štvrti Prato a v provincii",
+              "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
+              "uk": "Кінотеатри в Прато і провінції",
+              "cs": "Kina v provincii Prato",
+              "es": "Cines en Prato y provincia",
+              "sl": "Kinematografi v mestu Prato in provinci",
+              "fi": "Luokka: Praton maakunnan elokuvateatterit",
+              "bg": "Киносалони в Прато и провинцията"
+            },
+            "issued": "2020-09-30T12:45:52.394811",
+            "rights": {
+              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+            },
+            "format": {
+              "id": "CSV",
+              "label": "CSV",
+              "resource": "http://publications.europa.eu/resource/authority/file-type/CSV"
+            },
+            "media_type": "text/csv",
+            "download_url": [
+              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/7417d8bc-65e8-47fd-9296-063f54fc0718/download/cinema.csv"
+            ],
+            "license": {
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International",
+              "description": "Creative Commons Attribution 4.0 International",
+              "resource": "http://spdx.org/licenses/CC-BY-4.0"
+            },
+            "access_url": [
+              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/7417d8bc-65e8-47fd-9296-063f54fc0718/download/cinema.csv"
+            ],
+            "modified": "2023-09-05T13:00:42.629588",
+            "byte_size": 1024
+          },
+          {
+            "id": "2ca35041-23c1-4556-9b96-4734089e4ec2",
+            "description": {
+              "bg": "Киносалони в Прато и провинцията",
+              "mt": "Ċinemi fi Prato u l-provinċja",
+              "sv": "Biografer i Prato och provinsen",
+              "cs": "Kina v provincii Prato",
+              "ro": "Cinematografe în Prato și provincie",
+              "pt": "Categoria: Cinemas de Prato",
+              "uk": "Кінотеатри в Прато і провінції",
+              "fi": "Luokka: Praton maakunnan elokuvateatterit",
+              "lv": "Kinoteātri Prato un provincē",
+              "sl": "Kinematografi v mestu Prato in provinci",
+              "hu": "Kategória: Prato megye filmjei",
+              "de": "Kinos in Prato und Provinz",
+              "et": "Kinod Pratos ja provintsis",
+              "pl": "Kategoria: Kina w prowincji Prato",
+              "en": "Cinemas in Prato and province",
+              "it": "Sale cinematografiche in Prato e provincia",
+              "nl": "Bioscopen in Prato en provincie",
+              "es": "Cines en Prato y provincia",
+              "hr": "Kino u Pratu i pokrajini",
+              "sk": "Kinosály v štvrti Prato a v provincii",
+              "fr": "Cinémas dans Prato et la province",
+              "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
+              "ga": "Seomra príobháideach in Prato and province",
+              "lt": "Prato ir provincijos kino teatrai",
+              "da": "Kategori: Biografer i Prato"
+            },
+            "title": {
+              "hr": "Kino (shp.zip)",
+              "mt": "Ċinema (shp.zip)",
+              "hu": "Mozi (shp.zip)",
+              "sv": "Film (shp.zip)",
+              "lv": "Kino (shp.zip)",
+              "et": "Kino (shp.zip)",
+              "el": "Κινηματογράφος (shp.zip)",
+              "sl": "Kino (shp.zip)",
+              "nl": "Bioscoop (shp.zip)",
+              "sk": "Kino (shp.zip)",
+              "ga": "Pictiúrlann (shp.zip)",
+              "fr": "Cinéma (shp.zip)",
+              "lt": "Kinas (shp.zip)",
+              "ro": "Cinematograful (shp.zip)",
+              "es": "Cine (shp.zip)",
+              "it": "Cinema (shp.zip)",
+              "da": "Biograf (shp.zip)",
+              "pt": "Cinema (shp.zip)",
+              "bg": "Кино (shp.zip)",
+              "en": "Cinema (shp.zip)",
+              "pl": "Kino (shp.zip)",
+              "uk": "Кінотеатр (shp.zip)",
+              "de": "Kino (shp.zip)",
+              "cs": "Kino (shp.zip)",
+              "fi": "Elokuvateatteri (shp.zip)"
+            },
+            "byte_size": 3000,
+            "access_url": [
+              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/05ea74cf-e01d-4073-89c2-3bc61c71eb53/download/cinema.zip"
+            ],
+            "download_url": [
+              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/05ea74cf-e01d-4073-89c2-3bc61c71eb53/download/cinema.zip"
+            ],
+            "rights": {
+              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+            },
+            "media_type": "application/zip",
+            "modified": "2023-09-05T13:00:42.631466",
+            "license": {
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International",
+              "description": "Creative Commons Attribution 4.0 International",
+              "resource": "http://spdx.org/licenses/CC-BY-4.0"
+            },
+            "format": {
+              "id": "SHP",
+              "label": "Esri Shape",
+              "resource": "http://publications.europa.eu/resource/authority/file-type/SHP"
+            },
+            "issued": "2020-10-22T09:12:40.539527"
+          },
+          {
+            "id": "f008d4a4-c11d-48a5-8442-0209f4ae060d",
+            "title": {
+              "de": "Kino (kml)",
+              "da": "Biograf (kml)",
+              "it": "Cinema (kml)",
+              "hr": "Kino (kml)",
+              "en": "Cinema (kml)",
+              "sl": "Kino (kml)",
+              "lv": "Kino (kml)",
+              "hu": "Mozi (kml)",
+              "nl": "Bioscoop (kml)",
+              "et": "Kino (kml)",
+              "lt": "Kinas (kml)",
+              "sk": "Kino (kml)",
+              "el": "Κινηματογράφος (kml)",
+              "ro": "Cinematografie (kml)",
+              "bg": "Кино (кмл)",
+              "mt": "Ċinema (kml)",
+              "sv": "Biograf (kml)",
+              "cs": "Kino (kml)",
+              "ga": "Pictiúrlann (kml)",
+              "pl": "Kino (kml)",
+              "es": "Cine (kml)",
+              "fr": "Cinéma (kml)",
+              "pt": "Cinema (kml)",
+              "fi": "Elokuvateatteri (kml)",
+              "uk": "Кінотеатр (кмл)"
+            },
+            "description": {
+              "sl": "Kinematografi v mestu Prato in provinci",
+              "da": "Kategori: Biografer i Prato",
+              "pl": "Kategoria: Kina w prowincji Prato",
+              "sk": "Kinosály v štvrti Prato a v provincii",
+              "ro": "Cinematografe în Prato și provincie",
+              "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
+              "bg": "Киносалони в Прато и провинцията",
+              "lv": "Kinoteātri Prato un provincē",
+              "nl": "Bioscopen in Prato en provincie",
+              "de": "Kinos in Prato und Provinz",
+              "mt": "Ċinemi fi Prato u l-provinċja",
+              "fr": "Cinémas dans Prato et la province",
+              "hr": "Kino u Pratu i pokrajini",
+              "cs": "Kina v provincii Prato",
+              "sv": "Biografer i Prato och provinsen",
+              "es": "Cines en Prato y provincia",
+              "ga": "Seomra príobháideach in Prato and province",
+              "uk": "Кінотеатри в Прато і провінції",
+              "et": "Kinod Pratos ja provintsis",
+              "hu": "Kategória: Prato megye filmjei",
+              "it": "Sale cinematografiche in Prato e provincia",
+              "lt": "Prato ir provincijos kino teatrai",
+              "en": "Cinemas in Prato and province",
+              "pt": "Categoria: Cinemas de Prato",
+              "fi": "Luokka: Praton maakunnan elokuvateatterit"
+            },
+            "license": {
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International",
+              "description": "Creative Commons Attribution 4.0 International",
+              "resource": "http://spdx.org/licenses/CC-BY-4.0"
+            },
+            "media_type": "application/vnd.google-earth.kml+xml",
+            "download_url": [
+              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/1f9b417f-4552-4850-a033-ac01f2ce79cd/download/cinema.kml"
+            ],
+            "issued": "2020-09-30T12:45:05.946214",
+            "modified": "2023-09-05T13:00:42.628487",
+            "byte_size": 4000,
+            "rights": {
+              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+            },
+            "access_url": [
+              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/1f9b417f-4552-4850-a033-ac01f2ce79cd/download/cinema.kml"
+            ],
+            "format": {
+              "id": "KML",
+              "label": "KML",
+              "resource": "http://publications.europa.eu/resource/authority/file-type/KML"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 405
+        },
+        "conforms_to": [],
+        "publisher": {
+          "type": "Agent",
+          "name": "Comune di Prato"
+        },
+        "catalog_record": {
+          "modified": "2026-05-03T21:35:07Z",
+          "issued": "2025-06-08T01:54:20Z"
+        },
+        "contact_point": [
+          {
+            "type": "Organization",
+            "name": "regione-toscana",
+            "email": "mailto:regionetoscana@postacert.toscana.it",
+            "url": [
+              "https://dati.toscana.it"
+            ],
+            "resource": "https://www.dati.gov.it/organization/9bcd4050-eecd-400b-8196-cd4db7b38c58"
+          }
+        ]
       },
       {
         "identifier": [
@@ -3340,645 +3979,6 @@
       },
       {
         "country": {
-          "label": "Italy",
-          "id": "it",
-          "resource": "http://publications.europa.eu/resource/authority/country/ITA"
-        },
-        "keywords": [
-          {
-            "id": "istruzione-cultura-e-sport",
-            "label": "istruzione--cultura-e-sport",
-            "language": "it"
-          },
-          {
-            "id": "comune-di-prato",
-            "label": "comune-di-prato",
-            "language": "it"
-          },
-          {
-            "id": "svago",
-            "label": "svago",
-            "language": "it"
-          }
-        ],
-        "catalog": {
-          "id": "dati-gov-it",
-          "country": {
-            "label": "Italy",
-            "id": "it",
-            "resource": "http://publications.europa.eu/resource/authority/country/ITA"
-          },
-          "spatial_resource": [
-            {
-              "label": "Italy",
-              "id": "it",
-              "resource": "http://publications.europa.eu/resource/authority/country/ITA"
-            }
-          ],
-          "spatial": [],
-          "language": [
-            {
-              "id": "it",
-              "label": "Italian",
-              "resource": "http://publications.europa.eu/resource/authority/language/ITA"
-            }
-          ],
-          "description": {
-            "en": "Open Data Portal Italy"
-          },
-          "title": {
-            "it": "dati.gov.it"
-          },
-          "modified": "2025-01-22T07:50:06Z",
-          "issued": "2025-01-22T07:50:06Z",
-          "homepage": "https://www.dati.gov.it",
-          "publisher": {
-            "type": "Agent",
-            "homepage": "https://www.agid.gov.it",
-            "email": "mailto:info@dati.gov.it",
-            "name": "Agenzia per l'Italia Digitale"
-          },
-          "source_type": "dcat-ap"
-        },
-        "translation_meta": {
-          "details": {
-            "uk": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "es": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "de": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "it": {
-              "machine_translated": false,
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:35:07Z",
-              "issued": "2026-02-03T01:52:34Z"
-            }
-          },
-          "full_available_languages": [
-            "uk",
-            "cs",
-            "fi",
-            "lt",
-            "es",
-            "mt",
-            "pl",
-            "en",
-            "sl",
-            "sv",
-            "de",
-            "hr",
-            "pt",
-            "ga",
-            "bg",
-            "lv",
-            "it",
-            "el",
-            "et",
-            "da",
-            "hu",
-            "ro",
-            "nl",
-            "sk",
-            "fr"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "pl": "Kategoria: Kina w prowincji Prato",
-          "bg": "Киносалони в Прато и провинцията",
-          "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
-          "da": "Kategori: Biografer i Prato",
-          "ga": "Seomra príobháideach in Prato and province",
-          "fi": "Luokka: Praton maakunnan elokuvateatterit",
-          "et": "Kinod Pratos ja provintsis",
-          "mt": "Ċinemi fi Prato u l-provinċja",
-          "nl": "Bioscopen in Prato en provincie",
-          "es": "Cines en Prato y provincia",
-          "hu": "Kategória: Prato megye filmjei",
-          "de": "Kinos in Prato und Provinz",
-          "it": "Sale cinematografiche in Prato e provincia",
-          "cs": "Kina v provincii Prato",
-          "sk": "Kinosály v štvrti Prato a v provincii",
-          "uk": "Кінотеатри в Прато і провінції",
-          "sl": "Kinematografi v mestu Prato in provinci",
-          "sv": "Biografer i Prato och provinsen",
-          "fr": "Cinémas dans Prato et la province",
-          "lt": "Prato ir provincijos kino teatrai",
-          "en": "Cinemas in Prato and province",
-          "pt": "Categoria: Cinemas de Prato",
-          "lv": "Kinoteātri Prato un provincē",
-          "hr": "Kino u Pratu i pokrajini",
-          "ro": "Cinematografe în Prato și provincie"
-        },
-        "language": [
-          {
-            "id": "it",
-            "label": "Italian",
-            "resource": "http://publications.europa.eu/resource/authority/language/ITA"
-          }
-        ],
-        "title": {
-          "uk": "Кінотеатр «",
-          "cs": "Kino",
-          "fi": "Elokuvateatteri",
-          "lt": "Kino teatras",
-          "es": "Cine",
-          "mt": "Ċinema",
-          "pl": "Kino",
-          "en": "Cinema",
-          "sl": "Kino",
-          "sv": "Biograf",
-          "de": "Kino",
-          "hr": "Kino",
-          "pt": "Cinema",
-          "ga": "Pictiúrlann",
-          "bg": "Кино",
-          "lv": "kinoteātris",
-          "it": "Cinema",
-          "el": "Κινηματογράφος",
-          "et": "Kino",
-          "da": "Biograf",
-          "hu": "Mozi",
-          "ro": "Cinematograful",
-          "nl": "Bioscoop",
-          "sk": "kino",
-          "fr": "Cinéma"
-        },
-        "accrual_periodicity": {
-          "label": "irregular",
-          "resource": "http://publications.europa.eu/resource/authority/frequency/IRREG"
-        },
-        "access_right": {
-          "label": "public",
-          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-        },
-        "spatial_resource": [
-          {}
-        ],
-        "modified": "2020-10-22T00:00:00",
-        "id": "stradario_indirizzario_cinema",
-        "categories": [
-          {
-            "id": "EDUC",
-            "label": {
-              "da": "Uddannelse, kultur og sport",
-              "cs": "Vzdělávání, kultura a sport",
-              "fi": "Koulutus, kulttuuri ja urheilu",
-              "no": "Utdanning, kultur og sport",
-              "de": "Bildung, Kultur und Sport",
-              "fr": "Éducation, culture et sport",
-              "et": "Haridus, kultuur ja sport",
-              "nn": "Utdanning, kultur og sport",
-              "en": "Education, culture and sport",
-              "hu": "Oktatás, kultúra és sport",
-              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
-              "ga": "Oideachas, cultúr agus spórt",
-              "lv": "Izglītība, kultūra un sports",
-              "hr": "Obrazovanje, kultura i sport",
-              "pt": "Educação, cultura e desporto",
-              "es": "Educación, cultura y deportes",
-              "bg": "Образование, култура и спорт",
-              "lt": "Švietimas, kultūra ir sportas",
-              "sv": "Utbildning, kultur och sport",
-              "ro": "Educaţie, cultură şi sport",
-              "mt": "Edukazzjoni, kultura u sport",
-              "sk": "Vzdelávanie, kultúra a šport",
-              "nl": "Onderwijs, cultuur en sport",
-              "sl": "Izobraževanje, kultura in šport",
-              "pl": "Edukacja, kultura i sport",
-              "nb": "Utdanning, kultur og sport",
-              "it": "Istruzione, cultura e sport"
-            },
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC"
-          }
-        ],
-        "spatial": [],
-        "issued": "2020-09-30T00:00:00",
-        "temporal": [
-          {
-            "gte": "2020-10-22T00:00:00Z"
-          }
-        ],
-        "identifier": [
-          "stradario_indirizzario_cinema"
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/stradario_indirizzario_cinema",
-        "landing_page": [
-          {
-            "resource": "https://dati.toscana.it/dataset/cinema##"
-          }
-        ],
-        "index": "dataset",
-        "distributions": [
-          {
-            "id": "d7394ff3-766f-415e-beae-0f5bcb1de25e",
-            "title": {
-              "bg": "Кино (csv)",
-              "pl": "Kino (csv)",
-              "lt": "Kinas (csv)",
-              "sk": "Kino (csv)",
-              "it": "Cinema (csv)",
-              "pt": "Cinema (csv)",
-              "hu": "Mozi (csv)",
-              "el": "Κινηματογράφος (csv)",
-              "ro": "Cinematograful (csv)",
-              "fr": "Cinéma (csv)",
-              "nl": "Bioscoop (csv)",
-              "uk": "Кінотеатр (csv)",
-              "hr": "Kino (csv)",
-              "lv": "Kino (csv)",
-              "cs": "Kino (csv)",
-              "de": "Kino (csv)",
-              "ga": "Pictiúrlann (csv)",
-              "sv": "Film och TV (csv)",
-              "fi": "Elokuva (csv)",
-              "mt": "Ċinema (csv)",
-              "da": "Biograf (csv)",
-              "en": "Cinema (csv)",
-              "et": "Kino (csv)",
-              "es": "Cine (csv)",
-              "sl": "Kino (csv)"
-            },
-            "description": {
-              "mt": "Ċinemi fi Prato u l-provinċja",
-              "it": "Sale cinematografiche in Prato e provincia",
-              "lv": "Kinoteātri Prato un provincē",
-              "ro": "Cinematografe în Prato și provincie",
-              "hr": "Kino u Pratu i pokrajini",
-              "et": "Kinod Pratos ja provintsis",
-              "pl": "Kategoria: Kina w prowincji Prato",
-              "da": "Kategori: Biografer i Prato",
-              "lt": "Prato ir provincijos kino teatrai",
-              "en": "Cinemas in Prato and province",
-              "sv": "Biografer i Prato och provinsen",
-              "hu": "Kategória: Prato megye filmjei",
-              "de": "Kinos in Prato und Provinz",
-              "pt": "Categoria: Cinemas de Prato",
-              "fr": "Cinémas dans Prato et la province",
-              "nl": "Bioscopen in Prato en provincie",
-              "ga": "Seomra príobháideach in Prato and province",
-              "sk": "Kinosály v štvrti Prato a v provincii",
-              "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
-              "uk": "Кінотеатри в Прато і провінції",
-              "cs": "Kina v provincii Prato",
-              "es": "Cines en Prato y provincia",
-              "sl": "Kinematografi v mestu Prato in provinci",
-              "fi": "Luokka: Praton maakunnan elokuvateatterit",
-              "bg": "Киносалони в Прато и провинцията"
-            },
-            "issued": "2020-09-30T12:45:52.394811",
-            "rights": {
-              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-            },
-            "format": {
-              "id": "CSV",
-              "label": "CSV",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/CSV"
-            },
-            "media_type": "text/csv",
-            "download_url": [
-              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/7417d8bc-65e8-47fd-9296-063f54fc0718/download/cinema.csv"
-            ],
-            "license": {
-              "id": "CC_BY_4_0",
-              "label": "Creative Commons Attribution 4.0 International",
-              "description": "Creative Commons Attribution 4.0 International",
-              "resource": "http://spdx.org/licenses/CC-BY-4.0"
-            },
-            "access_url": [
-              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/7417d8bc-65e8-47fd-9296-063f54fc0718/download/cinema.csv"
-            ],
-            "modified": "2023-09-05T13:00:42.629588",
-            "byte_size": 1024
-          },
-          {
-            "id": "2ca35041-23c1-4556-9b96-4734089e4ec2",
-            "description": {
-              "bg": "Киносалони в Прато и провинцията",
-              "mt": "Ċinemi fi Prato u l-provinċja",
-              "sv": "Biografer i Prato och provinsen",
-              "cs": "Kina v provincii Prato",
-              "ro": "Cinematografe în Prato și provincie",
-              "pt": "Categoria: Cinemas de Prato",
-              "uk": "Кінотеатри в Прато і провінції",
-              "fi": "Luokka: Praton maakunnan elokuvateatterit",
-              "lv": "Kinoteātri Prato un provincē",
-              "sl": "Kinematografi v mestu Prato in provinci",
-              "hu": "Kategória: Prato megye filmjei",
-              "de": "Kinos in Prato und Provinz",
-              "et": "Kinod Pratos ja provintsis",
-              "pl": "Kategoria: Kina w prowincji Prato",
-              "en": "Cinemas in Prato and province",
-              "it": "Sale cinematografiche in Prato e provincia",
-              "nl": "Bioscopen in Prato en provincie",
-              "es": "Cines en Prato y provincia",
-              "hr": "Kino u Pratu i pokrajini",
-              "sk": "Kinosály v štvrti Prato a v provincii",
-              "fr": "Cinémas dans Prato et la province",
-              "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
-              "ga": "Seomra príobháideach in Prato and province",
-              "lt": "Prato ir provincijos kino teatrai",
-              "da": "Kategori: Biografer i Prato"
-            },
-            "title": {
-              "hr": "Kino (shp.zip)",
-              "mt": "Ċinema (shp.zip)",
-              "hu": "Mozi (shp.zip)",
-              "sv": "Film (shp.zip)",
-              "lv": "Kino (shp.zip)",
-              "et": "Kino (shp.zip)",
-              "el": "Κινηματογράφος (shp.zip)",
-              "sl": "Kino (shp.zip)",
-              "nl": "Bioscoop (shp.zip)",
-              "sk": "Kino (shp.zip)",
-              "ga": "Pictiúrlann (shp.zip)",
-              "fr": "Cinéma (shp.zip)",
-              "lt": "Kinas (shp.zip)",
-              "ro": "Cinematograful (shp.zip)",
-              "es": "Cine (shp.zip)",
-              "it": "Cinema (shp.zip)",
-              "da": "Biograf (shp.zip)",
-              "pt": "Cinema (shp.zip)",
-              "bg": "Кино (shp.zip)",
-              "en": "Cinema (shp.zip)",
-              "pl": "Kino (shp.zip)",
-              "uk": "Кінотеатр (shp.zip)",
-              "de": "Kino (shp.zip)",
-              "cs": "Kino (shp.zip)",
-              "fi": "Elokuvateatteri (shp.zip)"
-            },
-            "byte_size": 3000,
-            "access_url": [
-              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/05ea74cf-e01d-4073-89c2-3bc61c71eb53/download/cinema.zip"
-            ],
-            "download_url": [
-              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/05ea74cf-e01d-4073-89c2-3bc61c71eb53/download/cinema.zip"
-            ],
-            "rights": {
-              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-            },
-            "media_type": "application/zip",
-            "modified": "2023-09-05T13:00:42.631466",
-            "license": {
-              "id": "CC_BY_4_0",
-              "label": "Creative Commons Attribution 4.0 International",
-              "description": "Creative Commons Attribution 4.0 International",
-              "resource": "http://spdx.org/licenses/CC-BY-4.0"
-            },
-            "format": {
-              "id": "SHP",
-              "label": "Esri Shape",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/SHP"
-            },
-            "issued": "2020-10-22T09:12:40.539527"
-          },
-          {
-            "id": "f008d4a4-c11d-48a5-8442-0209f4ae060d",
-            "title": {
-              "de": "Kino (kml)",
-              "da": "Biograf (kml)",
-              "it": "Cinema (kml)",
-              "hr": "Kino (kml)",
-              "en": "Cinema (kml)",
-              "sl": "Kino (kml)",
-              "lv": "Kino (kml)",
-              "hu": "Mozi (kml)",
-              "nl": "Bioscoop (kml)",
-              "et": "Kino (kml)",
-              "lt": "Kinas (kml)",
-              "sk": "Kino (kml)",
-              "el": "Κινηματογράφος (kml)",
-              "ro": "Cinematografie (kml)",
-              "bg": "Кино (кмл)",
-              "mt": "Ċinema (kml)",
-              "sv": "Biograf (kml)",
-              "cs": "Kino (kml)",
-              "ga": "Pictiúrlann (kml)",
-              "pl": "Kino (kml)",
-              "es": "Cine (kml)",
-              "fr": "Cinéma (kml)",
-              "pt": "Cinema (kml)",
-              "fi": "Elokuvateatteri (kml)",
-              "uk": "Кінотеатр (кмл)"
-            },
-            "description": {
-              "sl": "Kinematografi v mestu Prato in provinci",
-              "da": "Kategori: Biografer i Prato",
-              "pl": "Kategoria: Kina w prowincji Prato",
-              "sk": "Kinosály v štvrti Prato a v provincii",
-              "ro": "Cinematografe în Prato și provincie",
-              "el": "Κατηγορία: Κινηματογράφοι στο Πράτο",
-              "bg": "Киносалони в Прато и провинцията",
-              "lv": "Kinoteātri Prato un provincē",
-              "nl": "Bioscopen in Prato en provincie",
-              "de": "Kinos in Prato und Provinz",
-              "mt": "Ċinemi fi Prato u l-provinċja",
-              "fr": "Cinémas dans Prato et la province",
-              "hr": "Kino u Pratu i pokrajini",
-              "cs": "Kina v provincii Prato",
-              "sv": "Biografer i Prato och provinsen",
-              "es": "Cines en Prato y provincia",
-              "ga": "Seomra príobháideach in Prato and province",
-              "uk": "Кінотеатри в Прато і провінції",
-              "et": "Kinod Pratos ja provintsis",
-              "hu": "Kategória: Prato megye filmjei",
-              "it": "Sale cinematografiche in Prato e provincia",
-              "lt": "Prato ir provincijos kino teatrai",
-              "en": "Cinemas in Prato and province",
-              "pt": "Categoria: Cinemas de Prato",
-              "fi": "Luokka: Praton maakunnan elokuvateatterit"
-            },
-            "license": {
-              "id": "CC_BY_4_0",
-              "label": "Creative Commons Attribution 4.0 International",
-              "description": "Creative Commons Attribution 4.0 International",
-              "resource": "http://spdx.org/licenses/CC-BY-4.0"
-            },
-            "media_type": "application/vnd.google-earth.kml+xml",
-            "download_url": [
-              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/1f9b417f-4552-4850-a033-ac01f2ce79cd/download/cinema.kml"
-            ],
-            "issued": "2020-09-30T12:45:05.946214",
-            "modified": "2023-09-05T13:00:42.628487",
-            "byte_size": 4000,
-            "rights": {
-              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-            },
-            "access_url": [
-              "http://odn.comune.prato.it/dataset/9033604a-e8b5-4a47-8d57-d0bf42779be3/resource/1f9b417f-4552-4850-a033-ac01f2ce79cd/download/cinema.kml"
-            ],
-            "format": {
-              "id": "KML",
-              "label": "KML",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/KML"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 405
-        },
-        "conforms_to": [],
-        "publisher": {
-          "type": "Agent",
-          "name": "Comune di Prato"
-        },
-        "catalog_record": {
-          "modified": "2026-05-03T21:35:07Z",
-          "issued": "2025-06-08T01:54:20Z"
-        },
-        "contact_point": [
-          {
-            "type": "Organization",
-            "name": "regione-toscana",
-            "email": "mailto:regionetoscana@postacert.toscana.it",
-            "url": [
-              "https://dati.toscana.it"
-            ],
-            "resource": "https://www.dati.gov.it/organization/9bcd4050-eecd-400b-8196-cd4db7b38c58"
-          }
-        ]
-      },
-      {
-        "country": {
           "resource": "http://publications.europa.eu/resource/authority/continent/EUROPE",
           "label": "EU institutions",
           "id": "eu"
@@ -4525,14 +4525,14 @@
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_asistencias_10047id_miembro"
+          "https://datos.parcan.es/dataset/diputado_iniciativas_10047id_miembro"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -4577,208 +4577,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "lv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "el": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "da": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             }
           },
           "full_available_languages": [
-            "ga",
-            "en",
-            "sk",
             "el",
+            "pt",
+            "da",
             "uk",
-            "sv",
-            "hr",
+            "lv",
             "pl",
+            "lt",
+            "et",
+            "ro",
+            "it",
+            "en",
+            "hu",
+            "hr",
+            "sl",
+            "ga",
+            "sk",
+            "fi",
+            "fr",
+            "nl",
             "bg",
+            "cs",
+            "de",
             "mt",
             "es",
-            "nl",
-            "hu",
-            "fi",
-            "pt",
-            "cs",
-            "et",
-            "lt",
-            "it",
-            "sl",
-            "ro",
-            "de",
-            "fr",
-            "da",
-            "lv"
+            "sv"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
-          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
-          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
-          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
-          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
+          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
+          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
+          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
+          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
+          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
+          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
+          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
+          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
+          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
+          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
+          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
+          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
+          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
         },
         "index": "dataset",
         "language": [
@@ -4789,31 +4789,31 @@
           }
         ],
         "title": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
-          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
-          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
-          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
-          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
+          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
+          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
+          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
+          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
+          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
+          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
+          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
+          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
+          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
+          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
+          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
+          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
+          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
         },
         "distributions": [
           {
@@ -4824,17 +4824,17 @@
             },
             "media_type": "application/json",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/10047?format=json"
+              "https://parcan.es/api/diputado/iniciativas/10047?format=json"
             ],
-            "id": "f94fe974-166a-485e-8fdf-bc9c278b30f5",
+            "id": "b16cf9f2-1138-479c-8abd-28352db1f8af",
             "title": {
               "de": "X Legislaturperiode (JSON)",
               "fi": "X Lainsäädäntö (JSON)",
               "pt": "X legislatura (JSON)",
               "bg": "X законодателен мандат (JSON)",
               "lt": "X įstatymų leidėjas (JSON)",
-              "hr": "X zakonodavno tijelo (JSON)",
               "lv": "X sasaukums (JSON)",
+              "hr": "X zakonodavno tijelo (JSON)",
               "fr": "X législature (JSON)",
               "hu": "X jogalkotó (JSON)",
               "uk": "X Законодавчий орган (JSON)",
@@ -4850,8 +4850,8 @@
               "et": "X Seadusandlik koosseis (JSON)",
               "cs": "X volební období (JSON)",
               "pl": "X Ustawodawstwo (JSON)",
-              "da": "X lovgivende forsamling (JSON)",
               "ro": "X Legislație (JSON)",
+              "da": "X lovgivende forsamling (JSON)",
               "nl": "X Wetgeving (JSON)"
             }
           },
@@ -4863,9 +4863,9 @@
             },
             "media_type": "text/csv",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/10047?format=csv"
+              "https://parcan.es/api/diputado/iniciativas/10047?format=csv"
             ],
-            "id": "2f228fdb-f4cf-4ddd-b60f-edd8df431e79",
+            "id": "3b67a29e-0ac6-41a5-8637-01ddedc66a4c",
             "title": {
               "de": "X Legislaturperiode (CSV)",
               "fi": "X Lainsäädäntö (CSV)",
@@ -4881,8 +4881,8 @@
               "sl": "X zakonodajalec (CSV)",
               "ga": "X reachtas (CSV)",
               "sv": "X Lagstiftning (CSV)",
-              "el": "X νομοθέτης (CSV)",
               "mt": "Leġiżlatura x (CSV)",
+              "el": "X νομοθέτης (CSV)",
               "en": "X legislature (CSV)",
               "it": "X Legislativo (CSV)",
               "es": "X legislatura (CSV)",
@@ -4899,47 +4899,14 @@
         "quality_meas": {
           "scoring": 140
         },
+        "modified": "2021-05-07T00:00:00+02:00",
         "publisher": {
           "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
           "name": "Parlamento de Canarias",
           "type": "Agent"
         },
-        "modified": "2021-05-05T00:00:00+02:00",
-        "id": "https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
         "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          },
           {
             "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
             "id": "JUST",
@@ -4972,24 +4939,57 @@
               "da": "Retfærdighed, retssystem og offentlig sikkerhed",
               "nl": "Justitie, rechtsstelsel en openbare veiligheid"
             }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
           }
         ],
-        "issued": "2021-05-05T00:00:00+02:00",
+        "issued": "2021-05-07T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-03-20T00:09:39Z",
-          "issued": "2023-02-01T09:07:51Z"
+          "modified": "2026-03-19T23:57:44Z",
+          "issued": "2023-02-01T09:26:09Z"
         }
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_iniciativas_09033id_miembro"
+          "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_09033id_miembro",
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -5034,208 +5034,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "hr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "da": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T09:35:32Z",
-              "issued": "2023-02-01T09:30:36Z"
+              "received": "2023-02-04T20:40:03Z",
+              "issued": "2023-02-01T09:22:00Z"
             }
           },
           "full_available_languages": [
-            "es",
-            "cs",
-            "ro",
-            "it",
-            "bg",
-            "pl",
-            "nl",
-            "fr",
+            "mt",
+            "lt",
             "sl",
-            "el",
-            "lv",
-            "pt",
             "uk",
+            "sv",
+            "it",
+            "fi",
+            "hr",
+            "da",
             "et",
             "sk",
-            "ga",
-            "en",
+            "ro",
+            "cs",
+            "lv",
             "hu",
-            "hr",
-            "sv",
-            "lt",
-            "mt",
-            "fi",
-            "da",
-            "de"
+            "es",
+            "el",
+            "fr",
+            "pt",
+            "bg",
+            "ga",
+            "pl",
+            "en",
+            "de",
+            "nl"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Initiativen von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Jesús Ramón Ramos Chinea – IX:n vaalikausi",
-          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Инициативи на Йесус Рамон Рамос Чинеа — IX законодателен мандат",
-          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – IX įstatymų leidėjas",
-          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – IX zakonodavstvo",
-          "lv": "Jesús Ramón Ramos Chinea — IX sasaukuma iniciatīvas",
-          "fr": "Initiatives de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – IX. törvényhozás",
-          "uk": "Ініціативи Хесуса Рамона Рамоса Шинеа - IX законодавчий орган",
-          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – IX volebného obdobia",
-          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno obdobje",
-          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Initiativ från Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — ΙΧ νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "en": "Initiatives of Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Iniziative di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Iniciativas de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Jesús Ramón Ramos Chinea algatused – IX ametiaeg",
-          "cs": "Iniciativy Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – IX kadencji",
-          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – IX legislatură",
-          "da": "Initiativer fra Jesús Ramón Ramos Chinea — IX lovgivende forsamling",
-          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — IX wetgevende macht"
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
         },
         "index": "dataset",
         "language": [
@@ -5246,31 +5246,31 @@
           }
         ],
         "title": {
-          "de": "Initiativen von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Jesús Ramón Ramos Chinea – IX:n vaalikausi",
-          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Инициативи на Йесус Рамон Рамос Чинеа — IX законодателен мандат",
-          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – IX įstatymų leidėjas",
-          "lv": "Jesús Ramón Ramos Chinea — IX sasaukuma iniciatīvas",
-          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – IX zakonodavstvo",
-          "fr": "Initiatives de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – IX. törvényhozás",
-          "uk": "Ініціативи Хесуса Рамона Рамоса Шинеа - IX законодавчий орган",
-          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – IX volebného obdobia",
-          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno obdobje",
-          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Initiativ från Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — ΙΧ νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "en": "Initiatives of Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Iniziative di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Iniciativas de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Jesús Ramón Ramos Chinea algatused – IX ametiaeg",
-          "cs": "Iniciativy Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – IX kadencji",
-          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – IX legislatură",
-          "da": "Initiativer fra Jesús Ramón Ramos Chinea — IX lovgivende forsamling",
-          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — IX wetgevende macht"
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
+          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
+          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
+          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
+          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
         },
         "distributions": [
           {
@@ -5279,11 +5279,50 @@
               "id": "http://www.opendefinition.org/licenses/odc-pddl",
               "label": "http://www.opendefinition.org/licenses/odc-pddl"
             },
+            "media_type": "application/json",
+            "access_url": [
+              "https://parcan.es/api/diputado/asistencias/09033?format=json"
+            ],
+            "id": "861f74e2-ddf6-41a1-b093-67d9ce9732ad",
+            "title": {
+              "de": "IX Wahlperiode (JSON)",
+              "fi": "IX vaalikausi (JSON)",
+              "pt": "IX legislatura (JSON)",
+              "bg": "IX парламентарен мандат (JSON)",
+              "lt": "IX Parlamento kadencija (JSON)",
+              "lv": "IX sasaukums (JSON)",
+              "hr": "IX. parlamentarni saziv (JSON)",
+              "fr": "IX législature (JSON)",
+              "hu": "IX. parlamenti ciklus (JSON)",
+              "uk": "IX парламентський термін (JSON)",
+              "sk": "IX. volebné obdobie (JSON)",
+              "sl": "IX. parlamentarno obdobje (JSON)",
+              "ga": "IX téarma parlaiminteach (JSON)",
+              "sv": "IX valperioden (JSON)",
+              "mt": "IX leġiżlatura (JSON)",
+              "el": "IX κοινοβουλευτική περίοδος (JSON)",
+              "en": "IX parliamentary term (JSON)",
+              "it": "IX legislatura (JSON)",
+              "es": "IX legislatura (JSON)",
+              "et": "IX ametiaeg (JSON)",
+              "cs": "IX. volební období (JSON)",
+              "pl": "IX kadencja parlamentarna (JSON)",
+              "ro": "A IX-a legislatură (JSON)",
+              "da": "IX valgperiode (JSON)",
+              "nl": "IX zittingsperiode (JSON)"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
             "media_type": "text/csv",
             "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/09033?format=csv"
+              "https://parcan.es/api/diputado/asistencias/09033?format=csv"
             ],
-            "id": "ba13f6c1-2970-4cd3-9131-afa967885c95",
+            "id": "dd93015c-ceab-4190-83c0-39fc007c127c",
             "title": {
               "de": "IX Legislaturperiode (CSV)",
               "fi": "IX Lainsäädäntö (CSV)",
@@ -5299,8 +5338,8 @@
               "sl": "IX. zakonodajalec (CSV)",
               "ga": "IX reachtas (CSV)",
               "sv": "IX Lagstiftning (CSV)",
-              "el": "IX νομοθέτης (CSV)",
               "mt": "Ix leġiżlatura (CSV)",
+              "el": "IX νομοθέτης (CSV)",
               "en": "IX legislature (CSV)",
               "it": "IX legislatura (CSV)",
               "es": "IX legislatura (CSV)",
@@ -5311,92 +5350,20 @@
               "ro": "IX Legislativ (CSV)",
               "nl": "IX legislatuur (CSV)"
             }
-          },
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/09033?format=json"
-            ],
-            "id": "d5caf873-171e-4039-ba0f-0c06b994211e",
-            "title": {
-              "de": "IX Wahlperiode (JSON)",
-              "fi": "IX vaalikausi (JSON)",
-              "pt": "IX legislatura (JSON)",
-              "bg": "IX парламентарен мандат (JSON)",
-              "lt": "IX Parlamento kadencija (JSON)",
-              "hr": "IX. parlamentarni saziv (JSON)",
-              "lv": "IX sasaukums (JSON)",
-              "fr": "IX législature (JSON)",
-              "hu": "IX. parlamenti ciklus (JSON)",
-              "uk": "IX парламентський термін (JSON)",
-              "sk": "IX. volebné obdobie (JSON)",
-              "sl": "IX. parlamentarno obdobje (JSON)",
-              "ga": "IX téarma parlaiminteach (JSON)",
-              "sv": "IX valperioden (JSON)",
-              "el": "IX κοινοβουλευτική περίοδος (JSON)",
-              "mt": "IX leġiżlatura (JSON)",
-              "en": "IX parliamentary term (JSON)",
-              "it": "IX legislatura (JSON)",
-              "es": "IX legislatura (JSON)",
-              "et": "IX ametiaeg (JSON)",
-              "cs": "IX. volební období (JSON)",
-              "pl": "IX kadencja parlamentarna (JSON)",
-              "ro": "A IX-a legislatură (JSON)",
-              "da": "IX valgperiode (JSON)",
-              "nl": "IX zittingsperiode (JSON)"
-            }
           }
         ],
         "is_hvd": false,
         "quality_meas": {
-          "scoring": 190
+          "scoring": 140
         },
+        "modified": "2021-05-05T00:00:00+02:00",
         "publisher": {
           "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
           "name": "Parlamento de Canarias",
           "type": "Agent"
         },
-        "modified": "2021-05-07T00:00:00+02:00",
-        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_09033id_miembro",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
         "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          },
           {
             "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
             "id": "JUST",
@@ -5429,12 +5396,45 @@
               "da": "Retfærdighed, retssystem og offentlig sikkerhed",
               "nl": "Justitie, rechtsstelsel en openbare veiligheid"
             }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
           }
         ],
-        "issued": "2021-05-07T00:00:00+02:00",
+        "issued": "2021-05-05T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-03-19T23:29:03Z",
-          "issued": "2023-02-01T09:30:36Z"
+          "modified": "2026-03-19T23:52:26Z",
+          "issued": "2023-02-01T09:22:00Z"
         }
       }
     ]
