@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 974,
+    "count": 983,
     "results": [
       {
         "country": {
@@ -1289,20 +1289,20 @@
       },
       {
         "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ITA",
           "label": "Italy",
-          "id": "it",
-          "resource": "http://publications.europa.eu/resource/authority/country/ITA"
+          "id": "it"
         },
         "keywords": [
           {
+            "language": "it",
             "id": "ristorazione",
-            "label": "ristorazione",
-            "language": "it"
+            "label": "ristorazione"
           },
           {
+            "language": "it",
             "id": "diritto-allo-studio",
-            "label": "diritto-allo-studio",
-            "language": "it"
+            "label": "diritto-allo-studio"
           }
         ],
         "catalog": {
@@ -1346,49 +1346,7 @@
         },
         "translation_meta": {
           "details": {
-            "fr": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "lt": {
+            "de": {
               "machine_translated": true,
               "original_language": "it",
               "received": "2026-05-03T21:37:06Z",
@@ -1400,19 +1358,7 @@
               "received": "2026-05-03T21:37:06Z",
               "issued": "2026-01-23T01:23:23Z"
             },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "ro": {
+            "pt": {
               "machine_translated": true,
               "original_language": "it",
               "received": "2026-05-03T21:37:06Z",
@@ -1424,50 +1370,9 @@
               "received": "2026-05-03T21:37:06Z",
               "issued": "2026-01-23T01:23:23Z"
             },
-            "pl": {
+            "lt": {
               "machine_translated": true,
               "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "es": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "de": {
-              "machine_translated": true,
-              "original_language": "it",
-              "received": "2026-05-03T21:37:06Z",
-              "issued": "2026-01-23T01:23:23Z"
-            },
-            "it": {
-              "machine_translated": false,
               "received": "2026-05-03T21:37:06Z",
               "issued": "2026-01-23T01:23:23Z"
             },
@@ -1477,7 +1382,25 @@
               "received": "2026-05-03T21:37:06Z",
               "issued": "2026-01-23T01:23:23Z"
             },
-            "da": {
+            "lv": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "uk": {
               "machine_translated": true,
               "original_language": "it",
               "received": "2026-05-03T21:37:06Z",
@@ -1489,7 +1412,84 @@
               "received": "2026-05-03T21:37:06Z",
               "issued": "2026-01-23T01:23:23Z"
             },
-            "lv": {
+            "sl": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "it": {
+              "machine_translated": false,
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "es": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "it",
+              "received": "2026-05-03T21:37:06Z",
+              "issued": "2026-01-23T01:23:23Z"
+            },
+            "nl": {
               "machine_translated": true,
               "original_language": "it",
               "received": "2026-05-03T21:37:06Z",
@@ -1526,73 +1526,73 @@
           "status": "completed"
         },
         "description": {
-          "cs": "Počet jídel poskytnutých v roce 2023 všemi stravovacími zařízeními (přímé a nepřímé řízení) v členění podle oběda/večeře, stipendia nebo negrantového statusu",
-          "sl": "Število obrokov, ki so jih v letu 2023 zagotovila vsa gostinska podjetja (neposredno in posredno upravljanje), razčlenjeno po kosilu/večerji, štipendiji ali statusu brez nepovratnih sredstev",
-          "hr": "Broj obroka koje su 2023. osigurali svi ugostiteljski objekti (izravno i neizravno upravljanje) raščlanjen prema ručku/večeru, stipendiji ili statusu koji nije dodijeljen bespovratnim sredstvima",
-          "nl": "Aantal maaltijden dat in 2023 door alle cateringbedrijven (direct en indirect beheer) is verstrekt, uitgesplitst naar lunch/diner, beurs of niet-subsidiestatus",
-          "ro": "Numărul de mese oferite în 2023 de toate unitățile de catering (gestiune directă și indirectă), defalcat în funcție de prânz/cină, bursă sau statutul de neacordare a granturilor",
-          "ga": "Líon na mbéilí a chuir gach asraon lónadóireachta ar fáil in 2023 (bainistíocht dhíreach agus indíreach) arna miondealú de réir lóin/dinnéir, comhaltachta nó stádais neamhdheontais",
-          "en": "Number of meals provided in 2023 by all catering outlets (direct and indirect management) broken down by lunch/dinner, fellowship or non-grant status",
-          "hu": "Az összes étkeztetési egység által 2023-ban biztosított étkezések száma (közvetlen és közvetett irányítás) ebéd/vacsora, ösztöndíj vagy nem támogatott státusz szerinti bontásban",
-          "da": "Antal måltider leveret i 2023 af alle cateringvirksomheder (direkte og indirekte forvaltning) opdelt efter frokost/middag, stipendium eller status som ikketilskudsberettiget",
-          "sv": "Antal måltider som tillhandahållits under 2023 av alla cateringföretag (direkt och indirekt förvaltning) uppdelat efter lunch/middag, stipendium eller status som icke-bidragsberättigad",
-          "fr": "Nombre de repas fournis en 2023 par tous les points de restauration (gestion directe et indirecte), ventilé par déjeuner/dîner, bourse ou statut de non-subvention",
           "de": "Anzahl der Mahlzeiten, die 2023 von allen Gastronomiebetrieben (direkte und indirekte Mittelverwaltung) bereitgestellt wurden, aufgeschlüsselt nach Mittagessen/Abendessen, Stipendium oder Nichtzuschussstatus",
-          "pt": "Número de refeições fornecidas em 2023 por todos os estabelecimentos de restauração (gestão direta e indireta), discriminadas por almoço/jantar, bolsa ou estatuto de não subvenção",
-          "lv": "Visu ēdināšanas vietu nodrošināto maltīšu skaits 2023. gadā (tiešā un netiešā pārvaldība), iedalot pēc pusdienām/vakariņām, stipendijām vai nepiešķiršanas statusa",
-          "sk": "Počet jedál poskytnutých v roku 2023 všetkými stravovacími zariadeniami (priame a nepriame riadenie) v členení podľa obeda/večere, štipendia alebo statusu bez udelenia grantu",
-          "pl": "Liczba posiłków zapewnionych w 2023 r. przez wszystkie punkty gastronomiczne (zarządzanie bezpośrednie i pośrednie) w podziale na obiad/kolację, stypendium lub status non-grant",
           "fi": "Kaikkien ateriapalvelupisteiden vuonna 2023 tarjoamien aterioiden määrä (suora ja välillinen hallinnointi) jaoteltuna lounaan/illallisen, apurahan tai muun kuin avustusaseman mukaan",
-          "it": "Numero dei pasti erogati nell'anno 2023 da tutti i punti ristoro (a gestione diretta e a gestione indiretta) suddivisi per pranzo/cena, condizione di borsista o non borsista",
-          "es": "Número de comidas proporcionadas en 2023 por todos los establecimientos de restauración (gestión directa e indirecta) desglosadas por régimen de almuerzo/cena, beca o no subvención",
+          "pt": "Número de refeições fornecidas em 2023 por todos os estabelecimentos de restauração (gestão direta e indireta), discriminadas por almoço/jantar, bolsa ou estatuto de não subvenção",
           "bg": "Брой на ястията, предоставени през 2023 г. от всички заведения за обществено хранене (пряко и непряко управление), с разбивка по обяд/вечеря, стипендия или статут, различен от безвъзмездни средства",
+          "lt": "2023 m. visų maitinimo įstaigų suteiktų maitinimo paslaugų (tiesioginio ir netiesioginio valdymo) skaičius, suskirstytas pagal pietus ir (arba) vakarienę, stipendiją arba ne dotacijos statusą",
+          "hr": "Broj obroka koje su 2023. osigurali svi ugostiteljski objekti (izravno i neizravno upravljanje) raščlanjen prema ručku/večeru, stipendiji ili statusu koji nije dodijeljen bespovratnim sredstvima",
+          "lv": "Visu ēdināšanas vietu nodrošināto maltīšu skaits 2023. gadā (tiešā un netiešā pārvaldība), iedalot pēc pusdienām/vakariņām, stipendijām vai nepiešķiršanas statusa",
+          "fr": "Nombre de repas fournis en 2023 par tous les points de restauration (gestion directe et indirecte), ventilé par déjeuner/dîner, bourse ou statut de non-subvention",
+          "hu": "Az összes étkeztetési egység által 2023-ban biztosított étkezések száma (közvetlen és közvetett irányítás) ebéd/vacsora, ösztöndíj vagy nem támogatott státusz szerinti bontásban",
+          "uk": "Кількість страв, наданих у 2023 році всіма закладами громадського харчування (пряме та непряме управління), розбита на обід/вечерю, стипендію або статус негранту",
+          "sk": "Počet jedál poskytnutých v roku 2023 všetkými stravovacími zariadeniami (priame a nepriame riadenie) v členení podľa obeda/večere, štipendia alebo statusu bez udelenia grantu",
+          "sl": "Število obrokov, ki so jih v letu 2023 zagotovila vsa gostinska podjetja (neposredno in posredno upravljanje), razčlenjeno po kosilu/večerji, štipendiji ali statusu brez nepovratnih sredstev",
+          "ga": "Líon na mbéilí a chuir gach asraon lónadóireachta ar fáil in 2023 (bainistíocht dhíreach agus indíreach) arna miondealú de réir lóin/dinnéir, comhaltachta nó stádais neamhdheontais",
+          "sv": "Antal måltider som tillhandahållits under 2023 av alla cateringföretag (direkt och indirekt förvaltning) uppdelat efter lunch/middag, stipendium eller status som icke-bidragsberättigad",
           "mt": "L-għadd ta’ ikliet ipprovduti fl-2023 mill-istabbilimenti kollha tal-catering (ġestjoni diretta u indiretta) imqassma skont l-istatus ta’ ikla ta’ nofsinhar/pranzu, fellowship jew mhux għotja",
           "el": "Αριθμός γευμάτων που παρασχέθηκαν το 2023 από όλα τα καταστήματα εστίασης (άμεση και έμμεση διαχείριση) ανά γεύμα/δείπνο, υποτροφία ή καθεστώς μη επιχορήγησης",
+          "en": "Number of meals provided in 2023 by all catering outlets (direct and indirect management) broken down by lunch/dinner, fellowship or non-grant status",
+          "it": "Numero dei pasti erogati nell'anno 2023 da tutti i punti ristoro (a gestione diretta e a gestione indiretta) suddivisi per pranzo/cena, condizione di borsista o non borsista",
+          "es": "Número de comidas proporcionadas en 2023 por todos los establecimientos de restauración (gestión directa e indirecta) desglosadas por régimen de almuerzo/cena, beca o no subvención",
           "et": "Kõigi toitlustusettevõtete poolt 2023. aastal pakutud einete arv (otsene ja kaudne eelarve täitmine) lõuna-/õhtusöögi, stipendiumi või toetuse mitteandmise kaupa",
-          "lt": "2023 m. visų maitinimo įstaigų suteiktų maitinimo paslaugų (tiesioginio ir netiesioginio valdymo) skaičius, suskirstytas pagal pietus ir (arba) vakarienę, stipendiją arba ne dotacijos statusą",
-          "uk": "Кількість страв, наданих у 2023 році всіма закладами громадського харчування (пряме та непряме управління), розбита на обід/вечерю, стипендію або статус негранту"
+          "cs": "Počet jídel poskytnutých v roce 2023 všemi stravovacími zařízeními (přímé a nepřímé řízení) v členění podle oběda/večeře, stipendia nebo negrantového statusu",
+          "pl": "Liczba posiłków zapewnionych w 2023 r. przez wszystkie punkty gastronomiczne (zarządzanie bezpośrednie i pośrednie) w podziale na obiad/kolację, stypendium lub status non-grant",
+          "ro": "Numărul de mese oferite în 2023 de toate unitățile de catering (gestiune directă și indirectă), defalcat în funcție de prânz/cină, bursă sau statutul de neacordare a granturilor",
+          "da": "Antal måltider leveret i 2023 af alle cateringvirksomheder (direkte og indirekte forvaltning) opdelt efter frokost/middag, stipendium eller status som ikketilskudsberettiget",
+          "nl": "Aantal maaltijden dat in 2023 door alle cateringbedrijven (direct en indirect beheer) is verstrekt, uitgesplitst naar lunch/diner, beurs of niet-subsidiestatus"
         },
         "language": [
           {
+            "resource": "http://publications.europa.eu/resource/authority/language/ITA",
             "id": "it",
-            "label": "Italian",
-            "resource": "http://publications.europa.eu/resource/authority/language/ITA"
+            "label": "Italian"
           }
         ],
         "title": {
-          "fr": "Repas déboursés - Année 2023 - Chercheurs et non-chercheurs",
-          "uk": "Харчування виплачено - Рік 2023 - Вчені та ненауковці",
-          "pt": "Refeições desembolsadas - Ano 2023 - Académicos e Não Académicos",
-          "mt": "Ikel żborżat - Year 2023 - Scholars u Mhux Scholars",
-          "ga": "Béilí eisíoctha - Bliain 2023 - Scoláirí agus Daoine nach Scoláirí iad",
-          "en": "Meals disbursed - Year 2023 - Scholars and Non-Scholars",
-          "sl": "Izplačani obroki – leto 2023 – štipendisti in neštudentje",
-          "lt": "2023 m. išmokėtas maitinimas. Moksleiviai ir nemokslininkai",
-          "fi": "Maksetut ateriat - Vuosi 2023 - Tutkijat ja muut kuin koululaiset",
-          "cs": "Vyplacená strava – rok 2023 – učenci a neškoláci",
-          "hu": "Kifizetett étkezések – 2023. év – Tudósok és nem tudósok",
-          "ro": "Mese plătite – Anul 2023 – Oameni de știință și nespecialiști",
-          "bg": "Изплатени хранения — 2023 г. — Стипендианти и неспециалисти",
-          "pl": "Wypłacone posiłki – Rok 2023 – Uczeni i osoby niebędące uczniami",
-          "es": "Comidas desembolsadas - Año 2023 - Académicos y no académicos",
-          "nl": "Uitbetaalde maaltijden - Jaar 2023 - Geleerden en niet-Scholars",
-          "el": "Εκταμιευθέντα γεύματα — Έτος 2023 — Μελετητές και μη μελετητές",
-          "sv": "Utbetalade måltider – 2023 – stipendiater och icke-studerande",
-          "et": "Väljamakstud toidud – 2023. aasta – stipendiaadid ja mittestipendiumid",
           "de": "Ausgezahlte Mahlzeiten – Jahr 2023 – Stipendiaten und Nicht-Stipendiaten",
-          "it": "Pasti erogati - Anno 2023 - Borsisti e non borsisti",
+          "fi": "Maksetut ateriat - Vuosi 2023 - Tutkijat ja muut kuin koululaiset",
+          "pt": "Refeições desembolsadas - Ano 2023 - Académicos e Não Académicos",
+          "bg": "Изплатени хранения — 2023 г. — Стипендианти и неспециалисти",
+          "lt": "2023 m. išmokėtas maitinimas. Moksleiviai ir nemokslininkai",
           "hr": "Isplaćeni obroci – 2023. stipendisti i neškolci",
-          "da": "Udbetalte måltider — År 2023 — Lærde og ikke-lærde",
+          "lv": "Izmaksātās maltītes – 2023. gads – zinātnieki un nestipendiāti",
+          "fr": "Repas déboursés - Année 2023 - Chercheurs et non-chercheurs",
+          "hu": "Kifizetett étkezések – 2023. év – Tudósok és nem tudósok",
+          "uk": "Харчування виплачено - Рік 2023 - Вчені та ненауковці",
           "sk": "Vyplatené stravné – rok 2023 – Učenci a neučenci",
-          "lv": "Izmaksātās maltītes – 2023. gads – zinātnieki un nestipendiāti"
+          "sl": "Izplačani obroki – leto 2023 – štipendisti in neštudentje",
+          "ga": "Béilí eisíoctha - Bliain 2023 - Scoláirí agus Daoine nach Scoláirí iad",
+          "sv": "Utbetalade måltider – 2023 – stipendiater och icke-studerande",
+          "mt": "Ikel żborżat - Year 2023 - Scholars u Mhux Scholars",
+          "el": "Εκταμιευθέντα γεύματα — Έτος 2023 — Μελετητές και μη μελετητές",
+          "en": "Meals disbursed - Year 2023 - Scholars and Non-Scholars",
+          "it": "Pasti erogati - Anno 2023 - Borsisti e non borsisti",
+          "es": "Comidas desembolsadas - Año 2023 - Académicos y no académicos",
+          "et": "Väljamakstud toidud – 2023. aasta – stipendiaadid ja mittestipendiumid",
+          "cs": "Vyplacená strava – rok 2023 – učenci a neškoláci",
+          "pl": "Wypłacone posiłki – Rok 2023 – Uczeni i osoby niebędące uczniami",
+          "ro": "Mese plătite – Anul 2023 – Oameni de știință și nespecialiști",
+          "da": "Udbetalte måltider — År 2023 — Lærde og ikke-lærde",
+          "nl": "Uitbetaalde maaltijden - Jaar 2023 - Geleerden en niet-Scholars"
         },
         "accrual_periodicity": {
-          "label": "annual",
-          "resource": "http://publications.europa.eu/resource/authority/frequency/ANNUAL"
+          "resource": "http://publications.europa.eu/resource/authority/frequency/ANNUAL",
+          "label": "annual"
         },
         "access_right": {
-          "label": "public",
-          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+          "label": "public"
         },
         "spatial_resource": [
           {}
@@ -1601,37 +1601,37 @@
         "id": "pasti2023",
         "categories": [
           {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
             "id": "GOVE",
             "label": {
-              "fr": "Gouvernement et secteur public",
-              "mt": "Gvern u settur pubbliku",
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
               "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
               "bg": "Правителство и публичен сектор",
-              "nb": "Forvaltning og offentlig sektor",
-              "da": "Regeringen og den offentlige sektor",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
               "sv": "Regeringen och den offentliga sektorn",
-              "ro": "Guvern şi sector public",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
               "en": "Government and public sector",
               "it": "Governo e settore pubblico",
-              "cs": "Vláda a veřejný sektor",
-              "sl": "Vlada in javni sektor",
-              "hu": "Kormányzat és közszféra",
-              "de": "Regierung und öffentlicher Sektor",
-              "sk": "Vláda a verejný sektor",
-              "pt": "Governo e setor público",
-              "nl": "Overheid en publieke sector",
-              "no": "Forvaltning og offentlig sektor",
-              "nn": "Forvaltning og offentleg sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "hr": "Vlada i javni sektor",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "pl": "Rząd i sektor publiczny",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "et": "Valitsus ja avalik sektor",
               "es": "Gobierno y sector público",
-              "lv": "Valdība un sabiedriskais sektors"
-            },
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE"
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
           }
         ],
         "issued": "2024-12-22T00:00:00",
@@ -1653,164 +1653,164 @@
         "index": "dataset",
         "distributions": [
           {
-            "id": "beb87c4c-ae0e-483e-b205-f1b93e6a2445",
+            "license": {
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
+              "description": "Creative Commons Attribution 4.0 International",
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "byte_size": 309,
+            "media_type": "text/csv",
             "access_url": [
               "https://dati.toscana.it/dataset/d5afbdda-7c5e-487d-b0c6-c7dd2ec1f2b5/resource/82b497e8-4f4c-4322-89db-a9258de4e2cf/download/dataset_4_pasti_2023.csv"
             ],
-            "description": {
-              "bg": "Брой на ястията, предоставени през 2023 г. от всички заведения за обществено хранене (пряко и непряко управление), с разбивка по обяд/вечеря, стипендия или статут, различен от безвъзмездни средства",
-              "nl": "Aantal maaltijden dat in 2023 door alle cateringbedrijven (direct en indirect beheer) is verstrekt, uitgesplitst naar lunch/diner, beurs of niet-subsidiestatus",
-              "fr": "Nombre de repas fournis en 2023 par tous les points de restauration (gestion directe et indirecte), ventilé par déjeuner/dîner, bourse ou statut de non-subvention",
-              "sv": "Antal måltider som tillhandahållits under 2023 av alla cateringföretag (direkt och indirekt förvaltning) uppdelat efter lunch/middag, stipendium eller status som icke-bidragsberättigad",
-              "el": "Αριθμός γευμάτων που παρασχέθηκαν το 2023 από όλα τα καταστήματα εστίασης (άμεση και έμμεση διαχείριση) ανά γεύμα/δείπνο, υποτροφία ή καθεστώς μη επιχορήγησης",
-              "es": "Número de comidas proporcionadas en 2023 por todos los establecimientos de restauración (gestión directa e indirecta) desglosadas por régimen de almuerzo/cena, beca o no subvención",
-              "uk": "Кількість страв, наданих у 2023 році всіма закладами громадського харчування (пряме та непряме управління), розбита на обід/вечерю, стипендію або статус негранту",
-              "da": "Antal måltider leveret i 2023 af alle cateringvirksomheder (direkte og indirekte forvaltning) opdelt efter frokost/middag, stipendium eller status som ikketilskudsberettiget",
-              "fi": "Kaikkien ateriapalvelupisteiden vuonna 2023 tarjoamien aterioiden määrä (suora ja välillinen hallinnointi) jaoteltuna lounaan/illallisen, apurahan tai muun kuin avustusaseman mukaan",
-              "mt": "L-għadd ta’ ikliet ipprovduti fl-2023 mill-istabbilimenti kollha tal-catering (ġestjoni diretta u indiretta) imqassma skont l-istatus ta’ ikla ta’ nofsinhar/pranzu, fellowship jew mhux għotja",
-              "hu": "Az összes étkeztetési egység által 2023-ban biztosított étkezések száma (közvetlen és közvetett irányítás) ebéd/vacsora, ösztöndíj vagy nem támogatott státusz szerinti bontásban",
-              "ro": "Numărul de mese oferite în 2023 de toate unitățile de catering (gestiune directă și indirectă), defalcat în funcție de prânz/cină, bursă sau statutul de neacordare a granturilor",
-              "et": "Kõigi toitlustusettevõtete poolt 2023. aastal pakutud einete arv (otsene ja kaudne eelarve täitmine) lõuna-/õhtusöögi, stipendiumi või toetuse mitteandmise kaupa",
-              "pl": "Liczba posiłków zapewnionych w 2023 r. przez wszystkie punkty gastronomiczne (zarządzanie bezpośrednie i pośrednie) w podziale na obiad/kolację, stypendium lub status non-grant",
-              "hr": "Broj obroka koje su 2023. osigurali svi ugostiteljski objekti (izravno i neizravno upravljanje) raščlanjen prema ručku/večeru, stipendiji ili statusu koji nije dodijeljen bespovratnim sredstvima",
-              "sl": "Število obrokov, ki so jih v letu 2023 zagotovila vsa gostinska podjetja (neposredno in posredno upravljanje), razčlenjeno po kosilu/večerji, štipendiji ali statusu brez nepovratnih sredstev",
-              "it": "Numero dei pasti erogati nell'anno 2023 da tutti i punti ristoro (a gestione diretta e a gestione indiretta) suddivisi per pranzo/cena, condizione di borsista o non borsista",
-              "ga": "Líon na mbéilí a chuir gach asraon lónadóireachta ar fáil in 2023 (bainistíocht dhíreach agus indíreach) arna miondealú de réir lóin/dinnéir, comhaltachta nó stádais neamhdheontais",
-              "de": "Anzahl der Mahlzeiten, die 2023 von allen Gastronomiebetrieben (direkte und indirekte Mittelverwaltung) bereitgestellt wurden, aufgeschlüsselt nach Mittagessen/Abendessen, Stipendium oder Nichtzuschussstatus",
-              "en": "Number of meals provided in 2023 by all catering outlets (direct and indirect management) broken down by lunch/dinner, fellowship or non-grant status",
-              "lv": "Visu ēdināšanas vietu nodrošināto maltīšu skaits 2023. gadā (tiešā un netiešā pārvaldība), iedalot pēc pusdienām/vakariņām, stipendijām vai nepiešķiršanas statusa",
-              "pt": "Número de refeições fornecidas em 2023 por todos os estabelecimentos de restauração (gestão direta e indireta), discriminadas por almoço/jantar, bolsa ou estatuto de não subvenção",
-              "cs": "Počet jídel poskytnutých v roce 2023 všemi stravovacími zařízeními (přímé a nepřímé řízení) v členění podle oběda/večeře, stipendia nebo negrantového statusu",
-              "lt": "2023 m. visų maitinimo įstaigų suteiktų maitinimo paslaugų (tiesioginio ir netiesioginio valdymo) skaičius, suskirstytas pagal pietus ir (arba) vakarienę, stipendiją arba ne dotacijos statusą",
-              "sk": "Počet jedál poskytnutých v roku 2023 všetkými stravovacími zariadeniami (priame a nepriame riadenie) v členení podľa obeda/večere, štipendia alebo statusu bez udelenia grantu"
-            },
-            "title": {
-              "el": "Γεύματα που εκταμιεύθηκαν το 2023",
-              "en": "Meals disbursed year 2023",
-              "pt": "Refeições desembolsadas em 2023",
-              "et": "2023. aastal välja makstud toidud",
-              "fi": "Vuonna 2023 maksetut ateriat",
-              "uk": "Харчування виплачене 2023 рік",
-              "sk": "Vyplatené stravovanie v roku 2023",
-              "da": "Måltider udbetalt i 2023",
-              "cs": "Stravování vyplacené v roce 2023",
-              "hr": "Obroci isplaćeni 2023.",
-              "de": "Ausgezahlte Mahlzeiten im Jahr 2023",
-              "ga": "Béilí a eisíocadh an bhliain 2023",
-              "sl": "Obroki, izplačani v letu 2023",
-              "ro": "Mese plătite în anul 2023",
-              "hu": "2023-ban folyósított étkezések",
-              "sv": "Utbetalade måltider 2023",
-              "bg": "Храна, изплатена през 2023 г.",
-              "lv": "2023. gadā izmaksātās maltītes",
-              "fr": "Repas décaissés en 2023",
-              "nl": "In 2023 uitbetaalde maaltijden",
-              "mt": "Ikliet żborżati sena 2023",
-              "pl": "Posiłki wypłacone w 2023 r.",
-              "it": "Pasti erogati anno 2023",
-              "lt": "2023 m. išmokėtas maitinimas",
-              "es": "Comidas desembolsadas año 2023"
-            },
             "rights": {
               "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
             },
             "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/CSV",
               "id": "CSV",
-              "label": "CSV",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/CSV"
+              "label": "CSV"
             },
-            "license": {
-              "id": "CC_BY_4_0",
-              "label": "Creative Commons Attribution 4.0 International",
-              "description": "Creative Commons Attribution 4.0 International",
-              "resource": "http://spdx.org/licenses/CC-BY-4.0"
-            },
-            "issued": "2024-12-22T10:45:56.765082",
-            "byte_size": 309,
-            "modified": "2024-12-22T10:47:52.199881",
             "download_url": [
               "https://dati.toscana.it/dataset/d5afbdda-7c5e-487d-b0c6-c7dd2ec1f2b5/resource/82b497e8-4f4c-4322-89db-a9258de4e2cf/download/dataset_4_pasti_2023.csv"
             ],
-            "media_type": "text/csv"
+            "description": {
+              "de": "Anzahl der Mahlzeiten, die 2023 von allen Gastronomiebetrieben (direkte und indirekte Mittelverwaltung) bereitgestellt wurden, aufgeschlüsselt nach Mittagessen/Abendessen, Stipendium oder Nichtzuschussstatus",
+              "fi": "Kaikkien ateriapalvelupisteiden vuonna 2023 tarjoamien aterioiden määrä (suora ja välillinen hallinnointi) jaoteltuna lounaan/illallisen, apurahan tai muun kuin avustusaseman mukaan",
+              "pt": "Número de refeições fornecidas em 2023 por todos os estabelecimentos de restauração (gestão direta e indireta), discriminadas por almoço/jantar, bolsa ou estatuto de não subvenção",
+              "bg": "Брой на ястията, предоставени през 2023 г. от всички заведения за обществено хранене (пряко и непряко управление), с разбивка по обяд/вечеря, стипендия или статут, различен от безвъзмездни средства",
+              "lt": "2023 m. visų maitinimo įstaigų suteiktų maitinimo paslaugų (tiesioginio ir netiesioginio valdymo) skaičius, suskirstytas pagal pietus ir (arba) vakarienę, stipendiją arba ne dotacijos statusą",
+              "hr": "Broj obroka koje su 2023. osigurali svi ugostiteljski objekti (izravno i neizravno upravljanje) raščlanjen prema ručku/večeru, stipendiji ili statusu koji nije dodijeljen bespovratnim sredstvima",
+              "lv": "Visu ēdināšanas vietu nodrošināto maltīšu skaits 2023. gadā (tiešā un netiešā pārvaldība), iedalot pēc pusdienām/vakariņām, stipendijām vai nepiešķiršanas statusa",
+              "fr": "Nombre de repas fournis en 2023 par tous les points de restauration (gestion directe et indirecte), ventilé par déjeuner/dîner, bourse ou statut de non-subvention",
+              "hu": "Az összes étkeztetési egység által 2023-ban biztosított étkezések száma (közvetlen és közvetett irányítás) ebéd/vacsora, ösztöndíj vagy nem támogatott státusz szerinti bontásban",
+              "uk": "Кількість страв, наданих у 2023 році всіма закладами громадського харчування (пряме та непряме управління), розбита на обід/вечерю, стипендію або статус негранту",
+              "sk": "Počet jedál poskytnutých v roku 2023 všetkými stravovacími zariadeniami (priame a nepriame riadenie) v členení podľa obeda/večere, štipendia alebo statusu bez udelenia grantu",
+              "sl": "Število obrokov, ki so jih v letu 2023 zagotovila vsa gostinska podjetja (neposredno in posredno upravljanje), razčlenjeno po kosilu/večerji, štipendiji ali statusu brez nepovratnih sredstev",
+              "ga": "Líon na mbéilí a chuir gach asraon lónadóireachta ar fáil in 2023 (bainistíocht dhíreach agus indíreach) arna miondealú de réir lóin/dinnéir, comhaltachta nó stádais neamhdheontais",
+              "sv": "Antal måltider som tillhandahållits under 2023 av alla cateringföretag (direkt och indirekt förvaltning) uppdelat efter lunch/middag, stipendium eller status som icke-bidragsberättigad",
+              "el": "Αριθμός γευμάτων που παρασχέθηκαν το 2023 από όλα τα καταστήματα εστίασης (άμεση και έμμεση διαχείριση) ανά γεύμα/δείπνο, υποτροφία ή καθεστώς μη επιχορήγησης",
+              "mt": "L-għadd ta’ ikliet ipprovduti fl-2023 mill-istabbilimenti kollha tal-catering (ġestjoni diretta u indiretta) imqassma skont l-istatus ta’ ikla ta’ nofsinhar/pranzu, fellowship jew mhux għotja",
+              "en": "Number of meals provided in 2023 by all catering outlets (direct and indirect management) broken down by lunch/dinner, fellowship or non-grant status",
+              "it": "Numero dei pasti erogati nell'anno 2023 da tutti i punti ristoro (a gestione diretta e a gestione indiretta) suddivisi per pranzo/cena, condizione di borsista o non borsista",
+              "es": "Número de comidas proporcionadas en 2023 por todos los establecimientos de restauración (gestión directa e indirecta) desglosadas por régimen de almuerzo/cena, beca o no subvención",
+              "et": "Kõigi toitlustusettevõtete poolt 2023. aastal pakutud einete arv (otsene ja kaudne eelarve täitmine) lõuna-/õhtusöögi, stipendiumi või toetuse mitteandmise kaupa",
+              "cs": "Počet jídel poskytnutých v roce 2023 všemi stravovacími zařízeními (přímé a nepřímé řízení) v členění podle oběda/večeře, stipendia nebo negrantového statusu",
+              "pl": "Liczba posiłków zapewnionych w 2023 r. przez wszystkie punkty gastronomiczne (zarządzanie bezpośrednie i pośrednie) w podziale na obiad/kolację, stypendium lub status non-grant",
+              "da": "Antal måltider leveret i 2023 af alle cateringvirksomheder (direkte og indirekte forvaltning) opdelt efter frokost/middag, stipendium eller status som ikketilskudsberettiget",
+              "ro": "Numărul de mese oferite în 2023 de toate unitățile de catering (gestiune directă și indirectă), defalcat în funcție de prânz/cină, bursă sau statutul de neacordare a granturilor",
+              "nl": "Aantal maaltijden dat in 2023 door alle cateringbedrijven (direct en indirect beheer) is verstrekt, uitgesplitst naar lunch/diner, beurs of niet-subsidiestatus"
+            },
+            "modified": "2024-12-22T10:47:52.199881",
+            "id": "beb87c4c-ae0e-483e-b205-f1b93e6a2445",
+            "title": {
+              "de": "Ausgezahlte Mahlzeiten im Jahr 2023",
+              "fi": "Vuonna 2023 maksetut ateriat",
+              "pt": "Refeições desembolsadas em 2023",
+              "bg": "Храна, изплатена през 2023 г.",
+              "lt": "2023 m. išmokėtas maitinimas",
+              "hr": "Obroci isplaćeni 2023.",
+              "lv": "2023. gadā izmaksātās maltītes",
+              "fr": "Repas décaissés en 2023",
+              "hu": "2023-ban folyósított étkezések",
+              "uk": "Харчування виплачене 2023 рік",
+              "sk": "Vyplatené stravovanie v roku 2023",
+              "sl": "Obroki, izplačani v letu 2023",
+              "ga": "Béilí a eisíocadh an bhliain 2023",
+              "sv": "Utbetalade måltider 2023",
+              "el": "Γεύματα που εκταμιεύθηκαν το 2023",
+              "mt": "Ikliet żborżati sena 2023",
+              "en": "Meals disbursed year 2023",
+              "it": "Pasti erogati anno 2023",
+              "es": "Comidas desembolsadas año 2023",
+              "et": "2023. aastal välja makstud toidud",
+              "cs": "Stravování vyplacené v roce 2023",
+              "pl": "Posiłki wypłacone w 2023 r.",
+              "da": "Måltider udbetalt i 2023",
+              "ro": "Mese plătite în anul 2023",
+              "nl": "In 2023 uitbetaalde maaltijden"
+            },
+            "issued": "2024-12-22T10:45:56.765082"
           },
           {
-            "id": "daeeda35-9f7d-402a-b881-9b71b97c755e",
-            "description": {
-              "de": "Anzahl der Mahlzeiten, die 2023 von allen Gastronomiebetrieben (direkte und indirekte Mittelverwaltung) bereitgestellt wurden, aufgeschlüsselt nach Mittagessen/Abendessen, Stipendium oder Nichtzuschussstatus",
-              "el": "Αριθμός γευμάτων που παρασχέθηκαν το 2023 από όλα τα καταστήματα εστίασης (άμεση και έμμεση διαχείριση) ανά γεύμα/δείπνο, υποτροφία ή καθεστώς μη επιχορήγησης",
-              "da": "Antal måltider leveret i 2023 af alle cateringvirksomheder (direkte og indirekte forvaltning) opdelt efter frokost/middag, stipendium eller status som ikketilskudsberettiget",
-              "mt": "L-għadd ta’ ikliet ipprovduti fl-2023 mill-istabbilimenti kollha tal-catering (ġestjoni diretta u indiretta) imqassma skont l-istatus ta’ ikla ta’ nofsinhar/pranzu, fellowship jew mhux għotja",
-              "uk": "Кількість страв, наданих у 2023 році всіма закладами громадського харчування (пряме та непряме управління), розбита на обід/вечерю, стипендію або статус негранту",
-              "en": "Number of meals provided in 2023 by all catering outlets (direct and indirect management) broken down by lunch/dinner, fellowship or non-grant status",
-              "sk": "Počet jedál poskytnutých v roku 2023 všetkými stravovacími zariadeniami (priame a nepriame riadenie) v členení podľa obeda/večere, štipendia alebo statusu bez udelenia grantu",
-              "lv": "Visu ēdināšanas vietu nodrošināto maltīšu skaits 2023. gadā (tiešā un netiešā pārvaldība), iedalot pēc pusdienām/vakariņām, stipendijām vai nepiešķiršanas statusa",
-              "bg": "Брой на ястията, предоставени през 2023 г. от всички заведения за обществено хранене (пряко и непряко управление), с разбивка по обяд/вечеря, стипендия или статут, различен от безвъзмездни средства",
-              "et": "Kõigi toitlustusettevõtete poolt 2023. aastal pakutud einete arv (otsene ja kaudne eelarve täitmine) lõuna-/õhtusöögi, stipendiumi või toetuse mitteandmise kaupa",
-              "cs": "Počet jídel poskytnutých v roce 2023 všemi stravovacími zařízeními (přímé a nepřímé řízení) v členění podle oběda/večeře, stipendia nebo negrantového statusu",
-              "fi": "Kaikkien ateriapalvelupisteiden vuonna 2023 tarjoamien aterioiden määrä (suora ja välillinen hallinnointi) jaoteltuna lounaan/illallisen, apurahan tai muun kuin avustusaseman mukaan",
-              "sl": "Število obrokov, ki so jih v letu 2023 zagotovila vsa gostinska podjetja (neposredno in posredno upravljanje), razčlenjeno po kosilu/večerji, štipendiji ali statusu brez nepovratnih sredstev",
-              "ro": "Numărul de mese oferite în 2023 de toate unitățile de catering (gestiune directă și indirectă), defalcat în funcție de prânz/cină, bursă sau statutul de neacordare a granturilor",
-              "hu": "Az összes étkeztetési egység által 2023-ban biztosított étkezések száma (közvetlen és közvetett irányítás) ebéd/vacsora, ösztöndíj vagy nem támogatott státusz szerinti bontásban",
-              "sv": "Antal måltider som tillhandahållits under 2023 av alla cateringföretag (direkt och indirekt förvaltning) uppdelat efter lunch/middag, stipendium eller status som icke-bidragsberättigad",
-              "lt": "2023 m. visų maitinimo įstaigų suteiktų maitinimo paslaugų (tiesioginio ir netiesioginio valdymo) skaičius, suskirstytas pagal pietus ir (arba) vakarienę, stipendiją arba ne dotacijos statusą",
-              "fr": "Nombre de repas fournis en 2023 par tous les points de restauration (gestion directe et indirecte), ventilé par déjeuner/dîner, bourse ou statut de non-subvention",
-              "pl": "Liczba posiłków zapewnionych w 2023 r. przez wszystkie punkty gastronomiczne (zarządzanie bezpośrednie i pośrednie) w podziale na obiad/kolację, stypendium lub status non-grant",
-              "nl": "Aantal maaltijden dat in 2023 door alle cateringbedrijven (direct en indirect beheer) is verstrekt, uitgesplitst naar lunch/diner, beurs of niet-subsidiestatus",
-              "es": "Número de comidas proporcionadas en 2023 por todos los establecimientos de restauración (gestión directa e indirecta) desglosadas por régimen de almuerzo/cena, beca o no subvención",
-              "ga": "Líon na mbéilí a chuir gach asraon lónadóireachta ar fáil in 2023 (bainistíocht dhíreach agus indíreach) arna miondealú de réir lóin/dinnéir, comhaltachta nó stádais neamhdheontais",
-              "pt": "Número de refeições fornecidas em 2023 por todos os estabelecimentos de restauração (gestão direta e indireta), discriminadas por almoço/jantar, bolsa ou estatuto de não subvenção",
-              "it": "Numero dei pasti erogati nell'anno 2023 da tutti i punti ristoro (a gestione diretta e a gestione indiretta) suddivisi per pranzo/cena, condizione di borsista o non borsista",
-              "hr": "Broj obroka koje su 2023. osigurali svi ugostiteljski objekti (izravno i neizravno upravljanje) raščlanjen prema ručku/večeru, stipendiji ili statusu koji nije dodijeljen bespovratnim sredstvima"
-            },
-            "title": {
-              "sv": "Utbetalade måltider 2023",
-              "ga": "Béilí a eisíocadh an bhliain 2023",
-              "hu": "2023-ban folyósított étkezések",
-              "de": "Ausgezahlte Mahlzeiten im Jahr 2023",
-              "et": "2023. aastal välja makstud toidud",
-              "it": "Pasti erogati anno 2023",
-              "pl": "Posiłki wypłacone w 2023 r.",
-              "sl": "Obroki, izplačani v letu 2023",
-              "uk": "Харчування виплачене 2023 рік",
-              "fi": "Vuonna 2023 maksetut ateriat",
-              "es": "Comidas desembolsadas año 2023",
-              "lv": "2023. gadā izmaksātās maltītes",
-              "hr": "Obroci isplaćeni 2023.",
-              "fr": "Repas décaissés en 2023",
-              "mt": "Ikliet żborżati sena 2023",
-              "nl": "In 2023 uitbetaalde maaltijden",
-              "en": "Meals disbursed year 2023",
-              "el": "Γεύματα που εκταμιεύθηκαν το 2023",
-              "sk": "Vyplatené stravovanie v roku 2023",
-              "ro": "Mese plătite în anul 2023",
-              "lt": "2023 m. išmokėtas maitinimas",
-              "cs": "Stravování vyplacené v roce 2023",
-              "bg": "Храна, изплатена през 2023 г.",
-              "da": "Måltider udbetalt i 2023",
-              "pt": "Refeições desembolsadas em 2023"
-            },
             "license": {
-              "id": "CC_BY_4_0",
-              "label": "Creative Commons Attribution 4.0 International",
+              "resource": "http://spdx.org/licenses/CC-BY-4.0",
               "description": "Creative Commons Attribution 4.0 International",
-              "resource": "http://spdx.org/licenses/CC-BY-4.0"
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International"
             },
             "media_type": "application/vnd.oasis.opendocument.spreadsheet",
+            "byte_size": 3568,
             "access_url": [
               "https://dati.toscana.it/dataset/d5afbdda-7c5e-487d-b0c6-c7dd2ec1f2b5/resource/f63a0529-fb15-443f-b363-be6660980dc8/download/dataset_4_pasti_2023.ods"
             ],
-            "modified": "2024-12-22T10:47:52.200083",
+            "rights": {
+              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+            },
             "download_url": [
               "https://dati.toscana.it/dataset/d5afbdda-7c5e-487d-b0c6-c7dd2ec1f2b5/resource/f63a0529-fb15-443f-b363-be6660980dc8/download/dataset_4_pasti_2023.ods"
             ],
             "format": {
+              "resource": "http://publications.europa.eu/resource/authority/file-type/ODS",
               "id": "ODS",
-              "label": "ODS",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/ODS"
+              "label": "ODS"
             },
-            "byte_size": 3568,
-            "rights": {
-              "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+            "description": {
+              "de": "Anzahl der Mahlzeiten, die 2023 von allen Gastronomiebetrieben (direkte und indirekte Mittelverwaltung) bereitgestellt wurden, aufgeschlüsselt nach Mittagessen/Abendessen, Stipendium oder Nichtzuschussstatus",
+              "fi": "Kaikkien ateriapalvelupisteiden vuonna 2023 tarjoamien aterioiden määrä (suora ja välillinen hallinnointi) jaoteltuna lounaan/illallisen, apurahan tai muun kuin avustusaseman mukaan",
+              "pt": "Número de refeições fornecidas em 2023 por todos os estabelecimentos de restauração (gestão direta e indireta), discriminadas por almoço/jantar, bolsa ou estatuto de não subvenção",
+              "bg": "Брой на ястията, предоставени през 2023 г. от всички заведения за обществено хранене (пряко и непряко управление), с разбивка по обяд/вечеря, стипендия или статут, различен от безвъзмездни средства",
+              "lt": "2023 m. visų maitinimo įstaigų suteiktų maitinimo paslaugų (tiesioginio ir netiesioginio valdymo) skaičius, suskirstytas pagal pietus ir (arba) vakarienę, stipendiją arba ne dotacijos statusą",
+              "lv": "Visu ēdināšanas vietu nodrošināto maltīšu skaits 2023. gadā (tiešā un netiešā pārvaldība), iedalot pēc pusdienām/vakariņām, stipendijām vai nepiešķiršanas statusa",
+              "hr": "Broj obroka koje su 2023. osigurali svi ugostiteljski objekti (izravno i neizravno upravljanje) raščlanjen prema ručku/večeru, stipendiji ili statusu koji nije dodijeljen bespovratnim sredstvima",
+              "fr": "Nombre de repas fournis en 2023 par tous les points de restauration (gestion directe et indirecte), ventilé par déjeuner/dîner, bourse ou statut de non-subvention",
+              "hu": "Az összes étkeztetési egység által 2023-ban biztosított étkezések száma (közvetlen és közvetett irányítás) ebéd/vacsora, ösztöndíj vagy nem támogatott státusz szerinti bontásban",
+              "uk": "Кількість страв, наданих у 2023 році всіма закладами громадського харчування (пряме та непряме управління), розбита на обід/вечерю, стипендію або статус негранту",
+              "sk": "Počet jedál poskytnutých v roku 2023 všetkými stravovacími zariadeniami (priame a nepriame riadenie) v členení podľa obeda/večere, štipendia alebo statusu bez udelenia grantu",
+              "sl": "Število obrokov, ki so jih v letu 2023 zagotovila vsa gostinska podjetja (neposredno in posredno upravljanje), razčlenjeno po kosilu/večerji, štipendiji ali statusu brez nepovratnih sredstev",
+              "ga": "Líon na mbéilí a chuir gach asraon lónadóireachta ar fáil in 2023 (bainistíocht dhíreach agus indíreach) arna miondealú de réir lóin/dinnéir, comhaltachta nó stádais neamhdheontais",
+              "sv": "Antal måltider som tillhandahållits under 2023 av alla cateringföretag (direkt och indirekt förvaltning) uppdelat efter lunch/middag, stipendium eller status som icke-bidragsberättigad",
+              "el": "Αριθμός γευμάτων που παρασχέθηκαν το 2023 από όλα τα καταστήματα εστίασης (άμεση και έμμεση διαχείριση) ανά γεύμα/δείπνο, υποτροφία ή καθεστώς μη επιχορήγησης",
+              "mt": "L-għadd ta’ ikliet ipprovduti fl-2023 mill-istabbilimenti kollha tal-catering (ġestjoni diretta u indiretta) imqassma skont l-istatus ta’ ikla ta’ nofsinhar/pranzu, fellowship jew mhux għotja",
+              "en": "Number of meals provided in 2023 by all catering outlets (direct and indirect management) broken down by lunch/dinner, fellowship or non-grant status",
+              "it": "Numero dei pasti erogati nell'anno 2023 da tutti i punti ristoro (a gestione diretta e a gestione indiretta) suddivisi per pranzo/cena, condizione di borsista o non borsista",
+              "es": "Número de comidas proporcionadas en 2023 por todos los establecimientos de restauración (gestión directa e indirecta) desglosadas por régimen de almuerzo/cena, beca o no subvención",
+              "et": "Kõigi toitlustusettevõtete poolt 2023. aastal pakutud einete arv (otsene ja kaudne eelarve täitmine) lõuna-/õhtusöögi, stipendiumi või toetuse mitteandmise kaupa",
+              "cs": "Počet jídel poskytnutých v roce 2023 všemi stravovacími zařízeními (přímé a nepřímé řízení) v členění podle oběda/večeře, stipendia nebo negrantového statusu",
+              "pl": "Liczba posiłków zapewnionych w 2023 r. przez wszystkie punkty gastronomiczne (zarządzanie bezpośrednie i pośrednie) w podziale na obiad/kolację, stypendium lub status non-grant",
+              "da": "Antal måltider leveret i 2023 af alle cateringvirksomheder (direkte og indirekte forvaltning) opdelt efter frokost/middag, stipendium eller status som ikketilskudsberettiget",
+              "ro": "Numărul de mese oferite în 2023 de toate unitățile de catering (gestiune directă și indirectă), defalcat în funcție de prânz/cină, bursă sau statutul de neacordare a granturilor",
+              "nl": "Aantal maaltijden dat in 2023 door alle cateringbedrijven (direct en indirect beheer) is verstrekt, uitgesplitst naar lunch/diner, beurs of niet-subsidiestatus"
+            },
+            "modified": "2024-12-22T10:47:52.200083",
+            "id": "daeeda35-9f7d-402a-b881-9b71b97c755e",
+            "title": {
+              "de": "Ausgezahlte Mahlzeiten im Jahr 2023",
+              "fi": "Vuonna 2023 maksetut ateriat",
+              "pt": "Refeições desembolsadas em 2023",
+              "bg": "Храна, изплатена през 2023 г.",
+              "lt": "2023 m. išmokėtas maitinimas",
+              "lv": "2023. gadā izmaksātās maltītes",
+              "hr": "Obroci isplaćeni 2023.",
+              "fr": "Repas décaissés en 2023",
+              "hu": "2023-ban folyósított étkezések",
+              "uk": "Харчування виплачене 2023 рік",
+              "sk": "Vyplatené stravovanie v roku 2023",
+              "sl": "Obroki, izplačani v letu 2023",
+              "ga": "Béilí a eisíocadh an bhliain 2023",
+              "sv": "Utbetalade måltider 2023",
+              "mt": "Ikliet żborżati sena 2023",
+              "el": "Γεύματα που εκταμιεύθηκαν το 2023",
+              "en": "Meals disbursed year 2023",
+              "it": "Pasti erogati anno 2023",
+              "es": "Comidas desembolsadas año 2023",
+              "et": "2023. aastal välja makstud toidud",
+              "cs": "Stravování vyplacené v roce 2023",
+              "pl": "Posiłki wypłacone w 2023 r.",
+              "ro": "Mese plătite în anul 2023",
+              "da": "Måltider udbetalt i 2023",
+              "nl": "In 2023 uitbetaalde maaltijden"
             },
             "issued": "2024-12-22T10:46:20.204806"
           }
@@ -1821,22 +1821,22 @@
         },
         "conforms_to": [],
         "publisher": {
-          "type": "Agent",
-          "name": "Azienda Regionale per il Diritto allo Studio Universitario"
+          "name": "Azienda Regionale per il Diritto allo Studio Universitario",
+          "type": "Agent"
         },
         "catalog_record": {
-          "issued": "2024-12-30T02:00:22Z",
-          "modified": "2026-05-03T21:37:06Z"
+          "modified": "2026-05-03T21:37:06Z",
+          "issued": "2024-12-30T02:00:22Z"
         },
         "contact_point": [
           {
-            "type": "Organization",
+            "resource": "https://www.dati.gov.it/organization/9bcd4050-eecd-400b-8196-cd4db7b38c58",
             "name": "regione-toscana",
+            "type": "Organization",
             "email": "mailto:regionetoscana@postacert.toscana.it",
             "url": [
               "https://dati.toscana.it"
-            ],
-            "resource": "https://www.dati.gov.it/organization/9bcd4050-eecd-400b-8196-cd4db7b38c58"
+            ]
           }
         ]
       },
@@ -3272,6 +3272,711 @@
         ]
       },
       {
+        "identifier": [
+          "http://datos.santander.es/catalogo/cines"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "keywords": [
+          {
+            "language": "es",
+            "id": "cine",
+            "label": "cine"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/http-datos-santander-es-catalogo-cines",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-04T03:06:00Z",
+              "issued": "2023-02-01T09:17:36Z"
+            }
+          },
+          "full_available_languages": [
+            "hr",
+            "pl",
+            "fr",
+            "mt",
+            "lt",
+            "en",
+            "sv",
+            "da",
+            "es",
+            "it",
+            "cs",
+            "sl",
+            "lv",
+            "bg",
+            "de",
+            "el",
+            "sk",
+            "ro",
+            "hu",
+            "et",
+            "nl",
+            "uk",
+            "fi",
+            "ga",
+            "pt"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Dieser Datensatz enthält den Katalog der Kinos in der Stadt Santander.",
+          "fi": "Tämä aineisto sisältää luettelon Santanderin kaupungin elokuvateattereista.",
+          "pt": "Este conjunto de dados contém o catálogo dos cinemas existentes na cidade de Santander.",
+          "bg": "Този набор от данни съдържа каталога на кината, съществуващи в град Сантандер.",
+          "lt": "Šiame duomenų rinkinyje yra Santandero mieste esančių kino teatrų katalogas.",
+          "lv": "Šajā datu kopā ir iekļauts Santanderas pilsētā esošo kinoteātru katalogs.",
+          "hr": "Ovaj skup podataka sadrži katalog kina koja postoje u gradu Santanderu.",
+          "fr": "Cet ensemble de données contient le catalogue des cinémas existant dans la ville de Santander.",
+          "hu": "Ez az adatkészlet tartalmazza a Santander városában található mozik katalógusát.",
+          "uk": "Цей набір даних містить каталог кінотеатрів, що існують в місті Сантандер.",
+          "sk": "Tento súbor údajov obsahuje katalóg kín existujúcich v meste Santander.",
+          "sl": "Ta nabor podatkov vsebuje katalog kinematografov, ki obstajajo v mestu Santander.",
+          "ga": "Sa tacar sonraí seo tá catalóg na bpictiúrlann atá ann cheana i gcathair Santander.",
+          "sv": "Detta dataset innehåller katalogen över de biografer som finns i staden Santander.",
+          "mt": "Dan is-sett ta’ data fih il-katalgu tas-swali taċ-ċinema li jeżistu fil-belt ta’ Santander.",
+          "el": "Αυτό το σύνολο δεδομένων περιέχει τον κατάλογο των κινηματογράφων που υπάρχουν στην πόλη του Σανταντέρ.",
+          "en": "This dataset contains the catalogue of the cinemas existing in the city of Santander.",
+          "it": "Questo set di dati contiene il catalogo dei cinema esistenti nella città di Santander.",
+          "es": "Este dataset contiene el catálogo de los cines existentes en la ciudad de Santander.",
+          "et": "See andmekogum sisaldab Santanderi linnas olemasolevate kinode kataloogi.",
+          "cs": "Tento datový soubor obsahuje katalog kin existujících ve městě Santander.",
+          "pl": "Ten zbiór danych zawiera katalog kin istniejących w mieście Santander.",
+          "ro": "Acest set de date conține catalogul cinematografelor existente în orașul Santander.",
+          "da": "Dette datasæt indeholder kataloget over biografer, der findes i byen Santander.",
+          "nl": "Deze dataset bevat de catalogus van de bioscopen die in de stad Santander bestaan."
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Kinos",
+          "fi": "Elokuvateattereita",
+          "pt": "Cinemas",
+          "bg": "Кина",
+          "lt": "Kino teatrai",
+          "hr": "Kina",
+          "lv": "Kinoteātri",
+          "fr": "Cinémas",
+          "hu": "Mozik",
+          "uk": "Кінотеатри для кінотеатрів",
+          "sk": "Kiná",
+          "sl": "Kinodvorane",
+          "ga": "Pictiúrlanna",
+          "sv": "Biografer",
+          "mt": "Swali taċ-ċinema",
+          "el": "Κινηματογράφοι",
+          "en": "Cinemas",
+          "it": "Cinematografia",
+          "es": "Cines",
+          "et": "Kinod",
+          "cs": "Kinosál",
+          "pl": "Kino",
+          "da": "Biografer",
+          "ro": "Cinematografe",
+          "nl": "Bioscopen"
+        },
+        "accrual_periodicity": {},
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/ld%2Bjson",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.jsonld"
+            ],
+            "id": "1658badd-8fc2-48b1-9b68-a01b2dc3a322",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/n3",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.n3"
+            ],
+            "id": "2b137422-87d0-4d8e-bde3-791642c1a37a",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.csv%26rnd%3D1365744798"
+            ],
+            "id": "39deef2d-2c19-42d4-99b8-6be41e3452e2",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.json"
+            ],
+            "id": "00296bf8-7b9a-4dbe-ac2a-f8100fbaacc6",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/atom%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.atom"
+            ],
+            "id": "0db690f9-59c9-40ae-9edd-47b1b77278c7",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "application/xml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.xml"
+            ],
+            "id": "385bb9ac-c309-42e3-af59-6dfd4c5bd526",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "da": "Seværdigheder — Cinema",
+              "ro": "Puncte de interes – Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/html",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.html"
+            ],
+            "id": "f621008c-3e49-47ff-b754-e33d3bc8c4c1",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "hr": "Zanimljivosti – Kino",
+              "lv": "Interešu punkti — kinoteātris",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "text/turtle",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.turtle"
+            ],
+            "id": "87465de4-6df9-49b8-bdb6-5f7a93c063a0",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "id": "http://creativecommons.org/licenses/by/4.0/deed.es",
+              "label": "http://creativecommons.org/licenses/by/4.0/deed.es"
+            },
+            "media_type": "https://www.iana.org/assignments/media-types/application/rdf%2Bxml",
+            "access_url": [
+              "http://datos.santander.es/api/rest/datasets/puntos_interes_cine.rdf"
+            ],
+            "id": "8d3455b0-c922-475f-96b9-5a70d429056d",
+            "title": {
+              "de": "Sehenswürdigkeiten – Kino",
+              "fi": "Kiinnostavat kohteet – Elokuvateatteri",
+              "pt": "Pontos de Interesse — Cinema",
+              "bg": "Интересни точки — Кино",
+              "lt": "Lankytinos vietos – Kinas",
+              "lv": "Interešu punkti — kinoteātris",
+              "hr": "Zanimljivosti – Kino",
+              "fr": "Points d’intérêt — Cinéma",
+              "hu": "Érdekességek – Mozi",
+              "uk": "Цікаві місця - Кінотеатр",
+              "sk": "Zaujímavé miesta – kino",
+              "sl": "Zanimive točke – kino",
+              "ga": "Pointí Spéise — Pictiúrlann",
+              "sv": "Intressanta platser – Cinema",
+              "mt": "Punti ta’ Interess — Ċinema",
+              "el": "Σημεία Ενδιαφέροντος — Κινηματογράφος",
+              "en": "Points of Interest — Cinema",
+              "it": "Punti di interesse — Cinema",
+              "es": "Puntos de interés - Cine",
+              "et": "Huviväärsused – kino",
+              "cs": "Zajímavá místa – Kino",
+              "pl": "Ciekawe miejsca – kino",
+              "ro": "Puncte de interes – Cinema",
+              "da": "Seværdigheder — Cinema",
+              "nl": "Bezienswaardigheden — Cinema"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 220
+        },
+        "modified": "2015-11-05T00:00:00+01:00",
+        "publisher": {
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/L01390759",
+          "name": "Ayuntamiento de Santander",
+          "type": "Agent"
+        },
+        "id": "http-datos-santander-es-catalogo-cines",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+            "id": "EDUC",
+            "label": {
+              "nn": "Utdanning, kultur og sport",
+              "no": "Utdanning, kultur og sport",
+              "de": "Bildung, Kultur und Sport",
+              "fi": "Koulutus, kulttuuri ja urheilu",
+              "pt": "Educação, cultura e desporto",
+              "bg": "Образование, култура и спорт",
+              "lt": "Švietimas, kultūra ir sportas",
+              "lv": "Izglītība, kultūra un sports",
+              "hr": "Obrazovanje, kultura i sport",
+              "fr": "Éducation, culture et sport",
+              "hu": "Oktatás, kultúra és sport",
+              "sk": "Vzdelávanie, kultúra a šport",
+              "sl": "Izobraževanje, kultura in šport",
+              "ga": "Oideachas, cultúr agus spórt",
+              "sv": "Utbildning, kultur och sport",
+              "el": "Παιδεία, πολιτιστικά θέματα και αθλητισμός",
+              "mt": "Edukazzjoni, kultura u sport",
+              "en": "Education, culture and sport",
+              "it": "Istruzione, cultura e sport",
+              "es": "Educación, cultura y deportes",
+              "et": "Haridus, kultuur ja sport",
+              "cs": "Vzdělávání, kultura a sport",
+              "nb": "Utdanning, kultur og sport",
+              "pl": "Edukacja, kultura i sport",
+              "da": "Uddannelse, kultur og sport",
+              "ro": "Educaţie, cultură şi sport",
+              "nl": "Onderwijs, cultuur en sport"
+            }
+          }
+        ],
+        "issued": "2015-09-28T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-20T00:01:40Z",
+          "issued": "2023-02-01T09:17:36Z"
+        }
+      },
+      {
         "country": {
           "label": "Italy",
           "id": "it",
@@ -3827,14 +4532,14 @@
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_iniciativas_10047id_miembro"
+          "https://datos.parcan.es/dataset/diputado_asistencias_08006id_miembro"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -3879,208 +4584,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "lv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "hr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "el": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "ro": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-05T03:07:43Z",
-              "issued": "2023-02-01T09:26:09Z"
+              "received": "2023-02-05T03:31:37Z",
+              "issued": "2023-02-01T09:26:25Z"
             }
           },
           "full_available_languages": [
-            "el",
-            "pt",
-            "da",
-            "uk",
             "lv",
-            "pl",
-            "lt",
-            "et",
-            "ro",
-            "it",
-            "en",
-            "hu",
             "hr",
-            "sl",
-            "ga",
-            "sk",
+            "hu",
+            "pl",
             "fi",
-            "fr",
-            "nl",
-            "bg",
+            "ro",
             "cs",
-            "de",
-            "mt",
+            "en",
+            "sv",
+            "it",
+            "pt",
             "es",
-            "sv"
+            "uk",
+            "de",
+            "et",
+            "nl",
+            "lt",
+            "ga",
+            "bg",
+            "fr",
+            "sk",
+            "sl",
+            "el",
+            "mt",
+            "da"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
-          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
-          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
-          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
-          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
-          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
-          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
-          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
-          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
-          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
-          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
-          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
-          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
-          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
-          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
-          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
-          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
-          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
-          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
-          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
-          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
-          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
-          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
-          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
-          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
+          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
+          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
+          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
+          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
+          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
+          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
+          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
+          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
+          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
+          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
+          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
+          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
+          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
+          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
+          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
+          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
+          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
+          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
+          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
+          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
+          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
+          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
+          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
         },
         "index": "dataset",
         "language": [
@@ -4091,31 +4796,31 @@
           }
         ],
         "title": {
-          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
-          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
-          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
-          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
-          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
-          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
-          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
-          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
-          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
-          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
-          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
-          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
-          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
-          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
-          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
-          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
-          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
-          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
-          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
-          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
-          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
-          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
-          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
-          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
+          "de": "Vorbereitet von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
+          "fi": "Avustajana Víctor Tomás Chinea Mendoza – VIII lainsäätäjä",
+          "pt": "Assistido por Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "bg": "Подпомаган от Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
+          "lt": "Padedant Víctor Tomįs Chinea Mendoza – VIII kadencija",
+          "lv": "Palīdz Víctor Tomás Chinea Mendoza — VIII sasaukums",
+          "hr": "Pomoć Víctor Tomás Chinea Mendoza – VIII zakonodavac",
+          "fr": "Assisté de Víctor Tomás Chinea Mendoza — VIIIe législature",
+          "hu": "Közreműködik Víctor Tomás Chinea Mendoza – VIII. törvényhozás",
+          "uk": "Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
+          "sk": "Za pomoci Víctora Tomása Chinea Mendoza – VIII volebné obdobie",
+          "sl": "Ob pomoči Víctorja Tomása Chinee Mendoza – VIII. zakonodajno telo",
+          "ga": "Le cúnamh ó Víctor Tomás Chinea Mendoza — VIII reachtas",
+          "sv": "Med bistånd av Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
+          "el": "Επικουρούμενος από τον Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
+          "mt": "Assistit minn Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
+          "en": "Assisted by Víctor Tomás Chinea Mendoza — VIII legislature",
+          "it": "Assist di Víctor Tomás Chinea Mendoza — VIII legislatura",
+          "es": "Asistencias de Víctor Tomás Chinea Mendoza - VIII legislatura",
+          "et": "Abistas Víctor Tomás Chinea Mendoza – VIII ametiaeg",
+          "cs": "Za pomoci Víctor Tomás Chinea Mendoza – VIII. volební období",
+          "pl": "Wspomagany przez Víctor Tomás Chinea Mendoza – VIII legislacja",
+          "ro": "Asistat de Víctor Tomás Chinea Mendoza – Legislativul VIII",
+          "da": "Bistået af Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
+          "nl": "Bijgestaan door Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
         },
         "distributions": [
           {
@@ -4126,35 +4831,35 @@
             },
             "media_type": "application/json",
             "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/10047?format=json"
+              "https://parcan.es/api/diputado/asistencias/08006?format=json"
             ],
-            "id": "b16cf9f2-1138-479c-8abd-28352db1f8af",
+            "id": "d02450b5-f126-430b-9e9a-c3a66945f6c0",
             "title": {
-              "de": "X Legislaturperiode (JSON)",
-              "fi": "X Lainsäädäntö (JSON)",
-              "pt": "X legislatura (JSON)",
-              "bg": "X законодателен мандат (JSON)",
-              "lt": "X įstatymų leidėjas (JSON)",
-              "lv": "X sasaukums (JSON)",
-              "hr": "X zakonodavno tijelo (JSON)",
-              "fr": "X législature (JSON)",
-              "hu": "X jogalkotó (JSON)",
-              "uk": "X Законодавчий орган (JSON)",
-              "sk": "X volebné obdobie (JSON)",
-              "sl": "X zakonodajalec (JSON)",
-              "ga": "X reachtas (JSON)",
-              "sv": "X Lagstiftning (JSON)",
-              "mt": "Leġiżlatura x (JSON)",
-              "el": "X νομοθετικό σώμα (JSON)",
-              "en": "X legislature (JSON)",
-              "it": "X Legislativo (JSON)",
-              "es": "X legislatura (JSON)",
-              "et": "X Seadusandlik koosseis (JSON)",
-              "cs": "X volební období (JSON)",
-              "pl": "X Ustawodawstwo (JSON)",
-              "ro": "X Legislație (JSON)",
-              "da": "X lovgivende forsamling (JSON)",
-              "nl": "X Wetgeving (JSON)"
+              "de": "VIII Wahlperiode (JSON)",
+              "fi": "VIII vaalikausi (JSON)",
+              "pt": "VIII legislatura (JSON)",
+              "bg": "VIII парламентарен мандат (JSON)",
+              "lt": "VIII Parlamento kadencija (JSON)",
+              "hr": "VIII. parlamentarni saziv (JSON)",
+              "lv": "VIII Parlamenta sasaukums (JSON)",
+              "fr": "VIIIe législature (JSON)",
+              "hu": "VIII. parlamenti ciklus (JSON)",
+              "uk": "VIII парламентський термін (JSON)",
+              "sk": "VIII volebné obdobie (JSON)",
+              "sl": "VIII. parlamentarno obdobje (JSON)",
+              "ga": "VIII téarma parlaiminteach (JSON)",
+              "sv": "VIII:s valperiod (JSON)",
+              "el": "VIII κοινοβουλευτική περίοδος (JSON)",
+              "mt": "VIII leġiżlatura (JSON)",
+              "en": "VIII parliamentary term (JSON)",
+              "it": "VIII legislatura (JSON)",
+              "es": "VIII legislatura (JSON)",
+              "et": "Parlamendi VIII ametiaeg (JSON)",
+              "cs": "VIII. volební období (JSON)",
+              "pl": "VIII kadencja parlamentarna (JSON)",
+              "ro": "A VIII-a legislatură (JSON)",
+              "da": "VIII valgperiode (JSON)",
+              "nl": "VIII zittingsperiode (JSON)"
             }
           },
           {
@@ -4165,884 +4870,9 @@
             },
             "media_type": "text/csv",
             "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/10047?format=csv"
+              "https://parcan.es/api/diputado/asistencias/08006?format=csv"
             ],
-            "id": "3b67a29e-0ac6-41a5-8637-01ddedc66a4c",
-            "title": {
-              "de": "X Legislaturperiode (CSV)",
-              "fi": "X Lainsäädäntö (CSV)",
-              "pt": "X legislatura (CSV)",
-              "bg": "X законодателен мандат (CSV)",
-              "lt": "X teisės aktų leidėjas (CSV)",
-              "hr": "X zakonodavno tijelo (CSV)",
-              "lv": "X likumdevējs (CSV)",
-              "fr": "X Législation (CSV)",
-              "hu": "X jogalkotó (CSV)",
-              "uk": "X Законодавчий орган (CSV)",
-              "sk": "X volebné obdobie (CSV)",
-              "sl": "X zakonodajalec (CSV)",
-              "ga": "X reachtas (CSV)",
-              "sv": "X Lagstiftning (CSV)",
-              "mt": "Leġiżlatura x (CSV)",
-              "el": "X νομοθέτης (CSV)",
-              "en": "X legislature (CSV)",
-              "it": "X Legislativo (CSV)",
-              "es": "X legislatura (CSV)",
-              "et": "X Seadusandlik koosseis (CSV)",
-              "cs": "X volební období (CSV)",
-              "pl": "X prawodawstwo (CSV)",
-              "da": "X lovgiver (CSV)",
-              "ro": "X legislatură (CSV)",
-              "nl": "X Wetgeving (CSV)"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 140
-        },
-        "modified": "2021-05-07T00:00:00+02:00",
-        "publisher": {
-          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
-          "name": "Parlamento de Canarias",
-          "type": "Agent"
-        },
-        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
-            "id": "JUST",
-            "label": {
-              "nn": "Justis, rettssystem og allmenn tryggleik",
-              "no": "Justis, rettssystem og allmenn sikkerhet",
-              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
-              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
-              "pt": "Justiça, sistema judiciário e segurança pública",
-              "bg": "Правосъдие, съдебна система и обществена безопасност",
-              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
-              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
-              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
-              "fr": "Justice, système juridique et sécurité publique",
-              "hu": "Igazságügy, jogrendszer és közbiztonság",
-              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
-              "sl": "Pravosodje, pravni sistem in javna varnost",
-              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
-              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
-              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
-              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
-              "en": "Justice, legal system and public safety",
-              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
-              "es": "Justicia, sistema judicial y seguridad pública",
-              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
-              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
-              "nb": "Justis, rettssystem og allmenn sikkerhet",
-              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
-              "ro": "Justiție, sistem juridic și siguranță publică",
-              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
-              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
-            }
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          }
-        ],
-        "issued": "2021-05-07T00:00:00+02:00",
-        "catalog_record": {
-          "modified": "2026-03-19T23:57:44Z",
-          "issued": "2023-02-01T09:26:09Z"
-        }
-      },
-      {
-        "identifier": [
-          "https://datos.parcan.es/dataset/diputado_asistencias_09033id_miembro"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
-          "label": "Spain",
-          "id": "es"
-        },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
-        "catalog": {
-          "id": "datos-gob-es",
-          "language": [
-            {
-              "id": "es",
-              "label": "Spanish",
-              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
-            }
-          ],
-          "homepage": "https://datos.gob.es",
-          "issued": "2022-11-21T05:37:01Z",
-          "country": {
-            "label": "Spain",
-            "id": "es",
-            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-          },
-          "spatial_resource": [
-            {
-              "label": "Spain",
-              "id": "es",
-              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-            }
-          ],
-          "spatial": [],
-          "source_type": "dcat-ap",
-          "description": {
-            "en": "Open Data Portal Spain"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:soporte@datos.gob.es",
-            "homepage": "https://www.hacienda.gob.es",
-            "name": "Ministerio de Hacienda y Administraciones Públicas"
-          },
-          "modified": "2023-02-02T23:43:40.086753",
-          "title": {
-            "es": "datos.gob.es"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "es": {
-              "machine_translated": false,
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-04T20:40:03Z",
-              "issued": "2023-02-01T09:22:00Z"
-            }
-          },
-          "full_available_languages": [
-            "mt",
-            "lt",
-            "sl",
-            "uk",
-            "sv",
-            "it",
-            "fi",
-            "hr",
-            "da",
-            "et",
-            "sk",
-            "ro",
-            "cs",
-            "lv",
-            "hu",
-            "es",
-            "el",
-            "fr",
-            "pt",
-            "bg",
-            "ga",
-            "pl",
-            "en",
-            "de",
-            "nl"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
-          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
-          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
-            "id": "es",
-            "label": "Spanish"
-          }
-        ],
-        "title": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – IX Legislaturperiode",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – IX lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — IX legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — IX законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – IX įstatymų leidėjas",
-          "hr": "Pomoć Jesús Ramón Ramos Chinea – IX zakonodavstvo",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — IX likumdevējs",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — IX législature",
-          "hu": "Jesús Ramón Ramos Chinea – IX. törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - IX законодавчий орган",
-          "sk": "Asistencia: Jesús Ramón Ramos Chinea – IX zákonodarný zbor",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – IX. zakonodajno telo",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — IX reachtas",
-          "sv": "Med bistånd av Jesús Ramón Ramos Chinea – IX:s lagstiftande församling",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — IX leġiżlatura",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — IX νομοθετικό σώμα",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — IX legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — IX legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - IX legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – IX ametiaeg",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – IX. volební období",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – IX legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — IX lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – a IX-a legislatură",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — IX wetgevende macht"
-        },
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "https://parcan.es/api/diputado/asistencias/09033?format=json"
-            ],
-            "id": "861f74e2-ddf6-41a1-b093-67d9ce9732ad",
-            "title": {
-              "de": "IX Wahlperiode (JSON)",
-              "fi": "IX vaalikausi (JSON)",
-              "pt": "IX legislatura (JSON)",
-              "bg": "IX парламентарен мандат (JSON)",
-              "lt": "IX Parlamento kadencija (JSON)",
-              "lv": "IX sasaukums (JSON)",
-              "hr": "IX. parlamentarni saziv (JSON)",
-              "fr": "IX législature (JSON)",
-              "hu": "IX. parlamenti ciklus (JSON)",
-              "uk": "IX парламентський термін (JSON)",
-              "sk": "IX. volebné obdobie (JSON)",
-              "sl": "IX. parlamentarno obdobje (JSON)",
-              "ga": "IX téarma parlaiminteach (JSON)",
-              "sv": "IX valperioden (JSON)",
-              "mt": "IX leġiżlatura (JSON)",
-              "el": "IX κοινοβουλευτική περίοδος (JSON)",
-              "en": "IX parliamentary term (JSON)",
-              "it": "IX legislatura (JSON)",
-              "es": "IX legislatura (JSON)",
-              "et": "IX ametiaeg (JSON)",
-              "cs": "IX. volební období (JSON)",
-              "pl": "IX kadencja parlamentarna (JSON)",
-              "ro": "A IX-a legislatură (JSON)",
-              "da": "IX valgperiode (JSON)",
-              "nl": "IX zittingsperiode (JSON)"
-            }
-          },
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "https://parcan.es/api/diputado/asistencias/09033?format=csv"
-            ],
-            "id": "dd93015c-ceab-4190-83c0-39fc007c127c",
-            "title": {
-              "de": "IX Legislaturperiode (CSV)",
-              "fi": "IX Lainsäädäntö (CSV)",
-              "pt": "IX legislatura (CSV)",
-              "bg": "IX законодателен мандат (CSV)",
-              "lt": "IX teisės aktų leidėjas (CSV)",
-              "hr": "Zakonodavno razdoblje (CSV)",
-              "lv": "IX likumdevējs (CSV)",
-              "fr": "IX législature (CSV)",
-              "hu": "IX. törvényhozás (CSV)",
-              "uk": "IX Законодавчий орган (CSV)",
-              "sk": "IX volebné obdobie (CSV)",
-              "sl": "IX. zakonodajalec (CSV)",
-              "ga": "IX reachtas (CSV)",
-              "sv": "IX Lagstiftning (CSV)",
-              "mt": "Ix leġiżlatura (CSV)",
-              "el": "IX νομοθέτης (CSV)",
-              "en": "IX legislature (CSV)",
-              "it": "IX legislatura (CSV)",
-              "es": "IX legislatura (CSV)",
-              "et": "IX seadusandlik kogu (CSV)",
-              "cs": "IX. volební období (CSV)",
-              "pl": "IX legislacja (CSV)",
-              "da": "IX-lovgiver (CSV)",
-              "ro": "IX Legislativ (CSV)",
-              "nl": "IX legislatuur (CSV)"
-            }
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 140
-        },
-        "modified": "2021-05-05T00:00:00+02:00",
-        "publisher": {
-          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
-          "name": "Parlamento de Canarias",
-          "type": "Agent"
-        },
-        "id": "https-datos-parcan-es-dataset-diputado_asistencias_09033id_miembro",
-        "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
-            "id": "JUST",
-            "label": {
-              "nn": "Justis, rettssystem og allmenn tryggleik",
-              "no": "Justis, rettssystem og allmenn sikkerhet",
-              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
-              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
-              "pt": "Justiça, sistema judiciário e segurança pública",
-              "bg": "Правосъдие, съдебна система и обществена безопасност",
-              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
-              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
-              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
-              "fr": "Justice, système juridique et sécurité publique",
-              "hu": "Igazságügy, jogrendszer és közbiztonság",
-              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
-              "sl": "Pravosodje, pravni sistem in javna varnost",
-              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
-              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
-              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
-              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
-              "en": "Justice, legal system and public safety",
-              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
-              "es": "Justicia, sistema judicial y seguridad pública",
-              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
-              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
-              "nb": "Justis, rettssystem og allmenn sikkerhet",
-              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
-              "ro": "Justiție, sistem juridic și siguranță publică",
-              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
-              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
-            }
-          },
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          }
-        ],
-        "issued": "2021-05-05T00:00:00+02:00",
-        "catalog_record": {
-          "modified": "2026-03-19T23:52:26Z",
-          "issued": "2023-02-01T09:22:00Z"
-        }
-      },
-      {
-        "identifier": [
-          "https://datos.parcan.es/dataset/diputado_iniciativas_08006id_miembro"
-        ],
-        "country": {
-          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
-          "label": "Spain",
-          "id": "es"
-        },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_08006id_miembro",
-        "catalog": {
-          "id": "datos-gob-es",
-          "language": [
-            {
-              "id": "es",
-              "label": "Spanish",
-              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
-            }
-          ],
-          "homepage": "https://datos.gob.es",
-          "issued": "2022-11-21T05:37:01Z",
-          "country": {
-            "label": "Spain",
-            "id": "es",
-            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-          },
-          "spatial_resource": [
-            {
-              "label": "Spain",
-              "id": "es",
-              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
-            }
-          ],
-          "spatial": [],
-          "source_type": "dcat-ap",
-          "description": {
-            "en": "Open Data Portal Spain"
-          },
-          "publisher": {
-            "type": "Agent",
-            "email": "mailto:soporte@datos.gob.es",
-            "homepage": "https://www.hacienda.gob.es",
-            "name": "Ministerio de Hacienda y Administraciones Públicas"
-          },
-          "modified": "2023-02-02T23:43:40.086753",
-          "title": {
-            "es": "datos.gob.es"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "de": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "lv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "el": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "es": {
-              "machine_translated": false,
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-05T09:17:02Z",
-              "issued": "2023-02-01T09:30:08Z"
-            }
-          },
-          "full_available_languages": [
-            "et",
-            "es",
-            "nl",
-            "it",
-            "sk",
-            "fi",
-            "de",
-            "da",
-            "cs",
-            "el",
-            "hu",
-            "sv",
-            "ga",
-            "hr",
-            "pl",
-            "mt",
-            "ro",
-            "pt",
-            "uk",
-            "lt",
-            "fr",
-            "en",
-            "bg",
-            "lv",
-            "sl"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "de": "Initiativen von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Víctor Tomás Chinea Mendozan aloitteet – VIII vaalikausi",
-          "pt": "Iniciativas de Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Инициативи на Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Víctor Tomįs Chinea Mendoza iniciatyvos – VIII įstatymų leidėjas",
-          "lv": "Víctor Tomás Chinea Mendoza — VIII sasaukuma iniciatīvas",
-          "hr": "Inicijative Víctor Tomás Chinea Mendoza – VIII zakonodavna vlast",
-          "fr": "Initiatives de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Víctor Tomás Chinea Mendoza kezdeményezései – VIII. törvényhozás",
-          "uk": "Ініціативи Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Iniciatívy Víctora Tomása Chineu Mendozu – VIII volebné obdobie",
-          "sl": "Pobude Víctorja Tomása Chinee Mendoze – VIII. zakonodajno obdobje",
-          "ga": "Tionscnaimh Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Initiativ från Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "el": "Πρωτοβουλίες του Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "en": "Initiatives of Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Iniziative di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Iniciativas de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Víctor Tomás Chinea Mendoza algatused – VIII ametiaeg",
-          "cs": "Iniciativy Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Inicjatywy Víctora Tomása Chinei Mendozy – VIII kadencji",
-          "ro": "Inițiativele lui Víctor Tomás Chinea Mendoza – a VIII-a legislatură",
-          "da": "Initiativer fra Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "nl": "Initiatieven van Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
-        },
-        "index": "dataset",
-        "language": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
-            "id": "es",
-            "label": "Spanish"
-          }
-        ],
-        "title": {
-          "de": "Initiativen von Víctor Tomás Chinea Mendoza – VIII Legislaturperiode",
-          "fi": "Víctor Tomás Chinea Mendozan aloitteet – VIII vaalikausi",
-          "pt": "Iniciativas de Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "bg": "Инициативи на Víctor Tomás Chinea Mendoza — VIII законодателен мандат",
-          "lt": "Víctor Tomįs Chinea Mendoza iniciatyvos – VIII įstatymų leidėjas",
-          "hr": "Inicijative Víctor Tomás Chinea Mendoza – VIII zakonodavna vlast",
-          "lv": "Víctor Tomás Chinea Mendoza — VIII sasaukuma iniciatīvas",
-          "fr": "Initiatives de Víctor Tomás Chinea Mendoza — VIIIe législature",
-          "hu": "Víctor Tomás Chinea Mendoza kezdeményezései – VIII. törvényhozás",
-          "uk": "Ініціативи Víctor Tomás Chinea Mendoza - VIII законодавчий орган",
-          "sk": "Iniciatívy Víctora Tomása Chineu Mendozu – VIII volebné obdobie",
-          "sl": "Pobude Víctorja Tomása Chinee Mendoze – VIII. zakonodajno obdobje",
-          "ga": "Tionscnaimh Víctor Tomás Chinea Mendoza — VIII reachtas",
-          "sv": "Initiativ från Víctor Tomás Chinea Mendoza – VIII:s lagstiftande församling",
-          "el": "Πρωτοβουλίες του Víctor Tomás Chinea Mendoza — VIII νομοθετικό σώμα",
-          "mt": "Inizjattivi ta’ Víctor Tomás Chinea Mendoza — VIII leġiżlatura",
-          "en": "Initiatives of Víctor Tomás Chinea Mendoza — VIII legislature",
-          "it": "Iniziative di Víctor Tomás Chinea Mendoza — VIII legislatura",
-          "es": "Iniciativas de Víctor Tomás Chinea Mendoza - VIII legislatura",
-          "et": "Víctor Tomás Chinea Mendoza algatused – VIII ametiaeg",
-          "cs": "Iniciativy Víctor Tomás Chinea Mendoza – VIII. volební období",
-          "pl": "Inicjatywy Víctora Tomása Chinei Mendozy – VIII kadencji",
-          "da": "Initiativer fra Víctor Tomás Chinea Mendoza — VIII lovgivende forsamling",
-          "ro": "Inițiativele lui Víctor Tomás Chinea Mendoza – a VIII-a legislatură",
-          "nl": "Initiatieven van Víctor Tomás Chinea Mendoza — VIII wetgevende macht"
-        },
-        "distributions": [
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "text/csv",
-            "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/08006?format=csv"
-            ],
-            "id": "3c22db4d-91b3-49cb-b708-8f4931de015c",
+            "id": "bbde95ab-d0e9-4f6d-b8a4-2981d1e95896",
             "title": {
               "de": "VIII Legislaturperiode (CSV)",
               "fi": "VIII Lainsäädäntö (CSV)",
@@ -5070,92 +4900,20 @@
               "ro": "VIII Legislativ (CSV)",
               "nl": "VIII legislatuur (CSV)"
             }
-          },
-          {
-            "license": {
-              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
-              "id": "http://www.opendefinition.org/licenses/odc-pddl",
-              "label": "http://www.opendefinition.org/licenses/odc-pddl"
-            },
-            "media_type": "application/json",
-            "access_url": [
-              "https://parcan.es/api/diputado/iniciativas/08006?format=json"
-            ],
-            "id": "b954e354-96b1-4ab1-bba0-3746e01aacc8",
-            "title": {
-              "de": "VIII Wahlperiode (JSON)",
-              "fi": "VIII vaalikausi (JSON)",
-              "pt": "VIII legislatura (JSON)",
-              "bg": "VIII парламентарен мандат (JSON)",
-              "lt": "VIII Parlamento kadencija (JSON)",
-              "lv": "VIII Parlamenta sasaukums (JSON)",
-              "hr": "VIII. parlamentarni saziv (JSON)",
-              "fr": "VIIIe législature (JSON)",
-              "hu": "VIII. parlamenti ciklus (JSON)",
-              "uk": "VIII парламентський термін (JSON)",
-              "sk": "VIII volebné obdobie (JSON)",
-              "sl": "VIII. parlamentarno obdobje (JSON)",
-              "ga": "VIII téarma parlaiminteach (JSON)",
-              "sv": "VIII:s valperiod (JSON)",
-              "el": "VIII κοινοβουλευτική περίοδος (JSON)",
-              "mt": "VIII leġiżlatura (JSON)",
-              "en": "VIII parliamentary term (JSON)",
-              "it": "VIII legislatura (JSON)",
-              "es": "VIII legislatura (JSON)",
-              "et": "Parlamendi VIII ametiaeg (JSON)",
-              "cs": "VIII. volební období (JSON)",
-              "pl": "VIII kadencja parlamentarna (JSON)",
-              "ro": "A VIII-a legislatură (JSON)",
-              "da": "VIII valgperiode (JSON)",
-              "nl": "VIII zittingsperiode (JSON)"
-            }
           }
         ],
         "is_hvd": false,
         "quality_meas": {
-          "scoring": 140
+          "scoring": 190
         },
-        "modified": "2021-05-07T00:00:00+02:00",
         "publisher": {
           "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
           "name": "Parlamento de Canarias",
           "type": "Agent"
         },
-        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_08006id_miembro",
+        "modified": "2021-05-05T00:00:00+02:00",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_08006id_miembro",
         "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
-            "id": "JUST",
-            "label": {
-              "nn": "Justis, rettssystem og allmenn tryggleik",
-              "no": "Justis, rettssystem og allmenn sikkerhet",
-              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
-              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
-              "pt": "Justiça, sistema judiciário e segurança pública",
-              "bg": "Правосъдие, съдебна система и обществена безопасност",
-              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
-              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
-              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
-              "fr": "Justice, système juridique et sécurité publique",
-              "hu": "Igazságügy, jogrendszer és közbiztonság",
-              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
-              "sl": "Pravosodje, pravni sistem in javna varnost",
-              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
-              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
-              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
-              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
-              "en": "Justice, legal system and public safety",
-              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
-              "es": "Justicia, sistema judicial y seguridad pública",
-              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
-              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
-              "nb": "Justis, rettssystem og allmenn sikkerhet",
-              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
-              "ro": "Justiție, sistem juridic și siguranță publică",
-              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
-              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
-            }
-          },
           {
             "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
             "id": "GOVE",
@@ -5188,12 +4946,502 @@
               "ro": "Guvern şi sector public",
               "nl": "Overheid en publieke sector"
             }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
+            "label": {
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
           }
         ],
-        "issued": "2021-05-07T00:00:00+02:00",
+        "issued": "2021-05-05T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-03-20T00:09:30Z",
-          "issued": "2023-02-01T09:30:08Z"
+          "modified": "2026-03-20T00:25:08Z",
+          "issued": "2023-02-01T09:26:25Z"
+        }
+      },
+      {
+        "identifier": [
+          "https://datos.parcan.es/dataset/diputado_asistencias_10047id_miembro"
+        ],
+        "country": {
+          "resource": "http://publications.europa.eu/resource/authority/country/ESP",
+          "label": "Spain",
+          "id": "es"
+        },
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "catalog": {
+          "id": "datos-gob-es",
+          "language": [
+            {
+              "id": "es",
+              "label": "Spanish",
+              "resource": "http://publications.europa.eu/resource/authority/language/SPA"
+            }
+          ],
+          "homepage": "https://datos.gob.es",
+          "issued": "2022-11-21T05:37:01Z",
+          "country": {
+            "label": "Spain",
+            "id": "es",
+            "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+          },
+          "spatial_resource": [
+            {
+              "label": "Spain",
+              "id": "es",
+              "resource": "http://publications.europa.eu/resource/authority/country/ESP"
+            }
+          ],
+          "spatial": [],
+          "source_type": "dcat-ap",
+          "description": {
+            "en": "Open Data Portal Spain"
+          },
+          "publisher": {
+            "type": "Agent",
+            "email": "mailto:soporte@datos.gob.es",
+            "homepage": "https://www.hacienda.gob.es",
+            "name": "Ministerio de Hacienda y Administraciones Públicas"
+          },
+          "modified": "2023-02-02T23:43:40.086753",
+          "title": {
+            "es": "datos.gob.es"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "de": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "lv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "el": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "es": {
+              "machine_translated": false,
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-02T06:12:58Z",
+              "issued": "2023-02-01T09:07:51Z"
+            }
+          },
+          "full_available_languages": [
+            "ga",
+            "en",
+            "sk",
+            "el",
+            "uk",
+            "sv",
+            "hr",
+            "pl",
+            "bg",
+            "mt",
+            "es",
+            "nl",
+            "hu",
+            "fi",
+            "pt",
+            "cs",
+            "et",
+            "lt",
+            "it",
+            "sl",
+            "ro",
+            "de",
+            "fr",
+            "da",
+            "lv"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
+          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
+          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+        },
+        "index": "dataset",
+        "language": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/language/SPA",
+            "id": "es",
+            "label": "Spanish"
+          }
+        ],
+        "title": {
+          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
+          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
+          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
+          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
+          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
+          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
+          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
+          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
+          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
+          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
+          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
+          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
+          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
+          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
+          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+        },
+        "distributions": [
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "application/json",
+            "access_url": [
+              "https://parcan.es/api/diputado/asistencias/10047?format=json"
+            ],
+            "id": "f94fe974-166a-485e-8fdf-bc9c278b30f5",
+            "title": {
+              "de": "X Legislaturperiode (JSON)",
+              "fi": "X Lainsäädäntö (JSON)",
+              "pt": "X legislatura (JSON)",
+              "bg": "X законодателен мандат (JSON)",
+              "lt": "X įstatymų leidėjas (JSON)",
+              "hr": "X zakonodavno tijelo (JSON)",
+              "lv": "X sasaukums (JSON)",
+              "fr": "X législature (JSON)",
+              "hu": "X jogalkotó (JSON)",
+              "uk": "X Законодавчий орган (JSON)",
+              "sk": "X volebné obdobie (JSON)",
+              "sl": "X zakonodajalec (JSON)",
+              "ga": "X reachtas (JSON)",
+              "sv": "X Lagstiftning (JSON)",
+              "mt": "Leġiżlatura x (JSON)",
+              "el": "X νομοθετικό σώμα (JSON)",
+              "en": "X legislature (JSON)",
+              "it": "X Legislativo (JSON)",
+              "es": "X legislatura (JSON)",
+              "et": "X Seadusandlik koosseis (JSON)",
+              "cs": "X volební období (JSON)",
+              "pl": "X Ustawodawstwo (JSON)",
+              "da": "X lovgivende forsamling (JSON)",
+              "ro": "X Legislație (JSON)",
+              "nl": "X Wetgeving (JSON)"
+            }
+          },
+          {
+            "license": {
+              "resource": "http://www.opendefinition.org/licenses/odc-pddl",
+              "id": "http://www.opendefinition.org/licenses/odc-pddl",
+              "label": "http://www.opendefinition.org/licenses/odc-pddl"
+            },
+            "media_type": "text/csv",
+            "access_url": [
+              "https://parcan.es/api/diputado/asistencias/10047?format=csv"
+            ],
+            "id": "2f228fdb-f4cf-4ddd-b60f-edd8df431e79",
+            "title": {
+              "de": "X Legislaturperiode (CSV)",
+              "fi": "X Lainsäädäntö (CSV)",
+              "pt": "X legislatura (CSV)",
+              "bg": "X законодателен мандат (CSV)",
+              "lt": "X teisės aktų leidėjas (CSV)",
+              "hr": "X zakonodavno tijelo (CSV)",
+              "lv": "X likumdevējs (CSV)",
+              "fr": "X Législation (CSV)",
+              "hu": "X jogalkotó (CSV)",
+              "uk": "X Законодавчий орган (CSV)",
+              "sk": "X volebné obdobie (CSV)",
+              "sl": "X zakonodajalec (CSV)",
+              "ga": "X reachtas (CSV)",
+              "sv": "X Lagstiftning (CSV)",
+              "el": "X νομοθέτης (CSV)",
+              "mt": "Leġiżlatura x (CSV)",
+              "en": "X legislature (CSV)",
+              "it": "X Legislativo (CSV)",
+              "es": "X legislatura (CSV)",
+              "et": "X Seadusandlik koosseis (CSV)",
+              "cs": "X volební období (CSV)",
+              "pl": "X prawodawstwo (CSV)",
+              "da": "X lovgiver (CSV)",
+              "ro": "X legislatură (CSV)",
+              "nl": "X Wetgeving (CSV)"
+            }
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 140
+        },
+        "publisher": {
+          "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
+          "name": "Parlamento de Canarias",
+          "type": "Agent"
+        },
+        "modified": "2021-05-05T00:00:00+02:00",
+        "id": "https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "categories": [
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+            "id": "JUST",
+            "label": {
+              "nn": "Justis, rettssystem og allmenn tryggleik",
+              "no": "Justis, rettssystem og allmenn sikkerhet",
+              "de": "Justiz, Rechtssystem und öffentliche Sicherheit",
+              "fi": "Oikeus, oikeusjärjestelmä ja yleinen turvallisuus",
+              "pt": "Justiça, sistema judiciário e segurança pública",
+              "bg": "Правосъдие, съдебна система и обществена безопасност",
+              "lt": "Teisingumas, teisės sistema ir visuomenės sauga",
+              "hr": "Pravosuđe, pravni sustav i javna sigurnost",
+              "lv": "Tieslietas, tiesību sistēma un sabiedrības drošība",
+              "fr": "Justice, système juridique et sécurité publique",
+              "hu": "Igazságügy, jogrendszer és közbiztonság",
+              "sk": "Spravodlivosť, právny systém a verejná bezpečnosť",
+              "sl": "Pravosodje, pravni sistem in javna varnost",
+              "ga": "Ceartas, córas dlí agus sábháilteacht an phobail",
+              "sv": "Rättvisa, rättsliga system och allmän säkerhet",
+              "mt": "Ġustizzja, sistema legali u sigurtà pubblika",
+              "el": "Δικαιoσύνη, νομικό σύστημα και δημόσια ασφάλεια",
+              "en": "Justice, legal system and public safety",
+              "it": "Giustizia, sistema giuridico e sicurezza pubblica",
+              "es": "Justicia, sistema judicial y seguridad pública",
+              "et": "Õigusemõistmine, õigussüsteem ja avalik turvalisus",
+              "cs": "Spravedlnost, právní systém a veřejná bezpečnost",
+              "nb": "Justis, rettssystem og allmenn sikkerhet",
+              "pl": "Sprawiedliwość, ustrój sądów i bezpieczeństwo publiczne",
+              "ro": "Justiție, sistem juridic și siguranță publică",
+              "da": "Retfærdighed, retssystem og offentlig sikkerhed",
+              "nl": "Justitie, rechtsstelsel en openbare veiligheid"
+            }
+          }
+        ],
+        "issued": "2021-05-05T00:00:00+02:00",
+        "catalog_record": {
+          "modified": "2026-03-20T00:09:39Z",
+          "issued": "2023-02-01T09:07:51Z"
         }
       }
     ]
