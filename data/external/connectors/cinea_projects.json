@@ -1,6 +1,6 @@
 {
   "result": {
-    "count": 997,
+    "count": 1001,
     "results": [
       {
         "country": {
@@ -87,7 +87,8 @@
           "description": {
             "en": "European Climate, Infrastructure and Environment Executive Agency"
           },
-          "source_type": "dcat-ap"
+          "source_type": "dcat-ap",
+          "count": 10
         },
         "translation_meta": {
           "details": {
@@ -1342,8 +1343,7 @@
             "email": "mailto:info@dati.gov.it",
             "name": "Agenzia per l'Italia Digitale"
           },
-          "source_type": "dcat-ap",
-          "count": 60506
+          "source_type": "dcat-ap"
         },
         "translation_meta": {
           "details": {
@@ -2635,6 +2635,467 @@
       },
       {
         "identifier": [
+          "aed6eed0-2cde-41d1-89f3-41b6122c1878"
+        ],
+        "country": {
+          "label": "Greece",
+          "id": "gr",
+          "resource": "http://publications.europa.eu/resource/authority/country/GRC"
+        },
+        "keywords": [
+          {
+            "id": "εργαλεία-έρευνας",
+            "label": "Εργαλεία έρευνας",
+            "language": "el"
+          },
+          {
+            "id": "από-μετάπτωση",
+            "label": "Από μετάπτωση",
+            "language": "el"
+          },
+          {
+            "id": "γενικά-αρχεία-του-κράτους",
+            "label": "Γενικά Αρχεία του Κράτους",
+            "language": "el"
+          },
+          {
+            "id": "αρχεία",
+            "label": "Αρχεία",
+            "language": "el"
+          },
+          {
+            "id": "τμήμα-γακ-μεσσηνίας",
+            "label": "Τμήμα ΓΑΚ Μεσσηνίας",
+            "language": "el"
+          },
+          {
+            "id": "repository.data.gov.gr",
+            "label": "repository.data.gov.gr",
+            "language": "el"
+          }
+        ],
+        "resource": "http://data.europa.eu/88u/dataset/aed6eed0-2cde-41d1-89f3-41b6122c1878",
+        "catalog": {
+          "id": "data-gov-gr",
+          "issued": "2023-04-30T10:13:35Z",
+          "description": {
+            "en": "Greek National Open Data Portal"
+          },
+          "publisher": {
+            "type": "Agent",
+            "name": "Ministry of Digital Governance of Greece",
+            "email": "mailto:opendata@mindigital.gr",
+            "homepage": "https://mindigital.gr"
+          },
+          "language": [
+            {
+              "id": "el",
+              "label": "Greek",
+              "resource": "http://publications.europa.eu/resource/authority/language/ELL"
+            }
+          ],
+          "country": {
+            "label": "Greece",
+            "id": "gr",
+            "resource": "http://publications.europa.eu/resource/authority/country/GRC"
+          },
+          "spatial_resource": [
+            {
+              "label": "Greece",
+              "id": "gr",
+              "resource": "http://publications.europa.eu/resource/authority/country/GRC"
+            }
+          ],
+          "spatial": [],
+          "homepage": "https://data.gov.gr",
+          "modified": "2025-03-27T12:30:45Z",
+          "source_type": "dcat-ap",
+          "title": {
+            "en": "data.gov.gr"
+          }
+        },
+        "translation_meta": {
+          "details": {
+            "lv": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "fr": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "it": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "en": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "es": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "pt": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "fi": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "da": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "mt": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "nl": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "hu": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "sv": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "uk": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "pl": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "et": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "de": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "sk": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "el": {
+              "machine_translated": false,
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "lt": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "sl": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "bg": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "ga": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            },
+            "cs": {
+              "machine_translated": true,
+              "original_language": "el",
+              "received": "2026-05-14T02:37:30Z",
+              "issued": "2026-05-12T22:38:56Z"
+            }
+          },
+          "full_available_languages": [
+            "lv",
+            "fr",
+            "hr",
+            "it",
+            "en",
+            "es",
+            "pt",
+            "ro",
+            "fi",
+            "da",
+            "mt",
+            "nl",
+            "hu",
+            "sv",
+            "uk",
+            "pl",
+            "et",
+            "de",
+            "sk",
+            "el",
+            "lt",
+            "sl",
+            "bg",
+            "ga",
+            "cs"
+          ],
+          "status": "completed"
+        },
+        "description": {
+          "cs": "KALOULI DINNER ARCHIVE (1900–1950). Výzkumný nástroj. GAK - Archiv prefektury Messinia. Údaje získané ze softwaru GAC @archiomnimon. \r\n\r\n",
+          "fi": "KALOULI DINNER ARCHIVE (1900-1950). Tutkimusväline. GAK - Messinian prefektuurin arkisto. Yleisten neuvoa-antavien toimikuntien @archiomnimon-ohjelmistosta poimitut tiedot. \r\n\r\n",
+          "et": "KALOULI DINNER ARCHIVE (1900-1950). Uurimisvahend. GAK - Messinia prefektuuri arhiivid. Andmed on võetud üldasjade nõukogu tarkvarast @archiomnimon. \r\n\r\n",
+          "bg": "KALOULI DINNER ARCHIVE (1900-1950 г.). Изследователски инструмент. GAK - Архиви на префектура Месиния. Данните, извлечени от софтуера на GACs @archiomnimon. \r\n\r\n",
+          "hr": "KALOULI DINNER ARCHIVE (1900. – 1950.). Istraživački alat. GAK - Arhiva prefekture Messinia. Podaci preuzeti iz softvera GAC-ova @archiomnimon. \r\n\r\n",
+          "lv": "KALOULI DINNER ARCHIVE (1900-1950). Pētniecības rīks. GAK - Mesinijas prefektūras arhīvs. Dati, kas iegūti no GAC programmatūras @archiomnimon. \r\n\r\n",
+          "ro": "Arhiva cinei KALOULI (1900-1950). Instrument de cercetare. GAK - Arhivele Prefecturii Messinia. Datele extrase din software-ul GACs @archiomnimon. \r\n\r\n",
+          "hu": "KALOULI DINNER ARCHIVE (1900–1950) (angol nyelven). Kutatási eszköz. GAK - Messinia prefektúra archívuma. Az ÁEH-k szoftveréből kinyert adatok @archiomnimon. \r\n\r\n",
+          "ga": "KALOULI DINNER ARCHIVE (1900-1950). Uirlis taighde. GAK - Cartlann Messinia Prefecture. Na sonraí mar a bhaintear as bogearraí na GACs @archiomnimon. \r\n\r\n",
+          "de": "KALOULI DINNER ARCHIV (1900-1950). Forschungsinstrument. GAK - Archiv der Präfektur Messenien. Die Daten stammen aus der Software der GACs @archiomnimon. \r\n\r\n",
+          "sk": "KALOULI DINNER ARCHIVE (1900 – 1950). Výskumný nástroj. GAK - Archív prefektúry Messinia. Údaje extrahované zo softvéru GAC @archiomnimon. \r\n\r\n",
+          "mt": "KALOULI DINNER ARCHIVE (1900-1950). Għodda ta’ riċerka. GAK - Arkivji tal-Prefettura ta' Messinia. Id-data kif estratta mis-softwer tal-GACs @archiomnimon. \r\n\r\n",
+          "da": "KALOULI DINNER ARCHIVE (1900-1950). Forskningsværktøj. GAK - Arkiv af Messinia Prefecture. Dataene er hentet fra GACs @archiomnimons software. \r\n\r\n",
+          "lt": "KALOULI DINNER ARCHIVE (1900-1950). Mokslinių tyrimų priemonė. GAK - Mesinijos prefektūros archyvas. Duomenys, gauti iš GAC programinės įrangos @archiomnimon. \r\n\r\n",
+          "pl": "KALOULI DINNER ARCHIVE (1900-1950). Narzędzie badawcze. GAK - Archiwum prefektury Messinia. Dane wydobyte z oprogramowania GAC @archiomnimon. \r\n\r\n",
+          "it": "ARCHIVIO CENA KALOULI (1900-1950). Strumento di ricerca. GAK - Archivio della Prefettura di Messinia. I dati estratti dal software dei GAC @archiomnimon. \r\n\r\n",
+          "uk": "KALOULI DINNER ARCHIVE (1900-1950). Інструмент дослідження. GAK - Archives of Messinia Prefecture (англ.) Дані, витягнуті з програмного забезпечення GACs @archiomnimon. \r\n\r\n",
+          "fr": "ARCHIVE DU DÎNER KALOULI (1900-1950). Outil de recherche. GAK - Archives de la préfecture de Messinie. Les données extraites du logiciel des GACs @archiomnimon. \r\n\r\n",
+          "el": "ΑΡΧΕΙΟ ΟΙΝΟΠΝΕΥΜΑΤΟΠΟΙΪΑΣ ΚΑΛΟΥΛΗ (1900-1950). Εργαλείο έρευνας. ΓΑΚ - Αρχεία Νομού Μεσσηνίας. Τα δεδομένα όπως έχουν εξαχθεί από το λογισμικό των ΓΑΚ @ρχειομνήμων. \r\n\r\n",
+          "sv": "KALOULI DINNER ARCHIVE (1900-1950). Forskningsverktyg. GAK - Arkiv för Messinia prefektur. Uppgifterna som extraheras från programvaran för GACs @archiomnimon. \r\n\r\n",
+          "en": "KALOULI DINNER ARCHIVE (1900-1950). Research tool. GAK - Archives of Messinia Prefecture. The data as extracted from the software of the GACs @archiomnimon. \r\n\r\n",
+          "es": "KALOULI DINNER ARCHIVE (1900-1950). Herramienta de investigación. GAK - Archivos de la Prefectura de Messinia. Los datos extraídos del software de los GAC @archiomnimon. \r\n\r\n",
+          "pt": "KALOULI DINNER ARCHIVE (1900-1950). Ferramenta de investigação. GAK - Arquivos da Prefeitura de Messinia. Os dados extraídos do software dos GACs @archiomnimon. \r\n\r\n",
+          "sl": "KALOULI DINNER ARCHIVE (1900-1950). Raziskovalno orodje. GAK - Arhiv prefekture Mesinija. Podatki, pridobljeni iz programske opreme GAC @archiomnimon. \r\n\r\n",
+          "nl": "KALOULI DINNER ARCHIVE (1900-1950). Onderzoeksinstrument. GAK - Archieven van de prefectuur Messinia. De gegevens zoals geëxtraheerd uit de software van de GAC's @archiomnimon. \r\n\r\n"
+        },
+        "landing_page": [
+          {
+            "resource": "https://data.gov.gr/dataset/arxeio-oinopneymatopoiias-kaloylh"
+          }
+        ],
+        "index": "dataset",
+        "title": {
+          "lv": "KALOULI DINNER ARHĪVS",
+          "fr": "ARCHIVE DU DÎNER DE KALOULI",
+          "hr": "KALOULI DINNER ARCHIVE",
+          "it": "ARCHIVIO CENA KALOULI",
+          "en": "KALOULI DINNER ARCHIVE",
+          "es": "ARCHIVO DE CENA DE KALOULI",
+          "pt": "KALOULI DINNER ARCHIVE",
+          "ro": "Arhiva pentru cina KALOULI",
+          "fi": "KALOULI DINNER ARCHIVE",
+          "da": "Hoteller i nærheden af Kalouli DINNer ARCHIVE",
+          "mt": "KALOULI DINNER ARCHIVE",
+          "nl": "KALOULI DINNER ARCHIVE",
+          "hu": "KALOULI DINNER ARCHÍVUM",
+          "sv": "KALOULI DINNER ARCHIVE",
+          "uk": "АРХІВ KALOULI DINNER",
+          "pl": "KALOULI KOLACJA ARCHIVE",
+          "et": "KALOULI DINNER ARCHIVE",
+          "de": "KALOULI DINNER ARCHIV",
+          "sk": "KALOULI DINNER ARCHÍV",
+          "el": "ΑΡΧΕΙΟ ΟΙΝΟΠΝΕΥΜΑΤΟΠΟΙΪΑΣ ΚΑΛΟΥΛΗ",
+          "lt": "KALOULI DINNER ARCHYVA",
+          "sl": "KALOULI DINNER ARHIV",
+          "bg": "KALOULI DINNER АРХИВ",
+          "ga": "KALOULI DINNER ARCHIVE",
+          "cs": "KALOULI Večeře ARCHIV"
+        },
+        "accrual_periodicity": {
+          "label": "not planned",
+          "resource": "http://publications.europa.eu/resource/authority/frequency/NOT_PLANNED"
+        },
+        "access_right": {
+          "label": "public",
+          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+        },
+        "distributions": [
+          {
+            "id": "28c78121-a1d2-429b-bb53-4726240015e8",
+            "checksum": {
+              "checksum_value": "cc94bf4b22d42bb7195c94d7a7739aef"
+            },
+            "title": {
+              "lt": "KALOULI DINNER ARCHYVA",
+              "da": "Hoteller i nærheden af Kalouli DINNer ARCHIVE",
+              "el": "ΑΡΧΕΙΟ ΟΙΝΟΠΝΕΥΜΑΤΟΠΟΙΪΑΣ ΚΑΛΟΥΛΗ",
+              "sk": "KALOULI DINNER ARCHÍV",
+              "en": "KALOULI DINNER ARCHIVE",
+              "uk": "АРХІВ KALOULI DINNER",
+              "cs": "KALOULI Večeře ARCHIV",
+              "ro": "Arhiva pentru cina KALOULI",
+              "de": "KALOULI DINNER ARCHIV",
+              "pt": "KALOULI DINNER ARCHIVE",
+              "hr": "KALOULI DINNER ARCHIVE",
+              "nl": "KALOULI DINNER ARCHIVE",
+              "hu": "KALOULI DINNER ARCHÍVUM",
+              "mt": "KALOULI DINNER ARCHIVE",
+              "fi": "KALOULI DINNER ARCHIVE",
+              "sv": "KALOULI DINNER ARCHIVE",
+              "fr": "ARCHIVE DU DÎNER DE KALOULI",
+              "et": "KALOULI DINNER ARCHIVE",
+              "lv": "KALOULI DINNER ARHĪVS",
+              "it": "ARCHIVIO CENA KALOULI",
+              "bg": "KALOULI DINNER АРХИВ",
+              "ga": "KALOULI DINNER ARCHIVE",
+              "sl": "KALOULI DINNER ARHIV",
+              "es": "ARCHIVO DE CENA DE KALOULI",
+              "pl": "KALOULI KOLACJA ARCHIVE"
+            },
+            "format": {
+              "id": "XLS",
+              "label": "Excel XLS",
+              "resource": "http://publications.europa.eu/resource/authority/file-type/XLS"
+            },
+            "availability": {
+              "resource": "http://publications.europa.eu/resource/authority/planned-availability/STABLE",
+              "label": "stable"
+            },
+            "license": {
+              "id": "CC_BY_4_0",
+              "label": "Creative Commons Attribution 4.0 International",
+              "description": "Creative Commons Attribution 4.0 International",
+              "resource": "http://spdx.org/licenses/CC-BY-4.0"
+            },
+            "description": {},
+            "access_url": [
+              "https://data.gov.gr/dataset/aed6eed0-2cde-41d1-89f3-41b6122c1878/resource/4be14cea-fc5c-4316-bcb2-7b18f16bd281/download/grgsa-mesbla012.xls"
+            ],
+            "rights": {
+              "label": "Creative Commons Attribution 4.0 International"
+            },
+            "issued": "2017-12-05T11:13:41.990237",
+            "byte_size": 14336,
+            "modified": "2026-02-23T19:01:17.511893",
+            "download_url": [
+              "https://data.gov.gr/dataset/aed6eed0-2cde-41d1-89f3-41b6122c1878/resource/4be14cea-fc5c-4316-bcb2-7b18f16bd281/download/grgsa-mesbla012.xls"
+            ]
+          }
+        ],
+        "is_hvd": false,
+        "quality_meas": {
+          "scoring": 315
+        },
+        "spatial_resource": [
+          {}
+        ],
+        "publisher": {
+          "type": "Agent",
+          "name": "ΓΑΚ - Αρχεία Νομού Μεσσηνίας"
+        },
+        "modified": "2026-02-23T19:01:17.506324",
+        "id": "aed6eed0-2cde-41d1-89f3-41b6122c1878",
+        "spatial": [
+          {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  19.3736,
+                  34.8021
+                ],
+                [
+                  19.3736,
+                  41.748
+                ],
+                [
+                  28.2471,
+                  41.748
+                ],
+                [
+                  28.2471,
+                  34.8021
+                ],
+                [
+                  19.3736,
+                  34.8021
+                ]
+              ]
+            ]
+          },
+          {
+            "type": "Point",
+            "coordinates": [
+              22.95,
+              39.07
+            ]
+          }
+        ],
+        "issued": "2025-11-17T15:04:03.835155",
+        "temporal": [
+          {
+            "lte": "2099-12-31T00:00:00Z",
+            "gte": "1900-01-01T00:00:00Z"
+          }
+        ],
+        "catalog_record": {
+          "modified": "2026-05-14T02:37:30Z",
+          "issued": "2026-05-12T22:38:56Z"
+        },
+        "contact_point": [
+          {
+            "type": "Kind",
+            "name": "Χαρωνίτης, Γεώργιος",
+            "email": "mailto:naindex@gak.gr"
+          }
+        ]
+      },
+      {
+        "identifier": [
           "http://datos.santander.es/catalogo/cines"
         ],
         "country": {
@@ -3339,467 +3800,6 @@
         }
       },
       {
-        "identifier": [
-          "aed6eed0-2cde-41d1-89f3-41b6122c1878"
-        ],
-        "country": {
-          "label": "Greece",
-          "id": "gr",
-          "resource": "http://publications.europa.eu/resource/authority/country/GRC"
-        },
-        "keywords": [
-          {
-            "id": "εργαλεία-έρευνας",
-            "label": "Εργαλεία έρευνας",
-            "language": "el"
-          },
-          {
-            "id": "από-μετάπτωση",
-            "label": "Από μετάπτωση",
-            "language": "el"
-          },
-          {
-            "id": "γενικά-αρχεία-του-κράτους",
-            "label": "Γενικά Αρχεία του Κράτους",
-            "language": "el"
-          },
-          {
-            "id": "αρχεία",
-            "label": "Αρχεία",
-            "language": "el"
-          },
-          {
-            "id": "τμήμα-γακ-μεσσηνίας",
-            "label": "Τμήμα ΓΑΚ Μεσσηνίας",
-            "language": "el"
-          },
-          {
-            "id": "repository.data.gov.gr",
-            "label": "repository.data.gov.gr",
-            "language": "el"
-          }
-        ],
-        "resource": "http://data.europa.eu/88u/dataset/aed6eed0-2cde-41d1-89f3-41b6122c1878",
-        "catalog": {
-          "id": "data-gov-gr",
-          "issued": "2023-04-30T10:13:35Z",
-          "description": {
-            "en": "Greek National Open Data Portal"
-          },
-          "publisher": {
-            "type": "Agent",
-            "name": "Ministry of Digital Governance of Greece",
-            "email": "mailto:opendata@mindigital.gr",
-            "homepage": "https://mindigital.gr"
-          },
-          "language": [
-            {
-              "id": "el",
-              "label": "Greek",
-              "resource": "http://publications.europa.eu/resource/authority/language/ELL"
-            }
-          ],
-          "country": {
-            "label": "Greece",
-            "id": "gr",
-            "resource": "http://publications.europa.eu/resource/authority/country/GRC"
-          },
-          "spatial_resource": [
-            {
-              "label": "Greece",
-              "id": "gr",
-              "resource": "http://publications.europa.eu/resource/authority/country/GRC"
-            }
-          ],
-          "spatial": [],
-          "homepage": "https://data.gov.gr",
-          "modified": "2025-03-27T12:30:45Z",
-          "source_type": "dcat-ap",
-          "title": {
-            "en": "data.gov.gr"
-          }
-        },
-        "translation_meta": {
-          "details": {
-            "lv": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "fr": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "it": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "en": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "es": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "pt": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "fi": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "da": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "mt": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "nl": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "hu": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "sv": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "uk": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "pl": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "et": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "de": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "sk": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "el": {
-              "machine_translated": false,
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "lt": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "sl": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "bg": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "ga": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            },
-            "cs": {
-              "machine_translated": true,
-              "original_language": "el",
-              "received": "2026-05-14T02:37:30Z",
-              "issued": "2026-05-12T22:38:56Z"
-            }
-          },
-          "full_available_languages": [
-            "lv",
-            "fr",
-            "hr",
-            "it",
-            "en",
-            "es",
-            "pt",
-            "ro",
-            "fi",
-            "da",
-            "mt",
-            "nl",
-            "hu",
-            "sv",
-            "uk",
-            "pl",
-            "et",
-            "de",
-            "sk",
-            "el",
-            "lt",
-            "sl",
-            "bg",
-            "ga",
-            "cs"
-          ],
-          "status": "completed"
-        },
-        "description": {
-          "cs": "KALOULI DINNER ARCHIVE (1900–1950). Výzkumný nástroj. GAK - Archiv prefektury Messinia. Údaje získané ze softwaru GAC @archiomnimon. \r\n\r\n",
-          "fi": "KALOULI DINNER ARCHIVE (1900-1950). Tutkimusväline. GAK - Messinian prefektuurin arkisto. Yleisten neuvoa-antavien toimikuntien @archiomnimon-ohjelmistosta poimitut tiedot. \r\n\r\n",
-          "et": "KALOULI DINNER ARCHIVE (1900-1950). Uurimisvahend. GAK - Messinia prefektuuri arhiivid. Andmed on võetud üldasjade nõukogu tarkvarast @archiomnimon. \r\n\r\n",
-          "bg": "KALOULI DINNER ARCHIVE (1900-1950 г.). Изследователски инструмент. GAK - Архиви на префектура Месиния. Данните, извлечени от софтуера на GACs @archiomnimon. \r\n\r\n",
-          "hr": "KALOULI DINNER ARCHIVE (1900. – 1950.). Istraživački alat. GAK - Arhiva prefekture Messinia. Podaci preuzeti iz softvera GAC-ova @archiomnimon. \r\n\r\n",
-          "lv": "KALOULI DINNER ARCHIVE (1900-1950). Pētniecības rīks. GAK - Mesinijas prefektūras arhīvs. Dati, kas iegūti no GAC programmatūras @archiomnimon. \r\n\r\n",
-          "ro": "Arhiva cinei KALOULI (1900-1950). Instrument de cercetare. GAK - Arhivele Prefecturii Messinia. Datele extrase din software-ul GACs @archiomnimon. \r\n\r\n",
-          "hu": "KALOULI DINNER ARCHIVE (1900–1950) (angol nyelven). Kutatási eszköz. GAK - Messinia prefektúra archívuma. Az ÁEH-k szoftveréből kinyert adatok @archiomnimon. \r\n\r\n",
-          "ga": "KALOULI DINNER ARCHIVE (1900-1950). Uirlis taighde. GAK - Cartlann Messinia Prefecture. Na sonraí mar a bhaintear as bogearraí na GACs @archiomnimon. \r\n\r\n",
-          "de": "KALOULI DINNER ARCHIV (1900-1950). Forschungsinstrument. GAK - Archiv der Präfektur Messenien. Die Daten stammen aus der Software der GACs @archiomnimon. \r\n\r\n",
-          "sk": "KALOULI DINNER ARCHIVE (1900 – 1950). Výskumný nástroj. GAK - Archív prefektúry Messinia. Údaje extrahované zo softvéru GAC @archiomnimon. \r\n\r\n",
-          "mt": "KALOULI DINNER ARCHIVE (1900-1950). Għodda ta’ riċerka. GAK - Arkivji tal-Prefettura ta' Messinia. Id-data kif estratta mis-softwer tal-GACs @archiomnimon. \r\n\r\n",
-          "da": "KALOULI DINNER ARCHIVE (1900-1950). Forskningsværktøj. GAK - Arkiv af Messinia Prefecture. Dataene er hentet fra GACs @archiomnimons software. \r\n\r\n",
-          "lt": "KALOULI DINNER ARCHIVE (1900-1950). Mokslinių tyrimų priemonė. GAK - Mesinijos prefektūros archyvas. Duomenys, gauti iš GAC programinės įrangos @archiomnimon. \r\n\r\n",
-          "pl": "KALOULI DINNER ARCHIVE (1900-1950). Narzędzie badawcze. GAK - Archiwum prefektury Messinia. Dane wydobyte z oprogramowania GAC @archiomnimon. \r\n\r\n",
-          "it": "ARCHIVIO CENA KALOULI (1900-1950). Strumento di ricerca. GAK - Archivio della Prefettura di Messinia. I dati estratti dal software dei GAC @archiomnimon. \r\n\r\n",
-          "uk": "KALOULI DINNER ARCHIVE (1900-1950). Інструмент дослідження. GAK - Archives of Messinia Prefecture (англ.) Дані, витягнуті з програмного забезпечення GACs @archiomnimon. \r\n\r\n",
-          "fr": "ARCHIVE DU DÎNER KALOULI (1900-1950). Outil de recherche. GAK - Archives de la préfecture de Messinie. Les données extraites du logiciel des GACs @archiomnimon. \r\n\r\n",
-          "el": "ΑΡΧΕΙΟ ΟΙΝΟΠΝΕΥΜΑΤΟΠΟΙΪΑΣ ΚΑΛΟΥΛΗ (1900-1950). Εργαλείο έρευνας. ΓΑΚ - Αρχεία Νομού Μεσσηνίας. Τα δεδομένα όπως έχουν εξαχθεί από το λογισμικό των ΓΑΚ @ρχειομνήμων. \r\n\r\n",
-          "sv": "KALOULI DINNER ARCHIVE (1900-1950). Forskningsverktyg. GAK - Arkiv för Messinia prefektur. Uppgifterna som extraheras från programvaran för GACs @archiomnimon. \r\n\r\n",
-          "en": "KALOULI DINNER ARCHIVE (1900-1950). Research tool. GAK - Archives of Messinia Prefecture. The data as extracted from the software of the GACs @archiomnimon. \r\n\r\n",
-          "es": "KALOULI DINNER ARCHIVE (1900-1950). Herramienta de investigación. GAK - Archivos de la Prefectura de Messinia. Los datos extraídos del software de los GAC @archiomnimon. \r\n\r\n",
-          "pt": "KALOULI DINNER ARCHIVE (1900-1950). Ferramenta de investigação. GAK - Arquivos da Prefeitura de Messinia. Os dados extraídos do software dos GACs @archiomnimon. \r\n\r\n",
-          "sl": "KALOULI DINNER ARCHIVE (1900-1950). Raziskovalno orodje. GAK - Arhiv prefekture Mesinija. Podatki, pridobljeni iz programske opreme GAC @archiomnimon. \r\n\r\n",
-          "nl": "KALOULI DINNER ARCHIVE (1900-1950). Onderzoeksinstrument. GAK - Archieven van de prefectuur Messinia. De gegevens zoals geëxtraheerd uit de software van de GAC's @archiomnimon. \r\n\r\n"
-        },
-        "landing_page": [
-          {
-            "resource": "https://data.gov.gr/dataset/arxeio-oinopneymatopoiias-kaloylh"
-          }
-        ],
-        "index": "dataset",
-        "title": {
-          "lv": "KALOULI DINNER ARHĪVS",
-          "fr": "ARCHIVE DU DÎNER DE KALOULI",
-          "hr": "KALOULI DINNER ARCHIVE",
-          "it": "ARCHIVIO CENA KALOULI",
-          "en": "KALOULI DINNER ARCHIVE",
-          "es": "ARCHIVO DE CENA DE KALOULI",
-          "pt": "KALOULI DINNER ARCHIVE",
-          "ro": "Arhiva pentru cina KALOULI",
-          "fi": "KALOULI DINNER ARCHIVE",
-          "da": "Hoteller i nærheden af Kalouli DINNer ARCHIVE",
-          "mt": "KALOULI DINNER ARCHIVE",
-          "nl": "KALOULI DINNER ARCHIVE",
-          "hu": "KALOULI DINNER ARCHÍVUM",
-          "sv": "KALOULI DINNER ARCHIVE",
-          "uk": "АРХІВ KALOULI DINNER",
-          "pl": "KALOULI KOLACJA ARCHIVE",
-          "et": "KALOULI DINNER ARCHIVE",
-          "de": "KALOULI DINNER ARCHIV",
-          "sk": "KALOULI DINNER ARCHÍV",
-          "el": "ΑΡΧΕΙΟ ΟΙΝΟΠΝΕΥΜΑΤΟΠΟΙΪΑΣ ΚΑΛΟΥΛΗ",
-          "lt": "KALOULI DINNER ARCHYVA",
-          "sl": "KALOULI DINNER ARHIV",
-          "bg": "KALOULI DINNER АРХИВ",
-          "ga": "KALOULI DINNER ARCHIVE",
-          "cs": "KALOULI Večeře ARCHIV"
-        },
-        "accrual_periodicity": {
-          "label": "not planned",
-          "resource": "http://publications.europa.eu/resource/authority/frequency/NOT_PLANNED"
-        },
-        "access_right": {
-          "label": "public",
-          "resource": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
-        },
-        "distributions": [
-          {
-            "id": "28c78121-a1d2-429b-bb53-4726240015e8",
-            "checksum": {
-              "checksum_value": "cc94bf4b22d42bb7195c94d7a7739aef"
-            },
-            "title": {
-              "lt": "KALOULI DINNER ARCHYVA",
-              "da": "Hoteller i nærheden af Kalouli DINNer ARCHIVE",
-              "el": "ΑΡΧΕΙΟ ΟΙΝΟΠΝΕΥΜΑΤΟΠΟΙΪΑΣ ΚΑΛΟΥΛΗ",
-              "sk": "KALOULI DINNER ARCHÍV",
-              "en": "KALOULI DINNER ARCHIVE",
-              "uk": "АРХІВ KALOULI DINNER",
-              "cs": "KALOULI Večeře ARCHIV",
-              "ro": "Arhiva pentru cina KALOULI",
-              "de": "KALOULI DINNER ARCHIV",
-              "pt": "KALOULI DINNER ARCHIVE",
-              "hr": "KALOULI DINNER ARCHIVE",
-              "nl": "KALOULI DINNER ARCHIVE",
-              "hu": "KALOULI DINNER ARCHÍVUM",
-              "mt": "KALOULI DINNER ARCHIVE",
-              "fi": "KALOULI DINNER ARCHIVE",
-              "sv": "KALOULI DINNER ARCHIVE",
-              "fr": "ARCHIVE DU DÎNER DE KALOULI",
-              "et": "KALOULI DINNER ARCHIVE",
-              "lv": "KALOULI DINNER ARHĪVS",
-              "it": "ARCHIVIO CENA KALOULI",
-              "bg": "KALOULI DINNER АРХИВ",
-              "ga": "KALOULI DINNER ARCHIVE",
-              "sl": "KALOULI DINNER ARHIV",
-              "es": "ARCHIVO DE CENA DE KALOULI",
-              "pl": "KALOULI KOLACJA ARCHIVE"
-            },
-            "format": {
-              "id": "XLS",
-              "label": "Excel XLS",
-              "resource": "http://publications.europa.eu/resource/authority/file-type/XLS"
-            },
-            "availability": {
-              "resource": "http://publications.europa.eu/resource/authority/planned-availability/STABLE",
-              "label": "stable"
-            },
-            "license": {
-              "id": "CC_BY_4_0",
-              "label": "Creative Commons Attribution 4.0 International",
-              "description": "Creative Commons Attribution 4.0 International",
-              "resource": "http://spdx.org/licenses/CC-BY-4.0"
-            },
-            "description": {},
-            "access_url": [
-              "https://data.gov.gr/dataset/aed6eed0-2cde-41d1-89f3-41b6122c1878/resource/4be14cea-fc5c-4316-bcb2-7b18f16bd281/download/grgsa-mesbla012.xls"
-            ],
-            "rights": {
-              "label": "Creative Commons Attribution 4.0 International"
-            },
-            "issued": "2017-12-05T11:13:41.990237",
-            "byte_size": 14336,
-            "modified": "2026-02-23T19:01:17.511893",
-            "download_url": [
-              "https://data.gov.gr/dataset/aed6eed0-2cde-41d1-89f3-41b6122c1878/resource/4be14cea-fc5c-4316-bcb2-7b18f16bd281/download/grgsa-mesbla012.xls"
-            ]
-          }
-        ],
-        "is_hvd": false,
-        "quality_meas": {
-          "scoring": 315
-        },
-        "spatial_resource": [
-          {}
-        ],
-        "publisher": {
-          "type": "Agent",
-          "name": "ΓΑΚ - Αρχεία Νομού Μεσσηνίας"
-        },
-        "modified": "2026-02-23T19:01:17.506324",
-        "id": "aed6eed0-2cde-41d1-89f3-41b6122c1878",
-        "spatial": [
-          {
-            "type": "Polygon",
-            "coordinates": [
-              [
-                [
-                  19.3736,
-                  34.8021
-                ],
-                [
-                  19.3736,
-                  41.748
-                ],
-                [
-                  28.2471,
-                  41.748
-                ],
-                [
-                  28.2471,
-                  34.8021
-                ],
-                [
-                  19.3736,
-                  34.8021
-                ]
-              ]
-            ]
-          },
-          {
-            "type": "Point",
-            "coordinates": [
-              22.95,
-              39.07
-            ]
-          }
-        ],
-        "issued": "2025-11-17T15:04:03.835155",
-        "temporal": [
-          {
-            "lte": "2099-12-31T00:00:00Z",
-            "gte": "1900-01-01T00:00:00Z"
-          }
-        ],
-        "catalog_record": {
-          "modified": "2026-05-14T02:37:30Z",
-          "issued": "2026-05-12T22:38:56Z"
-        },
-        "contact_point": [
-          {
-            "type": "Kind",
-            "name": "Χαρωνίτης, Γεώργιος",
-            "email": "mailto:naindex@gak.gr"
-          }
-        ]
-      },
-      {
         "country": {
           "label": "Italy",
           "id": "it",
@@ -3859,8 +3859,7 @@
             "email": "mailto:info@dati.gov.it",
             "name": "Agenzia per l'Italia Digitale"
           },
-          "source_type": "dcat-ap",
-          "count": 60506
+          "source_type": "dcat-ap"
         },
         "translation_meta": {
           "details": {
@@ -4514,8 +4513,7 @@
             "email": "mailto:info@dati.gov.it",
             "name": "Agenzia per l'Italia Digitale"
           },
-          "source_type": "dcat-ap",
-          "count": 60506
+          "source_type": "dcat-ap"
         },
         "subject": [],
         "translation_meta": {
@@ -4996,14 +4994,14 @@
       },
       {
         "identifier": [
-          "https://datos.parcan.es/dataset/diputado_asistencias_10047id_miembro"
+          "https://datos.parcan.es/dataset/diputado_iniciativas_10047id_miembro"
         ],
         "country": {
           "resource": "http://publications.europa.eu/resource/authority/country/ESP",
           "label": "Spain",
           "id": "es"
         },
-        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "resource": "http://data.europa.eu/88u/dataset/https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
         "catalog": {
           "id": "datos-gob-es",
           "language": [
@@ -5048,208 +5046,208 @@
             "de": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "fi": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "pt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "bg": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "lt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
-            },
-            "hr": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "lv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "hr": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "fr": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "hu": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "uk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "sk": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "sl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "ga": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "sv": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "el": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "mt": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "en": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "it": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "es": {
               "machine_translated": false,
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "et": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "cs": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "pl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
-            },
-            "ro": {
-              "machine_translated": true,
-              "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "da": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
+            },
+            "ro": {
+              "machine_translated": true,
+              "original_language": "es",
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             },
             "nl": {
               "machine_translated": true,
               "original_language": "es",
-              "received": "2023-02-02T06:12:58Z",
-              "issued": "2023-02-01T09:07:51Z"
+              "received": "2023-02-05T03:07:43Z",
+              "issued": "2023-02-01T09:26:09Z"
             }
           },
           "full_available_languages": [
-            "ga",
-            "en",
-            "sk",
             "el",
+            "pt",
+            "da",
             "uk",
-            "sv",
-            "hr",
+            "lv",
             "pl",
+            "lt",
+            "et",
+            "ro",
+            "it",
+            "en",
+            "hu",
+            "hr",
+            "sl",
+            "ga",
+            "sk",
+            "fi",
+            "fr",
+            "nl",
             "bg",
+            "cs",
+            "de",
             "mt",
             "es",
-            "nl",
-            "hu",
-            "fi",
-            "pt",
-            "cs",
-            "et",
-            "lt",
-            "it",
-            "sl",
-            "ro",
-            "de",
-            "fr",
-            "da",
-            "lv"
+            "sv"
           ],
           "status": "completed"
         },
         "description": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
-          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
-          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
-          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
-          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
+          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
+          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
+          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
+          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
+          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
+          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
+          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
+          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
+          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
+          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
+          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
+          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
+          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
         },
         "index": "dataset",
         "language": [
@@ -5260,31 +5258,31 @@
           }
         ],
         "title": {
-          "de": "Vorbereitet von Jesús Ramón Ramos Chinea – X legislative",
-          "fi": "Avustajana Jesús Ramón Ramos Chinea – X lainsäätäjä",
-          "pt": "Assistido por Jesús Ramón Ramos Chinea — X legislatura",
-          "bg": "Подпомаган от Jesús Ramón Ramos Chinea — X законодателен мандат",
-          "lt": "Padedant Jesús Ramón Ramos Chinea – X įstatymų leidėjas",
-          "hr": "Uz pomoć Jesúsa Ramóna Ramosa Chinea – X legislative",
-          "lv": "Palīdz Jesús Ramón Ramos Chinea — X likumdevējs",
-          "fr": "Assisté de Jesús Ramón Ramos Chinea — X législature",
-          "hu": "Közreműködik Jesús Ramón Ramos Chinea – X törvényhozás",
-          "uk": "За підтримки Jesús Ramón Ramos Chinea - X законодавчий орган",
-          "sk": "Réžia: Jesús Ramón Ramos Chinea – X",
-          "sl": "Ob pomoči Jesúsa Ramóna Ramosa Chinee – X. zakonodajno obdobje",
-          "ga": "Le cúnamh ó Jesús Ramón Ramos Chinea — X reachtas",
-          "sv": "Assisterad av Jesús Ramón Ramos Chinea – X lagstiftande församling",
-          "el": "Επικουρούμενος από τον Jesús Ramón Ramos Chinea — X νομοθετικό σώμα",
-          "mt": "Assistit minn Jesús Ramón Ramos Chinea — X leġiżlatura",
-          "en": "Assisted by Jesús Ramón Ramos Chinea — X legislature",
-          "it": "Assist di Jesús Ramón Ramos Chinea — X legislatura",
-          "es": "Asistencias de Jesús Ramón Ramos Chinea - X legislatura",
-          "et": "Keda abistas Jesús Ramón Ramos Chinea – X seadusandja",
-          "cs": "Asistuje Jesús Ramón Ramos Chinea – X zákonodárce",
-          "pl": "Wspomagany przez Jesús Ramón Ramos Chinea – X legislacja",
-          "ro": "Asistat de Jesús Ramón Ramos Chinea – legislatura X",
-          "da": "Bistået af Jesús Ramón Ramos Chinea — X lovgiver",
-          "nl": "Bijgestaan door Jesús Ramón Ramos Chinea — X wetgevende macht"
+          "de": "Initiativen von Jesús Ramón Ramos Chinea – X Legislaturperiode",
+          "fi": "Jesús Ramón Ramos Chinean aloitteet – X lainsäätäjä",
+          "pt": "Iniciativas de Jesús Ramón Ramos Chinea — X legislatura",
+          "bg": "Инициативи на Jesús Ramón Ramos Chinea — X законодателен мандат",
+          "lt": "Jesús Ramón Ramos Chinea iniciatyvos – X teisės aktų leidėjas",
+          "lv": "Jesús Ramón Ramos Chinea — X sasaukuma iniciatīvas",
+          "hr": "Inicijative Jesúsa Ramóna Ramosa Chinea – X legislative",
+          "fr": "Initiatives de Jesús Ramón Ramos Chinea — X législature",
+          "hu": "Jesús Ramón Ramos Chinea kezdeményezései – X törvényhozás",
+          "uk": "Ініціативи Jesús Ramón Ramos Chinea - X Законодавчий орган",
+          "sk": "Iniciatívy Jesúsa Ramóna Ramosa Chineu – X zákonodarného zboru",
+          "sl": "Pobude Jesúsa Ramóna Ramosa Chinee – X zakonodajno obdobje",
+          "ga": "Tionscnaimh Jesús Ramón Ramos Chinea — X reachtas",
+          "sv": "Initiativ från Jesús Ramón Ramos Chinea – X:s lagstiftande församling",
+          "el": "Πρωτοβουλίες του Jesús Ramón Ramos Chinea — Χ νομοθετικό σώμα",
+          "mt": "Inizjattivi ta’ Jesús Ramón Ramos Chinea — X leġiżlatura",
+          "en": "Initiatives of Jesús Ramón Ramos Chinea — X legislature",
+          "it": "Iniziative di Jesús Ramón Ramos Chinea — X legislatura",
+          "es": "Iniciativas de Jesús Ramón Ramos Chinea - X legislatura",
+          "et": "Jesús Ramón Ramos Chinea algatused – X seadusandlik kogu",
+          "cs": "Iniciativy Jesús Ramón Ramos Chinea – X zákonodárce",
+          "pl": "Inicjatywy Jesúsa Ramóna Ramosa Chinea – X kadencji",
+          "da": "Initiativer fra Jesús Ramón Ramos Chinea — X lovgivende forsamling",
+          "ro": "Inițiativele lui Jesús Ramón Ramos Chinea – legislatura X",
+          "nl": "Initiatieven van Jesús Ramón Ramos Chinea — X wetgevende macht"
         },
         "distributions": [
           {
@@ -5295,17 +5293,17 @@
             },
             "media_type": "application/json",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/10047?format=json"
+              "https://parcan.es/api/diputado/iniciativas/10047?format=json"
             ],
-            "id": "f94fe974-166a-485e-8fdf-bc9c278b30f5",
+            "id": "b16cf9f2-1138-479c-8abd-28352db1f8af",
             "title": {
               "de": "X Legislaturperiode (JSON)",
               "fi": "X Lainsäädäntö (JSON)",
               "pt": "X legislatura (JSON)",
               "bg": "X законодателен мандат (JSON)",
               "lt": "X įstatymų leidėjas (JSON)",
-              "hr": "X zakonodavno tijelo (JSON)",
               "lv": "X sasaukums (JSON)",
+              "hr": "X zakonodavno tijelo (JSON)",
               "fr": "X législature (JSON)",
               "hu": "X jogalkotó (JSON)",
               "uk": "X Законодавчий орган (JSON)",
@@ -5321,8 +5319,8 @@
               "et": "X Seadusandlik koosseis (JSON)",
               "cs": "X volební období (JSON)",
               "pl": "X Ustawodawstwo (JSON)",
-              "da": "X lovgivende forsamling (JSON)",
               "ro": "X Legislație (JSON)",
+              "da": "X lovgivende forsamling (JSON)",
               "nl": "X Wetgeving (JSON)"
             }
           },
@@ -5334,9 +5332,9 @@
             },
             "media_type": "text/csv",
             "access_url": [
-              "https://parcan.es/api/diputado/asistencias/10047?format=csv"
+              "https://parcan.es/api/diputado/iniciativas/10047?format=csv"
             ],
-            "id": "2f228fdb-f4cf-4ddd-b60f-edd8df431e79",
+            "id": "3b67a29e-0ac6-41a5-8637-01ddedc66a4c",
             "title": {
               "de": "X Legislaturperiode (CSV)",
               "fi": "X Lainsäädäntö (CSV)",
@@ -5352,8 +5350,8 @@
               "sl": "X zakonodajalec (CSV)",
               "ga": "X reachtas (CSV)",
               "sv": "X Lagstiftning (CSV)",
-              "el": "X νομοθέτης (CSV)",
               "mt": "Leġiżlatura x (CSV)",
+              "el": "X νομοθέτης (CSV)",
               "en": "X legislature (CSV)",
               "it": "X Legislativo (CSV)",
               "es": "X legislatura (CSV)",
@@ -5370,47 +5368,14 @@
         "quality_meas": {
           "scoring": 140
         },
+        "modified": "2021-05-07T00:00:00+02:00",
         "publisher": {
           "resource": "http://datos.gob.es/recurso/sector-publico/org/Organismo/I00000687",
           "name": "Parlamento de Canarias",
           "type": "Agent"
         },
-        "modified": "2021-05-05T00:00:00+02:00",
-        "id": "https-datos-parcan-es-dataset-diputado_asistencias_10047id_miembro",
+        "id": "https-datos-parcan-es-dataset-diputado_iniciativas_10047id_miembro",
         "categories": [
-          {
-            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
-            "id": "GOVE",
-            "label": {
-              "nn": "Forvaltning og offentleg sektor",
-              "de": "Regierung und öffentlicher Sektor",
-              "no": "Forvaltning og offentlig sektor",
-              "fi": "Valtioneuvosto ja julkinen sektori",
-              "pt": "Governo e setor público",
-              "bg": "Правителство и публичен сектор",
-              "lt": "Vyriausybė ir viešasis sektorius",
-              "hr": "Vlada i javni sektor",
-              "lv": "Valdība un sabiedriskais sektors",
-              "fr": "Gouvernement et secteur public",
-              "hu": "Kormányzat és közszféra",
-              "sk": "Vláda a verejný sektor",
-              "sl": "Vlada in javni sektor",
-              "ga": "Rialtas agus earnáil phoiblí",
-              "sv": "Regeringen och den offentliga sektorn",
-              "mt": "Gvern u settur pubbliku",
-              "el": "Κυβέρνηση και δημόσιος τομέας",
-              "en": "Government and public sector",
-              "it": "Governo e settore pubblico",
-              "es": "Gobierno y sector público",
-              "et": "Valitsus ja avalik sektor",
-              "cs": "Vláda a veřejný sektor",
-              "nb": "Forvaltning og offentlig sektor",
-              "pl": "Rząd i sektor publiczny",
-              "da": "Regeringen og den offentlige sektor",
-              "ro": "Guvern şi sector public",
-              "nl": "Overheid en publieke sector"
-            }
-          },
           {
             "resource": "http://publications.europa.eu/resource/authority/data-theme/JUST",
             "id": "JUST",
@@ -5443,12 +5408,45 @@
               "da": "Retfærdighed, retssystem og offentlig sikkerhed",
               "nl": "Justitie, rechtsstelsel en openbare veiligheid"
             }
+          },
+          {
+            "resource": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+            "id": "GOVE",
+            "label": {
+              "nn": "Forvaltning og offentleg sektor",
+              "de": "Regierung und öffentlicher Sektor",
+              "no": "Forvaltning og offentlig sektor",
+              "fi": "Valtioneuvosto ja julkinen sektori",
+              "pt": "Governo e setor público",
+              "bg": "Правителство и публичен сектор",
+              "lt": "Vyriausybė ir viešasis sektorius",
+              "hr": "Vlada i javni sektor",
+              "lv": "Valdība un sabiedriskais sektors",
+              "fr": "Gouvernement et secteur public",
+              "hu": "Kormányzat és közszféra",
+              "sk": "Vláda a verejný sektor",
+              "sl": "Vlada in javni sektor",
+              "ga": "Rialtas agus earnáil phoiblí",
+              "sv": "Regeringen och den offentliga sektorn",
+              "mt": "Gvern u settur pubbliku",
+              "el": "Κυβέρνηση και δημόσιος τομέας",
+              "en": "Government and public sector",
+              "it": "Governo e settore pubblico",
+              "es": "Gobierno y sector público",
+              "et": "Valitsus ja avalik sektor",
+              "cs": "Vláda a veřejný sektor",
+              "nb": "Forvaltning og offentlig sektor",
+              "pl": "Rząd i sektor publiczny",
+              "da": "Regeringen og den offentlige sektor",
+              "ro": "Guvern şi sector public",
+              "nl": "Overheid en publieke sector"
+            }
           }
         ],
-        "issued": "2021-05-05T00:00:00+02:00",
+        "issued": "2021-05-07T00:00:00+02:00",
         "catalog_record": {
-          "modified": "2026-03-20T00:09:39Z",
-          "issued": "2023-02-01T09:07:51Z"
+          "modified": "2026-03-19T23:57:44Z",
+          "issued": "2023-02-01T09:26:09Z"
         }
       }
     ]
